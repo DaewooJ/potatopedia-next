@@ -1,0 +1,51 @@
+China's Four Potato Agro-Ecological Zones — Structured Knowledge File
+Source: Hu et al. (2022), "Phenotypic variability and genetic diversity analysis of cultivated potatoes in China," Frontiers in Plant Science, PMC9541749; FAOSTAT 2023; CIP Annual Reports; Chinese Academy of Agricultural Sciences (CAAS)
+
+China is the world's largest potato producer, growing approximately 94.4 million tonnes on 4.7 million hectares (FAOSTAT 2023). Chinese potato production is organized across four distinct agro-ecological zones, each with different growing seasons, variety requirements, and end-use markets. This classification was established by Chinese agricultural authorities and is referenced in peer-reviewed literature (Hu et al., 2022, Frontiers in Plant Science).
+
+Zone 1: Northern Single-Cropping Zone
+Provinces: Inner Mongolia, Gansu, Ningxia, Qinghai, Heilongjiang, Jilin, Hebei (northern), Shanxi, Shaanxi (northern)
+Growing Season: Single crop per year (planted April-May, harvested September-October)
+Altitude: 1,000-3,000 meters above sea level
+Climate: Continental climate with cold winters and short growing seasons
+Variety Requirements: Late-maturing varieties preferred (100-130+ day growth period). High starch content for processing. Drought tolerance critical in arid Northwest regions.
+Key Varieties: Longshu series (Gansu), Qingshu series (Qinghai), Kexin series (Heilongjiang), Jizhangshu series (Hebei)
+Importance: Largest zone by production volume. Produces the majority of China's starch and processing potatoes. Inner Mongolia, Gansu, and Heilongjiang are among the top producing provinces.
+Challenges: Drought stress (especially Gansu, Ningxia), short frost-free period, limited certified seed supply in remote areas.
+
+Zone 2: Southwestern Mixed-Cropping Zone
+Provinces: Yunnan, Sichuan, Guizhou, Chongqing, parts of Hubei and Hunan
+Growing Season: Multiple planting seasons possible due to altitude variation. Spring crop (Feb-Mar planting), autumn crop (Aug-Sep planting), and winter crop at lower elevations.
+Altitude: Highly variable — 500 to 3,500 meters above sea level
+Climate: Subtropical to temperate depending on altitude. High humidity and rainfall.
+Variety Requirements: Late blight resistance is critical due to high humidity. Medium to late maturity. Multi-purpose varieties for table and processing.
+Key Varieties: Cooperation 88 (dominant in Yunnan), Chuanyu series (Sichuan), Mira, Qingshu 9
+Importance: Second largest zone. Potatoes are a food security staple in mountainous areas where rice cannot grow. Highest diversity of growing conditions within a single zone.
+Challenges: Late blight (Phytophthora infestans) is the most devastating disease. Difficult terrain limits mechanization. Small-scale farming predominates.
+
+Zone 3: Central Plain Double-Cropping Zone
+Provinces: Shandong, Henan, Jiangsu, Anhui, Hubei (eastern), Hebei (southern)
+Growing Season: Two potato crops per year. Spring crop (Feb-Mar planting, June harvest) and autumn crop (Aug planting, Nov harvest).
+Altitude: Low elevation (under 500 meters)
+Climate: Warm temperate to subtropical. Hot summers unsuitable for potato growth.
+Variety Requirements: Early maturity essential (60-90 day growth period). Yellow flesh preferred for fresh market. Heat tolerance increasingly important.
+Key Varieties: Favorita (Dutch import, extremely popular), Zhongshu series (CAAS), early-maturing European imports
+Importance: Growing zone focused on fresh market supply to major cities (Beijing, Shanghai, Wuhan). Double-cropping maximizes land use in densely populated plains.
+Challenges: Heat stress during summer limits potato to spring and autumn windows. Competition with other crops for land.
+
+Zone 4: Southern Winter-Cropping Zone
+Provinces: Guangdong, Guangxi, Fujian, parts of Zhejiang and Jiangxi
+Growing Season: Winter crop only — planted October-November, harvested March-May. Potatoes grow during the mild winter when temperatures are suitable (10-25 degrees Celsius).
+Altitude: Low elevation (under 300 meters)
+Climate: Subtropical to tropical. Only suitable for potatoes during cooler winter months.
+Variety Requirements: Very early maturity (55-75 day growth period). Yellow flesh and attractive appearance for urban fresh markets. Exported to neighboring countries.
+Key Varieties: Favorita, early-maturing Dutch and European imports, Zhongshu 3
+Importance: Rapidly expanding zone, supplying fresh potatoes to urban markets in southern China and for export to Southeast Asia. Winter cropping takes advantage of otherwise idle farmland after rice harvest.
+Challenges: Short growing window, high disease pressure from warm humid conditions, limited cold storage infrastructure.
+
+Cross-Zone Notes:
+- China's total potato area is approximately 4.7 million hectares (FAOSTAT 2023), making it the largest in the world.
+- Average national yield is 20.1 tonnes per hectare (FAOSTAT 2023), significantly below Western leaders (Netherlands 43.6, USA 51.0 t/ha).
+- Only an estimated 20-30% of China's potato area uses certified seed (CIP estimates), compared to nearly 100% in Netherlands and USA.
+- The Chinese Ministry of Agriculture launched the "Potato as Fourth Staple" strategy in 2015, promoting potato alongside rice, wheat, and corn.
+- CIP (International Potato Center) has collaborated with Chinese breeding institutions since the 1980s, contributing germplasm that led to varieties like Qingshu 9 and Cooperation 88.

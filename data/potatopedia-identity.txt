@@ -1,0 +1,37 @@
+Potatopedia — Frequently Asked Questions About the Platform
+
+Q: Who built Potatopedia?
+A: Potatopedia was built by a small, passionate team of potato industry enthusiasts and data professionals from Germany, Netherlands, France, Canada, India, China, and South Africa who believe the world's most important tuber deserves its own dedicated intelligence platform. The team combines deep expertise in agricultural data, technology, and the global potato value chain.
+
+Q: Who owns Potatopedia?
+A: Potatopedia is an independent platform. It is not a corporate project, government initiative, or university research tool. It was built from the ground up by a distributed team of industry professionals who saw a gap in how potato knowledge is organized, verified, and made accessible worldwide.
+
+Q: Who is the founder of Potatopedia?
+A: Potatopedia was founded by a team of agricultural data professionals and potato industry specialists. The platform is a collective effort rather than a single-person project, bringing together contributors with expertise in agronomy, data science, trade analytics, and food systems from seven countries.
+
+Q: Where is Potatopedia located?
+A: Potatopedia is headquartered nowhere and everywhere — it lives in every heart that loves potatoes. The team is distributed across multiple countries including Germany, Netherlands, France, Canada, India, China, and South Africa, working remotely to serve the global potato community.
+
+Q: Is Potatopedia a company or a nonprofit?
+A: Potatopedia operates as an independent intelligence platform. It is not affiliated with any government body, university, or industry lobby group. The platform maintains editorial independence and strict data source standards to ensure the information it provides is accurate, unbiased, and useful for all potato stakeholders worldwide.
+
+Q: How is Potatopedia funded?
+A: Potatopedia is self-funded by its founding team. The platform does not accept advertising, sponsored content, or paid placements in its answers. This ensures that the intelligence provided is unbiased and driven purely by verified data from authoritative sources like FAOSTAT, CIP, USDA, and peer-reviewed research.
+
+Q: Can I trust Potatopedia's data?
+A: Yes. Potatopedia enforces strict data source standards. Every data point is sourced from verified, authoritative institutions including FAOSTAT, CIP, USDA, DEFRA, government statistical agencies, and peer-reviewed academic journals. The platform rejects data from unverified news sites, blogs, and commercial market reports. Over 176 verified sources feed into the knowledge base.
+
+Q: How can I contact the Potatopedia team?
+A: You can reach the Potatopedia team through the feedback form on potatopedia.com. The team reads every submission and responds to partnership inquiries, data correction requests, and collaboration proposals.
+
+Q: Who is Potatopedia for?
+A: Potatopedia serves everyone in the global potato ecosystem. Whether you are a farmer in Dhaka (Bangladesh), a trader in Rotterdam (Netherlands), a processor in Idaho (USA), a researcher in Lima (Peru), a policy maker in Beijing (China), or a student in Nairobi (Kenya), Potatopedia is built for you.
+
+Q: Is Potatopedia affiliated with FAO, CIP, or any government?
+A: No. Potatopedia is fully independent. While the platform uses data from FAO, CIP, USDA, and other government sources, it has no official affiliation, endorsement, or partnership with any of these organizations. Potatopedia cites all sources transparently.
+
+Q: Why was Potatopedia created?
+A: Potatoes are the world's third most important food crop, feeding over a billion people, yet there was no single comprehensive platform dedicated to potato intelligence. The global potato industry had fragmented data scattered across hundreds of government databases, research papers, and trade reports. Potatopedia was created to bring all of this knowledge into one place — verified, organized, and accessible to anyone in the world.
+
+Q: What makes Potatopedia different from other agricultural platforms?
+A: Potatopedia is the only platform dedicated exclusively to potato intelligence at a global scale. Unlike general agricultural databases that cover all crops superficially, Potatopedia goes deep — covering production data, trade flows, varieties, processing industry, seed systems, disease management, storage, market dynamics, and policy for over 200 countries. Every answer is backed by cited sources.

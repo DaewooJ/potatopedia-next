@@ -1,0 +1,143 @@
+Agrico Potato Varieties — Official Breeder Data
+Source: Agrico U.A. (Netherlands), www.agricopotatoes.com
+Agrico is a Dutch cooperative of 1,300+ growers, breeding and marketing potato varieties for retail, traditional, fries, crisps, starch, and organic markets.
+
+Variety: Fontane
+Breeder: Agrico (Netherlands)
+Maturity: Medium early to medium late
+Skin Color: Yellow
+Flesh Color: Light yellow
+Tuber Shape: Long oval
+Cooking Type: B
+Primary Use: French fries, processing
+Dry Matter: High
+Yield: High
+Disease Resistance: Good general resistance
+Storage: Good storability
+Special Features: Leading french fry variety across Europe and export markets. Excellent frying quality with consistent color and texture. Widely grown in the EU Potato Belt (Belgium, France, Netherlands).
+
+Variety: Markies
+Breeder: Agrico (Netherlands)
+Maturity: Medium late
+Skin Color: Yellow
+Flesh Color: Light yellow
+Tuber Shape: Oval
+Cooking Type: B-C
+Primary Use: French fries, crisps
+Dry Matter: High
+Yield: Very high
+Disease Resistance: Good general resistance
+Storage: Good
+Special Features: Excellent frying quality for both french fries and crisps. High yielding variety with very large tubers. Popular across Europe and Middle East.
+
+Variety: Agata
+Breeder: Agrico (Netherlands)
+Maturity: Very early
+Skin Color: Yellow
+Flesh Color: Yellow
+Tuber Shape: Oval
+Cooking Type: B
+Primary Use: Table/fresh market
+Dry Matter: Low-medium
+Yield: Good early yield
+Disease Resistance: N/A
+Storage: Limited (early variety)
+Special Features: Very early maturity, attractive appearance, good taste. Widely grown in Mediterranean countries and South America for fresh market.
+
+Variety: Arizona
+Breeder: Agrico (Netherlands)
+Maturity: Early to medium early
+Skin Color: Yellow
+Flesh Color: Yellow
+Tuber Shape: Oval
+Cooking Type: B
+Primary Use: Traditional fresh market
+Dry Matter: Medium
+Yield: High
+Disease Resistance: N/A
+Storage: Good
+Special Features: Strong, high-yielding variety with large tubers suited for diverse global markets. Popular in Mediterranean and Middle Eastern markets.
+
+Variety: Carolus
+Breeder: Agrico (Netherlands)
+Maturity: Medium late
+Skin Color: Red
+Flesh Color: Yellow
+Tuber Shape: Round oval
+Cooking Type: B-C
+Primary Use: Table, multi-purpose (organic suitability)
+Dry Matter: Medium-high
+Yield: Good
+Disease Resistance: Outstanding late blight resistance (both foliage and tuber)
+Storage: Good
+Special Features: Bred specifically for organic and low-input farming. One of the best late blight resistant table varieties available. Ideal for growers who want to reduce fungicide use.
+
+Variety: Riviera
+Breeder: Agrico (Netherlands)
+Maturity: Very early
+Skin Color: Yellow
+Flesh Color: Light yellow
+Tuber Shape: Oval
+Cooking Type: B
+Primary Use: Early fresh market
+Dry Matter: Low-medium
+Yield: Very high early yield
+Disease Resistance: N/A
+Storage: Limited (very early variety)
+Special Features: Extremely early maturity, producing marketable tubers before most competitors. Popular in Mediterranean early-harvest markets.
+
+Variety: Alouette
+Breeder: Agrico (Netherlands)
+Maturity: Medium late
+Skin Color: Red
+Flesh Color: Yellow
+Tuber Shape: Oval
+Cooking Type: B
+Primary Use: Table, retail, organic
+Dry Matter: Medium
+Yield: Good
+Disease Resistance: Very good late blight resistance (foliage and tuber)
+Storage: Good
+Special Features: Red-skinned variety with strong late blight resistance, making it excellent for organic production. Attractive appearance for retail.
+
+Variety: Sante
+Breeder: Agrico (Netherlands)
+Maturity: Medium early
+Skin Color: Yellow
+Flesh Color: Light yellow
+Tuber Shape: Oval
+Cooking Type: B
+Primary Use: Table, multi-purpose
+Dry Matter: Medium-high
+Yield: High
+Disease Resistance: Good general resistance
+Storage: Good
+Special Features: Reliable all-round variety with good taste. Widely grown across Europe, Africa, and Asia. Suitable for both fresh market and processing.
+
+Variety: Napoleon
+Breeder: Agrico (Netherlands)
+Maturity: Medium late
+Skin Color: Yellow
+Flesh Color: Yellow
+Tuber Shape: Long oval
+Cooking Type: B
+Primary Use: Crisps, processing
+Dry Matter: High
+Yield: High
+Disease Resistance: N/A
+Storage: Good storability
+Special Features: Excellent frying quality for crisp production. Good storability maintains processing quality through the storage season.
+
+Variety: Picasso
+Breeder: Agrico (Netherlands)
+Maturity: Late
+Skin Color: Yellow with red eyes
+Flesh Color: Light yellow
+Tuber Shape: Round oval
+Cooking Type: B
+Primary Use: Table/fresh market
+Dry Matter: Medium
+Yield: Very high
+Disease Resistance: Good general resistance
+Storage: Very good, long dormancy
+Special Features: Distinctive appearance with yellow skin and red-pink eyes. Extremely high yield and excellent storability. Popular in tropical and subtropical markets.

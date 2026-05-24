@@ -1,0 +1,21 @@
+{
+  "name": "potatopedia-next",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "deploy:prod": "npm run build && vercel --prod --scope djkha --yes && python3 scripts/indexnow_submit.py"
+  },
+  "dependencies": {
+    "next": "16.2.2",
+    "react": "19.2.4",
+    "react-dom": "19.2.4"
+  },
+  "devDependencies": {
+    "eslint": "^9",
+    "eslint-config-next": "16.2.2"
+  }
+}

@@ -1,0 +1,274 @@
+Chinese Potato Varieties — Structured Knowledge File
+Sources: Hu et al. (2022), Frontiers in Plant Science, PMC9541749 (149 Chinese varieties study); Wang et al. (2019), Frontiers in Plant Science, PMC6393402 (292 genotypes study); RTB/CGIAR Qingshu 9 case study; CABI Agriculture and Bioscience, "The curious case of C-88" (2020); FAOSTAT 2023; CIP Annual Reports; Chinese Academy of Agricultural Sciences (CAAS) variety registration data; Provincial Academy variety release records.
+
+Note on data: Chinese potato variety data comes from national variety registration records, peer-reviewed studies, and CIP publications. Where specific numerical values (dry matter, starch content, growth period) are cited, they derive from the Hu et al. (2022) study which compiled phenotypic data from 149 registered Chinese varieties, or from individual variety publications. The study reports that across 149 Chinese varieties, growth periods range from 50-144 days (average 97.38 days), dry matter ranges from 14.8-28.2% (average 21.76%), starch content ranges from 10.3-22.86% (average 15.49%), protein ranges from 0.53-3.52% (average 2.16%), and vitamin C ranges from 8.93-48.0 mg/100g (average 17.50 mg/100g).
+
+=== TIER 1 VARIETIES (Most Widely Grown) ===
+
+Variety: Qingshu 9 (青薯9号)
+Chinese Name: 青薯9号
+Breeder: Qinghai Academy of Agriculture and Forestry Sciences (with CIP germplasm)
+CIP Connection: Derived from CIP clone 392797.22, cross of CIP 387521.3 x Aphrodite. Known internationally as UNICA (first released in Peru in 1998).
+Year Released: 2006 (Qinghai provincial), 2011 (national approval in China)
+Growth Period: Medium late (approximately 110-120 days)
+Tuber Shape: Oval
+Skin Color: Red
+Flesh Color: Yellow
+Dry Matter: High (above average for Chinese varieties)
+Starch Content: Medium-high
+Primary Use: Fresh consumption and French fry processing
+Disease Resistance: Resistant to viruses, tolerant to drought, stable yields across varied environments (RTB/CGIAR)
+Growing Zones: Northern single-cropping zone and Southwestern mixed-cropping zone. Grown in 13+ major potato-producing provinces including Qinghai, Ningxia, Gansu, Inner Mongolia, Yunnan, Guizhou, and Sichuan.
+Area Planted: Over 150,000 hectares in China (as of 2015, RTB/CGIAR data)
+Production: Approximately 4.5 million tonnes annually (2015 estimate)
+Yield: Approximately 30 tonnes/hectare (versus national average of 20 t/ha)
+Key Features: China's most widely planted potato variety as of 2015. Introduced to China by CIP in 2001. Adapted to altitudes from 1,500 to 3,500 meters. Also introduced to Kenya, Rwanda, Ethiopia, Vietnam, Tajikistan, Uzbekistan, and Bangladesh. Represents the most successful CIP-to-China technology transfer in potato breeding.
+Source: RTB/CGIAR, "Improved potato variety Qingshu 9: A success story," CIP publications.
+
+Variety: Cooperation 88 / Hezuo 88 (合作88)
+Chinese Name: 合作88
+Breeder: Yunnan Normal University in collaboration with CIP (International Potato Center)
+Year Released: 1996 (Yunnan provincial approval)
+Growth Period: Late (approximately 120-130 days)
+Tuber Shape: Oval to round-oval
+Skin Color: Yellow with pink/red eyes
+Flesh Color: Light yellow
+Dry Matter: Medium (approximately 19-21%)
+Starch Content: Medium (approximately 13-15%)
+Primary Use: Table/fresh consumption, multi-purpose
+Disease Resistance: Good late blight resistance (critical for Yunnan's humid conditions), moderate virus resistance
+Growing Zones: Southwestern mixed-cropping zone — dominant variety in Yunnan, Guizhou, and parts of Sichuan
+Area Planted: One of the most widely grown varieties in Southwest China, covering hundreds of thousands of hectares
+Yield: Good yield potential, approximately 25-35 t/ha depending on altitude and conditions
+Key Features: Developed through CIP-China collaboration using CIP germplasm crossed with local adapted varieties. Named "Cooperation" to reflect the international partnership. Dominant variety in Yunnan province for over two decades. Well-adapted to diverse altitude conditions (1,000-3,000 masl). Particularly important for food security in mountainous areas of Southwest China where rice cannot grow.
+Source: CABI Agriculture and Bioscience, "The curious case of C-88" (2020); CIP Annual Reports.
+
+Variety: Longshu 7 (陇薯7号)
+Chinese Name: 陇薯7号
+Breeder: Gansu Academy of Agricultural Sciences
+Year Released: 2006
+Growth Period: Late (approximately 120-130 days)
+Tuber Shape: Round to round-oval
+Skin Color: Yellow
+Flesh Color: Light yellow
+Dry Matter: High (approximately 23-25%)
+Starch Content: High (approximately 17-19%)
+Primary Use: Starch production and table use
+Disease Resistance: Good late blight resistance, moderate virus tolerance
+Growing Zones: Northern single-cropping zone — primarily Gansu, Ningxia, Shaanxi
+Yield: High, approximately 30-40 t/ha under good conditions
+Key Features: Major starch variety in Northwest China. High dry matter makes it excellent for industrial starch extraction. Part of the Longshu series developed by Gansu Academy, which is one of China's most productive potato breeding programs. Well-adapted to the semi-arid conditions of the Loess Plateau.
+Source: Hu et al. (2022), Frontiers in Plant Science; Gansu Academy variety registration records.
+
+Variety: Zhongshu 3 (中薯3号)
+Chinese Name: 中薯3号
+Breeder: Chinese Academy of Agricultural Sciences (CAAS), Institute of Vegetables and Flowers, Beijing
+Year Released: 2003
+Growth Period: Early to medium early (approximately 70-85 days)
+Tuber Shape: Oval
+Skin Color: Yellow
+Flesh Color: Yellow
+Dry Matter: Medium (approximately 18-20%)
+Starch Content: Medium
+Primary Use: Table/fresh market
+Disease Resistance: Moderate general resistance
+Growing Zones: Central Plain double-cropping zone and Southern winter-cropping zone — suited to short growing seasons
+Yield: Good early yield
+Key Features: Early maturity makes it suitable for China's double-cropping zones where potatoes must be harvested quickly before summer heat. Part of the Zhongshu series developed by CAAS, China's premier agricultural research institution. Yellow flesh and attractive appearance suited to Chinese urban fresh markets.
+Source: Hu et al. (2022), Frontiers in Plant Science; CAAS variety registration records.
+
+Variety: Favorita (费乌瑞它)
+Chinese Name: 费乌瑞它
+Breeder: Originally bred in the Netherlands; introduced to China
+Year Released: Introduced to China in the 1980s-1990s
+Growth Period: Early (approximately 65-80 days)
+Tuber Shape: Oval
+Skin Color: Yellow
+Flesh Color: Deep yellow
+Dry Matter: Low to medium (approximately 16-18%)
+Starch Content: Low to medium
+Primary Use: Fresh market/table (premium)
+Disease Resistance: Moderate; susceptible to late blight
+Growing Zones: Central Plain double-cropping zone and Southern winter-cropping zone — extremely popular in Shandong, Hubei, Guangdong, and Fujian
+Yield: Good early yield
+Key Features: One of the most popular imported varieties in China, especially in the double-cropping and winter-cropping zones. Deep yellow flesh is highly valued in Chinese fresh markets. Early maturity fits short growing windows. Dominant in the rapidly growing Southern winter-cropping zone where it is planted after rice harvest.
+Source: Hu et al. (2022), Frontiers in Plant Science; CAAS variety registration records.
+
+Variety: Atlantic (大西洋)
+Chinese Name: 大西洋
+Breeder: Originally bred by USDA (United States); introduced to China
+Year Released: Introduced to China in the 1990s
+Growth Period: Medium early (approximately 90-100 days)
+Tuber Shape: Round
+Skin Color: White to light yellow
+Flesh Color: White
+Dry Matter: High (approximately 22-24%)
+Starch Content: Medium-high
+Reducing Sugar: Very low
+Primary Use: Chip/crisp production
+Disease Resistance: Moderate; susceptible to late blight
+Growing Zones: Northern single-cropping zone — primarily Inner Mongolia, Hebei, and other northern provinces with processing facilities
+Yield: Medium
+Key Features: The dominant potato chip variety in China. Introduced from the United States where it is also a leading chipstock variety. Low reducing sugar content produces excellent frying color for crisp/chip manufacturing. Used by PepsiCo (Lay's) and other major chip manufacturers in China. Required by most Chinese chip factories.
+Source: USDA GRIN database; Hu et al. (2022), Frontiers in Plant Science.
+
+Variety: Kexin 1 (克新1号)
+Chinese Name: 克新1号
+Breeder: Heilongjiang Academy of Agricultural Sciences (Keshan Potato Research Institute)
+Year Released: 1980s
+Growth Period: Medium to late (approximately 100-115 days)
+Tuber Shape: Round to oval
+Skin Color: White to light yellow
+Flesh Color: White to light yellow
+Dry Matter: Medium-high (approximately 20-22%)
+Starch Content: Medium (approximately 14-16%)
+Primary Use: Table and starch
+Disease Resistance: Good cold tolerance, moderate disease resistance
+Growing Zones: Northern single-cropping zone — Heilongjiang, Jilin, Inner Mongolia
+Yield: Good
+Key Features: One of the most important varieties in Northeast China. Part of the Kexin series developed at the Keshan station, which has been a center of Chinese potato breeding since the 1960s. Well-adapted to the cold climate and short growing season of Heilongjiang province. Reliable performance across Northeast China's potato belt.
+Source: Hu et al. (2022), Frontiers in Plant Science; Heilongjiang Academy variety records.
+
+Variety: Jizhangshu 12 (冀张薯12号)
+Chinese Name: 冀张薯12号
+Breeder: Hebei Academy of Agriculture and Forestry Sciences (Zhangjiakou station)
+Year Released: 2012
+Growth Period: Medium late (approximately 105-115 days)
+Tuber Shape: Oval
+Skin Color: Yellow
+Flesh Color: Light yellow
+Dry Matter: Medium-high (approximately 20-22%)
+Starch Content: Medium
+Primary Use: Table, multi-purpose
+Disease Resistance: Good late blight resistance, good virus resistance
+Growing Zones: Northern single-cropping zone — Hebei, Inner Mongolia, Shanxi
+Yield: High
+Key Features: Major variety in North China's potato belt (Hebei-Inner Mongolia border region). Part of the Jizhangshu series developed at the Zhangjiakou breeding station. Good adaptation to the cold, arid conditions of the Northern zone. Increasingly planted as a replacement for older varieties due to improved disease resistance.
+Source: Hu et al. (2022), Frontiers in Plant Science; Hebei Academy variety registration records.
+
+Variety: Chuanyu 117 (川芋117)
+Chinese Name: 川芋117
+Breeder: Sichuan Academy of Agricultural Sciences, Crop Research Institute (CRI)
+Year Released: N/A (registered in Sichuan)
+Growth Period: Late (approximately 120-130 days)
+Tuber Shape: Oval to round
+Skin Color: Yellow
+Flesh Color: Light yellow
+Dry Matter: High
+Starch Content: High
+Primary Use: Starch and table
+Disease Resistance: Good late blight resistance (essential for Sichuan's humid climate)
+Growing Zones: Southwestern mixed-cropping zone — Sichuan, Chongqing, parts of Guizhou
+Yield: Good
+Key Features: Part of the Chuanyu series developed by Sichuan Academy. Late blight resistance is the primary breeding target for Southwestern varieties due to the zone's high humidity. Adapted to Sichuan's mountainous terrain and variable altitude growing conditions.
+Source: Hu et al. (2022), Frontiers in Plant Science; Sichuan Academy variety records.
+
+Variety: Shepody (夏波蒂)
+Chinese Name: 夏波蒂
+Breeder: Originally bred in Canada (Agriculture Canada); introduced to China
+Year Released: Introduced to China in the 1990s
+Growth Period: Medium early (approximately 90-100 days)
+Tuber Shape: Long oval
+Skin Color: White to light yellow
+Flesh Color: White
+Dry Matter: High (approximately 21-23%)
+Starch Content: Medium-high
+Primary Use: French fry processing
+Disease Resistance: Moderate; susceptible to late blight
+Growing Zones: Northern single-cropping zone — Inner Mongolia, Hebei, Gansu (near processing facilities)
+Yield: Medium to high
+Key Features: Major French fry processing variety in China, imported from Canada. Used by McDonald's and other QSR chains in China. High dry matter and elongated shape produce good fry quality. One of the first dedicated fry varieties introduced to China as the fast-food industry expanded in the 1990s-2000s.
+Source: USDA FAS China reports; Hu et al. (2022), Frontiers in Plant Science.
+
+=== TIER 2 VARIETIES ===
+
+Variety: Longshu 3 (陇薯3号)
+Chinese Name: 陇薯3号
+Breeder: Gansu Academy of Agricultural Sciences
+Year Released: Late 1990s
+Growth Period: Late (approximately 115-125 days)
+Tuber Shape: Round to oval
+Skin Color: Yellow
+Flesh Color: Light yellow
+Dry Matter: High (approximately 22-24%)
+Starch Content: High
+Primary Use: Starch and table
+Disease Resistance: Moderate
+Growing Zones: Northern single-cropping zone — Gansu, Ningxia
+Key Features: Earlier variety in the Longshu series. Important predecessor to Longshu 7. Widely grown in Gansu province for starch production.
+Source: Hu et al. (2022), Frontiers in Plant Science; Gansu Academy records.
+
+Variety: Longshu 14 (陇薯14号)
+Chinese Name: 陇薯14号
+Breeder: Gansu Academy of Agricultural Sciences
+Year Released: 2015
+Growth Period: Medium late (approximately 110-120 days)
+Tuber Shape: Oval
+Skin Color: Yellow
+Flesh Color: Yellow
+Dry Matter: High
+Starch Content: High
+Primary Use: Multi-purpose (table, starch, processing)
+Disease Resistance: Good late blight resistance, drought tolerant
+Growing Zones: Northern single-cropping zone — Gansu, Ningxia, Qinghai
+Key Features: Newer Longshu variety with improved disease resistance and drought tolerance compared to earlier releases. Represents modern Chinese breeding progress.
+Source: Hu et al. (2022), Frontiers in Plant Science; Gansu Academy records.
+
+Variety: Zhongshu 5 (中薯5号)
+Chinese Name: 中薯5号
+Breeder: CAAS (Chinese Academy of Agricultural Sciences), Beijing
+Year Released: 2005
+Growth Period: Early (approximately 65-80 days)
+Tuber Shape: Oval
+Skin Color: Yellow
+Flesh Color: Yellow
+Dry Matter: Medium
+Primary Use: Fresh market
+Disease Resistance: Moderate
+Growing Zones: Central Plain double-cropping zone
+Key Features: Early-maturing CAAS variety for the double-cropping zone. Yellow flesh suited to Chinese market preferences.
+Source: Hu et al. (2022), Frontiers in Plant Science; CAAS variety records.
+
+Variety: Dongnong 303 (东农303)
+Chinese Name: 东农303
+Breeder: Northeast Agricultural University (Dongnong), Harbin, Heilongjiang
+Year Released: 1990s
+Growth Period: Medium (approximately 95-105 days)
+Tuber Shape: Round to oval
+Skin Color: Yellow
+Flesh Color: White to light yellow
+Dry Matter: Medium-high
+Primary Use: Table and processing
+Disease Resistance: Good cold tolerance
+Growing Zones: Northern single-cropping zone — Heilongjiang, Jilin
+Key Features: University-bred variety adapted to Northeast China's cold climate. Part of the Dongnong series from Northeast Agricultural University's potato breeding program.
+Source: Hu et al. (2022), Frontiers in Plant Science.
+
+Variety: Mira (米拉)
+Chinese Name: 米拉
+Breeder: Originally European; introduced to China
+Year Released: Introduced mid-20th century
+Growth Period: Late (approximately 120+ days)
+Tuber Shape: Oval
+Skin Color: Red
+Flesh Color: Light yellow
+Dry Matter: Medium
+Primary Use: Table
+Disease Resistance: Good late blight resistance
+Growing Zones: Southwestern mixed-cropping zone — Yunnan, Guizhou
+Key Features: One of the earliest European varieties introduced to China. Strong late blight resistance made it important in the humid Southwest. Named after the European variety Mira. Still grown in traditional farming communities.
+Source: Wang et al. (2019), Frontiers in Plant Science, PMC6393402.
+
+Variety: Desiree (底西芮)
+Chinese Name: 底西芮
+Breeder: Originally bred in Netherlands (1962); introduced to China
+Growth Period: Medium late
+Tuber Shape: Long oval
+Skin Color: Red
+Flesh Color: Yellow
+Dry Matter: Medium-high
+Primary Use: Table, multi-purpose
+Disease Resistance: Good drought resistance, moderate disease tolerance
+Growing Zones: Multiple zones — Northern and Southwestern
+Key Features: Globally important variety also grown in China. Red skin with yellow flesh. Excellent adaptability. One of the most widely grown varieties worldwide.
+Source: Hu et al. (2022); HZPC variety data.

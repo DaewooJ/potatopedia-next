@@ -1,0 +1,143 @@
+Germicopa Potato Varieties — Official Breeder Data
+Source: Germicopa SAS (France, est. 1950s), www.germicopa.com
+Germicopa is a French potato breeding company that has been creating new varieties since the 1950s. They provide seed to more than 70 countries worldwide.
+
+Variety: Charlotte
+Breeder: Germicopa (France)
+Maturity: Medium early
+Skin Color: Yellow
+Flesh Color: Yellow
+Tuber Shape: Long oval
+Cooking Type: A (firm cooking, salad type)
+Primary Use: Table, salad, retail
+Dry Matter: Low-medium
+Yield: Medium to high
+Disease Resistance: Good general disease tolerance
+Storage: Good
+Special Features: One of the most popular firm-fleshed salad varieties in Europe. Excellent taste and consistent cooking quality. Widely sold in French and UK retail under its own name — one of few varieties consumers ask for by name.
+
+Variety: Amandine
+Breeder: Germicopa (France)
+Maturity: Early
+Skin Color: Yellow, smooth
+Flesh Color: Yellow
+Tuber Shape: Long oval (fingerling-like)
+Cooking Type: A (firm cooking)
+Primary Use: Premium table, salad, retail
+Dry Matter: Low
+Yield: Medium
+Disease Resistance: N/A
+Storage: Good for an early variety
+Special Features: Premium firm-fleshed variety positioned as a gourmet potato. Smooth skin, elegant shape. Very popular in French retail and exported to premium markets worldwide.
+
+Variety: Samba
+Breeder: Germicopa (France)
+Maturity: Medium early to medium late
+Skin Color: Yellow
+Flesh Color: Yellow
+Tuber Shape: Oval
+Cooking Type: B (melting flesh)
+Primary Use: Table, general consumption
+Dry Matter: Medium
+Yield: High
+Disease Resistance: N/A
+Storage: Good
+Special Features: Described as a "melting-fleshed variety" — falls between firm and floury. Good all-round table potato for everyday cooking.
+
+Variety: Cherie
+Breeder: Germicopa (France)
+Maturity: Early to medium early
+Skin Color: Red
+Flesh Color: Yellow
+Tuber Shape: Long oval
+Cooking Type: A-B (firm cooking)
+Primary Use: Retail fresh, table, salad
+Dry Matter: Low-medium
+Yield: Medium
+Disease Resistance: N/A
+Storage: Good
+Special Features: Attractive red-skinned variety with firm yellow flesh. Marketed as a premium retail variety in Europe. Distinctive appearance drives consumer recognition.
+
+Variety: Germi 300
+Breeder: Germicopa (France)
+Maturity: Medium late
+Skin Color: Yellow
+Flesh Color: Light yellow
+Tuber Shape: Long oval
+Cooking Type: B-C
+Primary Use: French fry processing
+Dry Matter: High
+Yield: High
+Disease Resistance: N/A
+Storage: Good
+Special Features: Designed for industrial french fry processing. Good frying color and texture. Suited to the processing demands of the European fry industry.
+
+Variety: Daisy
+Breeder: Germicopa (France)
+Maturity: Medium early to medium late
+Skin Color: Yellow
+Flesh Color: Light yellow
+Tuber Shape: Round oval
+Cooking Type: B-C
+Primary Use: Industrial chip/crisp production
+Dry Matter: High
+Yield: High
+Disease Resistance: N/A
+Storage: Good
+Special Features: Variety specifically developed for the industrial crisp/chip market. Good frying color with suitable dry matter for processing.
+
+Variety: Amyla
+Breeder: Germicopa (France)
+Maturity: Late
+Skin Color: Yellow
+Flesh Color: White to light yellow
+Tuber Shape: Round
+Cooking Type: C-D (floury)
+Primary Use: Starch production
+Dry Matter: Very high (starch variety)
+Yield: High
+Disease Resistance: N/A
+Storage: Good
+Special Features: Industrial starch variety with very high dry matter content. Developed for the European starch processing industry.
+
+Variety: Daifla
+Breeder: Germicopa (France)
+Maturity: Early to medium early
+Skin Color: Yellow
+Flesh Color: Light yellow
+Tuber Shape: Oval
+Cooking Type: B
+Primary Use: Traditional fresh market (South Mediterranean)
+Dry Matter: Medium
+Yield: High
+Disease Resistance: N/A
+Storage: Good
+Special Features: Specifically bred for South Mediterranean markets. Heat tolerant, adapted to warm-climate production systems. Popular in North Africa.
+
+Variety: Topaze
+Breeder: Germicopa (France)
+Maturity: Medium early
+Skin Color: Yellow
+Flesh Color: Yellow
+Tuber Shape: Oval
+Cooking Type: B
+Primary Use: Table, multi-purpose
+Dry Matter: Medium
+Yield: Good
+Disease Resistance: N/A
+Storage: Good
+Special Features: Versatile table variety with good cooking quality and attractive yellow skin/flesh. Suitable for multiple market segments.
+
+Variety: Stemster
+Breeder: Germicopa (France)
+Maturity: Medium late
+Skin Color: Yellow
+Flesh Color: Light yellow
+Tuber Shape: Long oval
+Cooking Type: B
+Primary Use: Processing, multi-purpose
+Dry Matter: Medium-high
+Yield: High
+Disease Resistance: N/A
+Storage: Good
+Special Features: Versatile processing variety suitable for multiple industrial applications. Good yield and storability for the processing sector.

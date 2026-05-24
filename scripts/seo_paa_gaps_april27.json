@@ -1,0 +1,399 @@
+{
+  "all_gaps": [
+    {
+      "question": "What are the top 10 states that produce potatoes?",
+      "triggered_by": "top potato producing countries"
+    },
+    {
+      "question": "Why do you cover potatoes at night?",
+      "triggered_by": "potato processing industry"
+    },
+    {
+      "question": "Why were potatoes illegal in France?",
+      "triggered_by": "potato consumption per capita"
+    },
+    {
+      "question": "What nationality eats a lot of potatoes?",
+      "triggered_by": "potato consumption per capita"
+    },
+    {
+      "question": "How often can a diabetic have potatoes?",
+      "triggered_by": "potato consumption per capita"
+    },
+    {
+      "question": "Do potatoes cause blood sugar spikes?",
+      "triggered_by": "which country consumes most potatoes per capita"
+    },
+    {
+      "question": "What potatoes does McDonald's use in the USA?",
+      "triggered_by": "which US state produces most potatoes"
+    },
+    {
+      "question": "Which vegetables should be avoided in diabetes?",
+      "triggered_by": "can diabetics eat potatoes"
+    },
+    {
+      "question": "Can diabetics eat fish and chips?",
+      "triggered_by": "can diabetics eat potatoes"
+    },
+    {
+      "question": "Can a diabetic have baked potatoes?",
+      "triggered_by": "types of potatoes"
+    },
+    {
+      "question": "Why didn't Europe have potatoes?",
+      "triggered_by": "why does china produce most potatoes"
+    },
+    {
+      "question": "What fertilizer increases potato size?",
+      "triggered_by": "best fertilizer for potatoes"
+    },
+    {
+      "question": "What are common potato fertilizer mistakes?",
+      "triggered_by": "best fertilizer for potatoes"
+    },
+    {
+      "question": "What are three foods cardiologists say not to eat?",
+      "triggered_by": "are potatoes good for heart health"
+    },
+    {
+      "question": "Should heart patients eat potatoes?",
+      "triggered_by": "are potatoes good for heart health"
+    },
+    {
+      "question": "What single food can you survive on the longest?",
+      "triggered_by": "are potatoes good for heart health"
+    },
+    {
+      "question": "What foods make your heart stronger?",
+      "triggered_by": "are potatoes good for heart health"
+    },
+    {
+      "question": "Can raw potatoes help with heartburn?",
+      "triggered_by": "how long potatoes cold storage"
+    },
+    {
+      "question": "How long does a 5 lb bag of potatoes last?",
+      "triggered_by": "how long potatoes cold storage"
+    },
+    {
+      "question": "What is the unhealthiest chip to eat?",
+      "triggered_by": "which country eats most potato chips"
+    },
+    {
+      "question": "Which potato is sugar free?",
+      "triggered_by": "largest potato producer india"
+    },
+    {
+      "question": "How many seed potatoes do I need for 100 ft of row?",
+      "triggered_by": "seed potato yield calculator"
+    },
+    {
+      "question": "How to calculate potato yield?",
+      "triggered_by": "seed potato yield calculator"
+    },
+    {
+      "question": "What months can you plant potatoes?",
+      "triggered_by": "when to plant potatoes"
+    },
+    {
+      "question": "How many potatoes should I plant in a 5 gallon bucket?",
+      "triggered_by": "when to plant potatoes"
+    },
+    {
+      "question": "Can I plant potatoes in the fall?",
+      "triggered_by": "when to plant potatoes"
+    },
+    {
+      "question": "What are common potato growing mistakes?",
+      "triggered_by": "how to grow potatoes complete guide"
+    },
+    {
+      "question": "Can a diabetic have fried potatoes?",
+      "triggered_by": "best potato varieties for french fries"
+    },
+    {
+      "question": "Can a diabetic have french fries?",
+      "triggered_by": "best potato varieties for french fries"
+    },
+    {
+      "question": "What potatoes does McDonald's use for fries?",
+      "triggered_by": "best potato varieties for french fries"
+    },
+    {
+      "question": "Where do Russet Burbank potatoes come from?",
+      "triggered_by": "Russet Burbank potato"
+    },
+    {
+      "question": "Does McDonald's use Russet Burbank potatoes?",
+      "triggered_by": "Russet Burbank potato"
+    },
+    {
+      "question": "What is one difference between the Russet Burbank potato and the original Burbank potato?",
+      "triggered_by": "Russet Burbank potato"
+    },
+    {
+      "question": "What is a Kufri potato variety?",
+      "triggered_by": "Kufri potato varieties India"
+    },
+    {
+      "question": "What are the varieties of kufri jeevan and kufri jyoti?",
+      "triggered_by": "Kufri potato varieties India"
+    },
+    {
+      "question": "What does China do with all its potatoes?",
+      "triggered_by": "potato growth stages"
+    },
+    {
+      "question": "How do I know when potatoes are ready to dig up?",
+      "triggered_by": "how to harvest potatoes"
+    },
+    {
+      "question": "Can potatoes be eaten immediately after harvest?",
+      "triggered_by": "how to harvest potatoes"
+    },
+    {
+      "question": "What do you do with potatoes after you dig them up?",
+      "triggered_by": "how to harvest potatoes"
+    },
+    {
+      "question": "Can you leave potatoes in the ground too long?",
+      "triggered_by": "how to harvest potatoes"
+    },
+    {
+      "question": "Can potatoes be stored at 40 degrees Fahrenheit?",
+      "triggered_by": "potato storage temperature"
+    },
+    {
+      "question": "How long can potatoes be stored at room temperature?",
+      "triggered_by": "potato storage temperature"
+    },
+    {
+      "question": "Where is the 2026 Potato Expo?",
+      "triggered_by": "World Potato Congress 2026"
+    },
+    {
+      "question": "Where is the world Procurement Congress 2026?",
+      "triggered_by": "World Potato Congress 2026"
+    },
+    {
+      "question": "Who owns the biggest potato farm in the US?",
+      "triggered_by": "how many potato varieties exist"
+    },
+    {
+      "question": "Are potatoes ok on a renal diet?",
+      "triggered_by": "potato nutrition facts"
+    },
+    {
+      "question": "Is potato a bad carb?",
+      "triggered_by": "potato nutrition facts"
+    }
+  ],
+  "themed": {
+    "Cultivation & Growing": [
+      {
+        "question": "What fertilizer increases potato size?",
+        "triggered_by": "best fertilizer for potatoes"
+      },
+      {
+        "question": "What are common potato fertilizer mistakes?",
+        "triggered_by": "best fertilizer for potatoes"
+      },
+      {
+        "question": "How many seed potatoes do I need for 100 ft of row?",
+        "triggered_by": "seed potato yield calculator"
+      },
+      {
+        "question": "What months can you plant potatoes?",
+        "triggered_by": "when to plant potatoes"
+      },
+      {
+        "question": "How many potatoes should I plant in a 5 gallon bucket?",
+        "triggered_by": "when to plant potatoes"
+      },
+      {
+        "question": "Can I plant potatoes in the fall?",
+        "triggered_by": "when to plant potatoes"
+      },
+      {
+        "question": "What are common potato growing mistakes?",
+        "triggered_by": "how to grow potatoes complete guide"
+      },
+      {
+        "question": "How do I know when potatoes are ready to dig up?",
+        "triggered_by": "how to harvest potatoes"
+      },
+      {
+        "question": "Can potatoes be eaten immediately after harvest?",
+        "triggered_by": "how to harvest potatoes"
+      },
+      {
+        "question": "What do you do with potatoes after you dig them up?",
+        "triggered_by": "how to harvest potatoes"
+      }
+    ],
+    "Diet & Health": [
+      {
+        "question": "How often can a diabetic have potatoes?",
+        "triggered_by": "potato consumption per capita"
+      },
+      {
+        "question": "Do potatoes cause blood sugar spikes?",
+        "triggered_by": "which country consumes most potatoes per capita"
+      },
+      {
+        "question": "Which vegetables should be avoided in diabetes?",
+        "triggered_by": "can diabetics eat potatoes"
+      },
+      {
+        "question": "Can diabetics eat fish and chips?",
+        "triggered_by": "can diabetics eat potatoes"
+      },
+      {
+        "question": "Can a diabetic have baked potatoes?",
+        "triggered_by": "types of potatoes"
+      },
+      {
+        "question": "What are three foods cardiologists say not to eat?",
+        "triggered_by": "are potatoes good for heart health"
+      },
+      {
+        "question": "Should heart patients eat potatoes?",
+        "triggered_by": "are potatoes good for heart health"
+      },
+      {
+        "question": "What single food can you survive on the longest?",
+        "triggered_by": "are potatoes good for heart health"
+      },
+      {
+        "question": "What foods make your heart stronger?",
+        "triggered_by": "are potatoes good for heart health"
+      },
+      {
+        "question": "Can raw potatoes help with heartburn?",
+        "triggered_by": "how long potatoes cold storage"
+      },
+      {
+        "question": "Which potato is sugar free?",
+        "triggered_by": "largest potato producer india"
+      },
+      {
+        "question": "Can a diabetic have fried potatoes?",
+        "triggered_by": "best potato varieties for french fries"
+      },
+      {
+        "question": "Can a diabetic have french fries?",
+        "triggered_by": "best potato varieties for french fries"
+      },
+      {
+        "question": "Are potatoes ok on a renal diet?",
+        "triggered_by": "potato nutrition facts"
+      },
+      {
+        "question": "Is potato a bad carb?",
+        "triggered_by": "potato nutrition facts"
+      }
+    ],
+    "Variety Identification": [
+      {
+        "question": "What potatoes does McDonald's use in the USA?",
+        "triggered_by": "which US state produces most potatoes"
+      },
+      {
+        "question": "What potatoes does McDonald's use for fries?",
+        "triggered_by": "best potato varieties for french fries"
+      },
+      {
+        "question": "Where do Russet Burbank potatoes come from?",
+        "triggered_by": "Russet Burbank potato"
+      },
+      {
+        "question": "Does McDonald's use Russet Burbank potatoes?",
+        "triggered_by": "Russet Burbank potato"
+      },
+      {
+        "question": "What is one difference between the Russet Burbank potato and the original Burbank potato?",
+        "triggered_by": "Russet Burbank potato"
+      },
+      {
+        "question": "What is a Kufri potato variety?",
+        "triggered_by": "Kufri potato varieties India"
+      },
+      {
+        "question": "What are the varieties of kufri jeevan and kufri jyoti?",
+        "triggered_by": "Kufri potato varieties India"
+      }
+    ],
+    "Storage & Postharvest": [
+      {
+        "question": "How long does a 5 lb bag of potatoes last?",
+        "triggered_by": "how long potatoes cold storage"
+      },
+      {
+        "question": "Can potatoes be stored at 40 degrees Fahrenheit?",
+        "triggered_by": "potato storage temperature"
+      },
+      {
+        "question": "How long can potatoes be stored at room temperature?",
+        "triggered_by": "potato storage temperature"
+      }
+    ],
+    "Production Geography": [
+      {
+        "question": "What are the top 10 states that produce potatoes?",
+        "triggered_by": "top potato producing countries"
+      },
+      {
+        "question": "Why were potatoes illegal in France?",
+        "triggered_by": "potato consumption per capita"
+      },
+      {
+        "question": "Why didn't Europe have potatoes?",
+        "triggered_by": "why does china produce most potatoes"
+      },
+      {
+        "question": "What does China do with all its potatoes?",
+        "triggered_by": "potato growth stages"
+      },
+      {
+        "question": "Who owns the biggest potato farm in the US?",
+        "triggered_by": "how many potato varieties exist"
+      }
+    ],
+    "Processing & Industry": [
+      {
+        "question": "What is the unhealthiest chip to eat?",
+        "triggered_by": "which country eats most potato chips"
+      },
+      {
+        "question": "Where is the 2026 Potato Expo?",
+        "triggered_by": "World Potato Congress 2026"
+      },
+      {
+        "question": "Where is the world Procurement Congress 2026?",
+        "triggered_by": "World Potato Congress 2026"
+      }
+    ],
+    "Events & Misc": [
+      {
+        "question": "Why do you cover potatoes at night?",
+        "triggered_by": "potato processing industry"
+      },
+      {
+        "question": "What nationality eats a lot of potatoes?",
+        "triggered_by": "potato consumption per capita"
+      },
+      {
+        "question": "How to calculate potato yield?",
+        "triggered_by": "seed potato yield calculator"
+      },
+      {
+        "question": "Can you leave potatoes in the ground too long?",
+        "triggered_by": "how to harvest potatoes"
+      }
+    ]
+  },
+  "total_paa": 124,
+  "total_gaps": 47,
+  "total_existing_questions": 68
+}
