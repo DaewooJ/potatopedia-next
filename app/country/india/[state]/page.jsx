@@ -107,12 +107,13 @@ export async function generateMetadata({ params }) {
   const meta = STATE_META[state];
   if (!meta) return { title: "India State Potato Profile | Potatopedia" };
   const canonical = `https://www.potatopedia.com/country/india/${state}`;
+  const ogImage = `https://www.potatopedia.com/og/india-${state}.png`;
   return {
     title: meta.title,
     description: meta.desc,
     alternates: { canonical },
-    openGraph: { type: "article", url: canonical, title: meta.title, description: meta.desc, images: ["/og-image.png"] },
-    twitter: { card: "summary_large_image", title: meta.title, description: meta.desc },
+    openGraph: { type: "article", url: canonical, title: meta.title, description: meta.desc, images: [ogImage] },
+    twitter: { card: "summary_large_image", title: meta.title, description: meta.desc, images: [ogImage] },
   };
 }
 
@@ -415,7 +416,7 @@ function IndiaStateJsonLd({ slug, faqItems, dataset }) {
       author: [POTATOPEDIA_EDITORIAL, { "@id": "https://www.potatopedia.com/#publisher" }],
       publisher: { "@id": "https://www.potatopedia.com/#publisher" },
       mainEntityOfPage: pageUrl,
-      image: "https://www.potatopedia.com/og-image.png",
+      image: `https://www.potatopedia.com/og/india-${slug}.png`,
       about: { "@type": "Place", name: `${stateName}, India` },
       isPartOf: { "@type": "WebSite", name: "Potatopedia", url: "https://www.potatopedia.com" },
       speakable: SPEAKABLE,
