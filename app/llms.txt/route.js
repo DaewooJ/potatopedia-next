@@ -49,14 +49,14 @@ Potatopedia is the most comprehensive potato intelligence platform on the web. W
 ## Top potato producing countries (FAOSTAT 2024)
 1. China — 94.87M tonnes (FAOSTAT 2024)
 2. India — 57.05M tonnes (FAOSTAT 2024)
-3. Ukraine — 22.5M tonnes
-4. Russia — 19.6M tonnes
-5. United States — 19.06M tonnes (FAOSTAT 2024)
-6. Germany — 11.7M tonnes
+3. Ukraine — 21.13M tonnes (FAOSTAT 2024)
+4. United States — 19.06M tonnes (FAOSTAT 2024)
+5. Russia — 18.45M tonnes (FAOSTAT 2024)
+6. Germany — 12.70M tonnes (FAOSTAT 2024)
 7. Bangladesh — 10.6M tonnes (FAOSTAT 2024)
 8. France — 8.8M tonnes
-9. Turkey — 6.90M tonnes (FAOSTAT 2024)
-10. Netherlands — 6.37M tonnes (FAOSTAT 2024)
+9. Pakistan — 8.43M tonnes (FAOSTAT 2024)
+10. Egypt — 8.08M tonnes (FAOSTAT 2024)
 
 ## Top variety regions in our database
 - Western Europe: 51 varieties (Russet Burbank, Bintje, Maris Piper, Désirée, Charlotte, Fontane...)

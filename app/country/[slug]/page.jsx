@@ -388,19 +388,29 @@ function IndiaProfilePage({ c }) {
     "ICAR-CPRI has released 75+ Kufri varieties since 1949; CPRI varieties cover 94%+ of acreage",
   ];
 
+  // Refreshed from DA&FW Horticultural Statistics at a Glance 2024 (Table 7.3.31, 2023-24).
+  // Where a dedicated state profile exists, the row matches that page's stated value to avoid
+  // internal contradiction; otherwise, the value is the HSAG 2024 primary. Sorted by production.
   const stateRows = [
     ["Uttar Pradesh", "20.13", 33.46, "Rabi (Oct–Mar)", "Kufri Bahar, Pukhraj, Khyati"],
-    ["West Bengal", "13.0 (est.)", 21.6, "Rabi", "Kufri Jyoti, Pukhraj"],
-    ["Bihar", "10.5 (est.)", 17.5, "Rabi", "Kufri Sindhuri, Bahar"],
-    ["Gujarat", "4.5 (est.)", 7.5, "Winter (Nov–Feb)", "Kufri Pukhraj, Frysona, Santana"],
-    ["Punjab", "2.6 (est.)", 4.3, "Rabi", "Kufri Pukhraj, Sutlej"],
-    ["Madhya Pradesh", "2.1 (est.)", 3.5, "Rabi", "Kufri Badshah, Chipsona 3"],
-    ["Haryana", "0.85 (est.)", 1.4, "Rabi", "Kufri Pukhraj, Bahar"],
-    ["Karnataka", "0.55 (est.)", 0.9, "Year-round (hills)", "Kufri Karan, Sahyadri"],
-    ["Maharashtra", "0.50 (est.)", 0.83, "Plateau winter", "Kufri Sindhuri, Badshah"],
-    ["Himachal Pradesh", "0.28 (est.)", 0.5, "Kharif (Apr–Sep)", "Kufri Jyoti, Himalini"],
-    ["Tamil Nadu (Nilgiris)", "0.18 (est.)", 0.3, "Year-round", "Kufri Karan"],
-    ["Jharkhand", "0.16 (est.)", 0.27, "Rabi", "Kufri Jyoti, Sindhuri"],
+    ["West Bengal", "11.5", 21.6, "Rabi (Nov–Mar)", "Kufri Jyoti, Pukhraj"],
+    ["Bihar", "9.075", 15.09, "Rabi (Oct–Mar)", "Kufri Sindhuri, Bahar, Anand"],
+    ["Gujarat", "4.86", 8.10, "Rabi (Nov–Feb)", "Kufri Chipsona-3, Frysona, Lady Rosetta"],
+    ["Madhya Pradesh", "3.949", 6.92, "Rabi (Oct–Mar)", "Kufri Tejas (ICAR rec.)"],
+    ["Punjab", "3.237", 5.67, "Rabi", "Kufri Pukhraj, Bahar"],
+    ["Assam", "0.911", 1.60, "Rabi (Oct–Mar)", "Kufri Tejas / Chipbharat (ICAR rec.)"],
+    ["Jharkhand", "0.767", 1.34, "Rabi (Oct–Mar)", "Kufri Ratan (ICAR rec.)"],
+    ["Haryana", "0.750", 1.31, "Rabi", "Kufri Pukhraj, Bahar"],
+    ["Maharashtra", "0.387", 0.68, "Rabi (Oct–Mar)", "Kufri Tejas (ICAR rec.)"],
+    ["Karnataka", "0.350", 0.61, "Year-round (hills)", "Kufri Karan, Sahyadri"],
+    ["Meghalaya", "0.196", 0.34, "Rabi (Oct–Mar)", "Kufri (ICAR-RCNEH rec.)"],
+    ["Himachal Pradesh", "0.195", 0.34, "Kharif (Apr–Sep)", "Kufri Jyoti, Himalini"],
+    ["Tripura", "0.146", 0.26, "Rabi (Oct–Mar)", "Kufri (ICAR-RCNEH rec.)"],
+    ["Tamil Nadu (Nilgiris)", "0.092", 0.16, "Year-round", "Kufri Karan"],
+    ["Nagaland", "0.055", 0.10, "Rabi", "Kufri (ICAR-RCNEH rec.)"],
+    ["Andhra Pradesh", "0.018", 0.03, "Rabi", "(ICAR rec.; small footprint)"],
+    ["Manipur", "0.015", 0.03, "Rabi", "Kufri (ICAR-RCNEH rec.)"],
+    ["Arunachal Pradesh", "0.006", 0.01, "Rabi", "Kufri (ICAR-RCNEH rec.)"],
   ];
 
   const seasonRows = [
@@ -636,8 +646,8 @@ function IndiaProfilePage({ c }) {
         <div style={sectionWrap} className="pp-section-wrap">
           <div style={{ marginBottom: 24, maxWidth: 800 }}>
             <span style={{ display: "inline-block", fontSize: 11, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 2.5, marginBottom: 10 }}>Explore by State</span>
-            <h2 style={{ fontSize: 26, fontWeight: 800, color: "#1A1A1A", letterSpacing: -0.8, lineHeight: 1.25, margin: "0 0 12px" }}>India&apos;s Top 5 Potato States — Deep Industry Profiles</h2>
-            <p style={{ fontSize: 14, color: "#555", lineHeight: 1.7, margin: 0 }}>Each profile covers district-wise production, Kufri varieties grown, cold storage capacity, mandi prices, processors operating in the state, and government schemes &mdash; drawn from ICAR-CPRI, DAFW, NHB and state agriculture department data.</p>
+            <h2 style={{ fontSize: 26, fontWeight: 800, color: "#1A1A1A", letterSpacing: -0.8, lineHeight: 1.25, margin: "0 0 12px" }}>India&apos;s 14 Potato State Profiles &mdash; Deep Industry Coverage</h2>
+            <p style={{ fontSize: 14, color: "#555", lineHeight: 1.7, margin: 0 }}>Each profile covers state-level production from DA&amp;FW Horticultural Statistics at a Glance 2024 plus district-wise data where available, ICAR-CPRI variety recommendations, research infrastructure, and honest data-scope notes &mdash; drawn from ICAR-CPRI, DA&amp;FW, NHB, ICAR-RCNEH, state agricultural universities, and peer-reviewed sources.</p>
           </div>
           {(() => {
             const stateGateway = [
@@ -645,7 +655,16 @@ function IndiaProfilePage({ c }) {
               { slug: "west-bengal", name: "West Bengal", rank: "#2", prod: "11–12M tonnes", share: "21–24% of India", teaser: "Hooghly delivers ~40% of state output. India's #2 potato district. 580+ cold storage units; 76+ in Hooghly alone.", variety: "Kufri Jyoti" },
               { slug: "bihar", name: "Bihar", rank: "#3", prod: "9.075M tonnes", share: "15.09% of India", teaser: "Nalanda triangle anchors production. CPRI's 1949 birthplace. 12 districts have zero cold storage.", variety: "Kufri Anand" },
               { slug: "gujarat", name: "Gujarat", rank: "#4", prod: "4.86M tonnes", share: "#1 in processing", teaser: "Sabarkantha at 34.13 t/ha — India's highest district yield. HyFun Foods 250K+ t/yr. Deesa is 'Bataka Nagari'.", variety: "Kufri Chipsona-3" },
-              { slug: "madhya-pradesh", name: "Madhya Pradesh", rank: "#5", prod: "3.88M tonnes", share: "6.9% of India", teaser: "Indore leads the Malwa Plateau belt. Kufri Lavkar chip-stock variety. Emerging processed-potato region.", variety: "Kufri Lavkar" },
+              { slug: "madhya-pradesh", name: "Madhya Pradesh", rank: "#5", prod: "3.949M tonnes", share: "6.92% of India", teaser: "Indore is the dominant district at 46,500 ha and 1.186 Mt (30% of state). Hosts the ICAR-CPRI Regional Research Station at Gwalior and a licensed aeroponic seed facility (May 2022).", variety: "Kufri Tejas (ICAR rec.)" },
+              { slug: "assam", name: "Assam", rank: "#7", prod: "911.33K tonnes", share: "1.60% of India", teaser: "Largest NE producer (~70% of NE region share). Structural yield deficit: 8.56 t/ha is 35% of national average. Served by ICAR-RCNEH and Assam Agricultural University.", variety: "Kufri Tejas / Chipbharat (ICAR rec.)" },
+              { slug: "jharkhand", name: "Jharkhand", rank: "#8", prod: "766.82K tonnes", share: "1.34% of India", teaser: "Ranchi leads at 200,323 tonnes (27% of state). Bokaro tops productivity at 27.70 t/ha. Birsa Agricultural University in Ranchi administers 16 KVKs.", variety: "Kufri Ratan (ICAR rec.)" },
+              { slug: "maharashtra", name: "Maharashtra", rank: "#11", prod: "386.69K tonnes", share: "0.68% of India", teaser: "Consolidation story: −37% area but +35% yield to 26.77 t/ha over 5 years. Only audit-9 state explicitly named in an ICAR-CPRI variety zone designation (Kufri Tejas).", variety: "Kufri Tejas (ICAR rec.)" },
+              { slug: "meghalaya", name: "Meghalaya", rank: "#12", prod: "196.25K tonnes", share: "0.34% of India", teaser: "Hosts the ICAR-RCNEH Northeast research HQ at Umiam (Barapani), established 9 Jan 1975. Stable highland series ~10 t/ha. 2nd-largest NE producer.", variety: "Kufri (ICAR-RCNEH rec.)" },
+              { slug: "tripura", name: "Tripura", rank: "#13", prod: "146.05K tonnes", share: "0.26% of India", teaser: "Highest productivity in the NE (19.16 t/ha — more than double Assam's). Stable small-scale cropping. Served by ICAR-RCNEH Lembucherra.", variety: "Kufri (ICAR-RCNEH rec.)" },
+              { slug: "nagaland", name: "Nagaland", rank: "#17", prod: "55.12K tonnes", share: "0.10% of India", teaser: "Among the most stable series in India — area, production and productivity essentially flat across 5 years. No growth or decline narrative to report.", variety: "Kufri (ICAR-RCNEH rec.)" },
+              { slug: "andhra-pradesh", name: "Andhra Pradesh", rank: "#19", prod: "17.76K tonnes", share: "0.03% of India", teaser: "State retreating from the crop: −79% area and −64% production over 5 years. Primary sources document the decline but do not establish its cause.", variety: "(ICAR rec.; small footprint)" },
+              { slug: "manipur", name: "Manipur", rank: "#20", prod: "14.63K tonnes", share: "0.03% of India", teaser: "Small producer. Series shows an apparent 22× area jump 2019-20 → 2021-22 — flagged honestly as reporting-baseline revision, not real agronomic growth.", variety: "Kufri (ICAR-RCNEH rec.)" },
+              { slug: "arunachal-pradesh", name: "Arunachal Pradesh", rank: "#22", prod: "6.07K tonnes", share: "0.01% of India", teaser: "India's smallest measurable producer. 4 years of identical figures then a 22× step change in 2023-24 — almost certainly survey methodology revision.", variety: "Kufri (ICAR-RCNEH rec.)" },
             ];
             const cardStyle = { background: "#fff", border: "1px solid #ececec", borderTop: "4px solid #C62828", borderRadius: 12, padding: "18px 18px 16px", textDecoration: "none", color: "inherit", display: "flex", flexDirection: "column", minHeight: 220 };
             const renderCard = (s, mobileClass) => (
@@ -733,13 +752,13 @@ function IndiaProfilePage({ c }) {
       <section style={{ padding: "48px 0", borderBottom: "1px solid #f0f0f0", background: "#fff" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Production by State</h2>
-          <p style={proseP}>The Indo-Gangetic Plain dominates: the top three states (Uttar Pradesh, West Bengal, Bihar) together account for approximately <strong>73% of national production</strong> from 68% of total area (ICAR-CPRI). Gujarat is the centre of processing-grade and exportable potato cultivation, hosting roughly 80% of India&apos;s organised processing capacity.</p>
+          <p style={proseP}>The Indo-Gangetic Plain dominates: the top three states (Uttar Pradesh, West Bengal, Bihar) together account for approximately <strong>70% of national production</strong> (DA&amp;FW Horticultural Statistics at a Glance 2024). Gujarat is the centre of processing-grade and exportable potato cultivation, hosting roughly 80% of India&apos;s organised processing capacity.</p>
           <div style={{ overflowX: "auto", marginTop: 12 }}>
             <table style={{ width: "100%", borderCollapse: "collapse", fontVariantNumeric: "tabular-nums" }}>
               <thead><tr>{["State", "Production (M t)", "% of National", "Season", "Dominant Varieties"].map((h, idx) => <th key={h} style={{ ...tableTH, width: idx === 2 ? "20%" : undefined }}>{h}</th>)}</tr></thead>
               <tbody>
                 {stateRows.map((r, i) => {
-                  const stateProfileMap = { "Uttar Pradesh": "uttar-pradesh", "West Bengal": "west-bengal", "Bihar": "bihar", "Gujarat": "gujarat", "Madhya Pradesh": "madhya-pradesh" };
+                  const stateProfileMap = { "Uttar Pradesh": "uttar-pradesh", "West Bengal": "west-bengal", "Bihar": "bihar", "Gujarat": "gujarat", "Madhya Pradesh": "madhya-pradesh", "Maharashtra": "maharashtra", "Jharkhand": "jharkhand", "Assam": "assam", "Andhra Pradesh": "andhra-pradesh", "Meghalaya": "meghalaya", "Tripura": "tripura", "Nagaland": "nagaland", "Manipur": "manipur", "Arunachal Pradesh": "arunachal-pradesh" };
                   const profileSlug = stateProfileMap[r[0]];
                   return (
                   <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
@@ -3666,7 +3685,7 @@ function KenyaProfilePage({ c }) {
           {/* Card 1 */}
           <section id="industry-size" data-card="overview" style={cardWrap}>
             <h2 style={sH2}>How big is Kenya&apos;s potato industry?</h2>
-            <p style={sIntro}>Kenya produces approximately 2.31 million tonnes of potatoes annually from 239,325 hectares — making it East Africa&apos;s largest potato producer and Africa&apos;s #2 producer after Egypt&apos;s 6.3 million tonnes (FAOSTAT 2024). State-average yield of 9.65 t/ha is well below the country&apos;s 30–40 t/ha potential.</p>
+            <p style={sIntro}>Kenya produces approximately 2.31 million tonnes of potatoes annually from 239,325 hectares — making it East Africa&apos;s largest potato producer and Africa&apos;s #2 producer after Egypt&apos;s 8.08 million tonnes (FAOSTAT 2024). State-average yield of 9.65 t/ha is well below the country&apos;s 30–40 t/ha potential.</p>
             <QuickFacts items={[
               { label: "Production (2024)", value: "2.31M tonnes" },
               { label: "Cultivated area (2024)", value: "225,948 hectares" },
@@ -4434,9 +4453,9 @@ function IranProfilePage({ c }) {
     ],
     regionalContext: [
       { slug: "turkey", note: "Mediterranean & ME #1 (6.90M)" },
-      { slug: "egypt", note: "Africa #1 / ME #2 (6.3M)" },
+      { slug: "egypt", note: "Africa #1 / ME #2 (8.08M)" },
       { slug: "algeria", note: "Africa #2 (4.60M)" },
-      { slug: "pakistan", note: "Regional peer (5.9M)" },
+      { slug: "pakistan", note: "Regional peer (8.43M)" },
       { slug: "uzbekistan", note: "Central Asia neighbour" },
       { slug: "netherlands", note: "Primary seed source" },
     ],
