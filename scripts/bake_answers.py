@@ -41,7 +41,7 @@ print(f"Found {len(entries)} POPULAR_ANSWERS entries to bake.")
 
 def fetch_one(slug, question, category):
     """Call backend /ask once. Return (slug, payload) or (slug, None) on failure."""
-    payload = json.dumps({"question": question, "top_k": 8}).encode()
+    payload = json.dumps({"question": question, "top_k": 8, "source": "answer_bake"}).encode()
     cmd = [
         "curl", "-s", "-X", "POST", BACKEND + "/ask",
         "-H", "Content-Type: application/json",
