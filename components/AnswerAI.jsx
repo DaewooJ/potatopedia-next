@@ -177,7 +177,7 @@ export default function AnswerAI({ slug, question, prebakedAnswer, skipInitialFe
           </div>
           <button
             className="pp-search-btn"
-            onClick={doFollowUp}
+            onClick={() => doFollowUp()}
             disabled={!askInput.trim() || followUpLoading}
             style={{
               padding: "12px 28px", borderRadius: "0 10px 10px 0",

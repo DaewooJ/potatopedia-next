@@ -214,7 +214,7 @@ export default function CountryAI({ countryName, countrySlug }) {
           </div>
           <button
             className="pp-search-btn"
-            onClick={doAsk}
+            onClick={() => doAsk()}
             disabled={!askInput.trim() || askLoading}
             style={{
               padding: "12px 28px", borderRadius: "0 10px 10px 0", border: "none",
