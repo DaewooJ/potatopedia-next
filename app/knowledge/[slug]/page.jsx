@@ -2,6 +2,7 @@ import Link from "next/link";
 import { KNOWLEDGE_TITLES, COUNTRIES, UPDATED_SHORT, BLOG_POSTS } from "../../../lib/data";
 import { PRODUCTION_TIMESERIES, FAOSTAT_YEARS, TRADE_TIMESERIES, yoyChange, trendLabel } from "../../../lib/faostat-timeseries";
 import KnowledgeAI from "../../../components/KnowledgeAI";
+import SupportBlock from "../../../components/SupportBlock";
 import { POTATOPEDIA_PUBLISHER, POTATOPEDIA_EDITORIAL, SPEAKABLE } from "../../../lib/authors";
 
 const BLOG_POSTS_LOCAL = Object.fromEntries(BLOG_POSTS.map((p) => [p.slug, p]));
@@ -656,6 +657,7 @@ function TopProducingCountries() {
 
       {/* Related Articles */}
       <RelatedBlogPosts slugs={["world-potato-production-trends", "bangladesh-8th-producer-nobody-knows", "pakistan-potato-explosion"]} />
+      <SupportBlock />
       <RelatedArticles articles={relatedArticles} />
 
       {/* Related Countries */}
@@ -825,6 +827,7 @@ function PotatoNutritionFacts() {
       ]} />
 
       <div id="faq"><FAQSection items={faqItems} /></div>
+      <SupportBlock />
       <RelatedArticles articles={relatedArticles} />
       <section style={{ marginTop: 48 }}>
         <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Top Potato Consuming Countries</h2>
@@ -982,6 +985,7 @@ function PotatoVarietiesGuide() {
       <div id="faq"><FAQSection items={faqItems} /></div>
       <VarietySpotlight slugs={["russet-burbank", "yukon-gold", "maris-piper", "desiree", "spunta", "bintje"]} />
       <RelatedBlogPosts slugs={["andean-potato-origin-story", "complete-potato-varieties-guide"]} />
+      <SupportBlock />
       <RelatedArticles articles={relatedArticles} />
       <section style={{ marginTop: 48 }}>
         <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Explore Country Profiles</h2>
@@ -1173,6 +1177,7 @@ function GlobalPotatoTrade() {
 
       <div id="faq"><FAQSection items={faqItems} /></div>
       <RelatedBlogPosts slugs={["belgium-worlds-fry-capital", "european-potato-trade-guide", "global-potato-market-2024"]} />
+      <SupportBlock />
       <RelatedArticles articles={relatedArticles} />
       <section style={{ marginTop: 48 }}>
         <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Major Potato Trading Nations</h2>
@@ -1319,6 +1324,7 @@ function HowPotatoesAreProcessed() {
 
       <div id="faq"><FAQSection items={faqItems} /></div>
       <RelatedBlogPosts slugs={["belgium-worlds-fry-capital", "argentina-frozen-fry-powerhouse", "egypt-365-day-potatoes"]} />
+      <SupportBlock />
       <RelatedArticles articles={relatedArticles} />
       <section style={{ marginTop: 48 }}>
         <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Major Processing Nations</h2>
@@ -1482,6 +1488,7 @@ function PotatoConsumptionPerCapita() {
       ]} />
 
       <div id="faq"><FAQSection items={faqItems} /></div>
+      <SupportBlock />
       <RelatedArticles articles={relatedArticles} />
       <section style={{ marginTop: 48 }}>
         <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Explore Country Profiles</h2>
@@ -1675,6 +1682,7 @@ function CompleteGrowingGuide() {
       ]} />
 
       <div id="faq"><FAQSection items={faqItems} /></div>
+      <SupportBlock />
       <RelatedArticles articles={relatedArticles} />
       <section style={{ marginTop: 48 }}>
         <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Explore Growing Regions</h2>
@@ -1848,6 +1856,7 @@ function PotatoStorageColdChain() {
 
       <RelatedBlogPosts slugs={["bangladesh-8th-producer-nobody-knows", "potato-cold-storage-guide"]} />
 
+      <SupportBlock />
       <RelatedArticles articles={relatedArticles} />
 
       <section style={{ marginTop: 48 }}>
@@ -2036,6 +2045,7 @@ function McDonaldsPotatoVarieties() {
       <div id="faq"><FAQSection items={faqItems} /></div>
       <VarietySpotlight slugs={["russet-burbank", "ranger-russet", "umatilla-russet", "shepody"]} />
       <RelatedBlogPosts slugs={["belgium-worlds-fry-capital", "argentina-frozen-fry-powerhouse"]} />
+      <SupportBlock />
       <RelatedArticles articles={relatedArticles} />
       <section style={{ marginTop: 48 }}>
         <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Explore Country Profiles</h2>
@@ -2266,6 +2276,7 @@ function RussetBurbankHistory() {
       <div id="faq"><FAQSection items={faqItems} /></div>
       <VarietySpotlight slugs={["russet-burbank", "ranger-russet", "umatilla-russet", "shepody", "atlantic", "norkotah"]} />
       <RelatedBlogPosts slugs={["us-potato-production-by-state", "argentina-frozen-fry-powerhouse"]} />
+      <SupportBlock />
       <RelatedArticles articles={relatedArticles} />
       <section style={{ marginTop: 48 }}>
         <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Explore Country Profiles</h2>
@@ -2489,6 +2500,7 @@ function PotatoesAndBloodSugar() {
 
       <div id="faq"><FAQSection items={faqItems} /></div>
       <RelatedBlogPosts slugs={["potatoes-and-diabetes"]} />
+      <SupportBlock />
       <RelatedArticles articles={relatedArticles} />
       <section style={{ marginTop: 48 }}>
         <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Explore Country Profiles</h2>
@@ -2701,6 +2713,7 @@ function CommonPotatoGrowingMistakes() {
       ]} />
 
       <div id="faq"><FAQSection items={faqItems} /></div>
+      <SupportBlock />
       <RelatedArticles articles={relatedArticles} />
       <section style={{ marginTop: 48 }}>
         <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Explore Country Profiles</h2>
@@ -2931,6 +2944,7 @@ function GrowingPotatoesInContainers() {
       ]} />
 
       <div id="faq"><FAQSection items={faqItems} /></div>
+      <SupportBlock />
       <RelatedArticles articles={relatedArticles} />
       <section style={{ marginTop: 48 }}>
         <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Explore Country Profiles</h2>
@@ -3191,6 +3205,7 @@ function KufriPotatoVarietiesIndia() {
       <div id="faq"><FAQSection items={faqItems} /></div>
       <VarietySpotlight slugs={["kufri-pukhraj", "kufri-jyoti", "kufri-chipsona-1", "kufri-frysona", "kufri-tejas", "kufri-sindhuri"]} />
       <RelatedBlogPosts slugs={["india-potato-production-by-state", "climate-change-rewriting-potato-map"]} />
+      <SupportBlock />
       <RelatedArticles articles={relatedArticles} />
       <section style={{ marginTop: 48 }}>
         <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Explore Country Profiles</h2>
@@ -3360,6 +3375,7 @@ function WhyPotatoesIllegalInFrance() {
 
       <div id="faq"><FAQSection items={faqItems} /></div>
       <RelatedBlogPosts slugs={["andean-potato-origin-story"]} />
+      <SupportBlock />
       <RelatedArticles articles={relatedArticles} />
       <section style={{ marginTop: 48 }}>
         <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Explore Country Profiles</h2>
@@ -3660,6 +3676,7 @@ function PotatoYieldCalculator() {
       ]} />
 
       <div id="faq"><FAQSection items={faqItems} /></div>
+      <SupportBlock />
       <RelatedArticles articles={relatedArticles} />
       <section style={{ marginTop: 48 }}>
         <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Explore Country Profiles</h2>
@@ -3861,6 +3878,7 @@ function DiabeticsAndFrenchFries() {
 
       <div id="faq"><FAQSection items={faqItems} /></div>
       <RelatedBlogPosts slugs={["potatoes-and-diabetes"]} />
+      <SupportBlock />
       <RelatedArticles articles={relatedArticles} />
       <section style={{ marginTop: 48 }}>
         <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Explore Country Profiles</h2>
@@ -4071,6 +4089,7 @@ function UnhealthiestPotatoChips() {
       ]} />
 
       <div id="faq"><FAQSection items={faqItems} /></div>
+      <SupportBlock />
       <RelatedArticles articles={relatedArticles} />
       <section style={{ marginTop: 48 }}>
         <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Explore Country Profiles</h2>
@@ -4330,6 +4349,7 @@ function PotatoesAndHeartHealth() {
       ]} />
 
       <div id="faq"><FAQSection items={faqItems} /></div>
+      <SupportBlock />
       <RelatedArticles articles={relatedArticles} />
       <section style={{ marginTop: 48 }}>
         <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Explore Country Profiles</h2>
@@ -4570,6 +4590,7 @@ function PotatoStorageShelfLife() {
       ]} />
 
       <div id="faq"><FAQSection items={faqItems} /></div>
+      <SupportBlock />
       <RelatedArticles articles={relatedArticles} />
       <section style={{ marginTop: 48 }}>
         <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Explore Country Profiles</h2>
@@ -4800,6 +4821,7 @@ function WhenToHarvestPotatoes() {
       ]} />
 
       <div id="faq"><FAQSection items={faqItems} /></div>
+      <SupportBlock />
       <RelatedArticles articles={relatedArticles} />
       <section style={{ marginTop: 48 }}>
         <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Explore Country Profiles</h2>
@@ -5006,6 +5028,7 @@ function IsPotatoABadCarb() {
       ]} />
 
       <div id="faq"><FAQSection items={faqItems} /></div>
+      <SupportBlock />
       <RelatedArticles articles={relatedArticles} />
       <section style={{ marginTop: 48 }}>
         <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Explore Country Profiles</h2>
@@ -5208,6 +5231,7 @@ function PotatoesAndKidneyHealth() {
       ]} />
 
       <div id="faq"><FAQSection items={faqItems} /></div>
+      <SupportBlock />
       <RelatedArticles articles={relatedArticles} />
       <section style={{ marginTop: 48 }}>
         <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Explore Country Profiles</h2>
@@ -5402,6 +5426,7 @@ function LargestPotatoFarmsUS() {
 
       <div id="faq"><FAQSection items={faqItems} /></div>
       <RelatedBlogPosts slugs={["us-potato-production-by-state"]} />
+      <SupportBlock />
       <RelatedArticles articles={relatedArticles} />
       <section style={{ marginTop: 48 }}>
         <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Explore Country Profiles</h2>
@@ -5572,6 +5597,7 @@ function PotatoExpo2026() {
 
       <div id="faq"><FAQSection items={faqItems} /></div>
       <RelatedBlogPosts slugs={["kenya-potato-boom-wpc-2026"]} />
+      <SupportBlock />
       <RelatedArticles articles={relatedArticles} />
       <section style={{ marginTop: 48 }}>
         <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Explore Country Profiles</h2>
@@ -5765,6 +5791,7 @@ function PotatoDiseasesPests() {
 
       <RelatedBlogPosts slugs={["complete-potato-varieties-guide", "andean-potato-origin-story"]} />
 
+      <SupportBlock />
       <RelatedArticles articles={relatedArticles} />
 
       <section style={{ marginTop: 48 }}>
@@ -5958,6 +5985,7 @@ function SeedPotatoSystems() {
 
       <RelatedBlogPosts slugs={["dutch-seed-potato-empire", "kenya-potato-boom-wpc-2026"]} />
 
+      <SupportBlock />
       <RelatedArticles articles={relatedArticles} />
 
       <section style={{ marginTop: 48 }}>
@@ -6121,6 +6149,7 @@ function ClimateChangePotatoes() {
 
       <RelatedBlogPosts slugs={["climate-change-rewriting-potato-map", "kenya-potato-boom-wpc-2026"]} />
 
+      <SupportBlock />
       <RelatedArticles articles={relatedArticles} />
 
       <section style={{ marginTop: 48 }}>
@@ -6310,6 +6339,7 @@ function PotatoProcessingIndustry() {
 
       <RelatedBlogPosts slugs={["belgium-worlds-fry-capital", "potato-processing-industry-guide", "global-potato-market-2024"]} />
 
+      <SupportBlock />
       <RelatedArticles articles={relatedArticles} />
 
       <section style={{ marginTop: 48 }}>
