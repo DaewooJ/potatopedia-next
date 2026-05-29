@@ -40,6 +40,7 @@ export default function Footer() {
                 <Link href="/blog" style={{ color: "#666", textDecoration: "none", fontSize: 13 }}>Blog</Link>
                 <Link href="/answers" style={{ color: "#666", textDecoration: "none", fontSize: 13 }}>Answers</Link>
                 <Link href="/about" style={{ color: "#666", textDecoration: "none", fontSize: 13 }}>About Us</Link>
+                <Link href="/support" style={{ color: "#666", textDecoration: "none", fontSize: 13 }}>Support</Link>
               </div>
             </div>
 
@@ -68,6 +69,22 @@ export default function Footer() {
                 <a href="mailto:hello@potatopedia.com" style={{ color: "#666", textDecoration: "none", fontSize: 13 }}>
                   hello@potatopedia.com
                 </a>
+              </div>
+            </div>
+
+            {/* Legal Links */}
+            <div>
+              <div style={{
+                fontSize: 11, fontWeight: 700, color: "#C62828",
+                textTransform: "uppercase", letterSpacing: 2, marginBottom: 12,
+              }}>Legal</div>
+              <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                <Link href="/privacy" style={{ color: "#666", textDecoration: "none", fontSize: 13 }}>Privacy Policy</Link>
+                <Link href="/terms" style={{ color: "#666", textDecoration: "none", fontSize: 13 }}>Terms &amp; Conditions</Link>
+                <Link href="/refund-policy" style={{ color: "#666", textDecoration: "none", fontSize: 13 }}>Refund Policy</Link>
+                <Link href="/shipping-policy" style={{ color: "#666", textDecoration: "none", fontSize: 13 }}>Shipping Policy</Link>
+                <Link href="/disclaimer" style={{ color: "#666", textDecoration: "none", fontSize: 13 }}>Disclaimer</Link>
+                <Link href="/contact" style={{ color: "#666", textDecoration: "none", fontSize: 13 }}>Contact Us</Link>
               </div>
             </div>
           </div>

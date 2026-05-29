@@ -179,6 +179,11 @@ export async function GET() {
     { loc: "/answers", priority: "0.8", changefreq: "weekly" },
     { loc: "/ask", priority: "0.7", changefreq: "monthly" },
     { loc: "/privacy", priority: "0.3", changefreq: "yearly" },
+    { loc: "/terms", priority: "0.3", changefreq: "yearly" },
+    { loc: "/refund-policy", priority: "0.3", changefreq: "yearly" },
+    { loc: "/shipping-policy", priority: "0.3", changefreq: "yearly" },
+    { loc: "/disclaimer", priority: "0.3", changefreq: "yearly" },
+    { loc: "/contact", priority: "0.4", changefreq: "yearly" },
   ];
 
   // Lazy import varieties data to avoid loading on every sitemap render hop

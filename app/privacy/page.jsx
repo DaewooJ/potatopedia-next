@@ -1,140 +1,190 @@
-import Link from "next/link";
+// app/privacy/page.jsx
+import LegalPage, {
+  COMPANY,
+  H2,
+  P,
+  UL,
+  LI,
+  A,
+  Callout,
+  CompanyDetails,
+} from "@/components/LegalPage";
 
 export const metadata = {
-  title: "Privacy Policy",
-  description: "Potatopedia privacy policy. How we collect, use, and protect your data.",
+  title: "Privacy Policy | Potatopedia",
+  description:
+    "How Indpotato Private Limited (Potatopedia) collects, uses, stores and protects your personal data, in line with India's DPDP Act, 2023.",
+  alternates: { canonical: "https://www.potatopedia.com/privacy" },
 };
-
-const sH2 = { fontSize: 22, fontWeight: 700, color: "#C62828", marginTop: 48, marginBottom: 16 };
-const sP = { fontSize: 15, color: "#444", lineHeight: 1.8, marginBottom: 14 };
-const sLi = { fontSize: 15, color: "#444", lineHeight: 1.8, marginBottom: 8, marginLeft: 20 };
 
 export default function PrivacyPage() {
   return (
-    <div style={{ minHeight: "100vh", background: "#fff" }}>
-      <article style={{ maxWidth: 760, margin: "0 auto", padding: "60px 24px 80px" }}>
-        <span style={{ display: "inline-block", fontSize: 11, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 2.5, background: "rgba(198,40,40,0.06)", padding: "6px 16px", borderRadius: 20, marginBottom: 20 }}>Legal</span>
-        <h1 style={{ fontSize: 36, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1.2, marginBottom: 8 }}>Privacy Policy</h1>
-        <p style={{ fontSize: 14, color: "#999", marginBottom: 32 }}>Last updated: April 7, 2026</p>
+    <LegalPage
+      eyebrow="Legal"
+      title="Privacy Policy"
+      intro={`This Privacy Policy explains how ${COMPANY.legalName} ("we", "us", "our"), which operates the ${COMPANY.brand} platform at ${COMPANY.domain}, collects, uses, discloses and protects your information when you use our website and services. We are committed to handling your personal data responsibly and in accordance with applicable Indian law, including the Digital Personal Data Protection Act, 2023 (DPDP Act) and the Information Technology Act, 2000 and rules thereunder.`}
+    >
+      <H2>1. Who we are</H2>
+      <P>
+        The website {COMPANY.domain} and the {COMPANY.brand} service are owned
+        and operated by {COMPANY.legalName}, a company incorporated in India
+        (CIN: {COMPANY.cin}). For the purposes of the DPDP Act, we act as the
+        Data Fiduciary in respect of personal data processed through the
+        platform.
+      </P>
 
-        {/* Introduction */}
-        <h2 style={sH2}>Introduction</h2>
-        <p style={sP}>Potatopedia (&ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) operates the website potatopedia.com (the &ldquo;Service&rdquo;). This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website. We are committed to protecting your privacy and handling your data transparently.</p>
-        <p style={sP}>By using Potatopedia, you agree to the collection and use of information in accordance with this policy. If you do not agree, please do not use the Service.</p>
+      <H2>2. Information we collect</H2>
+      <P>We collect the following categories of information:</P>
+      <UL>
+        <LI>
+          <strong>Information you provide.</strong> When you contact us, submit
+          feedback, subscribe to a paid plan, or create an account (where
+          applicable), we may collect your name, email address, phone number and
+          related details.
+        </LI>
+        <LI>
+          <strong>Questions and queries.</strong> The questions you submit to
+          our AI-powered answer service and the content of your interactions
+          with the platform.
+        </LI>
+        <LI>
+          <strong>Payment information.</strong> If you make a payment, the
+          transaction is processed by our payment partner (Razorpay). We do{" "}
+          <strong>not</strong> collect or store your full card number, CVV, UPI
+          PIN, net-banking credentials or bank account details on our servers.
+          See Section 5.
+        </LI>
+        <LI>
+          <strong>Usage and device data.</strong> Aggregated, largely anonymous
+          analytics such as pages visited, approximate region, browser type and
+          referral source, collected via Google Analytics and Plausible
+          Analytics.
+        </LI>
+        <LI>
+          <strong>Cookies and similar technologies.</strong> See Section 6.
+        </LI>
+      </UL>
 
-        {/* Information We Collect */}
-        <h2 style={sH2}>Information We Collect</h2>
-        <p style={sP}>We collect limited information to improve the Service and understand how it is used:</p>
-        <p style={{ ...sP, fontWeight: 600, color: "#1A1A1A", marginBottom: 6 }}>Analytics Data (Google Analytics)</p>
-        <ul>
-          <li style={sLi}>Pages visited and time spent on each page</li>
-          <li style={sLi}>Referring website or search query that brought you to Potatopedia</li>
-          <li style={sLi}>Approximate geographic location (country/city level, not precise)</li>
-          <li style={sLi}>Device type, browser, and operating system</li>
-          <li style={sLi}>Anonymized IP address (IP anonymization is enabled)</li>
-        </ul>
-        <p style={{ ...sP, fontWeight: 600, color: "#1A1A1A", marginBottom: 6, marginTop: 16 }}>AI Questions</p>
-        <ul>
-          <li style={sLi}>Questions you type into the Potatopedia AI search bar are sent to our backend API for processing</li>
-          <li style={sLi}>Questions are used to generate answers and may be logged for quality improvement</li>
-          <li style={sLi}>We do not associate questions with your personal identity</li>
-        </ul>
-        <p style={{ ...sP, fontWeight: 600, color: "#1A1A1A", marginBottom: 6, marginTop: 16 }}>Feedback &amp; Contact Forms</p>
-        <ul>
-          <li style={sLi}>If you contact us via email or feedback forms, we collect the information you voluntarily provide (name, email address, message content)</li>
-          <li style={sLi}>This information is used solely to respond to your inquiry</li>
-        </ul>
-        <p style={{ ...sP, fontWeight: 600, color: "#1A1A1A", marginBottom: 6, marginTop: 16 }}>Information We Do NOT Collect</p>
-        <ul>
-          <li style={sLi}>We do not require account registration or login</li>
-          <li style={sLi}>We do not collect payment information</li>
-          <li style={sLi}>We do not collect precise geolocation data</li>
-          <li style={sLi}>We do not sell, rent, or trade any user data</li>
-        </ul>
+      <H2>3. How we use your information</H2>
+      <P>We use the information we collect to:</P>
+      <UL>
+        <LI>provide, operate, maintain and improve the {COMPANY.brand} platform and generate answers to your queries;</LI>
+        <LI>process subscriptions, payments, invoices and refunds;</LI>
+        <LI>respond to your enquiries, feedback and support requests;</LI>
+        <LI>understand usage patterns and improve content, features and accuracy;</LI>
+        <LI>detect, prevent and address fraud, abuse, security issues and technical problems; and</LI>
+        <LI>comply with applicable legal and regulatory obligations.</LI>
+      </UL>
 
-        {/* How We Use It */}
-        <h2 style={sH2}>How We Use Your Information</h2>
-        <p style={sP}>We use the information we collect for the following purposes:</p>
-        <ul>
-          <li style={sLi}><strong>Improve the Service:</strong> Analytics data helps us understand which content is most useful and where to focus our data coverage</li>
-          <li style={sLi}><strong>Generate AI Answers:</strong> Your questions are processed by our AI system to provide accurate, sourced answers about the global potato industry</li>
-          <li style={sLi}><strong>Monitor Performance:</strong> We track page load times, error rates, and availability to ensure reliable service</li>
-          <li style={sLi}><strong>Respond to Inquiries:</strong> Contact information is used only to reply to your messages</li>
-          <li style={sLi}><strong>Detect Abuse:</strong> We monitor for automated scraping, denial-of-service attempts, and other misuse</li>
-        </ul>
+      <H2>4. AI processing and service providers</H2>
+      <P>
+        {COMPANY.brand} is an AI-powered knowledge platform. To generate
+        answers, the questions you submit may be processed by third-party
+        large-language-model and embedding providers acting as our processors.
+        We share only what is necessary to provide the service and instruct such
+        providers to use the data solely for that purpose. We do not sell your
+        personal data to anyone.
+      </P>
+      <Callout>
+        Please avoid entering sensitive personal information (such as
+        identification numbers, financial details or health information) into
+        the question box. Questions are processed to generate answers and may be
+        retained to improve service quality.
+      </Callout>
 
-        {/* Third-Party Services */}
-        <h2 style={sH2}>Third-Party Services</h2>
-        <p style={sP}>Potatopedia uses the following third-party services that may process your data:</p>
-        <div style={{ display: "flex", flexDirection: "column", gap: 12, marginBottom: 16 }}>
-          {[
-            { name: "Google Analytics", purpose: "Website analytics and traffic measurement", privacy: "https://policies.google.com/privacy", note: "IP anonymization is enabled. We use Google Analytics 4 (GA4) with measurement ID G-0CXVFJDBF7." },
-            { name: "Anthropic (Claude)", purpose: "AI language model powering our question-answering system", privacy: "https://www.anthropic.com/privacy", note: "Questions are sent to Anthropic's API for answer generation. Anthropic's data retention policies apply to API usage." },
-            { name: "OpenAI", purpose: "Embedding model for semantic search of our knowledge base", privacy: "https://openai.com/policies/privacy-policy", note: "Text from our knowledge base and user questions are processed by OpenAI's embedding API for semantic similarity matching." },
-            { name: "Vercel", purpose: "Website hosting and content delivery", privacy: "https://vercel.com/legal/privacy-policy", note: "Vercel hosts our frontend application and serves pages globally via its CDN." },
-            { name: "Render", purpose: "Backend API hosting", privacy: "https://render.com/privacy", note: "Render hosts our backend API that processes questions and manages the knowledge base." },
-          ].map((s, i) => (
-            <div key={i} style={{ padding: "16px 20px", borderRadius: 12, border: "1px solid #f0f0f0", background: "#FAFAFA" }}>
-              <div style={{ fontSize: 15, fontWeight: 700, color: "#1A1A1A", marginBottom: 4 }}>{s.name}</div>
-              <div style={{ fontSize: 13, color: "#666", marginBottom: 4 }}><strong>Purpose:</strong> {s.purpose}</div>
-              <div style={{ fontSize: 13, color: "#666", marginBottom: 4 }}>{s.note}</div>
-              <a href={s.privacy} target="_blank" rel="noopener noreferrer" style={{ fontSize: 12, color: "#C62828", textDecoration: "none", fontWeight: 600 }}>Privacy Policy &rarr;</a>
-            </div>
-          ))}
-        </div>
+      <H2>5. Payments and Razorpay</H2>
+      <P>
+        Online payments on {COMPANY.brand} are handled by Razorpay Software
+        Private Limited, a payment aggregator authorised by the Reserve Bank of
+        India. When you pay, your payment-instrument details are collected and
+        processed directly by Razorpay on its PCI-DSS compliant infrastructure
+        and are governed by Razorpay's own privacy policy and terms. We receive
+        only limited transaction information (such as a payment reference,
+        status and amount) needed to confirm and reconcile your order. You can
+        review Razorpay's policies at{" "}
+        <A href="https://razorpay.com/privacy/">razorpay.com/privacy</A>.
+      </P>
 
-        {/* Cookies */}
-        <h2 style={sH2}>Cookies</h2>
-        <p style={sP}>Potatopedia uses a limited number of cookies:</p>
-        <ul>
-          <li style={sLi}><strong>Google Analytics cookies</strong> (_ga, _ga_*): Used to distinguish unique visitors and track sessions. These are first-party cookies set by Google Analytics. They expire after 2 years (_ga) or upon session end (_ga_*).</li>
-          <li style={sLi}><strong>localStorage:</strong> We use browser localStorage (not cookies) to cache AI answers locally on your device for faster loading on repeat visits. This data never leaves your browser and can be cleared through your browser settings.</li>
-        </ul>
-        <p style={sP}>We do not use advertising cookies, tracking pixels, or fingerprinting technologies. You can block cookies through your browser settings without affecting the core functionality of Potatopedia.</p>
+      <H2>6. Cookies and analytics</H2>
+      <P>
+        We use cookies and similar technologies to keep the site working, to
+        remember your preferences and to understand how the platform is used. We
+        use Google Analytics and Plausible Analytics to measure traffic in
+        aggregate (Plausible is cookie-free; Google Analytics may set cookies).
+        You can control cookies through your browser settings; disabling some
+        cookies may affect site functionality.
+      </P>
 
-        {/* Data Retention */}
-        <h2 style={sH2}>Data Retention</h2>
-        <ul>
-          <li style={sLi}><strong>Analytics data:</strong> Retained by Google Analytics for 14 months, then automatically deleted</li>
-          <li style={sLi}><strong>AI question logs:</strong> Backend API logs may retain questions for up to 30 days for quality monitoring, then are automatically purged</li>
-          <li style={sLi}><strong>Contact form data:</strong> Retained as long as necessary to respond to your inquiry, then deleted</li>
-          <li style={sLi}><strong>localStorage cache:</strong> Stored on your device until you clear your browser data. Cache entries expire after 24 hours and are automatically refreshed</li>
-        </ul>
+      <H2>7. How we share information</H2>
+      <P>We may share your information only:</P>
+      <UL>
+        <LI>with service providers and processors (e.g. hosting, payment, analytics, AI providers) who support our operations under appropriate confidentiality obligations;</LI>
+        <LI>where required to comply with law, legal process, or a lawful request by a public authority;</LI>
+        <LI>to protect the rights, property or safety of {COMPANY.legalName}, our users or others, including fraud prevention; and</LI>
+        <LI>in connection with a merger, acquisition or sale of assets, subject to this Policy.</LI>
+      </UL>
 
-        {/* Your Rights */}
-        <h2 style={sH2}>Your Rights</h2>
-        <p style={sP}>Depending on your jurisdiction, you may have the following rights regarding your data:</p>
-        <ul>
-          <li style={sLi}><strong>Right to Access:</strong> You can request information about what data we hold about you</li>
-          <li style={sLi}><strong>Right to Deletion:</strong> You can request that we delete any personal data we hold about you</li>
-          <li style={sLi}><strong>Right to Opt Out:</strong> You can opt out of Google Analytics tracking by installing the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" style={{ color: "#C62828" }}>Google Analytics Opt-out Browser Add-on</a></li>
-          <li style={sLi}><strong>Right to Rectification:</strong> You can request correction of inaccurate personal data</li>
-          <li style={sLi}><strong>Right to Data Portability:</strong> You can request a copy of your data in a machine-readable format</li>
-        </ul>
-        <p style={sP}>To exercise any of these rights, please contact us at <a href="mailto:privacy@potatopedia.com" style={{ color: "#C62828", fontWeight: 600 }}>privacy@potatopedia.com</a>.</p>
+      <H2>8. Data retention</H2>
+      <P>
+        We retain personal data only for as long as necessary for the purposes
+        described in this Policy, to comply with our legal, accounting or
+        reporting obligations, or to resolve disputes. When data is no longer
+        required, we delete or anonymise it.
+      </P>
 
-        {/* Children's Privacy */}
-        <h2 style={sH2}>Children&apos;s Privacy</h2>
-        <p style={sP}>Potatopedia is an educational resource about the global potato industry and is not directed at children under the age of 13. We do not knowingly collect personal information from children under 13. If you believe we have inadvertently collected information from a child under 13, please contact us at <a href="mailto:privacy@potatopedia.com" style={{ color: "#C62828" }}>privacy@potatopedia.com</a> and we will promptly delete the information.</p>
+      <H2>9. Data security</H2>
+      <P>
+        We implement reasonable technical and organisational security practices
+        designed to protect personal data against unauthorised access,
+        alteration, disclosure or destruction. However, no method of
+        transmission or storage is completely secure, and we cannot guarantee
+        absolute security.
+      </P>
 
-        {/* Changes */}
-        <h2 style={sH2}>Changes to This Policy</h2>
-        <p style={sP}>We may update this Privacy Policy from time to time. When we do, we will revise the &ldquo;Last updated&rdquo; date at the top of this page. We encourage you to review this page periodically for any changes. Continued use of the Service after changes are posted constitutes your acceptance of the revised policy.</p>
+      <H2>10. Your rights</H2>
+      <P>
+        Subject to applicable law, including the DPDP Act, you have the right to
+        access, correct, update and erase your personal data, to withdraw
+        consent, and to nominate another individual to exercise your rights in
+        the event of death or incapacity. To exercise any of these rights, or to
+        raise a grievance, contact our Grievance Officer using the details in
+        Section 14.
+      </P>
 
-        {/* Contact */}
-        <h2 style={sH2}>Contact Us</h2>
-        <p style={sP}>If you have any questions about this Privacy Policy, your data, or your rights, please contact us:</p>
-        <div style={{ padding: "20px 24px", borderRadius: 14, border: "1px solid #f0f0f0", background: "#FAFAFA", marginBottom: 16 }}>
-          <p style={{ fontSize: 15, color: "#1A1A1A", fontWeight: 600, marginBottom: 8 }}>Potatopedia Privacy Team</p>
-          <p style={{ fontSize: 14, color: "#666", marginBottom: 4 }}>Email: <a href="mailto:privacy@potatopedia.com" style={{ color: "#C62828", fontWeight: 600 }}>privacy@potatopedia.com</a></p>
-          <p style={{ fontSize: 14, color: "#666" }}>Website: <a href="https://www.potatopedia.com" style={{ color: "#C62828" }}>potatopedia.com</a></p>
-        </div>
+      <H2>11. Children</H2>
+      <P>
+        Our services are not directed to children under the age of 18, and we do
+        not knowingly collect personal data from children without verifiable
+        parental or guardian consent. If you believe a child has provided us
+        personal data, please contact us so we can take appropriate action.
+      </P>
 
-        {/* Back link */}
-        <div style={{ marginTop: 40, paddingTop: 24, borderTop: "1px solid #f0f0f0" }}>
-          <Link href="/" style={{ fontSize: 14, color: "#C62828", fontWeight: 600, textDecoration: "none" }}>&larr; Back to Potatopedia</Link>
-        </div>
-      </article>
-    </div>
+      <H2>12. International users</H2>
+      <P>
+        {COMPANY.brand} is operated from India. If you access the platform from
+        outside India, you understand that your information may be processed in
+        India, where data-protection laws may differ from those in your
+        jurisdiction.
+      </P>
+
+      <H2>13. Changes to this Policy</H2>
+      <P>
+        We may update this Privacy Policy from time to time. We will post the
+        updated version on this page and revise the "Last updated" date above.
+        Your continued use of the platform after changes take effect constitutes
+        acceptance of the revised Policy.
+      </P>
+
+      <H2>14. Grievance Officer and contact</H2>
+      <P>
+        For any questions, requests or complaints regarding this Policy or your
+        personal data, please contact our Grievance Officer:
+      </P>
+      <CompanyDetails withGrievance />
+      <P>
+        We aim to acknowledge grievances within a reasonable time and to resolve
+        them in accordance with applicable law.
+      </P>
+    </LegalPage>
   );
 }
