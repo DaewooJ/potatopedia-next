@@ -33,7 +33,7 @@ export default function HomeTrending() {
           {(TRENDING[region] || []).map((q, i) => (
             <Link
               key={i}
-              href={"/ask?q=" + encodeURIComponent(q)}
+              href={"/ask?q=" + encodeURIComponent(q) + "&src=trending_widget"}
               className="pp-trending-btn"
               style={{ padding: "15px 20px", borderRadius: 12, border: "1px solid #e8e8e8", background: "white", fontSize: 14, color: "#444", cursor: "pointer", fontFamily: "inherit", textAlign: "left", fontWeight: 400, lineHeight: 1.5, display: "flex", alignItems: "center", gap: 12, textDecoration: "none" }}
             >

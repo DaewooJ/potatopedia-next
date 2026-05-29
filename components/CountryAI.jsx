@@ -46,7 +46,7 @@ export default function CountryAI({ countryName, countrySlug }) {
     setOverviewLoading(true);
     const partial = { answer: "" };
     fetchStream(
-      { question: "Give me a comprehensive overview of the " + countryName + " potato industry including production, key players, trade, and what makes it distinctive", country: countryName },
+      { question: "Give me a comprehensive overview of the " + countryName + " potato industry including production, key players, trade, and what makes it distinctive", country: countryName, source: "country_page" },
       (token) => { partial.answer += token; setOverview({ ...partial }); setOverviewLoading(false); },
       (event) => { const full = { answer: partial.answer || event.answer, ...event }; setOverview(full); setCache(cacheKey, full); setOverviewLoading(false); },
       () => { setOverviewLoading(false); }
@@ -65,14 +65,14 @@ export default function CountryAI({ countryName, countrySlug }) {
     setTopicLoading(topic.id);
     const partial = { answer: "" };
     fetchStream(
-      { question: "Tell me about " + countryName + " " + topic.q, country: countryName },
+      { question: "Tell me about " + countryName + " " + topic.q, country: countryName, source: "country_page" },
       (token) => { partial.answer += token; setTopics((p) => ({ ...p, [topic.id]: { ...partial } })); setTopicLoading(null); },
       (event) => { const full = { answer: partial.answer || event.answer, ...event }; setTopics((p) => ({ ...p, [topic.id]: full })); setCache(cacheKey, full); setTopicLoading(null); },
       () => { setTopicLoading(null); }
     );
   };
 
-  const doAsk = (text) => {
+  const doAsk = (text, src) => {
     const q = text || askInput;
     if (!q.trim() || askLoading) return;
     if (text) setAskInput(text);
@@ -97,7 +97,7 @@ export default function CountryAI({ countryName, countrySlug }) {
     const trimmed = history.slice(-6); // max 3 exchanges
     const partial = { answer: "" };
     fetchStream(
-      { question: q, country: countryName, conversation_history: trimmed.length > 0 ? trimmed : undefined },
+      { question: q, country: countryName, conversation_history: trimmed.length > 0 ? trimmed : undefined, source: src || "user_typed" },
       (token) => { partial.answer += token; setAskResult({ ...partial }); setAskLoading(false); },
       (event) => { setAskResult({ answer: partial.answer || event.answer, ...event }); setAskLoading(false); },
       () => { setAskLoading(false); }
@@ -121,7 +121,7 @@ export default function CountryAI({ countryName, countrySlug }) {
                 {overview.related_questions.map((rq, ri) => (
                   <button
                     key={ri}
-                    onClick={() => { doAsk(rq); setTimeout(() => askResultRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }), 150); }}
+                    onClick={() => { doAsk(rq, "related_question"); setTimeout(() => askResultRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }), 150); }}
                     style={{ padding: "8px 14px", borderRadius: 20, border: "1px solid #e0e0e0", background: "white", fontSize: 12, color: "#555", cursor: "pointer", fontFamily: "inherit", lineHeight: 1.3, transition: "all 0.2s" }}
                     onMouseEnter={(e) => { e.target.style.background = "#C62828"; e.target.style.color = "white"; e.target.style.borderColor = "#C62828"; }}
                     onMouseLeave={(e) => { e.target.style.background = "white"; e.target.style.color = "#555"; e.target.style.borderColor = "#e0e0e0"; }}
@@ -175,7 +175,7 @@ export default function CountryAI({ countryName, countrySlug }) {
                         {topics[t.id].related_questions.map((rq, ri) => (
                           <button
                             key={ri}
-                            onClick={() => { setActiveTopic(null); doAsk(rq); setTimeout(() => askResultRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }), 150); }}
+                            onClick={() => { setActiveTopic(null); doAsk(rq, "related_question"); setTimeout(() => askResultRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }), 150); }}
                             style={{ padding: "7px 12px", borderRadius: 20, border: "1px solid #e0e0e0", background: "#FAFAFA", fontSize: 11, color: "#555", cursor: "pointer", fontFamily: "inherit", lineHeight: 1.3, transition: "all 0.2s" }}
                             onMouseEnter={(e) => { e.target.style.background = "#C62828"; e.target.style.color = "white"; e.target.style.borderColor = "#C62828"; }}
                             onMouseLeave={(e) => { e.target.style.background = "#FAFAFA"; e.target.style.color = "#555"; e.target.style.borderColor = "#e0e0e0"; }}
@@ -234,7 +234,7 @@ export default function CountryAI({ countryName, countrySlug }) {
                 {askResult.related_questions.map((rq, ri) => (
                   <button
                     key={ri}
-                    onClick={() => { setAskResult(null); doAsk(rq); }}
+                    onClick={() => { setAskResult(null); doAsk(rq, "related_question"); }}
                     style={{ padding: "7px 12px", borderRadius: 20, border: "1px solid #e0e0e0", background: "white", fontSize: 11, color: "#555", cursor: "pointer", fontFamily: "inherit", transition: "all 0.2s" }}
                     onMouseEnter={(e) => { e.target.style.background = "#C62828"; e.target.style.color = "white"; }}
                     onMouseLeave={(e) => { e.target.style.background = "white"; e.target.style.color = "#555"; }}

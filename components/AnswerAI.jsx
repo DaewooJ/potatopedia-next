@@ -45,7 +45,7 @@ export default function AnswerAI({ slug, question, prebakedAnswer, skipInitialFe
     setLoading(true);
     const partial = { answer: "" };
     fetchStream(
-      { question },
+      { question, source: "answer_page" },
       (token) => {
         partial.answer += token;
         setAnswer({ ...partial });
@@ -61,7 +61,7 @@ export default function AnswerAI({ slug, question, prebakedAnswer, skipInitialFe
     );
   }, [slug, question, skipInitialFetch]);
 
-  const doFollowUp = (text) => {
+  const doFollowUp = (text, src) => {
     const q = text || askInput;
     if (!q.trim() || followUpLoading) return;
     if (text) setAskInput(text);
@@ -83,7 +83,7 @@ export default function AnswerAI({ slug, question, prebakedAnswer, skipInitialFe
     const trimmed = history.slice(-6);
     const partial = { answer: "" };
     fetchStream(
-      { question: q, conversation_history: trimmed.length > 0 ? trimmed : undefined },
+      { question: q, conversation_history: trimmed.length > 0 ? trimmed : undefined, source: src || "user_typed" },
       (token) => {
         partial.answer += token;
         setFollowUp({ ...partial });
@@ -118,7 +118,7 @@ export default function AnswerAI({ slug, question, prebakedAnswer, skipInitialFe
                   <button
                     key={ri}
                     onClick={() => {
-                      doFollowUp(rq);
+                      doFollowUp(rq, "related_question");
                       setTimeout(() => followUpResultRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }), 150);
                     }}
                     style={{
@@ -210,7 +210,7 @@ export default function AnswerAI({ slug, question, prebakedAnswer, skipInitialFe
                     key={ri}
                     onClick={() => {
                       setFollowUp(null);
-                      doFollowUp(rq);
+                      doFollowUp(rq, "related_question");
                       setTimeout(() => followUpResultRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }), 150);
                     }}
                     style={{

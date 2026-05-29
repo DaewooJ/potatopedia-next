@@ -11,10 +11,10 @@ export default function HeroSearch() {
   const [role, setRole] = useState(null);
   const router = useRouter();
 
-  const go = (q) => {
+  const go = (q, src) => {
     const query = q || heroQ;
     if (!query.trim()) return;
-    router.push("/ask?q=" + encodeURIComponent(query.trim()));
+    router.push("/ask?q=" + encodeURIComponent(query.trim()) + "&src=" + (src || "user_typed"));
   };
 
   const pills = role ? ROLE_QUESTIONS[role] : DEFAULT_PILLS;
@@ -45,7 +45,7 @@ export default function HeroSearch() {
         {/* Quick question pills */}
         <div style={{ marginTop: 14, display: "flex", justifyContent: "center", gap: 8, flexWrap: "wrap" }}>
           {pills.map((q) => (
-            <button key={q} onClick={() => go(q)} className="pp-pill" style={{ padding: "5px 13px", borderRadius: 20, border: "1px solid #eee", background: "white", fontSize: 12, color: "#888", cursor: "pointer", fontFamily: "inherit" }}>{q}</button>
+            <button key={q} onClick={() => go(q, "suggested_prompt")} className="pp-pill" style={{ padding: "5px 13px", borderRadius: 20, border: "1px solid #eee", background: "white", fontSize: 12, color: "#888", cursor: "pointer", fontFamily: "inherit" }}>{q}</button>
           ))}
         </div>
 

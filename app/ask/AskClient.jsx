@@ -19,6 +19,9 @@ const SUGGESTED = [
 function AskChat() {
   const searchParams = useSearchParams();
   const initialQ = searchParams.get("q") || "";
+  // Channel tag for the entry question only (e.g. trending_widget, suggested_prompt).
+  // Defaults to user_typed; later in-chat messages are tagged per-message, not from this.
+  const initialSrc = searchParams.get("src") || "user_typed";
 
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
@@ -72,12 +75,12 @@ function AskChat() {
   useEffect(() => {
     if (initialQ && !sentInitial.current) {
       sentInitial.current = true;
-      doSend(initialQ);
+      doSend(initialQ, initialSrc);
     }
     inputRef.current?.focus();
   }, []);
 
-  const doSend = async (text) => {
+  const doSend = async (text, src) => {
     const q = text || input;
     if (!q.trim() || loading) return;
     userScrolledUpRef.current = false; // resume auto-scroll for new answer
@@ -89,7 +92,7 @@ function AskChat() {
     setMessages((p) => [...p, { role: "ai", text: "", streaming: true }]);
     let firstToken = true;
     await fetchStream(
-      { question: q, country: country || undefined, conversation_history: history },
+      { question: q, country: country || undefined, conversation_history: history, source: src || "user_typed" },
       (token) => {
         if (firstToken) { setLoading(false); firstToken = false; }
         setMessages((p) => { const c = [...p]; c[c.length - 1] = { ...c[c.length - 1], text: c[c.length - 1].text + token }; return c; });
@@ -159,7 +162,7 @@ function AskChat() {
               <p style={{ fontSize: 14, color: "#888", marginBottom: 32 }}>AI-powered answers from 3,600+ verified data points</p>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 8, justifyContent: "center", maxWidth: 560, margin: "0 auto" }}>
                 {SUGGESTED.map((q, i) => (
-                  <button key={i} onClick={() => doSend(q)} style={{ padding: "10px 16px", borderRadius: 12, border: "1px solid #e8e8e8", background: "white", fontSize: 13, color: "#555", cursor: "pointer", fontFamily: "inherit", textAlign: "left", lineHeight: 1.4, transition: "all 0.2s", boxShadow: "0 1px 3px rgba(0,0,0,0.03)" }}>{q}</button>
+                  <button key={i} onClick={() => doSend(q, "suggested_prompt")} style={{ padding: "10px 16px", borderRadius: 12, border: "1px solid #e8e8e8", background: "white", fontSize: 13, color: "#555", cursor: "pointer", fontFamily: "inherit", textAlign: "left", lineHeight: 1.4, transition: "all 0.2s", boxShadow: "0 1px 3px rgba(0,0,0,0.03)" }}>{q}</button>
                 ))}
               </div>
             </div>
@@ -244,7 +247,7 @@ function AskChat() {
                     {m.related_questions && m.related_questions.length > 0 && (
                       <div className="pp-follow-pills" style={{ marginTop: 12, display: "flex", flexWrap: "wrap", gap: 8, maxWidth: "100%" }}>
                         {m.related_questions.map((rq, ri) => (
-                          <button key={ri} onClick={() => doSend(rq)} style={{ padding: "8px 14px", borderRadius: 20, border: "1px solid #e0e0e0", background: "white", fontSize: 12, color: "#555", cursor: "pointer", fontFamily: "inherit", lineHeight: 1.3, transition: "all 0.2s", boxShadow: "0 1px 3px rgba(0,0,0,0.03)" }}
+                          <button key={ri} onClick={() => doSend(rq, "related_question")} style={{ padding: "8px 14px", borderRadius: 20, border: "1px solid #e0e0e0", background: "white", fontSize: 12, color: "#555", cursor: "pointer", fontFamily: "inherit", lineHeight: 1.3, transition: "all 0.2s", boxShadow: "0 1px 3px rgba(0,0,0,0.03)" }}
                             onMouseEnter={(e) => { e.target.style.background = "#C62828"; e.target.style.color = "white"; e.target.style.borderColor = "#C62828"; }}
                             onMouseLeave={(e) => { e.target.style.background = "white"; e.target.style.color = "#555"; e.target.style.borderColor = "#e0e0e0"; }}
                           >{rq}</button>
