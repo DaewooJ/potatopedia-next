@@ -162,7 +162,7 @@ purpose: single canonical inventory of every recommendation — completed, in-pr
 
 ---
 
-## SECTION F — SCHEDULED CHECKS 📅 (6 items)
+## SECTION F — SCHEDULED CHECKS 📅 (7 items)
 
 | Date | Check | Trigger phrase | Memory file |
 | --- | --- | --- | --- |
@@ -172,6 +172,7 @@ purpose: single canonical inventory of every recommendation — completed, in-pr
 | 2026-06-19 | 6-week Kenya country profile ranking check | "run the kenya ranking check" | `project_kenya_6_week_ranking_check.md` |
 | 2026-06-22 | Post-Tier-2 SEO sprint ranking check (mid-plan checkpoint) | "run the post-tier-2 ranking check" | `project_post_tier2_ranking_check.md` |
 | 2026-06-28 | 8-week India state ranking check (5 state profiles) | "run the india state ranking check" | `project_india_state_8_week_ranking_check.md` |
+| 2026-09-27 | Quarterly check: review https://docs.claude.com/en/docs/about-claude/model-deprecations and confirm current backend model (currently claude-sonnet-4-6) is still active. Next check: 2026-09-27. | "run the model deprecation check" | — |
 
 ---
 

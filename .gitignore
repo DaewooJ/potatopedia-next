@@ -51,3 +51,4 @@ next-env.d.ts
 
 # generic logs (specific debug-log patterns already above)
 *.log
+__pycache__/
