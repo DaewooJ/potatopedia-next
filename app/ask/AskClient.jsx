@@ -106,9 +106,15 @@ function AskChat() {
           return c;
         });
       },
-      () => {
+      (err) => {
         setLoading(false);
-        setMessages((p) => { const c = [...p]; c[c.length - 1] = { ...c[c.length - 1], text: c[c.length - 1].text || "Connection error. The backend may be waking up. Please try again in a moment.", streaming: false }; return c; });
+        // Distinguish a backend-reported failure (the stream sent an error event)
+        // from a network/timeout failure. The real cause is logged to the console
+        // by fetchStream; users only see a friendly message.
+        const fallback = err && err.backendError
+          ? "Something went wrong on our end. We've been notified. Please try again shortly."
+          : "Connection issue. Please try again.";
+        setMessages((p) => { const c = [...p]; c[c.length - 1] = { ...c[c.length - 1], text: c[c.length - 1].text || fallback, streaming: false }; return c; });
       },
       (rewritten) => {
         setMessages((p) => { const c = [...p]; c[c.length - 1] = { ...c[c.length - 1], rewritten_question: rewritten }; return c; });
