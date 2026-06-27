@@ -1,5 +1,6 @@
 import { Poppins } from "next/font/google";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 
@@ -56,18 +57,6 @@ export default function RootLayout({ children }) {
             gtag('config', 'G-0CXVFJDBF7');
           `}
         </Script>
-        {/* Plausible Analytics (privacy-friendly) */}
-        <Script
-          src="https://plausible.io/js/pa-V34MnXhaLnirEhbf45Gbl.js"
-          strategy="afterInteractive"
-        />
-        <Script id="plausible-init" strategy="afterInteractive">
-          {`
-            window.plausible = window.plausible || function(){(plausible.q=plausible.q||[]).push(arguments)};
-            plausible.init = plausible.init || function(i){plausible.o=i||{}};
-            plausible.init();
-          `}
-        </Script>
         {/* Global styles — inline approach matching existing app */}
         <style>{`
           * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -89,6 +78,7 @@ export default function RootLayout({ children }) {
           {children}
         </main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
