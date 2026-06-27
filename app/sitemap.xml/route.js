@@ -175,7 +175,6 @@ export async function GET() {
     { loc: "/countries", priority: "0.9", changefreq: "weekly" },
     { loc: "/varieties", priority: "0.9", changefreq: "weekly" },
     { loc: "/varieties/compare", priority: "0.7", changefreq: "monthly" },
-    { loc: "/events", priority: "0.85", changefreq: "weekly" },
     { loc: "/answers", priority: "0.8", changefreq: "weekly" },
     { loc: "/ask", priority: "0.7", changefreq: "monthly" },
     { loc: "/privacy", priority: "0.3", changefreq: "yearly" },

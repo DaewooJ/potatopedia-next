@@ -63,7 +63,6 @@ export default function Navigation() {
           <Link href="/knowledge" style={navLinkStyle("/knowledge")}>Knowledge</Link>
           <Link href="/countries" style={navLinkStyle("/countries")}>Countries</Link>
           <Link href="/varieties" style={navLinkStyle("/varieties")}>Varieties</Link>
-          <Link href="/events" style={navLinkStyle("/events")}>Events</Link>
           <Link href="/blog" style={navLinkStyle("/blog")}>Blog</Link>
           <Link href="/about" style={navLinkStyle("/about")}>About</Link>
         </div>
@@ -90,7 +89,6 @@ export default function Navigation() {
               <Link href="/knowledge" style={{ padding: "10px 16px", borderRadius: 8, color: "#333", textDecoration: "none", fontSize: 14, fontWeight: 500, display: "block" }}>Knowledge</Link>
               <Link href="/countries" style={{ padding: "10px 16px", borderRadius: 8, color: "#333", textDecoration: "none", fontSize: 14, fontWeight: 500, display: "block" }}>Countries</Link>
               <Link href="/varieties" style={{ padding: "10px 16px", borderRadius: 8, color: "#333", textDecoration: "none", fontSize: 14, fontWeight: 500, display: "block" }}>Varieties</Link>
-              <Link href="/events" style={{ padding: "10px 16px", borderRadius: 8, color: "#333", textDecoration: "none", fontSize: 14, fontWeight: 500, display: "block" }}>Events</Link>
               <Link href="/blog" style={{ padding: "10px 16px", borderRadius: 8, color: "#333", textDecoration: "none", fontSize: 14, fontWeight: 500, display: "block" }}>Blog</Link>
               <Link href="/about" style={{ padding: "10px 16px", borderRadius: 8, color: "#333", textDecoration: "none", fontSize: 14, fontWeight: 500, display: "block" }}>About</Link>
             </div>
