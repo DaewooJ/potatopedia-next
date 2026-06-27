@@ -46,3 +46,4 @@ Potatopedia pings the [IndexNow](https://www.indexnow.org/) API on every product
 
 **Verify in Bing.** Bing Webmaster Tools → *Reports & Data* → *IndexNow* shows the last submission batches, URL counts, and any rejected URLs. New submissions usually appear within ~5 minutes.
 
+
