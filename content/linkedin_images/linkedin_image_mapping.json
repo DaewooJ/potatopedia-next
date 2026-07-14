@@ -1,0 +1,141 @@
+{
+  "data_source_id": "8b0aaa2c-943d-4ba1-8c58-d389e9837d84",
+  "note": "Set the Image (file) property on each page to image_file, and overwrite Alt text with alt_text. Status stays Draft — human approval gate unchanged.",
+  "posts": [
+    {
+      "post": 1,
+      "scheduled_for": "2026-07-18",
+      "row_name": "Asia grows half the world's potatoes",
+      "notion_page_id": "39d6469e-3c4b-81b4-849f-f263c684d254",
+      "notion_page_url": "https://www.notion.so/39d6469e3c4b81b4849ff263c684d254",
+      "image_file": "01_asia-half.png",
+      "alt_text": "Freshly harvested potatoes above the headline 'Asia grows nearly half the world's potatoes' with a large 46% figure. Source: FAOSTAT 2024."
+    },
+    {
+      "post": 2,
+      "scheduled_for": "2026-07-20",
+      "row_name": "Belarus eats the most per capita",
+      "notion_page_id": "39d6469e-3c4b-817a-932a-dd44c890aa7f",
+      "notion_page_url": "https://www.notion.so/39d6469e3c4b817a932add44c890aa7f",
+      "image_file": "02_belarus-percapita.png",
+      "alt_text": "Potatoes with a bar chart of per-capita potato consumption — Belarus 181 kg, Ukraine 136, Russia 111, China 41. Source: FAOSTAT."
+    },
+    {
+      "post": 3,
+      "scheduled_for": "2026-07-22",
+      "row_name": "Idaho = one third of US production",
+      "notion_page_id": "39d6469e-3c4b-81ad-bfc5-f6fd74f972db",
+      "notion_page_url": "https://www.notion.so/39d6469e3c4b81adbfc5f6fd74f972db",
+      "image_file": "03_idaho-third.png",
+      "alt_text": "Potato harvester beside the headline 'One state grows a third of America's potatoes' and a 32% figure for Idaho. Source: USDA NASS."
+    },
+    {
+      "post": 4,
+      "scheduled_for": "2026-07-24",
+      "row_name": "Can diabetics eat potatoes?",
+      "notion_page_id": "39d6469e-3c4b-8165-9bcd-e0072bfeec93",
+      "notion_page_url": "https://www.notion.so/39d6469e3c4b81659bcde0072bfeec93",
+      "image_file": "04_diabetics.png",
+      "alt_text": "Potatoes with the headline 'Can diabetics eat potatoes?' and a 25–35% figure on cooling potatoes lowering glycemic response."
+    },
+    {
+      "post": 5,
+      "scheduled_for": "2026-07-26",
+      "row_name": "Pakistan's fast-rising output",
+      "notion_page_id": "39d6469e-3c4b-816d-9fd4-e0d593e3d02c",
+      "notion_page_url": "https://www.notion.so/39d6469e3c4b816d9fd4e0d593e3d02c",
+      "image_file": "05_pakistan-growth.png",
+      "alt_text": "Potato planting with the headline on Pakistan being a fast-rising producer and a +186% growth figure. Source: FAOSTAT."
+    },
+    {
+      "post": 6,
+      "scheduled_for": "2026-07-28",
+      "row_name": "How big is the global potato market",
+      "notion_page_id": "39d6469e-3c4b-8103-b079-dc4423338f27",
+      "notion_page_url": "https://www.notion.so/39d6469e3c4b8103b079dc4423338f27",
+      "image_file": "06_global-market.png",
+      "alt_text": "Potatoes with the headline 'How big is the global potato business?' and tags Fresh, Frozen, Dried, Processed. Sources: FAOSTAT, UN Comtrade."
+    },
+    {
+      "post": 7,
+      "scheduled_for": "2026-07-30",
+      "row_name": "Waxy vs floury: types of potatoes",
+      "notion_page_id": "39d6469e-3c4b-8124-9340-f090148e369d",
+      "notion_page_url": "https://www.notion.so/39d6469e3c4b81249340f090148e369d",
+      "image_file": "07_waxy-floury.png",
+      "alt_text": "Colourful potato varieties with a waxy vs floury vs all-purpose comparison."
+    },
+    {
+      "post": 8,
+      "scheduled_for": "2026-08-01",
+      "row_name": "How long potatoes last in cold storage",
+      "notion_page_id": "39d6469e-3c4b-8196-a339-d34a7e4d5a55",
+      "notion_page_url": "https://www.notion.so/39d6469e3c4b8196a339d34a7e4d5a55",
+      "image_file": "08_cold-storage.png",
+      "alt_text": "Potatoes with the headline on potato shelf life and two figures: 3–5 weeks in the pantry, 4–8 months in cold storage."
+    },
+    {
+      "post": 9,
+      "scheduled_for": "2026-08-03",
+      "row_name": "India's #1 state: Uttar Pradesh",
+      "notion_page_id": "39d6469e-3c4b-81dc-aeae-dce86c394038",
+      "notion_page_url": "https://www.notion.so/39d6469e3c4b81dcaeaedce86c394038",
+      "image_file": "09_india-up.png",
+      "alt_text": "Potato harvester with the headline 'India's potato heartland is Uttar Pradesh' and 57.05M tonnes making India the #2 producer. Sources: FAOSTAT, DA&FW."
+    },
+    {
+      "post": 10,
+      "scheduled_for": "2026-08-05",
+      "row_name": "The potato processing industry",
+      "notion_page_id": "39d6469e-3c4b-81d0-847b-ff643adb50cf",
+      "notion_page_url": "https://www.notion.so/39d6469e3c4b81d0847bff643adb50cf",
+      "image_file": "10_processing.png",
+      "alt_text": "Potato flakes with the headline 'Most potatoes never reach a kitchen whole' and tags Fries, Chips, Starch, Flour, Vodka."
+    },
+    {
+      "post": 11,
+      "scheduled_for": "2026-08-07",
+      "row_name": "Which country eats the most chips",
+      "notion_page_id": "39d6469e-3c4b-8147-ae41-cd8fadb4e29a",
+      "notion_page_url": "https://www.notion.so/39d6469e3c4b8147ae41cd8fadb4e29a",
+      "image_file": "11_chips.png",
+      "alt_text": "French fries with the headline 'Who eats the most potato chips?' — most by volume: United States; most per person: UK, Ireland, Australia."
+    },
+    {
+      "post": 12,
+      "scheduled_for": "2026-08-09",
+      "row_name": "Are potatoes good for heart health",
+      "notion_page_id": "39d6469e-3c4b-81b3-9933-d9d1e323ed9f",
+      "notion_page_url": "https://www.notion.so/39d6469e3c4b81b39933d9d1e323ed9f",
+      "image_file": "12_heart-health.png",
+      "alt_text": "Potatoes with the headline 'Are potatoes good for your heart?' and a 620 mg potassium figure — more than a banana."
+    },
+    {
+      "post": 13,
+      "scheduled_for": "2026-08-11",
+      "row_name": "Climate change shifts growing zones",
+      "notion_page_id": "39d6469e-3c4b-8100-b540-f2b35032646e",
+      "notion_page_url": "https://www.notion.so/39d6469e3c4b8100b540f2b35032646e",
+      "image_file": "13_climate.png",
+      "alt_text": "Potato harvest with the headline 'Climate change is rewriting where potatoes grow' and three points on heat stress, breeding, and shifting zones. Source: CIP, FAO."
+    },
+    {
+      "post": 14,
+      "scheduled_for": "2026-08-13",
+      "row_name": "When is it too late to plant potatoes",
+      "notion_page_id": "39d6469e-3c4b-8190-997e-fb49f72576ac",
+      "notion_page_url": "https://www.notion.so/39d6469e3c4b8190997efb49f72576ac",
+      "image_file": "14_planting-timing.png",
+      "alt_text": "Potato planting with the headline 'When is it too late to plant potatoes?' and guidance to count back days-to-maturity from first frost."
+    },
+    {
+      "post": 15,
+      "scheduled_for": "2026-08-15",
+      "row_name": "The potato's Andean origins",
+      "notion_page_id": "39d6469e-3c4b-81d1-9e9a-f3716b7c67e5",
+      "notion_page_url": "https://www.notion.so/39d6469e3c4b81d19e9af3716b7c67e5",
+      "image_file": "15_andean-origins.png",
+      "alt_text": "Native Andean potatoes with the headline 'Every potato traces back to the Andes' and Peru's ~85 kg per-capita figure. Sources: CIP, FAOSTAT."
+    }
+  ]
+}
