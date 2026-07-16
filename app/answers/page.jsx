@@ -59,7 +59,7 @@ export default function AnswersIndexPage() {
           fontSize: 16, color: "#666", maxWidth: 520,
           margin: "0 auto", lineHeight: 1.6,
         }}>
-          In-depth, sourced answers to the most-searched potato questions &mdash; powered by 176+ verified data sources.
+          In-depth, sourced answers to the most-searched potato questions &mdash; powered by 277 verified data sources.
         </p>
       </section>
 

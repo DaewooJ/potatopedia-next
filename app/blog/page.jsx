@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { BLOG_POSTS } from "../../lib/data";
+import { BLOG_POSTS, POPULAR_ANSWERS } from "../../lib/data";
 import { ppCSS } from "../../lib/styles";
 import BlogFilter from "../../components/BlogFilter";
 import ContentRequestCTA from "../../components/ContentRequestCTA";
@@ -274,7 +274,7 @@ export default function BlogListPage() {
           <Link href="/answers" style={{ padding: 18, background: "#fff", border: "1px solid #f0f0f0", borderRadius: 12, textDecoration: "none", color: "inherit" }}>
             <div style={{ fontSize: 22, marginBottom: 6 }}>💡</div>
             <div style={{ fontSize: 14, fontWeight: 700, color: "#1A1A1A", marginBottom: 4 }}>Quick Answers</div>
-            <div style={{ fontSize: 12.5, color: "#666", lineHeight: 1.5 }}>70+ direct answers to common potato questions, each with cited sources.</div>
+            <div style={{ fontSize: 12.5, color: "#666", lineHeight: 1.5 }}>{POPULAR_ANSWERS.length} direct answers to common potato questions, each with cited sources.</div>
           </Link>
         </div>
       </section>

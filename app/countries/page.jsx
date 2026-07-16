@@ -46,7 +46,7 @@ export default function CountriesPage() {
             Potato Production<br />
             <span style={{ background: "linear-gradient(135deg,#C62828,#E53935)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Around the World</span>
           </h1>
-          <p style={{ fontSize: 16, color: "#666", lineHeight: 1.6 }}>Production data, yields, and industry highlights for 30 major potato nations. All data from FAOSTAT 2023.</p>
+          <p style={{ fontSize: 16, color: "#666", lineHeight: 1.6 }}>Production data, yields, and industry highlights for {COUNTRIES.length} major potato nations. All data from FAOSTAT 2024.</p>
         </div>
       </section>
 
