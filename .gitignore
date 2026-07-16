@@ -56,4 +56,4 @@ __pycache__/
 # LinkedIn post images — staged locally for one-time Notion upload, then live
 # in Notion (Image file property). Handoff doc + mapping JSON are tracked;
 # the PNGs themselves are not.
-content/linkedin_images/*.png
+content/linkedin_images/**/*.png
