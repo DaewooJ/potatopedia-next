@@ -1,5 +1,9 @@
 # Potatopedia Next.js — Project Rules
 
+## Cross-project sync
+- This repo has a sibling backend repo at `~/Projects/potatopedia-backend` (separate git repo, separate Claude session/memory — nothing links them automatically).
+- **Read `~/Projects/POTATOPEDIA_SYNC.md` at the start of a session** for current cross-project status (what each side just changed, open items either side should know about). **Update it** when you finish something the backend session would want to know about. It's local-machine-only (not committed to git) and intentionally terse — a status board, not documentation.
+
 ## Deployment & Build
 - ALWAYS run `npm run build` before deploying to catch errors
 - Deploy with `vercel --prod`
