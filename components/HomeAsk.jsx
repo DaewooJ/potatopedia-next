@@ -75,11 +75,12 @@ export default function HomeAsk() {
         >
           <input
             ref={inputRef}
+            className="pp-ask-input"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="e.g. Which country produces the most potatoes?"
             disabled={loading}
-            style={{ flex: 1, border: "none", outline: "none", padding: "13px 14px", fontSize: 15.5, fontFamily: "inherit", background: "transparent", color: "#1A1A1A" }}
+            style={{ flex: 1, minWidth: 0, border: "none", outline: "none", padding: "13px 14px", fontSize: 15.5, fontFamily: "inherit", background: "transparent", color: "#1A1A1A", textOverflow: "ellipsis" }}
           />
           <button
             type="submit"
@@ -158,6 +159,7 @@ export default function HomeAsk() {
         @keyframes ppTypingBlink { 0%, 80%, 100% { opacity: 0.25 } 40% { opacity: 1 } }
         .pp-typing-dot { animation: ppTypingBlink 1.2s infinite; display: inline-block; }
         @media (prefers-reduced-motion: reduce) { .pp-typing-dot { animation: none; opacity: 0.6; } }
+        @media (max-width: 480px) { .pp-ask-input { font-size: 13px !important; } }
       `}</style>
     </section>
   );

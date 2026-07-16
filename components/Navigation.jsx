@@ -38,7 +38,7 @@ export default function Navigation() {
   });
 
   return (
-    <nav style={{
+    <nav ref={menuRef} style={{
       position: "fixed", top: 0, left: 0, right: 0, zIndex: 100,
       background: "rgba(255,255,255,0.92)", backdropFilter: "blur(24px)",
       WebkitBackdropFilter: "blur(24px)", borderBottom: "1px solid rgba(0,0,0,0.04)",
@@ -77,33 +77,40 @@ export default function Navigation() {
         }}>Ask AI →</Link>
 
         {/* Hamburger */}
-        <div ref={menuRef} className="pp-hamburger" style={{ display: "none", position: "relative" }}>
+        <div className="pp-hamburger" style={{ display: "none", position: "relative" }}>
           <div
             onClick={() => setMobileMenu(!mobileMenu)}
             style={{
-              width: 36, height: 36, borderRadius: 8,
+              width: 40, height: 40, borderRadius: 8,
               border: "1px solid rgba(0,0,0,0.08)", background: "white",
               cursor: "pointer", display: "flex", alignItems: "center",
-              justifyContent: "center", fontSize: 18,
+              justifyContent: "center", fontSize: 20,
             }}
           >{mobileMenu ? "\u2715" : "\u2630"}</div>
-          {mobileMenu && (
-            <div style={{
-              position: "absolute", top: 44, right: 0, background: "white",
-              borderRadius: 12, boxShadow: "0 8px 30px rgba(0,0,0,0.12)",
-              border: "1px solid rgba(0,0,0,0.06)", padding: 8, minWidth: 180,
-              display: "flex", flexDirection: "column", gap: 4, zIndex: 200,
-            }}>
-              <Link href="/" style={{ padding: "10px 16px", borderRadius: 8, color: "#333", textDecoration: "none", fontSize: 14, fontWeight: 500, display: "block" }}>Home</Link>
-              <Link href="/knowledge" style={{ padding: "10px 16px", borderRadius: 8, color: "#333", textDecoration: "none", fontSize: 14, fontWeight: 500, display: "block" }}>Knowledge</Link>
-              <Link href="/countries" style={{ padding: "10px 16px", borderRadius: 8, color: "#333", textDecoration: "none", fontSize: 14, fontWeight: 500, display: "block" }}>Countries</Link>
-              <Link href="/varieties" style={{ padding: "10px 16px", borderRadius: 8, color: "#333", textDecoration: "none", fontSize: 14, fontWeight: 500, display: "block" }}>Varieties</Link>
-              <Link href="/blog" style={{ padding: "10px 16px", borderRadius: 8, color: "#333", textDecoration: "none", fontSize: 14, fontWeight: 500, display: "block" }}>Blog</Link>
-              <Link href="/about" style={{ padding: "10px 16px", borderRadius: 8, color: "#333", textDecoration: "none", fontSize: 14, fontWeight: 500, display: "block" }}>About</Link>
-            </div>
-          )}
         </div>
       </div>
+
+      {/* Mobile menu panel \u2014 full-width, below the header */}
+      {mobileMenu && (
+        <div className="pp-mobile-panel" style={{
+          position: "absolute", top: "100%", left: 0, right: 0,
+          background: "white", borderTop: "1px solid rgba(0,0,0,0.06)",
+          boxShadow: "0 16px 40px rgba(0,0,0,0.12)", zIndex: 200,
+          maxHeight: "calc(100vh - 68px)", overflowY: "auto",
+        }}>
+          <div style={{ padding: "12px 20px 24px", display: "flex", flexDirection: "column", gap: 4 }}>
+            <Link href="/ask" style={{ padding: "16px 18px", borderRadius: 12, background: "linear-gradient(135deg,#C62828,#E53935)", color: "#fff", textDecoration: "none", fontSize: 16, fontWeight: 700, display: "block", margin: "8px 0 12px" }}>Ask AI &rarr;</Link>
+            <Link href="/" style={{ padding: "16px 18px", borderRadius: 10, color: isActive("/") ? "#C62828" : "#333", background: isActive("/") ? "rgba(198,40,40,0.06)" : "transparent", textDecoration: "none", fontSize: 16, fontWeight: 600, display: "block" }}>Home</Link>
+            <Link href="/knowledge" style={{ padding: "16px 18px", borderRadius: 10, color: isActive("/knowledge") ? "#C62828" : "#333", background: isActive("/knowledge") ? "rgba(198,40,40,0.06)" : "transparent", textDecoration: "none", fontSize: 16, fontWeight: 600, display: "block" }}>Knowledge</Link>
+            <Link href="/countries" style={{ padding: "16px 18px", borderRadius: 10, color: isActive("/countries") ? "#C62828" : "#333", background: isActive("/countries") ? "rgba(198,40,40,0.06)" : "transparent", textDecoration: "none", fontSize: 16, fontWeight: 600, display: "block" }}>Countries</Link>
+            <Link href="/varieties" style={{ padding: "16px 18px", borderRadius: 10, color: isActive("/varieties") ? "#C62828" : "#333", background: isActive("/varieties") ? "rgba(198,40,40,0.06)" : "transparent", textDecoration: "none", fontSize: 16, fontWeight: 600, display: "block" }}>Varieties</Link>
+            <Link href="/blog" style={{ padding: "16px 18px", borderRadius: 10, color: isActive("/blog") ? "#C62828" : "#333", background: isActive("/blog") ? "rgba(198,40,40,0.06)" : "transparent", textDecoration: "none", fontSize: 16, fontWeight: 600, display: "block" }}>Blog</Link>
+            <Link href="/answers" style={{ padding: "16px 18px", borderRadius: 10, color: isActive("/answers") ? "#C62828" : "#333", background: isActive("/answers") ? "rgba(198,40,40,0.06)" : "transparent", textDecoration: "none", fontSize: 16, fontWeight: 600, display: "block" }}>Answers</Link>
+            <Link href="/about" style={{ padding: "16px 18px", borderRadius: 10, color: isActive("/about") ? "#C62828" : "#333", background: isActive("/about") ? "rgba(198,40,40,0.06)" : "transparent", textDecoration: "none", fontSize: 16, fontWeight: 600, display: "block" }}>About</Link>
+            <Link href="/support" style={{ padding: "16px 18px", borderRadius: 10, marginTop: 8, border: "1px solid #C62828", color: "#C62828", textDecoration: "none", fontSize: 16, fontWeight: 700, display: "block", textAlign: "center" }}>&hearts; Support Us</Link>
+          </div>
+        </div>
+      )}
     </nav>
   );
 }

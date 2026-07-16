@@ -105,6 +105,20 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ─── Support ─── */}
+      <section style={{ borderTop: "1px solid #ECECEC", padding: "44px 24px 56px", textAlign: "center" }}>
+        <div style={{ maxWidth: 480, margin: "0 auto" }}>
+          <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", color: "#C62828" }}>Free &amp; independent</span>
+          <h2 style={{ fontSize: 20, fontWeight: 800, color: "#1A1A1A", margin: "8px 0 8px", letterSpacing: -0.4 }}>Help keep Potatopedia free</h2>
+          <p style={{ fontSize: 13.5, color: "#666", lineHeight: 1.6, margin: "0 0 20px" }}>
+            No paywall, no ads — just verified data. If a page here saved you time, a small contribution helps cover hosting and keeps it growing.
+          </p>
+          <Link href="/support" style={{ display: "inline-flex", alignItems: "center", gap: 7, padding: "11px 26px", borderRadius: 10, background: "linear-gradient(135deg,#C62828,#E53935)", color: "#fff", textDecoration: "none", fontSize: 13.5, fontWeight: 700 }}>
+            ♥ Support Us
+          </Link>
+        </div>
+      </section>
+
       <div style={{ textAlign: "center", fontSize: 11, color: "#aaa", paddingBottom: 32 }}>Last updated {UPDATED_LONG}</div>
     </div>
   );
