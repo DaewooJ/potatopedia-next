@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mockup — Redesigned Varieties Page | Potatopedia</title>
+<style>
+  :root{
+    --red:#C62828; --red-dk:#8E0000; --red-soft:rgba(198,40,40,.06); --red-soft2:rgba(198,40,40,.12);
+    --ink:#1A1A1A; --ink-soft:#4B5563; --mut:#8A8F98; --line:#ECECEC; --bg:#FAFAFA; --panel:#fff;
+    --shadow:0 10px 26px rgba(20,20,20,.05);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --ink:#F1EDE9; --ink-soft:#C7CAD1; --mut:#9299A6; --line:#2A2E36; --bg:#15171B; --panel:#1D2026; --red-soft:rgba(198,40,40,.16); --red-soft2:rgba(198,40,40,.24); --shadow:0 10px 26px rgba(0,0,0,.4); }
+  }
+  :root[data-theme="dark"]{ --ink:#F1EDE9; --ink-soft:#C7CAD1; --mut:#9299A6; --line:#2A2E36; --bg:#15171B; --panel:#1D2026; --red-soft:rgba(198,40,40,.16); --red-soft2:rgba(198,40,40,.24); --shadow:0 10px 26px rgba(0,0,0,.4); }
+  :root[data-theme="light"]{ --ink:#1A1A1A; --ink-soft:#4B5563; --mut:#8A8F98; --line:#ECECEC; --bg:#FAFAFA; --panel:#fff; --red-soft:rgba(198,40,40,.06); --red-soft2:rgba(198,40,40,.12); --shadow:0 10px 26px rgba(20,20,20,.05); }
+
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:var(--panel);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{text-decoration:none;color:inherit}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 32px}
+
+  .mockbanner{background:var(--ink);color:var(--bg);font-size:11px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;text-align:center;padding:8px}
+  .mockbanner b{color:#FCA5A5}
+
+  header{background:color-mix(in srgb, var(--panel) 90%, transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:18px}
+  .logoWord b{color:var(--red)}
+  nav.links{display:flex;gap:20px;font-size:13px;font-weight:500;color:var(--ink-soft)}
+  nav.links a.current{color:var(--red);font-weight:700}
+  @media(max-width:820px){nav.links{display:none}}
+
+  .note{margin:20px auto 0;max-width:1016px;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:16px 20px;color:var(--ink-soft);font-size:13px;text-align:left}
+  .note b{color:var(--ink)}
+  .note .cut{color:var(--mut);margin-top:8px;display:block}
+
+  /* hero */
+  .hero{text-align:center;padding:56px 0 28px}
+  .eyebrow{display:inline-block;font-size:11px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:2.5px;background:var(--red-soft);padding:6px 16px;border-radius:20px;margin-bottom:16px}
+  h1{font-size:38px;font-weight:800;letter-spacing:-1.3px;line-height:1.15;margin-bottom:14px}
+  h1 span{background:linear-gradient(135deg,var(--red),#8E0000);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .lede{font-size:15.5px;color:var(--ink-soft);max-width:680px;margin:0 auto;line-height:1.65}
+  .compareCta{display:inline-block;margin-top:20px;padding:10px 22px;border-radius:10px;border:1.5px solid var(--red);color:var(--red);font-size:13px;font-weight:700}
+
+  section{padding:44px 0}
+  .sectionHead{text-align:center;margin-bottom:26px}
+  .sectionHead .k{display:inline-block;font-size:11px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:2px;margin-bottom:8px}
+  .sectionHead h2{font-size:26px;font-weight:800;letter-spacing:-0.7px;margin-bottom:8px}
+  .sectionHead p{font-size:13.5px;color:var(--mut);max-width:560px;margin:0 auto}
+
+  /* quick answers */
+  .qaStrip{background:var(--bg);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .qaGrid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+  .qaCard{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 14px;text-align:center;cursor:pointer;transition:.15s}
+  .qaCard:hover{border-color:var(--red);transform:translateY(-2px);box-shadow:var(--shadow)}
+  .qaCard .use{font-size:10.5px;font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px}
+  .qaCard .variety{font-size:14.5px;font-weight:700;color:var(--ink)}
+  @media(max-width:900px){.qaGrid{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:560px){.qaGrid{grid-template-columns:repeat(2,1fr)}}
+
+  /* iconic showcase */
+  .iconicGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+  .iconicCard{background:var(--panel);border:1px solid var(--red-soft2);border-radius:14px;padding:18px 20px;position:relative;overflow:hidden;transition:.15s}
+  .iconicCard:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(198,40,40,.1);border-color:var(--red)}
+  .iconicBadge{display:inline-block;font-size:9.5px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:#fff;background:linear-gradient(135deg,var(--red),var(--red-dk));padding:3px 9px;border-radius:8px;margin-bottom:10px}
+  .iconicCard .name{font-size:15.5px;font-weight:700;margin-bottom:3px}
+  .iconicCard .meta{font-size:11.5px;color:var(--mut);margin-bottom:8px}
+  .iconicCard .trait{font-size:12.5px;color:var(--ink-soft);line-height:1.5;margin-bottom:10px}
+  .iconicCard .uses{display:flex;flex-wrap:wrap;gap:4px}
+  .iconicCard .uses span{font-size:9.5px;font-weight:600;padding:3px 7px;border-radius:8px;background:var(--bg);color:var(--ink-soft)}
+  .showMoreWrap{text-align:center;margin-top:18px}
+  .showMoreBtn{font-size:12.5px;font-weight:700;color:var(--red);background:transparent;border:1px solid var(--red-soft2);padding:8px 18px;border-radius:20px;cursor:pointer;font-family:inherit}
+
+  /* compare banner */
+  .compareBanner{background:linear-gradient(120deg,var(--red-dk),var(--red));border-radius:20px;padding:32px 36px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;color:#fff}
+  .compareBanner .txt h3{font-size:20px;font-weight:800;margin-bottom:6px}
+  .compareBanner .txt p{font-size:13.5px;color:rgba(255,255,255,.85);max-width:420px}
+  .compareBanner .demo{display:flex;gap:8px;align-items:center;flex-shrink:0}
+  .compareChip{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:10px;padding:8px 14px;font-size:12.5px;font-weight:600}
+  .compareBanner .btn{background:#fff;color:var(--red);font-weight:800;font-size:13px;padding:10px 20px;border-radius:10px;white-space:nowrap}
+
+  /* filter bar */
+  .filterBar{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:22px}
+  .searchRow{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
+  .searchBox{flex:1;min-width:220px;display:flex;align-items:center;gap:8px;background:var(--panel);border:1.5px solid var(--line);border-radius:10px;padding:0 12px}
+  .searchBox input{flex:1;border:0;outline:0;padding:10px 0;font-size:13.5px;font-family:inherit;background:transparent;color:var(--ink)}
+  select{padding:9px 12px;border-radius:10px;border:1.5px solid var(--line);background:var(--panel);font-size:12.5px;font-family:inherit;color:var(--ink-soft)}
+  .matchCount{font-size:11.5px;color:var(--mut);white-space:nowrap}
+  .facetLabel{font-size:10.5px;font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:6px}
+  .facetRow{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+  .pill{padding:6px 13px;border-radius:16px;border:1px solid var(--line);background:var(--panel);color:var(--ink-soft);font-size:11.5px;font-weight:600;cursor:pointer;font-family:inherit}
+  .pill.active{border-color:var(--red);background:var(--red);color:#fff}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;transition:.15s}
+  .card:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:var(--red-soft2)}
+  .card[data-hidden="1"]{display:none}
+  .card .top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px}
+  .card .name{font-size:14px;font-weight:700}
+  .card .year{font-size:10.5px;color:var(--mut)}
+  .card .meta{font-size:11px;color:var(--mut);margin-bottom:6px}
+  .card .trait{font-size:12px;color:var(--ink-soft);line-height:1.5;margin-bottom:8px}
+  .card .tags{display:flex;flex-wrap:wrap;gap:4px}
+  .card .tags span{font-size:9.5px;font-weight:600;padding:2px 7px;border-radius:8px}
+  .tag-iconic{background:linear-gradient(135deg,var(--red),var(--red-dk));color:#fff}
+  .tag-fries{background:rgba(198,40,40,.1);color:#C62828}
+  .tag-chips{background:rgba(21,101,192,.1);color:#1565C0}
+  .tag-salad{background:rgba(46,125,50,.1);color:#2E7D32}
+  .tag-baking{background:rgba(239,108,0,.1);color:#EF6C00}
+  .tag-mashing{background:rgba(106,27,154,.1);color:#6A1B9A}
+  .tag-fresh{background:rgba(0,121,107,.1);color:#00796B}
+  .tag-proc{background:rgba(69,90,100,.1);color:#455A64}
+  .tag-all{background:rgba(120,120,120,.1);color:#666}
+  .tag-specialty{background:rgba(216,27,96,.1);color:#D81B60}
+
+  footer{border-top:1px solid var(--line);padding:26px 0 46px;color:var(--mut);font-size:12px;text-align:center}
+</style>
+</head>
+<body>
+<div class="mockbanner"><b>Mockup</b> · Redesigned Varieties page — curated layer added in front of the full archive · not live</div>
+
+<header><div class="wrap nav">
+  <div class="logo"><span style="font-size:20px">🥔</span><span class="logoWord">Potato<b>pedia</b></span></div>
+  <nav class="links">
+    <a>Home</a><a>Knowledge</a><a>Countries</a><a class="current">Varieties</a><a>Blog</a><a>About</a>
+  </nav>
+</div></header>
+
+<div class="wrap">
+  <div class="note">
+    <b>What changed:</b> the full 244-variety archive is untouched and still 100% server-rendered (nothing removed from crawlable HTML) — a curated layer is added in front of it so new visitors get an answer before they hit the wall of cards.
+    <span class="cut">New: a quick-answers strip (AEO-optimized "best for X" statements), an Iconic-varieties showcase using the site's existing curated 24-variety set, and a promoted compare-tool banner. This mockup uses a real 63-variety sample from the actual database to demonstrate working filters — production would ship all 244.</span>
+  </div>
+</div>
+
+<section class="hero"><div class="wrap">
+  <span class="eyebrow">Varieties database</span>
+  <h1>Potato Varieties,<br><span>From the Andes to McDonald&apos;s.</span></h1>
+  <p class="lede">244 commercially significant cultivars across 9 regions — origin, traits, and best uses for each, verified against CIP, FAOSTAT, ICAR-CPRI, and breeder release archives.</p>
+  <a class="compareCta" href="#compare">Compare 2–4 varieties side by side →</a>
+</div></section>
+
+<!-- QUICK ANSWERS -->
+<section class="qaStrip"><div class="wrap">
+  <div class="sectionHead">
+    <span class="k">Quick answers</span>
+    <h2>Best variety, by use</h2>
+    <p>Click any answer to jump straight to that variety in the full archive below.</p>
+  </div>
+  <div class="qaGrid">
+    <div class="qaCard" onclick="jumpToUse('Frying / Fries')"><div class="use">Best for fries</div><div class="variety">Russet Burbank</div></div>
+    <div class="qaCard" onclick="jumpToUse('Chips')"><div class="use">Best for chips</div><div class="variety">Atlantic</div></div>
+    <div class="qaCard" onclick="jumpToUse('Mashing')"><div class="use">Best for mashing</div><div class="variety">Yukon Gold</div></div>
+    <div class="qaCard" onclick="jumpToUse('Baking / Roasting')"><div class="use">Best for baking</div><div class="variety">King Edward</div></div>
+    <div class="qaCard" onclick="jumpToUse('Boiling / Salad')"><div class="use">Best for salads</div><div class="variety">Charlotte</div></div>
+  </div>
+</div></section>
+
+<!-- ICONIC SHOWCASE -->
+<section><div class="wrap">
+  <div class="sectionHead">
+    <span class="k">Start here</span>
+    <h2>24 iconic varieties</h2>
+    <p>The market-defining, culturally significant cultivars — before you dive into the full 244-variety archive.</p>
+  </div>
+  <div class="iconicGrid" id="iconicGrid"></div>
+  <div class="showMoreWrap"><button class="showMoreBtn" onclick="toggleIconic()" id="iconicBtn">Show all 24 →</button></div>
+</div></section>
+
+<!-- COMPARE BANNER -->
+<section id="compare"><div class="wrap">
+  <div class="compareBanner">
+    <div class="txt">
+      <h3>Compare 2–4 varieties side by side</h3>
+      <p>Origin, year, region, best uses, and traits — laid out in a table so you can decide in seconds.</p>
+    </div>
+    <div class="demo">
+      <span class="compareChip">Russet Burbank</span>
+      <span style="opacity:.6">vs</span>
+      <span class="compareChip">Maris Piper</span>
+      <span class="btn">Compare →</span>
+    </div>
+  </div>
+</div></section>
+
+<!-- FULL ARCHIVE -->
+<section><div class="wrap">
+  <div class="sectionHead">
+    <span class="k">The complete archive</span>
+    <h2 id="matchHeading">244 commercial varieties</h2>
+    <p>Every commercially significant variety we track, filterable by region, use, and era.</p>
+  </div>
+
+  <div class="filterBar">
+    <div class="searchRow">
+      <div class="searchBox">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input id="search" placeholder="Search varieties (e.g. Russet Burbank, Kufri, Shangi, Bintje)" oninput="applyFilters()">
+      </div>
+      <select id="sort" onchange="applyFilters()">
+        <option value="default">Sort: Default</option>
+        <option value="az">Sort: Name A→Z</option>
+        <option value="newest">Sort: Year (newest)</option>
+        <option value="oldest">Sort: Year (oldest)</option>
+      </select>
+      <span class="matchCount" id="matchCount">63 of 63 (sample)</span>
+    </div>
+    <div class="facetLabel">Region</div>
+    <div class="facetRow" id="regionRow"></div>
+    <div class="facetLabel">Use</div>
+    <div class="facetRow" id="useRow"></div>
+    <div class="facetLabel">Tier</div>
+    <div class="facetRow" id="tierRow"></div>
+  </div>
+
+  <div class="grid" id="grid"></div>
+</div></section>
+
+<!-- FOOTER LINKS -->
+<section style="background:var(--bg);border-top:1px solid var(--line)"><div class="wrap">
+  <div class="sectionHead">
+    <span class="k">Go deeper</span>
+    <h2 style="font-size:20px">Featured variety deep-dives</h2>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">
+    <a href="#" style="background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:block">
+      <div style="font-size:10.5px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:1px;margin-bottom:5px">North America</div>
+      <div style="font-size:14px;font-weight:700;margin-bottom:3px">Russet Burbank</div>
+      <div style="font-size:12px;color:var(--mut)">The 1872 variety behind McDonald's fries.</div>
+    </a>
+    <a href="#" style="background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:block">
+      <div style="font-size:10.5px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:1px;margin-bottom:5px">South Asia</div>
+      <div style="font-size:14px;font-weight:700;margin-bottom:3px">Kufri varieties (India)</div>
+      <div style="font-size:12px;color:var(--mut)">75+ cultivars from ICAR-CPRI Shimla.</div>
+    </a>
+    <a href="#" style="background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:block">
+      <div style="font-size:10.5px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:1px;margin-bottom:5px">Reference</div>
+      <div style="font-size:14px;font-weight:700;margin-bottom:3px">Complete varieties guide</div>
+      <div style="font-size:12px;color:var(--mut)">Floury vs waxy, GI ranges, breeding programmes.</div>
+    </a>
+  </div>
+</div></section>
+
+<footer>Design exploration — not deployed. Filter/search interactions are fully functional over the 63-variety real-data sample.</footer>
+
+<script>
+const ICONIC = [
+  {name:"Russet Burbank",origin:"USA (1872)",region:"North America",year:"1872",uses:["Frying / Fries","Baking / Roasting","Processing / Industrial"],trait:"The variety behind McDonald's fries. Long, oblong, high dry matter (~22%). Idaho's flagship cultivar."},
+  {name:"Yukon Gold",origin:"Canada (1980)",region:"North America",year:"1980",uses:["All-purpose","Boiling / Salad","Mashing"],trait:"Distinctive yellow flesh, buttery flavour. The most-recognised North American specialty variety."},
+  {name:"Atlantic",origin:"USA (1976)",region:"North America",year:"1976",uses:["Chips","Processing / Industrial"],trait:"Dominant US chip-processing variety. High specific gravity (~1.090), low reducing sugars."},
+  {name:"Bintje",origin:"Netherlands (1910)",region:"Western Europe",year:"1910",uses:["Frying / Fries","All-purpose"],trait:"Belgium's fry king for over a century. Yellow-flesh, perfect for double-fried Belgian frites."},
+  {name:"Maris Piper",origin:"United Kingdom (1966)",region:"Western Europe",year:"1966",uses:["Frying / Fries","Mashing","All-purpose"],trait:"UK's most popular variety. Cream flesh, fluffy texture, the British chip-shop standard."},
+  {name:"King Edward",origin:"United Kingdom (1902)",region:"Western Europe",year:"1902",uses:["Baking / Roasting","Mashing"],trait:"120+ year-old British classic. Pink-eyed cream flesh, exceptional roasties and bakers."},
+  {name:"Désirée",origin:"Netherlands (1962)",region:"Western Europe",year:"1962",uses:["All-purpose","Boiling / Salad","Mashing"],trait:"Red-skinned yellow-flesh. Drought-tolerant, widely grown across Europe and South Asia."},
+  {name:"Charlotte",origin:"France / Germicopa (1981)",region:"Western Europe",year:"1981",uses:["Boiling / Salad"],trait:"Premium French waxy variety — the first firm-flesh variety released on the French market."},
+  {name:"Spunta",origin:"Netherlands (1968)",region:"Western Europe",year:"1968",uses:["All-purpose","Fresh market"],trait:"Heat-tolerant. The dominant variety in Egypt, Algeria, and much of MENA."},
+  {name:"Diamant",origin:"Netherlands (1982)",region:"Western Europe",year:"1982",uses:["All-purpose","Fresh market"],trait:"The most-grown variety in Bangladesh and a major variety across South Asia."},
+  {name:"Kufri Pukhraj",origin:"India / ICAR-CPRI (1998)",region:"South Asia",year:"1998",uses:["All-purpose","Fresh market"],trait:"Dominant Indian variety. Short-duration (75-90 days), planted across Uttar Pradesh and Bihar."},
+  {name:"Kufri Jyoti",origin:"India / ICAR-CPRI (1968)",region:"South Asia",year:"1968",uses:["All-purpose","Boiling / Salad"],trait:"Long-running Indian commercial variety. White skin, white flesh, mid-season."},
+  {name:"Kufri Chipsona-1",origin:"India / ICAR-CPRI (1998)",region:"South Asia",year:"1998",uses:["Chips","Processing / Industrial"],trait:"First Indian chip-processing variety. Low reducing sugars suited for chip industry."},
+  {name:"Shangi",origin:"Kenya / CIP-derived",region:"Africa",year:"",uses:["All-purpose","Fresh market","Frying / Fries"],trait:"Dominant Kenyan variety (50-80% market share). Short dormancy enables continuous cropping."},
+  {name:"Papa Amarilla",origin:"Peru (native, ancient)",region:"Andean / Native",year:"",uses:["Boiling / Salad","Specialty"],trait:"Yellow-fleshed Andean landrace. Diploid, fast-cooking — prized in Peruvian cuisine for causa."},
+  {name:"UNICA",origin:"Peru / CIP (2002)",region:"Andean / Native",year:"2002",uses:["All-purpose","Frying / Fries"],trait:"Heat- and drought-tolerant. Now grown commercially in 13+ Chinese provinces as Qingshu 9."},
+  {name:"Tigoni",origin:"Kenya / KARI (1996)",region:"Africa",year:"1996",uses:["All-purpose","Frying / Fries"],trait:"KARI-released Kenyan variety. Mid-altitude adaptation, suitable for fresh and processing."},
+  {name:"Belle de Fontenay",origin:"France (heritage, 1885)",region:"Western Europe",year:"1885",uses:["Boiling / Salad","Specialty"],trait:"Classic French salad variety from Île-de-France. Yellow flesh, holds shape, premium retail."},
+  {name:"Yungay",origin:"Peru / CIP (1971)",region:"Andean / Native",year:"1971",uses:["All-purpose","Fresh market"],trait:"Major Peruvian commercial variety. Pink eyes, white flesh; widely grown in central highlands."},
+  {name:"Diacol Capiro",origin:"Colombia (1965)",region:"Andean / Native",year:"1965",uses:["All-purpose","Frying / Fries"],trait:"Colombia's most widely grown variety. Red-skinned, white-fleshed."},
+  {name:"Zhongshu 5",origin:"China / CAAS",region:"East Asia & Pacific",year:"",uses:["All-purpose","Fresh market"],trait:"Major CAAS-released Chinese variety. Widely grown across northern China provinces."},
+  {name:"Sebago",origin:"USA origin / Australian commercial (1938)",region:"East Asia & Pacific",year:"1938",uses:["All-purpose","Boiling / Salad"],trait:"Originally USA-bred; the dominant fresh-market variety across Australia for decades."},
+  {name:"Nevskij",origin:"Russia / Lorch Institute (1976)",region:"Eastern Europe",year:"1976",uses:["All-purpose"],trait:"Major Russian commercial variety. Mid-season, drought-tolerant; dominant in central Russia."},
+  {name:"BRS Ana",origin:"Brazil / EMBRAPA (2002)",region:"Latin America",year:"2002",uses:["Frying / Fries","All-purpose"],trait:"EMBRAPA Brazilian variety bred for both fresh and frying markets."}
+];
+
+const SAMPLE = [
+  ["Russet Norkotah","USA (1987)","North America","1987",["Baking / Roasting","Fresh market"],"Russet for fresh market. Smoother skin than Burbank, earlier maturity, ideal baked-potato variety.",null],
+  ["Ranger Russet","USA (1991)","North America","1991",["Frying / Fries","Processing / Industrial"],"High-yielding processing Russet. Used by Lamb Weston and Simplot for premium frozen-fry lines.",null],
+  ["Umatilla Russet","USA (1998)","North America","1998",["Frying / Fries","Processing / Industrial"],"Pacific Northwest processing variety. Late-maturing, excellent fry colour.",null],
+  ["Lamoka","USA (2010)","North America","2010",["Chips","Processing / Industrial"],"Newer chip variety from Cornell. Better cold-storage tolerance than Atlantic, lower acrylamide.","Recent"],
+  ["Estima","Netherlands (1973)","Western Europe","1973",["All-purpose","Boiling / Salad"],"Early second-cropping variety. Yellow flesh, common in Northern European supermarkets.",null],
+  ["Maris Bard","United Kingdom (1972)","Western Europe","1972",["Boiling / Salad","Fresh market"],"First-early variety. Smooth white skin, ready in 70-90 days from planting.",null],
+  ["Kufri Chipsona-3","India / ICAR-CPRI (2010)","South Asia","2010",["Chips","Processing / Industrial"],"Improved chip variety. Higher dry matter, better acrylamide profile than Chipsona-1.","Recent"],
+  ["Kufri Frysona","India / ICAR-CPRI (2012)","South Asia","2012",["Frying / Fries","Processing / Industrial"],"India's first French-fry-specific variety. Long oblong shape, suited for HoReCa.","Recent"],
+  ["Kufri Tejas","India / ICAR-CPRI (2018)","South Asia","2018",["All-purpose","Fresh market"],"Heat-tolerant variety bred for late-season 30-35°C tolerance in the Indo-Gangetic Plain.","Recent"],
+  ["Kufri Bahar","India / ICAR-CPRI (1980)","South Asia","1980",["All-purpose"],"Mid-season variety. Widely grown across Punjab and Haryana.",null],
+  ["Sherekea","Kenya","Africa","",["All-purpose","Fresh market"],"Mid-altitude Kenyan variety. KALRO-promoted as part of Shangi diversification effort.",null],
+  ["Asante","Kenya","Africa","",["All-purpose","Boiling / Salad"],"Yellow-fleshed variety adapted to Kenyan highlands.",null],
+  ["Wanjiku","Kenya","Africa","",["All-purpose"],"CIP-developed variety widely grown in Meru and Nyandarua counties.",null],
+  ["Roslin Tana","Kenya","Africa","",["All-purpose"],"Kenyan variety suited to mid-altitude growing conditions.",null],
+  ["Roslin Eburu","Kenya","Africa","",["All-purpose"],"Kenyan variety. Highland adaptation, late-blight tolerant.",null],
+  ["Papa Negra","Peru / Bolivia (native)","Andean / Native","",["Specialty","Boiling / Salad"],"Black-purple skinned Andean landrace. Anthocyanin-rich. Traditional Andean cuisine.",null],
+  ["Tunta / Chuño","Bolivia / Peru (4,000+ years)","Andean / Native","",["Specialty","Processing / Industrial"],"Bitter Solanum juzepczukii, freeze-dried into chuño — the world's first preserved food.",null],
+  ["Phureja","Andes (S. tuberosum group Phureja)","Andean / Native","",["Boiling / Salad","Specialty"],"Diploid Andean group, no dormancy, fast-cooking. Genetic backbone for many CIP releases.",null],
+  ["Criolla","Colombia (native)","Andean / Native","",["Boiling / Salad","Specialty"],"Small yellow-fleshed Colombian highland variety. National cuisine staple.",null],
+  ["Yana Imilla","Bolivia (native)","Andean / Native","",["Specialty","Boiling / Salad"],"Black-skinned Bolivian landrace. Quechua name; widely grown on the altiplano.",null],
+  ["Purple Majesty","USA / Colorado State (2006)","Specialty / Heritage","2006",["Specialty","Boiling / Salad"],"Anthocyanin-rich purple-fleshed variety. High antioxidant content.",null],
+  ["Adirondack Blue","USA / Cornell (2003)","Specialty / Heritage","2003",["Specialty","Boiling / Salad"],"Blue-fleshed variety. Higher anthocyanin density than Purple Majesty.",null],
+  ["Russian Banana","Baltic / Russia (heritage)","Specialty / Heritage","",["Boiling / Salad","Specialty"],"Yellow fingerling heritage variety. Buttery, holds shape.",null],
+  ["French Fingerling","France (heritage)","Specialty / Heritage","",["Boiling / Salad","Specialty"],"Pink-skinned, yellow-flesh fingerling. Exceptional flavour, premium farmers'-market variety.",null],
+  ["Pink Fir Apple","United Kingdom (heritage, 1850s)","Specialty / Heritage","",["Boiling / Salad","Specialty"],"Knobby pink-skinned salad variety. Distinct nutty flavour. UK heritage favourite.",null],
+  ["Vitelotte","France (heritage)","Specialty / Heritage","",["Specialty","Boiling / Salad"],"Deep purple flesh, also called 'Truffe de Chine'. Used in haute cuisine purple purées.",null],
+  ["La Ratte","France (1870s)","Specialty / Heritage","",["Boiling / Salad","Specialty"],"Premium French fingerling. Buttery flavour — a chef's signature for purée.",null],
+  ["Sayaka","Japan","East Asia & Pacific","",["Frying / Fries","Processing / Industrial"],"Japanese fry variety. Used by McDonald's Japan during domestic-supply windows.",null],
+  ["Hokkai 51","Japan","East Asia & Pacific","",["Chips","Processing / Industrial"],"Hokkaido-bred chip variety. Backbone of Japanese chip supply.",null],
+  ["Toyoshiro","Japan","East Asia & Pacific","",["Chips","Processing / Industrial"],"Long-running Japanese chip variety from Hokkaido. White flesh, low sugars.",null],
+  ["Cooperation 88","China / CIP-derived","East Asia & Pacific","",["All-purpose","Fresh market"],"Widely grown in Yunnan and southwestern China.",null],
+  ["Favorita","China / CIP","East Asia & Pacific","",["All-purpose","Fresh market"],"Short-duration CIP-derived variety. Major variety across multiple Chinese provinces.",null],
+  ["Zihuabai","China","East Asia & Pacific","",["All-purpose","Specialty"],"White-fleshed traditional Chinese variety. Common in Inner Mongolia and northern provinces.",null],
+  ["Qingshu 168","China","East Asia & Pacific","",["Processing / Industrial","Chips"],"Chinese-bred processing variety with high specific gravity.",null],
+  ["Bryza","Poland / IHAR-PIB","Eastern Europe","",["All-purpose"],"Polish national programme variety. Widely grown across Polish plains.",null],
+  ["Lord","Poland / IHAR-PIB","Eastern Europe","",["All-purpose","Fresh market"],"Polish IHAR variety. Yellow-flesh, mid-early; common in Polish retail.",null],
+  ["Tajfun","Poland / IHAR-PIB","Eastern Europe","",["All-purpose"],"Polish national variety bred for Polish climatic conditions and disease pressure.",null],
+  ["Vineta","Germany (Norika)","Eastern Europe","",["All-purpose","Boiling / Salad"],"Norika-bred German variety. One of the most widely grown varieties across Poland.",null],
+  ["Jelly","Germany (Norika)","Eastern Europe","",["All-purpose","Boiling / Salad"],"Norika German variety. Late-maincrop with strong storage.",null],
+  ["Sineglazka","Russia (heritage)","Eastern Europe","",["Boiling / Salad","Specialty"],"Russian heritage variety prized by home gardeners.",null],
+  ["BRS Catucha","Brazil / EMBRAPA","Latin America","",["All-purpose","Fresh market"],"Brazilian EMBRAPA release. Smooth oval shape, fresh-market suited.",null],
+  ["BRS Clara","Brazil / EMBRAPA","Latin America","",["All-purpose","Frying / Fries"],"Brazilian EMBRAPA dual-purpose variety. Yellow flesh.",null],
+  ["BRS Cota","Brazil / EMBRAPA","Latin America","",["Fresh market","All-purpose"],"EMBRAPA fresh-market variety for Brazilian retail.",null],
+  ["BRS Eliza","Brazil / EMBRAPA","Latin America","",["All-purpose"],"Brazilian EMBRAPA release. Mid-season variety adapted to subtropical conditions.",null],
+  ["Pampeana INTA","Argentina / INTA","Latin America","",["All-purpose","Frying / Fries"],"Argentine INTA release. Bred for Pampas production zones.",null],
+  ["Newen INTA","Argentina / INTA","Latin America","",["All-purpose"],"Argentine INTA variety. Adapted to Buenos Aires province production zones.",null]
+];
+
+const ALL = [
+  ...ICONIC.map(v => [v.name, v.origin, v.region, v.year, v.uses, v.trait, "Iconic"]),
+  ...SAMPLE
+].map(([name, origin, region, year, uses, trait, tier]) => ({ name, origin, region, year, uses, trait, tier }));
+
+const REAL_TOTALS = {"North America":29,"Western Europe":58,"South Asia":35,"Africa":26,"Andean / Native":25,"Specialty / Heritage":18,"East Asia & Pacific":26,"Eastern Europe":15,"Latin America":12};
+const REGIONS = ["All","Andean / Native","North America","Latin America","Western Europe","Eastern Europe","South Asia","Africa","East Asia & Pacific","Specialty / Heritage"];
+const USES = ["All uses","All-purpose","Frying / Fries","Chips","Boiling / Salad","Baking / Roasting","Mashing","Fresh market","Processing / Industrial","Specialty"];
+const TIERS = ["All tiers","Iconic","Heritage","Recent"];
+const TAG_CLASS = {"Frying / Fries":"tag-fries","Chips":"tag-chips","Boiling / Salad":"tag-salad","Baking / Roasting":"tag-baking","Mashing":"tag-mashing","Fresh market":"tag-fresh","Processing / Industrial":"tag-proc","All-purpose":"tag-all","Specialty":"tag-specialty"};
+
+let state = { region: "All", use: "All uses", tier: "All tiers" };
+
+function renderIconic(){
+  const grid = document.getElementById('iconicGrid');
+  grid.innerHTML = ICONIC.map(v => `
+    <div class="iconicCard">
+      <div class="iconicBadge">Iconic</div>
+      <div class="name">${v.name}</div>
+      <div class="meta">${v.origin} · ${v.region}</div>
+      <div class="trait">${v.trait}</div>
+      <div class="uses">${v.uses.map(u=>`<span>${u}</span>`).join('')}</div>
+    </div>
+  `).join('');
+}
+let iconicExpanded = false;
+function toggleIconic(){
+  iconicExpanded = !iconicExpanded;
+  document.getElementById('iconicGrid').style.maxHeight = iconicExpanded ? 'none' : '360px';
+  document.getElementById('iconicGrid').style.overflow = iconicExpanded ? 'visible' : 'hidden';
+  document.getElementById('iconicBtn').textContent = iconicExpanded ? 'Show fewer ↑' : 'Show all 24 →';
+}
+
+function renderFacets(){
+  document.getElementById('regionRow').innerHTML = REGIONS.map(r => {
+    const count = r === "All" ? 244 : REAL_TOTALS[r];
+    return `<button class="pill ${state.region===r?'active':''}" onclick="setFacet('region','${r}')">${r}${r!=="All"?` (${count})`:''}</button>`;
+  }).join('');
+  document.getElementById('useRow').innerHTML = USES.map(u => `<button class="pill ${state.use===u?'active':''}" onclick="setFacet('use','${u}')">${u}</button>`).join('');
+  document.getElementById('tierRow').innerHTML = TIERS.map(t => `<button class="pill ${state.tier===t?'active':''}" onclick="setFacet('tier','${t}')">${t}</button>`).join('');
+}
+function setFacet(kind, val){ state[kind] = val; renderFacets(); applyFilters(); }
+
+function jumpToUse(use){
+  state.use = use;
+  renderFacets();
+  applyFilters();
+  document.querySelector('.filterBar').scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+function renderGrid(){
+  const grid = document.getElementById('grid');
+  grid.innerHTML = ALL.map((v,i) => {
+    const tagsHtml = [
+      v.tier === "Iconic" ? `<span class="tag-iconic">Iconic</span>` : '',
+      ...v.uses.map(u => `<span class="${TAG_CLASS[u]||'tag-all'}">${u}</span>`)
+    ].join('');
+    return `<div class="card" data-idx="${i}" data-region="${v.region}" data-tier="${v.tier||''}" data-name="${v.name.toLowerCase()}" data-year="${v.year||''}" data-search="${(v.name+' '+v.origin+' '+v.region+' '+v.trait+' '+v.uses.join(' ')).toLowerCase()}" data-uses="${v.uses.join('|')}">
+      <div class="top"><div class="name">${v.name}</div>${v.year?`<div class="year">${v.year}</div>`:''}</div>
+      <div class="meta">${v.origin} · ${v.region}</div>
+      <div class="trait">${v.trait}</div>
+      <div class="tags">${tagsHtml}</div>
+    </div>`;
+  }).join('');
+}
+
+function applyFilters(){
+  const q = document.getElementById('search').value.trim().toLowerCase();
+  const sort = document.getElementById('sort').value;
+  const cards = Array.from(document.querySelectorAll('.card'));
+  let visible = 0;
+  cards.forEach(card => {
+    let show = true;
+    if (state.region !== "All" && card.dataset.region !== state.region) show = false;
+    if (state.use !== "All uses" && !card.dataset.uses.split('|').includes(state.use)) show = false;
+    if (state.tier !== "All tiers" && card.dataset.tier !== state.tier) show = false;
+    if (q && !card.dataset.search.includes(q)) show = false;
+    card.setAttribute('data-hidden', show ? '0' : '1');
+    if (show) visible++;
+  });
+  document.getElementById('matchCount').textContent = `${visible} of 63 (sample)`;
+
+  const container = document.getElementById('grid');
+  const visibleCards = cards.filter(c => c.dataset.hidden === '0');
+  if (sort !== 'default') {
+    visibleCards.sort((a,b) => {
+      if (sort === 'az') return a.dataset.name.localeCompare(b.dataset.name);
+      if (sort === 'newest') return (parseInt(b.dataset.year||'0')) - (parseInt(a.dataset.year||'0'));
+      if (sort === 'oldest') return (parseInt(a.dataset.year||'9999')) - (parseInt(b.dataset.year||'9999'));
+      return 0;
+    });
+    visibleCards.forEach(c => container.appendChild(c));
+  } else {
+    cards.sort((a,b) => parseInt(a.dataset.idx) - parseInt(b.dataset.idx)).forEach(c => container.appendChild(c));
+  }
+}
+
+renderIconic();
+document.getElementById('iconicGrid').style.maxHeight = '360px';
+document.getElementById('iconicGrid').style.overflow = 'hidden';
+renderFacets();
+renderGrid();
+applyFilters();
+</script>
+</body>
+</html>

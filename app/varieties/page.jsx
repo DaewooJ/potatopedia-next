@@ -2,7 +2,9 @@ import Link from "next/link";
 import { ppCSS } from "../../lib/styles";
 import VarietiesFilter from "../../components/VarietiesFilter";
 import VarietyGrid from "../../components/VarietyGrid";
-import { VARIETIES } from "../../lib/varieties-data";
+import VarietyQuickAnswers from "../../components/VarietyQuickAnswers";
+import VarietyIconicShowcase from "../../components/VarietyIconicShowcase";
+import { VARIETIES, getIconicVarieties, getQuickAnswers } from "../../lib/varieties-data";
 
 export const metadata = {
   title: "Potato Varieties Database — 244 Cultivars Across 9 Regions",
@@ -17,11 +19,11 @@ export const metadata = {
   },
 };
 
-
 export default function VarietiesPage() {
   const total = VARIETIES.length;
   const regionCounts = VARIETIES.reduce((acc, v) => { acc[v.region] = (acc[v.region] || 0) + 1; return acc; }, {});
-  const useCounts = VARIETIES.reduce((acc, v) => { (v.uses || []).forEach(u => { acc[u] = (acc[u] || 0) + 1; }); return acc; }, {});
+  const iconicVarieties = getIconicVarieties();
+  const quickAnswers = getQuickAnswers();
 
   const itemListJsonLd = {
     "@context": "https://schema.org",
@@ -46,10 +48,24 @@ export default function VarietiesPage() {
     })),
   };
 
+  // Complements the ItemList above with clean, quotable declarative sentences —
+  // AI answer engines and "People also ask"-style features quote sentences far
+  // more readily than they infer answers from tag pills on 244 cards.
+  const quickAnswersJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: quickAnswers.map(({ use, variety }) => ({
+      "@type": "Question",
+      name: `What is the best potato variety for ${use.split(" / ")[0].toLowerCase()}?`,
+      acceptedAnswer: { "@type": "Answer", text: `${variety.name} is widely regarded as the best variety for ${use.toLowerCase()}. ${variety.trait}` },
+    })),
+  };
+
   return (
     <div style={{ minHeight: "100vh", background: "#FFFFFF", color: "#1A1A1A", overflowX: "hidden" }}>
       <style>{ppCSS}</style>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(quickAnswersJsonLd) }} />
 
       {/* Hero */}
       <section style={{ paddingTop: 64, paddingBottom: 32, textAlign: "center" }}>
@@ -60,7 +76,7 @@ export default function VarietiesPage() {
             <span style={{ background: "linear-gradient(135deg,#C62828,#8E0000)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>From the Andes to McDonald&apos;s.</span>
           </h1>
           <p style={{ fontSize: 16, color: "#555", lineHeight: 1.65, maxWidth: 700, margin: "0 auto" }}>
-            {total} commercially significant cultivars across 9 regions — Russet Burbank, Bintje, Spunta, Maris Piper, Désirée, Kufri Pukhraj, Shangi, Yungay, Diacol Capiro, BRS Ana, Nevskij, Zhongshu, Belete, and over 200 more. Origin, traits, and best uses for each.
+            {total} commercially significant cultivars across 9 regions — origin, traits, and best uses for each, verified against CIP, FAOSTAT, ICAR-CPRI, and breeder release archives.
           </p>
           <p style={{ fontSize: 13, color: "#888", marginTop: 14, maxWidth: 600, margin: "14px auto 0" }}>
             The total estimated number of cultivated varieties worldwide is ~4,000 (CIP, FAO). This database tracks the commercially significant subset most relevant to international trade, breeding, and culinary use.
@@ -73,30 +89,41 @@ export default function VarietiesPage() {
         </div>
       </section>
 
-      {/* Stat strip */}
-      <section style={{ background: "#FAFAFA", borderTop: "1px solid #f0f0f0", borderBottom: "1px solid #f0f0f0" }}>
-        <div className="pp-section pp-stats-grid" style={{ maxWidth: 1080, margin: "0 auto", padding: "32px 48px", display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 24 }}>
-          <div style={{ textAlign: "center" }}>
-            <div style={{ fontSize: 28, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, lineHeight: 1 }}>{total}</div>
-            <div style={{ fontSize: 11, color: "#999", fontWeight: 500, marginTop: 4, textTransform: "uppercase", letterSpacing: 1 }}>Commercial Varieties</div>
-          </div>
-          <div style={{ textAlign: "center" }}>
-            <div style={{ fontSize: 28, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, lineHeight: 1 }}>9</div>
-            <div style={{ fontSize: 11, color: "#999", fontWeight: 500, marginTop: 4, textTransform: "uppercase", letterSpacing: 1 }}>Regions Covered</div>
-          </div>
-          <div style={{ textAlign: "center" }}>
-            <div style={{ fontSize: 28, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, lineHeight: 1 }}>{useCounts["Frying / Fries"] || 0}</div>
-            <div style={{ fontSize: 11, color: "#999", fontWeight: 500, marginTop: 4, textTransform: "uppercase", letterSpacing: 1 }}>Frying Varieties</div>
-          </div>
-          <div style={{ textAlign: "center" }}>
-            <div style={{ fontSize: 28, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, lineHeight: 1 }}>{useCounts["Chips"] || 0}</div>
-            <div style={{ fontSize: 11, color: "#999", fontWeight: 500, marginTop: 4, textTransform: "uppercase", letterSpacing: 1 }}>Chip Varieties</div>
-          </div>
+      {/* Quick answers */}
+      <VarietyQuickAnswers answers={quickAnswers} />
+
+      {/* Iconic showcase */}
+      <VarietyIconicShowcase varieties={iconicVarieties} />
+
+      {/* Compare banner */}
+      <section style={{ paddingTop: 44, paddingBottom: 8 }}>
+        <div className="pp-section" style={{ maxWidth: 1080, margin: "0 auto", padding: "0 48px" }}>
+          <Link
+            href="/varieties/compare"
+            style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 24, flexWrap: "wrap", background: "linear-gradient(120deg,#8E0000,#C62828)", borderRadius: 20, padding: "28px 32px", textDecoration: "none" }}
+          >
+            <div>
+              <h3 style={{ fontSize: 19, fontWeight: 800, color: "#fff", marginBottom: 5 }}>Compare 2–4 varieties side by side</h3>
+              <p style={{ fontSize: 13, color: "rgba(255,255,255,0.85)", maxWidth: 420 }}>Origin, year, region, best uses, and traits — laid out in a table so you can decide in seconds.</p>
+            </div>
+            <div style={{ display: "flex", gap: 8, alignItems: "center", flexShrink: 0 }}>
+              <span style={{ background: "rgba(255,255,255,0.15)", border: "1px solid rgba(255,255,255,0.3)", borderRadius: 10, padding: "8px 14px", fontSize: 12.5, fontWeight: 600, color: "#fff" }}>Russet Burbank</span>
+              <span style={{ color: "rgba(255,255,255,0.6)", fontSize: 12 }}>vs</span>
+              <span style={{ background: "rgba(255,255,255,0.15)", border: "1px solid rgba(255,255,255,0.3)", borderRadius: 10, padding: "8px 14px", fontSize: 12.5, fontWeight: 600, color: "#fff" }}>Maris Piper</span>
+              <span style={{ background: "#fff", color: "#C62828", fontWeight: 800, fontSize: 13, padding: "10px 20px", borderRadius: 10, whiteSpace: "nowrap" }}>Compare →</span>
+            </div>
+          </Link>
         </div>
       </section>
 
-      <section style={{ paddingTop: 40, paddingBottom: 8 }}>
-        <VarietiesFilter totalCount={VARIETIES.length} />
+      {/* Full archive */}
+      <section id="archive" style={{ paddingTop: 44, paddingBottom: 8 }}>
+        <div style={{ textAlign: "center", marginBottom: 26 }}>
+          <span style={{ display: "inline-block", fontSize: 11, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 2, marginBottom: 8 }}>The complete archive</span>
+          <h2 style={{ fontSize: 26, fontWeight: 800, color: "#1A1A1A", letterSpacing: -0.7, marginBottom: 8 }}>{total} commercial varieties</h2>
+          <p style={{ fontSize: 13.5, color: "#8A8F98", maxWidth: 560, margin: "0 auto" }}>Every commercially significant variety we track, filterable by region, use, and era.</p>
+        </div>
+        <VarietiesFilter totalCount={VARIETIES.length} regionCounts={regionCounts} />
         <VarietyGrid varieties={VARIETIES} />
       </section>
 

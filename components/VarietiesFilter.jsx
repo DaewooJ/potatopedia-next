@@ -19,7 +19,7 @@ function useKey(u) {
   return u.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/-+/g, "-").replace(/^-|-$/g, "");
 }
 
-export default function VarietiesFilter({ totalCount }) {
+export default function VarietiesFilter({ totalCount, regionCounts = {} }) {
   // Initial state from URL on mount only — no useSearchParams (avoids Suspense requirement)
   const [region, setRegion] = useState("All");
   const [use, setUse] = useState("All uses");
@@ -137,7 +137,7 @@ export default function VarietiesFilter({ totalCount }) {
             background: region === r ? "#C62828" : "white",
             color: region === r ? "white" : "#666",
             fontSize: 12, fontWeight: 600, cursor: "pointer", fontFamily: "inherit",
-          }}>{r}</button>
+          }}>{r}{r !== "All" && regionCounts[r] ? ` (${regionCounts[r]})` : ""}</button>
         ))}
       </div>
 
