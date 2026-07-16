@@ -50,7 +50,9 @@ export default function Navigation() {
         {/* Logo */}
         <Link href="/" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
           <img src="/logo.png" alt="Potatopedia Logo" width={36} height={36} style={{ borderRadius: 10 }} />
-          <span style={{ fontSize: 22, fontWeight: 700, color: "#1A1A1A", letterSpacing: -0.8 }}>Potatopedia</span>
+          <span style={{ fontSize: 22, fontWeight: 700, letterSpacing: -0.8 }}>
+            <span style={{ color: "#1A1A1A" }}>Potato</span><span style={{ color: "#C62828" }}>pedia</span>
+          </span>
         </Link>
 
         {/* Desktop Links */}
@@ -66,6 +68,13 @@ export default function Navigation() {
           <Link href="/blog" style={navLinkStyle("/blog")}>Blog</Link>
           <Link href="/about" style={navLinkStyle("/about")}>About</Link>
         </div>
+
+        {/* Ask AI CTA */}
+        <Link href="/ask" className="pp-desktop-links" style={{
+          background: "linear-gradient(135deg,#C62828,#E53935)", color: "#fff",
+          fontWeight: 700, fontSize: 13, padding: "9px 18px", borderRadius: 9,
+          textDecoration: "none", whiteSpace: "nowrap",
+        }}>Ask AI →</Link>
 
         {/* Hamburger */}
         <div ref={menuRef} className="pp-hamburger" style={{ display: "none", position: "relative" }}>
