@@ -79,6 +79,12 @@ export default function VarietyGrid({ varieties }) {
           border-color: rgba(198,40,40,0.25) !important;
         }
         .pp-variety-card[data-hidden="1"] { display: none !important; }
+        @media (max-width: 768px) {
+          .pp-vg { padding-left: 20px !important; padding-right: 20px !important; }
+        }
+        @media (max-width: 420px) {
+          .pp-vg { grid-template-columns: 1fr !important; }
+        }
       `}</style>
     </div>
   );

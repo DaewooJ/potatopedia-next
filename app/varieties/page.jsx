@@ -100,21 +100,27 @@ export default function VarietiesPage() {
         <div className="pp-section" style={{ maxWidth: 1080, margin: "0 auto", padding: "0 48px" }}>
           <Link
             href="/varieties/compare"
+            className="pp-compare-banner"
             style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 24, flexWrap: "wrap", background: "linear-gradient(120deg,#8E0000,#C62828)", borderRadius: 20, padding: "28px 32px", textDecoration: "none" }}
           >
-            <div>
+            <div style={{ minWidth: 0 }}>
               <h3 style={{ fontSize: 19, fontWeight: 800, color: "#fff", marginBottom: 5 }}>Compare 2–4 varieties side by side</h3>
               <p style={{ fontSize: 13, color: "rgba(255,255,255,0.85)", maxWidth: 420 }}>Origin, year, region, best uses, and traits — laid out in a table so you can decide in seconds.</p>
             </div>
-            <div style={{ display: "flex", gap: 8, alignItems: "center", flexShrink: 0 }}>
-              <span style={{ background: "rgba(255,255,255,0.15)", border: "1px solid rgba(255,255,255,0.3)", borderRadius: 10, padding: "8px 14px", fontSize: 12.5, fontWeight: 600, color: "#fff" }}>Russet Burbank</span>
-              <span style={{ color: "rgba(255,255,255,0.6)", fontSize: 12 }}>vs</span>
-              <span style={{ background: "rgba(255,255,255,0.15)", border: "1px solid rgba(255,255,255,0.3)", borderRadius: 10, padding: "8px 14px", fontSize: 12.5, fontWeight: 600, color: "#fff" }}>Maris Piper</span>
+            <div className="pp-compare-demo" style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }}>
+              <span className="pp-compare-demo-chip" style={{ background: "rgba(255,255,255,0.15)", border: "1px solid rgba(255,255,255,0.3)", borderRadius: 10, padding: "8px 14px", fontSize: 12.5, fontWeight: 600, color: "#fff" }}>Russet Burbank</span>
+              <span className="pp-compare-demo-chip" style={{ color: "rgba(255,255,255,0.6)", fontSize: 12 }}>vs</span>
+              <span className="pp-compare-demo-chip" style={{ background: "rgba(255,255,255,0.15)", border: "1px solid rgba(255,255,255,0.3)", borderRadius: 10, padding: "8px 14px", fontSize: 12.5, fontWeight: 600, color: "#fff" }}>Maris Piper</span>
               <span style={{ background: "#fff", color: "#C62828", fontWeight: 800, fontSize: 13, padding: "10px 20px", borderRadius: 10, whiteSpace: "nowrap" }}>Compare →</span>
             </div>
           </Link>
         </div>
       </section>
+      <style>{`
+        @media (max-width: 640px) {
+          .pp-compare-demo-chip { display: none !important; }
+        }
+      `}</style>
 
       {/* Full archive */}
       <section id="archive" style={{ paddingTop: 44, paddingBottom: 8 }}>
