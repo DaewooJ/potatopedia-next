@@ -1,0 +1,32 @@
+{
+  "slug": "why-potatoes-dont-have-a-futures-market",
+  "title": "50 Million Pounds of Potatoes Vanished in 1976, and It Broke a 104-Year-Old Commodities Exchange's Confidence",
+  "readTime": "5 min read",
+  "category": "Industry & Trade",
+  "excerpt": "Potatoes were legally cleared for U.S. futures trading in 1936 — narrowly avoiding the total ban onions got in 1958. Then came the Maine Potato War of 1976, a $10.60 arbitrary settlement price, and a market that never recovered.",
+  "takeaways": [
+    "Irish potatoes were included in the Commodity Exchange Act of 1936, giving them a legal path to U.S. futures trading — unlike onions, banned outright by the Onion Futures Act of 1958 after a market-manipulation scandal, a ban still in effect today.",
+    "A 1964 U.S. Senate bill by Maine Senator Edmund Muskie tried to ban potato futures the same way onions had been banned — it passed the Senate but never became law.",
+    "On May 7, 1976, contracts for an unprecedented 50 million pounds of Maine potatoes defaulted on the New York Mercantile Exchange — the largest potato-futures default in NYMEX's 104-year history — settled at an arbitrary $10.60 price that badly hurt investors.",
+    "The default reflected a real structural shift: Idaho, led by processor J.R. Simplot supplying McDonald's French fries, had overtaken Maine as the dominant U.S. potato-growing state. Confidence never recovered, and NYMEX delisted Maine potato futures for good."
+  ],
+  "content": [
+    {"type": "p", "text": "Corn, wheat, soybeans, cattle — commodities trading has liquid, mainstream futures markets for all of them. Potatoes, despite being one of the world's most-grown food crops, do not. That's not an accident of indifference. It's the result of a specific, dramatic default in 1976 that broke confidence in potato futures and never let it recover."},
+    {"type": "h2", "text": "A Narrower Escape Than You'd Think"},
+    {"type": "p", "text": "Potatoes actually had a real legal shot at a mainstream futures market. Irish potatoes were written into the Commodity Exchange Act when it passed in 1936, giving them a regulated path to futures trading from the start. Onions got no such protection: a notorious 1955 scheme by traders Sam Siegel and Vincent Kosuga, who cornered an estimated 99.3% of Chicago's onion supply, then reversed into short positions and crashed prices from $2.75 a bag to just 10 cents, led directly to the Onion Futures Act of 1958 — a complete, permanent ban on onion futures trading in the US that remains law today."},
+    {"type": "p", "text": "Potatoes came close to the same fate. In 1964, Maine Senator Edmund Muskie introduced a bill to ban potato futures trading the same way onions had been banned. It actually passed the Senate — but never became law. Potatoes kept their legal path to futures trading. What ultimately broke the market wasn't legislation. It was a default."},
+    {"type": "h2", "text": "The Maine Potato War of 1976"},
+    {"type": "p", "text": "For most of American history, Maine grew the nation's largest potato crop, and the New York Mercantile Exchange built its flagship potato futures contract specifically around Maine-grown potatoes. By the 1970s, that dominance had shifted decisively west. Idaho, led by processor J.R. Simplot — described as the \"Idaho potato king\" and the country's largest potato supplier, funneling enormous volumes of processed potato to McDonald's for French fry production — was growing an increasingly commanding share of the national crop."},
+    {"type": "p", "text": "That East-West tension came to a head in what's now called the Maine Potato War of 1976. Contracts for an unprecedented 50 million pounds of Maine potatoes collapsed into default on May 7, 1976 — the largest potato-futures default in the New York Mercantile Exchange's 104-year history at that point. NYMEX resolved the mess by setting an arbitrary settlement price of $10.60, a number that badly damaged the investors caught on the losing side of the defaulted contracts."},
+    {"type": "h2", "text": "A Market That Never Came Back"},
+    {"type": "p", "text": "The reputational damage was total. Confidence in Maine potato futures collapsed, traders exited the market en masse, and it simply never recovered. NYMEX eventually delisted Maine potato futures entirely — and no comparably mainstream U.S. potato futures contract has taken its place since."},
+    {"type": "h2", "text": "The Pattern Keeps Repeating, Globally"},
+    {"type": "p", "text": "What's striking is how often this same story plays out elsewhere. India's MCX exchange discontinued its potato futures contracts in 2014, citing a mix of factors: liquidity draining toward potato-linked financial instruments rather than the physical commodity, thin trading participation, and inadequate physically-stored stock backing the contracts. Europe's processing potato futures contract on EEX (the FAPP contract) was itself scheduled for delisting in 2026. Potato is also structurally harder to standardize for futures trading than grain in the first place — it's a semi-perishable, bulky commodity, with storage and quality-grading complexity that resists the kind of clean standardization a liquid futures market needs. Add up the repeated near-bans, defaults, and discontinuations across four different decades and three different countries, and the picture is less \"no one ever tried\" and more \"the market kept trying, and kept failing for reasons that were partly structural and partly just bad luck at the wrong moment.\""},
+    {"type": "links", "title": "Cross-reference", "items": [
+      {"href": "/knowledge/potato-supply-chain", "text": "Potato supply chain — how the crop actually moves from field to shelf"},
+      {"href": "/blog/who-buys-egypt-potato-exports", "text": "Egypt's potato export buyers — how physical potato trade actually gets priced without a futures benchmark"},
+      {"href": "/country/usa", "text": "United States country profile — Idaho and Maine's shifting roles in national production"}
+    ]},
+    {"type": "source", "text": "Sources: NPR/Planet Money, \"The Maine Potato War of 1976\"; Wikipedia, \"Onion Futures Act\" (cross-referenced against CFTC history); TIME archive, \"Commodities: The Great Potato Bust\"."}
+  ]
+}

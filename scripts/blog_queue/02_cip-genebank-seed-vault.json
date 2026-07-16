@@ -1,0 +1,32 @@
+{
+  "slug": "cip-genebank-potato-seed-vault",
+  "title": "The World's Potato Diversity Fits Inside One Building in Lima",
+  "readTime": "6 min read",
+  "category": "History & Culture",
+  "excerpt": "5,205 accessions, nine species, four backup systems, and one deposit inside the Arctic Circle. Here's how the International Potato Center protects thousands of years of Andean genetic diversity from ever being lost for good.",
+  "takeaways": [
+    "CIP's genebank in Lima holds 5,205 cultivated potato accessions from 18 countries — the world's largest potato genetic collection and nearly all known potato wild relatives.",
+    "The collection once peaked at 17,347 accessions before a systematic duplicate-removal effort curated it down to today's genetically distinct working total.",
+    "Conservation runs on four independent, redundant systems: 30+ years of in vitro tissue culture, cryopreservation at -196°C (about 450 new accessions a year), a second physical site in Huancayo, Peru, and true-seed backup in Norway's Svalbard Global Seed Vault.",
+    "This isn't a passive archive — wild and landrace genetics from this exact collection have flowed directly into modern breeding programs from China to South Asia to Africa."
+  ],
+  "content": [
+    {"type": "p", "text": "Every commercially significant potato variety grown anywhere in the world today — Russet Burbank in Idaho, Rooster in Ireland, Qingshu 9 in northwest China — ultimately traces its genetic lineage back to a relatively small set of Andean ancestors. Most of what remains of that original diversity, the wild relatives and thousands of years of farmer-bred landrace varieties that never made it into commercial agriculture, is conserved in one place: the International Potato Center's genebank in Lima, Peru."},
+    {"type": "h2", "text": "A Collection That Got Smaller on Purpose"},
+    {"type": "p", "text": "The active cultivated potato collection today totals 5,205 accessions, including 4,797 traditional landrace cultivars sourced from 18 countries — overwhelmingly the Andean region — plus improved breeding-program material. That number is smaller than it used to be, and deliberately so: the collection once peaked at 17,347 accessions before a systematic duplicate-removal effort curated it down to today's total. Fewer entries, but each one genetically distinct — a quality-control decision, not a loss of diversity."},
+    {"type": "p", "text": "The taxonomic range inside that collection is genuinely wide: nine potato species spanning ploidy levels from diploid through pentaploid (a range of chromosome-set counts most cultivated crops don't approach). Solanum tuberosum subsp. andigenum — the Andean cultivated subspecies — is the single largest group, at 3,388 accessions on its own."},
+    {"type": "h2", "text": "Living Farms Feed the Genebank Too"},
+    {"type": "p", "text": "The genebank isn't a one-way vault that only takes deposits from history. Through the Parque de la Papa (\"Potato Park\") initiative — a community-based conservation project in the Peruvian Andes — indigenous farming communities actively maintain traditional varieties in situ, in real fields under real growing conditions, rather than only in a laboratory. Over 200 additional cultivated potato varieties containing unique genetic material have flowed from that living conservation work into CIP's formal genebank record, a two-way relationship between active farming communities and institutional science that a lot of genebanks elsewhere don't have."},
+    {"type": "h2", "text": "Four Ways to Make Sure Nothing Gets Lost"},
+    {"type": "p", "text": "Potato doesn't breed true from true seed the way many staple crops do, which makes conservation genuinely harder than just storing seed packets in a cool room. CIP runs four separate, redundant systems to protect against catastrophic loss. The entire clonal collection has been maintained through in vitro tissue culture — live plant tissue grown in a sterile lab environment — for more than 30 years, requiring periodic regeneration to stay viable. Roughly 450 new accessions are added annually to long-term cryopreservation, storing plant tissue in liquid nitrogen at -196°C, a far more durable, lower-maintenance method than active tissue culture once material is safely frozen."},
+    {"type": "p", "text": "Beyond Lima itself, most of the collection is backed up a second time at CIP's research station in Huancayo, in the Peruvian Andes — a geographically separate site within Peru. And farmer-produced true botanical seed from traditional cultivars has been deposited in the Svalbard Global Seed Vault in Norway, the globally recognized backup-of-last-resort that protects crop diversity from genebanks worldwide against the kind of single-site disaster — fire, funding collapse, political upheaval — that has permanently destroyed other collections throughout agricultural history."},
+    {"type": "h2", "text": "Not Just an Archive"},
+    {"type": "p", "text": "It's worth being clear about why any of this matters beyond historical preservation for its own sake: this exact collection is the working raw material behind modern potato breeding worldwide. Disease-resistance and climate-adaptation traits bred into commercial varieties documented elsewhere on this site — China's Qingshu 9 (bred from CIP's UNICA line), breeding programs across South Asia, national programs throughout Africa — trace directly back to wild and landrace genetics held in this Lima collection. When a breeder anywhere in the world needs a specific resistance trait that modern commercial varieties lack, there's a real chance the genetic answer is sitting in a test tube or a liquid-nitrogen tank in Peru, put there specifically so that question could someday be asked."},
+    {"type": "links", "title": "Cross-reference", "items": [
+      {"href": "/country/peru", "text": "Peru country profile — birthplace of the potato and CIP's home base"},
+      {"href": "/blog/andean-potato-origin-story", "text": "The Andean potato origin story — where this diversity actually came from"},
+      {"href": "/blog/nasa-cip-potatoes-on-mars", "text": "How CIP tested this same genetic resilience against simulated Mars conditions"}
+    ]},
+    {"type": "source", "text": "Source: International Potato Center (CIP), official site (cipotato.org/genebankcip/potato-cultivated/, cipotato.org/genebankcip/, cipotato.org/genebankcip/process/safety_backups/)."}
+  ]
+}

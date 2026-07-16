@@ -1,0 +1,33 @@
+{
+  "slug": "east-african-highlands-potato-belt",
+  "title": "In Rwanda, One Region Gets More Than Half Its Household Income From a Crop the British Brought in the 1880s",
+  "readTime": "5 min read",
+  "category": "Around the World",
+  "excerpt": "Kenya's second-biggest food crop by volume. Rwanda's Northern Province runs on it. A five-country highland belt most people have never heard of, mapped out with real numbers.",
+  "takeaways": [
+    "Potatoes arrived in East Africa in the 1880s via British farmers, thriving specifically in the region's highlands between roughly 1,200 and 3,000 metres elevation across Kenya, Ethiopia, Rwanda, Tanzania, and Uganda.",
+    "Kenya's potatoes now rank as the country's second most important food crop by volume, after maize — over 800,000 farmers grow it, concentrated across 13 core counties, with production projected to reach 2.5 million tonnes by 2021.",
+    "Rwanda's Northern Province generates more than half its annual household income from potato, with per-capita consumption around 145 kg a year — nearly six times Kenya's 25 kg, despite both countries sitting in the same regional belt.",
+    "Yield gaps across the belt (7-10 t/ha for smallholders) trace to four consistent, well-documented constraints — seed quality, bacterial wilt, late blight, and soil fertility — not to unsuitable climate, meaning it's a solvable systems problem."
+  ],
+  "content": [
+    {"type": "p", "text": "There's a potato belt running through five East African countries that rarely makes it into global potato coverage, despite being genuinely central to food security and household income for millions of smallholder farmers. It has its own arrival story, its own internal variation, and its own well-documented set of constraints."},
+    {"type": "h2", "text": "A Specific, Datable Arrival"},
+    {"type": "p", "text": "Potatoes arrived in East Africa during the 1880s, introduced by British farmers — a distinct and comparatively late introduction point compared to the crop's much earlier spread through Europe. It found an unusually good climatic match in the region's highlands, thriving specifically in the band running from roughly 1,200 to 3,000 metres elevation across Kenya, Ethiopia, Rwanda, Tanzania, and Uganda. That shared elevation band is what defines the East African Highlands as a coherent regional potato belt, rather than five unrelated national potato industries that happen to be geographically close."},
+    {"type": "h2", "text": "Kenya: Potato as Prestige Food"},
+    {"type": "p", "text": "Potatoes now rank as Kenya's second most important food crop by volume harvested, trailing only maize. Over 800,000 farmers grow the crop, concentrated across thirteen core counties — Meru, Nyeri, Nyandarua, Kiambu, Taita-Taveta, Nakuru, Narok, Bomet, Elgeyo-Marakwet, Trans Nzoia, Bungoma, Uasin Gishu, and West Pokot — with newer production emerging in Machakos, Makueni, and Kajiado. Production expanded substantially in recent years, with projections reaching 2.5 million tonnes by 2021, up from around 2 million tonnes in 2020."},
+    {"type": "p", "text": "What's genuinely distinctive about Kenya specifically: potatoes are widely regarded there as a prestigious, high-quality food item, enjoyed across income levels in both rural and urban settings — a real departure from how staple starch crops are often positioned elsewhere in Africa, where they're more commonly associated with subsistence eating than aspirational consumption. Kenyan per-capita consumption averages roughly 25 kg a year."},
+    {"type": "h2", "text": "Rwanda: A Region That Runs on Potato"},
+    {"type": "p", "text": "Rwanda tells a genuinely different story within the same belt. Potato cultivation there concentrates in the Northern Province, where the crop generates more than half of annual household income for growing families — an unusually direct economic dependency that goes well beyond simple food-security framing. Per-capita consumption in Rwanda runs around 145 kg annually — nearly six times Kenya's figure, despite both countries sitting inside the same highland climate belt. That gap says something real about how differently the same crop can get woven into two neighboring national diets and economies, even under similar growing conditions."},
+    {"type": "h2", "text": "Uganda and Ethiopia: The Same Pattern, Different Scale"},
+    {"type": "p", "text": "In both Uganda and Ethiopia, potato functions as a major food and cash crop grown predominantly by small-scale farmers in the countries' respective highland regions — following the same general smallholder-dominated production structure seen across the wider belt, without either country's potato sector rivaling Kenya's or Rwanda's scale or cultural centrality specifically."},
+    {"type": "h2", "text": "Why Yields Lag — And Why That's Fixable"},
+    {"type": "p", "text": "Smallholder production across the belt typically runs on small land parcels between 0.25 and 5 hectares, with yields generally in the 7-10 tonnes-per-hectare range — well below what input-intensive commercial systems achieve elsewhere in the world. Research across Kenya, Uganda, and Ethiopia specifically converges on the same four constraints, repeatedly: seed potato quality management, bacterial wilt control, late blight control, and soil fertility management. That consistency across three separate country studies is itself informative — it means the yield ceiling across this belt is a shared, well-diagnosed systems problem, not an unexplained mystery or a fixed climate limit the region simply can't grow past."},
+    {"type": "links", "title": "Cross-reference", "items": [
+      {"href": "/knowledge/seed-potato-systems", "text": "Seed potato systems — the certified-seed access problem playing out globally"},
+      {"href": "/blog/true-potato-seed-tps-technology", "text": "True Potato Seed — a technology aimed directly at Africa's seed-access gap"},
+      {"href": "/knowledge/potato-diseases-pests", "text": "Potato diseases and pests — late blight and bacterial wilt explained"}
+    ]},
+    {"type": "source", "text": "Sources: World Potato Congress Kenya 2026 official site (wpc2026kenya.com); Springer Nature, Potato Research journal, peer-reviewed regional studies; FAO Africa potato production data."}
+  ]
+}

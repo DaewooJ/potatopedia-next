@@ -1,0 +1,33 @@
+{
+  "slug": "plant-breeders-rights-upov-potato",
+  "title": "A New Potato Variety Can Be Protected for 30 Years — Here's the Legal System That Makes That Possible",
+  "readTime": "5 min read",
+  "category": "Industry & Trade",
+  "excerpt": "Novel. Distinct. Uniform. Stable. Four criteria, one Geneva-based treaty organization, and a legal mechanism most people who eat potatoes have never heard of — but that determines whether breeding a better one is worth the years it takes.",
+  "takeaways": [
+    "UPOV — the International Union for the Protection of New Varieties of Plants — traces to a 1961 Paris convention, entering into force in 1968 and revised in 1972, 1978, and 1991; it's headquartered in Geneva and governs plant breeders' rights internationally.",
+    "A breeder's right requires anyone commercially propagating, offering for sale, or marketing a protected variety's material to get the original breeder's authorization first — the legal mechanism that lets breeders recoup years of development investment.",
+    "Protection requires a variety to pass four specific tests: novel, distinct (observably, not just genetically), uniform, and stable across generations — plus a suitable name.",
+    "Potato varieties can be protected for up to 30 years in some systems, longer than UPOV's general 20-year minimum — reflecting how long potato breeding-to-market cycles actually run — though a built-in \"breeder's exemption\" lets other breeders use protected varieties as source material for new breeding without permission."
+  ],
+  "content": [
+    {"type": "p", "text": "Every named potato variety this site has covered — Markies, Fontane, Carisma, Sárpo Axona — exists because someone spent years breeding, trialing, and selecting it. What's less visible is the legal system that makes that years-long investment financially viable in the first place. It has a name, a headquarters, and a genuinely specific set of rules."},
+    {"type": "h2", "text": "A Treaty Older Than Most Potato Varieties on Shelves Today"},
+    {"type": "p", "text": "UPOV — the International Union for the Protection of New Varieties of Plants — is an intergovernmental organization headquartered in Geneva, Switzerland, established by an international convention first adopted in Paris on December 2, 1961, and entering into force in 1968. It's been revised three times since — in 1972, 1978, and 1991 — a six-decade evolution of international plant variety protection standards. UPOV's own stated purpose frames this explicitly as a food-security and innovation mechanism, not just a commercial protection scheme: encouraging the development of new plant varieties for the benefit of society broadly, not only the breeders who profit from them directly."},
+    {"type": "h2", "text": "What a Breeder's Right Actually Grants"},
+    {"type": "p", "text": "A breeder's right means legal authorization from the original breeder is required before anyone else can commercially propagate a protected variety, offer its material for sale, or market it. The economic logic behind this is straightforward: developing a genuinely new potato variety requires years of breeding, trialing, and selection investment. Without exclusive rights protecting that work, nothing would stop a third party from simply reproducing and selling a successful new variety at commercial scale, with zero return flowing back to whoever actually did the original development — removing much of the financial incentive to invest in new variety breeding at all."},
+    {"type": "h2", "text": "The Four-Part Test"},
+    {"type": "p", "text": "A new plant variety only qualifies for protection if it passes four specific criteria. It must be novel — not previously sold or disposed of commercially beyond specified limits. It must be distinct — clearly distinguishable from existing known varieties based on physically expressed characteristics, not merely a claimed genetic difference sitting unexpressed in a lab. It must be uniform — consistent enough in its relevant characteristics to reliably define what's actually being protected. And it must be stable — its defining traits have to remain unchanged across repeated generations of propagation, which is essential for the protection to be reliably enforced over its full term. A suitable, non-misleading variety name rounds out the registration requirement."},
+    {"type": "h2", "text": "Why Potatoes Get Longer Protection"},
+    {"type": "p", "text": "Potato varieties can be protected for up to 30 years in some jurisdictions — meaningfully longer than UPOV's general minimum term of 20 years from the date of grant that applies to most plant categories (trees and vines get a 25-year minimum). That extended window for potato specifically reflects the crop's genuinely long multi-generational breeding and trialing cycle before a new variety reaches commercial reliability and real market recognition — the legal protection period is scaled to match how long it actually takes to get a potato variety from first cross to shelf-ready product."},
+    {"type": "h2", "text": "The Built-In Escape Hatch"},
+    {"type": "p", "text": "UPOV's system includes a deliberate limitation on its own protections: the \"breeder's exemption\" allows other breeders to use a protected variety as source material for developing further new varieties, without needing the original rights holder's authorization. This exists specifically to keep genetic diversity and breeding progress moving industry-wide — preventing any single protected variety's IP status from becoming an absolute bottleneck that freezes the next generation of breeding built on its genetics. It's the mechanism that keeps plant variety protection from turning into a dead end for future innovation, even as it protects the current breeder's investment."},
+    {"type": "links", "title": "Cross-reference", "items": [
+      {"href": "/blog/hzpc-worlds-largest-seed-potato-company", "text": "HZPC — the world's largest seed potato company, a major UPOV-protected variety developer"},
+      {"href": "/blog/markies-potato-variety", "text": "Markies — a real named, protected potato variety this site has profiled in depth"},
+      {"href": "/blog/germicopa-french-potato-breeder", "text": "Germicopa — the French breeder behind Markies and other protected varieties"},
+      {"href": "/knowledge/potato-varieties-guide", "text": "Potato varieties guide — how new commercial varieties actually reach growers"}
+    ]},
+    {"type": "source", "text": "Sources: UPOV (International Union for the Protection of New Varieties of Plants) official site, upov.int; WIPO Magazine, \"UPOV: The Impact of Plant Variety Protection.\""}
+  ]
+}

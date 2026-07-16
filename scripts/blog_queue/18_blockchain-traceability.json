@@ -1,0 +1,30 @@
+{
+  "slug": "blockchain-traceability-potato-supply-chain",
+  "title": "A Potato Processor Can Now Trace a Quality Problem Back to One Farm Plot in Seconds — But Did It Need Blockchain to Do It?",
+  "readTime": "5 min read",
+  "category": "Industry & Trade",
+  "excerpt": "A real, operating implementation in India tracks potatoes from seed variety to processing plant. The results are genuine. So is the industry's own caveat: for most supplier-to-processor use cases, blockchain is expensive overkill.",
+  "takeaways": [
+    "McPatel Foods, behind India's \"Ohh! Potato\" brand, runs a real end-to-end blockchain traceability system tracking potatoes from individual farm plots through harvest, transport, and processing.",
+    "The system has three core functions: seed input distribution tracking, real-time crop planning and monitoring via mobile/web apps, and harvest tracking linking product back to its originating farm and quality checks.",
+    "The concrete payoff: if a quality issue surfaces downstream, the company can trace it back to a specific farm or batch in seconds rather than days — a genuine food-safety and recall-speed improvement.",
+    "Industry analysis offers an important counterpoint: blockchain is rarely necessary for straightforward supplier-to-processor traceability — GS1 identifiers plus a modern cloud platform often deliver the same recall-speed and audit-readiness benefits without the overhead of a multi-party ledger."
+  ],
+  "content": [
+    {"type": "p", "text": "\"Blockchain traceability\" gets pitched constantly across agriculture, and potato supply chains are no exception. What's harder to find is a real, operating implementation with concrete results — and an honest accounting of when the blockchain part is actually doing anything the underlying traceability system couldn't do without it."},
+    {"type": "h2", "text": "A Real System, Not a Pilot"},
+    {"type": "p", "text": "McPatel Foods, the company behind India's \"Ohh! Potato\" processing brand, deployed a blockchain-enabled digital traceability platform across its entire potato sourcing and processing network — a live, operating system rather than a proof-of-concept. It tracks individual potatoes starting from specific farm plots, digitizing seed variety, input use, irrigation practices, and cultivation methods, then following that same data through harvest, transport, and final processing. That's genuinely end-to-end: field to finished product, one continuous chain of custody."},
+    {"type": "h2", "text": "What the System Actually Does"},
+    {"type": "p", "text": "Three functional pieces make up the implementation. Seed input distribution tracking ensures only verified, high-quality seed varieties enter the chain, establishing batch-level traceability from the very first input. Crop planning and monitoring collects real-time farm data through mobile and web apps, giving both farmers and the processor better agronomic decisions throughout the season, not just at harvest. Harvest tracking links every batch of harvested potatoes directly back to its originating farm and quality checks as it moves into processing. Because it runs on blockchain specifically — an immutable ledger — every recorded data point becomes permanent and can't be retroactively altered, a guarantee a standard centralized database doesn't automatically provide."},
+    {"type": "h2", "text": "The Business Case, on Both Ends"},
+    {"type": "p", "text": "For farms, the digitization means better agronomic support: real-time performance data helps catch yield problems and reduce waste before they compound downstream. For the processing side, consistent raw-potato quality — sugar content, tuber size, dry matter percentage, all of which directly affect processing efficiency and final product quality — becomes easier to guarantee, because the platform lets processors match incoming raw material precisely against specific production needs. The most concrete, quantifiable payoff: when a quality issue does surface, the company can trace it back to a specific farm or batch in seconds rather than days — a dramatic improvement with direct food-safety and recall-speed implications."},
+    {"type": "h2", "text": "The Caveat the Vendors Don't Lead With"},
+    {"type": "p", "text": "Here's the part worth sitting with: industry analysis of potato traceability pilots more broadly is candid that some deliver real value while others amount to costly IT experiments that didn't need the specific technology deployed. Blockchain specifically is described as rarely necessary for straightforward supplier-to-processor traceability use cases. If the actual goal is recall speed, supplier performance tracking, or audit readiness, GS1 standardized identifiers combined with a modern cloud database platform can deliver most of the same practical benefit — without the technical overhead of building and maintaining a multi-party distributed ledger. The distinction matters: traceability as a goal almost always adds value. Blockchain as the specific technology chosen to deliver it is sometimes the expensive way to get there, not the necessary one."},
+    {"type": "links", "title": "Cross-reference", "items": [
+      {"href": "/blog/how-ai-optical-sorting-works-potatoes", "text": "AI optical sorting — another traceability-adjacent technology reshaping post-harvest potato handling"},
+      {"href": "/knowledge/potato-supply-chain", "text": "Potato supply chain — how the crop actually moves from field to shelf"},
+      {"href": "/country/india", "text": "India country profile — home to this specific traceability implementation"}
+    ]},
+    {"type": "source", "text": "Sources: TraceX Technologies official case studies (tracextech.com) — McPatel Foods/Ohh! Potato implementation; industry traceability-technology analysis on blockchain versus non-blockchain approaches."}
+  ]
+}

@@ -1,0 +1,42 @@
+name: Publish Next Queued Blog Post
+
+# Manual trigger is always available. The daily schedule publishes at most
+# one post per run — the oldest file in scripts/blog_queue/, if any exists.
+# If the queue is empty, the run is a no-op (exits 0, logs "Nothing queued").
+#
+# This workflow does NOT generate content. Every post in the queue was
+# researched and written ahead of time and checked into the repo under
+# scripts/blog_queue/ — this job only stamps today's date onto the next
+# queued post and inserts it into lib/data.js. See
+# scripts/publish_next_blog_post.py for the full mechanism.
+on:
+  workflow_dispatch: {}
+  # Cron is UTC — 06:00 UTC = 11:30 IST. Offset from the LinkedIn publish
+  # workflow (04:00 UTC) in the backend repo so the two don't collide.
+  schedule:
+    - cron: "0 6 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Configure git identity
+        run: |
+          git config user.name "potatopedia-blog-bot"
+          git config user.email "actions@users.noreply.github.com"
+
+      - name: Publish next queued post
+        run: python3 scripts/publish_next_blog_post.py
