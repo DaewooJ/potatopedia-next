@@ -1,8 +1,7 @@
 import { Poppins } from "next/font/google";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
-import Navigation from "../components/Navigation";
-import Footer from "../components/Footer";
+import SiteChrome from "../components/SiteChrome";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -73,11 +72,7 @@ export default function RootLayout({ children }) {
         `}</style>
       </head>
       <body className={poppins.className}>
-        <Navigation />
-        <main style={{ paddingTop: 68 }}>
-          {children}
-        </main>
-        <Footer />
+        <SiteChrome>{children}</SiteChrome>
         <Analytics />
       </body>
     </html>

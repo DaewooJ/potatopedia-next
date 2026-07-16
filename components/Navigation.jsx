@@ -69,12 +69,12 @@ export default function Navigation() {
           <Link href="/about" style={navLinkStyle("/about")}>About</Link>
         </div>
 
-        {/* Ask AI CTA */}
-        <Link href="/ask" className="pp-desktop-links" style={{
+        {/* Support CTA */}
+        <Link href="/support" className="pp-desktop-links" style={{
           background: "linear-gradient(135deg,#C62828,#E53935)", color: "#fff",
           fontWeight: 700, fontSize: 13, padding: "9px 18px", borderRadius: 9,
           textDecoration: "none", whiteSpace: "nowrap",
-        }}>Ask AI →</Link>
+        }}>♥ Support Us</Link>
 
         {/* Hamburger */}
         <div className="pp-hamburger" style={{ display: "none", position: "relative" }}>
