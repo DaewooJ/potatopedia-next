@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hero-Declaration Treatments — Potatopedia Chat-First Homepage</title>
+<style>
+  :root{
+    --red:#C62828; --red-dk:#8E0000; --red-soft:rgba(198,40,40,.06); --red-soft2:rgba(198,40,40,.12);
+    --ink:#1A1A1A; --ink-soft:#4B5563; --mut:#8A8F98; --line:#ECECEC; --bg:#FAFAFA; --panel:#fff;
+    --shadow:0 10px 26px rgba(20,20,20,.05);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --ink:#F1EDE9; --ink-soft:#C7CAD1; --mut:#9299A6; --line:#2A2E36; --bg:#15171B; --panel:#1D2026; --red-soft:rgba(198,40,40,.16); --red-soft2:rgba(198,40,40,.24); --shadow:0 10px 26px rgba(0,0,0,.4); }
+  }
+  :root[data-theme="dark"]{ --ink:#F1EDE9; --ink-soft:#C7CAD1; --mut:#9299A6; --line:#2A2E36; --bg:#15171B; --panel:#1D2026; --red-soft:rgba(198,40,40,.16); --red-soft2:rgba(198,40,40,.24); --shadow:0 10px 26px rgba(0,0,0,.4); }
+  :root[data-theme="light"]{ --ink:#1A1A1A; --ink-soft:#4B5563; --mut:#8A8F98; --line:#ECECEC; --bg:#FAFAFA; --panel:#fff; --red-soft:rgba(198,40,40,.06); --red-soft2:rgba(198,40,40,.12); --shadow:0 10px 26px rgba(20,20,20,.05); }
+
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{text-decoration:none;color:inherit}
+
+  .mockbanner{background:var(--ink);color:var(--bg);font-size:11px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;text-align:center;padding:8px}
+  .mockbanner b{color:#FCA5A5}
+
+  .intro{max-width:640px;margin:0 auto;padding:44px 24px 8px;text-align:center}
+  .intro h1{font-size:26px;font-weight:800;letter-spacing:-.6px;margin-bottom:10px}
+  .intro p{font-size:14px;color:var(--ink-soft);max-width:520px;margin:0 auto}
+
+  .optionSection{padding:50px 0 44px;border-top:1px solid var(--line)}
+  .optionSection:first-of-type{border-top:none;padding-top:34px}
+  .optHead{max-width:640px;margin:0 auto 8px;padding:0 24px}
+  .optTag{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:var(--red);background:var(--red-soft);padding:5px 13px;border-radius:20px;margin-bottom:10px}
+  .optHead h3{font-size:19px;font-weight:800;letter-spacing:-.3px;margin-bottom:5px}
+  .optHead p{font-size:13.5px;color:var(--mut);max-width:520px}
+
+  .stage{text-align:center;padding:34px 24px 4px;max-width:680px;margin:0 auto}
+  .ey{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red);background:var(--red-soft);padding:6px 15px;border-radius:30px;margin-bottom:18px}
+  .ey .dot{width:6px;height:6px;border-radius:50%;background:var(--red)}
+  .lang-badge{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:700;color:var(--red);background:var(--panel);border:1px solid var(--red-soft2);padding:5px 11px;border-radius:20px;margin-left:8px}
+  h1.demo{font-size:36px;line-height:1.14;font-weight:800;letter-spacing:-1.2px;max-width:600px;margin:0 auto;text-wrap:balance}
+  h1.demo span{background:linear-gradient(135deg,var(--red),var(--red-dk));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .lede{font-size:15px;color:var(--ink-soft);max-width:500px;margin:14px auto 0}
+  .micro{font-size:12px;color:var(--mut);max-width:500px;margin:9px auto 0}
+  .trust{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:14px auto 0}
+  .trust span{font-size:11px;font-weight:600;color:var(--ink-soft);background:var(--red-soft);border:1px solid var(--red-soft2);padding:5px 11px;border-radius:20px}
+
+  footer{border-top:1px solid var(--line);padding:26px 0 46px;color:var(--mut);font-size:12px;text-align:center}
+
+  /* ===== Option 1: language pill row ===== */
+  .langs{display:flex;gap:7px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+  .langs span{font-size:12px;font-weight:600;color:var(--ink-soft);background:var(--panel);border:1px solid var(--line);padding:5px 12px;border-radius:20px}
+  .langs .glob{color:var(--red);font-weight:700}
+
+  /* ===== Option 2: cycling multilingual line ===== */
+  .cycle-wrap{height:24px;margin-top:10px;position:relative;overflow:hidden}
+  .cycle{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:600;color:var(--red);opacity:0;animation:cycleFade 10s infinite}
+  .cycle:nth-child(1){animation-delay:0s}
+  .cycle:nth-child(2){animation-delay:2s}
+  .cycle:nth-child(3){animation-delay:4s}
+  .cycle:nth-child(4){animation-delay:6s}
+  .cycle:nth-child(5){animation-delay:8s}
+  @keyframes cycleFade{0%{opacity:0}4%{opacity:1}16%{opacity:1}20%{opacity:0}100%{opacity:0}}
+  @media (prefers-reduced-motion: reduce){
+    .cycle{animation:none;opacity:0}
+    .cycle:first-child{opacity:1;position:static}
+    .cycle-wrap{height:auto}
+  }
+
+  /* ===== Option 3: bilingual stacked headline ===== */
+  .bilingual .hi{font-size:24px;font-weight:700;color:var(--ink-soft);margin-top:8px;max-width:600px;margin-left:auto;margin-right:auto}
+  .bilingual .rule{width:40px;height:2px;background:var(--red-soft2);margin:14px auto}
+
+  /* ===== Option 4: minimal badge only ===== */
+  .badgeRow{display:inline-flex;align-items:center;gap:8px}
+</style>
+</head>
+<body>
+<div class="mockbanner"><b>Hero-declaration treatments</b> · adding "ask in any language" · 4 options — not live</div>
+
+<div class="intro">
+  <h1>Working the multilingual claim into the declaration</h1>
+  <p>Four ways to say "ask in any language" without turning the hero into a UN General Assembly sign. All keep the same eyebrow, stats, and trust badges underneath.</p>
+</div>
+
+<!-- ============ OPTION 1 ============ -->
+<section class="optionSection">
+  <div class="optHead">
+    <span class="optTag">1 · Language pill row</span>
+    <h3>Headline unchanged, a language row does the telling</h3>
+    <p>Copy stays exactly as it is today. A new row of language pills sits between the micro-stats and the trust badges — shows, rather than states, the multilingual claim.</p>
+  </div>
+  <div class="stage">
+    <span class="ey"><span class="dot"></span> First AI knowledge base · Potato industry</span>
+    <h1 class="demo">Ask anything about the <span>global potato industry.</span></h1>
+    <p class="lede">Production, varieties, trade, processing, nutrition — cited answers in seconds, then keep asking.</p>
+    <p class="micro">5,657 verified data points · 277 sources · every answer cites where it came from.</p>
+    <div class="langs"><span class="glob">🌐</span><span>English</span><span>Español</span><span>हिन्दी</span><span>中文</span><span>Français</span><span>+35 more</span></div>
+  </div>
+</section>
+
+<!-- ============ OPTION 2 ============ -->
+<section class="optionSection">
+  <div class="optHead">
+    <span class="optTag">2 · Cycling subtitle</span>
+    <h3>A second line rotates through languages</h3>
+    <p>Right under the headline, a slim line cycles "in any language" through five scripts. Motion carries the claim — reduced-motion users just see the English line, static.</p>
+  </div>
+  <div class="stage">
+    <span class="ey"><span class="dot"></span> First AI knowledge base · Potato industry</span>
+    <h1 class="demo">Ask anything about the <span>global potato industry.</span></h1>
+    <div class="cycle-wrap">
+      <span class="cycle">in any language.</span>
+      <span class="cycle">en cualquier idioma.</span>
+      <span class="cycle">किसी भी भाषा में.</span>
+      <span class="cycle">en n'importe quelle langue.</span>
+      <span class="cycle">以任何语言。</span>
+    </div>
+    <p class="lede" style="margin-top:8px">Production, varieties, trade, processing, nutrition — cited answers in seconds, then keep asking.</p>
+    <p class="micro">5,657 verified data points · 277 sources · every answer cites where it came from.</p>
+    <div class="trust">
+      <span>👨‍🌾 Growers &amp; farm operators</span>
+      <span>📈 Traders &amp; buyers</span>
+      <span>🔬 Researchers</span>
+      <span>Used across 31 countries</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OPTION 3 ============ -->
+<section class="optionSection">
+  <div class="optHead">
+    <span class="optTag">3 · Bilingual stacked headline</span>
+    <h3>The claim proven by actually being bilingual</h3>
+    <p>English headline, then the same line rendered in a second script directly below at real weight — not a footnote, a genuine second headline. Boldest option; also the most visually "busy."</p>
+  </div>
+  <div class="stage bilingual">
+    <span class="ey"><span class="dot"></span> First AI knowledge base · Potato industry</span>
+    <h1 class="demo">Ask anything about the <span>global potato industry.</span></h1>
+    <div class="rule"></div>
+    <div class="hi">वैश्विक आलू उद्योग के बारे में कुछ भी पूछें — किसी भी भाषा में।</div>
+    <p class="lede">Production, varieties, trade, processing, nutrition — cited answers in seconds, then keep asking.</p>
+    <p class="micro">5,657 verified data points · 277 sources · every answer cites where it came from.</p>
+  </div>
+</section>
+
+<!-- ============ OPTION 4 ============ -->
+<section class="optionSection">
+  <div class="optHead">
+    <span class="optTag">4 · Minimal badge only</span>
+    <h3>Lowest-disruption option — one small badge added</h3>
+    <p>Headline, lede, and stats are all untouched. A second small pill next to the eyebrow badge carries the entire claim — "40+ languages." Easiest to ship, easiest to remove later.</p>
+  </div>
+  <div class="stage">
+    <div class="badgeRow">
+      <span class="ey"><span class="dot"></span> First AI knowledge base · Potato industry</span>
+      <span class="lang-badge">🌐 40+ languages</span>
+    </div>
+    <h1 class="demo">Ask anything about the <span>global potato industry.</span></h1>
+    <p class="lede">Production, varieties, trade, processing, nutrition — cited answers in seconds, then keep asking.</p>
+    <p class="micro">5,657 verified data points · 277 sources · every answer cites where it came from.</p>
+  </div>
+</section>
+
+<footer>Design exploration — not deployed. "40+ languages" / "any language" is a placeholder claim — confirm actual language coverage of the AI engine before shipping any of these.</footer>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Example-Block Treatments — Potatopedia Chat-First Homepage</title>
+<style>
+  :root{
+    --red:#C62828; --red-dk:#8E0000; --red-soft:rgba(198,40,40,.06); --red-soft2:rgba(198,40,40,.12);
+    --ink:#1A1A1A; --ink-soft:#4B5563; --mut:#8A8F98; --line:#ECECEC; --bg:#FAFAFA; --panel:#fff;
+    --shadow:0 10px 26px rgba(20,20,20,.05);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --ink:#F1EDE9; --ink-soft:#C7CAD1; --mut:#9299A6; --line:#2A2E36; --bg:#15171B; --panel:#1D2026; --red-soft:rgba(198,40,40,.16); --red-soft2:rgba(198,40,40,.24); --shadow:0 10px 26px rgba(0,0,0,.4); }
+  }
+  :root[data-theme="dark"]{ --ink:#F1EDE9; --ink-soft:#C7CAD1; --mut:#9299A6; --line:#2A2E36; --bg:#15171B; --panel:#1D2026; --red-soft:rgba(198,40,40,.16); --red-soft2:rgba(198,40,40,.24); --shadow:0 10px 26px rgba(0,0,0,.4); }
+  :root[data-theme="light"]{ --ink:#1A1A1A; --ink-soft:#4B5563; --mut:#8A8F98; --line:#ECECEC; --bg:#FAFAFA; --panel:#fff; --red-soft:rgba(198,40,40,.06); --red-soft2:rgba(198,40,40,.12); --shadow:0 10px 26px rgba(20,20,20,.05); }
+
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{text-decoration:none;color:inherit}
+
+  .mockbanner{background:var(--ink);color:var(--bg);font-size:11px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;text-align:center;padding:8px}
+  .mockbanner b{color:#FCA5A5}
+
+  .intro{max-width:640px;margin:0 auto;padding:44px 24px 8px;text-align:center}
+  .intro h1{font-size:26px;font-weight:800;letter-spacing:-.6px;margin-bottom:10px}
+  .intro p{font-size:14px;color:var(--ink-soft);max-width:520px;margin:0 auto}
+
+  .optionSection{padding:50px 0;border-top:1px solid var(--line)}
+  .optionSection:first-of-type{border-top:none;padding-top:34px}
+  .optHead{max-width:640px;margin:0 auto 22px;padding:0 24px}
+  .optTag{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:var(--red);background:var(--red-soft);padding:5px 13px;border-radius:20px;margin-bottom:10px}
+  .optHead h2{font-size:19px;font-weight:800;letter-spacing:-.3px;margin-bottom:5px}
+  .optHead p{font-size:13.5px;color:var(--mut);max-width:520px}
+  .stage{max-width:640px;margin:0 auto;padding:0 24px}
+
+  footer{border-top:1px solid var(--line);padding:26px 0 46px;color:var(--mut);font-size:12px;text-align:center}
+
+  /* shared bubble bits reused inside option 1 & 2 */
+  .row{display:flex}
+  .row.user{justify-content:flex-end}
+  .row.ai{justify-content:flex-start}
+  .bubble{max-width:86%;border-radius:16px;padding:12px 15px;font-size:13.5px}
+  .row.user .bubble{background:linear-gradient(135deg,var(--red),var(--red-dk));color:#fff;border-bottom-right-radius:4px}
+  .row.ai .bubble{background:var(--panel);border:1px solid var(--line);color:var(--ink);border-bottom-left-radius:4px}
+  .cite{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
+  .cite span{font-size:10px;font-weight:700;letter-spacing:.3px;color:var(--red);background:var(--red-soft);padding:3px 8px;border-radius:8px}
+
+  /* ============ OPTION 1 — Browser / App Window ============ */
+  .win{border-radius:14px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line)}
+  .winbar{background:var(--bg);border-bottom:1px solid var(--line);padding:10px 14px;display:flex;align-items:center;gap:10px}
+  .dots{display:flex;gap:6px}
+  .dots span{width:9px;height:9px;border-radius:50%;background:var(--line)}
+  .dots span:nth-child(1){background:#E5A2A2}
+  .dots span:nth-child(2){background:#E9CB9A}
+  .dots span:nth-child(3){background:#A9CBAE}
+  .addr{flex:1;background:var(--panel);border:1px solid var(--line);border-radius:7px;padding:5px 12px;font-size:11.5px;color:var(--mut);text-align:center}
+  .winbody{background:var(--panel);padding:20px 18px;display:flex;flex-direction:column;gap:12px}
+
+  /* ============ OPTION 2 — Sample Ribbon / Dashed ============ */
+  .dashed{position:relative;border:1.5px dashed var(--red-soft2);border-radius:16px;padding:24px 20px 20px;background:var(--panel)}
+  .ribbon{position:absolute;top:-11px;left:20px;background:var(--red);color:#fff;font-size:10.5px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;padding:4px 12px;border-radius:20px}
+  .dashed .row.ai .bubble,.dashed .row.user .bubble{opacity:.92}
+  .dashed .thread{display:flex;flex-direction:column;gap:12px}
+
+  /* ============ OPTION 3 — Editorial Q&A Card (no bubbles) ============ */
+  .qa{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--red);border-radius:4px 14px 14px 4px;padding:24px 26px}
+  .qa .q{font-size:17px;font-weight:800;letter-spacing:-.3px;margin-bottom:10px}
+  .qa .q::before{content:"Q. ";color:var(--red)}
+  .qa .a{font-size:14.5px;color:var(--ink-soft);line-height:1.7}
+  .qa .a::before{content:"A. ";color:var(--mut);font-weight:800}
+  .qa .cite{margin-top:14px}
+
+  /* ============ OPTION 4 — Annotated Walkthrough ============ */
+  .anno{position:relative;padding-right:150px}
+  .anno .thread{display:flex;flex-direction:column;gap:12px}
+  .callout{position:absolute;right:0;font-size:11.5px;color:var(--ink-soft);width:140px;display:flex;align-items:center;gap:6px}
+  .callout .stem{width:26px;height:1px;background:var(--red);flex-shrink:0;position:relative}
+  .callout .stem::after{content:"";position:absolute;left:0;top:-2px;width:5px;height:5px;border-radius:50%;background:var(--red)}
+  .callout.c1{top:8px}
+  .callout.c2{top:78px}
+  @media(max-width:640px){.anno{padding-right:0}.callout{position:static;width:auto;margin-top:6px;padding-left:16px}.callout .stem{display:none}}
+</style>
+</head>
+<body>
+<div class="mockbanner"><b>Example-block treatments</b> · 4 options for showing "what you'll get" — not live</div>
+
+<div class="intro">
+  <h1>Making the example read as a preview, not a live message</h1>
+  <p>Four ways to visually separate the seeded example from an actual conversation you're having.</p>
+</div>
+
+<!-- ============ OPTION 1 ============ -->
+<section class="optionSection">
+  <div class="optHead">
+    <span class="optTag">1 · Browser window</span>
+    <h2>Framed like a screenshot of the app in use</h2>
+    <p>A miniature app-window chrome — traffic-light dots, a fake address bar — signals "this is a peek at the product," borrowed from how screenshots read everywhere else.</p>
+  </div>
+  <div class="stage">
+    <div class="win">
+      <div class="winbar"><div class="dots"><span></span><span></span><span></span></div><div class="addr">potatopedia.com</div></div>
+      <div class="winbody">
+        <div class="row user"><div class="bubble">Which country produces the most potatoes?</div></div>
+        <div class="row ai"><div class="bubble">China is the world's largest potato producer at 94.9 million tonnes (FAOSTAT 2024), followed by India (57.1M) and Ukraine (21.1M).
+          <div class="cite"><span>FAOSTAT 2024</span><span>3 sources</span></div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OPTION 2 ============ -->
+<section class="optionSection">
+  <div class="optHead">
+    <span class="optTag">2 · Sample ribbon</span>
+    <h2>A dashed card with an explicit "Sample" tag</h2>
+    <p>Dashed border and a red ribbon do the differentiating work directly — no ambiguity about whether this happened live, without changing the bubble style itself.</p>
+  </div>
+  <div class="stage">
+    <div class="dashed">
+      <span class="ribbon">Sample</span>
+      <div class="thread">
+        <div class="row user"><div class="bubble">Which country produces the most potatoes?</div></div>
+        <div class="row ai"><div class="bubble">China is the world's largest potato producer at 94.9 million tonnes (FAOSTAT 2024), followed by India (57.1M) and Ukraine (21.1M).
+          <div class="cite"><span>FAOSTAT 2024</span><span>3 sources</span></div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OPTION 3 ============ -->
+<section class="optionSection">
+  <div class="optHead">
+    <span class="optTag">3 · Editorial Q&amp;A card</span>
+    <h2>Drops the chat bubbles entirely</h2>
+    <p>Presented as a clean Q./A. block instead of a message thread — reads as reference content rather than a conversation, so it can't be confused with something you just typed.</p>
+  </div>
+  <div class="stage">
+    <div class="qa">
+      <div class="q">Which country produces the most potatoes?</div>
+      <div class="a">China is the world's largest potato producer at 94.9 million tonnes (FAOSTAT 2024), followed by India (57.1M) and Ukraine (21.1M).</div>
+      <div class="cite"><span>FAOSTAT 2024</span><span>3 sources</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OPTION 4 ============ -->
+<section class="optionSection">
+  <div class="optHead">
+    <span class="optTag">4 · Annotated walkthrough</span>
+    <h2>Keeps the bubbles, adds a guided tour</h2>
+    <p>Same chat bubbles as a live conversation, but small side-callouts point out what's actually happening — teaching the mechanic instead of just displaying it.</p>
+  </div>
+  <div class="stage">
+    <div class="anno">
+      <div class="thread">
+        <div class="row user"><div class="bubble">Which country produces the most potatoes?</div></div>
+        <div class="row ai"><div class="bubble">China is the world's largest potato producer at 94.9 million tonnes (FAOSTAT 2024), followed by India (57.1M) and Ukraine (21.1M).
+          <div class="cite"><span>FAOSTAT 2024</span><span>3 sources</span></div>
+        </div></div>
+      </div>
+      <div class="callout c1"><span class="stem"></span>Answered in under a second</div>
+      <div class="callout c2"><span class="stem"></span>Every claim links to its source</div>
+    </div>
+  </div>
+</section>
+
+<footer>Design exploration — not deployed. Pick one, mix elements, or ask for a 5th direction.</footer>
+</body>
+</html>

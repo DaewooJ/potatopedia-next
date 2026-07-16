@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Potatopedia — Homepage Redesign Mockups</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:#0E1116;color:#E6E9EF;line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{text-decoration:none;color:inherit}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  header{padding:54px 0 30px;text-align:center;border-bottom:1px solid #1E232C}
+  .badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#FCA5A5;border:1px solid #3a2530;background:#1a1216;padding:6px 14px;border-radius:20px;margin-bottom:18px}
+  h1{font-size:38px;letter-spacing:-1px;font-weight:800}
+  h1 span{background:linear-gradient(135deg,#D4A347,#C8B576);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .sub{color:#9AA3B2;font-size:16px;max-width:640px;margin:14px auto 0}
+  .note{margin:22px auto 0;max-width:760px;background:#15191F;border:1px solid #232A34;border-radius:12px;padding:16px 20px;color:#AEB6C4;font-size:13.5px;text-align:left}
+  .note b{color:#fff}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;padding:40px 0 20px}
+  .card{background:#141922;border:1px solid #222A35;border-radius:16px;overflow:hidden;transition:.18s;display:flex;flex-direction:column}
+  .card:hover{transform:translateY(-4px);border-color:#3A4454;box-shadow:0 18px 40px rgba(0,0,0,.4)}
+  .swatchbar{height:8px;display:flex}
+  .swatchbar span{flex:1}
+  .thumb{height:150px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;letter-spacing:.5px;position:relative;overflow:hidden}
+  .thumb .num{position:absolute;top:12px;left:14px;font-size:12px;font-weight:800;opacity:.7;letter-spacing:1px}
+  .body{padding:20px 22px 22px}
+  .body h2{font-size:20px;letter-spacing:-.3px;margin-bottom:4px}
+  .tagline{font-size:12.5px;font-weight:600;color:#8C96A6;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+  .body p{font-size:14px;color:#AEB6C4;margin-bottom:14px}
+  .meta{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
+  .meta span{font-size:11px;color:#9AA3B2;background:#1B2129;border:1px solid #283039;padding:4px 9px;border-radius:14px}
+  .swatches{display:flex;gap:8px;margin-bottom:18px;align-items:center}
+  .sw{width:22px;height:22px;border-radius:6px;border:1px solid rgba(255,255,255,.12)}
+  .swatches code{font-size:11px;color:#7A8494}
+  .open{display:inline-block;background:#fff;color:#0E1116;font-weight:700;font-size:13.5px;padding:11px 18px;border-radius:10px;width:100%;text-align:center}
+  .open:hover{background:#D4A347}
+  .best{font-size:12px;color:#8C96A6;margin-top:12px}
+  .best b{color:#C8D0DE}
+  footer{border-top:1px solid #1E232C;padding:30px 0 50px;color:#7A8494;font-size:13px}
+  footer code{background:#15191F;border:1px solid #232A34;border-radius:6px;padding:2px 7px;color:#C8D0DE}
+  @media(max-width:760px){.grid{grid-template-columns:1fr}h1{font-size:29px}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <span class="badge">Design exploration · not live</span>
+  <h1>Potatopedia homepage <span>redesign mockups</span></h1>
+  <p class="sub">Five directions to choose from. Each is a static HTML preview using real top organic queries as suggested prompts.</p>
+  <div class="note"><b>How to use:</b> open each mockup, resize your browser to ~375px / 768px / 1280px to check responsiveness, then reply with the one you like (or a mix). These are previews only — nothing here is deployed. Pick one and the live homepage gets built next.</div>
+</div></header>
+
+<div class="wrap"><div class="grid">
+
+  <!-- 1 -->
+  <div class="card">
+    <div class="swatchbar"><span style="background:#0A2540"></span><span style="background:#0E3056"></span><span style="background:#D4A347"></span></div>
+    <div class="thumb" style="background:#0A2540;color:#D4A347"><span class="num">01</span>📊 DATA TERMINAL</div>
+    <div class="body">
+      <h2>Bloomberg Terminal</h2>
+      <div class="tagline">Deep navy + gold · B2B-first</div>
+      <p>Data-dense, finance-grade. Leads with a live “what the market is asking” feed and a production league table. Positions Potatopedia as serious intelligence.</p>
+      <div class="swatches"><span class="sw" style="background:#0A2540"></span><span class="sw" style="background:#D4A347"></span><code>#0A2540 · #D4A347</code></div>
+      <div class="meta"><span>Live query feed</span><span>Ticker</span><span>League table</span></div>
+      <a class="open" href="mockup-1-bloomberg.html">Open Mockup 1 →</a>
+      <div class="best"><b>Best for:</b> investors, traders, analysts (your most valuable segment).</div>
+    </div>
+  </div>
+
+  <!-- 2 -->
+  <div class="card">
+    <div class="swatchbar"><span style="background:#B85C38"></span><span style="background:#2D4A1E"></span><span style="background:#F7F2EC"></span></div>
+    <div class="thumb" style="background:#F7F2EC;color:#B85C38"><span class="num" style="color:#94401F">02</span>📖 EDITORIAL</div>
+    <div class="body">
+      <h2>Earthy Editorial</h2>
+      <div class="tagline">Terracotta + olive · magazine</div>
+      <p>Warm, story-led, serif headlines. Opens with a country narrative (“How Belgium became #1 in fries”) and an image-rich variety library. Destination feel.</p>
+      <div class="swatches"><span class="sw" style="background:#B85C38"></span><span class="sw" style="background:#2D4A1E"></span><code>#B85C38 · #2D4A1E</code></div>
+      <div class="meta"><span>Story feature</span><span>Variety cards</span><span>Imagery</span></div>
+      <a class="open" href="mockup-2-editorial.html">Open Mockup 2 →</a>
+      <div class="best"><b>Best for:</b> broad appeal, variety specialists, curious consumers.</div>
+    </div>
+  </div>
+
+  <!-- 3 -->
+  <div class="card">
+    <div class="swatchbar"><span style="background:#1A5D1A"></span><span style="background:#114011"></span><span style="background:#C8B576"></span></div>
+    <div class="thumb" style="background:#1A5D1A;color:#C8B576"><span class="num">03</span>🌱 AG-TECH</div>
+    <div class="body">
+      <h2>Agricultural Tech</h2>
+      <div class="tagline">Forest green + wheat · modern</div>
+      <p>Chat front-and-center, clean and approachable. Country grid where engagement happens, a tools/calculator preview, and a multilingual acknowledgment.</p>
+      <div class="swatches"><span class="sw" style="background:#1A5D1A"></span><span class="sw" style="background:#C8B576"></span><code>#1A5D1A · #C8B576</code></div>
+      <div class="meta"><span>Chat-first</span><span>Tools preview</span><span>Multilingual</span></div>
+      <a class="open" href="mockup-3-agtech.html">Open Mockup 3 →</a>
+      <div class="best"><b>Best for:</b> balancing data depth with farmer accessibility.</div>
+    </div>
+  </div>
+
+  <!-- 4 -->
+  <div class="card">
+    <div class="swatchbar"><span style="background:#C62828"></span><span style="background:#1F2937"></span><span style="background:#FAFAFA"></span></div>
+    <div class="thumb" style="background:#FAFAFA;color:#C62828"><span class="num" style="color:#8E0000">04</span>🥔 REFINED RED</div>
+    <div class="body">
+      <h2>Refined Red</h2>
+      <div class="tagline">Deeper red + charcoal · evolution</div>
+      <p>Same brand family as today, but cleaner and more sophisticated. Featured country dossier, top-searched questions list, country grid. Lowest disruption.</p>
+      <div class="swatches"><span class="sw" style="background:#C62828"></span><span class="sw" style="background:#1F2937"></span><code>#C62828 · #1F2937</code></div>
+      <div class="meta"><span>Brand-safe</span><span>Featured dossier</span><span>Top questions</span></div>
+      <a class="open" href="mockup-4-refined-red.html">Open Mockup 4 →</a>
+      <div class="best"><b>Best for:</b> improving now without abandoning the current red brand.</div>
+    </div>
+  </div>
+
+  <!-- 5 -->
+  <div class="card">
+    <div class="swatchbar"><span style="background:#C62828"></span><span style="background:#8E0000"></span><span style="background:#FAFAFA"></span></div>
+    <div class="thumb" style="background:#C62828;color:#fff"><span class="num" style="color:#FFD0D0">05</span>📊 RED TERMINAL</div>
+    <div class="body">
+      <h2>Bloomberg Layout × Brand Red</h2>
+      <div class="tagline">Brand red #C62828 · same data layout</div>
+      <p>Same data-forward layout as Mockup 1 — ticker, live query feed, league table — but in current Potatopedia red instead of navy. Use this to isolate whether the layout or the color is what you respond to.</p>
+      <div class="swatches"><span class="sw" style="background:#C62828"></span><span class="sw" style="background:#8E0000"></span><code>#C62828 · #8E0000</code></div>
+      <div class="meta"><span>Ticker</span><span>Live feed</span><span>League table</span><span>Red, no gold</span></div>
+      <a class="open" href="mockup-5-bloomberg-red.html">Open Mockup 5 →</a>
+      <div class="best"><b>Best for:</b> keeping brand color while upgrading layout sophistication.</div>
+    </div>
+  </div>
+
+</div></div>
+
+<footer><div class="wrap">
+  All five share the same sections (header · chat/search · “what people are asking” · featured content · country grid · knowledge categories · footer) — arranged and styled differently. Mockups 1 &amp; 5 share an identical layout in navy vs red, to isolate layout from color. Suggested prompts use real top organic queries (Solana in Germany 13×, Uzbekistan 8×, Kenya time series 7×, etc.).<br><br>
+  Local preview: open <code>file:///Users/daewoo/projects/potatopedia-next/mockups/index.html</code> — or run <code>cd ~/projects/potatopedia-next/mockups &amp;&amp; python3 -m http.server 8765</code> then visit <code>http://localhost:8765</code>.
+</div></footer>
+</body>
+</html>

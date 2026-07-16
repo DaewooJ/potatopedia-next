@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Composer Treatments — Potatopedia Chat-First Homepage</title>
+<style>
+  :root{
+    --red:#C62828; --red-dk:#8E0000; --red-soft:rgba(198,40,40,.06); --red-soft2:rgba(198,40,40,.12);
+    --ink:#1A1A1A; --ink-soft:#4B5563; --mut:#8A8F98; --line:#ECECEC; --bg:#FAFAFA; --panel:#fff;
+    --shadow:0 10px 26px rgba(20,20,20,.05);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --ink:#F1EDE9; --ink-soft:#C7CAD1; --mut:#9299A6; --line:#2A2E36; --bg:#15171B; --panel:#1D2026; --red-soft:rgba(198,40,40,.16); --red-soft2:rgba(198,40,40,.24); --shadow:0 10px 26px rgba(0,0,0,.4); }
+  }
+  :root[data-theme="dark"]{ --ink:#F1EDE9; --ink-soft:#C7CAD1; --mut:#9299A6; --line:#2A2E36; --bg:#15171B; --panel:#1D2026; --red-soft:rgba(198,40,40,.16); --red-soft2:rgba(198,40,40,.24); --shadow:0 10px 26px rgba(0,0,0,.4); }
+  :root[data-theme="light"]{ --ink:#1A1A1A; --ink-soft:#4B5563; --mut:#8A8F98; --line:#ECECEC; --bg:#FAFAFA; --panel:#fff; --red-soft:rgba(198,40,40,.06); --red-soft2:rgba(198,40,40,.12); --shadow:0 10px 26px rgba(20,20,20,.05); }
+
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{text-decoration:none;color:inherit}
+  .wrap{max-width:680px;margin:0 auto;padding:0 24px}
+  .full{max-width:100%}
+
+  .mockbanner{background:var(--ink);color:var(--bg);font-size:11px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;text-align:center;padding:8px}
+  .mockbanner b{color:#FCA5A5}
+
+  .intro{max-width:680px;margin:0 auto;padding:44px 24px 8px;text-align:center}
+  .intro h1{font-size:26px;font-weight:800;letter-spacing:-.6px;margin-bottom:10px}
+  .intro p{font-size:14px;color:var(--ink-soft);max-width:520px;margin:0 auto}
+
+  .optionSection{padding:52px 0;border-top:1px solid var(--line)}
+  .optionSection:first-of-type{border-top:none;padding-top:36px}
+  .optHead{max-width:680px;margin:0 auto 22px;padding:0 24px}
+  .optTag{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:var(--red);background:var(--red-soft);padding:5px 13px;border-radius:20px;margin-bottom:10px}
+  .optHead h2{font-size:19px;font-weight:800;letter-spacing:-.3px;margin-bottom:5px}
+  .optHead p{font-size:13.5px;color:var(--mut);max-width:520px}
+
+  .context{font-size:13px;color:var(--mut);text-align:center;margin-bottom:18px}
+
+  .thread{display:flex;flex-direction:column;gap:12px;max-width:680px;margin:16px auto 0;padding:0 24px}
+  .thread:empty{margin:0}
+  .row{display:flex}
+  .row.user{justify-content:flex-end}
+  .row.ai{justify-content:flex-start}
+  .bubble{max-width:86%;border-radius:16px;padding:12px 15px;font-size:13.5px}
+  .row.user .bubble{background:linear-gradient(135deg,var(--red),var(--red-dk));color:#fff;border-bottom-right-radius:4px}
+  .row.ai .bubble{background:var(--panel);border:1px solid var(--line);color:var(--ink);border-bottom-left-radius:4px;box-shadow:var(--shadow)}
+  .cite{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
+  .cite span{font-size:10px;font-weight:700;letter-spacing:.3px;color:var(--red);background:var(--red-soft);padding:3px 8px;border-radius:8px}
+  .typing{display:flex;gap:4px;padding:13px 15px}
+  .typing span{width:6px;height:6px;border-radius:50%;background:var(--mut);animation:blink 1.2s infinite}
+  .typing span:nth-child(2){animation-delay:.2s}
+  .typing span:nth-child(3){animation-delay:.4s}
+  @keyframes blink{0%,80%,100%{opacity:.25}40%{opacity:1}}
+  @media (prefers-reduced-motion: reduce){.typing span{animation:none;opacity:.6}}
+
+  .chips{display:flex;gap:7px;flex-wrap:wrap;justify-content:center;margin-top:12px;max-width:680px;margin-left:auto;margin-right:auto;padding:0 24px}
+  .chip{font-size:12px;color:var(--ink-soft);background:var(--panel);border:1px solid var(--line);padding:6px 12px;border-radius:20px;cursor:pointer;transition:.14s}
+  .chip:hover{border-color:var(--red);color:var(--red)}
+
+  /* ============ OPTION A — Spotlight Card ============ */
+  .optA .stage{max-width:640px;margin:0 auto;padding:0 24px}
+  .optA .card{position:relative;background:var(--panel);border:1px solid var(--red-soft2);border-radius:24px;padding:34px 30px;box-shadow:0 24px 60px rgba(198,40,40,.12);overflow:hidden}
+  .optA .glow{position:absolute;width:260px;height:260px;background:radial-gradient(circle,var(--red-soft2),transparent 70%);top:-120px;right:-80px;filter:blur(6px);pointer-events:none}
+  .optA .askLabel{font-size:11px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase;color:var(--red);margin-bottom:14px;position:relative}
+  .optA .composer{position:relative;display:flex;gap:8px;background:var(--bg);border:2px solid var(--line);border-radius:14px;padding:6px}
+  .optA .composer:focus-within{border-color:var(--red)}
+  .optA .composer input{flex:1;border:0;outline:0;padding:13px 14px;font-size:15px;font-family:inherit;background:transparent;color:var(--ink)}
+  .optA .composer button{background:linear-gradient(135deg,var(--red),#E53935);color:#fff;border:0;font-weight:700;padding:0 22px;border-radius:9px;cursor:pointer;font-size:13.5px}
+
+  /* ============ OPTION B — Full-bleed Band ============ */
+  .optB{padding:0}
+  .optB .band{background:linear-gradient(120deg,var(--red-dk),var(--red));padding:52px 24px;margin-top:8px}
+  .optB .bandInner{max-width:640px;margin:0 auto;text-align:center}
+  .optB .askLabel{font-size:11px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase;color:rgba(255,255,255,.8);margin-bottom:16px}
+  .optB .composer{display:flex;gap:8px;background:#fff;border-radius:14px;padding:6px;box-shadow:0 16px 40px rgba(0,0,0,.25)}
+  .optB .composer input{flex:1;border:0;outline:0;padding:14px 16px;font-size:15px;font-family:inherit;background:transparent;color:var(--ink)}
+  .optB .composer button{background:var(--ink);color:#fff;border:0;font-weight:700;padding:0 24px;border-radius:9px;cursor:pointer;font-size:13.5px}
+  .optB .chips .chip{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.25);color:#fff}
+  .optB .chips .chip:hover{background:#fff;color:var(--red)}
+  .optB .afterBand{padding-top:20px}
+
+  /* ============ OPTION C — Giant Typographic ============ */
+  .optC .stage{max-width:640px;margin:0 auto;padding:0 24px;text-align:center}
+  .optC .askLabel{font-size:11px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase;color:var(--mut);margin-bottom:18px}
+  .optC .composer{display:flex;align-items:flex-end;gap:14px;border-bottom:3px solid var(--ink);padding-bottom:14px}
+  .optC .composer input{flex:1;border:0;outline:0;padding:0;font-size:27px;font-weight:700;letter-spacing:-.6px;font-family:inherit;background:transparent;color:var(--ink);text-align:left}
+  .optC .composer input::placeholder{color:var(--line);font-weight:700}
+  .optC .composer button{background:var(--red);color:#fff;border:0;width:46px;height:46px;border-radius:50%;cursor:pointer;font-size:18px;flex-shrink:0}
+
+  /* ============ OPTION D — Assistant Avatar + Glow ============ */
+  .optD .stage{max-width:640px;margin:0 auto;padding:0 24px}
+  .optD .glowRing{position:relative;padding:6px;border-radius:26px}
+  .optD .glowRing::before{content:"";position:absolute;inset:-3px;border-radius:28px;background:conic-gradient(from 0deg,var(--red),transparent,var(--red-dk),transparent,var(--red));opacity:.5;filter:blur(9px);animation:spin 6s linear infinite;z-index:0}
+  @media (prefers-reduced-motion: reduce){.optD .glowRing::before{animation:none}}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .optD .askLabel{font-size:11px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase;color:var(--red);margin-bottom:12px;padding-left:2px}
+  .optD .composer{position:relative;z-index:1;display:flex;align-items:center;gap:10px;background:var(--panel);border-radius:22px;padding:8px;box-shadow:0 18px 40px rgba(0,0,0,.1)}
+  .optD .avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--red),var(--red-dk));display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0}
+  .optD .composer input{flex:1;border:0;outline:0;padding:12px 4px;font-size:15px;font-family:inherit;background:transparent;color:var(--ink)}
+  .optD .composer button{background:var(--ink);color:#fff;border:0;font-weight:700;padding:0 20px;border-radius:14px;cursor:pointer;font-size:13.5px;height:42px}
+
+  /* ============ OPTION E — Framed Console ============ */
+  .optE .stage{max-width:640px;margin:0 auto;padding:0 24px}
+  .optE .console{position:relative;background:#0F1115;border-radius:16px;padding:26px 26px 20px;box-shadow:0 20px 46px rgba(0,0,0,.28)}
+  .optE .corner{position:absolute;width:16px;height:16px;border-color:var(--red);border-style:solid;opacity:.9}
+  .optE .c1{top:10px;left:10px;border-width:2px 0 0 2px}
+  .optE .c2{top:10px;right:10px;border-width:2px 2px 0 0}
+  .optE .c3{bottom:10px;left:10px;border-width:0 0 2px 2px}
+  .optE .c4{bottom:10px;right:10px;border-width:0 2px 2px 0}
+  .optE .askLabel{display:flex;align-items:center;gap:8px;font-family:'SF Mono',ui-monospace,Menlo,Consolas,monospace;font-size:11.5px;color:#7CE3A3;letter-spacing:.5px;margin-bottom:14px}
+  .optE .askLabel .dot{width:7px;height:7px;border-radius:50%;background:#7CE3A3;box-shadow:0 0 8px #7CE3A3}
+  .optE .composer{display:flex;gap:10px;background:#181B22;border:1px solid #2A2E38;border-radius:10px;padding:12px 14px;align-items:center}
+  .optE .composer .prompt{color:var(--red);font-family:'SF Mono',ui-monospace,Menlo,Consolas,monospace;font-size:15px}
+  .optE .composer input{flex:1;border:0;outline:0;padding:0;font-size:14.5px;font-family:'SF Mono',ui-monospace,Menlo,Consolas,monospace;background:transparent;color:#E7E9EE}
+  .optE .composer input::placeholder{color:#5A6070}
+  .optE .composer button{background:var(--red);color:#fff;border:0;font-weight:700;padding:8px 18px;border-radius:7px;cursor:pointer;font-size:12.5px;font-family:inherit}
+  .optE .chips .chip{background:#181B22;border-color:#2A2E38;color:#9AA1AC;font-family:'SF Mono',ui-monospace,Menlo,Consolas,monospace}
+  .optE .chips .chip:hover{border-color:var(--red);color:#fff}
+
+  footer{border-top:1px solid var(--line);padding:26px 0 46px;color:var(--mut);font-size:12px;text-align:center}
+  @media(max-width:600px){.optC .composer input{font-size:20px}}
+</style>
+</head>
+<body>
+<div class="mockbanner"><b>Composer treatments</b> · 5 dominance options for the “Ask anything” zone — not live</div>
+
+<div class="intro">
+  <h1>Making the composer the loudest thing on the page</h1>
+  <p>Same copy, same interaction, five different ways to make it impossible to miss. Each is fully interactive — try typing in any of them.</p>
+</div>
+
+<!-- ============ OPTION A ============ -->
+<section class="optionSection optA">
+  <div class="optHead">
+    <span class="optTag">A · Spotlight card</span>
+    <h2>Framed in its own card, with a soft glow behind it</h2>
+    <p>The composer sits inside a dedicated card — its own border, shadow, and a blurred red glow bleeding from one corner. The card itself reads as "the product," separate from ordinary page content.</p>
+  </div>
+  <div class="stage">
+    <div class="card">
+      <div class="glow"></div>
+      <div class="askLabel">Ask anything</div>
+      <form class="composer" data-opt="A">
+        <input type="text" placeholder="e.g. Which country produces the most potatoes?" autocomplete="off">
+        <button type="submit">Ask →</button>
+      </form>
+    </div>
+  </div>
+  <div class="chips" data-opt="A">
+    <span class="chip" data-q="Best variety for French fries?">Best variety for French fries?</span>
+    <span class="chip" data-q="Are potatoes bad for diabetics?">Are potatoes bad for diabetics?</span>
+  </div>
+  <div class="thread" data-opt="A"></div>
+</section>
+
+<!-- ============ OPTION B ============ -->
+<section class="optionSection optB">
+  <div class="optHead">
+    <span class="optTag">B · Full-bleed band</span>
+    <h2>Breaks out of the column into a full-width red band</h2>
+    <p>The composer interrupts the page inside a full-bleed gradient band — the same visual move as a checkout or signup CTA. Highest contrast option; hardest to scroll past without noticing.</p>
+  </div>
+  <div class="band">
+    <div class="bandInner">
+      <div class="askLabel">Ask anything</div>
+      <form class="composer" data-opt="B">
+        <input type="text" placeholder="e.g. Which country produces the most potatoes?" autocomplete="off">
+        <button type="submit">Ask →</button>
+      </form>
+      <div class="chips" data-opt="B" style="margin-top:14px">
+        <span class="chip" data-q="Best variety for French fries?">Best variety for French fries?</span>
+        <span class="chip" data-q="Are potatoes bad for diabetics?">Are potatoes bad for diabetics?</span>
+      </div>
+    </div>
+  </div>
+  <div class="afterBand"><div class="thread" data-opt="B"></div></div>
+</section>
+
+<!-- ============ OPTION C ============ -->
+<section class="optionSection optC">
+  <div class="optHead">
+    <span class="optTag">C · Giant typographic</span>
+    <h2>No card at all — dominance from scale alone</h2>
+    <p>No border, no background block, just a dramatically oversized input with an underline rule. Restraint everywhere else on the page makes this one element read as loud by comparison.</p>
+  </div>
+  <div class="stage">
+    <div class="askLabel">Ask anything</div>
+    <form class="composer" data-opt="C">
+      <input type="text" placeholder="Which country produces the most potatoes?" autocomplete="off">
+      <button type="submit">→</button>
+    </form>
+  </div>
+  <div class="chips" data-opt="C">
+    <span class="chip" data-q="Best variety for French fries?">Best variety for French fries?</span>
+    <span class="chip" data-q="Are potatoes bad for diabetics?">Are potatoes bad for diabetics?</span>
+  </div>
+  <div class="thread" data-opt="C"></div>
+</section>
+
+<!-- ============ OPTION D ============ -->
+<section class="optionSection optD">
+  <div class="optHead">
+    <span class="optTag">D · Assistant avatar + glow</span>
+    <h2>A visible "assistant" you're talking to, not a search box</h2>
+    <p>A rotating conic glow ring frames the composer, and a circular avatar sits beside the input — signalling there's something answering on the other side, not just a form field.</p>
+  </div>
+  <div class="stage">
+    <div class="glowRing">
+      <div class="askLabel">Ask anything</div>
+      <form class="composer" data-opt="D">
+        <div class="avatar">🥔</div>
+        <input type="text" placeholder="e.g. Which country produces the most potatoes?" autocomplete="off">
+        <button type="submit">Ask →</button>
+      </form>
+    </div>
+  </div>
+  <div class="chips" data-opt="D">
+    <span class="chip" data-q="Best variety for French fries?">Best variety for French fries?</span>
+    <span class="chip" data-q="Are potatoes bad for diabetics?">Are potatoes bad for diabetics?</span>
+  </div>
+  <div class="thread" data-opt="D"></div>
+</section>
+
+<!-- ============ OPTION E ============ -->
+<section class="optionSection optE">
+  <div class="optHead">
+    <span class="optTag">E · Framed console</span>
+    <h2>A dark terminal-style inset — the "machine" made visible</h2>
+    <p>Breaks from the page's clean white look on purpose: dark panel, monospace type, corner brackets, a blinking "online" dot. Signals this one component is the interactive engine, distinct from static content.</p>
+  </div>
+  <div class="stage">
+    <div class="console">
+      <span class="corner c1"></span><span class="corner c2"></span><span class="corner c3"></span><span class="corner c4"></span>
+      <div class="askLabel"><span class="dot"></span> potatopedia@ai — online</div>
+      <form class="composer" data-opt="E">
+        <span class="prompt">&gt;</span>
+        <input type="text" placeholder="which country produces the most potatoes?" autocomplete="off">
+        <button type="submit">RUN</button>
+      </form>
+    </div>
+  </div>
+  <div class="chips" data-opt="E">
+    <span class="chip" data-q="Best variety for French fries?">Best variety for French fries?</span>
+    <span class="chip" data-q="Are potatoes bad for diabetics?">Are potatoes bad for diabetics?</span>
+  </div>
+  <div class="thread" data-opt="E"></div>
+</section>
+
+<footer>Design exploration — not deployed. Pick one, mix elements across a couple, or ask for a 6th direction.</footer>
+
+<script>
+  const ANSWERS = {
+    "Best variety for French fries?": {
+      a: "Russet Burbank remains the industry standard for frying — high dry matter (~22%), long oblong shape, and the variety behind McDonald's fries.",
+      cite: ["Variety database", "2 sources"]
+    },
+    "Are potatoes bad for diabetics?": {
+      a: "Not inherently — glycemic response depends heavily on variety and cooking method. Cooling cooked potatoes lowers glycemic response 25–35% via resistant starch.",
+      cite: ["Peer-reviewed research", "3 sources"]
+    }
+  };
+  const DEFAULT_ANSWER = {
+    a: "In the live product this routes to Potatopedia's AI engine — 5,657 verified data points, 277 sources, cited every time.",
+    cite: ["Demo response"]
+  };
+
+  function ask(opt, q){
+    if (!q || !q.trim()) return;
+    const thread = document.querySelector('.thread[data-opt="' + opt + '"]');
+    const chips = document.querySelector('.chips[data-opt="' + opt + '"]');
+    if (chips) chips.style.display = 'none';
+
+    const userRow = document.createElement('div');
+    userRow.className = 'row user';
+    userRow.innerHTML = '<div class="bubble"></div>';
+    userRow.querySelector('.bubble').textContent = q;
+    thread.appendChild(userRow);
+
+    const typingRow = document.createElement('div');
+    typingRow.className = 'row ai';
+    typingRow.innerHTML = '<div class="bubble typing"><span></span><span></span><span></span></div>';
+    thread.appendChild(typingRow);
+    typingRow.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    const data = ANSWERS[q] || DEFAULT_ANSWER;
+    setTimeout(() => {
+      const bubble = document.createElement('div');
+      bubble.className = 'bubble';
+      bubble.textContent = data.a;
+      const cite = document.createElement('div');
+      cite.className = 'cite';
+      data.cite.forEach(c => {
+        const s = document.createElement('span');
+        s.textContent = c;
+        cite.appendChild(s);
+      });
+      bubble.appendChild(cite);
+      typingRow.innerHTML = '';
+      typingRow.appendChild(bubble);
+    }, 650);
+  }
+
+  document.querySelectorAll('form.composer').forEach(form => {
+    const opt = form.dataset.opt;
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const input = form.querySelector('input');
+      const q = input.value;
+      input.value = '';
+      ask(opt, q);
+    });
+  });
+
+  document.querySelectorAll('.chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      const opt = chip.closest('.chips').dataset.opt;
+      ask(opt, chip.dataset.q);
+    });
+  });
+</script>
+</body>
+</html>

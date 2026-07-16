@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mockup 5 — Bloomberg Layout × Brand Red | Potatopedia</title>
+<style>
+  :root{
+    /* Bloomberg layout, repainted in Potatopedia brand red (was navy #0A2540 + gold #D4A347) */
+    --navy:#C62828; --navy2:#8E0000; --gold:#ffffff; --gold-soft:rgba(198,40,40,.10);
+    --ink:#1F2937; --slate:#6B7280; --line:#ECECEC; --bg:#FAFAFA; --white:#fff; --green:#1F8A4C; --red:#C0392B;
+    --redlt:#E53935; --redaccent:#C62828;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'SF Pro Text',-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased}
+  a{text-decoration:none;color:inherit}
+  .wrap{max-width:1280px;margin:0 auto;padding:0 28px}
+  .mockbanner{background:repeating-linear-gradient(45deg,#111,#111 14px,#1c1c1c 14px,#1c1c1c 28px);color:#FCA5A5;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-align:center;padding:7px}
+  /* header */
+  header{background:var(--navy);color:#fff;border-bottom:2px solid var(--navy2)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;letter-spacing:-.3px}
+  .logo .mark{width:30px;height:30px;border-radius:6px;background:var(--gold);color:var(--navy);display:grid;place-items:center;font-size:18px}
+  .logo b{color:#FFCDD2}
+  nav.links{display:flex;gap:26px;font-size:13.5px;font-weight:500;color:#F4C9C9}
+  nav.links a:hover{color:#fff}
+  .navcta{background:var(--gold);color:var(--navy);font-weight:700;font-size:13px;padding:9px 16px;border-radius:6px}
+  /* ticker */
+  .ticker{background:var(--navy2);color:#F4C9C9;font-size:12.5px;border-bottom:1px solid rgba(255,255,255,.08);overflow:hidden;white-space:nowrap}
+  .ticker .tk{display:inline-flex;gap:34px;padding:9px 0;animation:scroll 32s linear infinite}
+  .ticker b{color:#fff}.up{color:#7BE0A0}.dn{color:#FFB4AC}
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  /* hero */
+  .hero{background:linear-gradient(160deg,var(--navy),#8E0000);color:#fff;padding:64px 0 54px}
+  .ey{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#fff;border:1px solid rgba(255,255,255,.4);padding:6px 13px;border-radius:30px;margin-bottom:20px}
+  .ey .dot{width:6px;height:6px;border-radius:50%;background:#fff}
+  h1.big{font-size:46px;line-height:1.08;font-weight:800;letter-spacing:-1.4px;max-width:880px}
+  h1.big span{color:#FFD0D0}
+  .sub{color:#F3CACA;font-size:16.5px;max-width:640px;margin:18px 0 28px}
+  .search{display:flex;background:#fff;border-radius:10px;max-width:680px;padding:6px;box-shadow:0 18px 50px rgba(0,0,0,.28)}
+  .search input{flex:1;border:0;outline:0;padding:14px 16px;font-size:15px;color:#1F2937;background:transparent}
+  .search button{background:var(--navy);color:#fff;font-weight:700;border:0;padding:0 26px;border-radius:7px;font-size:14px;cursor:pointer}
+  .pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;max-width:760px}
+  .pill{font-size:12.5px;color:#F3CACA;border:1px solid rgba(255,255,255,.22);padding:7px 13px;border-radius:6px;background:rgba(255,255,255,.06)}
+  .pill:hover{border-color:#fff;color:#fff}
+  .hstats{display:flex;gap:34px;margin-top:34px;flex-wrap:wrap}
+  .hstats .s b{display:block;font-size:24px;font-weight:800;color:#fff}
+  .hstats .s span{font-size:12px;color:#E8A9A9;text-transform:uppercase;letter-spacing:1px}
+  /* section */
+  section{padding:54px 0}
+  .stitle{font-size:11px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:#fff}
+  .stitle.dark{color:var(--redaccent)}
+  h2{font-size:27px;font-weight:800;letter-spacing:-.6px;margin:8px 0 4px}
+  .smut{color:var(--slate);font-size:14px;max-width:560px}
+  .shead{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:26px}
+  .seeall{color:var(--navy);font-weight:700;font-size:13px;border-bottom:2px solid var(--redaccent);padding-bottom:2px}
+  /* live intelligence feed */
+  .feedwrap{display:grid;grid-template-columns:1.4fr 1fr;gap:22px}
+  .feed{background:var(--white);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .feed .fh{background:var(--navy);color:#fff;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:11px 18px;display:flex;justify-content:space-between;align-items:center}
+  .feed .fh .live{display:flex;align-items:center;gap:7px;color:#7BE0A0}
+  .feed .fh .live i{width:7px;height:7px;border-radius:50%;background:#7BE0A0;display:inline-block;animation:pulse 1.6s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+  .frow{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:13px 18px;border-bottom:1px solid var(--line)}
+  .frow:last-child{border-bottom:0}
+  .frow .q{font-size:14px;font-weight:600;color:var(--ink)}
+  .frow .m{font-size:11.5px;color:var(--slate)}
+  .frow .cnt{font-size:12px;font-weight:800;color:var(--navy);background:var(--gold-soft);padding:4px 9px;border-radius:5px;white-space:nowrap}
+  .sidecard{background:var(--navy);color:#fff;border-radius:12px;padding:24px}
+  .sidecard h3{font-size:17px;font-weight:800;margin-bottom:6px}
+  .sidecard p{color:#F3CACA;font-size:13.5px;margin-bottom:16px}
+  .kpis{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px}
+  .kpis .k{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:8px;padding:14px}
+  .kpis .k b{display:block;font-size:22px;font-weight:800;color:#fff}
+  .kpis .k span{font-size:11px;color:#F3CACA}
+  /* country table */
+  .ctable{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  thead th{background:#FBF2F2;text-align:left;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--slate);padding:13px 18px;font-weight:700}
+  thead th.r,tbody td.r{text-align:right}
+  tbody td{padding:13px 18px;border-top:1px solid var(--line)}
+  tbody tr:hover{background:#FFF7F7}
+  .flag{font-size:18px;margin-right:9px}
+  .cname{font-weight:700}
+  .bar{height:6px;border-radius:4px;background:var(--redaccent);display:inline-block;vertical-align:middle}
+  .chg.up{color:var(--green);font-weight:700}.chg.dn{color:var(--red);font-weight:700}
+  /* knowledge */
+  .kgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .kcard{background:#fff;border:1px solid var(--line);border-radius:10px;padding:20px;transition:.18s}
+  .kcard:hover{border-color:var(--redaccent);transform:translateY(-2px)}
+  .kcard .ic{font-size:24px}
+  .kcard b{display:block;margin:10px 0 4px;font-size:15px}
+  .kcard span{font-size:12.5px;color:var(--slate)}
+  /* footer */
+  footer{background:var(--navy2);color:#F3CACA;padding:46px 0 26px;font-size:13px}
+  .fgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:28px;margin-bottom:30px}
+  footer h4{color:#fff;font-size:12px;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+  footer a{display:block;padding:4px 0;color:#F3CACA}footer a:hover{color:#fff}
+  .disc{border-top:1px solid rgba(255,255,255,.14);padding-top:18px;font-size:11.5px;color:#E2A6A6;line-height:1.7}
+  @media(max-width:900px){.feedwrap{grid-template-columns:1fr}.kgrid{grid-template-columns:1fr 1fr}.fgrid{grid-template-columns:1fr 1fr}h1.big{font-size:36px}}
+  @media(max-width:600px){nav.links,.navcta,.ticker{display:none}.kgrid{grid-template-columns:1fr}.fgrid{grid-template-columns:1fr}h1.big{font-size:29px}.wrap{padding:0 18px}.hide-sm{display:none}}
+</style>
+</head>
+<body>
+<div class="mockbanner">Mockup 5 · “Bloomberg Layout × Brand Red” · design exploration — not live</div>
+<header>
+  <div class="wrap nav">
+    <div class="logo"><span class="mark">🥔</span> Potato<b>pedia</b></div>
+    <nav class="links"><a>Home</a><a>Knowledge</a><a>Countries</a><a>Varieties</a><a>About</a></nav>
+    <a class="navcta">Ask AI →</a>
+  </div>
+</header>
+<div class="ticker"><div class="wrap"><span class="tk">
+  <span>CHINA <b>94.4 Mt</b> <span class="up">▲ rank #1</span></span>
+  <span>INDIA <b>56.2 Mt</b> <span class="up">▲ #2</span></span>
+  <span>FRY EXPORT BELGIUM <b>#1</b></span>
+  <span>SEED NL <b>1.6 Mt</b></span>
+  <span>UZBEKISTAN <span class="up">▲ demand 8×</span></span>
+  <span>SOLANA (DE) <span class="up">▲ top query</span></span>
+  <span>KENYA <span class="dn">▼ yield gap</span></span>
+  <span>CHINA <b>94.4 Mt</b> <span class="up">▲ rank #1</span></span>
+  <span>INDIA <b>56.2 Mt</b> <span class="up">▲ #2</span></span>
+  <span>FRY EXPORT BELGIUM <b>#1</b></span>
+  <span>SEED NL <b>1.6 Mt</b></span>
+  <span>UZBEKISTAN <span class="up">▲ demand 8×</span></span>
+  <span>SOLANA (DE) <span class="up">▲ top query</span></span>
+  <span>KENYA <span class="dn">▼ yield gap</span></span>
+</span></div></div>
+
+<section class="hero" style="padding-top:54px">
+  <div class="wrap">
+    <span class="ey"><span class="dot"></span> Global Potato Intelligence</span>
+    <h1 class="big">The terminal for the <span>global potato industry.</span></h1>
+    <p class="sub">Production, trade, varieties &amp; markets across 204 countries — verified data, cited answers, built for analysts, traders &amp; investors.</p>
+    <div class="search">
+      <input placeholder="Ask anything — markets, varieties, trade, processing costs…">
+      <button>Ask AI</button>
+    </div>
+    <div class="pills">
+      <span class="pill">risks and expectations for Uzbekistan</span>
+      <span class="pill">Simplot India line rate</span>
+      <span class="pill">Future of French fry industry in India</span>
+      <span class="pill">what is markout?</span>
+      <span class="pill">Solana in Germany</span>
+      <span class="pill">Maharashtra vs Gujarat processing costs</span>
+    </div>
+    <div class="hstats">
+      <div class="s"><b>5,024</b><span>verified data points</span></div>
+      <div class="s"><b>204</b><span>countries</span></div>
+      <div class="s"><b>230+</b><span>varieties</span></div>
+      <div class="s"><b>224</b><span>cited sources</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE INTELLIGENCE -->
+<section>
+  <div class="wrap">
+    <div class="shead">
+      <div><span class="stitle dark">Live Intelligence</span><h2>What the market is asking right now</h2>
+      <p class="smut">Real, anonymized user queries — the demand signal behind our coverage.</p></div>
+      <a class="seeall">Query trends →</a>
+    </div>
+    <div class="feedwrap">
+      <div class="feed">
+        <div class="fh"><span>Top organic queries · 30d</span><span class="live"><i></i> LIVE</span></div>
+        <div class="frow"><div><div class="q">Solana in Germany</div><div class="m">Variety intelligence · DE</div></div><span class="cnt">13×</span></div>
+        <div class="frow"><div><div class="q">Risks &amp; expectations for Uzbekistan</div><div class="m">Market outlook · UZ</div></div><span class="cnt">8×</span></div>
+        <div class="frow"><div><div class="q">Kenya potato decade time series</div><div class="m">Production data · KE</div></div><span class="cnt">7×</span></div>
+        <div class="frow"><div><div class="q">Lady Rosetta black spot</div><div class="m">Agronomy / processing · EU</div></div><span class="cnt">4×</span></div>
+        <div class="frow"><div><div class="q">Future of French fry industry in India</div><div class="m">Sector outlook · IN</div></div><span class="cnt">3×</span></div>
+        <div class="frow"><div><div class="q">What is markout?</div><div class="m">Industry terminology</div></div><span class="cnt">3×</span></div>
+      </div>
+      <div class="sidecard">
+        <h3>Built for B2B intelligence</h3>
+        <p>Investors, traders, processors and analysts use Potatopedia to size markets and de-risk decisions.</p>
+        <div class="kpis">
+          <div class="k"><b>$0</b><span>per query — cited &amp; free</span></div>
+          <div class="k"><b>30</b><span>country dossiers</span></div>
+          <div class="k"><b>5</b><span>premium PDF reports</span></div>
+          <div class="k"><b>24</b><span>data families</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COUNTRY TABLE -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="shead">
+      <div><span class="stitle dark">Production League</span><h2>Top producing countries</h2></div>
+      <a class="seeall">All 30 profiles →</a>
+    </div>
+    <div class="ctable">
+      <table>
+        <thead><tr><th>#</th><th>Country</th><th class="r">Production</th><th class="r hide-sm">Share</th><th class="r">YoY</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td><span class="flag">🇨🇳</span><span class="cname">China</span></td><td class="r">94.4 Mt</td><td class="r hide-sm"><span class="bar" style="width:120px"></span></td><td class="r chg up">▲ 1.2%</td></tr>
+          <tr><td>2</td><td><span class="flag">🇮🇳</span><span class="cname">India</span></td><td class="r">56.2 Mt</td><td class="r hide-sm"><span class="bar" style="width:72px"></span></td><td class="r chg up">▲ 2.8%</td></tr>
+          <tr><td>3</td><td><span class="flag">🇺🇦</span><span class="cname">Ukraine</span></td><td class="r">20.9 Mt</td><td class="r hide-sm"><span class="bar" style="width:27px"></span></td><td class="r chg dn">▼ 3.1%</td></tr>
+          <tr><td>4</td><td><span class="flag">🇷🇺</span><span class="cname">Russia</span></td><td class="r">18.6 Mt</td><td class="r hide-sm"><span class="bar" style="width:24px"></span></td><td class="r chg dn">▼ 0.9%</td></tr>
+          <tr><td>5</td><td><span class="flag">🇺🇸</span><span class="cname">United States</span></td><td class="r">17.9 Mt</td><td class="r hide-sm"><span class="bar" style="width:23px"></span></td><td class="r chg up">▲ 0.4%</td></tr>
+          <tr><td>6</td><td><span class="flag">🇩🇪</span><span class="cname">Germany</span></td><td class="r">11.7 Mt</td><td class="r hide-sm"><span class="bar" style="width:15px"></span></td><td class="r chg up">▲ 0.7%</td></tr>
+          <tr><td>7</td><td><span class="flag">🇧🇩</span><span class="cname">Bangladesh</span></td><td class="r">9.9 Mt</td><td class="r hide-sm"><span class="bar" style="width:13px"></span></td><td class="r chg up">▲ 1.6%</td></tr>
+          <tr><td>8</td><td><span class="flag">🇳🇱</span><span class="cname">Netherlands</span></td><td class="r">6.8 Mt</td><td class="r hide-sm"><span class="bar" style="width:9px"></span></td><td class="r chg up">▲ 0.3%</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- KNOWLEDGE -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="shead"><div><span class="stitle dark">Knowledge Base</span><h2>Explore by category</h2></div></div>
+    <div class="kgrid">
+      <div class="kcard"><div class="ic">📊</div><b>Production &amp; Data</b><span>Yields, area, FAOSTAT time series</span></div>
+      <div class="kcard"><div class="ic">🌱</div><b>Varieties</b><span>230+ cultivars, traits, uses</span></div>
+      <div class="kcard"><div class="ic">🌍</div><b>Trade &amp; Markets</b><span>Flows, seed, prices, outlook</span></div>
+      <div class="kcard"><div class="ic">🏭</div><b>Processing</b><span>Fries, chips, starch, line rates</span></div>
+      <div class="kcard"><div class="ic">🥗</div><b>Nutrition</b><span>GI, potassium, health science</span></div>
+      <div class="kcard"><div class="ic">🦠</div><b>Diseases &amp; Pests</b><span>Blight, black spot, control</span></div>
+      <div class="kcard"><div class="ic">🚜</div><b>Farming</b><span>Agronomy, storage, inputs</span></div>
+      <div class="kcard"><div class="ic">📑</div><b>Country Dossiers</b><span>30 profiles · 5 premium PDFs</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div><div class="logo" style="color:#fff;margin-bottom:10px"><span class="mark">🥔</span> Potato<b style="color:#FFCDD2">pedia</b></div><p style="max-width:300px">Global potato intelligence — verified data &amp; cited answers from FAOSTAT, USDA, CIP and peer-reviewed science.</p></div>
+      <div><h4>Explore</h4><a>Knowledge</a><a>Countries</a><a>Varieties</a><a>Ask AI</a></div>
+      <div><h4>Data</h4><a>Production</a><a>Trade</a><a>Processing</a><a>Premium dossiers</a></div>
+      <div><h4>About</h4><a>Sources</a><a>Methodology</a><a>Contact</a><a>Terms</a></div>
+    </div>
+    <div class="disc">© 2026 Potatopedia · Design mockup — not a live page. Figures are illustrative placeholders. Sourced answers cite FAOSTAT, USDA, CIP and peer-reviewed literature; primary sources only.</div>
+  </div>
+</footer>
+</body>
+</html>

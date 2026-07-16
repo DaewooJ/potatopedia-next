@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mockup 6 — Chat-First Homepage | Potatopedia</title>
+<style>
+  :root{
+    --red:#C62828; --red-dk:#8E0000; --red-soft:rgba(198,40,40,.06); --red-soft2:rgba(198,40,40,.1);
+    --ink:#1A1A1A; --ink-soft:#4B5563; --mut:#8A8F98; --line:#ECECEC; --bg:#FAFAFA; --panel:#fff;
+    --shadow:0 10px 28px rgba(20,20,20,.05);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --ink:#F1EDE9; --ink-soft:#C7CAD1; --mut:#9299A6; --line:#2A2E36; --bg:#15171B; --panel:#1D2026; --red-soft:rgba(198,40,40,.14); --red-soft2:rgba(198,40,40,.22); --shadow:0 10px 28px rgba(0,0,0,.35); }
+  }
+  :root[data-theme="dark"]{ --ink:#F1EDE9; --ink-soft:#C7CAD1; --mut:#9299A6; --line:#2A2E36; --bg:#15171B; --panel:#1D2026; --red-soft:rgba(198,40,40,.14); --red-soft2:rgba(198,40,40,.22); --shadow:0 10px 28px rgba(0,0,0,.35); }
+  :root[data-theme="light"]{ --ink:#1A1A1A; --ink-soft:#4B5563; --mut:#8A8F98; --line:#ECECEC; --bg:#FAFAFA; --panel:#fff; --red-soft:rgba(198,40,40,.06); --red-soft2:rgba(198,40,40,.1); --shadow:0 10px 28px rgba(20,20,20,.05); }
+
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;transition:background .2s,color .2s}
+  a{text-decoration:none;color:inherit}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  .narrow{max-width:680px;margin:0 auto;padding:0 24px}
+
+  .mockbanner{background:var(--ink);color:var(--bg);font-size:11px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;text-align:center;padding:8px}
+  .mockbanner b{color:#FCA5A5}
+
+  header{background:color-mix(in srgb, var(--panel) 88%, transparent);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .logo{display:flex;align-items:center;gap:7px}
+  .logoIcon{font-size:20px;line-height:1}
+  .logoWord{font-weight:800;font-size:19px;letter-spacing:-.5px;color:var(--ink)}
+  .logoWord b{font-weight:800;color:var(--red)}
+  nav.links{display:flex;gap:24px;font-size:13.5px;font-weight:500;color:var(--ink-soft)}
+  nav.links a.current{color:var(--red);font-weight:700}
+  nav.links a:hover{color:var(--red)}
+  .navcta{background:linear-gradient(135deg,var(--red),#E53935);color:#fff;font-weight:700;font-size:13px;padding:8px 16px;border-radius:9px}
+  @media(max-width:760px){nav.links{display:none}}
+
+  /* what changed note */
+  .note{margin:22px auto 0;max-width:640px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 20px;color:var(--ink-soft);font-size:13px;text-align:left}
+  .note b{color:var(--ink)}
+  .note .cut{color:var(--mut);margin-top:8px;display:block}
+
+  /* hero declaration */
+  .hero{text-align:center;padding:76px 0 16px}
+  .ey{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red);background:var(--red-soft);padding:6px 15px;border-radius:30px;margin-bottom:22px}
+  .ey .dot{width:6px;height:6px;border-radius:50%;background:var(--red)}
+  h1{font-size:40px;line-height:1.16;font-weight:800;letter-spacing:-1.2px;max-width:680px;margin:0 auto;text-wrap:balance}
+  h1 span{background:linear-gradient(135deg,var(--red),var(--red-dk));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .lede{font-size:16px;color:var(--ink-soft);max-width:520px;margin:22px auto 0}
+  .micro{font-size:12.5px;color:var(--mut);max-width:520px;margin:16px auto 0}
+
+  .trust{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:26px auto 0}
+  .trust span{font-size:11.5px;font-weight:600;color:var(--ink-soft);background:var(--red-soft);border:1px solid var(--red-soft2);padding:5px 12px;border-radius:20px}
+
+  /* the chat panel — the whole product */
+  .panel{max-width:640px;margin:56px auto 0;padding:0 24px 88px}
+  .askLabel{font-size:11px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--mut);text-align:center;margin-bottom:10px}
+
+  /* spotlight card — the composer's frame */
+  .card{position:relative;background:var(--panel);border:1px solid var(--red-soft2);border-radius:24px;padding:34px 30px 30px;box-shadow:0 24px 60px rgba(198,40,40,.12);overflow:hidden}
+  .card .glow{position:absolute;width:260px;height:260px;background:radial-gradient(circle,var(--red-soft2),transparent 70%);top:-120px;right:-80px;filter:blur(6px);pointer-events:none}
+  .card .askLabel{position:relative;text-align:left;color:var(--red);font-weight:800;margin-bottom:14px}
+  .thread{display:flex;flex-direction:column;gap:14px;margin-bottom:14px}
+  .thread:empty{margin-bottom:0}
+  .row{display:flex}
+  .row.user{justify-content:flex-end}
+  .row.ai{justify-content:flex-start}
+  .bubble{max-width:86%;border-radius:16px;padding:13px 16px;font-size:14.5px}
+  .row.user .bubble{background:linear-gradient(135deg,var(--red),var(--red-dk));color:#fff;border-bottom-right-radius:4px}
+  .row.ai .bubble{background:var(--panel);border:1px solid var(--line);color:var(--ink);border-bottom-left-radius:4px;box-shadow:var(--shadow)}
+  .cite{display:flex;gap:6px;margin-top:9px;flex-wrap:wrap}
+  .cite span{font-size:10.5px;font-weight:700;letter-spacing:.3px;color:var(--red);background:var(--red-soft);padding:3px 9px;border-radius:8px}
+
+  .composer{position:relative;display:flex;gap:8px;background:var(--bg);border:2px solid var(--line);border-radius:14px;padding:6px;transition:border-color .15s}
+  .composer:focus-within{border-color:var(--red)}
+  .composer input{flex:1;border:0;outline:0;padding:13px 14px;font-size:15.5px;font-family:inherit;background:transparent;color:var(--ink)}
+  .composer input::placeholder{color:var(--mut)}
+  .composer button{background:linear-gradient(135deg,var(--red),#E53935);color:#fff;border:0;font-weight:700;padding:0 24px;border-radius:9px;cursor:pointer;font-size:14px;white-space:nowrap}
+  .composer button:active{transform:scale(.98)}
+
+  .card .langBlock{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:16px 4px 0}
+  .card .langLabel{font-size:11px;font-weight:600;color:var(--mut);white-space:nowrap}
+  .card .langRow{display:inline-flex;gap:6px;flex-wrap:wrap}
+  .card .langRow span{font-size:11px;font-weight:600;color:var(--ink-soft);background:transparent;border:1px solid var(--line);padding:3px 10px;border-radius:14px}
+  .card .langRow span.more{color:var(--red);border-color:var(--red-soft2);border-style:dashed;background:var(--red-soft)}
+
+  .chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:22px}
+  .chip{font-size:12.5px;color:var(--ink-soft);background:var(--panel);border:1px solid var(--line);padding:7px 14px;border-radius:20px;cursor:pointer;transition:.14s}
+  .chip:hover{border-color:var(--red);color:var(--red)}
+
+  .typing{display:flex;gap:4px;padding:14px 16px}
+  .typing span{width:6px;height:6px;border-radius:50%;background:var(--mut);animation:blink 1.2s infinite}
+  .typing span:nth-child(2){animation-delay:.2s}
+  .typing span:nth-child(3){animation-delay:.4s}
+  @keyframes blink{0%,80%,100%{opacity:.25}40%{opacity:1}}
+  @media (prefers-reduced-motion: reduce){.typing span{animation:none;opacity:.6}}
+
+  /* slim link strip — the one thing besides chat */
+  .strip{padding:44px 0 88px;border-top:1px solid var(--line)}
+  .strip .k{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--mut);text-align:center;display:block;margin-bottom:22px}
+  .sgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+  .stile{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px 12px;text-align:center;transition:.15s}
+  .stile:hover{border-color:var(--red);transform:translateY(-2px);box-shadow:var(--shadow)}
+  .stile .ic{font-size:18px;margin-bottom:8px}
+  .stile b{display:block;font-size:13px;font-weight:700}
+  .stile span{font-size:11px;color:var(--mut)}
+  @media(max-width:700px){.sgrid{grid-template-columns:repeat(3,1fr)}.stile:nth-child(4),.stile:nth-child(5){grid-column:span 1}}
+  @media(max-width:460px){.sgrid{grid-template-columns:repeat(2,1fr)}}
+
+  footer{border-top:1px solid var(--line);padding:32px 0 56px;color:var(--mut);font-size:12px;text-align:center}
+
+  @media(max-width:600px){h1{font-size:32px}.panel{padding:0 18px 48px}.wrap{padding:0 18px}}
+</style>
+</head>
+<body>
+<div class="mockbanner"><b>Mockup 6</b> · “Chat-first” homepage · design exploration — not live</div>
+
+<header><div class="wrap nav">
+  <div class="logo"><span class="logoIcon">🥔</span><span class="logoWord">Potato<b>pedia</b></span></div>
+  <nav class="links">
+    <a class="current">Home</a><a>Knowledge</a><a>Countries</a><a>Varieties</a><a>Answers</a><a>Blog</a><a>About</a>
+  </nav>
+  <a class="navcta">Ask AI →</a>
+</div></header>
+
+<div class="wrap">
+  <div class="note">
+    <b>What changed:</b> the homepage is now three things — a declaration of what this is, a chat that IS the product, and one quiet row of links out. <span class="cut">Removed from today's homepage: the 4-stat bar, the 3-card premium-dossier grid, the industry-snapshot row, the six-audience grid, the two-column blog+knowledge feed, the FAQ accordion, and the methodology block. Global nav and footer are unchanged — this only touches homepage content.</span>
+  </div>
+</div>
+
+<section class="hero"><div class="wrap">
+  <span class="ey"><span class="dot"></span> First AI knowledge base · Potato industry</span>
+  <h1>Ask anything about the <span>global potato industry</span> — in any language.</h1>
+  <p class="lede">Production, varieties, trade, processing, nutrition — cited answers in seconds, then keep asking.</p>
+  <p class="micro">5,657 verified data points · 277 sources · every answer cites where it came from.</p>
+  <div class="trust">
+    <span>👨‍🌾 Growers &amp; farm operators</span>
+    <span>📈 Traders &amp; buyers</span>
+    <span>🔬 Researchers</span>
+    <span>Used across 31 countries</span>
+  </div>
+</div></section>
+
+<section class="panel">
+  <div class="card">
+    <div class="glow"></div>
+    <div class="askLabel">Ask anything</div>
+    <form id="composerForm" class="composer">
+      <input id="composerInput" type="text" placeholder="e.g. Which country produces the most potatoes?" autocomplete="off">
+      <button type="submit">Ask →</button>
+    </form>
+    <div class="langBlock">
+      <span class="langLabel">🌐 Ask in your language:</span>
+      <span class="langRow">
+        <span>中文</span><span>Español</span><span>Français</span><span>العربية</span><span class="more">+ any language</span>
+      </span>
+    </div>
+  </div>
+
+  <div id="chips" class="chips">
+    <span class="chip" data-q="Best variety for French fries?">Best variety for French fries?</span>
+    <span class="chip" data-q="Why did potato prices spike in 2024?">Why did potato prices spike in 2024?</span>
+    <span class="chip" data-q="Are potatoes bad for diabetics?">Are potatoes bad for diabetics?</span>
+  </div>
+
+  <div id="thread" class="thread"></div>
+</section>
+
+<section class="strip"><div class="wrap">
+  <span class="k">Or browse directly</span>
+  <div class="sgrid">
+    <a class="stile" href="#"><div class="ic">🌍</div><b>Countries</b><span>31 profiles</span></a>
+    <a class="stile" href="#"><div class="ic">🌱</div><b>Varieties</b><span>244 cultivars</span></a>
+    <a class="stile" href="#"><div class="ic">📚</div><b>Knowledge</b><span>29 articles</span></a>
+    <a class="stile" href="#"><div class="ic">📰</div><b>Blog</b><span>42 stories</span></a>
+    <a class="stile" href="#"><div class="ic">💬</div><b>Answers</b><span>83 Q&amp;A</span></a>
+  </div>
+</div></section>
+
+<footer><div class="wrap">Design mockup — not deployed. Figures reflect current site data. Local preview only.</div></footer>
+
+<script>
+  const ANSWERS = {
+    "Best variety for French fries?": {
+      a: "Russet Burbank remains the industry standard for frying — high dry matter (~22%), long oblong shape, and the variety behind McDonald's fries — though Umatilla Russet and Ranger Russet are common processor alternatives.",
+      cite: ["Variety database", "2 sources"]
+    },
+    "Why did potato prices spike in 2024?": {
+      a: "A cooler, wetter planting season across Northern Europe cut yields, while fertilizer and energy costs stayed elevated — tightening supply just as frozen-fry demand kept climbing.",
+      cite: ["Eurostat", "UN Comtrade", "2 sources"]
+    },
+    "Are potatoes bad for diabetics?": {
+      a: "Not inherently — glycemic response depends heavily on variety and cooking method. Boiled waxy potatoes sit around GI 56–69, while baked Russets can reach 85–111; cooling cooked potatoes lowers glycemic response 25–35% via resistant starch.",
+      cite: ["Peer-reviewed research", "3 sources"]
+    },
+    "Which country produces the most potatoes?": {
+      a: "China is the world's largest potato producer at 94.9 million tonnes (FAOSTAT 2024), followed by India (57.1M) and Ukraine (21.1M). The top 10 producers account for over 70% of global output.",
+      cite: ["FAOSTAT 2024", "3 sources"]
+    }
+  };
+  const DEFAULT_ANSWER = {
+    a: "Good question — in the live product this routes straight to Potatopedia's AI engine, drawing from 5,657 verified data points across 277 sources, with a citation on every answer.",
+    cite: ["Demo response", "live version cites real sources"]
+  };
+
+  const thread = document.getElementById('thread');
+  const form = document.getElementById('composerForm');
+  const input = document.getElementById('composerInput');
+  const chips = document.getElementById('chips');
+
+  function addUserBubble(text){
+    const row = document.createElement('div');
+    row.className = 'row user';
+    row.innerHTML = '<div class="bubble"></div>';
+    row.querySelector('.bubble').textContent = text;
+    thread.appendChild(row);
+    return row;
+  }
+
+  function addTyping(){
+    const row = document.createElement('div');
+    row.className = 'row ai';
+    row.innerHTML = '<div class="bubble typing"><span></span><span></span><span></span></div>';
+    thread.appendChild(row);
+    row.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    return row;
+  }
+
+  function ask(q){
+    if (!q || !q.trim()) return;
+    chips.style.display = 'none';
+    addUserBubble(q);
+    const typingRow = addTyping();
+    const data = ANSWERS[q] || DEFAULT_ANSWER;
+    setTimeout(() => {
+      typingRow.className = 'row ai';
+      const bubble = document.createElement('div');
+      bubble.className = 'bubble';
+      bubble.textContent = data.a;
+      const cite = document.createElement('div');
+      cite.className = 'cite';
+      data.cite.forEach(c => {
+        const s = document.createElement('span');
+        s.textContent = c;
+        cite.appendChild(s);
+      });
+      bubble.appendChild(cite);
+      typingRow.innerHTML = '';
+      typingRow.appendChild(bubble);
+      typingRow.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    }, 700);
+  }
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const q = input.value;
+    input.value = '';
+    ask(q);
+  });
+
+  chips.querySelectorAll('.chip').forEach(chip => {
+    chip.addEventListener('click', () => ask(chip.dataset.q));
+  });
+</script>
+</body>
+</html>

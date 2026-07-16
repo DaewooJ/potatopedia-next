@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mockup 2 — Earthy Editorial | Potatopedia</title>
+<style>
+  :root{
+    --terra:#B85C38; --terra-dk:#94401F; --olive:#2D4A1E; --paper:#F7F2EC; --paper2:#EFE6DA;
+    --ink:#2B2118; --mut:#7A6A5B; --line:#E4D8C9; --white:#FFFDFA; --gold:#C8A24A;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Iowan Old Style',Georgia,'Times New Roman',serif;background:var(--paper);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+  .sans{font-family:-apple-system,Segoe UI,Roboto,Helvetica,sans-serif}
+  a{text-decoration:none;color:inherit}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+  .mockbanner{background:var(--olive);color:#EDE7C8;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-align:center;padding:7px;font-family:-apple-system,sans-serif}
+  header{background:var(--paper);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+  .logo{font-size:23px;font-weight:800;letter-spacing:-.5px;display:flex;align-items:center;gap:9px}
+  .logo .mk{font-size:26px}
+  .logo b{color:var(--terra)}
+  nav.links{display:flex;gap:30px;font-size:14px;font-family:-apple-system,sans-serif;color:#5A4A3B;font-weight:500}
+  nav.links a:hover{color:var(--terra)}
+  .navcta{font-family:-apple-system,sans-serif;background:var(--terra);color:#fff;font-weight:600;font-size:13.5px;padding:10px 18px;border-radius:30px}
+  /* hero */
+  .hero{padding:60px 0 30px;text-align:center}
+  .kicker{font-family:-apple-system,sans-serif;font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--terra)}
+  h1{font-size:54px;line-height:1.05;letter-spacing:-1px;margin:16px auto 0;max-width:840px;font-weight:800}
+  h1 em{color:var(--terra);font-style:italic}
+  .lede{font-size:19px;color:var(--mut);max-width:600px;margin:18px auto 30px}
+  .search{display:flex;background:var(--white);border:2px solid var(--terra);border-radius:40px;max-width:640px;margin:0 auto;padding:5px 5px 5px 22px;box-shadow:0 12px 30px rgba(184,92,56,.12)}
+  .search input{flex:1;border:0;outline:0;font-size:16px;font-family:-apple-system,sans-serif;background:transparent;color:var(--ink)}
+  .search button{font-family:-apple-system,sans-serif;background:var(--terra);color:#fff;border:0;font-weight:700;padding:13px 26px;border-radius:30px;cursor:pointer}
+  .pills{display:flex;gap:9px;flex-wrap:wrap;justify-content:center;margin-top:18px;font-family:-apple-system,sans-serif}
+  .pill{font-size:13px;color:#6B5A4A;background:var(--paper2);border:1px solid var(--line);padding:8px 15px;border-radius:30px}
+  .pill:hover{border-color:var(--terra);color:var(--terra)}
+  /* feature story */
+  section{padding:46px 0}
+  .feature{display:grid;grid-template-columns:1.15fr .85fr;gap:0;background:var(--white);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+  .feature .img{background:linear-gradient(140deg,#C97B4E,#94401F);min-height:340px;position:relative;background-size:cover;background-position:center}
+  .feature .img img{width:100%;height:100%;object-fit:cover;display:block;min-height:340px}
+  .feature .txt{padding:40px}
+  .tag{font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--olive);background:rgba(45,74,30,.08);padding:5px 12px;border-radius:20px}
+  .feature h2{font-size:33px;line-height:1.12;letter-spacing:-.6px;margin:16px 0 12px}
+  .feature p{color:var(--mut);font-size:16px}
+  .readmore{font-family:-apple-system,sans-serif;display:inline-block;margin-top:20px;color:var(--terra);font-weight:700;font-size:14px;border-bottom:2px solid var(--gold);padding-bottom:2px}
+  /* section heads */
+  .shead{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:26px;flex-wrap:wrap;gap:10px}
+  .shead h3{font-size:30px;letter-spacing:-.5px}
+  .shead .k{font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--terra);display:block;margin-bottom:6px}
+  .seeall{font-family:-apple-system,sans-serif;color:var(--olive);font-weight:700;font-size:13.5px}
+  /* variety cards */
+  .vgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .vcard{background:var(--white);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:.2s}
+  .vcard:hover{transform:translateY(-4px);box-shadow:0 16px 34px rgba(43,33,24,.1)}
+  .vcard .ph{height:130px;background-size:cover;background-position:center}
+  .vcard .b{padding:15px 16px 18px}
+  .vcard .b h4{font-size:17px;margin-bottom:3px}
+  .vcard .b span{font-family:-apple-system,sans-serif;font-size:12px;color:var(--mut)}
+  .vcard .chip{font-family:-apple-system,sans-serif;display:inline-block;margin-top:9px;font-size:10.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--terra-dk);background:rgba(184,92,56,.1);padding:3px 9px;border-radius:12px}
+  /* asking band */
+  .band{background:var(--olive);color:#F2EEDD;border-radius:18px;padding:38px 40px}
+  .band .k{color:var(--gold);font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase}
+  .band h3{font-size:28px;margin:8px 0 22px;color:#fff}
+  .qgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;font-family:-apple-system,sans-serif}
+  .qchip{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:14px 16px;font-size:14px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+  .qchip b{color:var(--gold);font-size:12px}
+  /* countries */
+  .cgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;font-family:-apple-system,sans-serif}
+  .ccard{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:18px;transition:.18s}
+  .ccard:hover{border-color:var(--terra);transform:translateY(-2px)}
+  .ccard .fl{font-size:30px}
+  .ccard b{display:block;margin:10px 0 2px;font-size:16px;font-family:'Iowan Old Style',Georgia,serif}
+  .ccard span{font-size:12.5px;color:var(--mut)}
+  /* knowledge ribbon */
+  .kribbon{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;font-family:-apple-system,sans-serif}
+  .kr{background:var(--paper2);border-radius:12px;padding:20px;border:1px solid var(--line)}
+  .kr .ic{font-size:22px}.kr b{display:block;margin:8px 0 3px}.kr span{font-size:12.5px;color:var(--mut)}
+  footer{background:#2B2118;color:#C9B9A8;padding:48px 0 26px;font-family:-apple-system,sans-serif;font-size:13.5px;margin-top:20px}
+  .fgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:26px;margin-bottom:28px}
+  footer h4{color:#fff;font-size:12px;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px}
+  footer a{display:block;padding:4px 0;color:#C9B9A8}footer a:hover{color:var(--gold)}
+  .disc{border-top:1px solid rgba(255,255,255,.1);padding-top:18px;font-size:11.5px;color:#9A8979;line-height:1.7}
+  @media(max-width:900px){.feature{grid-template-columns:1fr}.vgrid,.cgrid,.kribbon{grid-template-columns:1fr 1fr}.qgrid{grid-template-columns:1fr}h1{font-size:38px}}
+  @media(max-width:600px){nav.links,.navcta{display:none}.vgrid,.cgrid,.kribbon{grid-template-columns:1fr}h1{font-size:30px}.wrap{padding:0 18px}.feature .txt{padding:26px}}
+</style>
+</head>
+<body>
+<div class="mockbanner">Mockup 2 · “Earthy Editorial” · design exploration — not live</div>
+<header><div class="wrap nav">
+  <div class="logo"><span class="mk">🥔</span>Potato<b>pedia</b></div>
+  <nav class="links"><a>Home</a><a>Knowledge</a><a>Countries</a><a>Varieties</a><a>About</a></nav>
+  <a class="navcta">Ask AI</a>
+</div></header>
+
+<div class="hero"><div class="wrap">
+  <span class="kicker">The world of the potato, explained</span>
+  <h1>Everything worth knowing about the <em>humble potato.</em></h1>
+  <p class="lede">From Andean landraces to Belgian fries — production, varieties, trade and stories across 204 countries, with cited answers.</p>
+  <div class="search"><input class="sans" placeholder="Ask anything about potatoes…"><button>Ask AI</button></div>
+  <div class="pills">
+    <span class="pill">Solana in Germany</span>
+    <span class="pill">Most demanded variety of Indian potatoes</span>
+    <span class="pill">Lady Rosetta black spot</span>
+    <span class="pill">Peru potato varieties</span>
+    <span class="pill">Future of French fry industry in India</span>
+    <span class="pill">How do I tell what type of potato I have?</span>
+  </div>
+</div></div>
+
+<!-- FEATURE STORY -->
+<section><div class="wrap">
+  <div class="feature">
+    <div class="img"><img src="https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=900&q=60" alt="potatoes" onerror="this.style.display='none'"></div>
+    <div class="txt">
+      <span class="tag">Country Story · Belgium</span>
+      <h2>How Belgium became the world’s #1 french-fry exporter</h2>
+      <p>A small country with no great potato-growing advantage built a €4bn frozen-fry empire on engineering, logistics and an obsession with the perfect cut. The full story of how it happened — and what India and Egypt are learning from it.</p>
+      <a class="readmore">Read the story →</a>
+    </div>
+  </div>
+</div></section>
+
+<!-- VARIETIES -->
+<section style="padding-top:0"><div class="wrap">
+  <div class="shead"><div><span class="k">Variety Library</span><h3>The cultivars people search for</h3></div><a class="seeall">All 230+ varieties →</a></div>
+  <div class="vgrid">
+    <div class="vcard"><div class="ph" style="background-image:url('https://images.unsplash.com/photo-1590165482129-1b8b27698780?auto=format&fit=crop&w=500&q=60')"></div><div class="b"><h4>Solana</h4><span>German maincrop · seed export</span><br><span class="chip">13× searched</span></div></div>
+    <div class="vcard"><div class="ph" style="background-image:url('https://images.unsplash.com/photo-1635774855536-9728f2610245?auto=format&fit=crop&w=500&q=60')"></div><div class="b"><h4>Lady Rosetta</h4><span>Crisping · black-spot prone</span><br><span class="chip">4× searched</span></div></div>
+    <div class="vcard"><div class="ph" style="background-image:url('https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?auto=format&fit=crop&w=500&q=60')"></div><div class="b"><h4>Kufri Jyoti</h4><span>India · table &amp; processing</span><br><span class="chip">IN demand</span></div></div>
+    <div class="vcard"><div class="ph" style="background-image:url('https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=500&q=60')"></div><div class="b"><h4>Colomba</h4><span>Early · fresh market</span><br><span class="chip">EU</span></div></div>
+  </div>
+</div></section>
+
+<!-- WHAT PEOPLE ASK -->
+<section style="padding-top:0"><div class="wrap">
+  <div class="band">
+    <span class="k">From real readers</span>
+    <h3>What people are asking this month</h3>
+    <div class="qgrid">
+      <div class="qchip">Risks &amp; expectations for Uzbekistan <b>8×</b></div>
+      <div class="qchip">Kenya potato decade time series <b>7×</b></div>
+      <div class="qchip">Future of French fries in India <b>3×</b></div>
+      <div class="qchip">What is markout? <b>3×</b></div>
+      <div class="qchip">Most demanded Indian variety <b>3×</b></div>
+      <div class="qchip">Simplot India line rate <b>new</b></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- COUNTRIES -->
+<section style="padding-top:0"><div class="wrap">
+  <div class="shead"><div><span class="k">Around the world</span><h3>Top producing countries</h3></div><a class="seeall">All 30 profiles →</a></div>
+  <div class="cgrid">
+    <div class="ccard"><div class="fl">🇨🇳</div><b>China</b><span>94.4 Mt · #1 producer</span></div>
+    <div class="ccard"><div class="fl">🇮🇳</div><b>India</b><span>56.2 Mt · #2 producer</span></div>
+    <div class="ccard"><div class="fl">🇺🇦</div><b>Ukraine</b><span>20.9 Mt · seed &amp; table</span></div>
+    <div class="ccard"><div class="fl">🇺🇸</div><b>United States</b><span>17.9 Mt · processing</span></div>
+    <div class="ccard"><div class="fl">🇩🇪</div><b>Germany</b><span>11.7 Mt · Solana home</span></div>
+    <div class="ccard"><div class="fl">🇳🇱</div><b>Netherlands</b><span>#1 seed exporter</span></div>
+    <div class="ccard"><div class="fl">🇧🇪</div><b>Belgium</b><span>#1 fry exporter</span></div>
+    <div class="ccard"><div class="fl">🇵🇪</div><b>Peru</b><span>Center of origin</span></div>
+  </div>
+</div></section>
+
+<!-- KNOWLEDGE -->
+<section style="padding-top:0"><div class="wrap">
+  <div class="shead"><div><span class="k">Knowledge Base</span><h3>Browse by theme</h3></div></div>
+  <div class="kribbon">
+    <div class="kr"><div class="ic">🌱</div><b>Varieties</b><span>230+ cultivars &amp; traits</span></div>
+    <div class="kr"><div class="ic">🌍</div><b>Trade &amp; Markets</b><span>Flows, seed, outlook</span></div>
+    <div class="kr"><div class="ic">🏭</div><b>Processing</b><span>Fries, chips, starch</span></div>
+    <div class="kr"><div class="ic">🥗</div><b>Nutrition</b><span>GI, potassium, health</span></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="fgrid">
+    <div><div class="logo" style="color:#fff;margin-bottom:10px"><span class="mk">🥔</span>Potato<b style="color:var(--gold)">pedia</b></div><p style="max-width:300px">The world of the potato, explained — verified, cited, and free.</p></div>
+    <div><h4>Read</h4><a>Stories</a><a>Varieties</a><a>Countries</a><a>Ask AI</a></div>
+    <div><h4>Data</h4><a>Production</a><a>Trade</a><a>Premium dossiers</a></div>
+    <div><h4>About</h4><a>Sources</a><a>Contact</a><a>Terms</a></div>
+  </div>
+  <div class="disc">© 2026 Potatopedia · Design mockup — not a live page. Imagery via Unsplash placeholders; figures illustrative. Answers cite primary sources only (FAOSTAT, USDA, CIP, peer-reviewed).</div>
+</div></footer>
+</body>
+</html>
