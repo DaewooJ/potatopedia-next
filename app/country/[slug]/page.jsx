@@ -5111,6 +5111,3035 @@ function ColombiaProfilePage({ c }) {
   return <CountryProfilePremium data={data} />;
 }
 
+/* ── Pakistan: full Country Intelligence Dossier (Tier 1, premium template) ── */
+function PakistanProfilePage({ c }) {
+  const data = {
+    slug: "pakistan", name: "Pakistan", flag: c.flag, region: c.region,
+    h1: "Pakistan Potato Industry: 186% Growth in a Decade &mdash; the Fastest-Growing Top-20 Producer (9.3&ndash;9.9M Tonnes, FY2024&ndash;25)",
+    tagLabel: "Pakistan · Asia",
+    readMin: 13,
+    accentLabel: "Pakistan's potato production has nearly doubled in five years &mdash; from 4.55M tonnes (2019-20) to 9.3&ndash;9.9M tonnes (2024-25) &mdash; the fastest expansion among the world's top-20 producers. Punjab grows ~96% of it. The binding constraint isn't land or climate: it's that under 5% of planted seed is certified.",
+    wikidata: "https://www.wikidata.org/wiki/Q843",
+    articlePublishedISO: "2026-07-16", articleModifiedISO: "2026-07-16", indiaContext: false,
+    quickFacts: [
+      { label: "Production (FY2024-25)", value: "9.3–9.9M tonnes" },
+      { label: "5-year growth (2019–25)", value: "~2x (doubled)" },
+      { label: "Punjab share of output", value: "95–98%" },
+      { label: "Global rank", value: "9th–11th (source-dependent)" },
+      { label: "Certified seed use", value: "&lt;5% of planted area" },
+      { label: "Exports (FY2024-25)", value: "~790,000 tonnes" },
+    ],
+    definitiveAnswer: '<strong>Pakistan produced an estimated 9.3–9.9 million tonnes of potatoes in FY2024–25</strong> &mdash; MNFSR’s Federal Committee on Agriculture put the figure at 9.3M tonnes (April 2025 communiqué), while a later official reading cited 9.9M tonnes, 44.7% above the FCA’s own 6.8M-tonne target. Either way, production has <strong>roughly doubled in five years</strong> from 4.55M tonnes in 2019-20 &mdash; the fastest growth rate among the world’s top-20 producers (FAOSTAT). <strong>Punjab Province grows 95–98% of the national crop</strong>, concentrated in Sahiwal, Sialkot, Okara, Lahore, Jhang, and Kasur districts. The growth story has a structural asterisk: <strong>less than 5% of planted seed is certified</strong> &mdash; MNFSR and FAO both identify this as the single biggest constraint on yield, ahead of water, climate, or land availability.',
+    keyStats: [
+      { value: "9.3–9.9M t", label: "FY2024-25 production" },
+      { value: "+83.7%", label: "Area growth, 2019–23", accent: "#4CAF50" },
+      { value: "95–98%", label: "Punjab's share of output" },
+      { value: "<5%", label: "Certified seed use" },
+    ],
+    tocItems: [
+      { id: "industry-size", l: "How big is Pakistan's potato industry, and how fast is it growing?" },
+      { id: "punjab", l: "Why does Punjab grow almost all of Pakistan's potatoes?" },
+      { id: "calendar", l: "When are potatoes planted and harvested in Pakistan?" },
+      { id: "varieties", l: "What potato varieties are grown in Pakistan?" },
+      { id: "seed-system", l: "Why is seed quality Pakistan's biggest constraint?" },
+      { id: "storage", l: "What happens to Pakistan's potatoes after harvest?" },
+      { id: "processing", l: "How developed is Pakistan's potato processing industry?" },
+      { id: "trade", l: "Where does Pakistan export its potatoes?" },
+      { id: "outlook", l: "What does Pakistan's FY2025-26 outlook look like?" },
+      { id: "history", l: "How did Pakistan go from a minor producer to a top-11 nation?" },
+      { id: "challenges", l: "What are the biggest challenges facing Pakistan's potato sector?" },
+    ],
+    cards: [
+      { id: "industry-size", dataCard: "overview",
+        h2: "How big is Pakistan's potato industry, and how fast is it growing?",
+        lead: "Pakistan's potato area grew <strong>83.7% between FY2019-20 and FY2022-23</strong> (185,379 to 340,577 hectares), with production up <strong>82.7%</strong> over the same window (4.55M to 8.32M tonnes) &mdash; one of the fastest potato-sector expansions recorded anywhere in the world in recent years (MNFSR).",
+        quickFacts: [
+          { label: "FY2019-20", value: "4.55M tonnes / 185,379 ha" },
+          { label: "FY2022-23", value: "8.32M tonnes / 340,577 ha" },
+          { label: "FY2024-25 (FCA, Apr 2025)", value: "9.3M tonnes / 370,000 ha" },
+          { label: "FY2024-25 (later official reading)", value: "9.9M tonnes / 378,100 ha" },
+        ],
+        body: [
+          "Pakistan has crossed 9 million tonnes of annual potato production, up from 4.5 million just five years earlier &mdash; a doubling in half a decade that MNFSR and FAO both describe as one of the fastest national potato-sector expansions in recent global history. The FY2024-25 figure carries two official readings that don't fully agree: the Federal Committee on Agriculture's own April 2025 communiqué states 9.3 million tonnes on 370,000 hectares, while a separate official tally puts the year at 9.9 million tonnes on 378,100 hectares &mdash; 44.7% above the FCA's own 6.8-million-tonne target for the year. We report both rather than force a false precision the underlying data doesn't support.",
+          "Average national yield sits at roughly 24&ndash;26 tonnes per hectare &mdash; respectable, but well short of the Netherlands (~46 t/ha) or the United States (~51 t/ha). Potato is now Pakistan's <strong>4th largest crop by volume</strong>, behind only wheat, rice, and sugarcane.",
+        ],
+        source: "Source: MNFSR (Ministry of National Food Security & Research), Fruit, Vegetables and Condiments Statistics of Pakistan 2022-23; MNFSR Federal Committee on Agriculture (FCA) Meeting Communiqué, 24 April 2025; TDAP.",
+      },
+      { id: "punjab", dataCard: "regions",
+        h2: "Why does Punjab grow almost all of Pakistan's potatoes?",
+        lead: "<strong>Punjab Province accounts for 95.9% of national potato area and 97.8% of production</strong> (2022-23 data) &mdash; a concentration matched by almost no other major producing country. The FY2024-25 reading puts Punjab even higher, at 95% of a larger national total: 9.81 million tonnes on 373,000 hectares.",
+        table: {
+          headers: ["Province", "Area (2022-23)", "Production (2022-23)", "Share of national output"],
+          rows: [
+            ["Punjab", "326,980 ha", "8,136,051 t", "97.8%"],
+            ["Khyber Pakhtunkhwa (KPK)", "11,529 ha", "163,443 t", "~2.0%"],
+            ["Balochistan", "1,713 ha", "17,016 t", "~0.2%"],
+            ["Sindh", "355 ha", "3,257 t", "&lt;0.1%"],
+          ],
+        },
+        body: [
+          "Punjab's dominance has actually deepened over time: its planted area nearly doubled from 172,389 hectares in 2019-20 to 326,980 hectares in 2022-23, and its yield kept climbing too &mdash; 25,341 kg/ha rising to 26,308 kg/ha by FY2024-25. Within Punjab, cultivation concentrates in a specific district cluster: <strong>Sahiwal, Sialkot, Okara, Lahore, Jhang, Kasur, and Chiniot</strong>.",
+          "Khyber Pakhtunkhwa is a distant second and Balochistan grows a smaller, spring-season crop; Sindh's contribution is now negligible &mdash; its planted area actually shrank across 2018-23 while every other province expanded. This extreme geographic concentration is efficient (clustered infrastructure, established buyer relationships, irrigation from the Indus basin) but it's also a systemic risk: a Punjab-wide weather event, water shortage, or disease outbreak has near-national consequences for the crop.",
+        ],
+        source: "Source: MNFSR, Table Nos. 7-10, Provincial Crop Reporting Service Centres; MNFSR FCA / TDAP FY2024-25 update.",
+      },
+      { id: "calendar", dataCard: "calendar",
+        h2: "When are potatoes planted and harvested in Pakistan?",
+        lead: "Pakistan runs <strong>two growing seasons</strong>: an autumn crop (planted September&ndash;October, harvested January&ndash;February) that Punjab dominates, and a spring crop (planted January&ndash;February, harvested April&ndash;May) more common in Balochistan and Khyber Pakhtunkhwa.",
+        quickFacts: [
+          { label: "Autumn planting", value: "September – October" },
+          { label: "Autumn harvest", value: "January – February" },
+          { label: "Spring planting", value: "January – February" },
+          { label: "Spring harvest", value: "April – May" },
+        ],
+        body: [
+          "The dual-season system gives Pakistan some supply continuity across the year, though the autumn crop &mdash; concentrated in Punjab &mdash; carries the overwhelming majority of national volume. This seasonal split, combined with a persistent cold-storage shortfall (see below), is a major driver of the price volatility between harvests that Pakistani growers describe as one of their biggest planning headaches.",
+        ],
+        source: "Source: MNFSR provincial crop calendars; FAO Pakistan.",
+      },
+      { id: "varieties", dataCard: "varieties",
+        h2: "What potato varieties are grown in Pakistan?",
+        lead: "Variety dominance estimates have shifted between reporting cycles: older MNFSR/FAOSTAT profiles named <strong>Diamant</strong> (Netherlands) or <strong>Desiree</strong> as Pakistan's most widely grown variety, but the most recent TDAP-linked export data corrects that assumption &mdash; naming <strong>Sante</strong> as the most widely grown variety nationally.",
+        table: {
+          headers: ["Variety", "Origin", "Primary role"],
+          rows: [
+            ["Sante", "Netherlands", "Most widely grown (2024-25 data)"],
+            ["Diamant", "Netherlands", "Widely planted; fresh market"],
+            ["Desiree", "Netherlands", "Widely grown; earlier data's top variety"],
+            ["Cardinal", "Netherlands", "Popular red-skinned variety"],
+            ["Kuroda", "&mdash;", "Popular in Sindh Province"],
+            ["Lady Rosetta, Hermes, Asterix", "Netherlands", "Processing (high dry matter, low sugar)"],
+            ["Mozika, Ismi, Vogue, Esmee, Rudolph", "&mdash;", "Fresh-market / export varieties"],
+            ["FD varieties", "Pakistan (local selections)", "Domestic selections"],
+          ],
+        },
+        body: [
+          "This isn't a contradiction so much as a genuine data gap in how Pakistan's variety mix has historically been tracked &mdash; we report both the older and newer readings rather than pick one and discard the other. What's consistent across every source: Pakistan's commercial variety base is almost entirely Dutch-bred (Sante, Diamant, Desiree, Cardinal, Lady Rosetta, Hermes, Asterix), with Kuroda notable in Sindh and a small set of domestically selected FD varieties rounding out the portfolio.",
+        ],
+        source: "Source: MNFSR; FAOSTAT country profile; TDAP export-variety data (MNFSR FCA / TDAP FY2024-25 update).",
+      },
+      { id: "seed-system", dataCard: "seed-system",
+        h2: "Why is seed quality Pakistan's biggest constraint?",
+        lead: "According to the FAO Hand-in-Hand Investment Forum 2024, <strong>certified seed covers less than 5% of Pakistan's potato planting requirement</strong> &mdash; over 95% of farmers plant farm-saved seed of unknown health and varietal purity, at a certified-seed cost of roughly <strong>USD 888 per hectare</strong> that FAO says makes certified seed unviable for most smallholders.",
+        callout: { number: "<5%", context: "of Pakistan's potato seed is certified. FAO projects that resolving this single constraint alone could push national production to 12–15 million tonnes — a 30–60% increase without expanding cultivated area at all.", source: "FAO Hand-in-Hand Investment Forum 2024" },
+        body: [
+          "The mechanics of the problem: certified seed imported from the Netherlands (mainly Diamant and Cardinal) is expensive and covers only a small share of national demand, so the overwhelming majority of growers replant farm-saved tubers season after season. That practice compounds virus buildup and seed degeneration over successive generations, which FAO identifies as a major drag on realized yield relative to each variety's genetic potential. Pakistan has no domestic tissue-culture laboratories operating at meaningful scale &mdash; FAO's explicit recommendation is new tissue-culture facilities in both the public and private sector to start building a domestic clean-seed supply chain.",
+        ],
+        source: "Source: FAO Hand-in-Hand Investment Forum 2024; MNFSR seed-system assessment.",
+      },
+      { id: "storage", dataCard: "storage",
+        h2: "What happens to Pakistan's potatoes after harvest?",
+        lead: "Punjab has <strong>800+ dedicated potato cold-storage facilities with combined capacity exceeding 3.5 million tonnes</strong> &mdash; yet <strong>only about 15% of the harvested crop actually reaches proper cold storage</strong>, and post-harvest losses run 25&ndash;30%.",
+        body: [
+          "That gap between built capacity and actual utilization points to a distribution and access problem as much as an infrastructure one &mdash; storage exists at meaningful scale in Punjab specifically, but getting the crop from a huge number of smallholder autumn harvests into that storage network within the narrow post-harvest window is the practical bottleneck. The consequence shows up directly in farmer economics: with 85% of the crop bypassing cold storage, Pakistan sees the same immediate post-harvest price collapse and volatility that under-stored producing countries commonly report, since a compressed harvest window forces a large share of supply onto the market at once.",
+        ],
+        source: "Source: MNFSR FCA / TDAP FY2024-25 update; FAO Pakistan.",
+      },
+      { id: "processing", dataCard: "processing",
+        h2: "How developed is Pakistan's potato processing industry?",
+        lead: "Processing accounts for roughly <strong>10% of Pakistan's total potato production</strong> and is growing. <strong>Lays (PepsiCo)</strong> has a significant established presence, and local chip and snack brands are expanding alongside it.",
+        body: [
+          "A 10% processing share leaves Pakistan with substantial untapped potential relative to countries like the United States (60%+) or Germany (70&ndash;80%) &mdash; especially notable given Pakistan's production scale now rivals mid-sized European producers. The constraint isn't raw material supply; production growth has comfortably outpaced processing-sector investment. It's processing capacity, cold-chain linkage to feed a plant reliably, and contract-farming frameworks that guarantee processors the specific low-sugar, high-dry-matter varieties (Lady Rosetta, Hermes, Asterix) their lines need.",
+        ],
+        source: "Source: MNFSR; FAOSTAT country profile.",
+      },
+      { id: "trade", dataCard: "trade",
+        h2: "Where does Pakistan export its potatoes?",
+        lead: "Pakistan exported approximately <strong>790,000 tonnes of potatoes in FY2024-25</strong>, worth roughly <strong>USD 190 million</strong> (TDAP) &mdash; potato is Pakistan's largest vegetable export by volume. <strong>Afghanistan and the CIS countries together account for roughly half of all exports.</strong>",
+        table: {
+          headers: ["Market", "Status", "Notes"],
+          rows: [
+            ["Afghanistan", "Established, largest", "Land-border trade; part of the ~50% CIS+Afghanistan share"],
+            ["Sri Lanka, UAE, Malaysia", "Established", "Core Middle East / South Asia demand"],
+            ["Saudi Arabia, Oman, Qatar, Kuwait", "Established", "Gulf markets"],
+            ["Kazakhstan, Uzbekistan, Tajikistan, Turkmenistan, Russia", "Growing (Central Asia)", "Kazakhstan alone: 50,000t deal worth ~$25M"],
+          ],
+        },
+        body: [
+          "Export prices run roughly USD 180&ndash;190 per tonne for fresh potatoes. Central Asia is the clearest growth frontier &mdash; the Kazakhstan deal (50,000 tonnes, ~$25 million) signals Pakistan actively displacing or supplementing other suppliers in that corridor. But the export trend isn't friction-free: exporters report grading inconsistencies in shipments, rising freight costs, and direct competition from China and Egypt in several of the same regional markets. TDAP is among the institutions working to improve export positioning, but the sector remains predominantly oriented toward domestic fresh consumption rather than export or processing.",
+        ],
+        source: "Source: TDAP (Trade Development Authority of Pakistan); MNFSR FCA / TDAP FY2024-25 update.",
+      },
+      { id: "outlook", dataCard: "outlook",
+        h2: "What does Pakistan's FY2025-26 outlook look like?",
+        lead: "The Federal Committee on Agriculture's FY2025-26 target is <strong>8.92 million tonnes across 349,400 hectares</strong> &mdash; notably below the FY2024-25 outturn, reflecting planned normalization after a record year rather than a growth target.",
+        table: {
+          headers: ["Province", "FY2025-26 target"],
+          rows: [
+            ["Punjab", "8.84 million tonnes"],
+            ["Balochistan", "34,100 tonnes"],
+            ["Khyber Pakhtunkhwa", "35,000 tonnes"],
+            ["Sindh", "7,500 tonnes"],
+          ],
+        },
+        source: "Source: MNFSR Federal Committee on Agriculture (FCA), FY2025-26 targets.",
+      },
+      { id: "history", dataCard: "history",
+        h2: "How did Pakistan go from a minor producer to a top-11 nation?",
+        lead: "At independence in 1947, Pakistan grew potatoes on <strong>under 3,000 hectares, producing under 30,000 tonnes</strong> &mdash; a rounding error by today's standards. Growth accelerated from the 1980s onward through irrigation expansion on the Indus River basin, then sharply again after 2019.",
+        body: [
+          "The recent trajectory: 5.8 million tonnes (FY2021) &rarr; 7.9 million tonnes (FY2022, a 35% single-year jump) &rarr; 8.32 million tonnes (FY2023) &rarr; 9.3&ndash;9.9 million tonnes (FY2024-25, record). FAO's 2023 ranking places Pakistan 9th globally; other official readings place it 11th depending on the reference year and dataset &mdash; either way, a firmly top-tier global producer today, having overtaken Belgium, Canada, Japan, and the United Kingdom in total tonnage.",
+        ],
+        source: "Source: MNFSR historical series; FAOSTAT; FAO global rankings.",
+      },
+      { id: "challenges", dataCard: "challenges",
+        h2: "What are the biggest challenges facing Pakistan's potato sector?",
+        lead: "Six constraints recur across every official assessment of Pakistan's potato sector: certified-seed scarcity, cold-storage under-utilization, water/irrigation dependence, inter-season price volatility, export grading inconsistencies, and rising competition from China and Egypt in shared export markets.",
+        body: [
+          "The productivity gap is the clearest opportunity in the data: with certified seed below 5% and yields at 24&ndash;26 t/ha against a biological potential well above 40 t/ha for well-managed Dutch varieties, Pakistan has more identifiable, addressable upside than almost any comparably sized producer &mdash; FAO's own estimate is that fixing the seed-supply constraint alone could push national output to 12&ndash;15 million tonnes. The broader pattern across production scale, processing depth, cold-chain utilization, and export infrastructure is a structural mismatch: Pakistan now produces at a scale comparable to Germany or France, while its supporting systems remain far less developed &mdash; simultaneously its biggest risk and its most compelling growth case.",
+        ],
+        source: "Source: MNFSR; FAO Hand-in-Hand Investment Forum 2024; TDAP.",
+      },
+    ],
+    sourceList: [
+      "MNFSR (Ministry of National Food Security & Research), Government of Pakistan — Fruit, Vegetables and Condiments Statistics of Pakistan 2022-23",
+      "MNFSR — Federal Committee on Agriculture (FCA) Meeting Communiqué, 24 April 2025",
+      "FAO — Hand-in-Hand Investment Forum 2024: Pakistan",
+      "TDAP (Trade Development Authority of Pakistan) — export volume, value, and market data",
+      "FAOSTAT — production, area, yield time series and global rankings",
+    ],
+    faqItems: [
+      { q: "How much potato does Pakistan produce per year?", a: "Pakistan produced an estimated 9.3–9.9 million tonnes of potatoes in FY2024-25, depending on which official reading you use (MNFSR FCA communiqué vs. a later official tally). That's roughly double the 4.55 million tonnes produced just five years earlier, in 2019-20." },
+      { q: "Which province produces the most potatoes in Pakistan?", a: "Punjab Province, which grows 95–98% of Pakistan's national potato output, concentrated in Sahiwal, Sialkot, Okara, Lahore, Jhang, Kasur, and Chiniot districts." },
+      { q: "What is Pakistan's global rank in potato production?", a: "Pakistan ranks 9th to 11th globally depending on the source and reference year (FAO 2023 data ranks it 9th), making it a firmly top-tier global producer — ahead of Belgium, Canada, Japan, and the United Kingdom." },
+      { q: "Why is Pakistan's potato production growing so fast?", a: "Production nearly doubled between 2019-20 and 2024-25, driven primarily by a sharp expansion in Punjab's cultivated area (up 83.7% from 2019-20 to 2022-23) rather than yield gains — average yield has stayed roughly flat at 24–26 t/ha across the growth period." },
+      { q: "What is the biggest constraint on Pakistan's potato industry?", a: "Certified seed. Less than 5% of Pakistan's planted potato area uses certified seed (FAO), with over 95% of farmers replanting farm-saved tubers. FAO estimates that fixing this single constraint could push national production to 12–15 million tonnes without expanding cultivated area." },
+      { q: "Does Pakistan export potatoes?", a: "Yes — approximately 790,000 tonnes in FY2024-25, worth roughly USD 190 million (TDAP), making potato Pakistan's largest vegetable export by volume. Afghanistan and the CIS countries (Kazakhstan, Uzbekistan, Tajikistan, Turkmenistan, Russia) together account for roughly half of exports, alongside established Gulf and South/Southeast Asian markets." },
+      { q: "What potato varieties are grown in Pakistan?", a: "Predominantly Dutch-bred varieties: Sante (most widely grown per the latest 2024-25 data), Diamant, Desiree, Cardinal, and processing varieties Lady Rosetta, Hermes, and Asterix. Kuroda is notable in Sindh Province, alongside a small set of domestically selected FD varieties." },
+      { q: "How much of Pakistan's potato crop goes to cold storage?", a: "Only about 15% of the harvested crop reaches proper cold storage, despite Punjab having 800+ dedicated facilities with combined capacity exceeding 3.5 million tonnes — a distribution and access gap, not a lack of built infrastructure. Post-harvest losses run 25–30%." },
+    ],
+    regionalContext: [
+      { slug: "india", note: "South Asia's largest producer (56.2M)" },
+      { slug: "bangladesh", note: "South Asia peer, storage-crisis parallel" },
+      { slug: "china", note: "Export-market competitor" },
+      { slug: "uzbekistan", note: "Seasonal import destination for Pakistani potatoes" },
+      { slug: "iran", note: "Regional peer (2.92M)" },
+      { slug: "turkey", note: "Mediterranean / ME #1 (6.90M)" },
+    ],
+    continueReading: [
+      { href: "/blog/pakistan-potato-explosion", tag: "Analysis", title: "Why Pakistan's Potato Production Grew 186% in 10 Years", desc: "The story-format deep dive behind the numbers on this page." },
+      { href: "/knowledge/seed-potato-systems", tag: "Agronomy", title: "Seed Potato Systems", desc: "Why certified seed access is the single biggest lever on Pakistan's yield." },
+      { href: "/knowledge/potato-storage-cold-chain", tag: "Storage", title: "Potato Cold Storage", desc: "Why built capacity and actual utilization diverge so sharply in Pakistan." },
+      { href: "/knowledge/global-potato-trade", tag: "Trade", title: "Global Potato Trade", desc: "Where Pakistan fits — a fast-growing exporter facing competition from China and Egypt." },
+    ],
+  };
+  return <CountryProfilePremium data={data} />;
+}
+
+/* ── Bangladesh: full Country Intelligence Dossier (Tier 1, premium template) ── */
+function BangladeshProfilePage({ c }) {
+  const data = {
+    slug: "bangladesh", name: "Bangladesh", flag: c.flag, region: c.region,
+    h1: "Bangladesh Potato Industry: 7th-Largest Producer, Now Fighting a Structural Surplus (11&ndash;13M Tonnes)",
+    tagLabel: "Bangladesh · Asia",
+    readMin: 12,
+    accentLabel: "Bangladesh grows more potatoes than it can profitably sell &mdash; a 3&ndash;4 million tonne annual surplus against a 3&ndash;4 million tonne cold-storage shortfall crashed farmgate prices below production cost in 2024-25. The country exports less than 1% of what it grows.",
+    wikidata: "https://www.wikidata.org/wiki/Q902",
+    articlePublishedISO: "2026-07-16", articleModifiedISO: "2026-07-16", indiaContext: false,
+    quickFacts: [
+      { label: "Production (FY2024-25)", value: "11.57M tonnes (DAE)" },
+      { label: "Global rank", value: "6th–7th largest producer" },
+      { label: "Domestic demand", value: "7–9M tonnes" },
+      { label: "Surplus (FY2024-25)", value: "3–4M tonnes" },
+      { label: "Cold storage capacity", value: "3–6M tonnes (350–400 facilities)" },
+      { label: "Exports", value: "&lt;1% of production" },
+    ],
+    definitiveAnswer: '<strong>Bangladesh produced 11.57 million tonnes of potatoes in FY2024-25 (DAE)</strong> &mdash; other readings put the 2024 calendar year as high as 13 million tonnes (BCSA estimate) &mdash; making it the world\'s <strong>6th-to-7th largest producer</strong>. But production has outpaced demand: domestic consumption is only 7&ndash;9 million tonnes, leaving a <strong>structural surplus of 3&ndash;4 million tonnes</strong> that collided with a cold-storage shortfall (350&ndash;400 facilities holding just 3&ndash;6 million tonnes) in 2024-25, crashing farmgate prices to Tk 7&ndash;10/kg &mdash; below the estimated Tk 14/kg production cost. <strong>Rangpur Division alone grows roughly a quarter of the national crop</strong>, and Bangladesh exports less than 1% of what it produces, primarily to Malaysia, Nepal, and Sri Lanka.',
+    keyStats: [
+      { value: "11.57M t", label: "FY2024-25 production (DAE)" },
+      { value: "3–4M t", label: "FY2024-25 surplus" },
+      { value: "Tk 7–10/kg", label: "2024-25 farmgate price crash" },
+      { value: "<1%", label: "Share of crop exported" },
+    ],
+    tocItems: [
+      { id: "industry-size", l: "How big is Bangladesh's potato industry?" },
+      { id: "surplus-crisis", l: "Why did Bangladesh's potato prices crash in 2024-25?" },
+      { id: "regions", l: "Which regions produce the most potatoes in Bangladesh?" },
+      { id: "calendar", l: "When is Bangladesh's potato season?" },
+      { id: "varieties", l: "What potato varieties are grown in Bangladesh?" },
+      { id: "seed-system", l: "Where does Bangladesh get its seed potatoes?" },
+      { id: "storage", l: "How big is Bangladesh's cold-storage gap?" },
+      { id: "trade", l: "Where does Bangladesh export its potatoes?" },
+      { id: "institutions", l: "Which institutions run Bangladesh's potato sector?" },
+      { id: "challenges", l: "What are Bangladesh's biggest potato-sector challenges?" },
+    ],
+    cards: [
+      { id: "industry-size", dataCard: "overview",
+        h2: "How big is Bangladesh's potato industry?",
+        lead: "Bangladesh produced <strong>11.57 million tonnes in FY2024-25</strong> (DAE), or as much as <strong>13 million tonnes</strong> on a 2024 calendar-year basis (BCSA estimate) &mdash; on a cultivated area of roughly 495,000&ndash;524,000 hectares, up 15% year-on-year. That makes Bangladesh the world's <strong>6th-to-7th largest potato producer</strong>, and potato is the country's single most important Rabi (winter) crop.",
+        quickFacts: [
+          { label: "FY2014-15 production", value: "9.25M tonnes" },
+          { label: "FY2015-16 production", value: "9.47M tonnes" },
+          { label: "FY2024-25 production", value: "11.57M tonnes (DAE)" },
+          { label: "2024 calendar year", value: "13M tonnes (BCSA est.)" },
+        ],
+        body: [
+          "Yield has climbed steadily &mdash; from 19.6 t/ha in FY2014-15 to nearly 23 t/ha a decade later &mdash; but the defining fact of Bangladesh's potato economy right now isn't production growth, it's the gap between what the country grows and what it can actually sell or store. High-Yielding Varieties (HYV) account for over 91% of national output; local varieties make up the rest.",
+        ],
+        source: "Source: BBS (Bangladesh Bureau of Statistics) Agriculture Wing; DAE (Department of Agricultural Extension); BCSA (Bangladesh Cold Storage Association).",
+      },
+      { id: "surplus-crisis", dataCard: "crisis",
+        h2: "Why did Bangladesh's potato prices crash in 2024-25?",
+        lead: "Domestic demand is only <strong>7&ndash;9 million tonnes</strong> (BARI/BBS) against production of 11&ndash;13 million tonnes &mdash; a structural <strong>3&ndash;4 million tonne annual surplus</strong>. In 2024-25, farmgate prices crashed to <strong>Tk 7&ndash;10/kg, below the estimated Tk 14/kg production cost</strong>.",
+        callout: { number: "Tk 7–10", context: "per kg farmgate price in the 2024-25 crash — below the DAE-estimated Tk 14/kg production cost, and also below the USD 0.22/kg cold-storage cost that BCSA proposed as a minimum gate price. Without price support, BCSA warns farmers may cut potato planting in 2026.", source: "DAE; BCSA" },
+        body: [
+          "The mechanics are straightforward: production has grown faster than either domestic consumption or storage/export capacity can absorb. Around 1.2 million tonnes remained in cold storage with only months to sell, and BCSA estimated 20&ndash;30% of stored stock was at risk of going unsold without price intervention &mdash; with roughly 8 million tonnes overall at risk of spoilage due to inadequate storage across the season.",
+        ],
+        source: "Source: BCSA (Bangladesh Cold Storage Association); DAE; Ministry of Agriculture Bangladesh.",
+      },
+      { id: "regions", dataCard: "regions",
+        h2: "Which regions produce the most potatoes in Bangladesh?",
+        lead: "<strong>Rangpur and Rajshahi Divisions together hold 71% of national potato area</strong> and Rangpur alone contributes roughly a quarter of national output. Munshiganj district (under Dhaka Division) is the single highest-yielding district in the country.",
+        table: {
+          headers: ["Division", "Area (ha)", "Production (t)", "Yield (t/ha)"],
+          rows: [
+            ["Rangpur", "180,423", "3,407,606", "18.9"],
+            ["Rajshahi", "157,879", "3,059,845", "19.4"],
+            ["Dhaka", "57,480", "1,584,814", "27.6"],
+            ["Chittagong", "36,119", "683,110", "18.9"],
+            ["Mymensingh", "14,886", "217,149", "14.6"],
+            ["Khulna", "14,444", "289,415", "20.0"],
+            ["Barisal", "8,992", "173,008", "19.2"],
+            ["Sylhet", "5,265", "59,151", "11.2"],
+          ],
+        },
+        body: [
+          "Dhaka Division's high average yield is driven almost entirely by one district: <strong>Munshiganj</strong>, which produced 1.24 million tonnes from 38,205 hectares at 32.5 t/ha &mdash; the highest yield of any district in Bangladesh, and a historic potato-growing area located near the capital. Sylhet, by contrast, has the lowest yield in the country at 11.2 t/ha.",
+        ],
+        source: "Source: BBS, Estimates of Potato 2015-16, Agriculture Wing.",
+      },
+      { id: "calendar", dataCard: "calendar",
+        h2: "When is Bangladesh's potato season?",
+        lead: "Bangladesh runs a <strong>single annual crop</strong> &mdash; the Rabi (winter) season, planted <strong>October&ndash;November</strong> and harvested <strong>February&ndash;March</strong>. Unlike Egypt's four overlapping seasons, there is no second Bangladeshi potato season.",
+        quickFacts: [
+          { label: "Season", value: "Rabi (winter), single crop" },
+          { label: "Planting", value: "October – November" },
+          { label: "Harvest", value: "February – March" },
+        ],
+        body: [
+          "Compressing the entire national harvest into a single narrow window is a major structural driver of Bangladesh's storage and pricing problems: the whole year's supply hits the market and storage system within a few months, with nothing to smooth it out until the next October planting.",
+        ],
+        source: "Source: FAO Bangladesh Country Office; BARI; DAE.",
+      },
+      { id: "varieties", dataCard: "varieties",
+        h2: "What potato varieties are grown in Bangladesh?",
+        lead: "<strong>Diamant</strong> (Netherlands) is the single most widely grown variety, imported alongside Cardinal, Granola, and Asterix. BARI (Bangladesh Agricultural Research Institute) has developed <strong>106 varieties in total</strong>, but only <strong>14 are officially recognised as meeting export standards</strong> &mdash; and in practice, just 8&ndash;10 varieties are actually shipped abroad.",
+        table: {
+          headers: ["Variety", "Origin", "Role"],
+          rows: [
+            ["Diamant", "Netherlands", "Most widely grown; dominant import"],
+            ["Cardinal", "Netherlands", "Red-skinned, popular fresh market"],
+            ["Granola", "Netherlands", "Widely consumed fresh; key export variety"],
+            ["Asterix", "Netherlands", "Used for processing"],
+            ["Courage", "&mdash;", "Newer high-yielding variety; exported"],
+            ["Sunshine", "Bangladesh (BARI)", "Bred specifically for export markets"],
+            ["BARI Alu varieties", "Bangladesh (BARI)", "Locally bred, part of the 106-variety portfolio"],
+          ],
+        },
+        body: [
+          "BADC and private firms have introduced 94 additional non-notified varieties on top of BARI's 106, but only 5 of those are considered exportable &mdash; a regulatory bottleneck that keeps Bangladesh's actual export-variety base narrow even though its total varietal portfolio is large. BARI specifically bred <strong>Sunshine</strong> for overseas markets as part of a deliberate export-development push.",
+        ],
+        source: "Source: BARI (Bangladesh Agricultural Research Institute); DAE; Ministry of Agriculture Bangladesh.",
+      },
+      { id: "seed-system", dataCard: "seed-system",
+        h2: "Where does Bangladesh get its seed potatoes?",
+        lead: "Bangladesh imports seed primarily from the <strong>Netherlands and India</strong>, with Diamant the dominant imported variety. Only about <strong>20% of farmers use certified seed</strong> &mdash; the rest rely on farm-saved seed, affecting yield consistency and disease management.",
+        body: [
+          "India is Bangladesh's #1 source for imported seed potatoes specifically (as distinct from India also being a destination market for Bangladeshi table potato exports in some years). BARI's breeding program is the main domestic counterweight to import dependence, but certified-seed adoption remains low nationally.",
+        ],
+        source: "Source: FAO Bangladesh Country Office; BARI.",
+      },
+      { id: "storage", dataCard: "storage",
+        h2: "How big is Bangladesh's cold-storage gap?",
+        lead: "Bangladesh has approximately <strong>350&ndash;400 cold-storage facilities with 3&ndash;6 million tonnes of combined capacity</strong> &mdash; against production of 11&ndash;13 million tonnes, a structural gap of roughly 4&ndash;5 million tonnes that almost all falls on the private sector to solve.",
+        body: [
+          "Almost all cold storage is privately owned, with limited government facilities. FAO Bangladesh identifies limited cold-storage capacity as one of the most critical structural constraints across the entire value chain &mdash; and it's the direct mechanical cause of the 2024-25 price crash: with nowhere to put a 3&ndash;4 million tonne surplus, prices had nowhere to go but down.",
+        ],
+        source: "Source: BCSA (Bangladesh Cold Storage Association); FAO Bangladesh Country Office.",
+      },
+      { id: "trade", dataCard: "trade",
+        h2: "Where does Bangladesh export its potatoes?",
+        lead: "Bangladesh exports less than 1% of its production. <strong>Malaysia takes more than a third of exports</strong> (the largest single market), with Nepal and Sri Lanka each taking roughly a fifth.",
+        table: {
+          headers: ["Market", "Approx. share", "Notes"],
+          rows: [
+            ["Malaysia", "&gt;33%", "Largest single export market"],
+            ["Nepal", "~20%", "Also a growing frozen-fry destination for India"],
+            ["Sri Lanka", "~20%", "Established market"],
+            ["Myanmar, Singapore, UAE, Brunei, Qatar, Bahrain, Kuwait, Oman, Jordan, Lebanon", "Remainder", "Smaller, diversified Gulf + Southeast Asia demand"],
+          ],
+        },
+        body: [
+          "Officials from the Ministry of Agriculture are actively pursuing Russia, Fiji, and Vietnam as new export markets &mdash; part of a deliberate push to turn some of the structural surplus into export revenue rather than domestic price collapse. FAO's <strong>\"Missing Middle Initiative\"</strong> (funded by the Global Agriculture and Food Security Program) links Rangpur smallholders directly with exporters through the Bangladesh Potato Exporters' Association (BPEA).",
+        ],
+        source: "Source: FAO Bangladesh Country Office; Ministry of Agriculture Bangladesh.",
+      },
+      { id: "institutions", dataCard: "institutions",
+        h2: "Which institutions run Bangladesh's potato sector?",
+        lead: "Five institutions anchor the sector: the <strong>Ministry of Agriculture</strong> (policy), <strong>DAE</strong> (extension services), <strong>BADC</strong> (seed multiplication), <strong>BARI</strong> (variety research), and <strong>BBS Agriculture Wing</strong> (official statistics).",
+        body: [
+          "Bangladesh has run export-oriented potato production support since 2019 in partnership with FAO, and the sector's structural problems &mdash; storage, phytosanitary standards, market linkages, post-harvest handling &mdash; are consistently named by FAO as the levers that would let more of the current surplus become export revenue instead of a farmgate price collapse.",
+        ],
+        source: "Source: FAO Bangladesh Country Office; Ministry of Agriculture Bangladesh; BARI.",
+      },
+      { id: "challenges", dataCard: "challenges",
+        h2: "What are Bangladesh's biggest potato-sector challenges?",
+        lead: "Four structural constraints recur across every official assessment: <strong>limited cold-storage capacity</strong>, <strong>absence of standard phytosanitary laboratories</strong> (a barrier to more export markets), <strong>gaps in market linkages</strong> between farmers and exporters, and the need for <strong>improved post-harvest handling</strong>.",
+        body: [
+          "Unlike most major producers, Bangladesh's core problem isn't growing enough potatoes &mdash; it's that production, storage, and export-market development haven't grown in step with each other. The 2024-25 price crash is the clearest possible illustration: a country that's a top-7 global producer, still exporting under 1% of its crop and watching farmgate prices fall below the cost of production.",
+        ],
+        source: "Source: FAO Bangladesh Country Office; BCSA; DAE.",
+      },
+    ],
+    sourceList: [
+      "BBS (Bangladesh Bureau of Statistics), Agriculture Wing — official production and area statistics",
+      "DAE (Department of Agricultural Extension) — FY2024-25 production data and export targeting",
+      "BARI (Bangladesh Agricultural Research Institute) — variety development and breeding",
+      "BCSA (Bangladesh Cold Storage Association) — storage capacity and 2024-25 price-crisis data",
+      "FAO Bangladesh Country Office — structural constraints and export-development programs",
+      "Ministry of Agriculture Bangladesh — policy and new export-market development",
+    ],
+    faqItems: [
+      { q: "How much potato does Bangladesh produce per year?", a: "Bangladesh produced 11.57 million tonnes in FY2024-25 (DAE), with a separate 2024 calendar-year estimate as high as 13 million tonnes (BCSA) — making it the world's 6th-to-7th largest potato producer." },
+      { q: "Why did potato prices crash in Bangladesh in 2024-25?", a: "Production (11–13 million tonnes) far outpaced both domestic demand (7–9 million tonnes) and cold-storage capacity (3–6 million tonnes across 350–400 facilities), creating a 3–4 million tonne structural surplus. Farmgate prices fell to Tk 7–10/kg, below the estimated Tk 14/kg cost of production." },
+      { q: "Which region produces the most potatoes in Bangladesh?", a: "Rangpur Division, which together with Rajshahi Division holds 71% of national potato area. Rangpur alone contributes roughly a quarter of national output. Munshiganj district (Dhaka Division) has the country's highest yield at 32.5 t/ha." },
+      { q: "Does Bangladesh export potatoes?", a: "Yes, but a very small share — less than 1% of production. Malaysia is the largest market (over a third of exports), followed by Nepal and Sri Lanka (roughly a fifth each), with smaller volumes to Myanmar, Singapore, and several Gulf states." },
+      { q: "What potato variety is most grown in Bangladesh?", a: "Diamant, a Dutch-bred variety, is the single most widely grown potato in Bangladesh, alongside Cardinal, Granola, and Asterix. High-Yielding Varieties overall account for over 91% of national production." },
+      { q: "How much cold storage does Bangladesh have for potatoes?", a: "Approximately 350–400 cold-storage facilities with combined capacity of 3–6 million tonnes — almost entirely privately owned — against production of 11–13 million tonnes, leaving a structural storage gap of 4–5 million tonnes." },
+    ],
+    regionalContext: [
+      { slug: "india", note: "Seed-potato import source" },
+      { slug: "pakistan", note: "South Asia peer, opposite trade position" },
+      { slug: "nepal", note: "Export market for Bangladeshi potatoes" },
+      { slug: "china", note: "Asia's #1 producer" },
+      { slug: "indonesia", note: "Asia import-dependent peer" },
+    ],
+    continueReading: [
+      { href: "/blog/bangladesh-8th-producer-nobody-knows", tag: "Analysis", title: "Bangladesh: The 8th-Largest Producer Nobody Knows About", desc: "The story-format deep dive on Bangladesh's outsized, under-the-radar potato industry." },
+      { href: "/knowledge/potato-storage-cold-chain", tag: "Storage", title: "Potato Cold Storage", desc: "Why Bangladesh's storage gap is the direct cause of its 2024-25 price crash." },
+      { href: "/knowledge/global-potato-trade", tag: "Trade", title: "Global Potato Trade", desc: "Where Bangladesh fits — a huge producer that barely exports." },
+      { href: "/knowledge/seed-potato-systems", tag: "Agronomy", title: "Seed Potato Systems", desc: "Bangladesh's Dutch and Indian seed-import dependence." },
+    ],
+  };
+  return <CountryProfilePremium data={data} />;
+}
+
+/* ── Nepal: full Country Intelligence Dossier (Tier 1, premium template) ── */
+function NepalProfilePage({ c }) {
+  const data = {
+    slug: "nepal", name: "Nepal", flag: c.flag, region: c.region,
+    h1: "Nepal Potato Industry: A Top-5 Global Consumer That's Still a Net Importer (3.5M Tonnes)",
+    tagLabel: "Nepal · Asia",
+    readMin: 11,
+    accentLabel: "Nepal eats more potatoes per person than almost anywhere on Earth — 90.2 kg/year, 4th highest globally — and grows them from 100m to 4,000m altitude. Yet it still imports roughly 343,000 tonnes a year, mostly from India, because storage and market infrastructure haven't kept pace with demand.",
+    wikidata: "https://www.wikidata.org/wiki/Q837",
+    articlePublishedISO: "2026-07-16", articleModifiedISO: "2026-07-16", indiaContext: false,
+    quickFacts: [
+      { label: "Production (FY2022/23)", value: "3.49M tonnes" },
+      { label: "Per-capita consumption", value: "90.2 kg/year (4th globally)" },
+      { label: "Farmers growing potato", value: "&gt;1.5M (40%+ of all farmers)" },
+      { label: "Altitude range", value: "100m – 4,000m" },
+      { label: "Annual imports", value: "~343,000 tonnes (mostly India)" },
+      { label: "Status", value: "Nepal is India's #1 export destination by value" },
+    ],
+    definitiveAnswer: '<strong>Nepal produced 3.49 million tonnes of potatoes in FY2022/23</strong> (MOALD), up 4.9% from 3.33 million tonnes two years earlier, grown across an altitude range from below 100m in the Terai plains to 4,000m in the northern mountains &mdash; a geographic spread few countries can match. Potato is Nepal\'s <strong>second most important staple crop after rice</strong>, and Nepal\'s <strong>per-capita consumption of 90.2 kg/year ranks 4th globally</strong>, behind only Belarus, Ukraine, and Bosnia. The paradox: despite growing enough to rank among the world\'s heaviest potato-eating nations, Nepal remains a <strong>net importer</strong>, bringing in roughly 343,000 tonnes annually &mdash; overwhelmingly from India, which counts Nepal as its <strong>#1 potato export destination by value</strong> ($34 million in 2024).',
+    keyStats: [
+      { value: "3.49M t", label: "FY2022/23 production" },
+      { value: "90.2 kg", label: "Per-capita consumption/yr" },
+      { value: "100m–4,000m", label: "Growing altitude range" },
+      { value: "343K t", label: "Annual imports (mostly India)" },
+    ],
+    tocItems: [
+      { id: "industry-size", l: "How big is Nepal's potato industry?" },
+      { id: "consumption", l: "Why do Nepalis eat so much potato?" },
+      { id: "pmamp", l: "What is PMAMP and how has it changed Nepal's potato sector?" },
+      { id: "varieties", l: "What potato varieties are grown in Nepal?" },
+      { id: "storage", l: "How does storage limit Nepal's potato sector?" },
+      { id: "trade", l: "Why does Nepal still import potatoes despite growing so many?" },
+      { id: "challenges", l: "What are Nepal's biggest potato-sector challenges?" },
+    ],
+    cards: [
+      { id: "industry-size", dataCard: "overview",
+        h2: "How big is Nepal's potato industry?",
+        lead: "Nepal produced <strong>3.49 million tonnes in FY2022/23</strong> (MOALD) on 203,812 hectares at a yield of 17.12 t/ha &mdash; up from 3.33 million tonnes just two fiscal years earlier. Production has grown from under 300,000 tonnes in 1975 to a record 1.97 million tonnes by 2006, and now sits above 3.3 million tonnes.",
+        quickFacts: [
+          { label: "FY2020/21", value: "3.33M tonnes / 16.73 t/ha" },
+          { label: "FY2021/22", value: "3.41M tonnes / 17.20 t/ha" },
+          { label: "FY2022/23", value: "3.49M tonnes / 17.12 t/ha" },
+          { label: "Classification", value: "Official \"Cash Crop\" status" },
+        ],
+        body: [
+          "More than 40% of Nepal's 3.81 million farmers &mdash; over 1.5 million farming households &mdash; grow potatoes (MOALD; FAO Nepal Investment Forum 2022), making it one of the most socially significant crops in the country's agricultural economy. Nepal grows more potatoes than any other Himalayan nation, and potato out-produces both rice and maize per hectare in the country's cool highland climate.",
+        ],
+        source: "Source: MOALD (Ministry of Agriculture, Land & Livestock Development), Statistical Information on Nepalese Agriculture 2022/23; FAO Nepal Country Office.",
+      },
+      { id: "consumption", dataCard: "consumption",
+        h2: "Why do Nepalis eat so much potato?",
+        lead: "Nepal's per-capita potato consumption is <strong>90.2 kg/year (2026 estimate)</strong> &mdash; the <strong>4th highest in the world</strong>, behind only Belarus, Ukraine, and Bosnia, and has <strong>nearly doubled since 1990</strong>. An earlier 2022 estimate put the figure at 88.1 kg/year, confirming a consistent, elite global standing.",
+        callout: { number: "#4", context: "Nepal's global rank in per-capita potato consumption — behind only Belarus, Ukraine, and Bosnia. Potato outperforms both rice and maize in productivity in Nepal's cool highland climate, which helps explain its central role in food security and farm income.", source: "FAO World Potato Overview" },
+        body: [
+          "Potato is officially classified as a <strong>cash crop</strong> in Nepal's national agricultural statistics and functions as the country's second most important staple food after rice — deeply embedded in smallholder livelihoods from the Terai plains to high-altitude mountain communities.",
+        ],
+        source: "Source: FAO Nepal Investment Forum 2022 and 2026; FAO World Potato Overview.",
+      },
+      { id: "pmamp", dataCard: "pmamp",
+        h2: "What is PMAMP and how has it changed Nepal's potato sector?",
+        lead: "The <strong>Prime Minister Agriculture Modernization Project (PMAMP)</strong> is Nepal's flagship potato-development program, operating 2 Superzones and 20 Zones across every ecological belt from Terai to Mountain. PMAMP-supported farms yield <strong>35% above the national average</strong>.",
+        table: {
+          headers: ["Metric", "PMAMP areas", "National average", "Difference"],
+          rows: [
+            ["Yield", "23.28 t/ha", "17.20 t/ha", "+35%"],
+            ["Share of national area", "6.22%", "&mdash;", "&mdash;"],
+            ["Share of national production", "8.42%", "&mdash;", "&mdash;"],
+          ],
+        },
+        body: [
+          "PMAMP has invested <strong>NPR 1,124 million</strong> (through fiscal year 2080/81) across production support, area expansion, seed production, cold storage, processing, and marketing. The results are visible district by district: Kavre's yield rose from 18.8 to 29 t/ha (plastic mulching pushing some plots to 40 t/ha); Nuwakot/Rasuwa jumped from 17.63 to 36.51 t/ha; Dadeldhura built a 35,000&ndash;40,000-unit seed supply system that now exports 150 tonnes of seed itself.",
+        ],
+        source: "Source: PMAMP Potato Value Chain Development Booklet 2082, MOALD.",
+      },
+      { id: "varieties", dataCard: "varieties",
+        h2: "What potato varieties are grown in Nepal?",
+        lead: "Government-promoted improved varieties include <strong>Khumal Rato, Khumal Seto, Janakdev, Khumal Ujjwal, Khumal Upahar, MS-42, and Khumal Bikas</strong>, alongside imported Dutch varieties Cardinal and Desiree. A distinct set of local/traditional varieties remains widely cultivated.",
+        table: {
+          headers: ["Category", "Varieties"],
+          rows: [
+            ["Government-promoted improved", "Khumal Rato, Khumal Seto, Janakdev, Khumal Ujjwal, Khumal Upahar, MS-42, Khumal Bikas"],
+            ["Imported", "Cardinal, Desiree"],
+            ["Local / traditional", "Aru Alu, Lyanthe, Gajale, Nilo Alu, Chisapani, Chakre"],
+          ],
+        },
+        source: "Source: PMAMP Potato Value Chain Booklet 2082.",
+      },
+      { id: "storage", dataCard: "storage",
+        h2: "How does storage limit Nepal's potato sector?",
+        lead: "PMAMP-supported cold-storage infrastructure remains small relative to national production: <strong>3 cold storages (12,500 MT combined), 64 cold rooms (512 MT), and 68 rustic stores (684 MT)</strong>. Post-harvest losses run 15&ndash;25% (CIP data).",
+        body: [
+          "The <strong>Potato Tuber Moth (PTM)</strong> is identified as a major, largely uncontrolled pest causing significant losses during storage &mdash; compounding the capacity shortfall. Poor transportation connectivity from highland production pockets to urban markets adds another layer of post-harvest loss on top of storage limitations.",
+        ],
+        source: "Source: PMAMP Potato Value Chain Booklet 2082; CIP (International Potato Center).",
+      },
+      { id: "trade", dataCard: "trade",
+        h2: "Why does Nepal still import potatoes despite growing so many?",
+        lead: "Nepal imports approximately <strong>343,000 metric tonnes</strong> of potatoes and by-products annually, with <strong>India as the dominant source</strong> &mdash; India exported <strong>$34 million worth of potatoes to Nepal in 2024</strong>, making Nepal India's <strong>#1 potato export destination by value</strong>.",
+        body: [
+          "The import dependency has three structural drivers: poor transportation connectivity from highland production pockets to urban markets, post-harvest losses of 15&ndash;25% due to inadequate cold-storage infrastructure, and limited domestic certified-seed supply requiring seed imports from India. Uncontrolled Indian imports also suppress domestic farm-gate prices &mdash; a challenge the FAO Nepal Investment Forum identifies as central to the sector's economics. FAO sees this as an <strong>import-substitution opportunity</strong>: if input access, transport, and post-harvest infrastructure improve, Nepal has the production base to displace a meaningful share of these imports itself.",
+        ],
+        source: "Source: FAO Nepal Investment Forum 2022; USDA FAS trade data.",
+      },
+      { id: "challenges", dataCard: "challenges",
+        h2: "What are Nepal's biggest potato-sector challenges?",
+        lead: "MOALD and PMAMP identify seven recurring constraints: harvest-season price volatility, uncontrolled Indian imports, inadequate cold storage, rural labor shortages from migration, certified-seed scarcity (especially in high-hill areas), Potato Tuber Moth losses, and virus spread via unauthorized cross-border seed movement from India.",
+        body: [
+          "Nepal's potato story is a genuine paradox among major producers: it has the production potential, the consumer demand (elite global per-capita consumption), and geographic diversity spanning nearly the full altitude range potato can grow at &mdash; yet remains a net importer because of solvable infrastructure and market-access gaps rather than any production-side limitation.",
+        ],
+        source: "Source: PMAMP Potato Value Chain Booklet 2082; MOALD Nepal.",
+      },
+    ],
+    sourceList: [
+      "MOALD (Ministry of Agriculture, Land & Livestock Development) — Statistical Information on Nepalese Agriculture 2022/23",
+      "PMAMP (Prime Minister Agriculture Modernization Project) — Potato Value Chain Development Booklet 2082",
+      "FAO Nepal Country Office — Investment Forum 2022 and 2026",
+      "FAO World Potato Overview — global per-capita consumption rankings",
+      "USDA FAS — India-Nepal trade data",
+    ],
+    faqItems: [
+      { q: "How much potato does Nepal produce per year?", a: "Nepal produced 3.49 million tonnes in FY2022/23 (MOALD), up from 3.33 million tonnes two fiscal years earlier — a 4.9% increase, grown across an altitude range from below 100m to 4,000m." },
+      { q: "How much potato do Nepalis eat?", a: "Nepal's per-capita potato consumption is approximately 90.2 kg/year — the 4th highest in the world, behind only Belarus, Ukraine, and Bosnia — and has nearly doubled since 1990." },
+      { q: "Does Nepal import potatoes despite growing them?", a: "Yes — Nepal imports roughly 343,000 tonnes annually, overwhelmingly from India, which counts Nepal as its #1 potato export destination by value ($34 million in 2024). This is driven by transport, storage, and certified-seed gaps rather than a lack of domestic production capacity." },
+      { q: "What is PMAMP and what has it achieved for Nepal's potato sector?", a: "PMAMP (Prime Minister Agriculture Modernization Project) is Nepal's flagship potato-development program, operating across 2 Superzones and 20 Zones. PMAMP-supported farms yield 35% above the national average (23.28 vs. 17.20 t/ha), with some districts more than doubling their yields through the program." },
+      { q: "What potato varieties are grown in Nepal?", a: "Government-promoted improved varieties include Khumal Rato, Khumal Seto, Janakdev, and MS-42, alongside imported Dutch varieties Cardinal and Desiree. Traditional local varieties like Aru Alu and Gajale remain widely cultivated in highland farming systems." },
+    ],
+    regionalContext: [
+      { slug: "india", note: "Dominant import source (#1 Indian export dest.)" },
+      { slug: "bangladesh", note: "Export market for Nepali potatoes" },
+      { slug: "china", note: "Asia's #1 producer" },
+      { slug: "pakistan", note: "South Asia peer, opposite trade dynamic" },
+    ],
+    continueReading: [
+      { href: "/knowledge/seed-potato-systems", tag: "Agronomy", title: "Seed Potato Systems", desc: "Why Nepal's certified-seed gap drives its import dependence." },
+      { href: "/knowledge/potato-storage-cold-chain", tag: "Storage", title: "Potato Cold Storage", desc: "How thin PMAMP's storage infrastructure still is relative to national production." },
+      { href: "/knowledge/global-potato-trade", tag: "Trade", title: "Global Potato Trade", desc: "A top consumer nation that's still a net importer — Nepal's unusual trade position." },
+      { href: "/country/india", tag: "Country", title: "India Country Profile", desc: "Nepal's dominant potato trading partner and #1 destination market by value." },
+    ],
+  };
+  return <CountryProfilePremium data={data} />;
+}
+
+/* ── Indonesia: full Country Intelligence Dossier (Tier 1, premium template) ── */
+function IndonesiaProfilePage({ c }) {
+  const data = {
+    slug: "indonesia", name: "Indonesia", flag: c.flag, region: c.region,
+    h1: "Indonesia Potato Industry: A 280-Million-Person Market Stuck at 1.2M Tonnes of Production",
+    tagLabel: "Indonesia · Asia",
+    readMin: 12,
+    accentLabel: "Indonesia is the world's 4th most populous country, but potatoes can only grow in its scarce highland regions above 1,000m — so production has been stuck near 1.2 million tonnes for a decade while demand for frozen fries and chips explodes. The result: a structural import boom, with China's frozen-fry supply growing 6,000% in two years.",
+    wikidata: "https://www.wikidata.org/wiki/Q252",
+    articlePublishedISO: "2026-07-16", articleModifiedISO: "2026-07-16", indiaContext: false,
+    quickFacts: [
+      { label: "Production (2023, BPS)", value: "~1.22M tonnes" },
+      { label: "Harvested area", value: "~70,000 ha (stable 10+ yrs)" },
+      { label: "Yield gap", value: "55% (peer-reviewed)" },
+      { label: "Fresh potato imports (2024)", value: "100,000+ tonnes" },
+      { label: "Chinese frozen-fry imports growth", value: "+6,000% (2021–23)" },
+      { label: "Population", value: "280M+ (world's 4th)" },
+    ],
+    definitiveAnswer: '<strong>Indonesia produced approximately 1.22 million tonnes of potatoes in 2023</strong> (BPS/Statista) &mdash; a figure that has essentially stagnated for over a decade, with harvested area stuck near 70,000 hectares. The core constraint is geography, not effort: potatoes can only grow in Indonesia\'s highland regions above roughly 1,000&ndash;2,000 metres, which are inherently limited in a country whose landmass is overwhelmingly tropical lowland. Meanwhile the world\'s <strong>4th most populous country</strong> (280M+ people) has a rapidly growing appetite for frozen fries and chips &mdash; so <strong>fresh potato imports have crossed 100,000 tonnes annually</strong>, and <strong>Chinese frozen-fry imports grew roughly 6,000% in two years</strong> ($408,000 in 2021 to $25 million in 2023), with India, Belgium, and the US all competing for the same fast-growing market.',
+    keyStats: [
+      { value: "1.22M t", label: "2023 production" },
+      { value: "55%", label: "Yield gap vs. potential" },
+      { value: "100K+ t", label: "2024 fresh imports" },
+      { value: "+6,000%", label: "China frozen-fry import growth, 2yr", accent: "#4CAF50" },
+    ],
+    tocItems: [
+      { id: "industry-size", l: "Why has Indonesia's potato production stagnated?" },
+      { id: "regions", l: "Where are potatoes grown in Indonesia?" },
+      { id: "yield-gap", l: "What is Indonesia's 55% yield gap, and why does it exist?" },
+      { id: "imports", l: "Why are Indonesia's potato imports surging?" },
+      { id: "qsr", l: "What's driving Indonesia's frozen-fry demand?" },
+      { id: "processing", l: "Does Indonesia have its own potato processing industry?" },
+      { id: "trade-policy", l: "How does Indonesia's trade policy shape its potato market?" },
+      { id: "distinctive", l: "What makes Indonesia's potato market structurally unusual?" },
+    ],
+    cards: [
+      { id: "industry-size", dataCard: "overview",
+        h2: "Why has Indonesia's potato production stagnated?",
+        lead: "Indonesia produced roughly <strong>1.22 million tonnes in 2023</strong> on approximately <strong>70,000 hectares that have been stable for over a decade</strong> &mdash; no meaningful expansion, because potatoes can only be grown in highland areas above 1,000&ndash;2,000 metres, and those areas are geographically limited across the Indonesian archipelago's overwhelmingly tropical lowland landmass.",
+        quickFacts: [
+          { label: "2023 production", value: "~1.22M tonnes" },
+          { label: "Harvested area", value: "~70,000 ha (a decade stable)" },
+          { label: "Average yield", value: "~20 t/ha" },
+          { label: "Growing elevation", value: "1,000–2,000m+ only" },
+        ],
+        body: [
+          "Potatoes arrived via the Dutch East India Company around 1795, spreading to Batak farmers in North Sumatra's highlands within 15 years as \"kentang holanda\" (Dutch tuber). Per-capita consumption grew eightfold from 0.5 kg (1968) to 4.0 kg (1995), and continues rising, especially among higher-income urban consumers &mdash; but domestic production simply hasn't followed the same curve, because there's no more highland land to add.",
+        ],
+        source: "Source: BPS (Statistics Indonesia); FAOSTAT; Springer Nature, Potato Research (peer-reviewed, 2024).",
+      },
+      { id: "regions", dataCard: "regions",
+        h2: "Where are potatoes grown in Indonesia?",
+        lead: "Production concentrates in four highland regions: <strong>West Java</strong> (the largest producer), <strong>Central Java</strong>'s Dieng Plateau, <strong>East Java</strong>'s Malang area, and <strong>North Sumatra</strong>'s Karo Plateau.",
+        table: {
+          headers: ["Region", "Key area", "Notes"],
+          rows: [
+            ["West Java", "Pangalengan", "Largest producer; major seed-potato hub (5–15 t/day)"],
+            ["Central Java", "Dieng Plateau, Wonosobo, Tuwel", "Famous highland area, 2,000m+ elevation"],
+            ["East Java", "Malang", "Important production area"],
+            ["North Sumatra", "Karo Plateau", "Home to Karunia Agro Karo, a major fresh-potato supplier"],
+          ],
+        },
+        body: [
+          "West Java's Pangalengan hub alone is estimated to need 12,000 tonnes of seed potato per year for the province, but most farmers save their own seed rather than buy certified stock &mdash; a practice that degrades quality across successive generations, echoing seed-quality crises seen in Karnataka (India) and Bangladesh.",
+        ],
+        source: "Source: BPS (Statistics Indonesia); USDA FAS Jakarta.",
+      },
+      { id: "yield-gap", dataCard: "yield-gap",
+        h2: "What is Indonesia's 55% yield gap, and why does it exist?",
+        lead: "A peer-reviewed 2024 study (Springer Nature, Potato Research) quantified a <strong>55% yield gap</strong> in West Java between actual farm yields (~20 t/ha) and attainable field-trial yields (~40 t/ha) &mdash; and critically, the gap is <strong>not caused by insufficient inputs</strong>.",
+        callout: { number: "55%", context: "yield gap in West Java — comparable to Chile (60%) and China (66%), worse than Peru (43%) and far worse than the Netherlands (20–31%). Most fields studied reported input levels at or beyond agronomic recommendations, meaning the gap comes from timing, disease, and risk-averse farming decisions, not under-investment.", source: "Springer Nature, Potato Research (2024, peer-reviewed)" },
+        body: [
+          "The study found most fields used <strong>high input levels, often beyond agronomic recommendations</strong> — ruling out the usual explanation for yield gaps in developing-country agriculture. The actual drivers are suboptimal planting dates, pest and disease pressure, and seed quality, compounded by a risk-averse farming culture: farmers optimize to minimize the chance of total crop failure rather than to maximize average yield, even when the crop is potentially quite profitable.",
+        ],
+        source: "Source: Springer Nature, Potato Research (2024, peer-reviewed).",
+      },
+      { id: "imports", dataCard: "imports",
+        h2: "Why are Indonesia's potato imports surging?",
+        lead: "Fresh potato imports crossed <strong>100,000 tonnes in 2024</strong>, up from 38,805 tonnes in 2019-20. On the frozen side, <strong>Chinese frozen-fry imports grew roughly 6,000% in two years</strong> — from $408,000 (2021) to $25 million (2023) — one of the fastest supplier-emergence stories in any global potato trade corridor.",
+        table: {
+          headers: ["Import category", "Leading suppliers", "Notes"],
+          rows: [
+            ["Fresh potatoes", "India (37–50%), China, Germany, Egypt", "India benefits from proximity + price"],
+            ["Frozen French fries", "Belgium (31%), USA (21%), China (18%), Netherlands (16%)", "China surging from near-zero"],
+            ["Indian frozen fries specifically", "10,000+ tonnes imported in 2024", "India entering the frozen segment, not just fresh"],
+          ],
+        },
+        body: [
+          "India is simultaneously Indonesia's largest fresh-potato supplier and a fast-rising frozen-fry competitor — Indian frozen-potato exports overall grew from $29 million (2019) to $206 million (2024), and Indonesia imported over 10,000 tonnes of Indian frozen fries in 2024 alone. Indian dehydrated-goods exports to Indonesia specifically grew from $11.4 million (2021-22) to $63.3 million (2024-25).",
+        ],
+        source: "Source: USDA FAS Jakarta; US Commerce Department (trade.gov); Indian trade data.",
+      },
+      { id: "qsr", dataCard: "qsr",
+        h2: "What's driving Indonesia's frozen-fry demand?",
+        lead: "Quick-service restaurant expansion is the primary engine. Indonesia is one of <strong>KFC's largest global markets</strong>, alongside a growing McDonald's and Burger King presence, plus local chains like Richeese Factory serving fries. USDA FAS Jakarta notes fast-food fry introduction is \"growing rapidly, especially in big cities.\"",
+        body: [
+          "Beyond QSR, Indonesia's \"gorengan\" (fried snack) culture creates a deep-rooted consumer affinity for potato products — potato already sits alongside rice and cassava in Indonesian cuisine, in gorengan and in soto (soup). The urban middle class in Jakarta, Surabaya, Bandung, and Medan is the clearest accelerant: supermarkets increasingly stock frozen French fries as a mainstream product rather than an import specialty.",
+        ],
+        source: "Source: USDA FAS Jakarta industry data.",
+      },
+      { id: "processing", dataCard: "processing",
+        h2: "Does Indonesia have its own potato processing industry?",
+        lead: "Modest and largely untapped. Domestic processing absorbs an estimated <strong>20&ndash;40 tonnes of fresh potato per day</strong> nationally — tiny relative to import volumes. A structural problem compounds this: <strong>domestic varieties are generally not suitable for French fry production</strong>, so even growth in local farming wouldn't directly solve the processing-supply gap.",
+        table: {
+          headers: ["Company", "Role"],
+          rows: [
+            ["Indofood (PT Indofood CBP Sukses Makmur Tbk)", "Indonesia's largest food company; USDA FAS Jakarta identifies it as representing major untapped processed-potato potential"],
+            ["PT Kirana Food", "Started as a frozen-fry importer; has expanded into broader frozen food distribution"],
+            ["Maxi Snacks", "Produces fried snack chips, primarily cassava-based, diversifying toward potato"],
+          ],
+        },
+        source: "Source: USDA FAS Jakarta.",
+      },
+      { id: "trade-policy", dataCard: "trade-policy",
+        h2: "How does Indonesia's trade policy shape its potato market?",
+        lead: "Import duties apply to potato products, and the Indonesian government balances domestic farmer protection against processor needs. There is <strong>no US free-trade agreement</strong> covering potatoes (unlike South Korea's KORUS), while regional flows operate under the <strong>ASEAN trade framework</strong>.",
+        body: [
+          "Indonesia's total agricultural imports reached <strong>$29.6 billion in 2024</strong> (up from $28 billion in 2022), with Brazil (14%) and Australia (13%) leading overall agricultural supply to the country — potatoes represent a growing but still specialized slice of that much larger import bill. Indonesia is structurally import-dependent across many food categories, not just potatoes.",
+        ],
+        source: "Source: USDA FAS Jakarta; US Commerce Department.",
+      },
+      { id: "distinctive", dataCard: "distinctive",
+        h2: "What makes Indonesia's potato market structurally unusual?",
+        lead: "Indonesia isn't a \"developing\" potato market in the usual sense — it's a <strong>structurally import-dependent market undergoing a fast transition from fresh to processed consumption</strong>, constrained by geography and varietal limitations that can't be fixed by farming investment alone.",
+        body: [
+          "The processing gap is structural, not cyclical: domestic varieties genuinely cannot produce good fries, and fixing that requires variety-replacement programs measured in years, not a season of better fertilizer use. Combine that with a growing urban middle class, deep-rooted fried-food culture, and a QSR boom, and Indonesia becomes one of the highest-priority growth markets globally for potato exporters — which is exactly why Belgium, the US, China, and India are all competing intensely for share of its frozen-fry import market right now.",
+        ],
+        source: "Source: USDA FAS Jakarta; Springer Nature, Potato Research (2024).",
+      },
+    ],
+    sourceList: [
+      "BPS (Statistics Indonesia / Badan Pusat Statistik) — production and area data",
+      "USDA FAS Jakarta — trade, QSR demand, and processing-industry analysis",
+      "US Department of Commerce (trade.gov) — import statistics",
+      "Springer Nature, Potato Research (2024, peer-reviewed) — West Java yield-gap study",
+      "FAOSTAT — production time series",
+      "6W Research — market analysis",
+    ],
+    faqItems: [
+      { q: "How much potato does Indonesia produce per year?", a: "Indonesia produced approximately 1.22 million tonnes in 2023 (BPS/Statista) on about 70,000 hectares — a harvested area that has been stable for over a decade due to Indonesia's limited highland growing regions." },
+      { q: "Why doesn't Indonesia grow more potatoes if demand is rising?", a: "Potatoes can only be cultivated in highland areas above roughly 1,000–2,000 metres elevation, which are geographically limited across Indonesia's mostly tropical lowland archipelago. There's little additional suitable land to expand into, unlike flat-land producers." },
+      { q: "Where does Indonesia get its imported potatoes?", a: "Fresh potato imports come primarily from India (37–50% market share), China, Germany, and Egypt. Frozen French fry imports are led by Belgium (31%), the United States (21%), China (18%, surging from near-zero), and the Netherlands (16%)." },
+      { q: "Why did Chinese potato imports to Indonesia grow so fast?", a: "Chinese frozen-fry imports to Indonesia grew roughly 6,000% in two years, from $408,000 in 2021 to $25 million in 2023, reflecting China's own rapid emergence as a processing exporter competing for the fast-growing Indonesian QSR market." },
+      { q: "What is Indonesia's potato yield gap?", a: "A peer-reviewed 2024 study found a 55% yield gap in West Java — actual farm yields around 20 t/ha versus attainable yields near 40 t/ha — driven mainly by planting timing, disease pressure, and risk-averse farming decisions rather than insufficient fertilizer or input use." },
+    ],
+    regionalContext: [
+      { slug: "china", note: "Fast-rising frozen-fry supplier" },
+      { slug: "india", note: "Largest fresh-import source" },
+      { slug: "south-korea", note: "Asia-Pacific QSR-driven peer" },
+      { slug: "australia", note: "Growing export destination for Australian fresh potatoes" },
+    ],
+    continueReading: [
+      { href: "/knowledge/global-potato-trade", tag: "Trade", title: "Global Potato Trade", desc: "How Belgium, the US, China, and India compete for Indonesia's frozen-fry import market." },
+      { href: "/knowledge/how-potatoes-are-processed", tag: "Processing", title: "How Potatoes Are Processed", desc: "Why domestic Indonesian varieties can't meet French-fry processing specs." },
+      { href: "/country/india", tag: "Country", title: "India Country Profile", desc: "Indonesia's largest fresh-potato import source and a fast-rising frozen-fry supplier." },
+      { href: "/knowledge/seed-potato-systems", tag: "Agronomy", title: "Seed Potato Systems", desc: "The farm-saved-seed quality problem echoed across West Java, Karnataka, and Bangladesh." },
+    ],
+  };
+  return <CountryProfilePremium data={data} />;
+}
+
+/* ── Australia: full Country Intelligence Dossier (Tier 1, premium template) ── */
+function AustraliaProfilePage({ c }) {
+  const data = {
+    slug: "australia", name: "Australia", flag: c.flag, region: c.region,
+    h1: "Australia Potato Industry: 100% Self-Sufficient, Zero Fresh Imports, $1.2B AUD Industry",
+    tagLabel: "Australia · Oceania",
+    readMin: 11,
+    accentLabel: "Australia is one of the only major potato-growing nations that imports zero fresh potatoes — complete self-sufficiency backed by strict biosecurity. Production value has grown 50% in five years even as volume stayed flat, and Indonesia has gone from a zero-tonne export market to Australia's third-largest in just two years.",
+    wikidata: "https://www.wikidata.org/wiki/Q408",
+    articlePublishedISO: "2026-07-16", articleModifiedISO: "2026-07-16", indiaContext: false,
+    quickFacts: [
+      { label: "Production (FY2024-25)", value: "1.49M tonnes ($1.21B AUD)" },
+      { label: "Fresh potato imports", value: "Zero — every year on record" },
+      { label: "Processing share", value: "66% of production" },
+      { label: "5-year value growth", value: "+50% (2021→2025)" },
+      { label: "Top production states", value: "Tasmania, South Australia" },
+      { label: "Largest export market", value: "South Korea (41.3%)" },
+    ],
+    definitiveAnswer: '<strong>Australia produced 1,493,725 tonnes of potatoes in the year ending June 2025</strong>, valued at $1,212.7 million AUD (Hort Innovation / Freshlogic-Kynetec) &mdash; a 10% increase in value despite a 2% dip in volume from the prior year. Australia\'s single most distinctive trade feature: it <strong>imports zero fresh potatoes, every year on record</strong>, while exporting a growing volume &mdash; a rare full-self-sufficiency position among major producers, underpinned by strict biosecurity regulation. <strong>Processing absorbs 66% of production</strong> (frozen fries, chips), and <strong>Tasmania and South Australia together grow roughly 61%</strong> of the national crop. On the export side, <strong>South Korea takes 41.3% of Australian fresh exports</strong>, while <strong>Indonesia has emerged from zero tonnes to Australia\'s third-largest export market in just two years</strong>.',
+    keyStats: [
+      { value: "1.49M t", label: "FY2024-25 production" },
+      { value: "$1.21B", label: "Production value (AUD)" },
+      { value: "0", label: "Fresh potato imports (tonnes)" },
+      { value: "+50%", label: "5-yr value growth", accent: "#4CAF50" },
+    ],
+    tocItems: [
+      { id: "industry-size", l: "How big is Australia's potato industry?" },
+      { id: "self-sufficiency", l: "Why does Australia import zero fresh potatoes?" },
+      { id: "regions", l: "Which Australian states produce the most potatoes?" },
+      { id: "usage", l: "How is Australia's potato crop used?" },
+      { id: "exports", l: "Where does Australia export its potatoes?" },
+      { id: "consumers", l: "How do Australians buy and eat potatoes?" },
+      { id: "distinctive", l: "What makes Australia's potato industry distinctive?" },
+    ],
+    cards: [
+      { id: "industry-size", dataCard: "overview",
+        h2: "How big is Australia's potato industry?",
+        lead: "Australia produced <strong>1,493,725 tonnes</strong> in the year ending June 2025, valued at <strong>$1,212.7 million AUD</strong> (Hort Innovation / Freshlogic-Kynetec, Australian Horticulture Statistics Handbook 2024/25) &mdash; a 10% increase in value despite a 2% dip in volume year-on-year.",
+        quickFacts: [
+          { label: "FY2021", value: "1.459M t / $807.3M AUD" },
+          { label: "FY2023", value: "1.463M t / $1,033.5M AUD" },
+          { label: "FY2025", value: "1.494M t / $1,212.7M AUD" },
+          { label: "5-yr value growth", value: "+50%" },
+        ],
+        body: [
+          "Production volume has stayed remarkably stable across five years — ranging between 1.46 and 1.53 million tonnes annually — while value has grown 50%, from $807.3 million AUD (2021) to $1,212.7 million (2025). That's a pricing-and-quality story, not a volume-growth story: Australia's potato industry is generating substantially more revenue from essentially the same physical crop.",
+        ],
+        source: "Source: Australian Horticulture Statistics Handbook 2024/25, published by Hort Innovation and Freshlogic (now part of Kynetec).",
+      },
+      { id: "self-sufficiency", dataCard: "trade",
+        h2: "Why does Australia import zero fresh potatoes?",
+        lead: "Australia has recorded <strong>zero fresh potato imports across every year in the five-year record</strong> (2021–2025) &mdash; a rare full self-sufficiency position among major producing nations, reflecting both strong domestic production capacity and Australia's notably strict biosecurity regulations protecting against pests and diseases.",
+        callout: { number: "0", context: "fresh potatoes imported by Australia in every recorded year. Combined with growing fresh exports (+8% in FY2025 alone), this makes Australia's trade balance in fresh potatoes entirely one-directional — a distinctive position matched by very few major producers globally.", source: "Australian Horticulture Statistics Handbook 2024/25" },
+        body: [
+          "This complete self-sufficiency is unusual even among developed-world producers — most large economies import at least some specialty or off-season fresh potato volume. Australia's island biosecurity regime, combined with year-round production capability in Tasmania and South Australia specifically, removes the seasonal supply gap that typically drives fresh imports elsewhere.",
+        ],
+        source: "Source: Australian Horticulture Statistics Handbook 2024/25.",
+      },
+      { id: "regions", dataCard: "regions",
+        h2: "Which Australian states produce the most potatoes?",
+        lead: "<strong>Tasmania (31.3%)</strong> and <strong>South Australia (29.6%)</strong> together grow roughly 61% of Australia's fresh potato crop, followed by Victoria, New South Wales, Queensland, and Western Australia.",
+        table: {
+          headers: ["State", "Production (2024-25)", "Share", "Key growing areas"],
+          rows: [
+            ["Tasmania", "467,913 t", "31.3%", "North-West, Midlands, North & North-East Tasmania"],
+            ["South Australia", "442,109 t", "29.6%", "Adelaide Plains"],
+            ["Victoria", "269,109 t", "18.0%", "Ballarat, Gippsland"],
+            ["New South Wales", "162,231 t", "10.9%", "Murray Region – Riverina"],
+            ["Queensland", "82,661 t", "5.5%", "Bundaberg, Lockyer Valley, Atherton"],
+            ["Western Australia", "69,701 t", "4.7%", "Perth, Manjimup"],
+          ],
+        },
+        body: [
+          "Tasmania and South Australia both produce year-round, giving them an outsized role in Australia's supply continuity. Queensland and New South Wales have seasonal production gaps, Western Australia has a gap around August–October, and Victoria produces in most months. Note: these production rankings differ from Australia's export rankings — South Australia and New South Wales lead on export volume specifically (see the trade section), even though Tasmania is the single largest state by total production.",
+        ],
+        source: "Source: Australian Horticulture Statistics Handbook 2024/25.",
+      },
+      { id: "usage", dataCard: "usage",
+        h2: "How is Australia's potato crop used?",
+        lead: "The industry splits sharply toward processing: <strong>66% (~990,000 tonnes) goes to processing</strong> (frozen fries, chips), <strong>30% (453,867 tonnes) to fresh domestic supply</strong>, and <strong>3% (49,858 tonnes) to fresh export</strong>.",
+        table: {
+          headers: ["Use", "Volume (FY2024-25)", "Value", "Share"],
+          rows: [
+            ["Processing", "~990,000 t", "&mdash;", "66%"],
+            ["Fresh domestic supply", "453,867 t", "$752.6M AUD", "30%"],
+            ["Fresh export", "49,858 t", "$52.2M AUD", "3%"],
+            ["Fresh import", "0 t", "$0", "0%"],
+          ],
+        },
+        body: [
+          "Within fresh domestic supply, retail dominates at 86% (390,423 tonnes, $647.4 million AUD), with food service taking the remaining 14% (63,444 tonnes, $105.2 million AUD). Household penetration is high at 86% of Australian households, with an average purchase weight of 1.86 kg and per-capita supply of 16.86 kg — down slightly (&gt;-1%) year-on-year, consistent with the industry's shift toward value over volume.",
+        ],
+        source: "Source: Australian Horticulture Statistics Handbook 2024/25.",
+      },
+      { id: "exports", dataCard: "exports",
+        h2: "Where does Australia export its potatoes?",
+        lead: "Fresh exports reached <strong>49,858 tonnes in FY2024-25 (+8% year-on-year)</strong>, worth $52.2 million AUD. <strong>South Korea is the dominant market at 41.3%</strong>, and <strong>Indonesia has grown from zero tonnes to a 11.5% share in just two years</strong> — the clearest new-demand story in Australia's export portfolio.",
+        table: {
+          headers: ["Market", "2023", "2024", "2025", "2025 share"],
+          rows: [
+            ["South Korea", "20,223 t", "25,029 t", "20,568 t", "41.3%"],
+            ["Philippines", "8,681 t", "7,338 t", "8,894 t", "17.8%"],
+            ["Indonesia", "0 t", "1,475 t", "5,752 t", "11.5%"],
+            ["Taiwan", "2,837 t", "3,167 t", "4,847 t", "9.7%"],
+            ["Singapore", "2,488 t", "2,345 t", "2,333 t", "4.7%"],
+          ],
+        },
+        body: [
+          "By state, exports originate mainly from South Australia (47.0% of export volume) and New South Wales (41.1%) — a different ranking from overall state production, since Tasmania's large crop is oriented more toward domestic processing and fresh supply than export.",
+        ],
+        source: "Source: Australian Horticulture Statistics Handbook 2024/25.",
+      },
+      { id: "consumers", dataCard: "consumers",
+        h2: "How do Australians buy and eat potatoes?",
+        lead: "86% of Australian households buy potatoes, with an average purchase weight of 1.86 kg and per-capita supply of 16.86 kg per year — down slightly year-on-year as the industry shifts toward higher-value, processed formats over raw fresh-market volume.",
+        body: [
+          "Retail wholesale value grew from $445.0 million AUD (2021) to $647.4 million (2025) — a 45% increase — even as retail volume grew only modestly, from 380,185 to 390,423 tonnes. That gap between value growth and volume growth is the same value-over-volume pattern visible across the whole industry.",
+        ],
+        source: "Source: Australian Horticulture Statistics Handbook 2024/25.",
+      },
+      { id: "distinctive", dataCard: "distinctive",
+        h2: "What makes Australia's potato industry distinctive?",
+        lead: "Three factors set Australia apart from most major potato-producing nations: <strong>complete self-sufficiency with zero fresh imports</strong>, <strong>value growth consistently outpacing volume</strong>, and a <strong>rapidly expanding Asian export footprint</strong>, led by Indonesia's emergence as a new buyer.",
+        body: [
+          "Australia operates a mature, self-sufficient potato industry worth over $1.2 billion AUD, with a processing-dominated production base, rising export revenues, and an increasingly diversified Asian customer base. Indonesia's rise from zero to a top-3 export market inside two years is the standout data point — a signal that Australia is successfully developing new premium markets in its own region even as it remains fully closed to fresh imports.",
+        ],
+        source: "Source: Australian Horticulture Statistics Handbook 2024/25.",
+      },
+    ],
+    sourceList: [
+      "Australian Horticulture Statistics Handbook 2024/25 — Potato section",
+      "Hort Innovation — Australian horticulture industry data",
+      "Freshlogic / Kynetec — supply-chain and market analysis",
+    ],
+    faqItems: [
+      { q: "How much potato does Australia produce per year?", a: "Australia produced 1,493,725 tonnes in the year ending June 2025, valued at $1,212.7 million AUD — a 10% increase in value despite a 2% volume dip from the prior year." },
+      { q: "Does Australia import potatoes?", a: "No — Australia has imported zero fresh potatoes in every year on record (at least the last five years tracked), making it fully self-sufficient in fresh potato supply. This is underpinned by strict biosecurity regulations." },
+      { q: "Which Australian state grows the most potatoes?", a: "Tasmania is the largest producer at 31.3% of national volume (467,913 tonnes), followed closely by South Australia at 29.6% (442,109 tonnes). Together they grow roughly 61% of Australia's potato crop." },
+      { q: "Where does Australia export its potatoes?", a: "South Korea is Australia's largest fresh-potato export market at 41.3% share, followed by the Philippines (17.8%) and a rapidly growing Indonesia (11.5%, up from zero tonnes just two years ago)." },
+      { q: "How much of Australia's potato crop is processed?", a: "66% of production (approximately 990,000 tonnes) goes to processing — frozen fries and chips — making it the dominant end use, ahead of fresh domestic supply (30%) and fresh export (3%)." },
+    ],
+    regionalContext: [
+      { slug: "indonesia", note: "Fast-growing new export market" },
+      { slug: "south-korea", note: "Largest export destination" },
+      { slug: "japan", note: "Asia-Pacific processing peer" },
+      { slug: "united-states", note: "Global processing benchmark" },
+    ],
+    continueReading: [
+      { href: "/knowledge/how-potatoes-are-processed", tag: "Processing", title: "How Potatoes Are Processed", desc: "The frozen-fry and chip processing pipeline that absorbs 66% of Australia's crop." },
+      { href: "/knowledge/global-potato-trade", tag: "Trade", title: "Global Potato Trade", desc: "Australia's rare zero-import, growing-export trade position among major producers." },
+      { href: "/country/indonesia", tag: "Country", title: "Indonesia Country Profile", desc: "Australia's fastest-growing new export market — zero to 5,752 tonnes in two years." },
+      { href: "/knowledge/potato-varieties-guide", tag: "Varieties", title: "Potato Varieties Guide", desc: "Understanding processing vs. fresh-market variety selection." },
+    ],
+  };
+  return <CountryProfilePremium data={data} />;
+}
+
+/* ── South Africa: full Country Intelligence Dossier (Tier 1, premium template) ── */
+function SouthAfricaProfilePage({ c }) {
+  const data = {
+    slug: "south-africa", name: "South Africa", flag: c.flag, region: c.region,
+    h1: "South Africa Potato Industry: Africa's Highest Yields, First-World Infrastructure (2.6M Tonnes)",
+    tagLabel: "South Africa · Africa",
+    readMin: 12,
+    accentLabel: "South Africa delivers developed-world potato yields — 43.3 t/ha, the highest in Africa — inside a water-stressed, electricity-constrained African context. Institutional organization, multinational processors, and a functioning fresh-produce market system make it the continent's benchmark.",
+    wikidata: "https://www.wikidata.org/wiki/Q258",
+    articlePublishedISO: "2026-07-16", articleModifiedISO: "2026-07-16", indiaContext: false,
+    quickFacts: [
+      { label: "Production (2023, FAOSTAT)", value: "~2.6M tonnes" },
+      { label: "Yield", value: "43.3 t/ha (Africa's highest)" },
+      { label: "Harvested area", value: "~60,000 ha" },
+      { label: "Commercial producers", value: "500–600 (down from 3,000+ in 1990s)" },
+      { label: "Exports (2023)", value: "ZAR 2–3B (~USD 110–170M)" },
+      { label: "Top province", value: "Limpopo (25–28% of output)" },
+    ],
+    definitiveAnswer: '<strong>South Africa produced approximately 2.6 million tonnes of potatoes in 2023</strong> (FAOSTAT) on roughly 60,000 hectares, delivering a national average yield of <strong>43.3 tonnes per hectare</strong> &mdash; the <strong>highest yield in Africa</strong> and above the average of many European countries. Kenya, for comparison, produces a similar total tonnage from an area nearly four times larger, at less than a quarter of South Africa\'s yield &mdash; illustrating how commercialized South Africa\'s sector is relative to continental peers. Production concentrates in <strong>Limpopo Province (25&ndash;28% of national output)</strong>, supported by a highly organized industry: <strong>Potatoes South Africa (PSA)</strong>, a statutory body, and multinational processors <strong>McCain and PepsiCo/Simba</strong> anchor a well-developed value chain. South Africa is a <strong>net exporter</strong> to the Southern African region, with exports valued at roughly <strong>ZAR 2&ndash;3 billion (USD 110&ndash;170 million)</strong> in 2023, even as load-shedding and land-reform uncertainty pose real medium-term risks.',
+    keyStats: [
+      { value: "2.6M t", label: "2023 production" },
+      { value: "43.3 t/ha", label: "Yield (Africa's highest)" },
+      { value: "500–600", label: "Commercial producers" },
+      { value: "ZAR 2–3B", label: "2023 exports" },
+    ],
+    tocItems: [
+      { id: "industry-size", l: "How big is South Africa's potato industry?" },
+      { id: "regions", l: "Which regions produce the most potatoes in South Africa?" },
+      { id: "varieties", l: "What potato varieties are grown in South Africa?" },
+      { id: "processing", l: "Who are South Africa's major potato processors?" },
+      { id: "infrastructure", l: "How does South Africa's market infrastructure compare to its neighbors?" },
+      { id: "trade", l: "Does South Africa export or import potatoes?" },
+      { id: "psa", l: "What is Potatoes South Africa (PSA)?" },
+      { id: "challenges", l: "What challenges does South Africa's potato industry face?" },
+    ],
+    cards: [
+      { id: "industry-size", dataCard: "overview",
+        h2: "How big is South Africa's potato industry?",
+        lead: "South Africa is the <strong>most technologically advanced and highest-yielding potato producer on the African continent</strong>. FAOSTAT 2023 data puts production at approximately <strong>2.6 million tonnes</strong> from roughly <strong>60,000 hectares</strong>, for a national average yield of <strong>43.3 tonnes per hectare</strong>.",
+        quickFacts: [
+          { label: "Production (2023)", value: "~2.6M tonnes" },
+          { label: "Area (2023)", value: "~60,000 hectares" },
+          { label: "Yield", value: "43.3 t/ha" },
+          { label: "Africa ranking", value: "#1 by yield" },
+        ],
+        body: [
+          "That 43.3 t/ha yield is the highest in Africa and exceeds the average of many European countries — reflecting the sector's high level of commercialization, irrigation coverage, and input use. The comparison with Kenya is instructive: Kenya produces a similar total tonnage from an area nearly four times larger, at less than a quarter of South Africa's per-hectare yield.",
+          "The Department of Agriculture, Land Reform and Rural Development (DALRRD, formerly DAFF) maintains detailed statistics through its Directorate of Statistics and Economic Analysis, corroborated by FAOSTAT, and the industry's own statutory body publishes granular data down to provincial, regional, and even municipal level — making South Africa one of the best-documented potato industries in the developing world.",
+        ],
+        source: "Source: FAOSTAT 2023; DALRRD Crop Estimates 2023; Potatoes South Africa Annual Report 2022/2023.",
+      },
+      { id: "regions", dataCard: "regions",
+        h2: "Which regions produce the most potatoes in South Africa?",
+        lead: "Production spans all nine provinces but concentrates in <strong>Limpopo (25&ndash;28% of national output)</strong>, followed by Free State, then Mpumalanga, Western Cape, Northern Cape, KwaZulu-Natal, and North West.",
+        table: {
+          headers: ["Province", "Role", "Key areas", "Notes"],
+          rows: [
+            ["Limpopo", "Largest producer", "Mogalakwena, Mokopane, Polokwane, Springbok Flats", "Warm subtropical climate + irrigation enables year-round production"],
+            ["Free State", "2nd largest", "Reitz, Bethlehem, Frankfort, Bloemfontein-Botshabelo", "Mostly rain-fed, supplemented by irrigation"],
+            ["Mpumalanga", "3rd largest", "Bethal, Ermelo, Carolina (Highveld)", "Anchors McCain's Delmas processing plant"],
+            ["Western Cape", "Significant", "Sandveld (Piketberg), Ceres", "&mdash;"],
+            ["Northern Cape", "Significant", "Douglas, Hartswater (Vaal-Harts irrigation)", "&mdash;"],
+          ],
+        },
+        body: [
+          "Limpopo's warm subtropical climate and extensive irrigation from boreholes and the Nyl River system give it a distinctive advantage: year-round production capability, particularly valuable for \"early\" and \"out-of-season\" production that commands premium prices in the Johannesburg and Pretoria fresh-produce markets. The total number of commercial potato producers has fallen from over 3,000 in the 1990s to approximately 500&ndash;600 today, reflecting consolidation and mechanization — the average commercial farm now plants 100&ndash;150 hectares annually.",
+        ],
+        source: "Source: Potatoes South Africa (PSA), 2023; DALRRD 2023; Water Research Commission (WRC) of South Africa.",
+      },
+      { id: "varieties", dataCard: "varieties",
+        h2: "What potato varieties are grown in South Africa?",
+        lead: "<strong>Mondial</strong> (HZPC, Netherlands) is the single most widely planted variety at 20&ndash;25% of total area, followed by <strong>Sifra</strong> (also HZPC). The variety portfolio is dominated by Dutch breeding, though the Agricultural Research Council (ARC) maintains a domestic breeding program.",
+        table: {
+          headers: ["Variety", "Breeder", "Role"],
+          rows: [
+            ["Mondial", "HZPC (Netherlands)", "Most planted, 20–25% of area; fresh market"],
+            ["Sifra", "HZPC (Netherlands)", "2nd most planted; fresh + informal processing"],
+            ["Innovator", "HZPC (Netherlands)", "French-fry processing"],
+            ["Markies", "Agrico (Netherlands)", "Processing"],
+            ["Lanorma, Electra, Panamera, Valor (ARC)", "Mixed", "Fresh market, ARC-bred options"],
+            ["Hertha, Lady Rosetta, FL varieties", "Mixed", "Chip/crisp processing"],
+          ],
+        },
+        body: [
+          "The ARC's breeding program at Roodeplaat near Pretoria has released several locally adapted varieties, but Dutch-bred varieties continue to dominate the commercial sector. McCain South Africa specifically contracts growers for Innovator and Markies, while Simba (PepsiCo) sets its own dry-matter, sugar, and fry-color specifications for chip-segment supply.",
+        ],
+        source: "Source: Potatoes South Africa Variety Guide 2023; ARC Annual Report 2022; HZPC variety specifications.",
+      },
+      { id: "processing", dataCard: "processing",
+        h2: "Who are South Africa's major potato processors?",
+        lead: "South Africa has the <strong>most developed potato-processing industry on the African continent</strong>, split into frozen (fries and formed products), crisps/chips, and dehydrated segments. <strong>McCain Foods</strong> and <strong>Simba (PepsiCo)</strong> anchor the two largest segments.",
+        table: {
+          headers: ["Company", "Segment", "Location", "Scale"],
+          rows: [
+            ["McCain Foods South Africa", "Frozen fries, wedges, formed products", "Delmas, Mpumalanga", "~250,000–300,000 t raw potato/yr; 60–80 contracted growers"],
+            ["Simba (PepsiCo)", "Crisps/chips", "Isando, Gauteng", "40–50% chip-segment market share"],
+            ["Willards (PepsiCo)", "Crisps/chips", "&mdash;", "Secondary PepsiCo brand"],
+            ["Dehydrated segment", "Flakes, granules", "Various", "Exports to several SADC countries"],
+          ],
+        },
+        body: [
+          "McCain South Africa's Delmas plant traces to a 1998 acquisition of a local processor and has been progressively expanded and modernized; it processes 250,000–300,000 tonnes of raw potato annually, contracting 60–80 commercial growers within a 200km radius and specifying Innovator and Markies as its primary varieties. The combined crisp segment (Simba + Willards + smaller regional producers) consumes an estimated 150,000–200,000 tonnes of raw potato annually.",
+        ],
+        source: "Source: McCain Foods Limited, Global Operations Overview; PepsiCo South Africa; USDA FAS GAIN Report SF2023-0015; Euromonitor International.",
+      },
+      { id: "infrastructure", dataCard: "infrastructure",
+        h2: "How does South Africa's market infrastructure compare to its neighbors?",
+        lead: "South Africa runs a <strong>well-functioning fresh-produce market system</strong> with comprehensive cold-chain infrastructure — features that set it apart from virtually every other African potato-producing nation.",
+        body: [
+          "The <strong>Johannesburg Fresh Produce Market</strong> in City Deep is the largest in Africa, handling approximately 180,000&ndash;200,000 tonnes of potatoes annually and serving as the reference price benchmark for potato pricing throughout Southern Africa. Roughly 50&ndash;55% of fresh potatoes flow through the national municipal-market system (Johannesburg, Tshwane/Pretoria, Cape Town, Durban, Bloemfontein), with the remainder moving through informal markets, direct retail supply, and contract arrangements — a channel that's growing as major retail chains including Shoprite/Checkers, Pick n Pay, Woolworths, and Spar increasingly source directly from preferred growers.",
+        ],
+        source: "Source: Johannesburg Market Annual Report 2023; DALRRD Directorate of Marketing 2023; BFAP (Bureau for Food and Agricultural Policy) 2023.",
+      },
+      { id: "trade", dataCard: "trade",
+        h2: "Does South Africa export or import potatoes?",
+        lead: "South Africa is largely self-sufficient and a <strong>net exporter</strong> to the Southern African region — total exports (fresh and processed combined) were valued at approximately <strong>ZAR 2&ndash;3 billion (USD 110&ndash;170 million)</strong> in 2023, going primarily to Mozambique, Zimbabwe, Zambia, Botswana, and Namibia.",
+        table: {
+          headers: ["Flow", "Destinations / sources", "Notes"],
+          rows: [
+            ["Exports", "Mozambique, Zimbabwe, Zambia, Botswana, Namibia (SADC)", "ZAR 2–3B (USD 110–170M), 2023"],
+            ["Imports", "Netherlands, Scotland (seed potatoes); niche specialty frozen", "Minimal — domestic industry meets most demand"],
+          ],
+        },
+        body: [
+          "South Africa functions as the de facto regional supplier for Southern Africa — the reverse of the import-dependent position most other African potato markets occupy. Imports are limited and niche: specialty frozen products and seed potatoes from the Netherlands and Scotland, since the well-developed domestic industry covers the vast majority of demand across fresh, processed, and seed categories.",
+        ],
+        source: "Source: DALRRD trade statistics; FAOSTAT Trade 2023.",
+      },
+      { id: "psa", dataCard: "psa",
+        h2: "What is Potatoes South Africa (PSA)?",
+        lead: "<strong>Potatoes South Africa (PSA)</strong> is the statutory body established under the Marketing of Agricultural Products Act (Act 47 of 1996) to serve the industry, funded by a levy of <strong>ZAR 42.50 per tonne</strong> approved by the National Agricultural Marketing Council (NAMC).",
+        body: [
+          "PSA provides market research, industry statistics, quality standards, and advocacy, and its annual research budget supports plant breeding, disease management, and irrigation-efficiency work at the ARC and South African universities. PSA also administers the industry's transformation program under South Africa's Broad-Based Black Economic Empowerment (B-BBEE) legislation, aimed at increasing participation by historically disadvantaged individuals in the potato value chain — though PSA's own reporting notes progress has been slower than anticipated, given how capital-intensive and technically demanding commercial potato production is.",
+        ],
+        source: "Source: Potatoes South Africa Annual Report 2022/2023; NAMC Statutory Measures 2023; Potatoes SA Transformation Report 2023.",
+      },
+      { id: "challenges", dataCard: "challenges",
+        h2: "What challenges does South Africa's potato industry face?",
+        lead: "Three structural pressures recur: <strong>water scarcity</strong> (60% of the crop is irrigated in a country receiving barely half the world's average rainfall), <strong>electricity instability</strong> from load-shedding, and <strong>land-reform policy uncertainty</strong>.",
+        body: [
+          "South Africa receives an average of only 450mm of rainfall annually against a world average of 860mm, and competition for water between agriculture, mining, industry, and domestic use is intensifying — the 2015-2018 Western Cape drought and ongoing Limpopo water-availability issues both highlighted this vulnerability. Eskom's rolling load-shedding directly disrupts irrigation pumping schedules and forces expensive diesel-generator backup. Land-reform uncertainty, driven by the Expropriation Bill and broader policy debate, hasn't caused direct production disruption yet, but continues to suppress long-term investment in fixed irrigation infrastructure and succession planning.",
+        ],
+        source: "Source: Water Research Commission (WRC) 2023; Department of Water and Sanitation, National Water Resource Strategy 3; BFAP Agricultural Outlook 2023-2032; AgriSA 2023.",
+      },
+    ],
+    sourceList: [
+      "FAOSTAT 2023 — production, area, and yield statistics",
+      "DALRRD (Department of Agriculture, Land Reform and Rural Development) — official crop estimates",
+      "Potatoes South Africa (PSA) — statutory body annual reports and variety guide",
+      "McCain Foods Limited; PepsiCo South Africa — corporate processing data",
+      "BFAP (Bureau for Food and Agricultural Policy) — agricultural outlook and challenges analysis",
+      "Water Research Commission (WRC) of South Africa — irrigation and water-stress studies",
+    ],
+    faqItems: [
+      { q: "How much potato does South Africa produce per year?", a: "South Africa produced approximately 2.6 million tonnes in 2023 (FAOSTAT) on roughly 60,000 hectares, at a national average yield of 43.3 tonnes per hectare — the highest yield in Africa." },
+      { q: "Which province produces the most potatoes in South Africa?", a: "Limpopo Province, contributing approximately 25–28% of national production, thanks to a warm subtropical climate and extensive irrigation enabling year-round production." },
+      { q: "Does South Africa export potatoes?", a: "Yes — South Africa is a net exporter, primarily to Southern African Development Community (SADC) countries: Mozambique, Zimbabwe, Zambia, Botswana, and Namibia. Total exports (fresh and processed) were valued at roughly ZAR 2–3 billion (USD 110–170 million) in 2023." },
+      { q: "Who are the major potato processing companies in South Africa?", a: "McCain Foods South Africa (frozen fries, based in Delmas, Mpumalanga) and Simba, a PepsiCo subsidiary, which holds 40–50% of the crisp/chip segment. Both companies set their own variety and quality specifications with contracted growers." },
+      { q: "What is the biggest challenge facing South African potato farmers?", a: "Water scarcity is the foremost challenge — South Africa receives about half the world's average rainfall and 60% of the crop is irrigated. Electricity instability from load-shedding and land-reform policy uncertainty are the other two recurring structural pressures." },
+    ],
+    regionalContext: [
+      { slug: "kenya", note: "East Africa peer, lower yield (9.7 t/ha)" },
+      { slug: "egypt", note: "Africa's most prolific producer overall" },
+      { slug: "algeria", note: "North Africa Saharan-irrigation peer" },
+      { slug: "netherlands", note: "Dominant seed-variety source (HZPC)" },
+    ],
+    continueReading: [
+      { href: "/knowledge/how-potatoes-are-processed", tag: "Processing", title: "How Potatoes Are Processed", desc: "McCain and Simba's processing operations in South Africa's Delmas and Isando plants." },
+      { href: "/knowledge/global-potato-trade", tag: "Trade", title: "Global Potato Trade", desc: "How South Africa functions as the regional exporter for Southern Africa." },
+      { href: "/knowledge/potato-water-footprint", tag: "Sustainability", title: "Potato Water Footprint", desc: "Why water scarcity is South Africa's foremost production constraint." },
+      { href: "/country/kenya", tag: "Country", title: "Kenya Country Profile", desc: "The yield contrast that illustrates South Africa's commercialization advantage." },
+    ],
+  };
+  return <CountryProfilePremium data={data} />;
+}
+
+/* ── Egypt: full Country Intelligence Dossier (Tier 1, premium template) ── */
+function EgyptProfilePage({ c }) {
+  const data = {
+    slug: "egypt", name: "Egypt", flag: c.flag, region: c.region,
+    h1: "Egypt Potato Industry: Four Growing Seasons, a Trade Advantage No Rival Can Match (7&ndash;8.6M Tonnes)",
+    tagLabel: "Egypt · Africa & Middle East",
+    readMin: 12,
+    accentLabel: "Egypt is the only major potato producer that can supply fresh potatoes for over half the year, thanks to four overlapping growing seasons. That trade advantage, plus a 25–34% cost edge over US fries, has tripled Egypt's frozen French fry exports in five years — with Brazil, of all places, now its largest fry buyer.",
+    wikidata: "https://www.wikidata.org/wiki/Q79",
+    articlePublishedISO: "2026-07-16", articleModifiedISO: "2026-07-16", indiaContext: false,
+    quickFacts: [
+      { label: "Production (2024)", value: "7–8.6M tonnes (source-dependent)" },
+      { label: "Growing seasons", value: "4 overlapping seasons" },
+      { label: "Frozen fry exports (2024)", value: "219,913 tonnes (+46.5% YoY)" },
+      { label: "Fresh exports (2024)", value: "1.17M tonnes" },
+      { label: "Cost advantage vs. US fries", value: "25–34% cheaper" },
+      { label: "Top fry buyer", value: "Brazil (49,897 tonnes, +236%)" },
+    ],
+    definitiveAnswer: '<strong>Egypt produced roughly 7&ndash;8.6 million tonnes of potatoes in 2024</strong> &mdash; figures vary by source and reference year (FAOSTAT\'s 2024 reading of 8.573M tonnes vs. a national profile\'s 6.869M tonnes), but every source agrees Egypt is the <strong>biggest potato producer in the Middle East</strong> and one of Africa\'s top producers, up from just 4.6&ndash;4.96 million tonnes a decade earlier. Egypt\'s defining structural advantage is unique globally: <strong>four overlapping growing seasons</strong> &mdash; early spring, summer, autumn, and premium winter crops &mdash; let it supply fresh potatoes for <strong>over half the year</strong>, something no European or North American producer can match. That advantage, combined with production costs that make Egyptian frozen French fries <strong>25&ndash;34% cheaper than US fries</strong>, has driven frozen fry exports to <strong>219,913 tonnes in 2024 (+46.5% year-on-year, tripled in five years)</strong> &mdash; with <strong>Brazil, a South American country, now Egypt\'s single largest fry buyer</strong>.',
+    keyStats: [
+      { value: "7–8.6M t", label: "2024 production" },
+      { value: "4", label: "Growing seasons" },
+      { value: "220K t", label: "2024 frozen fry exports" },
+      { value: "25–34%", label: "Cost edge vs. US fries", accent: "#4CAF50" },
+    ],
+    tocItems: [
+      { id: "industry-size", l: "How big is Egypt's potato industry?" },
+      { id: "four-seasons", l: "How does Egypt grow potatoes almost year-round?" },
+      { id: "regions", l: "Where in Egypt are potatoes grown?" },
+      { id: "varieties", l: "What potato varieties are grown in Egypt?" },
+      { id: "processing", l: "Who are Egypt's major potato processors?" },
+      { id: "trade", l: "Why is Egypt's frozen fry export boom so significant?" },
+      { id: "challenges", l: "What challenges does Egypt's potato industry face?" },
+    ],
+    cards: [
+      { id: "industry-size", dataCard: "overview",
+        h2: "How big is Egypt's potato industry?",
+        lead: "Egypt is the <strong>biggest potato producer in the Middle East</strong> and one of Africa's top producers. Different official sources put 2024 production between <strong>6.87 and 8.6 million tonnes</strong> &mdash; either reading confirms sustained, rapid growth: production crossed 4 million tonnes in 2011, 5 million in 2019, and 6 million in 2020.",
+        quickFacts: [
+          { label: "2011", value: "Crossed 4M tonnes" },
+          { label: "2019", value: "Crossed 5M tonnes" },
+          { label: "2020", value: "Crossed 6M tonnes" },
+          { label: "2024", value: "6.87–8.6M tonnes (source-dependent)" },
+        ],
+        body: [
+          "Growth has been consistent rather than volatile — one FAOSTAT-based reading shows production up 49% from 4.611 million tonnes in 2014 to 6.869 million by 2024; a separate national-data reading shows 2024 production up 1.9% year-on-year and 8.2% above the five-year average. We report the range rather than force a single number the underlying sources don't agree on.",
+        ],
+        source: "Source: FAOSTAT; DCA Market Intelligence; USDA FAS; FAO.",
+      },
+      { id: "four-seasons", dataCard: "seasons",
+        h2: "How does Egypt grow potatoes almost year-round?",
+        lead: "Egypt runs <strong>four overlapping growing seasons</strong> — a structural advantage genuinely unique among major producers, letting it supply fresh potatoes for <strong>over half the year</strong>.",
+        table: {
+          headers: ["Season", "Planting", "Harvest", "Share of production"],
+          rows: [
+            ["Early Spring", "November – December", "March – April", "&mdash;"],
+            ["Summer", "January – March", "May – June", "30%"],
+            ["Autumn", "August – mid-October", "December – mid-February", "40% (largest; mostly exported/processed)"],
+            ["Premium Winter", "October – November", "February", "Premium high-value potatoes"],
+          ],
+        },
+        body: [
+          "The autumn crop is both the largest single season and the one that feeds most of Egypt's export and processing volume. No European or North American producer can replicate this: most large producers get one, or at most two, growing windows per year. This is the single structural fact underpinning Egypt's entire trade advantage.",
+        ],
+        source: "Source: Egypt Ministry of Agriculture crop calendars; USDA FAS.",
+      },
+      { id: "regions", dataCard: "regions",
+        h2: "Where in Egypt are potatoes grown?",
+        lead: "The <strong>Nile Delta</strong> is the largest producing area, spanning Beheira, Dakahlia, and Gharbia governorates, alongside the traditional <strong>Nile Valley</strong> and a rapidly expanding frontier: desert <strong>New Lands</strong> reclaimed via pivot irrigation.",
+        table: {
+          headers: ["Region", "Role", "Notes"],
+          rows: [
+            ["Nile Delta (Beheira, Dakahlia, Gharbia)", "Largest, traditional zone", "Both fresh and processing potatoes; moderate winter temperatures"],
+            ["New Lands (desert reclamation)", "Rapidly expanding", "Pivot irrigation converts desert to farmland; modern equipment"],
+            ["Nile Valley", "Traditional growing area", "Moderate temperatures favorable for potatoes"],
+          ],
+        },
+        body: [
+          "The New Lands expansion is the growth frontier: it isn't limited by the Nile Delta's finite arable land, since pivot-irrigated desert conversion can, in principle, keep adding capacity — a structural advantage most established potato regions elsewhere in the world don't have.",
+        ],
+        source: "Source: Egypt Ministry of Agriculture; USDA FAS.",
+      },
+      { id: "varieties", dataCard: "varieties",
+        h2: "What potato varieties are grown in Egypt?",
+        lead: "<strong>Spunta</strong> (Dutch-bred) is the most widely grown variety in Egypt, well-suited to the warm climate across all four growing seasons.",
+        table: {
+          headers: ["Variety", "Role"],
+          rows: [
+            ["Spunta", "Most widely grown; reliable across all four seasons"],
+            ["Diamant", "Popular for fresh market"],
+            ["Nicola", "Yellow-fleshed; good for export"],
+            ["Lady Rosetta", "Processing variety"],
+            ["Hermes", "Grown for chips"],
+            ["Cara", "Popular table variety"],
+          ],
+        },
+        source: "Source: Egypt Ministry of Agriculture; DCA Market Intelligence.",
+      },
+      { id: "processing", dataCard: "processing",
+        h2: "Who are Egypt's major potato processors?",
+        lead: "Five major processors produce approximately <strong>315,000 tonnes of frozen French fries per year</strong>. <strong>Farm Frites (Netherlands) / Americana Group (UAE)</strong> is the largest at 165,000 tonnes, following a three-decade partnership.",
+        table: {
+          headers: ["Processor", "Scale", "Notes"],
+          rows: [
+            ["Farm Frites / Americana Group", "165,000 t/yr (largest)", "Nov 2024: agreed to build a new Saudi Arabia factory (~70,000 t/yr projected)"],
+            ["Fregys", "Significant", "&mdash;"],
+            ["IFCG", "Significant", "&mdash;"],
+            ["Al Bader Group (Frozena)", "30,000t (2023) → 150,000t target (2026)", "Growth strategy would make it Egypt's 2nd-largest processor"],
+          ],
+        },
+        body: [
+          "The Farm Frites / Americana Group expansion into Saudi Arabia is a notable regional-scale signal — Egyptian processing expertise and cost structure being exported into a neighboring Gulf market rather than just serving it via trade.",
+        ],
+        source: "Source: DCA Market Intelligence; company announcements.",
+      },
+      { id: "trade", dataCard: "trade",
+        h2: "Why is Egypt's frozen fry export boom so significant?",
+        lead: "Egypt's <strong>frozen French fry exports reached 219,913 tonnes in 2024</strong>, up 46.5% year-on-year and roughly <strong>tripled in five years</strong>. Fresh potato exports reached <strong>1.17 million tonnes</strong> in the same year.",
+        table: {
+          headers: ["Buyer", "2024 volume", "YoY change"],
+          rows: [
+            ["Brazil", "49,897 t", "+236%"],
+            ["Saudi Arabia", "48,576 t", "+224.7%"],
+            ["United States", "33,290 t", "−14.5%"],
+          ],
+        },
+        body: [
+          "The Brazil figure is the standout: a South American country importing frozen fries from North Africa, up 236% in a single year, is a striking illustration of Egypt's cost competitiveness — Egyptian frozen fries run 25&ndash;34% cheaper than US fries. Egypt's trade advantages compound: unique year-round production capability, a strategic location for exports across Africa, the Middle East, and Asia, competitive production costs, growing processing capacity, and EU phytosanitary compliance that keeps European markets open.",
+        ],
+        source: "Source: FAOSTAT Trade; USDA FAS; DCA Market Intelligence.",
+      },
+      { id: "challenges", dataCard: "challenges",
+        h2: "What challenges does Egypt's potato industry face?",
+        lead: "Five constraints recur: <strong>water scarcity</strong> and Nile-allocation politics, the <strong>high cost of imported seed potatoes</strong>, <strong>soil salinity</strong> in delta regions, <strong>EU phytosanitary compliance</strong> requirements, and <strong>climate-change-driven heat stress</strong>.",
+        body: [
+          "Water is the binding long-term constraint given Egypt's near-total dependence on the Nile and ongoing regional water-allocation tensions. Seed-potato import costs are a persistent input-cost pressure since Egypt, like most non-European producers, imports the bulk of its certified seed from Dutch breeders.",
+        ],
+        source: "Source: FAOSTAT; DCA Market Intelligence; USDA FAS.",
+      },
+    ],
+    sourceList: [
+      "FAOSTAT — production, area, and trade statistics",
+      "DCA Market Intelligence — processing industry and export data",
+      "USDA FAS (Foreign Agricultural Service) — trade and market analysis",
+      "FAO — production data and country context",
+      "Egypt Ministry of Agriculture — crop calendars and regional data",
+    ],
+    faqItems: [
+      { q: "How much potato does Egypt produce per year?", a: "Estimates for 2024 range from 6.87 to 8.6 million tonnes depending on the source, but all agree Egypt is the Middle East's largest potato producer and one of Africa's top producers, roughly doubling production since 2014." },
+      { q: "How does Egypt grow potatoes year-round?", a: "Egypt runs four overlapping growing seasons — early spring, summer, autumn, and premium winter — letting it supply fresh potatoes for over half the year, a structural advantage no European or North American producer can match." },
+      { q: "Why are Egyptian frozen fries so competitive globally?", a: "Egyptian frozen French fries are 25–34% cheaper than US fries, driven by lower production costs and the country's unique multi-season growing advantage. This has driven frozen fry exports to 219,913 tonnes in 2024, tripling in five years." },
+      { q: "Who buys Egypt's frozen French fries?", a: "Brazil is now Egypt's largest fry buyer (49,897 tonnes in 2024, up 236%), followed by Saudi Arabia (48,576 tonnes, up 224.7%) and the United States (33,290 tonnes, down 14.5%)." },
+      { q: "What potato variety is most grown in Egypt?", a: "Spunta, a Dutch-bred variety, is the most widely grown potato in Egypt, valued for its reliability across all four of the country's growing seasons." },
+    ],
+    regionalContext: [
+      { slug: "algeria", note: "North Africa, Saharan-irrigation peer" },
+      { slug: "turkey", note: "Mediterranean / ME #1 by volume" },
+      { slug: "south-africa", note: "Africa's highest-yield producer" },
+      { slug: "netherlands", note: "Seed-potato source (Spunta, Diamant breeding)" },
+    ],
+    continueReading: [
+      { href: "/blog/egypt-365-day-potatoes", tag: "Analysis", title: "How Egypt Grows Potatoes 365 Days a Year", desc: "The story-format deep dive on Egypt's four-season growing advantage." },
+      { href: "/knowledge/how-potatoes-are-processed", tag: "Processing", title: "How Potatoes Are Processed", desc: "Farm Frites, Americana, and Egypt's frozen-fry export machine." },
+      { href: "/knowledge/global-potato-trade", tag: "Trade", title: "Global Potato Trade", desc: "How Egypt undercuts US and European fry prices by 25–34%." },
+      { href: "/country/belgium", tag: "Country", title: "Belgium Country Profile", desc: "The world's #1 fry exporter, and the competitor Egypt is chasing." },
+    ],
+  };
+  return <CountryProfilePremium data={data} />;
+}
+
+/* ── Peru: full Country Intelligence Dossier (Tier 1, premium template) ── */
+function PeruProfilePage({ c }) {
+  const data = {
+    slug: "peru", name: "Peru", flag: c.flag, region: c.region,
+    h1: "Peru Potato Industry: Birthplace of the Crop, Home to Over 3,000 Native Varieties (6.5M Tonnes)",
+    tagLabel: "Peru · South America",
+    readMin: 11,
+    accentLabel: "Every potato eaten anywhere in the world traces back to the Andes, and Peru is where domestication happened — over 8,000 years ago. Today Peru grows more distinct potato varieties than any other country on Earth, and hosts the International Potato Center (CIP), the crop's global genetic archive.",
+    wikidata: "https://www.wikidata.org/wiki/Q419",
+    articlePublishedISO: "2026-07-16", articleModifiedISO: "2026-07-16", indiaContext: false,
+    quickFacts: [
+      { label: "Production (2024)", value: "6.492M tonnes" },
+      { label: "Native varieties", value: "3,000+ (most of any country)" },
+      { label: "10-year growth (2014–24)", value: "+38.0%" },
+      { label: "Yield", value: "41.8 t/ha" },
+      { label: "CIP headquarters", value: "Lima, Peru" },
+      { label: "National Potato Day", value: "May 30" },
+    ],
+    definitiveAnswer: '<strong>Peru produced 6.492 million tonnes of potatoes in 2024</strong> on 337,281 hectares at a yield of 41.8 t/ha (FAOSTAT) &mdash; up 38.0% from 4.705 million tonnes in 2014. But Peru\'s significance to the global potato story isn\'t about tonnage: Peru is the <strong>birthplace of the potato</strong>, domesticated in the Andean highlands over <strong>8,000 years ago</strong>, and today grows <strong>more than 3,000 native varieties</strong> &mdash; more genetic diversity than any other country on Earth. The <strong>International Potato Center (CIP)</strong>, the crop\'s global research and genebank institution, is headquartered in Lima, and Peru celebrates <strong>National Potato Day on May 30th</strong>. Commercial production centers on <strong>Canchan</strong> (the most widely grown variety) alongside thousands of indigenous varieties preserved by highland farming communities around Puno and Lake Titicaca &mdash; the historical epicenter of potato domestication.',
+    keyStats: [
+      { value: "6.49M t", label: "2024 production" },
+      { value: "3,000+", label: "Native varieties grown" },
+      { value: "+38.0%", label: "10-yr production growth", accent: "#4CAF50" },
+      { value: "8,000+ yrs", label: "Since domestication" },
+    ],
+    tocItems: [
+      { id: "origin", l: "Why is Peru called the birthplace of the potato?" },
+      { id: "industry-size", l: "How big is Peru's modern potato industry?" },
+      { id: "regions", l: "Where in Peru are potatoes grown?" },
+      { id: "varieties", l: "What potato varieties are grown in Peru?" },
+      { id: "cip", l: "What is the International Potato Center (CIP)?" },
+      { id: "processing", l: "Does Peru process or export potatoes?" },
+      { id: "challenges", l: "What challenges does Peru's potato sector face?" },
+    ],
+    cards: [
+      { id: "origin", dataCard: "origin",
+        h2: "Why is Peru called the birthplace of the potato?",
+        lead: "The potato was <strong>domesticated in the Andean highlands over 8,000 years ago</strong>, and Peru — alongside neighboring Bolivia — is the historical center of that domestication. Potato was already being traded in Northern Peru around 600 AD, long before European contact.",
+        callout: { number: "8,000+", context: "years since the potato was first domesticated in the Andean highlands around what is now Peru and Bolivia. Every commercial potato variety grown anywhere in the world today ultimately traces its genetic lineage back to this region.", source: "CIP (International Potato Center); FAO" },
+        body: [
+          "This isn't a marketing claim — it's the scientific and historical consensus, and it's why Peru's native varietal diversity matters far beyond its own borders: the wild and semi-domesticated genetic material still growing in Andean smallholder plots is a working archive of traits (frost tolerance, disease resistance, nutritional diversity) that modern breeding programs worldwide are only beginning to systematically tap.",
+        ],
+        source: "Source: CIP (International Potato Center); FAO.",
+      },
+      { id: "industry-size", dataCard: "overview",
+        h2: "How big is Peru's modern potato industry?",
+        lead: "Peru produced <strong>6.492 million tonnes in 2024</strong> on 337,281 hectares at a yield of <strong>41.8 t/ha</strong> (FAOSTAT) &mdash; growth of 38.0% from 4.705 million tonnes just a decade earlier in 2014.",
+        quickFacts: [
+          { label: "2014 production", value: "4.705M tonnes" },
+          { label: "2024 production", value: "6.492M tonnes" },
+          { label: "Yield", value: "41.8 t/ha" },
+          { label: "10-yr growth", value: "+38.0%" },
+        ],
+        source: "Source: FAOSTAT; UN FAO.",
+      },
+      { id: "regions", dataCard: "regions",
+        h2: "Where in Peru are potatoes grown?",
+        lead: "<strong>Puno Region</strong>, around Lake Titicaca — the historical center of potato origin — has the highest production volume, followed by Huancavelica, Junín, Cusco, Cajamarca, Huánuco, and coastal Lima.",
+        table: {
+          headers: ["Region", "Role", "Notes"],
+          rows: [
+            ["Puno", "Highest production volume", "Around Lake Titicaca; center of potato origin; traditional highland varieties dominate"],
+            ["Cusco", "Important highland producer", "Historic center of Inca potato cultivation"],
+            ["Huancavelica, Junín, Cajamarca, Huánuco", "Major highland producers", "Central and northern highland zones"],
+            ["Lima coast", "Commercial production", "Serves urban markets, distinct from highland smallholder systems"],
+          ],
+        },
+        body: [
+          "Growing season varies sharply by altitude: highland planting runs October–November with an April–June harvest, while coastal planting runs April–June with an August–November harvest — meaning Peru effectively has staggered production across its highland and coastal systems even without a single unified national season.",
+        ],
+        source: "Source: National agricultural statistics of Peru; USDA FAS.",
+      },
+      { id: "varieties", dataCard: "varieties",
+        h2: "What potato varieties are grown in Peru?",
+        lead: "<strong>Canchan</strong> is the most commercially grown variety, but Peru's real distinction is scale of diversity: <strong>over 3,000 native varieties</strong> are still cultivated by indigenous Andean farming communities.",
+        table: {
+          headers: ["Variety", "Type", "Role"],
+          rows: [
+            ["Canchan", "Commercial", "Most widely grown commercial variety"],
+            ["Yungay", "Commercial / highland", "Popular in highland systems"],
+            ["Unica", "Commercial", "Bred specifically for coastal production"],
+            ["Capiro", "Commercial", "Processing variety"],
+            ["Huayro", "Native", "Traditional highland variety"],
+            ["Papa Amarilla (Yellow Potato)", "Native", "Premium native variety, prized culinarily"],
+            ["Papa Nativa (thousands of varieties)", "Native", "The core of Peru's 3,000+ varietal diversity"],
+          ],
+        },
+        source: "Source: National agricultural statistics of Peru; CIP.",
+      },
+      { id: "cip", dataCard: "cip",
+        h2: "What is the International Potato Center (CIP)?",
+        lead: "The <strong>International Potato Center (CIP)</strong>, headquartered in Lima, is the global research institution and genebank dedicated to the potato and other root/tuber crops — conserving irreplaceable Andean genetic diversity and running breeding programs used worldwide.",
+        body: [
+          "CIP's Lima genebank holds one of the world's largest collections of potato genetic material, much of it sourced from Peru and Bolivia's native varietal diversity. CIP-derived varieties and breeding lines show up throughout this site's other country profiles — from China's Qingshu 9 (UNICA) to breeding programs across Africa and South Asia — making Peru's genetic heritage a working input into global food security well beyond its own production statistics.",
+        ],
+        source: "Source: CIP (International Potato Center), Lima.",
+      },
+      { id: "processing", dataCard: "processing",
+        h2: "Does Peru process or export potatoes?",
+        lead: "Processing remains small relative to Peru's production scale. Lays (PepsiCo) and local companies operate domestically, and Peru is deliberately pursuing <strong>value-added native-potato products</strong> — purple potato chips, native potato flour — as an export niche distinct from commodity fry/chip processing.",
+        body: [
+          "Export markets include the USA, Europe, and neighboring South American countries, with growing interest specifically in native-variety products that leverage Peru's unique genetic diversity as a premium/specialty positioning rather than competing head-on with commodity processors in Belgium, the US, or China.",
+        ],
+        source: "Source: National agricultural statistics of Peru; USDA FAS.",
+      },
+      { id: "challenges", dataCard: "challenges",
+        h2: "What challenges does Peru's potato sector face?",
+        lead: "Five recurring constraints: <strong>climate change</strong> affecting highland growing conditions, <strong>preserving genetic diversity</strong> of native varieties, <strong>connecting smallholder farmers to markets</strong>, <strong>storage and transport infrastructure</strong> gaps, and <strong>late blight</strong> pressure in humid highland regions.",
+        body: [
+          "Climate change is a particularly acute concern for Peru specifically, since so much of its varietal diversity is tied to specific highland microclimates that shifting temperature and rainfall patterns can disrupt — making genetic-diversity preservation and climate adaptation two sides of the same challenge rather than separate issues.",
+        ],
+        source: "Source: National agricultural statistics of Peru; CIP.",
+      },
+    ],
+    sourceList: [
+      "FAOSTAT — production, area, and yield statistics",
+      "CIP (International Potato Center), Lima — genetic diversity, origin, and breeding data",
+      "USDA FAS — trade and market data",
+      "National agricultural statistics of Peru",
+    ],
+    faqItems: [
+      { q: "How much potato does Peru produce per year?", a: "Peru produced 6.492 million tonnes in 2024 (FAOSTAT) on 337,281 hectares — up 38.0% from 4.705 million tonnes in 2014." },
+      { q: "Why is Peru called the birthplace of the potato?", a: "The potato was domesticated in the Andean highlands of what is now Peru and Bolivia over 8,000 years ago. Peru still grows over 3,000 native varieties, more genetic diversity than any other country." },
+      { q: "What is the most grown potato variety in Peru?", a: "Canchan is the most commercially grown variety, though Peru's real distinction is the over 3,000 native varieties cultivated by indigenous Andean farming communities alongside commercial cultivars." },
+      { q: "Why is the International Potato Center (CIP) in Peru?", a: "CIP is headquartered in Lima because Peru is the historical center of potato domestication and holds one of the world's largest potato genetic collections — much of it sourced directly from Peruvian and Bolivian native varietal diversity." },
+      { q: "Does Peru export potatoes?", a: "Yes, though on a smaller scale than major commodity exporters — Peru exports fresh and processed potatoes to the USA, Europe, and neighboring South American countries, with a growing focus on premium native-variety products like purple potato chips." },
+    ],
+    regionalContext: [
+      { slug: "colombia", note: "Andean neighbor, papa criolla specialty" },
+      { slug: "brazil", note: "South America's largest producer" },
+      { slug: "mexico", note: "Americas peer, processing-focused" },
+      { slug: "united-states", note: "Major export market for Peruvian products" },
+    ],
+    continueReading: [
+      { href: "/blog/andean-potato-origin-story", tag: "History", title: "The Andean Potato Origin Story", desc: "How the Andes — including Peru's highlands — domesticated the potato 8,000+ years ago." },
+      { href: "/knowledge/potato-varieties-guide", tag: "Varieties", title: "Potato Varieties Guide", desc: "Peru's 3,000+ native varieties in global varietal context." },
+      { href: "/knowledge/potato-history-origin", tag: "History", title: "Where Did the Potato Originate?", desc: "The full domestication story, centered on Peru and Bolivia." },
+      { href: "/country/colombia", tag: "Country", title: "Colombia Country Profile", desc: "Peru's Andean neighbor and fellow custodian of native potato diversity." },
+    ],
+  };
+  return <CountryProfilePremium data={data} />;
+}
+
+/* ── Canada: full Country Intelligence Dossier (Tier 1, premium template) ── */
+function CanadaProfilePage({ c }) {
+  const data = {
+    slug: "canada", name: "Canada", flag: c.flag, region: c.region,
+    h1: "Canada Potato Industry: Home of McCain Foods, $3.7B in Exports, 93% Bound for the US",
+    tagLabel: "Canada · Americas",
+    readMin: 12,
+    accentLabel: "Canada's potato sector generates $2.1 billion in farm cash receipts and $3.7 billion in exports — and it's almost entirely dependent on one customer. 93% of Canada's fresh potato export value goes to the United States, the same market McCain Foods, the world's largest frozen-fry producer, was built to serve from its New Brunswick headquarters.",
+    wikidata: "https://www.wikidata.org/wiki/Q16",
+    articlePublishedISO: "2026-07-16", articleModifiedISO: "2026-07-16", indiaContext: false,
+    quickFacts: [
+      { label: "Production (2024)", value: "~6.5M tonnes (FAOSTAT)" },
+      { label: "Farm cash receipts (2024)", value: "$2.1B CAD" },
+      { label: "Export value (2024/25)", value: "$3.7B CAD (+2% YoY)" },
+      { label: "Top producing province", value: "Alberta (23.5%)" },
+      { label: "Fresh export dependence on US", value: "92.9% of export value" },
+      { label: "Processing share", value: "~69% of production" },
+    ],
+    definitiveAnswer: '<strong>Canada produced approximately 6.5 million tonnes of potatoes in 2024</strong> (FAOSTAT), making potato the country\'s <strong>5th-largest primary agricultural crop</strong> and its single largest vegetable crop. The sector generated <strong>$2.1 billion CAD in farm cash receipts</strong> in 2024 and <strong>$3.7 billion CAD in exports</strong> in 2024/2025, up 2% year-on-year. Production splits roughly <strong>69% to processing, 20% to fresh/table markets, and 11% to seed</strong>. <strong>Alberta (23.5%), Manitoba (21.4%), and Prince Edward Island (20.2%)</strong> lead production by tonnage, though PEI dominates fresh exports specifically. Canada\'s trade is almost entirely one-directional: <strong>92.9% of fresh potato export value goes to the United States</strong> &mdash; the same market that made <strong>McCain Foods</strong>, headquartered in Florenceville, New Brunswick, the world\'s largest frozen French fry producer.',
+    keyStats: [
+      { value: "6.5M t", label: "2024 production" },
+      { value: "$3.7B", label: "2024/25 exports (CAD)" },
+      { value: "92.9%", label: "Fresh export value to US" },
+      { value: "69%", label: "Share going to processing" },
+    ],
+    tocItems: [
+      { id: "industry-size", l: "How big is Canada's potato industry?" },
+      { id: "regions", l: "Which Canadian provinces produce the most potatoes?" },
+      { id: "processing", l: "Why is Canada the home of McCain Foods?" },
+      { id: "varieties", l: "What potato varieties are grown in Canada?" },
+      { id: "trade", l: "How dependent is Canada on the US potato market?" },
+      { id: "challenges", l: "What challenges does Canada's potato sector face?" },
+    ],
+    cards: [
+      { id: "industry-size", dataCard: "overview",
+        h2: "How big is Canada's potato industry?",
+        lead: "Canada's potato sector is the country's <strong>5th-largest primary agricultural crop</strong>, generating approximately <strong>$2.1 billion CAD in farm cash receipts</strong> in 2024. Potatoes account for <strong>29% of Canadian vegetable farm cash receipts</strong> and 17% of all horticultural receipts.",
+        quickFacts: [
+          { label: "2024 production", value: "~6.5M tonnes (FAOSTAT)" },
+          { label: "Farm cash receipts", value: "$2.1B CAD" },
+          { label: "Share of vegetable receipts", value: "29%" },
+          { label: "Total harvested area", value: "156,309 ha" },
+        ],
+        body: [
+          "Regional economic significance varies enormously: potatoes contributed nearly <strong>35% of Prince Edward Island's total farm cash receipts</strong> and 18% of New Brunswick's, but only 5% and 2% of Manitoba's and Alberta's respectively — despite Alberta and Manitoba having higher absolute production tonnage. The crop matters existentially to PEI's economy in a way it simply doesn't for the larger prairie provinces.",
+        ],
+        source: "Source: Agriculture and Agri-Food Canada (AAFC), Potato Market Information Review 2024-2025.",
+      },
+      { id: "regions", dataCard: "regions",
+        h2: "Which Canadian provinces produce the most potatoes?",
+        lead: "<strong>Alberta leads production at 23.5%</strong>, followed by Manitoba (21.4%) and Prince Edward Island (20.2%) — though PEI remains Canada's most iconic and export-dominant potato region.",
+        table: {
+          headers: ["Province", "Production (2024)", "Share"],
+          rows: [
+            ["Alberta", "1,364,814 t", "23.5%"],
+            ["Manitoba", "1,244,930 t", "21.4%"],
+            ["Prince Edward Island", "1,176,165 t", "20.2%"],
+            ["New Brunswick", "771,379 t", "13.3%"],
+            ["Quebec", "675,898 t", "11.6%"],
+            ["Ontario", "404,378 t", "7.0%"],
+          ],
+        },
+        body: [
+          "PEI's outsized reputation relative to its 20.2% production share comes from export concentration: it accounts for <strong>38.9% of fresh potato export value</strong> and 36.2% of export quantity, more than any other province, despite Alberta and Manitoba out-producing it by tonnage. Alberta and Manitoba's larger crops feed heavily into processing rather than fresh export.",
+        ],
+        source: "Source: AAFC Potato Market Information Review 2024-2025.",
+      },
+      { id: "processing", dataCard: "processing",
+        h2: "Why is Canada the home of McCain Foods?",
+        lead: "<strong>McCain Foods</strong>, the world's largest frozen French fry producer, was founded in and remains headquartered in <strong>Florenceville, New Brunswick</strong>. <strong>Cavendish Farms</strong> is the other major Canadian processor. Roughly <strong>69% of Canadian production</strong> goes to processing.",
+        body: [
+          "Major processing provinces span Alberta, Manitoba, New Brunswick, Prince Edward Island, and Ontario — meaning processing capacity is distributed close to where the crop is actually grown, rather than concentrated in one region. Canada's processing scale, combined with its proximity to the massive US market, is what makes it a genuine peer to the US in global frozen-fry production, not just a smaller neighbor.",
+        ],
+        source: "Source: AAFC Potato Market Information Review 2024-2025; McCain Foods corporate information.",
+      },
+      { id: "varieties", dataCard: "varieties",
+        h2: "What potato varieties are grown in Canada?",
+        lead: "<strong>Russet Burbank</strong> is the dominant processing variety, alongside Shepody (also processing) and table varieties including <strong>Yukon Gold</strong> — developed in Canada at the University of Guelph.",
+        table: {
+          headers: ["Variety", "Role"],
+          rows: [
+            ["Russet Burbank", "Dominant processing variety"],
+            ["Shepody", "Important processing variety"],
+            ["Ranger Russet", "Growing in popularity"],
+            ["Yukon Gold", "Table variety; developed at University of Guelph, Canada"],
+            ["Norland", "Red-skinned table variety"],
+            ["Atlantic", "Chipping variety"],
+            ["Goldrush", "Table variety"],
+          ],
+        },
+        body: [
+          "Yukon Gold's Canadian origin is a genuine point of pride: developed at the University of Guelph, its buttery yellow flesh and versatility made it one of the most-recognized specialty varieties in North America, exported far beyond Canada's own commercial acreage.",
+        ],
+        source: "Source: AAFC; University of Guelph variety-release records.",
+      },
+      { id: "trade", dataCard: "trade",
+        h2: "How dependent is Canada on the US potato market?",
+        lead: "Extremely. The <strong>United States takes 92.9% of Canadian fresh potato export value</strong> ($474.7 million CAD of $510.8 million total) and <strong>95.2% of seed potato export value</strong>. Smaller markets include Indonesia, Trinidad and Tobago, the Dominican Republic, and Thailand.",
+        table: {
+          headers: ["Market", "Fresh export value share (2024/25)"],
+          rows: [
+            ["United States", "92.9%"],
+            ["Trinidad and Tobago", "1.8%"],
+            ["Indonesia", "1.7%"],
+            ["Dominican Republic", "0.9%"],
+            ["Thailand", "0.6%"],
+          ],
+        },
+        body: [
+          "This concentration is a structural feature of Canada's potato trade, not a temporary imbalance — geographic proximity and integrated North American supply chains (especially for frozen processed products, which dominate exports beyond fresh) make the US the natural, overwhelming primary market. Canada also exports to Japan and Mexico, primarily in processed/frozen categories.",
+        ],
+        source: "Source: AAFC Potato Market Information Review 2024-2025.",
+      },
+      { id: "challenges", dataCard: "challenges",
+        h2: "What challenges does Canada's potato sector face?",
+        lead: "Five recurring constraints: a <strong>short northern growing season</strong>, near-total <strong>trade dependence on the US market</strong>, <strong>potato wart disease</strong> management (particularly in PEI), <strong>rising input costs</strong>, and intensifying <strong>competition in the global frozen-fry market</strong>.",
+        body: [
+          "Potato wart disease specifically has been a recurring trade-policy flashpoint for PEI, since detections have previously triggered temporary US import restrictions on PEI potatoes — a direct illustration of just how exposed Canada's potato economy is to decisions made by a single trading partner.",
+        ],
+        source: "Source: AAFC Potato Market Information Review 2024-2025.",
+      },
+    ],
+    sourceList: [
+      "Agriculture and Agri-Food Canada (AAFC) — Potato Market Information Review 2024-2025",
+      "FAOSTAT — production time series",
+      "McCain Foods — corporate and headquarters information",
+      "University of Guelph — Yukon Gold variety-release records",
+    ],
+    faqItems: [
+      { q: "How much potato does Canada produce per year?", a: "Canada produced approximately 6.5 million tonnes in 2024 (FAOSTAT), making it the country's 5th-largest primary agricultural crop and generating $2.1 billion CAD in farm cash receipts." },
+      { q: "Which Canadian province produces the most potatoes?", a: "Alberta leads by tonnage at 23.5% of national production, followed by Manitoba (21.4%) and Prince Edward Island (20.2%). PEI, however, leads fresh potato exports specifically at 38.9% of export value." },
+      { q: "Where is McCain Foods headquartered?", a: "Florenceville, New Brunswick, Canada. McCain Foods is the world's largest frozen French fry producer, and roughly 69% of Canada's total potato production goes to processing." },
+      { q: "Does Canada export most of its potatoes to the US?", a: "Yes — the United States takes 92.9% of Canadian fresh potato export value and 95.2% of seed potato export value, making Canada's potato trade almost entirely dependent on its southern neighbor." },
+      { q: "What potato variety was developed in Canada?", a: "Yukon Gold, a buttery yellow-fleshed table variety, was developed at the University of Guelph in Ontario and has become one of the most widely recognized specialty potato varieties in North America." },
+    ],
+    regionalContext: [
+      { slug: "united-states", note: "Dominant trade partner (92.9% of exports)" },
+      { slug: "mexico", note: "Secondary North American export market" },
+      { slug: "japan", note: "Processed-product export market" },
+      { slug: "netherlands", note: "Global processing/seed-export peer" },
+    ],
+    continueReading: [
+      { href: "/knowledge/potato-processing-industry", tag: "Processing", title: "The Global Potato Processing Industry", desc: "McCain Foods, Cavendish Farms, and Canada's role in world frozen-fry supply." },
+      { href: "/knowledge/global-potato-trade", tag: "Trade", title: "Global Potato Trade", desc: "Why 93% of Canada's fresh export value flows to a single market." },
+      { href: "/country/united-states", tag: "Country", title: "United States Country Profile", desc: "Canada's dominant, near-total trade partner for potato exports." },
+      { href: "/knowledge/potato-varieties-guide", tag: "Varieties", title: "Potato Varieties Guide", desc: "Yukon Gold and Canada's contribution to global potato varietal development." },
+    ],
+  };
+  return <CountryProfilePremium data={data} />;
+}
+
+/* ── United Kingdom: full Country Intelligence Dossier (Tier 1, premium template) ── */
+function UnitedKingdomProfilePage({ c }) {
+  const data = {
+    slug: "united-kingdom", name: "United Kingdom", flag: c.flag, region: c.region,
+    h1: "UK Potato Industry: Home of Maris Piper and Fish & Chips, But a 2.2M-Tonne Net Importer",
+    tagLabel: "United Kingdom · Europe",
+    readMin: 12,
+    accentLabel: "The UK is one of the world's most potato-obsessed nations — 10,500 fish and chip shops, Maris Piper the default variety — yet domestic production covers only 68% of total supply. Seed potato prices jumped 35% in a single year as 2024's brutal wet spring forced growers into early desiccation just to get a harvest in.",
+    wikidata: "https://www.wikidata.org/wiki/Q145",
+    articlePublishedISO: "2026-07-16", articleModifiedISO: "2026-07-16", indiaContext: false,
+    quickFacts: [
+      { label: "Production (2024, DEFRA)", value: "5.137M tonnes" },
+      { label: "Domestic supply coverage", value: "68% of total supply" },
+      { label: "Net trade gap (2024)", value: "+2.22M tonnes imported" },
+      { label: "Production value (2024)", value: "£1.46B (+28% YoY)" },
+      { label: "Seed price (2024)", value: "£440/tonne (+34.9% YoY)" },
+      { label: "Fish & chip shops", value: "~10,500 nationwide" },
+    ],
+    definitiveAnswer: '<strong>The UK produced 5.137 million tonnes of potatoes in 2024</strong> (DEFRA), recovering 9.8% from a weather-hit 4.678 million tonnes in 2023, when persistent wet conditions delayed spring planting by roughly a month and forced many growers into early desiccation despite the yield penalty. Even in a good year, though, <strong>domestic production covers only 68% of total UK supply</strong> &mdash; the UK imported 2.633 million tonnes against exports of just 412,000 tonnes in 2024, a <strong>net import gap of 2.22 million tonnes, the widest in three years</strong>. The value side tells a starker story: total production value hit <strong>&pound;1.46 billion in 2024, up 28% year-on-year</strong>, on only a modest volume recovery &mdash; reflecting sharply higher farm-gate prices, with <strong>seed potato prices surging 34.9% to a record &pound;440/tonne</strong>. <strong>Maris Piper</strong> remains the UK\'s most popular variety, and the country\'s <strong>~10,500 fish and chip shops</strong> anchor one of the world\'s most potato-centric food cultures.',
+    keyStats: [
+      { value: "5.14M t", label: "2024 production" },
+      { value: "68%", label: "Domestic supply share" },
+      { value: "£1.46B", label: "2024 production value" },
+      { value: "+34.9%", label: "Seed price jump, 2024", accent: "#C62828" },
+    ],
+    tocItems: [
+      { id: "industry-size", l: "How big is the UK potato industry?" },
+      { id: "trade-gap", l: "Why is the UK a net importer of potatoes?" },
+      { id: "prices", l: "Why did UK potato and seed prices spike in 2024?" },
+      { id: "regions", l: "Where are potatoes grown in the UK?" },
+      { id: "varieties", l: "What potato varieties are grown in the UK?" },
+      { id: "processing", l: "How central is potato to UK food culture?" },
+      { id: "challenges", l: "What challenges does the UK potato industry face?" },
+    ],
+    cards: [
+      { id: "industry-size", dataCard: "overview",
+        h2: "How big is the UK potato industry?",
+        lead: "The UK produced <strong>5.137 million tonnes in 2024</strong> (DEFRA), a 9.8% recovery from 2023's weather-hit 4.678 million tonnes, harvested from 111,000 hectares at a yield of 46 t/ha.",
+        quickFacts: [
+          { label: "2022 production", value: "5.522M tonnes" },
+          { label: "2023 production", value: "4.678M tonnes (weather-hit)" },
+          { label: "2024 production", value: "5.137M tonnes (+9.8%)" },
+          { label: "2024 uses", value: "4.095M t human consumption; 539K t seed" },
+        ],
+        body: [
+          "2024's recovery came despite a genuinely difficult growing season: persistent wet conditions delayed spring planting by approximately a month, and many growers opted for early desiccation — accepting a yield penalty — simply to ensure the crop could be harvested at all before conditions worsened further.",
+        ],
+        source: "Source: DEFRA (Department for Environment, Food and Rural Affairs), Agriculture in the United Kingdom 2024, Table 7.10a.",
+      },
+      { id: "trade-gap", dataCard: "trade",
+        h2: "Why is the UK a net importer of potatoes?",
+        lead: "UK domestic production covers only <strong>68% of total supply</strong>. In 2024, the UK imported <strong>2.633 million tonnes</strong> against exports of just <strong>412,000 tonnes</strong> — a net trade gap of <strong>2.22 million tonnes, the widest in three years</strong>.",
+        table: {
+          headers: ["Metric", "2022", "2023", "2024"],
+          rows: [
+            ["UK production", "4,519K t", "4,092K t", "4,634K t"],
+            ["Imports", "2,482K t", "2,439K t", "2,633K t"],
+            ["Exports", "466K t", "426K t", "412K t"],
+            ["Net trade (imports − exports)", "+2,015K t", "+2,013K t", "+2,220K t"],
+            ["Production as % of total supply", "69%", "67%", "68%"],
+          ],
+        },
+        body: [
+          "The composition of imports is telling: processed potatoes (raw equivalent) dominate at 2.295 million tonnes in 2024, meaning the UK's import dependence is concentrated in value-added products, not just raw table potatoes. Notably, the Early/Maincrop category flipped from net export to net import (+18,000 tonnes) for the first time in 2024 — while the UK actually remains a net exporter of seed potatoes, where exports exceed imports by 93,000 tonnes.",
+        ],
+        source: "Source: DEFRA, Agriculture in the United Kingdom 2024, Table 7.10c.",
+      },
+      { id: "prices", dataCard: "prices",
+        h2: "Why did UK potato and seed prices spike in 2024?",
+        lead: "Total production value reached <strong>&pound;1.46 billion in 2024, up 28%</strong> from &pound;1.138 billion in 2023 — on only a modest volume recovery. <strong>Seed potato prices hit a record &pound;440/tonne, up 34.9% in a single year</strong>, reflecting acute supply tightness.",
+        callout: { number: "£440", context: "per tonne — the record UK seed-potato price in 2024, up 34.9% year-on-year. Maincrop human-consumption prices also rose, but less sharply, up 10.4% to £298/tonne — meaning the seed shortage was disproportionately severe relative to the table-potato market.", source: "DEFRA, Agriculture in the United Kingdom 2024, Table 7.10b" },
+        body: [
+          "This price surge is the direct market signal of 2024's difficult growing conditions: a weather-damaged 2023 crop plus a delayed, disrupted 2024 planting season squeezed available seed supply hard, and prices moved accordingly. Human-consumption maincrop and early prices rose more modestly, up 10.4% to &pound;298/tonne.",
+        ],
+        source: "Source: DEFRA, Agriculture in the United Kingdom 2024, Table 7.10b.",
+      },
+      { id: "regions", dataCard: "regions",
+        h2: "Where are potatoes grown in the UK?",
+        lead: "<strong>East Anglia</strong> (Norfolk and Suffolk) is the largest producing area, followed by Lincolnshire and Yorkshire. <strong>Scotland</strong> is the primary seed-production region, valued for its cool climate and low aphid pressure — critical for disease-free seed.",
+        table: {
+          headers: ["Region", "Role"],
+          rows: [
+            ["East Anglia (Norfolk, Suffolk)", "Largest producing area; irrigated production"],
+            ["Lincolnshire", "Major producing county; flat, fertile land"],
+            ["Yorkshire", "Significant northern England production"],
+            ["Scotland", "Primary seed-production region (cool climate, low aphid pressure)"],
+            ["Shropshire", "Western English production area"],
+            ["Cornwall & Jersey", "Premium early potatoes, available from May"],
+          ],
+        },
+        body: [
+          "UK-wide potato area rose from ~118,000 hectares (2023-24, stable) to 127,000 hectares in 2025 — a 7.2% jump, and one of very few crop categories to see area growth that year while oilseeds and other arable crops declined. In England specifically, potatoes have consistently held 2% of total croppable area from 2021 to 2025 — the only non-cereal arable crop to hold its land share that consistently over five years.",
+        ],
+        source: "Source: DEFRA, Agricultural Land Use in the United Kingdom / England at 1 June 2025.",
+      },
+      { id: "varieties", dataCard: "varieties",
+        h2: "What potato varieties are grown in the UK?",
+        lead: "<strong>Maris Piper</strong> is the UK's most popular variety at <strong>11.8% of planted area</strong> — prized for chips/fries — followed by King Edward for roasting and several other established table varieties.",
+        table: {
+          headers: ["Variety", "Role"],
+          rows: [
+            ["Maris Piper", "Most popular (11.8% of area); excellent for chips/fries"],
+            ["King Edward", "Traditional roasting variety"],
+            ["Maris Bard", "Early variety"],
+            ["Estima", "All-purpose variety"],
+            ["Rooster", "Popular in retail"],
+            ["Markies", "Processing variety"],
+          ],
+        },
+        source: "Source: DEFRA / AHDB historical variety data; UK grower body reporting.",
+      },
+      { id: "processing", dataCard: "processing",
+        h2: "How central is potato to UK food culture?",
+        lead: "Fish and chips is a genuine national institution, served by an estimated <strong>10,500 fish and chip shops</strong> across the UK. Major processors include <strong>McCain Foods, Lamb Weston, and Kettle Chips</strong>, and the UK is one of Europe's largest per-capita consumers of potato products.",
+        body: [
+          "The industry itself is fairly concentrated at the grower level: fewer than <strong>1,700 grower businesses</strong> produce the majority of the UK crop, and the sector has continued consolidating toward fewer, larger farms — a structural trend distinct from, but related to, the pricing and weather pressures shaping recent years.",
+        ],
+        source: "Source: DEFRA; UK grower body industry-structure reporting.",
+      },
+      { id: "challenges", dataCard: "challenges",
+        h2: "What challenges does the UK potato industry face?",
+        lead: "Five recurring pressures: <strong>post-Brexit trade barriers with the EU</strong>, <strong>water stress in eastern growing regions</strong>, <strong>potato blight management</strong>, <strong>declining per-capita fresh potato consumption</strong>, and rising <strong>competition from rice and pasta</strong> as staple carbohydrate choices.",
+        body: [
+          "The UK imports early-season potatoes specifically from Egypt, Israel, and Cyprus to bridge the gap before domestic early crops (from Cornwall and Jersey) become available — a reminder that even the UK's own seasonal supply chain leans on international trade well beyond the headline import-dependence statistic.",
+        ],
+        source: "Source: DEFRA; UK grower body reporting.",
+      },
+    ],
+    sourceList: [
+      "DEFRA (Department for Environment, Food and Rural Affairs) — Agriculture in the United Kingdom 2024, Tables 7.10a–7.10c",
+      "DEFRA — Agricultural Land Use in the United Kingdom / England at 1 June 2025",
+      "AHDB (historical variety and industry-structure data)",
+    ],
+    faqItems: [
+      { q: "How much potato does the UK produce per year?", a: "The UK produced 5.137 million tonnes in 2024 (DEFRA), recovering 9.8% from a weather-hit 4.678 million tonnes in 2023." },
+      { q: "Does the UK import most of its potatoes?", a: "The UK is a significant net importer — domestic production covers only 68% of total supply. In 2024 the UK imported 2.633 million tonnes against exports of 412,000 tonnes, a net gap of 2.22 million tonnes, the widest in three years." },
+      { q: "Why did UK seed potato prices jump in 2024?", a: "Seed potato prices hit a record £440/tonne in 2024, up 34.9% year-on-year, driven by acute supply tightness after a weather-damaged 2023 crop and a delayed, wet 2024 planting season." },
+      { q: "What is the most popular potato variety in the UK?", a: "Maris Piper, accounting for 11.8% of planted area, is the UK's most popular variety, prized especially for chips and fries." },
+      { q: "How many fish and chip shops are there in the UK?", a: "Approximately 10,500 fish and chip shops operate across the UK, making it one of the world's most potato-centric national food cultures." },
+    ],
+    regionalContext: [
+      { slug: "netherlands", note: "Major EU potato/seed trading partner" },
+      { slug: "belgium", note: "Post-Brexit EU trade context" },
+      { slug: "france", note: "European peer producer" },
+      { slug: "egypt", note: "Early-season potato import source" },
+    ],
+    continueReading: [
+      { href: "/knowledge/global-potato-trade", tag: "Trade", title: "Global Potato Trade", desc: "How post-Brexit dynamics reshaped UK-EU potato trade flows." },
+      { href: "/knowledge/potato-varieties-guide", tag: "Varieties", title: "Potato Varieties Guide", desc: "Maris Piper and the UK's chip-shop variety standard." },
+      { href: "/blog/complete-potato-varieties-guide", tag: "Varieties", title: "A Complete Guide to Potato Varieties", desc: "How Maris Piper became the UK's default chip variety." },
+      { href: "/country/netherlands", tag: "Country", title: "Netherlands Country Profile", desc: "The world's #1 seed-potato exporter and a key UK trading partner." },
+    ],
+  };
+  return <CountryProfilePremium data={data} />;
+}
+
+/* ── France: full Country Intelligence Dossier (Tier 1, premium template) ── */
+function FranceProfilePage({ c }) {
+  const data = {
+    slug: "france", name: "France", flag: c.flag, region: c.region,
+    h1: "France Potato Industry: Europe's #1 Raw Potato Exporter, Riding a Frozen-Fry Investment Boom",
+    tagLabel: "France · Europe",
+    readMin: 12,
+    accentLabel: "Northern France's wheat and sugar-beet fields are turning into potato fields, fast — McCain, Clarebout, Agristo, and Ecofrost have all built or expanded plants there as Belgium and the Netherlands run out of rotation-friendly land. France is now the world's #1 raw potato exporter by value, but the same boom is starting to create an oversupply problem.",
+    wikidata: "https://www.wikidata.org/wiki/Q142",
+    articlePublishedISO: "2026-07-16", articleModifiedISO: "2026-07-16", indiaContext: false,
+    quickFacts: [
+      { label: "Production (2024)", value: "8.6M tonnes" },
+      { label: "10-year growth", value: "+6.4% (2014–24)" },
+      { label: "Raw potato exports (2024)", value: "$1.41B (19.8% of global, #1)" },
+      { label: "Export growth (2023–24)", value: "+28% (fastest globally)" },
+      { label: "French fry export growth", value: "+33.3% (2023–24)" },
+      { label: "Top region", value: "Hauts-de-France (~40% of output)" },
+    ],
+    definitiveAnswer: "<strong>France produced 8.606 million tonnes of potatoes in 2024</strong> on 217,680 hectares at a yield of 42.2 t/ha (FAOSTAT), up 6.4% from a decade earlier. But the headline number understates what's actually happening: harvest area hit a record 178,000 hectares in one recent year (+16%), and France has become the destination for a wave of frozen-fry processing investment — <strong>McCain (&euro;350 million expansion), Clarebout (new Bourbourg factory, 220,000-tonne capacity), Agristo (&euro;350 million, new plant planned 2027), and Ecofrost (200,000-tonne capacity)</strong> have all built or expanded in Northern France, as tight crop rotations push processors out of Belgium and the Netherlands. The result: France became the <strong>world's #1 raw potato exporter by value in 2024 at $1.41 billion (19.8% of the global total)</strong>, with exports growing 28% year-on-year &mdash; the fastest of any major exporter &mdash; and French fry exports up 33.3%. The same growth is starting to create a genuine <strong>oversupply risk</strong>, with production now outpacing demand in some seasons.",
+    keyStats: [
+      { value: "8.6M t", label: "2024 production" },
+      { value: "$1.41B", label: "2024 raw exports, #1 globally" },
+      { value: "+28%", label: "Export growth, 2023–24", accent: "#4CAF50" },
+      { value: "€700M+", label: "New processing investment (McCain + Agristo)" },
+    ],
+    tocItems: [
+      { id: "industry-size", l: "How big is France's potato industry?" },
+      { id: "regions", l: "Which regions are driving France's potato boom?" },
+      { id: "processing-boom", l: "Why is frozen-fry processing investment flooding into France?" },
+      { id: "varieties", l: "What potato varieties are grown in France?" },
+      { id: "trade", l: "Why is France the world's #1 raw potato exporter?" },
+      { id: "challenges", l: "What challenges is France's potato boom creating?" },
+    ],
+    cards: [
+      { id: "industry-size", dataCard: "overview",
+        h2: "How big is France's potato industry?",
+        lead: "France produced <strong>8.606 million tonnes in 2024</strong> on 217,680 hectares (42.2 t/ha yield), up 6.4% from 2014 — but the more telling number is a recent record harvest area of <strong>178,000 hectares, a 16% jump</strong> that produced 7.6 million tonnes, 17% above the five-year average.",
+        quickFacts: [
+          { label: "2024 production", value: "8.606M tonnes" },
+          { label: "Yield", value: "42.2 t/ha" },
+          { label: "10-yr growth", value: "+6.4%" },
+          { label: "Record harvest area", value: "178,000 ha (+16%)" },
+        ],
+        body: [
+          "France describes this as an agricultural revolution in progress: northern farmland traditionally used for wheat, oilseed rape, sugar beet, and flax is actively converting to potato cultivation as a cash crop, driven by better margins than cereals or beet and stable long-term processing contracts.",
+        ],
+        source: "Source: FAOSTAT; Europatat; DCA Market Intelligence.",
+      },
+      { id: "regions", dataCard: "regions",
+        h2: "Which regions are driving France's potato boom?",
+        lead: "<strong>Hauts-de-France</strong> (Nord-Pas-de-Calais / Picardy) is the largest producing region at roughly <strong>40% of national production</strong> — traditionally wheat, oilseed rape, sugar beet, and flax country, now hosting multiple multinational processing plants.",
+        table: {
+          headers: ["Region", "Role", "Notes"],
+          rows: [
+            ["Hauts-de-France", "Largest (~40% of output)", "McCain, Clarebout, Agristo, Ecofrost plants located or building here"],
+            ["Champagne-Ardenne", "Important, expanding", "&mdash;"],
+            ["Brittany (Bretagne)", "Early potatoes from May", "Maritime climate; premium table potatoes"],
+            ["Beauce", "Traditional, growing", "&mdash;"],
+            ["Normandy", "Expanding", "Suitable climate for potatoes"],
+          ],
+        },
+        body: [
+          "Northern France is now viewed as one of Europe's most suitable regions for both potato production and processing — a direct consequence of proximity to major European markets, quality fertile land still available for expansion, and a political/investment climate supportive of agri-tech, sharpened by a post-COVID food-sovereignty focus.",
+        ],
+        source: "Source: Europatat; DCA Market Intelligence.",
+      },
+      { id: "processing-boom", dataCard: "processing",
+        h2: "Why is frozen-fry processing investment flooding into France?",
+        lead: "Global frozen fry consumption surged over 25% between 2019 and 2023, and <strong>Belgian and Dutch fields are under pressure from tight crop rotations</strong> — pushing the industry's next wave of capacity into Northern France instead.",
+        table: {
+          headers: ["Company", "Investment", "Notes"],
+          rows: [
+            ["McCain", "€350 million expansion", "Already operates multiple plants in France"],
+            ["Clarebout", "New Bourbourg factory (near Dunkirk)", "220,000-tonne current capacity"],
+            ["Agristo", "€350 million", "Former sugar-beet factory site; operations planned to start 2027"],
+            ["Ecofrost", "Former chips factory, Péronne", "200,000-tonne capacity"],
+          ],
+        },
+        body: [
+          "Combined, these four investments represent well over €700 million in new frozen-fry processing capacity landing in Northern France — a scale of investment that mirrors, and is arguably now competing directly with, Belgium's own processing boom (see our Belgium profile). France's advantage: still-available fertile land, proximity to the same European export markets Belgium serves, and farmer economics that favor potato over declining cereal and sugar-beet margins.",
+        ],
+        source: "Source: DCA Market Intelligence; company investment announcements.",
+      },
+      { id: "varieties", dataCard: "varieties",
+        h2: "What potato varieties are grown in France?",
+        lead: "Table varieties center on <strong>Charlotte</strong> (premium salad), Agata, Amandine, Mona Lisa, and the gourmet fingerling <strong>Ratte</strong>. Processing runs on <strong>Fontane</strong> (the major fry variety) and Innovator, with the once-dominant <strong>Bintje</strong> now in decline.",
+        table: {
+          headers: ["Category", "Varieties"],
+          rows: [
+            ["Table", "Charlotte, Agata, Amandine, Mona Lisa, Ratte"],
+            ["Processing", "Fontane (major fry variety), Innovator"],
+            ["Traditional / declining", "Bintje"],
+          ],
+        },
+        source: "Source: DCA Market Intelligence; Europatat variety data.",
+      },
+      { id: "trade", dataCard: "trade",
+        h2: "Why is France the world's #1 raw potato exporter?",
+        lead: "France exported <strong>$1.41 billion in raw potatoes in 2024 — 19.8% of the global total, ranking #1 worldwide</strong>, and grew that export volume <strong>28% year-on-year, the fastest growth of any major exporter in 2023-2024</strong>. French fry exports specifically grew 33.3% over the same period.",
+        body: [
+          "Key trade partners are Spain, Italy, Belgium, and Germany — France sits at the center of the Northwest European potato trading belt alongside Belgium and the Netherlands, and its production boom is now translating directly into export share gains against those same established neighbors.",
+        ],
+        source: "Source: UN Comtrade; DCA Market Intelligence; Europatat.",
+      },
+      { id: "challenges", dataCard: "challenges",
+        h2: "What challenges is France's potato boom creating?",
+        lead: "The clearest risk is self-inflicted: <strong>oversupply</strong>. The scale of the production increase is now causing an imbalance between production and demand, with <strong>declining prices</strong> the direct consequence in some recent seasons.",
+        body: [
+          "Beyond oversupply, France faces the same structural pressures as its neighbors: summer water stress affecting yields, EU pesticide restrictions, direct processing competition from Belgium and the Netherlands (even as investment flows toward France), and soil fatigue emerging in the most intensively farmed new production areas.",
+        ],
+        source: "Source: DCA Market Intelligence; FAOSTAT; Europatat.",
+      },
+    ],
+    sourceList: [
+      "FAOSTAT — production, area, and yield statistics",
+      "Europatat (European Potato Trade Association) — trade and industry data",
+      "DCA Market Intelligence — processing investment and regional analysis",
+      "USDA FAS — trade data",
+    ],
+    faqItems: [
+      { q: "How much potato does France produce per year?", a: "France produced 8.606 million tonnes in 2024 (FAOSTAT), up 6.4% from a decade earlier, with a recent record harvest area of 178,000 hectares." },
+      { q: "Why is France attracting so much frozen-fry processing investment?", a: "Belgian and Dutch fields are under pressure from tight crop rotations, pushing McCain, Clarebout, Agristo, and Ecofrost to build or expand plants in Northern France instead — over €700 million in combined new investment." },
+      { q: "Is France the world's largest potato exporter?", a: "By value, yes for raw potatoes specifically — France exported $1.41 billion in raw potatoes in 2024, 19.8% of the global total and the #1 ranking, growing 28% year-on-year, the fastest of any major exporter." },
+      { q: "What potato variety is used for French fries in France?", a: "Fontane is the major processing variety used for fries in France, alongside Innovator, while the historically dominant Bintje variety is now in decline." },
+      { q: "Does France have an oversupply problem with potatoes?", a: "Yes — the scale of France's recent production growth has begun to outpace demand in some seasons, causing declining prices and a recognized oversupply risk within the industry." },
+    ],
+    regionalContext: [
+      { slug: "belgium", note: "World's #1 fry exporter, direct competitor" },
+      { slug: "netherlands", note: "Fellow NW European trading-belt member" },
+      { slug: "germany", note: "Major export destination" },
+      { slug: "united-kingdom", note: "European trading partner" },
+    ],
+    continueReading: [
+      { href: "/blog/belgium-worlds-fry-capital", tag: "Analysis", title: "How Belgium Became the World's #1 Fry Exporter", desc: "The Belgian playbook France's Northern region is now directly competing with." },
+      { href: "/knowledge/how-potatoes-are-processed", tag: "Processing", title: "How Potatoes Are Processed", desc: "McCain, Clarebout, Agristo, and Ecofrost's processing pipeline in Northern France." },
+      { href: "/knowledge/global-potato-trade", tag: "Trade", title: "Global Potato Trade", desc: "How France overtook rivals to become the #1 raw potato exporter by value." },
+      { href: "/country/belgium", tag: "Country", title: "Belgium Country Profile", desc: "The processing capacity France's investment boom is now rivaling." },
+    ],
+  };
+  return <CountryProfilePremium data={data} />;
+}
+
+/* ── Germany: full Country Intelligence Dossier (Tier 1, premium template) ── */
+function GermanyProfilePage({ c }) {
+  const data = {
+    slug: "germany", name: "Germany", flag: c.flag, region: c.region,
+    h1: "Germany Potato Industry: The World's #1 Potato Starch Exporter (11.6M Tonnes)",
+    tagLabel: "Germany · Europe",
+    readMin: 12,
+    accentLabel: "Germany is Europe's industrial potato powerhouse — 70–80% of its crop goes to processing, and it exports more potato starch than any country on Earth. Lower Saxony alone grows a quarter of the national crop, much of it feeding an advanced starch-processing sector protected by anti-dumping duties on imports.",
+    wikidata: "https://www.wikidata.org/wiki/Q183",
+    articlePublishedISO: "2026-07-16", articleModifiedISO: "2026-07-16", indiaContext: false,
+    quickFacts: [
+      { label: "Production (2024)", value: "11.607M tonnes" },
+      { label: "Global rank", value: "6th largest producer" },
+      { label: "Processing share", value: "70–80% of production" },
+      { label: "Starch exports (2022)", value: "$232M (world's #1)" },
+      { label: "Top state", value: "Lower Saxony (~25% of output)" },
+      { label: "Yield", value: "43.9 t/ha" },
+    ],
+    definitiveAnswer: "<strong>Germany produced 11.607 million tonnes of potatoes in 2024</strong> on 282,200 hectares at a yield of 43.9 t/ha (FAOSTAT), making it the <strong>world's 6th largest producer</strong> and one of Europe's most important potato markets. What sets Germany apart is depth of industrialization: <strong>70&ndash;80% of production goes to processing</strong> &mdash; chips, French fries, starch, flakes, alcohol &mdash; and Germany manufactures advanced modified starch products with technology levels superior to most other countries. That expertise shows up directly in trade data: <strong>Germany is the world's #1 exporter of potato starch, at $232 million in 2022</strong>, while importing only $62.6 million &mdash; a clear net-exporter position built on Northern German starch-processing clusters near the Dutch border. <strong>Lower Saxony grows roughly 25% of the national crop</strong>, the largest of any German state, followed by Bavaria and North Rhine-Westphalia.",
+    keyStats: [
+      { value: "11.6M t", label: "2024 production" },
+      { value: "70–80%", label: "Processing share" },
+      { value: "$232M", label: "2022 starch exports, #1 globally" },
+      { value: "#6", label: "Global production rank" },
+    ],
+    tocItems: [
+      { id: "industry-size", l: "How big is Germany's potato industry?" },
+      { id: "regions", l: "Which German states produce the most potatoes?" },
+      { id: "varieties", l: "What potato varieties are grown in Germany?" },
+      { id: "starch", l: "Why is Germany the world's #1 potato starch exporter?" },
+      { id: "processing", l: "Who are Germany's major potato processors?" },
+      { id: "trade", l: "Does Germany import or export potatoes?" },
+      { id: "challenges", l: "What challenges does Germany's potato industry face?" },
+    ],
+    cards: [
+      { id: "industry-size", dataCard: "overview",
+        h2: "How big is Germany's potato industry?",
+        lead: "Germany produced <strong>11.607 million tonnes in 2024</strong> on 282,200 hectares at a yield of 43.9 t/ha (FAOSTAT) &mdash; the <strong>6th largest producer globally</strong> and a defining market for European potato processing.",
+        quickFacts: [
+          { label: "2024 production", value: "11.607M tonnes" },
+          { label: "Area", value: "282,200 hectares" },
+          { label: "Yield", value: "43.9 t/ha" },
+          { label: "Global rank", value: "6th largest" },
+        ],
+        body: [
+          "The single most defining fact about Germany's potato sector isn't its production volume — it's what happens to the crop after harvest. An estimated 70&ndash;80% goes to processing, a level of industrialization that puts Germany among the most processing-intensive major producers anywhere in the world.",
+        ],
+        source: "Source: FAOSTAT; German Federal Statistical Office; Eurostat.",
+      },
+      { id: "regions", dataCard: "regions",
+        h2: "Which German states produce the most potatoes?",
+        lead: "<strong>Lower Saxony (Niedersachsen)</strong> is the largest producing state at roughly <strong>25% of national production</strong>, followed by Bavaria and North Rhine-Westphalia.",
+        table: {
+          headers: ["State", "Role", "Notes"],
+          rows: [
+            ["Lower Saxony", "Largest (~25%)", "Lüneburg Heath, Weser-Ems; both table and processing; significant starch production"],
+            ["Bavaria", "2nd largest", "Upper/Lower Bavaria; table potatoes and seed production"],
+            ["North Rhine-Westphalia", "3rd largest", "High population density; both table and processing"],
+            ["Saxony-Anhalt", "Significant", "Magdeburg Börde fertile soils; table and processing"],
+            ["Brandenburg", "Growing", "Sandy soils around Berlin; important for organic production"],
+            ["Mecklenburg-Vorpommern", "Growing", "Northeastern state; important for starch potatoes"],
+          ],
+        },
+        body: [
+          "Lower Saxony's role is especially concentrated around starch: its position adjacent to the Netherlands' Drenthe and Groningen provinces places it inside a broader Northwest European starch-processing corridor that spans both countries' border regions.",
+        ],
+        source: "Source: German Federal Statistical Office; Eurostat.",
+      },
+      { id: "varieties", dataCard: "varieties",
+        h2: "What potato varieties are grown in Germany?",
+        lead: "Table varieties center on the iconic <strong>Linda</strong>, prized for its flavor, alongside Belana, Gala, Marabel, and Annabelle. <strong>Agria</strong> is the most popular processing variety, with Innovator for fries and Lady Claire for chipping.",
+        table: {
+          headers: ["Category", "Varieties"],
+          rows: [
+            ["Table", "Linda (iconic), Belana, Gala, Marabel, Annabelle"],
+            ["Processing", "Agria (most popular), Innovator (fries), Lady Claire (chipping)"],
+            ["Starch", "High-starch-content varieties for industrial use"],
+          ],
+        },
+        source: "Source: German Federal Statistical Office; Europatat variety data.",
+      },
+      { id: "starch", dataCard: "starch",
+        h2: "Why is Germany the world's #1 potato starch exporter?",
+        lead: "Germany exported <strong>$232 million of potato starch in 2022 — the world's largest exporter</strong> — while importing only $62.6 million, a substantial net-exporter position built on decades of investment in advanced modified-starch technology.",
+        callout: { number: "#1", context: "Germany's global rank as a potato starch exporter — $232 million in exports in 2022 against just $62.6 million in imports. Northern German starch clusters, concentrated in Lower Saxony near the Dutch border, host 194 starch enterprises across the broader region.", source: "Eurostat; German Federal Statistical Office" },
+        body: [
+          "Germany produces advanced modified starch products for both food and industrial applications, with technology levels the source material describes as superior to most other countries. Anti-dumping duties on imported starch protect this domestic industrial base, reinforcing Germany's position as the sector's clear global leader rather than just a large participant.",
+        ],
+        source: "Source: Eurostat; German Federal Statistical Office; Europatat.",
+      },
+      { id: "processing", dataCard: "processing",
+        h2: "Who are Germany's major potato processors?",
+        lead: "Major processing companies include <strong>Agrarfrost, Wernsing, and Aviko</strong> (Netherlands-based, with German operations) — producing chips, French fries, starch, flakes, and alcohol from Germany's roughly 70&ndash;80% processing share.",
+        body: [
+          "Germany's position as part of the Northwest European potato trading belt — alongside the Netherlands, Belgium, and France — means its processing sector is deeply integrated with those neighboring industries rather than operating in isolation, sharing both raw-material trade flows and, in Aviko's case, corporate ownership across the border.",
+        ],
+        source: "Source: German Federal Statistical Office; Europatat; company corporate data.",
+      },
+      { id: "trade", dataCard: "trade",
+        h2: "Does Germany import or export potatoes?",
+        lead: "Both, extensively — Germany is a <strong>major importer and exporter simultaneously</strong>. It imports fresh potatoes from the Netherlands, France, and Egypt, while exporting processed products across Europe and leading the world in starch exports specifically.",
+        body: [
+          "This two-way trade intensity is itself a signal of how deeply integrated Germany's potato sector is into the broader European market — rather than being self-contained, it functions as both a major consumer of neighboring countries' fresh raw material and a leading exporter of finished processed and starch products back out across the continent.",
+        ],
+        source: "Source: Eurostat; Europatat; German Federal Statistical Office.",
+      },
+      { id: "challenges", dataCard: "challenges",
+        h2: "What challenges does Germany's potato industry face?",
+        lead: "Five recurring pressures: <strong>increasing drought stress</strong> from climate change, <strong>strict EU pesticide regulations</strong>, <strong>competition from Eastern European production</strong>, soil-health management in intensively farmed areas, and a <strong>declining number of low-yield farms</strong> due to high mechanization costs.",
+        body: [
+          "The mechanization-cost pressure is a structural consolidation story similar to what's playing out across most of Western Europe's potato sectors: smaller, lower-yield operations are progressively exiting as the capital requirements for competitive modern potato farming keep rising.",
+        ],
+        source: "Source: FAOSTAT; German Federal Statistical Office; Eurostat.",
+      },
+    ],
+    sourceList: [
+      "FAOSTAT — production, area, and yield statistics",
+      "Eurostat — trade and starch export/import data",
+      "German Federal Statistical Office (Destatis) — state-level production data",
+      "Europatat (European Potato Trade Association) — variety and trade data",
+    ],
+    faqItems: [
+      { q: "How much potato does Germany produce per year?", a: "Germany produced 11.607 million tonnes in 2024 (FAOSTAT), the world's 6th largest producer, on 282,200 hectares at a yield of 43.9 t/ha." },
+      { q: "Is Germany the largest potato starch exporter in the world?", a: "Yes — Germany exported $232 million of potato starch in 2022, the world's largest, while importing only $62.6 million, reflecting decades of investment in advanced modified-starch processing technology." },
+      { q: "Which German state produces the most potatoes?", a: "Lower Saxony (Niedersachsen), accounting for roughly 25% of national production — the largest of any German state — followed by Bavaria and North Rhine-Westphalia." },
+      { q: "How much of Germany's potato crop is processed?", a: "An estimated 70–80% of German production goes to processing — chips, French fries, starch, flakes, and alcohol — making Germany one of the most processing-intensive major potato producers in the world." },
+      { q: "What is Germany's most popular potato variety?", a: "Linda is the iconic table variety prized for its flavor, while Agria is the most popular processing variety, used alongside Innovator for fries and Lady Claire for chipping." },
+    ],
+    regionalContext: [
+      { slug: "netherlands", note: "Starch-corridor neighbor, Aviko ownership link" },
+      { slug: "belgium", note: "NW European processing peer" },
+      { slug: "france", note: "Major fresh-potato import source" },
+      { slug: "poland", note: "Eastern European competitive pressure" },
+    ],
+    continueReading: [
+      { href: "/knowledge/potato-starch-uses", tag: "Processing", title: "What Is Potato Starch Used For?", desc: "Germany's advanced modified-starch industry and global export leadership." },
+      { href: "/knowledge/how-potatoes-are-processed", tag: "Processing", title: "How Potatoes Are Processed", desc: "Agrarfrost, Wernsing, and Aviko's role in German processing." },
+      { href: "/knowledge/global-potato-trade", tag: "Trade", title: "Global Potato Trade", desc: "How Germany runs simultaneous import and export flows across Europe." },
+      { href: "/country/netherlands", tag: "Country", title: "Netherlands Country Profile", desc: "Germany's starch-corridor neighbor and Aviko's home market." },
+    ],
+  };
+  return <CountryProfilePremium data={data} />;
+}
+
+/* ── Ukraine: full Country Intelligence Dossier (Tier 1, premium template) ── */
+function UkraineProfilePage({ c }) {
+  const data = {
+    slug: "ukraine", name: "Ukraine", flag: c.flag, region: c.region,
+    h1: "Ukraine Potato Industry: The World's #3 Producer, Now Growing Under Wartime Conditions (21.4M Tonnes)",
+    tagLabel: "Ukraine · Europe",
+    readMin: 11,
+    accentLabel: "Ukraine is the world's 3rd largest potato producer — behind only China and India — yet most of its crop still comes from small household plots rather than commercial farms, and since 2022 the war has directly disrupted supply chains and processing facilities in the eastern regions.",
+    wikidata: "https://www.wikidata.org/wiki/Q212",
+    articlePublishedISO: "2026-07-16", articleModifiedISO: "2026-07-16", indiaContext: false,
+    quickFacts: [
+      { label: "Production (2024)", value: "21.359M tonnes" },
+      { label: "Global rank", value: "3rd largest producer" },
+      { label: "10-year change", value: "−9.9% (2014–24)" },
+      { label: "Yield", value: "17.6 t/ha" },
+      { label: "Per-capita consumption", value: "136 kg/yr (world's highest)" },
+      { label: "Since 2022", value: "War disrupting eastern production and trade" },
+    ],
+    definitiveAnswer: "<strong>Ukraine produced 21.359 million tonnes of potatoes in 2024</strong> on 1.207 million hectares at a yield of 17.6 t/ha (FAOSTAT), making it the <strong>world's 3rd largest potato producer</strong>, behind only China and India. Production has actually declined 9.9% over the past decade, from 23.693 million tonnes in 2014 — and Ukraine's yield, at 17.6 t/ha, sits far below Western European levels (35+ t/ha), a gap explained by a structural fact that sets Ukraine apart from most major producers: <strong>most production still comes from small household plots</strong> rather than commercial operations, not large-scale mechanized farms. Ukraine also has the <strong>world's highest per-capita potato consumption at 136 kg/year</strong>. Since Russia's 2022 invasion, the <strong>ongoing conflict has severely disrupted supply chains and processing facilities in eastern regions</strong>, compounding the sector's pre-existing structural challenges.",
+    keyStats: [
+      { value: "21.4M t", label: "2024 production" },
+      { value: "#3", label: "Global production rank" },
+      { value: "136 kg", label: "Per-capita consumption/yr" },
+      { value: "−9.9%", label: "10-yr production change", accent: "#C62828" },
+    ],
+    tocItems: [
+      { id: "industry-size", l: "How big is Ukraine's potato industry?" },
+      { id: "regions", l: "Where in Ukraine are potatoes grown?" },
+      { id: "varieties", l: "What potato varieties are grown in Ukraine?" },
+      { id: "war-impact", l: "How has the war affected Ukraine's potato sector?" },
+      { id: "challenges", l: "What structural challenges does Ukraine's potato industry face?" },
+    ],
+    cards: [
+      { id: "industry-size", dataCard: "overview",
+        h2: "How big is Ukraine's potato industry?",
+        lead: "Ukraine produced <strong>21.359 million tonnes in 2024</strong> on 1.207 million hectares (FAOSTAT) — the <strong>world's 3rd largest producer</strong>, behind only China and India, though production has declined 9.9% from 23.693 million tonnes in 2014.",
+        quickFacts: [
+          { label: "2014 production", value: "23.693M tonnes" },
+          { label: "2024 production", value: "21.359M tonnes" },
+          { label: "10-yr change", value: "−9.9%" },
+          { label: "Yield", value: "17.6 t/ha" },
+        ],
+        body: [
+          "Ukraine's global ranking is genuinely remarkable given the yield gap: 17.6 t/ha is well below the 35+ t/ha typical of Western Europe, meaning Ukraine's massive production scale comes overwhelmingly from area under cultivation (1.2 million hectares) rather than intensive, high-yield commercial farming.",
+        ],
+        source: "Source: FAOSTAT; national statistics agencies.",
+      },
+      { id: "regions", dataCard: "regions",
+        h2: "Where in Ukraine are potatoes grown?",
+        lead: "Production concentrates in the north and west: <strong>Chernihiv Oblast</strong> is the major region, alongside Zhytomyr, Rivne, Volyn, Kyiv, and Lviv Oblasts.",
+        table: {
+          headers: ["Oblast", "Notes"],
+          rows: [
+            ["Chernihiv", "Major potato region, northern Ukraine"],
+            ["Zhytomyr", "Significant producer, northwest"],
+            ["Rivne", "Important growing area, western Ukraine"],
+            ["Volyn", "Western producer"],
+            ["Kyiv", "Production around the capital"],
+            ["Lviv", "Western Ukrainian producer"],
+          ],
+        },
+        source: "Source: National statistics agencies of Ukraine.",
+      },
+      { id: "varieties", dataCard: "varieties",
+        h2: "What potato varieties are grown in Ukraine?",
+        lead: "Ukraine's variety base combines imported and domestically bred cultivars: <strong>Riviera</strong> (early maturing table variety) and <strong>Bellarosa</strong> (red-skinned, high-yielding) alongside domestic varieties Slavyanka, Tiras, Dnipryanka, and Fantasia.",
+        table: {
+          headers: ["Variety", "Notes"],
+          rows: [
+            ["Riviera", "Early maturing, popular table variety"],
+            ["Bellarosa", "Red-skinned, high yielding"],
+            ["Slavyanka", "Widely grown Ukrainian variety"],
+            ["Tiras", "Bred for Ukrainian conditions"],
+            ["Dnipryanka", "Domestic variety, central regions"],
+            ["Fantasia", "Popular commercial variety"],
+          ],
+        },
+        source: "Source: National statistics agencies of Ukraine.",
+      },
+      { id: "war-impact", dataCard: "war-impact",
+        h2: "How has the war affected Ukraine's potato sector?",
+        lead: "The <strong>ongoing military conflict since 2022 has severely disrupted supply chains and processing facilities</strong> in eastern regions, and impacted the trade routes Ukraine traditionally relied on as a net exporter of fresh potatoes to neighboring countries.",
+        body: [
+          "Ukraine's already-limited processing infrastructure — small relative to Western Europe even before 2022 — has been directly affected, with most potatoes now consumed fresh or stored rather than processed, compounding structural constraints that predate the invasion.",
+        ],
+        source: "Source: National statistics agencies; FAOSTAT; USDA FAS.",
+      },
+      { id: "challenges", dataCard: "challenges",
+        h2: "What structural challenges does Ukraine's potato industry face?",
+        lead: "Beyond the war's direct impact, Ukraine's sector faces four persistent structural constraints: <strong>low yields relative to Western Europe</strong>, an <strong>overwhelming reliance on small household plots</strong> rather than commercial farms, <strong>limited modern cold storage</strong>, and the <strong>lack of a certified seed potato system</strong>.",
+        body: [
+          "These four factors are interconnected: without certified seed and modern storage infrastructure, household-plot production stays fragmented and low-yield, which in turn limits the capital available to invest in the processing and storage capacity that could raise both yields and value-added output.",
+        ],
+        source: "Source: FAOSTAT; national statistics agencies of Ukraine.",
+      },
+    ],
+    sourceList: [
+      "FAOSTAT — production, area, and yield statistics",
+      "National statistics agencies of Ukraine",
+      "USDA FAS — trade and conflict-impact analysis",
+    ],
+    faqItems: [
+      { q: "How much potato does Ukraine produce per year?", a: "Ukraine produced 21.359 million tonnes in 2024 (FAOSTAT), the world's 3rd largest producer, though down 9.9% from 23.693 million tonnes in 2014." },
+      { q: "Is Ukraine the world's largest potato consumer?", a: "Ukraine has the world's highest per-capita potato consumption at approximately 136 kg per year — even higher than production leaders China and India on a per-person basis." },
+      { q: "How has the war affected Ukraine's potato industry?", a: "Since Russia's 2022 invasion, the conflict has severely disrupted supply chains and processing facilities in eastern Ukraine, and impacted the trade routes the country traditionally used as a net exporter of fresh potatoes to neighboring countries." },
+      { q: "Why does Ukraine have such low potato yields?", a: "Ukraine's yield of 17.6 t/ha is far below Western Europe's 35+ t/ha because most production still comes from small household plots rather than large-scale, mechanized commercial farms with certified seed and modern storage." },
+    ],
+    regionalContext: [
+      { slug: "russia", note: "Neighboring #5 producer, similar structural profile" },
+      { slug: "poland", note: "Western neighbor and EU trade destination" },
+      { slug: "china", note: "World's #1 producer" },
+      { slug: "india", note: "World's #2 producer" },
+    ],
+    continueReading: [
+      { href: "/knowledge/global-potato-trade", tag: "Trade", title: "Global Potato Trade", desc: "How the 2022 conflict disrupted Ukraine's traditional export routes." },
+      { href: "/knowledge/seed-potato-systems", tag: "Agronomy", title: "Seed Potato Systems", desc: "Why Ukraine still lacks a certified seed potato system at scale." },
+      { href: "/knowledge/potato-storage-cold-chain", tag: "Storage", title: "Potato Cold Storage", desc: "The modern storage gap limiting Ukraine's household-plot-dominated sector." },
+      { href: "/country/russia", tag: "Country", title: "Russia Country Profile", desc: "A neighboring producer facing similar small-plot, low-yield structural challenges." },
+    ],
+  };
+  return <CountryProfilePremium data={data} />;
+}
+
+/* ── Russia: full Country Intelligence Dossier (Tier 1, premium template) ── */
+function RussiaProfilePage({ c }) {
+  const data = {
+    slug: "russia", name: "Russia", flag: c.flag, region: c.region,
+    h1: "Russia Potato Industry: World's #5 Producer, Shrinking Fast as Household Gardens Decline (19.4M Tonnes)",
+    tagLabel: "Russia · Europe",
+    readMin: 11,
+    accentLabel: "Russia's potato production has fallen 38.5% in a decade — not because commercial farming is struggling, but because household garden production, historically the backbone of Russian potato supply, is disappearing. Russia now imports substantial volumes of frozen fries from Europe even as it remains the world's 5th largest producer.",
+    wikidata: "https://www.wikidata.org/wiki/Q159",
+    articlePublishedISO: "2026-07-16", articleModifiedISO: "2026-07-16", indiaContext: false,
+    quickFacts: [
+      { label: "Production (2024)", value: "19.374M tonnes" },
+      { label: "Global rank", value: "5th largest producer" },
+      { label: "10-year change", value: "−38.5% (2014–24)" },
+      { label: "Yield", value: "17.5 t/ha (vs. 35+ in Europe)" },
+      { label: "Per-capita consumption", value: "111 kg/yr (2nd highest globally)" },
+      { label: "Decline driver", value: "Shrinking household garden production" },
+    ],
+    definitiveAnswer: "<strong>Russia produced 19.374 million tonnes of potatoes in 2024</strong> on 1.048 million hectares at a yield of 17.5 t/ha (FAOSTAT), making it the <strong>world's 5th largest producer</strong>. The headline trend, though, is decline: production has fallen a steep <strong>38.5% from 31.50 million tonnes in 2014</strong> &mdash; primarily driven by <strong>reduced household garden production</strong>, historically the backbone of Russian potato supply, rather than any collapse in commercial farming specifically. Russia's yield of 17.5 t/ha remains far below the European average of 35+ t/ha, a gap tied to the same small-plot structural pattern seen across much of the former Soviet space. Russia still has the <strong>world's 2nd-highest per-capita potato consumption at 111 kg/year</strong>, and despite its production scale, the country <strong>imports significant volumes of frozen French fries from Europe</strong> — its own processing sector remains underdeveloped relative to its raw production base.",
+    keyStats: [
+      { value: "19.4M t", label: "2024 production" },
+      { value: "#5", label: "Global production rank" },
+      { value: "−38.5%", label: "10-yr production decline", accent: "#C62828" },
+      { value: "111 kg", label: "Per-capita consumption/yr" },
+    ],
+    tocItems: [
+      { id: "industry-size", l: "How big is Russia's potato industry, and why is it shrinking?" },
+      { id: "regions", l: "Where in Russia are potatoes grown?" },
+      { id: "varieties", l: "What potato varieties are grown in Russia?" },
+      { id: "processing", l: "Does Russia process its own potatoes?" },
+      { id: "challenges", l: "What structural challenges does Russia's potato industry face?" },
+    ],
+    cards: [
+      { id: "industry-size", dataCard: "overview",
+        h2: "How big is Russia's potato industry, and why is it shrinking?",
+        lead: "Russia produced <strong>19.374 million tonnes in 2024</strong> (FAOSTAT), the <strong>world's 5th largest producer</strong> — but that's a steep <strong>38.5% decline from 31.50 million tonnes in 2014</strong>, driven primarily by <strong>reduced household garden production</strong> rather than a commercial-sector collapse.",
+        quickFacts: [
+          { label: "2014 production", value: "31.50M tonnes" },
+          { label: "2024 production", value: "19.374M tonnes" },
+          { label: "10-yr decline", value: "−38.5%" },
+          { label: "Yield", value: "17.5 t/ha" },
+        ],
+        body: [
+          "This decline pattern is genuinely distinctive: Russia isn't losing production because commercial farms are failing — it's losing production because the informal household-garden sector, which historically supplied a huge share of Russian potatoes outside any commercial market, is shrinking as that traditional practice declines generationally.",
+        ],
+        source: "Source: FAOSTAT; national statistics agencies.",
+      },
+      { id: "regions", dataCard: "regions",
+        h2: "Where in Russia are potatoes grown?",
+        lead: "Production spans five federal districts: <strong>Central</strong> (serving Moscow), <strong>Volga</strong>, <strong>Southern</strong>, <strong>Ural</strong>, and <strong>Siberian</strong>.",
+        table: {
+          headers: ["Federal District", "Key regions", "Notes"],
+          rows: [
+            ["Central", "Moscow, Tula, Ryazan Oblasts", "Serves Moscow and central markets"],
+            ["Volga", "Tatarstan, Bashkortostan, Nizhny Novgorod", "Significant production"],
+            ["Southern", "Krasnodar Krai, Rostov Oblast", "Growing region"],
+            ["Ural", "Sverdlovsk, Chelyabinsk Oblasts", "Traditional producer"],
+            ["Siberian", "Novosibirsk, Omsk, Kemerovo Oblasts", "Major production area"],
+          ],
+        },
+        body: [
+          "A severe winter climate limits the growing season across most of Russia's producing regions, which — combined with the household-plot structure — restricts the range of varieties that can be reliably grown and constrains yield ceiling nationally.",
+        ],
+        source: "Source: National statistics agencies of Russia.",
+      },
+      { id: "varieties", dataCard: "varieties",
+        h2: "What potato varieties are grown in Russia?",
+        lead: "<strong>Nevsky</strong> is the most popular variety nationally, alongside Udacha (Luck), Red Scarlett, Gala, Zhukovsky Early, and the German-bred Rosara.",
+        table: {
+          headers: ["Variety", "Notes"],
+          rows: [
+            ["Nevsky", "Most popular variety in Russia"],
+            ["Udacha (Luck)", "Widely grown, early variety"],
+            ["Red Scarlett", "Popular red-skinned variety"],
+            ["Gala", "Yellow-fleshed, widely grown"],
+            ["Zhukovsky Early", "Popular early variety"],
+            ["Rosara", "German-bred variety, popular in Russia"],
+          ],
+        },
+        source: "Source: National statistics agencies of Russia.",
+      },
+      { id: "processing", dataCard: "processing",
+        h2: "Does Russia process its own potatoes?",
+        lead: "Russia's potato processing industry is <strong>growing but still underdeveloped</strong> relative to its production scale, and the country <strong>imports significant volumes of frozen French fries from Europe</strong> despite being the world's 5th largest producer.",
+        body: [
+          "Domestic chip production is a bright spot, growing with Lays (PepsiCo) and local brands supplying the retail snack market — but the frozen-fry processing gap remains a striking contrast with Russia's raw production scale, and a market opportunity that European exporters currently fill.",
+        ],
+        source: "Source: National statistics agencies of Russia; industry reporting.",
+      },
+      { id: "challenges", dataCard: "challenges",
+        h2: "What structural challenges does Russia's potato industry face?",
+        lead: "Five recurring constraints: <strong>low yields</strong> (17.5 t/ha vs. 35+ in Europe), the <strong>declining household-plot sector</strong>, <strong>limited modern storage infrastructure</strong>, a <strong>severe winter climate</strong> restricting the growing season, and the <strong>need for greater mechanization</strong> in the commercial sector.",
+        body: [
+          "Russia's central challenge is really a transition problem: the informal household-garden supply base that historically underpinned national production is fading, and commercial, mechanized farming hasn't yet scaled up to fully replace that lost volume — which is the direct mechanical explanation for the decade-long production decline.",
+        ],
+        source: "Source: FAOSTAT; national statistics agencies of Russia.",
+      },
+    ],
+    sourceList: [
+      "FAOSTAT — production, area, and yield statistics",
+      "National statistics agencies of Russia",
+      "Industry reporting on processing and trade",
+    ],
+    faqItems: [
+      { q: "How much potato does Russia produce per year?", a: "Russia produced 19.374 million tonnes in 2024 (FAOSTAT), the world's 5th largest producer — though down 38.5% from 31.50 million tonnes in 2014." },
+      { q: "Why has Russia's potato production declined so much?", a: "Primarily due to reduced household garden production, historically the backbone of Russian potato supply, rather than a decline in commercial farming specifically. Commercial mechanized farming hasn't yet scaled up to replace the lost household-plot volume." },
+      { q: "Does Russia import potato products?", a: "Yes — despite being the world's 5th largest producer, Russia imports significant volumes of frozen French fries from Europe, since its own processing sector remains comparatively underdeveloped." },
+      { q: "What is the most popular potato variety in Russia?", a: "Nevsky is the most popular variety nationally, alongside Udacha (Luck), Red Scarlett, Gala, Zhukovsky Early, and the German-bred Rosara." },
+    ],
+    regionalContext: [
+      { slug: "ukraine", note: "Neighboring #3 producer, similar structural profile" },
+      { slug: "poland", note: "Regional trade and production peer" },
+      { slug: "uzbekistan", note: "Legacy seed and trade connection" },
+      { slug: "china", note: "World's #1 producer" },
+    ],
+    continueReading: [
+      { href: "/knowledge/global-potato-trade", tag: "Trade", title: "Global Potato Trade", desc: "Why Russia imports frozen fries despite massive raw production." },
+      { href: "/knowledge/potato-storage-cold-chain", tag: "Storage", title: "Potato Cold Storage", desc: "The modern storage gap behind Russia's household-plot decline." },
+      { href: "/knowledge/how-potatoes-are-processed", tag: "Processing", title: "How Potatoes Are Processed", desc: "Why Russia's processing sector lags its raw production scale." },
+      { href: "/country/ukraine", tag: "Country", title: "Ukraine Country Profile", desc: "A neighboring producer with a nearly identical structural profile." },
+    ],
+  };
+  return <CountryProfilePremium data={data} />;
+}
+
+/* ── Poland: full Country Intelligence Dossier (Tier 1, premium template) ── */
+function PolandProfilePage({ c }) {
+  const data = {
+    slug: "poland", name: "Poland", flag: c.flag, region: c.region,
+    h1: "Poland Potato Industry: From 2.8 Million Hectares to 189,000 — Europe's Steepest Decline (5.9M Tonnes)",
+    tagLabel: "Poland · Europe",
+    readMin: 11,
+    accentLabel: "Poland's potato area collapsed from 2.819 million hectares in 1961 to just 188,580 hectares by 2023 — a 93% contraction that makes it one of the most dramatic structural shifts in any major agricultural sector anywhere. Yet Poland remains a significant European producer and one of the continent's largest potato starch exporters.",
+    wikidata: "https://www.wikidata.org/wiki/Q36",
+    articlePublishedISO: "2026-07-16", articleModifiedISO: "2026-07-16", indiaContext: false,
+    quickFacts: [
+      { label: "Production (2024)", value: "~5.9–6.0M tonnes" },
+      { label: "1961 area", value: "2.819M hectares" },
+      { label: "2023 area", value: "188,580 hectares" },
+      { label: "Area contraction", value: "~93% since 1961" },
+      { label: "Starch exports (2022)", value: "$97.4M" },
+      { label: "Top region", value: "Greater Poland (Wielkopolska)" },
+    ],
+    definitiveAnswer: "<strong>Poland produced approximately 5.9&ndash;6.0 million tonnes of potatoes in 2024</strong> (FAOSTAT), and while that still ranks Poland among Europe's larger producers, the real story is structural: Polish potato-growing area collapsed from <strong>2.819 million hectares in 1961 to just 188,580 hectares by 2023 &mdash; a roughly 93% contraction</strong>, one of the most dramatic land-use shifts in any major agricultural sector globally. Poland was historically one of the world's largest potato producers by area, and even after this collapse remains significant: it's <strong>one of Europe's largest potato starch producers</strong>, exporting <strong>$97.4 million of potato starch in 2022</strong>, and hosts a McCain processing plant. Production concentrates in <strong>Greater Poland (Wielkopolska)</strong>, with Masuria, Podlasie, Lower Silesia, and the Lublin region contributing meaningfully. Poland now competes directly with Germany, the Netherlands, and France in European fresh and starch markets, from a far smaller land base than it once commanded.",
+    keyStats: [
+      { value: "~6M t", label: "2024 production" },
+      { value: "~93%", label: "Area contraction since 1961", accent: "#C62828" },
+      { value: "189K ha", label: "2023 cultivated area" },
+      { value: "$97.4M", label: "2022 starch exports" },
+    ],
+    tocItems: [
+      { id: "industry-size", l: "How did Poland's potato area shrink by 93%?" },
+      { id: "regions", l: "Where in Poland are potatoes grown today?" },
+      { id: "varieties", l: "What potato varieties are grown in Poland?" },
+      { id: "starch", l: "Why is Poland still a major potato starch producer?" },
+      { id: "challenges", l: "What challenges does Poland's potato industry face?" },
+    ],
+    cards: [
+      { id: "industry-size", dataCard: "overview",
+        h2: "How did Poland's potato area shrink by 93%?",
+        lead: "Poland's potato-growing area fell from <strong>2.819 million hectares in 1961 to just 188,580 hectares in 2023</strong> — a contraction of roughly 93%, even as Poland produces an estimated <strong>5.9&ndash;6.0 million tonnes</strong> today, making it one of the continent's larger remaining producers by volume.",
+        quickFacts: [
+          { label: "1961 area", value: "2.819M hectares" },
+          { label: "2023 area", value: "188,580 hectares" },
+          { label: "Area contraction", value: "~93%" },
+          { label: "2024 production", value: "~5.9–6.0M tonnes" },
+        ],
+        body: [
+          "Poland was historically one of the world's largest potato producers by cultivated area — a status rooted in the crop's traditional role in Polish rural subsistence agriculture before and during the socialist era. The post-1989 transition to market agriculture, EU accession, and rural consolidation together drove the collapse: land shifted toward other crops and non-agricultural use as subsistence potato-growing became economically unnecessary for most households.",
+        ],
+        source: "Source: FAOSTAT; national statistics agencies of Poland.",
+      },
+      { id: "regions", dataCard: "regions",
+        h2: "Where in Poland are potatoes grown today?",
+        lead: "<strong>Greater Poland (Wielkopolska)</strong>, centered on the fertile agricultural land around Poznań, is the major producing region, alongside Masuria, Podlasie, Lower Silesia (Dolnośląskie), and the traditional Lublin region in the east.",
+        table: {
+          headers: ["Region", "Notes"],
+          rows: [
+            ["Greater Poland (Wielkopolska)", "Major producing region; Poznań area, fertile agricultural land"],
+            ["Masuria", "Northern lake district area"],
+            ["Podlasie", "Northeastern Poland"],
+            ["Lower Silesia (Dolnośląskie)", "Southwestern Poland"],
+            ["Lublin region", "Eastern Poland, traditional potato area"],
+          ],
+        },
+        source: "Source: National statistics agencies of Poland.",
+      },
+      { id: "varieties", dataCard: "varieties",
+        h2: "What potato varieties are grown in Poland?",
+        lead: "<strong>Vineta</strong> is a widely grown table variety, alongside Denar (early), Lord (processing), Tajfun (starch), Gala, and Colomba.",
+        table: {
+          headers: ["Variety", "Role"],
+          rows: [
+            ["Vineta", "Widely grown table variety"],
+            ["Denar", "Popular early variety"],
+            ["Lord", "Processing variety"],
+            ["Tajfun", "Starch variety"],
+            ["Gala", "Table variety"],
+            ["Colomba", "Early variety"],
+          ],
+        },
+        source: "Source: National statistics agencies of Poland.",
+      },
+      { id: "starch", dataCard: "starch",
+        h2: "Why is Poland still a major potato starch producer?",
+        lead: "Poland remains <strong>one of Europe's largest potato starch producers</strong>, exporting <strong>$97.4 million of potato starch in 2022</strong>, and hosts a <strong>McCain processing plant</strong> alongside domestic producers.",
+        body: [
+          "Even with the dramatic land-area collapse, Poland's starch and processing sector held up better than raw fresh-market production — a pattern consistent with the broader European trend of consolidation toward higher-value processed products even as total growing area contracts.",
+        ],
+        source: "Source: Eurostat; national statistics agencies of Poland.",
+      },
+      { id: "challenges", dataCard: "challenges",
+        h2: "What challenges does Poland's potato industry face?",
+        lead: "Five recurring pressures: continued <strong>decline from historical production highs</strong>, <strong>small farm sizes</strong> limiting mechanization, <strong>direct competition from Western European producers</strong> (Germany, Netherlands, France), the need for <strong>storage-facility modernization</strong>, and <strong>climate variability</strong> affecting yields.",
+        body: [
+          "Poland's structural challenge is really about scale economics: with cultivated area down 93% since 1961 and farms still comparatively small relative to Western European operations, competing directly against Germany, the Netherlands, and France on fresh-market and processing terms requires a level of mechanization and capital investment many Polish operations haven't yet reached.",
+        ],
+        source: "Source: FAOSTAT; national statistics agencies of Poland.",
+      },
+    ],
+    sourceList: [
+      "FAOSTAT — production, area, and yield statistics",
+      "Eurostat — trade and starch export data",
+      "National statistics agencies of Poland",
+      "USDA FAS — trade data",
+    ],
+    faqItems: [
+      { q: "How much potato does Poland produce per year?", a: "Poland produces an estimated 5.9–6.0 million tonnes annually, making it a significant European producer despite a dramatic historical decline in cultivated area." },
+      { q: "Why did Poland's potato area shrink so much?", a: "Poland's potato-growing area fell from 2.819 million hectares in 1961 to just 188,580 hectares by 2023 — a roughly 93% contraction — driven by the post-1989 transition to market agriculture, EU accession, and the decline of subsistence household potato-growing." },
+      { q: "Is Poland a major potato starch producer?", a: "Yes — despite the land-area collapse, Poland remains one of Europe's largest potato starch producers, exporting $97.4 million of potato starch in 2022, and hosts a McCain processing plant." },
+      { q: "What is the most grown potato variety in Poland?", a: "Vineta is a widely grown table variety, alongside Denar (early), Lord (processing), Tajfun (starch), Gala, and Colomba." },
+    ],
+    regionalContext: [
+      { slug: "germany", note: "Direct Western European competitor" },
+      { slug: "netherlands", note: "Direct Western European competitor" },
+      { slug: "ukraine", note: "Eastern European production peer" },
+      { slug: "france", note: "Direct Western European competitor" },
+    ],
+    continueReading: [
+      { href: "/knowledge/potato-starch-uses", tag: "Processing", title: "What Is Potato Starch Used For?", desc: "Poland's starch sector, which held up better than fresh-market production." },
+      { href: "/knowledge/global-potato-trade", tag: "Trade", title: "Global Potato Trade", desc: "How Poland competes with Germany, the Netherlands, and France." },
+      { href: "/country/germany", tag: "Country", title: "Germany Country Profile", desc: "The world's #1 potato starch exporter and a direct Polish competitor." },
+      { href: "/knowledge/potato-production-map", tag: "Production", title: "Potato Production Map", desc: "Visualizing Poland's dramatic area decline in global context." },
+    ],
+  };
+  return <CountryProfilePremium data={data} />;
+}
+
+/* ── Mexico: full Country Intelligence Dossier (Tier 1, premium template) ── */
+function MexicoProfilePage({ c }) {
+  const data = {
+    slug: "mexico", name: "Mexico", flag: c.flag, region: c.region,
+    h1: "Mexico Potato Industry: Where PepsiCo/Sabritas Shapes What Farmers Grow (1.9M Tonnes)",
+    tagLabel: "Mexico · Americas",
+    readMin: 13,
+    accentLabel: "One company — PepsiCo's Sabritas — is the single largest private buyer of potatoes in Mexico, contracting 15,000–20,000 hectares and dictating varietal choice, quality standards, and agronomic practice across the industry. Meanwhile, Mexico's Toluca Valley is part of the actual center of genetic diversity for late blight, the disease that caused the Irish Potato Famine.",
+    wikidata: "https://www.wikidata.org/wiki/Q96",
+    articlePublishedISO: "2026-07-16", articleModifiedISO: "2026-07-16", indiaContext: false,
+    quickFacts: [
+      { label: "Production (2023, FAOSTAT)", value: "~1.9M tonnes" },
+      { label: "Irrigated share", value: "85–90% (highly irrigation-dependent)" },
+      { label: "Top state", value: "Sinaloa (~35% of national output)" },
+      { label: "Sabritas chip market share", value: "70%+" },
+      { label: "Sabritas contract farming", value: "15,000–20,000 ha/year" },
+      { label: "Frozen fry imports", value: "150,000–200,000 tonnes/year" },
+    ],
+    definitiveAnswer: "<strong>Mexico produced approximately 1.9 million tonnes of potatoes in 2023</strong> on roughly 65,000 hectares at a yield of 29.2 t/ha (FAOSTAT) &mdash; a yield above the world average, reflecting Mexico's heavy reliance on irrigation: an estimated <strong>85&ndash;90% of Mexican potato production is irrigated</strong>, making it one of the most irrigation-dependent major producers anywhere. Production concentrates in <strong>Sinaloa (~35% of national output)</strong> and neighboring Sonora, both winter-cycle desert-valley operations, plus highland spring-summer production in Nuevo León, Chihuahua, and Puebla. The single defining feature of Mexico's potato economy is <strong>PepsiCo's Sabritas division</strong> &mdash; holding over 70% of the Mexican chip market and contracting <strong>15,000&ndash;20,000 hectares annually</strong>, making it the largest private-sector potato buyer in the country and a direct shaper of which varieties get planted. Mexico is also scientifically significant: the <strong>Toluca Valley is part of the actual center of genetic diversity for Phytophthora infestans</strong>, the late blight pathogen behind the Irish Potato Famine.",
+    keyStats: [
+      { value: "1.9M t", label: "2023 production" },
+      { value: "85–90%", label: "Share irrigated" },
+      { value: "70%+", label: "Sabritas chip market share" },
+      { value: "35%", label: "Sinaloa's share of output" },
+    ],
+    tocItems: [
+      { id: "industry-size", l: "How big is Mexico's potato industry?" },
+      { id: "regions", l: "Which Mexican states grow the most potatoes?" },
+      { id: "varieties", l: "What potato varieties are grown in Mexico?" },
+      { id: "sabritas", l: "How does PepsiCo/Sabritas dominate Mexico's potato sector?" },
+      { id: "seed-system", l: "How does Mexico's seed potato system work?" },
+      { id: "trade", l: "Does Mexico import or export potatoes?" },
+      { id: "distinctive", l: "What makes Mexico's potato industry scientifically distinctive?" },
+      { id: "challenges", l: "What challenges does Mexico's potato industry face?" },
+    ],
+    cards: [
+      { id: "industry-size", dataCard: "overview",
+        h2: "How big is Mexico's potato industry?",
+        lead: "Mexico is <strong>Central America's largest potato producer</strong>, producing approximately <strong>1.9 million tonnes</strong> from about 65,000 hectares at a yield of 29.2 t/ha (FAOSTAT 2023) &mdash; a yield above the world average, driven by irrigated production.",
+        quickFacts: [
+          { label: "Production (2023)", value: "~1.9M tonnes" },
+          { label: "Area", value: "~65,000 hectares" },
+          { label: "Yield", value: "29.2 t/ha" },
+          { label: "Irrigated share", value: "85–90%" },
+        ],
+        body: [
+          "SIAP (under SADER, formerly SAGARPA) provides Mexico's detailed national statistics, tracked by state, by production cycle (otoño-invierno/fall-winter vs. primavera-verano/spring-summer), and by irrigation status — data that consistently shows Mexico as one of the most irrigation-dependent potato producers in the world.",
+        ],
+        source: "Source: FAOSTAT 2023; SIAP/SADER (Servicio de Información Agroalimentaria y Pesquera), SIACON 2023.",
+      },
+      { id: "regions", dataCard: "regions",
+        h2: "Which Mexican states grow the most potatoes?",
+        lead: "<strong>Sinaloa (~35% of national production)</strong> leads by a wide margin, followed by neighboring Sonora, then highland Nuevo León — spanning a growing calendar from sea-level irrigated desert valleys to plateaus above 2,000 metres.",
+        table: {
+          headers: ["State", "Role", "Cycle", "Notes"],
+          rows: [
+            ["Sinaloa", "Leading state (~35%)", "Fall-winter (Oct–Mar)", "Culiacán/Los Mochis valleys; large commercial farms (500+ ha)"],
+            ["Sonora", "2nd most important", "Fall-winter", "Yaqui/Mayo valleys; CONAGUA-managed irrigation districts"],
+            ["Nuevo León", "3rd most important", "Spring-summer (Mar–Aug)", "Galeana/Doctor Arroyo, 1,500–2,200m elevation"],
+            ["Chihuahua, Puebla, Estado de México, Coahuila, Guanajuato", "Significant", "Mixed", "Spans sea-level to 2,400m (Puebla's San Salvador el Seco)"],
+          ],
+        },
+        body: [
+          "This geographic spread — from Sinaloa's warm coastal winter valleys to Puebla's 2,400-metre highland plateau — is what gives Mexico a year-round domestic supply calendar despite its overall production being relatively modest by global standards.",
+        ],
+        source: "Source: SIAP/SADER 2023; USDA FAS GAIN Report MX2023-0032; CONAGUA 2023.",
+      },
+      { id: "varieties", dataCard: "varieties",
+        h2: "What potato varieties are grown in Mexico?",
+        lead: "<strong>Alpha</strong>, valued for white flesh and versatile cooking quality, is the dominant fresh-market variety at an estimated <strong>30&ndash;40% of planted area</strong>. Processing runs on proprietary PepsiCo-controlled varieties bred specifically for Mexican conditions.",
+        table: {
+          headers: ["Variety", "Segment", "Notes"],
+          rows: [
+            ["Alpha", "Fresh market", "Dominant, 30–40% of planted area; consumer standard for decades"],
+            ["Fianna (Agrico)", "Fresh + some processing", "2nd most important variety nationally"],
+            ["FL 1867 (\"Sabritas\"), Atlantic", "Chip processing", "PepsiCo-contracted, bred for high dry matter, low sugars"],
+            ["Innovator, Ranger Russet, Shepody", "Frozen fry", "Growing segment; still import-reliant overall"],
+            ["Gigant, Norteña, Montañosa (INIFAP)", "Domestic breeding", "Limited market penetration vs. imported varieties"],
+          ],
+        },
+        source: "Source: INIFAP (Instituto Nacional de Investigaciones Forestales, Agrícolas y Pecuarias), 2022; SIAP/SADER 2023.",
+      },
+      { id: "sabritas", dataCard: "sabritas",
+        h2: "How does PepsiCo/Sabritas dominate Mexico's potato sector?",
+        lead: "<strong>Sabritas</strong> (Frito-Lay's Mexican operation) holds <strong>over 70% of the Mexican chip market</strong> and contracts <strong>15,000&ndash;20,000 hectares annually</strong> across multiple states — making it the single largest private-sector potato buyer in the country.",
+        callout: { number: "70%+", context: "of the Mexican chip market belongs to Sabritas, which operates major processing plants in Saltillo, Veracruz, and Estado de México. Its contract-farming program provides certified seed, agronomic advice, and guaranteed purchase — in exchange for strict specifications on tuber size, dry matter (min. 20%), specific gravity, and sugar levels.", source: "PepsiCo Mexico Annual Report 2022; Euromonitor International" },
+        body: [
+          "This isn't just a large customer relationship — Sabritas directly shapes which varieties Mexican farmers grow, since its contracts specify proprietary or specialized cultivars bred for its own quality standards. Barcel (a Grupo Bimbo subsidiary) is the main domestic competitor, but at meaningfully smaller scale.",
+        ],
+        source: "Source: PepsiCo Mexico, Annual Report 2022; USDA FAS GAIN Report MX2023-0032; Schiavon and Ravara, 2021, Food Policy.",
+      },
+      { id: "seed-system", dataCard: "seed-system",
+        h2: "How does Mexico's seed potato system work?",
+        lead: "Mexico's certified seed system, run by <strong>SNICS</strong> under SADER, concentrates production in high-altitude zones (Chihuahua, Nuevo León, Puebla) where lower aphid populations reduce virus pressure. Mexico still <strong>imports significant seed volumes from the US and Canada</strong>.",
+        body: [
+          "Seed imports are essential for the processing sector specifically, since Sabritas and other processors require proprietary or specialized varieties not multiplied in sufficient domestic quantity. SENASICA phytosanitary inspection guards against introducing golden nematode (present in some US seed areas but absent from Mexico) via these imports.",
+        ],
+        source: "Source: SNICS (Servicio Nacional de Inspección y Certificación de Semillas); SENASICA phytosanitary regulations; USDA APHIS.",
+      },
+      { id: "trade", dataCard: "trade",
+        h2: "Does Mexico import or export potatoes?",
+        lead: "Mexico is a <strong>net importer</strong>. Frozen fry imports run <strong>150,000&ndash;200,000 tonnes annually</strong>, 80&ndash;85% from the United States under USMCA's tariff-free framework, plus fresh potato imports of 50,000&ndash;80,000 tonnes from the US.",
+        body: [
+          "Mexican exports are modest by comparison — mainly fresh potatoes to Guatemala, El Salvador, and other Central American countries, plus small processed-snack volumes, totaling under USD 30 million annually. Mexico's frozen-fry appetite is driven by rapid QSR expansion: McDonald's alone operates over 700 Mexican locations, with domestic chains like Carl's Jr. adding further demand.",
+        ],
+        source: "Source: USDA FAS GATS 2023; FAOSTAT Trade 2023; SIAP/SADER 2023.",
+      },
+      { id: "distinctive", dataCard: "distinctive",
+        h2: "What makes Mexico's potato industry scientifically distinctive?",
+        lead: "Mexico's <strong>Toluca Valley is part of the actual center of genetic diversity for Phytophthora infestans</strong> &mdash; the late blight pathogen that triggered the Irish Potato Famine in the 1840s and remains the world's most economically costly potato disease.",
+        body: [
+          "Plant pathologists have identified the Toluca Valley as a region where sexual reproduction of P. infestans occurs, continually generating new genotypes — a scientific significance that has nothing to do with Mexico's production volume, but matters enormously to global potato disease research and resistance breeding programs worldwide.",
+        ],
+        source: "Source: Grünwald and Flier, 2005, Canadian Journal of Plant Pathology; Fry et al., 2015, Phytopathology.",
+      },
+      { id: "challenges", dataCard: "challenges",
+        h2: "What challenges does Mexico's potato industry face?",
+        lead: "<strong>Water scarcity</strong> is the paramount challenge, given 85&ndash;90% irrigation dependence in arid production zones. <strong>Late blight</strong> pressure in highland areas and <strong>fresh-market price volatility</strong> for growers outside contract farming round out the main constraints.",
+        body: [
+          "The 2020-2022 drought in northern Mexico severely affected reservoir levels in Sinaloa and Sonora, directly reducing potato production area in those states — a clear illustration of how exposed Mexico's irrigation-dependent model is to water availability shocks. Growers without processing contracts also face significant price swings at Mexico City's Central de Abasto, Latin America's largest wholesale market.",
+        ],
+        source: "Source: CONAGUA 2023; SNIIM (Sistema Nacional de Información e Integración de Mercados) price data 2023.",
+      },
+    ],
+    sourceList: [
+      "FAOSTAT — production, area, and yield statistics",
+      "SIAP/SADER (Servicio de Información Agroalimentaria y Pesquera) — national and state-level production data",
+      "INIFAP (Instituto Nacional de Investigaciones Forestales, Agrícolas y Pecuarias) — variety development and research",
+      "PepsiCo Mexico / Sabritas — corporate and contract-farming data",
+      "USDA FAS GAIN Reports and GATS — trade data",
+      "CONAGUA (Comisión Nacional del Agua) — irrigation and water-resource data",
+    ],
+    faqItems: [
+      { q: "How much potato does Mexico produce per year?", a: "Mexico produced approximately 1.9 million tonnes in 2023 (FAOSTAT) on roughly 65,000 hectares — Central America's largest potato producer, with 85–90% of production irrigated." },
+      { q: "Which Mexican state produces the most potatoes?", a: "Sinaloa, accounting for approximately 35% of national production, concentrated in the Culiacán and Los Mochis valleys during the fall-winter growing cycle." },
+      { q: "How does PepsiCo/Sabritas influence Mexico's potato industry?", a: "Sabritas holds over 70% of the Mexican chip market and contracts 15,000–20,000 hectares annually, making it the largest private potato buyer in Mexico and a direct influence on which varieties farmers plant." },
+      { q: "Does Mexico import potatoes?", a: "Yes, Mexico is a net importer — importing 150,000–200,000 tonnes of frozen fries annually (80–85% from the US) plus 50,000–80,000 tonnes of fresh potatoes, while exporting under USD 30 million worth mainly to Central America." },
+      { q: "Why is Mexico's Toluca Valley scientifically important for potatoes?", a: "The Toluca Valley is part of the actual center of genetic diversity for Phytophthora infestans, the late blight pathogen that caused the Irish Potato Famine — making it a key research site for global late blight resistance breeding." },
+    ],
+    regionalContext: [
+      { slug: "united-states", note: "Dominant seed and frozen-fry trade partner" },
+      { slug: "canada", note: "Secondary seed and export partner (USMCA)" },
+      { slug: "peru", note: "Andean genetic-diversity counterpart" },
+      { slug: "brazil", note: "Latin American peer market" },
+    ],
+    continueReading: [
+      { href: "/knowledge/what-is-late-blight", tag: "Diseases", title: "What Is Late Blight?", desc: "Why Mexico's Toluca Valley is central to global late blight research." },
+      { href: "/knowledge/how-potatoes-are-processed", tag: "Processing", title: "How Potatoes Are Processed", desc: "Sabritas' contract-farming model and Mexico's chip-processing dominance." },
+      { href: "/knowledge/global-potato-trade", tag: "Trade", title: "Global Potato Trade", desc: "How USMCA shapes Mexico's frozen-fry import dependence on the US." },
+      { href: "/country/united-states", tag: "Country", title: "United States Country Profile", desc: "Mexico's dominant seed and frozen-fry trading partner." },
+    ],
+  };
+  return <CountryProfilePremium data={data} />;
+}
+
+/* ── Brazil: full Country Intelligence Dossier (Tier 1, premium template) ── */
+function BrazilProfilePage({ c }) {
+  const data = {
+    slug: "brazil", name: "Brazil", flag: c.flag, region: c.region,
+    h1: "Brazil Potato Industry: One Variety Grows 70% of the Crop — a Concentration Risk Hiding in Plain Sight",
+    tagLabel: "Brazil · South America",
+    readMin: 13,
+    accentLabel: "A single Dutch-bred variety, Agata, accounts for an estimated 70%+ of every potato grown in Brazil — a level of varietal concentration plant pathologists have repeatedly flagged as a phytosanitary risk. Meanwhile Brazil imports 200,000 tonnes of frozen fries a year even as it's South America's second-largest producer, growing potatoes across three separate cropping seasons.",
+    wikidata: "https://www.wikidata.org/wiki/Q155",
+    articlePublishedISO: "2026-07-16", articleModifiedISO: "2026-07-16", indiaContext: false,
+    quickFacts: [
+      { label: "Production (2023, FAOSTAT)", value: "~3.7M tonnes" },
+      { label: "Yield", value: "30.8 t/ha (above world average)" },
+      { label: "Top state", value: "Minas Gerais (32–35% of output)" },
+      { label: "Agata's market share", value: "70%+ of all potatoes planted" },
+      { label: "Frozen fry imports (2023)", value: "~200,000 tonnes (USD 250M+)" },
+      { label: "Growing seasons", value: "3 per year (safras)" },
+    ],
+    definitiveAnswer: "<strong>Brazil produced approximately 3.7 million tonnes of potatoes in 2023</strong> on about 120,000 hectares at a yield of 30.8 t/ha (FAOSTAT) &mdash; South America's <strong>second-largest producer after Peru</strong> by volume, but with meaningfully higher yields thanks to modern practices concentrated in the southeast and south. Brazil runs <strong>three distinct growing seasons per year</strong> (safra das águas, safra da seca, safra de inverno), a structural feature that distinguishes it from single-harvest temperate producers. The single most striking fact about Brazilian potatoes: the cultivar <strong>Agata accounts for an estimated 70% or more of everything planted nationally</strong> &mdash; a concentration level Embrapa plant pathologists have repeatedly warned increases vulnerability to late blight, bacterial wilt, and virus complex diseases. Despite solid production, Brazil is a <strong>significant net importer of frozen French fries</strong> &mdash; about 200,000 tonnes in 2023, worth over USD 250 million &mdash; led by Argentina, Belgium, and the Netherlands, since domestic frozen-fry processing hasn't kept pace with a growing QSR sector where McDonald's alone runs over 1,100 Brazilian outlets.",
+    keyStats: [
+      { value: "3.7M t", label: "2023 production" },
+      { value: "70%+", label: "Agata's share of area", accent: "#C62828" },
+      { value: "3", label: "Growing seasons per year" },
+      { value: "200K t", label: "2023 frozen fry imports" },
+    ],
+    tocItems: [
+      { id: "industry-size", l: "How big is Brazil's potato industry?" },
+      { id: "regions", l: "Which Brazilian states produce the most potatoes?" },
+      { id: "varieties", l: "Why does one variety dominate Brazil's potato crop?" },
+      { id: "processing", l: "Who processes potatoes in Brazil?" },
+      { id: "trade", l: "Why does Brazil import so many frozen fries?" },
+      { id: "challenges", l: "What challenges does Brazil's potato industry face?" },
+    ],
+    cards: [
+      { id: "industry-size", dataCard: "overview",
+        h2: "How big is Brazil's potato industry?",
+        lead: "Brazil is <strong>South America's second-largest potato producer after Peru</strong>, producing approximately <strong>3.7 million tonnes</strong> from about 120,000 hectares at a yield of <strong>30.8 t/ha</strong> (FAOSTAT 2023) &mdash; well above the world average of ~22.3 t/ha.",
+        quickFacts: [
+          { label: "Production (2023)", value: "~3.7M tonnes" },
+          { label: "Area", value: "~120,000 hectares" },
+          { label: "Yield", value: "30.8 t/ha" },
+          { label: "Growing seasons", value: "3 (safra das águas, seca, inverno)" },
+        ],
+        body: [
+          "Brazil's three-crop calendar is a distinctive structural feature: the safra das águas (water crop, planted Oct–Dec) is dispersed across southern and southeastern states, while the safra de inverno (winter crop, planted May–Jul) concentrates in irrigated Minas Gerais — meaning Brazil harvests potatoes somewhere in the country nearly year-round, unlike single-harvest temperate producers.",
+        ],
+        source: "Source: FAOSTAT 2023; IBGE (Instituto Brasileiro de Geografia e Estatística), Levantamento Sistemático da Produção Agrícola 2023.",
+      },
+      { id: "regions", dataCard: "regions",
+        h2: "Which Brazilian states produce the most potatoes?",
+        lead: "<strong>Minas Gerais leads at 32&ndash;35% of national production</strong>, centered on the Alto Paranaíba mesoregion, followed by São Paulo (25&ndash;28%) and Paraná (15&ndash;18%).",
+        table: {
+          headers: ["State", "Share", "Key areas", "Notes"],
+          rows: [
+            ["Minas Gerais", "32–35%", "Alto Paranaíba (Araguari, Perdizes, Santa Juliana)", "Cerrado soils, 800–1,100m altitude, reliable irrigation"],
+            ["São Paulo", "25–28%", "Vargem Grande do Sul, Itapetininga, Piedade, Sorocaba", "Proximity to 22M-person Greater São Paulo market"],
+            ["Paraná", "15–18%", "Campos Gerais, Guarapuava", "Cooler summer climate favorable for production"],
+            ["Rio Grande do Sul, Goiás, Bahia (Chapada Diamantina)", "Smaller", "&mdash;", "Locally significant volumes"],
+          ],
+        },
+        source: "Source: IBGE 2023; Embrapa Hortaliças 2022.",
+      },
+      { id: "varieties", dataCard: "varieties",
+        h2: "Why does one variety dominate Brazil's potato crop?",
+        lead: "<strong>Agata</strong>, originally bred by HZPC in the Netherlands, accounts for an estimated <strong>70% or more of all potatoes planted in Brazil</strong> — a yellow-fleshed, smooth-skinned cultivar favored for its waxy texture, appearance, and short growing cycle (90&ndash;100 days).",
+        callout: { number: "70%+", context: "of Brazil's entire potato crop is a single variety, Agata. Embrapa and Brazilian university plant pathologists have repeatedly warned this monoculture reliance increases vulnerability to late blight, bacterial wilt (Ralstonia solanacearum), and virus complex diseases — a nationally significant phytosanitary risk hiding behind otherwise healthy production numbers.", source: "Lopes and Quezado-Duval, 2021, Tropical Plant Pathology" },
+        body: [
+          "For processing, <strong>Atlantic</strong> (a US-developed 1978 release with 22-24% dry matter) dominates chip production, while <strong>Asterix</strong> (red-skinned, HZPC) and <strong>Markies</strong> serve frying and general cooking. Embrapa's own breeding program has released BRS Clara and BRS F63 targeting the processing segment, but neither has meaningfully dented Agata's dominance of the fresh market.",
+        ],
+        source: "Source: Embrapa Hortaliças 2022; HZPC variety catalog; Pereira et al., 2019, Horticultura Brasileira.",
+      },
+      { id: "processing", dataCard: "processing",
+        h2: "Who processes potatoes in Brazil?",
+        lead: "The chip segment is well-developed — <strong>PepsiCo's Frito-Lay</strong> operates a major facility in Itu, São Paulo (Elma Chips/Lay's/Ruffles brands), contracting 200&ndash;300 growers annually. The frozen-fry segment lags well behind domestic demand.",
+        table: {
+          headers: ["Company", "Segment", "Notes"],
+          rows: [
+            ["Frito-Lay (PepsiCo)", "Chips", "Itu, São Paulo plant; Elma Chips/Lay's/Ruffles brands; 200–300 contract growers"],
+            ["Bem Brasil", "Frozen fries", "Founded 2006, Araxá, Minas Gerais; largest domestic frozen-fry producer (~100,000–120,000t/yr capacity)"],
+            ["McCain Foods", "Frozen fries", "Smaller scale than McCain's North American operations"],
+          ],
+        },
+        body: [
+          "Domestic frozen-fry production has been constrained by higher raw-material costs than North America or Europe, a lack of dedicated high-dry-matter processing varieties, and well-established import channels that make importing often more economical than expanding local capacity.",
+        ],
+        source: "Source: PepsiCo Brazil 2022 ESG Report; USDA FAS GAIN Report BR2023-0028; Bem Brasil corporate communications.",
+      },
+      { id: "trade", dataCard: "trade",
+        h2: "Why does Brazil import so many frozen fries?",
+        lead: "Brazil imported approximately <strong>200,000 tonnes of frozen potato products in 2023</strong>, worth over <strong>USD 250 million</strong> — led by <strong>Argentina (40&ndash;45%)</strong>, benefiting from Mercosul tariff advantages and McCain's large Balcarce operations, followed by <strong>Belgium (25&ndash;30%)</strong> and the <strong>Netherlands (15&ndash;20%)</strong>.",
+        body: [
+          "Brazilian exports, by contrast, are minimal — mostly small volumes of seed potatoes and processed snacks to neighboring countries, since domestic prices typically exceed export parity and phytosanitary barriers limit fresh exports. The paradox is central to understanding Brazil's potato economy: a major producer that's simultaneously a major importer of processed product, driven by a growing middle class and QSR expansion outpacing domestic frozen-fry capacity.",
+        ],
+        source: "Source: SECEX/MDIC trade database 2023; FAOSTAT Trade 2023; Belgapom (Belgian Potato Trade Association) 2023.",
+      },
+      { id: "challenges", dataCard: "challenges",
+        h2: "What challenges does Brazil's potato industry face?",
+        lead: "High production costs (among the highest in Latin America per tonne, per FGV), <strong>El Niño-driven climate variability</strong>, and the structural risk of <strong>Agata's near-monoculture status</strong> are the three defining pressures.",
+        body: [
+          "The 2023-2024 El Niño event caused significant yield reductions in Paraná and Rio Grande do Sul from excessive rainfall and flooding, illustrating how exposed southeastern Brazil's rain-fed cropping calendar is to ENSO cycle variability — even as the irrigated Minas Gerais winter crop can better manage drought stress, albeit at higher energy cost.",
+        ],
+        source: "Source: FGV Agro 2023; INMET (Instituto Nacional de Meteorologia) 2023; Embrapa climate bulletins.",
+      },
+    ],
+    sourceList: [
+      "FAOSTAT — production, area, and yield statistics",
+      "IBGE (Instituto Brasileiro de Geografia e Estatística) — Levantamento Sistemático da Produção Agrícola",
+      "Embrapa Hortaliças — variety breeding and phytosanitary research",
+      "SECEX/MDIC — Brazilian customs trade data",
+      "ABBA (Associação Brasileira da Batata) — producer association data",
+      "PepsiCo Brazil; Bem Brasil — corporate processing data",
+    ],
+    faqItems: [
+      { q: "How much potato does Brazil produce per year?", a: "Brazil produced approximately 3.7 million tonnes in 2023 (FAOSTAT), South America's second-largest producer after Peru, at a yield of 30.8 t/ha — above the world average." },
+      { q: "What is the most grown potato variety in Brazil?", a: "Agata, a Dutch-bred (HZPC) variety, accounts for an estimated 70% or more of all potatoes planted in Brazil — a concentration level plant pathologists have flagged as a significant disease-vulnerability risk." },
+      { q: "Which Brazilian state produces the most potatoes?", a: "Minas Gerais, accounting for 32–35% of national production, centered on the Alto Paranaíba mesoregion around Araguari, Perdizes, and Santa Juliana." },
+      { q: "Does Brazil import potatoes despite being a major producer?", a: "Yes — Brazil imported approximately 200,000 tonnes of frozen French fries in 2023 (worth over USD 250 million), primarily from Argentina, Belgium, and the Netherlands, since domestic frozen-fry processing hasn't kept pace with growing QSR demand." },
+      { q: "How many growing seasons does Brazil have for potatoes?", a: "Three per year — the safra das águas (water crop, Oct–Dec), safra da seca (dry crop, Feb–Apr), and safra de inverno (winter crop, May–Jul) — giving Brazil near-year-round domestic harvest coverage." },
+    ],
+    regionalContext: [
+      { slug: "peru", note: "South America's largest producer" },
+      { slug: "colombia", note: "Andean regional peer" },
+      { slug: "mexico", note: "Latin American peer, PepsiCo/Sabritas parallel" },
+      { slug: "netherlands", note: "Agata's breeding origin (HZPC)" },
+    ],
+    continueReading: [
+      { href: "/blog/brazil-potato-paradox-mccain-investment", tag: "Analysis", title: "Brazil's Potato Paradox", desc: "The story-format deep dive on Brazil's producer-and-importer contradiction." },
+      { href: "/knowledge/potato-varieties-guide", tag: "Varieties", title: "Potato Varieties Guide", desc: "Why Agata's 70% market share is a global outlier in varietal concentration." },
+      { href: "/knowledge/what-is-late-blight", tag: "Diseases", title: "What Is Late Blight?", desc: "The disease-vulnerability risk Embrapa has flagged around Agata monoculture." },
+      { href: "/knowledge/global-potato-trade", tag: "Trade", title: "Global Potato Trade", desc: "How Argentina, Belgium, and the Netherlands supply Brazil's frozen-fry gap." },
+    ],
+  };
+  return <CountryProfilePremium data={data} />;
+}
+
+/* ── Denmark: full Country Intelligence Dossier (Tier 1, premium template) ── */
+function DenmarkProfilePage({ c }) {
+  const data = {
+    slug: "denmark", name: "Denmark", flag: c.flag, region: c.region,
+    h1: "Denmark Potato Industry: A Mid-Sized Producer Punching Above Its Weight in Starch and Organics",
+    tagLabel: "Denmark · Europe",
+    readMin: 12,
+    accentLabel: "Denmark ranks only 8th–10th among EU potato producers by volume, but its KMC cooperative — founded in 1933 and owned by 1,500 farmer-members — is a top-5 EU potato starch producer, and Denmark's organic potato sector reflects the country's position as the world leader in per-capita organic food consumption.",
+    wikidata: "https://www.wikidata.org/wiki/Q35",
+    articlePublishedISO: "2026-07-16", articleModifiedISO: "2026-07-16", indiaContext: false,
+    quickFacts: [
+      { label: "Production (2023, Eurostat)", value: "~1.6M tonnes" },
+      { label: "EU production share", value: "~3.3%" },
+      { label: "EU rank", value: "8th–10th largest" },
+      { label: "KMC members", value: "~1,500 farmers" },
+      { label: "Organic potato share", value: "6–7% of total area" },
+      { label: "Trade position", value: "Modest net exporter" },
+    ],
+    definitiveAnswer: "<strong>Denmark produced approximately 1.6 million tonnes of potatoes in 2023</strong> (Eurostat) on roughly 56,000 hectares &mdash; about <strong>3.3% of EU production</strong>, ranking Denmark <strong>8th to 10th among EU potato producers</strong>, well behind the \"big five\" of Germany, France, the Netherlands, Poland, and Belgium. What Denmark lacks in scale it makes up in specialization: the <strong>KMC cooperative</strong> (Kartoffelmelcentralen), founded in 1933 in Brande and owned by roughly <strong>1,500 farmer members</strong>, processes about 1 million tonnes of starch potatoes annually and ranks among the <strong>top-5 potato starch producers in the EU</strong>, alongside AVEBE (Netherlands) and Emsland Group (Germany). Denmark is also a European leader in <strong>organic potato production</strong> (6&ndash;7% of total potato area), consistent with the country's position as the world's highest per-capita organic food consumer, and <strong>Samsø island's</strong> early \"new\" potatoes function as a protected, premium seasonal brand nationally. Denmark is a <strong>modest net exporter</strong> overall, with total potato and potato-product exports estimated at EUR 200&ndash;300 million per year.",
+    keyStats: [
+      { value: "1.6M t", label: "2023 production" },
+      { value: "8th–10th", label: "EU production rank" },
+      { value: "~1M t", label: "KMC annual starch-potato volume" },
+      { value: "6–7%", label: "Share of area organic" },
+    ],
+    tocItems: [
+      { id: "industry-size", l: "How big is Denmark's potato industry?" },
+      { id: "starch", l: "Why is Denmark's KMC cooperative significant?" },
+      { id: "regions", l: "Where are potatoes grown in Denmark?" },
+      { id: "companies", l: "Which companies define Denmark's potato sector?" },
+      { id: "organic", l: "Why is Denmark a leader in organic potatoes?" },
+      { id: "trade", l: "Does Denmark import or export potatoes?" },
+      { id: "challenges", l: "What challenges does Denmark's potato industry face?" },
+    ],
+    cards: [
+      { id: "industry-size", dataCard: "overview",
+        h2: "How big is Denmark's potato industry?",
+        lead: "Denmark produces approximately <strong>1.5&ndash;2.0 million tonnes annually</strong> on 55,000&ndash;60,000 hectares — about <strong>3.3% of EU production</strong>, ranking <strong>8th to 10th among EU producers</strong> (Eurostat 2023).",
+        quickFacts: [
+          { label: "2022 production", value: "~1.7M tonnes" },
+          { label: "2023 production", value: "~1.6M tonnes" },
+          { label: "EU production share", value: "~3.3%" },
+          { label: "Area breakdown", value: "Ware ~25K ha, starch ~20K ha, seed ~5–6K ha" },
+        ],
+        body: [
+          "Danish potato area has been relatively stable over the past decade, though starch-potato area has declined somewhat as the KMC cooperative has consolidated, while organic production has grown — reflecting Denmark's broader national leadership in organic agriculture.",
+        ],
+        source: "Source: FAOSTAT; Eurostat, \"The EU potato sector\" 2024 update; Statistics Denmark (Danmarks Statistik).",
+      },
+      { id: "starch", dataCard: "starch",
+        h2: "Why is Denmark's KMC cooperative significant?",
+        lead: "<strong>KMC (Kartoffelmelcentralen)</strong>, founded in 1933 and headquartered in Brande, is a cooperative owned by roughly <strong>1,500 Danish farmer members</strong>, processing about <strong>1 million tonnes of starch potatoes per year</strong> — ranking it among the EU's top-5 potato starch producers.",
+        callout: { number: "Top-5", context: "KMC's rank among EU potato starch producers, alongside AVEBE (Netherlands) and Emsland Group (Germany). KMC generates an estimated EUR 250–300 million in revenue with 300–400 employees, and exports to more than 50 countries.", source: "KMC cooperative annual reports; Danish business registry (CVR)" },
+        body: [
+          "KMC's product range spans native and modified potato starches, potato protein (feed and food grade), potato fibers, and flakes/granulates — serving the food industry (sauces, soups, bakery, confectionery, noodles) plus paper, textile sizing, and adhesive applications. <strong>Kuras</strong> is the dominant starch variety, at roughly 21% starch content, alongside Seresta and Aventra. AKV Langholt operates a smaller secondary starch operation in North Jutland.",
+        ],
+        source: "Source: KMC cooperative annual reports; Statistics Denmark; KMC grower information.",
+      },
+      { id: "regions", dataCard: "regions",
+        h2: "Where are potatoes grown in Denmark?",
+        lead: "<strong>Western Jutland</strong> is the starch-potato heartland (sandy soils), while <strong>Zealand and the islands</strong> handle ware and early potatoes — with <strong>Samsø island's</strong> \"new\" potatoes a protected premium seasonal identity.",
+        table: {
+          headers: ["Region", "Role", "Notes"],
+          rows: [
+            ["Western Jutland", "Starch potato heartland", "Sandy soils suit starch varieties (~20,000 ha)"],
+            ["Zealand & the islands", "Ware and early potatoes", "&mdash;"],
+            ["Samsø island", "Premium early \"new\" potatoes", "\"Samsø kartofler\" is a protected seasonal product identity"],
+            ["Lammefjorden", "Premium table potatoes", "Unique marine clay soils"],
+          ],
+        },
+        source: "Source: Danish Agriculture & Food Council; Statistics Denmark.",
+      },
+      { id: "companies", dataCard: "companies",
+        h2: "Which companies define Denmark's potato sector?",
+        lead: "<strong>Danespo</strong> (a DLF / German-Solana joint venture) leads breeding and seed, while <strong>KiMs</strong> (Orkla Group) dominates Denmark's crisp/snack market and <strong>HZPC</strong> maintains significant variety representation.",
+        table: {
+          headers: ["Company", "Role", "Notes"],
+          rows: [
+            ["Danespo", "Breeding, seed, table potatoes", "HQ Vandel, Jutland; JV of Danish DLF + German Solana; exports to 20+ countries"],
+            ["KiMs (Orkla)", "Chips/crisps", "Denmark's leading chip brand; factory in Søndersø, Funen"],
+            ["HZPC Denmark", "Variety representation", "Dutch seed-potato leader's Danish operations"],
+            ["Danish Agro", "Trading & distribution", "Major agricultural cooperative supplying seed and inputs"],
+          ],
+        },
+        body: [
+          "Danespo's key varieties include Folva (a Danish table-potato favorite), Hamlet, Jutlandia, Trésor, Elfe, and Campina — bred specifically for Nordic and European market conditions at an active breeding station.",
+        ],
+        source: "Source: Danespo corporate website; Orkla ASA annual reports; HZPC corporate records.",
+      },
+      { id: "organic", dataCard: "organic",
+        h2: "Why is Denmark a leader in organic potatoes?",
+        lead: "Denmark has the <strong>world's highest per-capita organic food consumption</strong>, and organic potato area — an estimated <strong>3,000&ndash;4,000 hectares (6&ndash;7% of total potato area)</strong> — reflects that national leadership directly.",
+        body: [
+          "Organic conversion has been supported by Danish government subsidies and the Ø-mærket (red Ø) organic label, with organic potatoes widely available through major retailers Coop Danmark and Salling Group (Netto/Føtex). Key organic varieties include Ditta, Allians, and Marabel.",
+        ],
+        source: "Source: Statistics Denmark; Danish Agriculture & Food Council; Eurostat organic farming statistics.",
+      },
+      { id: "trade", dataCard: "trade",
+        h2: "Does Denmark import or export potatoes?",
+        lead: "Denmark is a <strong>modest net exporter</strong> overall, with total potato and potato-product exports estimated at <strong>EUR 200&ndash;300 million per year</strong> — KMC's starch products alone reach over 50 countries. Denmark is also a <strong>net importer of seed potatoes</strong>, primarily from the Netherlands.",
+        body: [
+          "Fresh exports are modest, going mainly to Sweden and Norway, while Denmark imports frozen potato products from Belgium, the Netherlands, and Germany for foodservice, plus seasonal early/new potatoes from Spain, Egypt, and Israel before the Danish early season begins.",
+        ],
+        source: "Source: Statistics Denmark trade data; Eurostat intra-EU trade data.",
+      },
+      { id: "challenges", dataCard: "challenges",
+        h2: "What challenges does Denmark's potato industry face?",
+        lead: "Four recurring pressures: <strong>competition for arable land</strong> from highly profitable Danish grain and oilseed crops, <strong>climate variability</strong> in growing-season rainfall, persistent <strong>late blight</strong> pressure, and <strong>nematode management</strong> in intensively rotated starch-potato areas.",
+        body: [
+          "Denmark's land-competition challenge is distinctive: unlike countries where potato competes against subsistence or lower-value crops, in Denmark it competes directly against some of Europe's most profitable grain and oilseed operations — meaning potato area growth depends on the crop remaining genuinely more profitable per hectare, not just viable.",
+        ],
+        source: "Source: SEGES Innovation advisory publications; Aarhus University research reports.",
+      },
+    ],
+    sourceList: [
+      "FAOSTAT; Eurostat — production, area, and EU-context statistics",
+      "Statistics Denmark (Danmarks Statistik) — national production data",
+      "KMC cooperative annual reports; Danish business registry (CVR)",
+      "Danespo corporate records; Orkla ASA annual reports (KiMs)",
+      "SEGES Innovation; Aarhus University Department of Agroecology — research",
+      "Danish Agriculture & Food Council (Landbrug & Fødevarer)",
+    ],
+    faqItems: [
+      { q: "How much potato does Denmark produce per year?", a: "Denmark produced approximately 1.6 million tonnes in 2023 (Eurostat), about 3.3% of EU production, ranking 8th to 10th among EU potato producers." },
+      { q: "What is KMC and why does it matter for Denmark's potato industry?", a: "KMC (Kartoffelmelcentralen) is a Danish farmer-owned starch cooperative founded in 1933, processing about 1 million tonnes of starch potatoes annually and ranking among the EU's top-5 potato starch producers, alongside AVEBE and Emsland Group." },
+      { q: "Is Denmark a leader in organic potato production?", a: "Yes — Denmark has the world's highest per-capita organic food consumption, and organic potatoes account for an estimated 6–7% of the country's total potato area, supported by government subsidies and the Ø-mærket organic label." },
+      { q: "What is the most popular potato variety in Denmark?", a: "Folva, bred by Danespo, is one of the most popular Danish table varieties, alongside Sava, Ditta, and the declining historic Dutch variety Bintje." },
+      { q: "Does Denmark export potatoes?", a: "Yes, modestly — Denmark is a net exporter overall (EUR 200–300 million/year), with KMC's starch products reaching over 50 countries, though Denmark also imports significant seed-potato volumes from the Netherlands." },
+    ],
+    regionalContext: [
+      { slug: "netherlands", note: "Dominant seed-import source" },
+      { slug: "germany", note: "Fellow top-5 EU starch producer (Emsland)" },
+      { slug: "belgium", note: "Frozen-product import source" },
+      { slug: "poland", note: "EU production-scale comparison" },
+    ],
+    continueReading: [
+      { href: "/knowledge/potato-starch-uses", tag: "Processing", title: "What Is Potato Starch Used For?", desc: "KMC's role among the EU's top potato starch producers." },
+      { href: "/knowledge/seed-potato-systems", tag: "Agronomy", title: "Seed Potato Systems", desc: "Denmark's reliance on Dutch seed imports and Danespo's Nordic breeding program." },
+      { href: "/country/netherlands", tag: "Country", title: "Netherlands Country Profile", desc: "Denmark's dominant seed-potato trading partner." },
+      { href: "/knowledge/global-potato-trade", tag: "Trade", title: "Global Potato Trade", desc: "How Denmark balances modest exports against significant seed imports." },
+    ],
+  };
+  return <CountryProfilePremium data={data} />;
+}
+
+/* ── Japan: full Country Intelligence Dossier (Tier 1, premium template) ── */
+function JapanProfilePage({ c }) {
+  const data = {
+    slug: "japan", name: "Japan", flag: c.flag, region: c.region,
+    h1: "Japan Potato Industry: Hokkaido Grows 80%, Calbee Turns It Into Wasabi-Flavored Chips (3.0M Tonnes)",
+    tagLabel: "Japan · Asia",
+    readMin: 11,
+    accentLabel: "Japan's potato industry is remarkably concentrated on one cool-climate island — Hokkaido grows 75–80% of the national crop — feeding a sophisticated processing industry led by Calbee, whose chips come in flavors like seaweed and wasabi rather than the plain-and-BBQ lineup common elsewhere.",
+    wikidata: "https://www.wikidata.org/wiki/Q17",
+    articlePublishedISO: "2026-07-16", articleModifiedISO: "2026-07-16", indiaContext: false,
+    quickFacts: [
+      { label: "Production (2024, est.)", value: "~3.0M tonnes" },
+      { label: "Hokkaido's share", value: "75–80% of national production" },
+      { label: "Top processor", value: "Calbee (Japan's largest snack company)" },
+      { label: "Trade position", value: "Significant net importer (frozen fries)" },
+      { label: "Import sources", value: "USA, Canada" },
+      { label: "Cultural dish", value: "Nikujaga (meat and potato stew)" },
+    ],
+    definitiveAnswer: "<strong>Japan produces approximately 3.0 million tonnes of potatoes annually</strong>, with production overwhelmingly concentrated on one island: <strong>Hokkaido accounts for 75&ndash;80% of the entire national crop</strong>, thanks to a cool climate ideally suited to potato cultivation. Japan supports a genuinely sophisticated processing industry built around premium potato chips, starch, and frozen products &mdash; led by <strong>Calbee</strong>, Japan's largest snack company, alongside Koike-ya and Meiji, known for distinctly Japanese chip flavors like seaweed and wasabi rather than the standard Western lineup. Despite strong domestic production and processing, Japan remains a <strong>significant importer of frozen potato products</strong>, primarily from the United States and Canada, to meet demand its own frozen-fry sector doesn't fully cover. Potato holds real cultural weight in Japan too: <strong>nikujaga</strong> (meat and potato stew) is considered a national comfort food, and Hokkaido-grown potatoes carry a premium quality reputation nationwide.",
+    keyStats: [
+      { value: "3.0M t", label: "Annual production (est.)" },
+      { value: "75–80%", label: "Hokkaido's share" },
+      { value: "#1", label: "Calbee, Japan's largest snack co." },
+      { value: "Net importer", label: "Frozen fry trade position" },
+    ],
+    tocItems: [
+      { id: "industry-size", l: "How big is Japan's potato industry?" },
+      { id: "hokkaido", l: "Why does Hokkaido grow 75–80% of Japan's potatoes?" },
+      { id: "varieties", l: "What potato varieties are grown in Japan?" },
+      { id: "processing", l: "What makes Japan's potato processing industry distinctive?" },
+      { id: "trade", l: "Does Japan import potato products?" },
+      { id: "culture", l: "How central is potato to Japanese cuisine?" },
+      { id: "challenges", l: "What challenges does Japan's potato industry face?" },
+    ],
+    cards: [
+      { id: "industry-size", dataCard: "overview",
+        h2: "How big is Japan's potato industry?",
+        lead: "Japan produces approximately <strong>3.0 million tonnes of potatoes annually</strong>, with cultivation concentrated almost entirely on the northern island of <strong>Hokkaido</strong>.",
+        quickFacts: [
+          { label: "Annual production", value: "~3.0M tonnes (est.)" },
+          { label: "Top region", value: "Hokkaido (75–80%)" },
+          { label: "Other regions", value: "Nagasaki, Kagoshima (early season)" },
+        ],
+        source: "Source: National agricultural statistics of Japan; USDA FAS.",
+      },
+      { id: "hokkaido", dataCard: "hokkaido",
+        h2: "Why does Hokkaido grow 75–80% of Japan's potatoes?",
+        lead: "Hokkaido's <strong>cool climate is ideal for potato cultivation</strong>, giving it a dominant position — 75&ndash;80% of national production — that few other single regions anywhere in the world match for a major producing country.",
+        callout: { number: "75–80%", context: "of all Japanese potatoes are grown on Hokkaido alone — a level of single-region concentration that makes Hokkaido's growing conditions the effective bottleneck and benchmark for Japan's entire potato supply.", source: "National agricultural statistics of Japan" },
+        body: [
+          "Hokkaido's growing season runs May planting to September–October harvest. Southern Japan operates on an entirely different calendar — winter planting (December–January) with a spring harvest (April–May) — meaning Nagasaki and Kagoshima prefectures supply Japan's early-season potatoes while Hokkaido's much larger crop dominates the main season.",
+        ],
+        source: "Source: National agricultural statistics of Japan.",
+      },
+      { id: "varieties", dataCard: "varieties",
+        h2: "What potato varieties are grown in Japan?",
+        lead: "<strong>May Queen</strong> is the most popular table variety, alongside the traditional <strong>Danshaku</strong> (Irish Cobbler) and Hokkaido favorite <strong>Kitaakari</strong>. Processing runs on Toyoshiro (starch) and Snowden (chipping).",
+        table: {
+          headers: ["Variety", "Role"],
+          rows: [
+            ["May Queen", "Most popular table variety"],
+            ["Danshaku (Irish Cobbler)", "Traditional variety, popular for decades"],
+            ["Kitaakari", "Popular in Hokkaido"],
+            ["Toyoshiro", "Processing variety, for starch"],
+            ["Snowden", "Chipping variety"],
+            ["Inca no Mezame", "Premium purple-fleshed specialty variety"],
+          ],
+        },
+        source: "Source: National agricultural statistics of Japan.",
+      },
+      { id: "processing", dataCard: "processing",
+        h2: "What makes Japan's potato processing industry distinctive?",
+        lead: "Japan's processing sector is genuinely sophisticated, producing <strong>premium potato chips, starch, and frozen products</strong>. <strong>Calbee</strong> is Japan's largest snack company, alongside Koike-ya and Meiji, known for distinctly Japanese chip flavors like seaweed and wasabi.",
+        body: [
+          "This flavor-innovation focus is a genuine point of differentiation from Western chip markets, where variety comes mostly from cut style and salt level rather than fundamentally different flavor profiles — Japan's snack industry treats flavor variation as a core competitive dimension.",
+        ],
+        source: "Source: National agricultural statistics of Japan; company public information (Calbee, Koike-ya, Meiji).",
+      },
+      { id: "trade", dataCard: "trade",
+        h2: "Does Japan import potato products?",
+        lead: "Yes — Japan is a <strong>significant importer of frozen potato products</strong>, particularly from the <strong>United States and Canada</strong>, to meet domestic demand that its own frozen-fry processing doesn't fully cover. Japanese exports of premium processed products are limited by comparison.",
+        body: [
+          "This import reliance sits alongside genuinely strong domestic chip production — Japan's processing gap is specifically in frozen fries rather than potato processing broadly, a distinction that mirrors patterns seen in South Korea and several other Asian markets where domestic snack manufacturing is strong but frozen-fry capacity lags QSR-driven demand.",
+        ],
+        source: "Source: USDA FAS; national trade statistics.",
+      },
+      { id: "culture", dataCard: "culture",
+        h2: "How central is potato to Japanese cuisine?",
+        lead: "<strong>Nikujaga</strong> (meat and potato stew) is considered a genuine national comfort food, and <strong>Hokkaido-grown potatoes carry a nationally recognized quality reputation</strong> — a regional-provenance premium similar to how other countries treat specific wine or produce regions.",
+        source: "Source: National agricultural statistics of Japan; cultural/culinary reference sources.",
+      },
+      { id: "challenges", dataCard: "challenges",
+        h2: "What challenges does Japan's potato industry face?",
+        lead: "Five recurring pressures: an <strong>aging farming population</strong>, <strong>limited agricultural land</strong>, <strong>high production costs</strong>, <strong>competition from imported processed products</strong>, and <strong>typhoon and weather risk</strong>.",
+        body: [
+          "These pressures compound each other in a way common across developed-Asia agriculture: high production costs driven by an aging, shrinking farm labor pool make Japan's domestic potatoes structurally more expensive than imports, which in turn pushes more of the processed-product market toward US and Canadian supply.",
+        ],
+        source: "Source: National agricultural statistics of Japan; USDA FAS.",
+      },
+    ],
+    sourceList: [
+      "National agricultural statistics of Japan",
+      "USDA FAS (Foreign Agricultural Service) — trade data",
+      "Company public information — Calbee, Koike-ya, Meiji",
+    ],
+    faqItems: [
+      { q: "How much potato does Japan produce per year?", a: "Japan produces approximately 3.0 million tonnes of potatoes annually, with Hokkaido accounting for 75–80% of national production." },
+      { q: "Why does Hokkaido grow most of Japan's potatoes?", a: "Hokkaido's cool climate is ideally suited to potato cultivation, giving the island a dominant 75–80% share of national production — a concentration level rarely matched by a single region in any major producing country." },
+      { q: "What is Japan's largest potato chip company?", a: "Calbee is Japan's largest snack company and a major potato chip producer, known for distinctly Japanese flavors like seaweed and wasabi, alongside competitors Koike-ya and Meiji." },
+      { q: "Does Japan import frozen French fries?", a: "Yes — Japan is a significant importer of frozen potato products, primarily from the United States and Canada, since domestic frozen-fry processing doesn't fully cover national demand." },
+      { q: "What is a traditional Japanese potato dish?", a: "Nikujaga, a meat and potato stew, is considered a national comfort food in Japan, and Hokkaido-grown potatoes carry a widely recognized premium quality reputation." },
+    ],
+    regionalContext: [
+      { slug: "south-korea", note: "Asia-Pacific snack-market peer" },
+      { slug: "china", note: "Asia's #1 producer" },
+      { slug: "united-states", note: "Dominant frozen fry import source" },
+      { slug: "canada", note: "Secondary frozen fry import source" },
+    ],
+    continueReading: [
+      { href: "/knowledge/how-potatoes-are-processed", tag: "Processing", title: "How Potatoes Are Processed", desc: "Calbee's chip-making process and Japan's frozen-fry import dependence." },
+      { href: "/knowledge/global-potato-trade", tag: "Trade", title: "Global Potato Trade", desc: "Why Japan imports frozen fries despite strong domestic chip production." },
+      { href: "/country/south-korea", tag: "Country", title: "South Korea Country Profile", desc: "A neighboring Asian snack-market peer with a similar import-dependency pattern." },
+      { href: "/knowledge/potato-varieties-guide", tag: "Varieties", title: "Potato Varieties Guide", desc: "May Queen, Danshaku, and Japan's distinct varietal lineup." },
+    ],
+  };
+  return <CountryProfilePremium data={data} />;
+}
+
+/* ── South Korea: full Country Intelligence Dossier (Tier 1, premium template) ── */
+function SouthKoreaProfilePage({ c }) {
+  const data = {
+    slug: "south-korea", name: "South Korea", flag: c.flag, region: c.region,
+    h1: "South Korea Potato Industry: Domestic Production Stalled a Decade, Frozen Fry Imports Up 50%",
+    tagLabel: "South Korea · Asia",
+    readMin: 12,
+    accentLabel: "South Korea's potato production hasn't grown in a decade, but its appetite for processed potatoes has — frozen fry imports are up 50% since 2014, and Nongshim, Orion, and Haetae-Calbee now source less than 20% of their chipping potatoes domestically. A 2026 tariff cut on US chipping potatoes is about to make that gap even wider.",
+    wikidata: "https://www.wikidata.org/wiki/Q884",
+    articlePublishedISO: "2026-07-16", articleModifiedISO: "2026-07-16", indiaContext: false,
+    quickFacts: [
+      { label: "Production (2024, est.)", value: "~570,000+ tonnes (5-yr high)" },
+      { label: "10-year production change", value: "~flat (no growth since 2014)" },
+      { label: "Domestic chipping-potato supply", value: "&lt;20% of demand" },
+      { label: "Frozen fry imports (2023)", value: "183,000 tonnes" },
+      { label: "10-year import growth", value: "+50% (2014–2024)" },
+      { label: "Chinese import growth", value: "+6,000% (2021–23)" },
+    ],
+    definitiveAnswer: "<strong>South Korea produced an estimated 570,000+ tonnes of potatoes in 2024</strong> &mdash; a five-year high, but roughly the same absolute level as 2014, meaning <strong>domestic production hasn't grown in a decade</strong> even as demand for processed potato products keeps rising. The structural gap is stark: <strong>domestic production supplies less than 20% of South Korea's chipping-potato demand</strong>, forcing the country's \"big three\" snack manufacturers &mdash; <strong>Nongshim, Orion, and Haetae-Calbee</strong> (a Calbee Japan joint venture) &mdash; to import the rest, mainly from Australia and the United States. On the frozen side, <strong>fry imports reached 183,000 tonnes in 2023, up roughly 50% since 2014</strong>, with a genuinely dramatic new entrant: <strong>Chinese frozen potato imports grew over 6,000% in two years</strong>, from $408,000 (2021) to $25 million (2023). A <strong>2026 KORUS FTA milestone</strong> will eliminate the last seasonal tariff on US chipping potatoes, adding further competitive pressure on Korea's already-shrinking domestic contract-farming base.",
+    keyStats: [
+      { value: "570K+ t", label: "2024 production (5-yr high)" },
+      { value: "<20%", label: "Domestic chipping-potato supply share" },
+      { value: "183K t", label: "2023 frozen fry imports" },
+      { value: "+50%", label: "10-yr import growth", accent: "#C62828" },
+    ],
+    tocItems: [
+      { id: "industry-size", l: "How big is South Korea's potato industry?" },
+      { id: "consumption", l: "How are South Koreans' potato-eating habits changing?" },
+      { id: "big-three", l: "Who are South Korea's big three chip manufacturers?" },
+      { id: "frozen-imports", l: "Why are South Korea's frozen fry imports surging?" },
+      { id: "trade-policy", l: "How will the 2026 KORUS tariff change reshape the market?" },
+      { id: "challenges", l: "What challenges does South Korea's domestic production face?" },
+    ],
+    cards: [
+      { id: "industry-size", dataCard: "overview",
+        h2: "How big is South Korea's potato industry?",
+        lead: "South Korea produced roughly <strong>563,000 tonnes in 2021</strong>, an estimated <strong>570,000+ tonnes in 2024</strong> (a five-year high), with 2025 forecast to return to an average of ~530,000 tonnes. Crucially, <strong>2024 production was roughly the same as 2014</strong> &mdash; no net growth in a decade.",
+        quickFacts: [
+          { label: "2021 production", value: "563,000 tonnes" },
+          { label: "2024 production (est.)", value: "570,000+ tonnes" },
+          { label: "2025 forecast", value: "~530,000 tonnes" },
+          { label: "2021 planted area", value: "21,745 ha (−7.9% YoY)" },
+        ],
+        body: [
+          "The long-term trend is declining field acreage, partially offset by a growing greenhouse segment (2,122 hectares in 2022, increasing yearly) that delivers higher, more weather-resilient quality than open-field cultivation. Gangwon Province is the major highland summer-production area, with highland area actually up 2.3% in 2024 even as total planted area trends down.",
+        ],
+        source: "Source: USDA FAS Seoul; MAFF Korea.",
+      },
+      { id: "consumption", dataCard: "consumption",
+        h2: "How are South Koreans' potato-eating habits changing?",
+        lead: "Overall consumption is expected to rise <strong>2.5% annually</strong>, but the mix is shifting sharply: <strong>away from fresh domestic potatoes (32% share, declining)</strong> and toward <strong>imported potatoes and processed products</strong>.",
+        body: [
+          "Per-capita consumption sits at a relatively stable ~10.7 kg/year, but the composition tells the real story. Potato chips have a distinct cultural driver in Korea: they're a popular accompaniment to \"home drinking culture,\" especially among people in their 20s and 30s — and economic downturns that push more drinking at home tend to boost chip consumption further. Convenience stores (GS25, CU, 7-Eleven) are the major retail channel for this snacking behavior.",
+        ],
+        source: "Source: USDA FAS Seoul.",
+      },
+      { id: "big-three", dataCard: "companies",
+        h2: "Who are South Korea's big three chip manufacturers?",
+        lead: "<strong>Nongshim</strong>, South Korea's largest processed-food manufacturer, <strong>Orion</strong>, and <strong>Haetae-Calbee</strong> (a joint venture with Japan's Calbee) dominate the domestic chip market — and together they source <strong>less than 20% of their chipping-potato needs domestically</strong>.",
+        table: {
+          headers: ["Company", "Role", "Notes"],
+          rows: [
+            ["Nongshim (농심)", "South Korea's largest processed-food manufacturer", "Instant noodles + snacks; contracts Korean farmers, also imports from US/Australia"],
+            ["Orion (오리온)", "Major snack/confectionery manufacturer", "Contract farming with Korean farmers"],
+            ["Haetae-Calbee (해태제과-칼비)", "JV with Japan's Calbee", "Premium chip products"],
+          ],
+        },
+        body: [
+          "The domestic chip industry uses about 30,000 tonnes of locally grown fresh potatoes annually, but only during the May–November growing season — importing chipping potatoes (mainly from Australia and the US, preferred for storability and consistent quality) for the December–April off-season. In 2025, Korean food companies purchased 21,000 tonnes of imported processing potatoes — equivalent to the production base of roughly 1,260 average Korean farms.",
+        ],
+        source: "Source: USDA FAS Seoul; industry data.",
+      },
+      { id: "frozen-imports", dataCard: "imports",
+        h2: "Why are South Korea's frozen fry imports surging?",
+        lead: "Frozen fries make up <strong>85% of all potato/potato product imports</strong>. Volumes reached <strong>183,000 tonnes in 2023</strong>, roughly a <strong>50% increase from 122,000 tonnes in 2014</strong> — with a striking new supplier emerging fast.",
+        table: {
+          headers: ["Supplier", "Trend", "Notes"],
+          rows: [
+            ["United States", "Leading, but declining share", "Strong foodservice preference; duty-free under KORUS FTA"],
+            ["Belgium", "Growing", "European supplier"],
+            ["Netherlands", "Growing", "European supplier"],
+            ["China", "Rapidly emerging", "$408K (2021) → $25M (2023): +6,000% in two years"],
+            ["India", "Emerging", "151 tonnes in Oct 2025 alone, +55.7% YoY"],
+            ["Canada", "Consistent supplier", "&mdash;"],
+          ],
+        },
+        body: [
+          "2022 was a record year at 141,474 tonnes of frozen fry imports (total potato imports up 17% YoY to 227,000 tonnes), before 2023 pulled back 6.1% on higher prices and a modest domestic recovery. Dehydrated potato imports are a smaller but fast-growing segment too, up 68.1% from 2019 to 2023 (4,235 to 7,117 tonnes), feeding growing potato-snack and potato-soup demand.",
+        ],
+        source: "Source: USDA FAS Seoul; Korea Customs.",
+      },
+      { id: "trade-policy", dataCard: "trade-policy",
+        h2: "How will the 2026 KORUS tariff change reshape the market?",
+        lead: "2026 marks <strong>KORUS FTA's 15th year</strong>, and the seasonal tariff on <strong>US chipping potatoes drops to zero</strong> that year — with <strong>11 additional US states</strong> newly approved to export chipping potatoes to Korea.",
+        callout: { number: "2026–2029", context: "the sequence of tariff eliminations reshaping Korea's chipping-potato imports: US seasonal tariffs hit zero in 2026, Australian processing-potato tariffs are eliminated in 2028, and New Zealand's follow in 2029 — creating a genuinely multi-supplier competitive environment.", source: "USDA FAS Seoul; KORUS FTA text" },
+        body: [
+          "This creates real supply redundancy and price leverage for Korean snack manufacturers, but the flip side is direct downward pressure on domestic contract-farming prices — Korean growers will be competing against an increasingly open, multi-country import market for the chipping-potato contracts that currently cover under 20% of demand.",
+        ],
+        source: "Source: USDA FAS Seoul; KORUS FTA text.",
+      },
+      { id: "challenges", dataCard: "challenges",
+        h2: "What challenges does South Korea's domestic production face?",
+        lead: "Five recurring pressures: <strong>labor shortages</strong> (limited seasonal foreign worker availability, worsened by the pandemic), <strong>summer heat waves</strong> reducing highland yields, a <strong>shrinking agricultural workforce</strong> from Korea's low birth rate, an <strong>aging farmer population</strong>, and farmers <strong>switching to less labor-intensive crops</strong> like wheat.",
+        body: [
+          "These pressures compound the trade-policy squeeze directly: as domestic contract-farming economics get harder (labor costs rising, workforce shrinking) at the same time as tariff-free imports get cheaper and more accessible, the structural incentive for Korean farmers to keep growing potatoes specifically — rather than switching to less labor-intensive alternatives — keeps weakening.",
+        ],
+        source: "Source: USDA FAS Seoul; MAFF Korea.",
+      },
+    ],
+    sourceList: [
+      "USDA FAS Seoul (official US government agricultural attaché reports)",
+      "Korea Agro-Fisheries & Food Trade Corporation (aT)",
+      "KREI (Korea Rural Economic Institute)",
+      "Kangwon National University",
+      "Tridge (citing Korea Customs data)",
+      "KORUS FTA text",
+    ],
+    faqItems: [
+      { q: "How much potato does South Korea produce per year?", a: "South Korea produced an estimated 570,000+ tonnes in 2024, a five-year high — though roughly the same absolute level as 2014, meaning no net production growth in a decade." },
+      { q: "Does South Korea grow enough potatoes for its own chip industry?", a: "No — domestic production supplies less than 20% of South Korea's chipping-potato demand, forcing Nongshim, Orion, and Haetae-Calbee to import the majority from Australia and the United States, mainly during the December–April off-season." },
+      { q: "Why are South Korea's frozen fry imports growing so fast?", a: "Frozen fry imports reached 183,000 tonnes in 2023, up about 50% from 2014, driven by processed-food consumption growth and Korea's 'home drinking culture' snacking pattern — with China emerging as a dramatic new supplier, growing frozen potato imports over 6,000% in two years." },
+      { q: "What is KORUS FTA and how does it affect Korea's potato imports?", a: "KORUS is the US-Korea Free Trade Agreement. In 2026, its 15th year, the seasonal tariff on US chipping potatoes drops to zero, with further tariff eliminations for Australia (2028) and New Zealand (2029) — creating a more competitive, multi-supplier import environment that pressures domestic Korean contract-farming prices." },
+      { q: "Who are South Korea's major potato chip manufacturers?", a: "Nongshim (South Korea's largest processed-food company), Orion, and Haetae-Calbee (a joint venture with Japan's Calbee) are the three dominant domestic chip manufacturers." },
+    ],
+    regionalContext: [
+      { slug: "japan", note: "Neighboring snack-market peer (Calbee JV partner)" },
+      { slug: "china", note: "Rapidly emerging frozen-fry supplier" },
+      { slug: "australia", note: "Major chipping-potato import source" },
+      { slug: "united-states", note: "Leading frozen-fry supplier, KORUS FTA partner" },
+    ],
+    continueReading: [
+      { href: "/knowledge/global-potato-trade", tag: "Trade", title: "Global Potato Trade", desc: "How KORUS FTA tariff schedules are reshaping South Korea's import market." },
+      { href: "/knowledge/how-potatoes-are-processed", tag: "Processing", title: "How Potatoes Are Processed", desc: "Nongshim, Orion, and Haetae-Calbee's chip-processing operations." },
+      { href: "/country/japan", tag: "Country", title: "Japan Country Profile", desc: "A neighboring Asian snack market with a similar frozen-fry import dependency." },
+      { href: "/country/australia", tag: "Country", title: "Australia Country Profile", desc: "A key chipping-potato supplier to South Korea's snack industry." },
+    ],
+  };
+  return <CountryProfilePremium data={data} />;
+}
+
 /* ── Main page entry: dispatch ── */
 
 export default async function CountryProfilePage({ params }) {
@@ -5150,6 +8179,66 @@ export default async function CountryProfilePage({ params }) {
   }
   if (slug === "colombia") {
     return <ColombiaProfilePage c={c} />;
+  }
+  if (slug === "pakistan") {
+    return <PakistanProfilePage c={c} />;
+  }
+  if (slug === "bangladesh") {
+    return <BangladeshProfilePage c={c} />;
+  }
+  if (slug === "nepal") {
+    return <NepalProfilePage c={c} />;
+  }
+  if (slug === "indonesia") {
+    return <IndonesiaProfilePage c={c} />;
+  }
+  if (slug === "australia") {
+    return <AustraliaProfilePage c={c} />;
+  }
+  if (slug === "south-africa") {
+    return <SouthAfricaProfilePage c={c} />;
+  }
+  if (slug === "egypt") {
+    return <EgyptProfilePage c={c} />;
+  }
+  if (slug === "peru") {
+    return <PeruProfilePage c={c} />;
+  }
+  if (slug === "canada") {
+    return <CanadaProfilePage c={c} />;
+  }
+  if (slug === "united-kingdom") {
+    return <UnitedKingdomProfilePage c={c} />;
+  }
+  if (slug === "france") {
+    return <FranceProfilePage c={c} />;
+  }
+  if (slug === "germany") {
+    return <GermanyProfilePage c={c} />;
+  }
+  if (slug === "ukraine") {
+    return <UkraineProfilePage c={c} />;
+  }
+  if (slug === "russia") {
+    return <RussiaProfilePage c={c} />;
+  }
+  if (slug === "poland") {
+    return <PolandProfilePage c={c} />;
+  }
+  if (slug === "mexico") {
+    return <MexicoProfilePage c={c} />;
+  }
+  if (slug === "brazil") {
+    return <BrazilProfilePage c={c} />;
+  }
+  if (slug === "denmark") {
+    return <DenmarkProfilePage c={c} />;
+  }
+  if (slug === "japan") {
+    return <JapanProfilePage c={c} />;
+  }
+  if (slug === "south-korea") {
+    return <SouthKoreaProfilePage c={c} />;
   }
 
   return <StandardCountryPage c={c} slug={slug} />;
