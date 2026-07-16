@@ -1,14 +1,15 @@
 "use client";
 import { useState, useEffect } from "react";
 import { API } from "../lib/api";
+import { VARIETIES } from "../lib/varieties-data";
 
 export default function AboutStats() {
-  const [stats, setStats] = useState({ dataPoints: "5,024", sources: "224" });
+  const [stats, setStats] = useState({ dataPoints: "5,657", sources: "277" });
   useEffect(() => {
     fetch(API + "/stats").then(r => r.json()).then(d => {
       if (d.total_chunks) setStats({
         dataPoints: d.total_chunks.toLocaleString(),
-        sources: d.unique_sources ? String(d.unique_sources) : "224",
+        sources: d.unique_sources ? String(d.unique_sources) : "277",
       });
     }).catch(() => {});
   }, []);
@@ -17,7 +18,7 @@ export default function AboutStats() {
     { v: stats.dataPoints, l: "Verified Data Points", ic: "\u{1F4CA}" },
     { v: stats.sources, l: "Authoritative Sources", ic: "\u{1F4DA}" },
     { v: "204", l: "Countries with Data", ic: "\u{1F30D}" },
-    { v: "146+", l: "Potato Varieties", ic: "\u{1F954}" },
+    { v: `${VARIETIES.length}+`, l: "Potato Varieties", ic: "\u{1F954}" },
   ];
 
   return (

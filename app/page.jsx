@@ -9,13 +9,13 @@ import HomeTrending from "../components/HomeTrending";
 
 export const metadata = {
   title: "Potatopedia — The First AI Knowledge Base for the Global Potato Industry",
-  description: "Ask anything about the global potato industry. Cited answers from 5,024+ verified data points across 204 countries, 237 varieties, 224+ sources.",
+  description: "Ask anything about the global potato industry. Cited answers from 5,657+ verified data points across 204 countries, 244 varieties, 277+ sources.",
   alternates: { canonical: "https://www.potatopedia.com" },
   openGraph: {
     type: "website",
     url: "https://www.potatopedia.com",
     title: "Potatopedia — The First AI Knowledge Base for the Potato Industry",
-    description: "Ask anything in plain English. Cited answers from 5,024 verified data points · 204 countries · 230+ varieties · 224 sources · 5 premium country dossiers with PDFs.",
+    description: "Ask anything in plain English. Cited answers from 5,657 verified data points · 204 countries · 244 varieties · 277 sources · 5 premium country dossiers with PDFs.",
     images: ["/og-image.png"],
   },
 };
@@ -93,7 +93,7 @@ export default function HomePage() {
             <span style={{ background: "linear-gradient(135deg,#C62828,#8E0000)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>global potato industry.</span>
           </h1>
           <p className="pp-hero-sub" style={{ fontSize: 17, color: "#555", fontWeight: 400, maxWidth: 720, margin: "0 auto 14px", lineHeight: 1.6 }}>
-            The first AI knowledge base built specifically for the potato industry. Ask in plain English — get cited answers in seconds, drawn from <strong>5,024 verified data points</strong> across <strong>204 countries</strong>, <strong>230+ varieties</strong>, and <strong>224 authoritative sources</strong>.
+            The first AI knowledge base built specifically for the potato industry. Ask in plain English — get cited answers in seconds, drawn from <strong>5,657 verified data points</strong> across <strong>204 countries</strong>, <strong>244 varieties</strong>, and <strong>277 authoritative sources</strong>.
           </p>
           <p style={{ fontSize: 13, color: "#888", maxWidth: 680, margin: "0 auto 28px", lineHeight: 1.5 }}>
             Every answer cites its source. The only AI built on verified primary data anywhere in the global potato industry.
@@ -129,7 +129,7 @@ export default function HomePage() {
             </p>
           </div>
           <Link href="/countries" style={{ fontSize: 13, color: "#C62828", fontWeight: 600, textDecoration: "none", whiteSpace: "nowrap" }}>
-            All 30 country profiles →
+            All 31 country profiles →
           </Link>
         </div>
         <div className="pp-home-grid-3">
@@ -146,8 +146,8 @@ export default function HomePage() {
           ))}
         </div>
         <div style={{ marginTop: 14, textAlign: "center" }}>
-          <span style={{ fontSize: 12, color: "#999" }}>Plus premium dossiers for China and Belgium · 25 standard country profiles · </span>
-          <Link href="/varieties" style={{ fontSize: 12, color: "#C62828", fontWeight: 600, textDecoration: "none" }}>230+ varieties database →</Link>
+          <span style={{ fontSize: 12, color: "#999" }}>Plus premium dossiers for China and Belgium · 26 standard country profiles · </span>
+          <Link href="/varieties" style={{ fontSize: 12, color: "#C62828", fontWeight: 600, textDecoration: "none" }}>244 varieties database →</Link>
         </div>
       </section>
 
@@ -232,7 +232,7 @@ export default function HomePage() {
                 <span style={{ display: "inline-block", fontSize: 11, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 2.5, marginBottom: 8 }}>Reference</span>
                 <h2 style={{ fontSize: 22, fontWeight: 700, color: "#1A1A1A", letterSpacing: -0.6 }}>Knowledge Hub</h2>
               </div>
-              <Link href="/knowledge" style={{ fontSize: 13, color: "#C62828", fontWeight: 600, textDecoration: "none" }}>27 articles →</Link>
+              <Link href="/knowledge" style={{ fontSize: 13, color: "#C62828", fontWeight: 600, textDecoration: "none" }}>29 articles →</Link>
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
               {FEATURED_KNOWLEDGE.map((k) => (
@@ -244,7 +244,7 @@ export default function HomePage() {
               ))}
               <Link href="/ask" style={{ display: "block", background: "linear-gradient(135deg,#C62828,#8E0000)", borderRadius: 12, padding: "16px 18px", textDecoration: "none", color: "#fff" }}>
                 <div style={{ fontSize: 11, fontWeight: 700, color: "rgba(255,255,255,0.85)", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 6 }}>AI Q&A</div>
-                <div style={{ fontSize: 15, fontWeight: 700, color: "#fff", lineHeight: 1.35, marginBottom: 4 }}>Ask anything across 5,024 data points →</div>
+                <div style={{ fontSize: 15, fontWeight: 700, color: "#fff", lineHeight: 1.35, marginBottom: 4 }}>Ask anything across 5,657 data points →</div>
                 <div style={{ fontSize: 12, color: "rgba(255,255,255,0.8)" }}>Cited answers in seconds</div>
               </Link>
             </div>

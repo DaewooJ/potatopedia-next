@@ -5,13 +5,13 @@ import ContentRequestCTA from "../../components/ContentRequestCTA";
 
 export const metadata = {
   title: "Popular Potato Questions \u2014 Answered by AI",
-  description: "Direct cited answers to 70+ most-asked questions about potatoes. Production, nutrition, varieties, trade, processing, cultivation \u2014 drawn from 5,024 verified data points across 224 authoritative sources.",
+  description: "Direct cited answers to 80+ most-asked questions about potatoes. Production, nutrition, varieties, trade, processing, cultivation \u2014 drawn from 5,657 verified data points across 277 authoritative sources.",
   alternates: { canonical: "https://www.potatopedia.com/answers" },
   openGraph: {
     type: "website",
     url: "https://www.potatopedia.com/answers",
-    title: "70+ Cited Potato Q&A \u2014 Potatopedia",
-    description: "Direct, sourced answers to the most-asked potato questions. Powered by AI on 5,024 verified data points.",
+    title: "80+ Cited Potato Q&A \u2014 Potatopedia",
+    description: "Direct, sourced answers to the most-asked potato questions. Powered by AI on 5,657 verified data points.",
     images: ["/og-image.png"],
   },
 };
@@ -22,7 +22,7 @@ export default function AnswersIndexPage() {
     "@type": "CollectionPage",
     "@id": "https://www.potatopedia.com/answers#collection",
     name: "Potatopedia Quick Answers",
-    description: `${POPULAR_ANSWERS.length}+ cited answers to common potato questions, drawn from 5,024 verified data points and 224 authoritative sources.`,
+    description: `${POPULAR_ANSWERS.length}+ cited answers to common potato questions, drawn from 5,657 verified data points and 277 authoritative sources.`,
     url: "https://www.potatopedia.com/answers",
     inLanguage: "en",
     publisher: { "@type": "Organization", name: "Potatopedia", url: "https://www.potatopedia.com", logo: "https://www.potatopedia.com/logo.png" },

@@ -342,7 +342,7 @@ export default async function BlogPostPage({ params }) {
             <div>
               <div style={{ fontSize: 14, fontWeight: 700, color: "#1A1A1A", marginBottom: 2 }}>Potatopedia Editorial</div>
               <div style={{ fontSize: 13, color: "#666", lineHeight: 1.6 }}>
-                The verified knowledge base for the global potato industry. 5,024 data points, 224 authoritative sources, 204 countries, 237 varieties &mdash; with cited AI Q&amp;A. <Link href="/about" style={{ color: "#C62828", textDecoration: "none", fontWeight: 600 }}>About our methodology →</Link>
+                The verified knowledge base for the global potato industry. 5,657 data points, 277 authoritative sources, 204 countries, 244 varieties &mdash; with cited AI Q&amp;A. <Link href="/about" style={{ color: "#C62828", textDecoration: "none", fontWeight: 600 }}>About our methodology →</Link>
               </div>
             </div>
           </div>

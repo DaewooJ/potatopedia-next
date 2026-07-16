@@ -7,13 +7,13 @@ import ContentRequestCTA from "../../components/ContentRequestCTA";
 export const metadata = {
   title: "Potatopedia Blog — Global Industry Stories, Analysis & Trends",
   description:
-    "Story-driven analysis of the global potato industry — from Belgium's $4.6B fry empire to Pakistan's 186% production surge to Egypt's 4-season desert farming. Backed by FAOSTAT, UN Comtrade, USDA, and 224 verified sources.",
+    "Story-driven analysis of the global potato industry — from Belgium's $4.6B fry empire to Pakistan's 186% production surge to Egypt's 4-season desert farming. Backed by FAOSTAT, UN Comtrade, USDA, and 277 verified sources.",
   alternates: { canonical: "https://www.potatopedia.com/blog" },
   openGraph: {
     type: "website",
     url: "https://www.potatopedia.com/blog",
     title: "Potatopedia Blog — Global Industry Stories, Analysis & Trends",
-    description: "Story-driven analysis of the global potato industry, with verified data from 224 authoritative sources covering 204 countries.",
+    description: "Story-driven analysis of the global potato industry, with verified data from 277 authoritative sources covering 204 countries.",
     images: ["/og-image.png"],
   },
 };
@@ -259,17 +259,17 @@ export default function BlogListPage() {
           <Link href="/knowledge" style={{ padding: 18, background: "#fff", border: "1px solid #f0f0f0", borderRadius: 12, textDecoration: "none", color: "inherit" }}>
             <div style={{ fontSize: 22, marginBottom: 6 }}>📚</div>
             <div style={{ fontSize: 14, fontWeight: 700, color: "#1A1A1A", marginBottom: 4 }}>Knowledge Hub</div>
-            <div style={{ fontSize: 12.5, color: "#666", lineHeight: 1.5 }}>28+ evergreen reference articles with citations and structured data.</div>
+            <div style={{ fontSize: 12.5, color: "#666", lineHeight: 1.5 }}>29 evergreen reference articles with citations and structured data.</div>
           </Link>
           <Link href="/countries" style={{ padding: 18, background: "#fff", border: "1px solid #f0f0f0", borderRadius: 12, textDecoration: "none", color: "inherit" }}>
             <div style={{ fontSize: 22, marginBottom: 6 }}>🌍</div>
             <div style={{ fontSize: 14, fontWeight: 700, color: "#1A1A1A", marginBottom: 4 }}>Country Profiles</div>
-            <div style={{ fontSize: 12.5, color: "#666", lineHeight: 1.5 }}>30 country pages including 5 premium dossiers (India, China, Belgium, Netherlands, USA) with PDF reports.</div>
+            <div style={{ fontSize: 12.5, color: "#666", lineHeight: 1.5 }}>31 country pages including 5 premium dossiers (India, China, Belgium, Netherlands, USA) with PDF reports.</div>
           </Link>
           <Link href="/ask" style={{ padding: 18, background: "linear-gradient(135deg,#C62828,#E53935)", border: "1px solid #C62828", borderRadius: 12, textDecoration: "none", color: "#fff" }}>
             <div style={{ fontSize: 22, marginBottom: 6 }}>⚡</div>
             <div style={{ fontSize: 14, fontWeight: 700, color: "#fff", marginBottom: 4 }}>Ask the AI</div>
-            <div style={{ fontSize: 12.5, color: "rgba(255,255,255,0.9)", lineHeight: 1.5 }}>Natural-language search across 5,024 verified data points. Cited answers in seconds.</div>
+            <div style={{ fontSize: 12.5, color: "rgba(255,255,255,0.9)", lineHeight: 1.5 }}>Natural-language search across 5,657 verified data points. Cited answers in seconds.</div>
           </Link>
           <Link href="/answers" style={{ padding: 18, background: "#fff", border: "1px solid #f0f0f0", borderRadius: 12, textDecoration: "none", color: "inherit" }}>
             <div style={{ fontSize: 22, marginBottom: 6 }}>💡</div>

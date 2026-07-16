@@ -4,13 +4,13 @@ import ContentRequestCTA from "../../components/ContentRequestCTA";
 
 export const metadata = {
   title: "Potato Knowledge Hub | Potatopedia",
-  description: "27 in-depth reference articles on potato production, nutrition, varieties, trade, processing, cultivation, storage, and diseases. Sourced from FAOSTAT, USDA, CIP, ICAR-CPRI, and 207 authoritative agencies.",
+  description: "29 in-depth reference articles on potato production, nutrition, varieties, trade, processing, cultivation, storage, and diseases. Sourced from FAOSTAT, USDA, CIP, ICAR-CPRI, and 277 authoritative agencies.",
   alternates: { canonical: "https://www.potatopedia.com/knowledge" },
   openGraph: {
     type: "website",
     url: "https://www.potatopedia.com/knowledge",
     title: "Potato Knowledge Hub | Potatopedia",
-    description: "27 reference articles across production, nutrition, varieties, trade, processing, cultivation, storage, and diseases.",
+    description: "29 reference articles across production, nutrition, varieties, trade, processing, cultivation, storage, and diseases.",
     images: ["/og-image.png"],
   },
 };
@@ -21,6 +21,7 @@ const CARDS = [
   { slug: "potato-varieties-guide", title: "Potato Varieties Guide: 50+ Types Explained", desc: "From Russet Burbank to Purple Majesty \u2014 characteristics, best uses, growing conditions, and origins of major varieties.", tag: "Varieties", icon: "\u{1F954}" },
   { slug: "global-potato-trade", title: "Global Potato Trade Statistics 2024", desc: "Who exports the most? Import/export flows, frozen fry trade, seed potato markets, and $50B+ global trade analysis.", tag: "Trade", icon: "\u{1F4B9}" },
   { slug: "how-potatoes-are-processed", title: "How Potatoes Are Processed: From Farm to Fry", desc: "French fries, chips, starch, flour, vodka \u2014 the $80B processing industry explained with data on major companies.", tag: "Processing", icon: "\u{1F3ED}" },
+  { slug: "potato-processing-industry", title: "Global Potato Processing Industry: $80B Market & Leading Companies", desc: "The $80B+ global potato processing industry \u2014 frozen fries ($40.97B), chips ($35B), starch, and dehydrated. Leading processors, market structure, and growth outlook.", tag: "Industry", icon: "\u{1F3ED}" },
   { slug: "potato-diseases-pests", title: "Potato Diseases & Pests", desc: "Late blight, early blight, viruses, nematodes \u2014 major threats and integrated pest management strategies.", tag: "Diseases", icon: "\u{1F52C}" },
   { slug: "seed-potato-systems", title: "Seed Potato Systems", desc: "Certification, multiplication, international trade \u2014 how the Netherlands became the world's #1 seed exporter.", tag: "Agronomy", icon: "\u{1F331}" },
   { slug: "climate-change-potatoes", title: "Climate Change & Potatoes", desc: "Rising temperatures, heat-tolerant varieties, shifting growing zones, and adaptation strategies.", tag: "Climate", icon: "\u{1F321}\uFE0F" },
@@ -52,7 +53,7 @@ export default function KnowledgeHubPage() {
     "@type": "CollectionPage",
     "@id": "https://www.potatopedia.com/knowledge#collection",
     name: "Potatopedia Knowledge Hub",
-    description: "27 in-depth reference articles on the global potato industry — production, nutrition, varieties, trade, processing, cultivation, storage, diseases.",
+    description: "29 in-depth reference articles on the global potato industry — production, nutrition, varieties, trade, processing, cultivation, storage, diseases.",
     url: "https://www.potatopedia.com/knowledge",
     inLanguage: "en",
     publisher: { "@type": "Organization", name: "Potatopedia", url: "https://www.potatopedia.com", logo: "https://www.potatopedia.com/logo.png" },

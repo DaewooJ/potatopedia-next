@@ -5,13 +5,13 @@ import { POTATOPEDIA_PUBLISHER, POTATOPEDIA_EDITORIAL, POTATOPEDIA_WEBSITE } fro
 
 export const metadata = {
   title: "About Potatopedia",
-  description: "The world's AI-powered potato knowledge base. 5,024+ verified data points from FAOSTAT, USDA, CIP, ICAR-CPRI, and 224 authoritative sources covering 204 countries, 237 varieties, and the entire potato value chain.",
+  description: "The world's AI-powered potato knowledge base. 5,657+ verified data points from FAOSTAT, USDA, CIP, ICAR-CPRI, and 277 authoritative sources covering 204 countries, 244 varieties, and the entire potato value chain.",
   alternates: { canonical: "https://www.potatopedia.com/about" },
   openGraph: {
     type: "website",
     url: "https://www.potatopedia.com/about",
     title: "About Potatopedia — The World's AI-Powered Potato Knowledge Base",
-    description: "5,024 verified data points across 204 countries, sourced from FAOSTAT, USDA, CIP, ICAR-CPRI, peer-reviewed journals, and 224 authoritative sources.",
+    description: "5,657 verified data points across 204 countries, sourced from FAOSTAT, USDA, CIP, ICAR-CPRI, peer-reviewed journals, and 277 authoritative sources.",
   },
 };
 
@@ -56,22 +56,22 @@ const sources = [
 const domains = [
   { icon: "\u{1F30D}", title: "Production Data", desc: "Acreage, yield, and harvest volumes for 204 countries from FAOSTAT, USDA, Eurostat — 60+ years of historical data." },
   { icon: "\u{1F4B9}", title: "Trade & Markets", desc: "Import / export volumes, price flows, and tariff data from UN Comtrade and World Bank WITS — the $50B+ global potato trade." },
-  { icon: "\u{1F954}", title: "Variety Knowledge", desc: "146+ varieties documented — Russet Burbank, Yukon Gold, Kufri lines, Andean landraces, Dutch breeding-program output." },
+  { icon: "\u{1F954}", title: "Variety Knowledge", desc: "244 varieties documented — Russet Burbank, Yukon Gold, Kufri lines, Andean landraces, Dutch breeding-program output." },
   { icon: "\u{1F331}", title: "Cultivation & Agronomy", desc: "Soil prep, planting, hilling, irrigation, harvest timing, post-harvest curing — the complete grower lifecycle." },
   { icon: "\u{1F52C}", title: "Diseases & IPM", desc: "Late blight, early blight, viruses, nematodes, scab, Rhizoctonia — with integrated pest management strategies." },
   { icon: "\u{1F3ED}", title: "Processing Industry", desc: "Lamb Weston, McCain, Simplot, and the $80B processing industry — fries, chips, starch, dehydrates." },
   { icon: "\u{1F37D}️", title: "Nutrition & Health", desc: "Macro/micro profile, glycemic response, resistant starch, kidney/heart-disease context — USDA FoodData Central + peer-reviewed studies." },
   { icon: "❄️", title: "Storage & Cold Chain", desc: "Cold-store technology, sprout suppression, cold-induced sweetening, the global seed-potato system." },
-  { icon: "\u{1F30D}", title: "Country Profiles", desc: "30 country profiles, with 5 premium intelligence dossiers (India, China, Belgium, Netherlands, USA) including downloadable PDFs." },
+  { icon: "\u{1F30D}", title: "Country Profiles", desc: "31 country profiles, with 5 premium intelligence dossiers (India, China, Belgium, Netherlands, USA) including downloadable PDFs." },
 ];
 
 const faqs = [
-  { q: "What is Potatopedia?", a: "Potatopedia is the world's first AI-powered potato knowledge base. We aggregate, verify, and organise data from 224 authoritative sources — FAOSTAT, USDA, CIP, ICAR-CPRI, peer-reviewed journals, and government agencies — into 5,024 searchable data points covering 204 countries, 146 varieties, and the complete potato value chain." },
+  { q: "What is Potatopedia?", a: "Potatopedia is the world's first AI-powered potato knowledge base. We aggregate, verify, and organise data from 277 authoritative sources — FAOSTAT, USDA, CIP, ICAR-CPRI, peer-reviewed journals, and government agencies — into 5,657 searchable data points covering 204 countries, 244 varieties, and the complete potato value chain." },
   { q: "Who built Potatopedia?", a: "Potatopedia was built by a small team of agricultural data professionals and potato-industry specialists with experience across Germany, the Netherlands, France, Canada, India, China, and South Africa. The platform sits alongside our sister site indianpotato.com, which focuses on Indian-market intelligence." },
   { q: "Where does the data come from?", a: "Primary sources: FAOSTAT (UN FAO), USDA NASS / ERS, CIP (International Potato Center, Lima), ICAR-CPRI (India), CAAS (China), UN Comtrade, Eurostat, AHDB Potatoes (UK), PMC / PubMed, Springer / Nature peer-reviewed journals, World Bank WITS, and dozens of national agriculture ministries. We exclude crowd-sourced encyclopaedias, news aggregators, scraped commercial databases, third-party data resellers, and content farms — any source where original methodology can't be inspected." },
   { q: "How accurate is the data?", a: "Every data point traces to a primary or peer-reviewed source. The backend tracks source provenance for each fact, and the AI Q&A interface returns citations with every answer. We reject sources that don't meet a verification standard — including major aggregators that cannot be traced to original methodology." },
   { q: "Can I ask questions in natural language?", a: "Yes. The /ask page (and search across the site) routes to our AI Q&A engine, which retrieves from the verified knowledge base and returns cited answers in seconds. The engine handles questions in plain English about production, varieties, trade, cultivation, nutrition, processing — with source attribution." },
-  { q: "How many country profiles are there?", a: "30 country profile pages, with 5 premium intelligence dossiers (India, China, Belgium, Netherlands, United States) that include detailed dashboards, sourced statistics, and downloadable PDF reports. The underlying data covers 204 countries via FAOSTAT, USDA, and Eurostat." },
+  { q: "How many country profiles are there?", a: "31 country profile pages, with 5 premium intelligence dossiers (India, China, Belgium, Netherlands, United States) that include detailed dashboards, sourced statistics, and downloadable PDF reports. The underlying data covers 204 countries via FAOSTAT, USDA, and Eurostat." },
   { q: "Is Potatopedia free to use?", a: "Yes — Potatopedia is completely free with no paywalls or subscriptions. The mission is to make potato intelligence accessible to researchers, growers, traders, policymakers, and students worldwide." },
   { q: "Can I contribute data?", a: "Yes. We welcome contributions from researchers, breeders, agricultural extension specialists, and industry professionals. Email hello@potatopedia.com with the data, source, and methodology, and we'll work with you to verify and integrate it." },
   { q: "What audiences is Potatopedia built for?", a: "Five primary audiences: (1) growers and farm operators looking up agronomy and variety data, (2) traders and commodity buyers tracking import/export flows, (3) researchers and breeders accessing peer-reviewed data, (4) policymakers and trade associations needing verified statistics, and (5) students, journalists, and curious citizens wanting authoritative answers." },
@@ -80,8 +80,8 @@ const faqs = [
 
 const missionCards = [
   { icon: "\u{1F3AF}", title: "Verified Only", desc: "Every data point traces to a primary or peer-reviewed source. Crowd-sourced and methodologically opaque sources excluded." },
-  { icon: "⚡", title: "Instant AI Answers", desc: "Natural-language search delivers cited answers in seconds, drawing from 5,024 verified data points." },
-  { icon: "\u{1F30D}", title: "Global Coverage", desc: "204 countries with FAOSTAT-grade data; 30 country profiles; 5 premium downloadable PDF dossiers." },
+  { icon: "⚡", title: "Instant AI Answers", desc: "Natural-language search delivers cited answers in seconds, drawing from 5,657 verified data points." },
+  { icon: "\u{1F30D}", title: "Global Coverage", desc: "204 countries with FAOSTAT-grade data; 31 country profiles; 5 premium downloadable PDF dossiers." },
   { icon: "\u{1F513}", title: "Free & Open", desc: "No paywalls, no subscriptions, no advertising. Potato intelligence as a public good." },
 ];
 
@@ -130,7 +130,7 @@ export default function AboutPage() {
             <span style={{ background: "linear-gradient(135deg,#C62828,#E53935)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Potato Knowledge Base</span>
           </h1>
           <p style={{ fontSize: 17, color: "#555", lineHeight: 1.7, maxWidth: 620, margin: "0 auto 12px" }}>
-            <strong>5,024 verified data points. 224 authoritative sources. 204 countries. 146 varieties.</strong>
+            <strong>5,657 verified data points. 277 authoritative sources. 204 countries. 244 varieties.</strong>
           </p>
           <p style={{ fontSize: 16, color: "#666", lineHeight: 1.7, maxWidth: 620, margin: "0 auto 12px" }}>
             Powered by AI with human-curated data from FAOSTAT, USDA, CIP, ICAR-CPRI, CAAS, Eurostat, peer-reviewed journals, and official government agencies. The verified, citable, single source of truth for the global potato industry.
@@ -154,7 +154,7 @@ export default function AboutPage() {
               Potato data is scattered across UN agencies, national research institutes, breeder datasheets, peer-reviewed journals, and trade associations. Finding reliable answers means hours of searching PDFs, statistical portals, and academic databases &mdash; with no guarantee the result will be citable.
             </p>
             <p style={{ fontSize: 15, color: "#555", lineHeight: 1.7 }}>
-              Potatopedia changes that. We aggregate, verify, and organise data from 224 authoritative sources, then make it instantly searchable with AI &mdash; with citations on every answer. Built for growers, traders, researchers, policymakers, and anyone who needs answers they can stand behind.
+              Potatopedia changes that. We aggregate, verify, and organise data from 277 authoritative sources, then make it instantly searchable with AI &mdash; with citations on every answer. Built for growers, traders, researchers, policymakers, and anyone who needs answers they can stand behind.
             </p>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
@@ -172,10 +172,10 @@ export default function AboutPage() {
       {/* Data Sources */}
       <section style={{ background: "#FAFAFA", borderTop: "1px solid #f0f0f0", borderBottom: "1px solid #f0f0f0" }}>
         <div style={{ maxWidth: 1000, margin: "0 auto", padding: "64px 24px", textAlign: "center" }}>
-          <span style={{ display: "inline-block", fontSize: 11, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 2.5, marginBottom: 12 }}>224 Authoritative Sources</span>
+          <span style={{ display: "inline-block", fontSize: 11, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 2.5, marginBottom: 12 }}>277 Authoritative Sources</span>
           <h2 style={{ fontSize: 30, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, marginBottom: 14 }}>Where Our Data Comes From</h2>
           <p style={{ fontSize: 14, color: "#666", lineHeight: 1.7, maxWidth: 620, margin: "0 auto 36px" }}>
-            Primary sources only. Twelve representative source families below; the full back-end indexes 224 unique upstream sources.
+            Primary sources only. Twelve representative source families below; the full back-end indexes 277 unique upstream sources.
           </p>
           <div className="pp-about-3col" style={{ display: "grid", gap: 16 }}>
             {sources.map((s, i) => {
@@ -269,7 +269,7 @@ export default function AboutPage() {
           <a href="/ask" style={{ padding: 20, borderRadius: 12, border: "1px solid #C62828", background: "linear-gradient(135deg,#C62828,#E53935)", textDecoration: "none", color: "#fff", display: "block" }}>
             <div style={{ fontSize: 11, fontWeight: 700, color: "rgba(255,255,255,0.85)", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 6 }}>AI Q&amp;A Interface</div>
             <div style={{ fontSize: 16, fontWeight: 700, color: "#fff", marginBottom: 4 }}>Ask Anything &rarr;</div>
-            <div style={{ fontSize: 13, color: "rgba(255,255,255,0.85)", lineHeight: 1.5 }}>Natural-language search across 5,024 verified data points. Cited answers in seconds.</div>
+            <div style={{ fontSize: 13, color: "rgba(255,255,255,0.85)", lineHeight: 1.5 }}>Natural-language search across 5,657 verified data points. Cited answers in seconds.</div>
           </a>
         </div>
       </section>
@@ -315,7 +315,7 @@ export default function AboutPage() {
       <section style={{ background: "linear-gradient(135deg,#C62828,#E53935)", padding: "64px 24px", textAlign: "center" }}>
         <h2 style={{ fontSize: 30, fontWeight: 800, color: "#fff", letterSpacing: -1, marginBottom: 12 }}>The Verified Source for Potato Intelligence</h2>
         <p style={{ fontSize: 15, color: "rgba(255,255,255,0.9)", lineHeight: 1.7, maxWidth: 520, margin: "0 auto 28px" }}>
-          5,024 data points. 224 sources. 204 countries. 146 varieties. Cited answers in seconds.
+          5,657 data points. 277 sources. 204 countries. 244 varieties. Cited answers in seconds.
         </p>
         <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
           <a href="/ask" style={{ display: "inline-block", padding: "12px 28px", borderRadius: 12, background: "#fff", color: "#C62828", fontSize: 14, fontWeight: 700, textDecoration: "none" }}>

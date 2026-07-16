@@ -63,7 +63,7 @@ export default function HomeCountries() {
             style={{ display: "inline-block", padding: "11px 30px", borderRadius: 12, border: "2px solid #C62828", background: "transparent", color: "#C62828", fontSize: 14, fontWeight: 600, textDecoration: "none", fontFamily: "inherit", transition: "all 0.2s" }}
             onMouseEnter={(e) => { e.target.style.background = "#C62828"; e.target.style.color = "white"; }}
             onMouseLeave={(e) => { e.target.style.background = "transparent"; e.target.style.color = "#C62828"; }}
-          >View All 30 Countries &rarr;</Link>
+          >View All 31 Countries &rarr;</Link>
         </div>
       )}
     </section>

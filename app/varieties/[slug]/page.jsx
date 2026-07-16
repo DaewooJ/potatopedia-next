@@ -335,7 +335,7 @@ export default async function VarietyDetailPage({ params }) {
             Updated {UPDATED_SHORT} · Reviewed by Potatopedia editorial team{wikidata ? ` · Linked to Wikidata for cross-reference` : ""}.
           </p>
           <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-            <Link href="/varieties" style={{ fontSize: 13, color: "#C62828", fontWeight: 600, textDecoration: "none" }}>← Browse all 237 varieties</Link>
+            <Link href="/varieties" style={{ fontSize: 13, color: "#C62828", fontWeight: 600, textDecoration: "none" }}>← Browse all 244 varieties</Link>
             <Link href="/about" style={{ fontSize: 13, color: "#888", fontWeight: 500, textDecoration: "none" }}>About our methodology →</Link>
             {wikidata && (
               <a href={wikidata} rel="nofollow noopener" target="_blank" style={{ fontSize: 13, color: "#888", fontWeight: 500, textDecoration: "none" }}>View on Wikidata ↗</a>

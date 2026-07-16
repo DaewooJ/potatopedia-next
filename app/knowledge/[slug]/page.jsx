@@ -599,7 +599,7 @@ function TopProducingCountries() {
             <div key={p.rank} style={{ lineHeight: 1.6 }}><span style={{ color: "#999", marginRight: 6 }}>#{p.rank}</span><strong style={{ color: "#1A1A1A" }}>{p.name}</strong> <span style={{ color: "#888" }}>· {p.prod} t</span></div>
           ))}
         </div>
-        <p style={{ fontSize: 11, color: "#999", marginTop: 12, fontStyle: "italic" }}>Source: FAOSTAT 2023 production data (UN FAO). Production figures rounded to nearest 10,000 tonnes; some 2022 figures used where 2023 was unavailable. Country profiles for these producers are not yet available — see <a href="/countries" style={{ color: "#C62828", textDecoration: "none" }}>all 30 country profiles</a> for the top tier.</p>
+        <p style={{ fontSize: 11, color: "#999", marginTop: 12, fontStyle: "italic" }}>Source: FAOSTAT 2023 production data (UN FAO). Production figures rounded to nearest 10,000 tonnes; some 2022 figures used where 2023 was unavailable. Country profiles for these producers are not yet available — see <a href="/countries" style={{ color: "#C62828", textDecoration: "none" }}>all 31 country profiles</a> for the top tier.</p>
       </details>
 
       <StatCallout number="94.4M" unit="tonnes" context="China produces 25% of the world's potatoes on 4.7 million hectares, with yields of 20.1 t/ha." source="FAOSTAT 2023" />

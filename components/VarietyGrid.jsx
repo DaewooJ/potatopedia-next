@@ -1,4 +1,4 @@
-// Server-rendered grid of all 237 variety cards.
+// Server-rendered grid of all 244 variety cards.
 // Each card has data-* attributes that the VarietiesFilter (client) uses
 // to drive CSS-based show/hide and order. SSR-first: full HTML graph
 // available to crawlers and AI engines without JS.

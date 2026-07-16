@@ -1029,7 +1029,7 @@ function IndiaProfilePage({ c }) {
             <div style={{ fontSize: 11, fontWeight: 700, color: "#E53935", textTransform: "uppercase", letterSpacing: 2, marginBottom: 14 }}>Potatopedia AI &middot; India</div>
             <h2 style={{ fontSize: 32, fontWeight: 800, color: "#fff", margin: "0 0 12px", letterSpacing: -1, lineHeight: 1.2 }}>Ask Anything About India&apos;s Potato Industry</h2>
             <p style={{ fontSize: 15, color: "rgba(255,255,255,0.7)", margin: "0", lineHeight: 1.6 }}>
-              Get data-backed answers from our 5,024-chunk knowledge base &mdash; pre-filtered for India.
+              Get data-backed answers from our 5,657 data-point knowledge base &mdash; pre-filtered for India.
             </p>
           </div>
         </div>
@@ -1646,7 +1646,7 @@ function ChinaProfilePage({ c }) {
             <div style={{ fontSize: 11, fontWeight: 700, color: "#E53935", textTransform: "uppercase", letterSpacing: 2, marginBottom: 14 }}>Potatopedia AI &middot; China</div>
             <h2 style={{ fontSize: 32, fontWeight: 800, color: "#fff", margin: "0 0 12px", letterSpacing: -1, lineHeight: 1.2 }}>Ask Anything About China&apos;s Potato Industry</h2>
             <p style={{ fontSize: 15, color: "rgba(255,255,255,0.7)", margin: "0", lineHeight: 1.6 }}>
-              Get data-backed answers from our 5,024-chunk knowledge base &mdash; pre-filtered for China.
+              Get data-backed answers from our 5,657 data-point knowledge base &mdash; pre-filtered for China.
             </p>
           </div>
         </div>
@@ -2176,7 +2176,7 @@ function BelgiumProfilePage({ c }) {
             <div style={{ fontSize: 11, fontWeight: 700, color: "#E53935", textTransform: "uppercase", letterSpacing: 2, marginBottom: 14 }}>Potatopedia AI &middot; Belgium</div>
             <h2 style={{ fontSize: 32, fontWeight: 800, color: "#fff", margin: "0 0 12px", letterSpacing: -1, lineHeight: 1.2 }}>Ask Anything About Belgium&apos;s Potato Industry</h2>
             <p style={{ fontSize: 15, color: "rgba(255,255,255,0.7)", margin: "0", lineHeight: 1.6 }}>
-              Get data-backed answers from our 5,024-chunk knowledge base &mdash; pre-filtered for Belgium.
+              Get data-backed answers from our 5,657 data-point knowledge base &mdash; pre-filtered for Belgium.
             </p>
           </div>
         </div>
@@ -2768,7 +2768,7 @@ function NetherlandsProfilePage({ c }) {
             <div style={{ fontSize: 11, fontWeight: 700, color: "#E53935", textTransform: "uppercase", letterSpacing: 2, marginBottom: 14 }}>Potatopedia AI &middot; Netherlands</div>
             <h2 style={{ fontSize: 32, fontWeight: 800, color: "#fff", margin: "0 0 12px", letterSpacing: -1, lineHeight: 1.2 }}>Ask Anything About the Netherlands&apos; Potato Industry</h2>
             <p style={{ fontSize: 15, color: "rgba(255,255,255,0.7)", margin: "0", lineHeight: 1.6 }}>
-              Get data-backed answers from our 5,024-chunk knowledge base &mdash; pre-filtered for Netherlands.
+              Get data-backed answers from our 5,657 data-point knowledge base &mdash; pre-filtered for Netherlands.
             </p>
           </div>
         </div>
@@ -3357,7 +3357,7 @@ function UnitedStatesProfilePage({ c }) {
             <div style={{ fontSize: 11, fontWeight: 700, color: "#E53935", textTransform: "uppercase", letterSpacing: 2, marginBottom: 14 }}>Potatopedia AI &middot; United States</div>
             <h2 style={{ fontSize: 32, fontWeight: 800, color: "#fff", margin: "0 0 12px", letterSpacing: -1, lineHeight: 1.2 }}>Ask Anything About the US Potato Industry</h2>
             <p style={{ fontSize: 15, color: "rgba(255,255,255,0.7)", margin: "0", lineHeight: 1.6 }}>
-              Get data-backed answers from our 5,024-chunk knowledge base &mdash; pre-filtered for the United States.
+              Get data-backed answers from our 5,657 data-point knowledge base &mdash; pre-filtered for the United States.
             </p>
           </div>
         </div>

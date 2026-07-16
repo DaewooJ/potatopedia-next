@@ -5,13 +5,13 @@ import VarietyGrid from "../../components/VarietyGrid";
 import { VARIETIES } from "../../lib/varieties-data";
 
 export const metadata = {
-  title: "Potato Varieties Database — 230+ Cultivars Across 9 Regions",
-  description: "Searchable database of 230+ commercially significant potato varieties. Russet Burbank, Bintje, Spunta, Maris Piper, Désirée, Kufri Pukhraj, Shangi, Yukon Gold, Belete, Tigoni, Yungay, Diacol Capiro, BRS Ana, Nevskij, Zhongshu — origin, traits, and best uses for each.",
+  title: "Potato Varieties Database — 244 Cultivars Across 9 Regions",
+  description: "Searchable database of 244 commercially significant potato varieties. Russet Burbank, Bintje, Spunta, Maris Piper, Désirée, Kufri Pukhraj, Shangi, Yukon Gold, Belete, Tigoni, Yungay, Diacol Capiro, BRS Ana, Nevskij, Zhongshu — origin, traits, and best uses for each.",
   alternates: { canonical: "https://www.potatopedia.com/varieties" },
   openGraph: {
     type: "website",
     url: "https://www.potatopedia.com/varieties",
-    title: "Potato Varieties Database — 230+ Cultivars",
+    title: "Potato Varieties Database — 244 Cultivars",
     description: "Origin, traits, and best uses for the world's commercially significant potato varieties — from Andean landraces to McDonald's Russet Burbank, Bangladeshi BARI, Kenyan Shangi, Brazilian BRS Ana, and Chinese Zhongshu.",
     images: ["/og-image.png"],
   },
@@ -27,7 +27,7 @@ export default function VarietiesPage() {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name: "Potatopedia Varieties Database",
-    description: `${total} commercially significant potato varieties from 7 regions worldwide.`,
+    description: `${total} commercially significant potato varieties from 9 regions worldwide.`,
     numberOfItems: total,
     itemListElement: VARIETIES.map((v, i) => ({
       "@type": "ListItem",

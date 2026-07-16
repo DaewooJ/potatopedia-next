@@ -4,14 +4,14 @@ import CountriesFilter from "../../components/CountriesFilter";
 import ContentRequestCTA from "../../components/ContentRequestCTA";
 
 export const metadata = {
-  title: "Potato Countries \u2014 Production Data for 30 Nations",
-  description: "Explore potato production data, yields, and industry highlights for 30 major potato-producing countries. Data from FAOSTAT 2024. Includes 5 premium intelligence dossiers (India, China, Belgium, Netherlands, USA) with downloadable PDFs.",
+  title: "Potato Countries \u2014 Production Data for 31 Nations",
+  description: "Explore potato production data, yields, and industry highlights for 31 major potato-producing countries. Data from FAOSTAT 2024. Includes 5 premium intelligence dossiers (India, China, Belgium, Netherlands, USA) with downloadable PDFs.",
   alternates: { canonical: "https://www.potatopedia.com/countries" },
   openGraph: {
     type: "website",
     url: "https://www.potatopedia.com/countries",
-    title: "Potato Countries \u2014 30 Production Profiles",
-    description: "Production data, yields, and industry intelligence for 30 major potato-producing nations, including 5 premium PDF dossiers.",
+    title: "Potato Countries \u2014 31 Production Profiles",
+    description: "Production data, yields, and industry intelligence for 31 major potato-producing nations, including 5 premium PDF dossiers.",
     images: ["/og-image.png"],
   },
 };
@@ -22,7 +22,7 @@ export default function CountriesPage() {
     "@type": "CollectionPage",
     "@id": "https://www.potatopedia.com/countries#collection",
     name: "Potatopedia Country Profiles",
-    description: "30 country profiles for major potato-producing nations including 5 premium intelligence dossiers with PDF exports.",
+    description: "31 country profiles for major potato-producing nations including 5 premium intelligence dossiers with PDF exports.",
     url: "https://www.potatopedia.com/countries",
     inLanguage: "en",
     publisher: { "@type": "Organization", name: "Potatopedia", url: "https://www.potatopedia.com", logo: "https://www.potatopedia.com/logo.png" },

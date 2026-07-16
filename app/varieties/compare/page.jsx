@@ -61,13 +61,13 @@ export async function generateMetadata({ searchParams }) {
   }
   return {
     title: "Compare Potato Varieties — Side-by-Side Tool",
-    description: "Compare 2–4 potato varieties side by side: origin, year released, region, best uses, and traits. From 237 commercially significant cultivars across 9 regions.",
+    description: "Compare 2–4 potato varieties side by side: origin, year released, region, best uses, and traits. From 244 commercially significant cultivars across 9 regions.",
     alternates: { canonical: "https://www.potatopedia.com/varieties/compare" },
     openGraph: {
       type: "website",
       url: "https://www.potatopedia.com/varieties/compare",
       title: "Compare Potato Varieties — Side-by-Side Tool",
-      description: "Compare 2–4 potato varieties side by side. 237 cultivars across 9 regions.",
+      description: "Compare 2–4 potato varieties side by side. 244 cultivars across 9 regions.",
       images: ["/og-image.png"],
     },
   };
@@ -152,7 +152,7 @@ export default async function VarietyComparePage({ searchParams }) {
           <p style={{ fontSize: 15, color: "#666", lineHeight: 1.6, maxWidth: 620, margin: "0 auto" }}>
             {hasComparison
               ? "Side-by-side: origin, year, region, uses, and trait descriptions — sourced from CIP, USDA, ICAR-CPRI, AHDB, and primary breeder catalogues."
-              : "Add 2–4 varieties from our 237-cultivar database to compare origin, year, region, uses, and traits side by side. Shareable URL preserves your selection."}
+              : "Add 2–4 varieties from our 244-cultivar database to compare origin, year, region, uses, and traits side by side. Shareable URL preserves your selection."}
           </p>
         </header>
 
@@ -312,7 +312,7 @@ export default async function VarietyComparePage({ searchParams }) {
 
         {/* Footer */}
         <div style={{ marginTop: 48, padding: "24px 0", borderTop: "1px solid #f0f0f0", textAlign: "center" }}>
-          <Link href="/varieties" style={{ fontSize: 13, color: "#C62828", fontWeight: 600, textDecoration: "none" }}>← Browse all 237 varieties</Link>
+          <Link href="/varieties" style={{ fontSize: 13, color: "#C62828", fontWeight: 600, textDecoration: "none" }}>← Browse all 244 varieties</Link>
           <span style={{ fontSize: 12, color: "#bbb", margin: "0 12px" }}>|</span>
           <Link href="/about" style={{ fontSize: 13, color: "#888", fontWeight: 500, textDecoration: "none" }}>About our methodology →</Link>
         </div>
