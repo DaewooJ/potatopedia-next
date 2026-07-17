@@ -117,6 +117,13 @@ export async function generateMetadata({ params }) {
       alt: "Are Potatoes Good for Your Heart? What Science Actually Says",
       type: "image/jpeg",
     },
+    "potato-consumption-per-capita": {
+      url: "https://www.potatopedia.com/og-potato-consumption-per-capita.jpg",
+      alt: "The world's biggest potato eaters — Belarus 181 kg, Ukraine 136 kg, Russia 111 kg, China 41 kg per capita",
+      type: "image/jpeg",
+      width: 1200,
+      height: 1200,
+    },
   };
 
   const meta = KNOWLEDGE_TITLES?.[slug];
@@ -140,7 +147,7 @@ export async function generateMetadata({ params }) {
     };
     const og = ogOverrides[slug];
     if (og) {
-      out.openGraph.images = [{ url: og.url, width: 1200, height: 630, alt: og.alt, type: og.type }];
+      out.openGraph.images = [{ url: og.url, width: og.width || 1200, height: og.height || 630, alt: og.alt, type: og.type }];
       out.twitter = { ...out.twitter, images: [og.url] };
     }
     return out;
