@@ -4,6 +4,7 @@ import { PRODUCTION_TIMESERIES, FAOSTAT_YEARS, TRADE_TIMESERIES, yoyChange, tren
 import KnowledgeAI from "../../../components/KnowledgeAI";
 import SupportBlock from "../../../components/SupportBlock";
 import { POTATOPEDIA_PUBLISHER, POTATOPEDIA_EDITORIAL, SPEAKABLE } from "../../../lib/authors";
+import { applyOgOverride } from "../../../lib/og-overrides";
 
 const BLOG_POSTS_LOCAL = Object.fromEntries(BLOG_POSTS.map((p) => [p.slug, p]));
 
@@ -111,21 +112,6 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const canonical = "https://www.potatopedia.com/knowledge/" + slug;
 
-  const ogOverrides = {
-    "potatoes-and-heart-health": {
-      url: "https://www.potatopedia.com/og-potatoes-heart-health.jpg",
-      alt: "Are Potatoes Good for Your Heart? What Science Actually Says",
-      type: "image/jpeg",
-    },
-    "potato-consumption-per-capita": {
-      url: "https://www.potatopedia.com/og-potato-consumption-per-capita.jpg",
-      alt: "The world's biggest potato eaters — Belarus 181 kg, Ukraine 136 kg, Russia 111 kg, China 41 kg per capita",
-      type: "image/jpeg",
-      width: 1200,
-      height: 1200,
-    },
-  };
-
   const meta = KNOWLEDGE_TITLES?.[slug];
   if (meta) {
     // Layout adds " — Potatopedia" (15 chars) suffix, so per-page target <55 keeps the
@@ -145,20 +131,15 @@ export async function generateMetadata({ params }) {
       openGraph: { type: "article", url: canonical, title, description, images: ["/og-image.png"] },
       twitter: { card: "summary_large_image", title, description },
     };
-    const og = ogOverrides[slug];
-    if (og) {
-      out.openGraph.images = [{ url: og.url, width: og.width || 1200, height: og.height || 630, alt: og.alt, type: og.type }];
-      out.twitter = { ...out.twitter, images: [og.url] };
-    }
-    return out;
+    return applyOgOverride(out, "/knowledge/" + slug);
   }
   const fallback = SLUG_META[slug];
   const title = fallback?.title || slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
-  return {
+  return applyOgOverride({
     title: `${title} | Potatopedia`,
     description: `Learn about ${title} on Potatopedia Knowledge Hub.`,
     alternates: { canonical },
-  };
+  }, "/knowledge/" + slug);
 }
 
 /* ── Shared styles ── */

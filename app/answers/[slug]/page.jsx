@@ -7,6 +7,7 @@ import BakedAnswerBlock from "../../../components/BakedAnswerBlock";
 import AnswerAI from "../../../components/AnswerAI";
 import { formatAnswer } from "../../../lib/format";
 import { POTATOPEDIA_PUBLISHER, POTATOPEDIA_EDITORIAL, SPEAKABLE } from "../../../lib/authors";
+import { applyOgOverride } from "../../../lib/og-overrides";
 
 // Procedural slugs eligible for HowTo schema (M7). The baked answer for each
 // of these slugs is structured as a step-by-step procedure.
@@ -81,7 +82,7 @@ export async function generateMetadata({ params }) {
       desc = firstSentence.length > 155 ? firstSentence.slice(0, 152) + "..." : firstSentence;
     }
   }
-  return {
+  return applyOgOverride({
     title: pa.question,
     description: desc,
     alternates: { canonical: "https://www.potatopedia.com/answers/" + slug },
@@ -93,7 +94,7 @@ export async function generateMetadata({ params }) {
       images: ["/og-image.png"],
     },
     twitter: { card: "summary_large_image", title: pa.question, description: desc },
-  };
+  }, "/answers/" + slug);
 }
 
 export default async function AnswerPage({ params }) {

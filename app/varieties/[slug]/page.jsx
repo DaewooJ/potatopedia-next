@@ -13,6 +13,7 @@ import {
 import { COUNTRIES, UPDATED_SHORT } from "../../../lib/data";
 import { POTATOPEDIA_PUBLISHER, POTATOPEDIA_EDITORIAL, articleAuthorBlock, VARIETY_WIKIDATA, SPEAKABLE } from "../../../lib/authors";
 import { getEnrichmentSections } from "../../../lib/varieties-enrichment";
+import { applyOgOverride } from "../../../lib/og-overrides";
 
 export function generateStaticParams() {
   return VARIETIES.map((v) => ({ slug: v.slug }));
@@ -32,7 +33,7 @@ export async function generateMetadata({ params }) {
   if (desc.length > 155) desc = desc.slice(0, 152).trimEnd() + "…";
   // Layout adds " — Potatopedia" suffix; keep base ≤50 so final SERP title <65.
   const titleBase = `${v.name} Potato Variety — Traits & Uses`;
-  return {
+  return applyOgOverride({
     title: titleBase,
     description: desc,
     alternates: { canonical: `https://www.potatopedia.com/varieties/${slug}` },
@@ -44,7 +45,7 @@ export async function generateMetadata({ params }) {
       images: ["/og-image.png"],
     },
     twitter: { card: "summary_large_image", title: `${v.name} — Potato Variety`, description: desc },
-  };
+  }, "/varieties/" + slug);
 }
 
 export default async function VarietyDetailPage({ params }) {

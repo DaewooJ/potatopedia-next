@@ -5,6 +5,7 @@ import ReadingProgressBar from "../../../components/ReadingProgressBar";
 import BlogTOC from "../../../components/BlogTOC";
 import BlogShare from "../../../components/BlogShare";
 import { POTATOPEDIA_PUBLISHER, POTATOPEDIA_EDITORIAL, SPEAKABLE } from "../../../lib/authors";
+import { applyOgOverride } from "../../../lib/og-overrides";
 
 function slugifyHeading(s) {
   return (s || "").toLowerCase()
@@ -41,7 +42,7 @@ export async function generateMetadata({ params }) {
   const ex = String(post.excerpt || "").replace(/\s+/g, " ").trim();
   const firstSentence = ex.split(/(?<=[.!?])\s+/)[0] || ex;
   const desc = firstSentence.length > 155 ? firstSentence.slice(0, 152).trimEnd() + "…" : firstSentence;
-  return {
+  return applyOgOverride({
     title,
     description: desc,
     alternates: { canonical: "https://www.potatopedia.com/blog/" + slug },
@@ -53,7 +54,7 @@ export async function generateMetadata({ params }) {
       images: ["/og-image.png"],
     },
     twitter: { card: "summary_large_image", title, description: desc },
-  };
+  }, "/blog/" + slug);
 }
 
 function splitSources(text) {

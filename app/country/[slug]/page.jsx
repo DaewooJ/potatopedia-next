@@ -9,6 +9,7 @@ import PdfDownloadButton from "../../../components/PdfDownloadButton";
 import { getVarietiesByCountrySlug } from "../../../lib/varieties-data";
 import RelatedBlogPosts from "../../../components/RelatedBlogPosts";
 import CountryProfilePremium, { TrajectoryTable } from "../../../components/CountryProfilePremium";
+import { applyOgOverride } from "../../../lib/og-overrides";
 
 const COUNTRY_TO_BLOGS = {
   "kenya": ["kenya-potato-boom-wpc-2026", "climate-change-rewriting-potato-map"],
@@ -100,80 +101,80 @@ export async function generateMetadata({ params }) {
 
   if (slug === "india") {
     const desc = "India is the world's #2 potato producer at 60.14M tonnes (FAOSTAT 2023). UP leads at 33.5%. Kufri varieties, processing, 39.42M-t cold storage.";
-    return {
+    return applyOgOverride({
       title: "India Potato Industry: #2 Producer at 60M Tonnes",
       description: trim(desc),
       alternates: { canonical: "https://www.potatopedia.com/country/india" },
       openGraph: { title: "India Potato Industry — Potatopedia", description: trim(desc), type: "article", images: ["/og-image.png"] },
       twitter: { card: "summary_large_image", title: "India Potato Industry", description: trim(desc) },
-    };
+    }, "/country/india");
   }
 
   if (slug === "china") {
     const desc = "China is the world's #1 potato producer at 93.49M tonnes (FAOSTAT 2023) — 24.4% of global output. Inner Mongolia, Sichuan, Yunnan lead.";
-    return {
+    return applyOgOverride({
       title: "China Potato Industry: World's #1 Producer",
       description: trim(desc),
       alternates: { canonical: "https://www.potatopedia.com/country/china" },
       openGraph: { title: "China Potato Industry — Potatopedia", description: trim(desc), type: "article", images: ["/og-image.png"] },
       twitter: { card: "summary_large_image", title: "China Potato Industry", description: trim(desc) },
-    };
+    }, "/country/china");
   }
 
   if (slug === "belgium") {
     const desc = "Belgium produces 8.61M tonnes at 42 t/ha. World's #1 frozen french fry exporter at $4.6B — Clarebout, Agristo, Lutosa, Mydibel in West Flanders.";
-    return {
+    return applyOgOverride({
       title: "Belgium: World's #1 Frozen Fry Exporter ($4.6B)",
       description: trim(desc),
       alternates: { canonical: "https://www.potatopedia.com/country/belgium" },
       openGraph: { title: "Belgium Potato Industry — Potatopedia", description: trim(desc), type: "article", images: ["/og-image.png"] },
       twitter: { card: "summary_large_image", title: "Belgium Potato Industry", description: trim(desc) },
-    };
+    }, "/country/belgium");
   }
 
   if (slug === "netherlands") {
     const desc = "Netherlands produces 6.5M tonnes at 41 t/ha and exports 800,000 t of certified seed potatoes — 60%+ of global market. HZPC, Agrico, AVEBE.";
-    return {
+    return applyOgOverride({
       title: "Netherlands: World's #1 Seed Potato Exporter",
       description: trim(desc),
       alternates: { canonical: "https://www.potatopedia.com/country/netherlands" },
       openGraph: { title: "Netherlands Potato Industry — Potatopedia", description: trim(desc), type: "article", images: ["/og-image.png"] },
       twitter: { card: "summary_large_image", title: "Netherlands Potato Industry", description: trim(desc) },
-    };
+    }, "/country/netherlands");
   }
 
   if (slug === "united-states") {
     const desc = "The USA produces 19.96M tonnes at 51.4 t/ha — world's highest yield. Idaho 32%, Washington 23%. Lamb Weston, Simplot, McCain power the $5B industry.";
-    return {
+    return applyOgOverride({
       title: "United States Potato Industry: 19.96M Tonnes",
       description: trim(desc),
       alternates: { canonical: "https://www.potatopedia.com/country/united-states" },
       openGraph: { title: "United States Potato Industry — Potatopedia", description: trim(desc), type: "article", images: ["/og-image.png"] },
       twitter: { card: "summary_large_image", title: "US Potato Industry", description: trim(desc) },
-    };
+    }, "/country/united-states");
   }
 
   if (slug === "kenya") {
     const desc = "Kenya produces 2.31M tonnes — East Africa's #1 producer. Nyandarua leads at ~35%. Hosts the 13th World Potato Congress in Naivasha, Oct 26–30, 2026.";
-    return {
+    return applyOgOverride({
       title: "Kenya Potato Industry: WPC 2026 Host (2.31M Tonnes)",
       description: trim(desc),
       alternates: { canonical: "https://www.potatopedia.com/country/kenya" },
       openGraph: { title: "Kenya Potato Industry — Potatopedia", description: trim(desc), type: "article", images: ["/og-image.png"] },
       twitter: { card: "summary_large_image", title: "Kenya Potato Industry", description: trim(desc) },
-    };
+    }, "/country/kenya");
   }
 
   // Standard country profile fallback — keep tight under 155 chars.
   const stdDesc = trim(`${c.name} produces ${c.prod} tonnes of potatoes annually (#${c.rank} globally). ${c.highlight}`);
   const stdTitle = `${c.name} Potato Industry: ${c.prod}t (#${c.rank})`;
-  return {
+  return applyOgOverride({
     title: stdTitle.length > 65 ? `${c.name} Potato Industry — ${c.prod}t` : stdTitle,
     description: stdDesc,
     alternates: { canonical: "https://www.potatopedia.com/country/" + slug },
     openGraph: { title: `${c.name} Potato Industry — Potatopedia`, description: stdDesc, type: "article", images: ["/og-image.png"] },
     twitter: { card: "summary_large_image", title: `${c.name} Potato Industry`, description: stdDesc },
-  };
+  }, "/country/" + slug);
 }
 
 // ----- Wikidata mapping for major potato-producing countries (used by JSON-LD `Country.sameAs`) -----
