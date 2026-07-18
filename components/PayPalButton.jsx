@@ -56,8 +56,8 @@ export default function PayPalButton() {
   }
 
   return (
-    <div>
-      <div style={{ display: 'flex', gap: 8, marginBottom: 10, flexWrap: 'wrap', alignItems: 'center' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <div style={{ display: 'flex', gap: 8, marginBottom: 10, flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center' }}>
         {PRESETS.map((p) => (
           <button
             key={p}
