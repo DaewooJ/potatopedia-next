@@ -49,7 +49,8 @@ export default function PrivacyPage() {
         </LI>
         <LI>
           <strong>Payment information.</strong> If you make a payment, the
-          transaction is processed by our payment partner (Razorpay). We do{" "}
+          transaction is processed by one of our payment partners — Razorpay
+          for India, PayPal for international payments. We do{" "}
           <strong>not</strong> collect or store your full card number, CVV, UPI
           PIN, net-banking credentials or bank account details on our servers.
           See Section 5.
@@ -92,17 +93,19 @@ export default function PrivacyPage() {
         retained to improve service quality.
       </Callout>
 
-      <H2>5. Payments and Razorpay</H2>
+      <H2>5. Payments, Razorpay and PayPal</H2>
       <P>
-        Online payments on {COMPANY.brand} are handled by Razorpay Software
-        Private Limited, a payment aggregator authorised by the Reserve Bank of
-        India. When you pay, your payment-instrument details are collected and
-        processed directly by Razorpay on its PCI-DSS compliant infrastructure
-        and are governed by Razorpay's own privacy policy and terms. We receive
-        only limited transaction information (such as a payment reference,
-        status and amount) needed to confirm and reconcile your order. You can
-        review Razorpay's policies at{" "}
-        <A href="https://razorpay.com/privacy/">razorpay.com/privacy</A>.
+        Online payments on {COMPANY.brand} from within India are handled by
+        Razorpay Software Private Limited, a payment aggregator authorised by
+        the Reserve Bank of India. International payments are handled by
+        PayPal. When you pay, your payment-instrument details are collected
+        and processed directly by Razorpay or PayPal on their own PCI-DSS
+        compliant infrastructure and are governed by their respective privacy
+        policies and terms. We receive only limited transaction information
+        (such as a payment reference, status and amount) needed to confirm and
+        reconcile your order. You can review these policies at{" "}
+        <A href="https://razorpay.com/privacy/">razorpay.com/privacy</A> and{" "}
+        <A href="https://www.paypal.com/us/legalhub/privacy-full">paypal.com/privacy</A>.
       </P>
 
       <H2>6. Cookies and analytics</H2>

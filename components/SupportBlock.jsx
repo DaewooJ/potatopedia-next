@@ -1,4 +1,5 @@
 import SupportButton from './SupportButton';
+import PayPalButton from './PayPalButton';
 
 export default function SupportBlock() {
   return (
@@ -20,7 +21,16 @@ export default function SupportBlock() {
         Potatopedia is independent and free. Your support covers hosting and the
         data work behind every page.
       </p>
-      <SupportButton />
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 20 }}>
+        <div style={{ minWidth: 260 }}>
+          <div style={{ fontSize: 11, fontWeight: 600, color: '#888', marginBottom: 6 }}>India</div>
+          <SupportButton />
+        </div>
+        <div style={{ minWidth: 260 }}>
+          <div style={{ fontSize: 11, fontWeight: 600, color: '#888', marginBottom: 6 }}>International</div>
+          <PayPalButton />
+        </div>
+      </div>
     </div>
   );
 }

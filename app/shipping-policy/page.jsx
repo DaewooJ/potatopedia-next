@@ -35,10 +35,10 @@ export default function ShippingPolicyPage() {
       <H2>2. Delivery of digital access</H2>
       <Callout>
         Upon successful payment confirmation from our payment partner
-        (Razorpay), access to the purchased digital service is activated
-        electronically — typically immediately and in any case within 24 hours.
-        A confirmation is sent to the email address provided at the time of
-        purchase.
+        (Razorpay for India, PayPal for international payments), access to the
+        purchased digital service is activated electronically — typically
+        immediately and in any case within 24 hours. A confirmation is sent to
+        the email address provided at the time of purchase.
       </Callout>
 
       <H2>3. If you don't receive access</H2>

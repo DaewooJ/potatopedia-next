@@ -57,8 +57,10 @@ export default function TermsPage() {
           applicable taxes, is shown at checkout before you confirm the payment.
         </LI>
         <LI>
-          Payments are processed securely through our payment partner, Razorpay.
-          By making a payment you also agree to Razorpay's applicable terms.
+          Payments are processed securely through our payment partners —
+          Razorpay for India, PayPal for international payments. By making a
+          payment you also agree to Razorpay's or PayPal's applicable terms,
+          whichever processed your payment.
         </LI>
         <LI>
           If a plan is offered on a recurring/subscription basis, the billing

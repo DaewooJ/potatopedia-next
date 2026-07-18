@@ -88,11 +88,12 @@ export default function RefundPolicyPage() {
 
       <H2>6. Refund processing and timelines</H2>
       <Callout>
-        Approved refunds are processed to the original payment method via our
-        payment partner, Razorpay. Once approved, the refund is typically
-        initiated within 3–5 business days, and the amount usually reflects in
-        your account within 5–7 business days thereafter, depending on your bank
-        or card issuer.
+        Approved refunds are processed to the original payment method via
+        whichever payment partner handled the original transaction — Razorpay
+        for India, PayPal for international payments. Once approved, the
+        refund is typically initiated within 3–5 business days, and the amount
+        usually reflects in your account within 5–7 business days thereafter,
+        depending on your bank or card issuer.
       </Callout>
       <P>
         If money was debited for a failed transaction but no payment confirmation

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ppCSS } from "../../lib/styles";
 import SupportButton from "../../components/SupportButton";
+import PayPalButton from "../../components/PayPalButton";
 
 export const metadata = {
   title: "Support Potatopedia",
@@ -43,9 +44,22 @@ export default function SupportPage() {
         }}>
           <h2 style={{ fontSize: 22, fontWeight: 800, color: "#1A1A1A", marginBottom: 8 }}>Back Potatopedia</h2>
           <p style={{ fontSize: 13.5, color: "#666", marginBottom: 22 }}>
-            Choose an amount, or enter your own — secured by Razorpay.
+            Choose an amount, or enter your own.
           </p>
-          <SupportButton />
+          <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 28 }}>
+            <div>
+              <div style={{ fontSize: 12, fontWeight: 700, color: "#888", textTransform: "uppercase", letterSpacing: 0.5, marginBottom: 10 }}>
+                India — Razorpay
+              </div>
+              <SupportButton />
+            </div>
+            <div>
+              <div style={{ fontSize: 12, fontWeight: 700, color: "#888", textTransform: "uppercase", letterSpacing: 0.5, marginBottom: 10 }}>
+                International — PayPal
+              </div>
+              <PayPalButton />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -69,7 +83,7 @@ export default function SupportPage() {
         <div style={{ maxWidth: 620, margin: "0 auto", textAlign: "center", fontSize: 12.5, color: "#999", lineHeight: 1.8 }}>
           Can&apos;t contribute financially? Sharing a page, citing it in your work, or sending corrections helps just as much.
           <br />
-          Potatopedia is operated by INDPOTATO PRIVATE LIMITED, India. Contributions are voluntary support for an independent platform and are not tax-deductible donations; international cards are charged in USD and settled in INR. Questions? <Link href="/contact" style={{ color: "#C62828", textDecoration: "none", fontWeight: 600 }}>Contact us</Link>.
+          Potatopedia is operated by INDPOTATO PRIVATE LIMITED, India. Contributions are voluntary support for an independent platform and are not tax-deductible donations. Indian payments are processed by Razorpay in INR; international payments are processed by PayPal in USD. Questions? <Link href="/contact" style={{ color: "#C62828", textDecoration: "none", fontWeight: 600 }}>Contact us</Link>.
         </div>
       </section>
 
