@@ -57,12 +57,13 @@ export default function PayPalButton() {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      <div style={{ display: 'flex', gap: 8, marginBottom: 10, flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center' }}>
+      <div className="pp-amount-row" style={{ display: 'flex', gap: 8, marginBottom: 10, flexWrap: 'nowrap', justifyContent: 'center', alignItems: 'center' }}>
         {PRESETS.map((p) => (
           <button
             key={p}
             type="button"
             onClick={() => setAmount(p)}
+            className="pp-amount-chip"
             style={{
               padding: '6px 14px',
               borderRadius: 8,
@@ -72,6 +73,7 @@ export default function PayPalButton() {
               fontWeight: 600,
               fontSize: 13,
               cursor: 'pointer',
+              whiteSpace: 'nowrap',
             }}
           >
             ${p}
@@ -82,6 +84,7 @@ export default function PayPalButton() {
           min="1"
           value={amount}
           onChange={(e) => setAmount(Number(e.target.value) || 0)}
+          className="pp-amount-input"
           style={{ width: 64, padding: '6px 10px', borderRadius: 8, border: '1px solid #ddd', fontSize: 13 }}
         />
       </div>
@@ -89,6 +92,13 @@ export default function PayPalButton() {
       {status === 'error' && (
         <div style={{ fontSize: 12, color: '#C62828', marginTop: 6 }}>Something went wrong — please try again.</div>
       )}
+      <style>{`
+        @media (max-width: 480px) {
+          .pp-amount-row { gap: 4px !important; }
+          .pp-amount-chip { padding: 5px 8px !important; font-size: 11.5px !important; }
+          .pp-amount-input { width: 42px !important; padding: 5px 5px !important; font-size: 11.5px !important; }
+        }
+      `}</style>
     </div>
   );
 }

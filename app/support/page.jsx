@@ -42,7 +42,7 @@ export default function SupportPage() {
           border: "1.5px solid rgba(198,40,40,0.18)", borderRadius: 20,
           padding: "36px 32px", boxShadow: "0 20px 50px rgba(198,40,40,0.08)",
         }}>
-          <h2 style={{ fontSize: 22, fontWeight: 800, color: "#1A1A1A", marginBottom: 8 }}>Back Potatopedia</h2>
+          <h2 style={{ fontSize: 22, fontWeight: 800, color: "#1A1A1A", marginBottom: 8 }}>Support Potatopedia</h2>
           <p style={{ fontSize: 13.5, color: "#666", marginBottom: 22 }}>
             Choose an amount, or enter your own.
           </p>
