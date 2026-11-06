@@ -69,12 +69,12 @@ export default function Navigation() {
           <Link href="/about" style={navLinkStyle("/about")}>About</Link>
         </div>
 
-        {/* Support CTA */}
-        <Link href="/support" className="pp-desktop-links" style={{
+        {/* Advertise CTA (replaces the donation button, 6 Nov 2026) */}
+        <Link href="/#advertise" className="pp-desktop-links" style={{
           background: "linear-gradient(135deg,#C62828,#E53935)", color: "#fff",
           fontWeight: 700, fontSize: 13, padding: "9px 18px", borderRadius: 9,
           textDecoration: "none", whiteSpace: "nowrap",
-        }}>♥ Support Us</Link>
+        }}>Advertise</Link>
 
         {/* Hamburger */}
         <div className="pp-hamburger" style={{ display: "none", position: "relative" }}>
@@ -108,7 +108,7 @@ export default function Navigation() {
             <Link href="/blog" onClick={() => setMobileMenu(false)} style={{ padding: "16px 18px", borderRadius: 10, color: isActive("/blog") ? "#C62828" : "#333", background: isActive("/blog") ? "rgba(198,40,40,0.06)" : "transparent", textDecoration: "none", fontSize: 16, fontWeight: 600, display: "block" }}>Blog</Link>
             <Link href="/answers" onClick={() => setMobileMenu(false)} style={{ padding: "16px 18px", borderRadius: 10, color: isActive("/answers") ? "#C62828" : "#333", background: isActive("/answers") ? "rgba(198,40,40,0.06)" : "transparent", textDecoration: "none", fontSize: 16, fontWeight: 600, display: "block" }}>Answers</Link>
             <Link href="/about" onClick={() => setMobileMenu(false)} style={{ padding: "16px 18px", borderRadius: 10, color: isActive("/about") ? "#C62828" : "#333", background: isActive("/about") ? "rgba(198,40,40,0.06)" : "transparent", textDecoration: "none", fontSize: 16, fontWeight: 600, display: "block" }}>About</Link>
-            <Link href="/support" onClick={() => setMobileMenu(false)} style={{ padding: "16px 18px", borderRadius: 10, marginTop: 8, border: "1px solid #C62828", color: "#C62828", textDecoration: "none", fontSize: 16, fontWeight: 700, display: "block", textAlign: "center" }}>&hearts; Support Us</Link>
+            <Link href="/#advertise" onClick={() => setMobileMenu(false)} style={{ padding: "16px 18px", borderRadius: 10, marginTop: 8, border: "1px solid #C62828", color: "#C62828", textDecoration: "none", fontSize: 16, fontWeight: 700, display: "block", textAlign: "center" }}>Advertise</Link>
           </div>
         </div>
       )}

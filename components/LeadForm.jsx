@@ -105,7 +105,7 @@ export default function LeadForm({
           </div>
         )}
         <div>
-          <label style={label} htmlFor={`${type}-email`}>Work email</label>
+          <label style={label} htmlFor={`${type}-email`}>{type === "newsletter" ? "Email" : "Work email"}</label>
           <input id={`${type}-email`} name="email" type="email" required autoComplete="email" style={field} />
         </div>
         {askCountry && (
