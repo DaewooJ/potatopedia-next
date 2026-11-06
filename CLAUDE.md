@@ -32,10 +32,8 @@
 - Backend may return `total_chunks` — always display as "data points"
 
 ## Migration Strategy
-- Incremental migration from ~/potatopedia-frontend — one route at a time
-- Do NOT touch ~/potatopedia-frontend
-- Each migrated route should match or improve upon the original
-- Test each route independently before moving to the next
+- Migration from the old frontend is COMPLETE. The legacy repo `DaewooJ/potatopedia-frontend-legacy` was archived on GitHub on 6 Nov 2026 (read-only); its local folder is left as is and is not worked on.
+- This repo (potatopedia-next) is the only frontend.
 
 ## Project Structure
 - Next.js App Router (no pages/ directory)
