@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { BLOG_POSTS } from "../lib/data";
+import { BLOG_POSTS } from "../lib/blog-posts";
 
 // Related blog stories as premium cards (used by country and knowledge pages).
 export default function RelatedBlogPosts({ slugs, title = "Related analysis", subtitle = "Story-format coverage of this topic from our blog." }) {
