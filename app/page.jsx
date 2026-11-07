@@ -244,6 +244,13 @@ export default async function HomePage() {
           <span className="hp-foot-logo">Potatopedia</span>
           <span>Sources: FAOSTAT · USDA · CIP · UN Comtrade · CPRI · Europatat · peer-reviewed journals</span>
           <nav aria-label="Footer" className="hp-foot-links">
+            <Link href="/diseases">Diseases</Link>
+            <Link href="/prices">Prices</Link>
+            <Link href="/reports">Market reports</Link>
+            <Link href="/market">Market</Link>
+            <Link href="/machines">Machines</Link>
+            <Link href="/companies">Companies</Link>
+            <Link href="/events">Events</Link>
             <a href="/for-companies">For companies</a>
             <a href="/for-companies#correct">Submit or correct data</a>
             <a href="/advertise">Advertise</a>
