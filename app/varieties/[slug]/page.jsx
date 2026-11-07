@@ -13,9 +13,11 @@ import {
 } from "../../../lib/varieties-data";
 import { COUNTRIES, UPDATED_SHORT } from "../../../lib/data";
 import { POTATOPEDIA_PUBLISHER, POTATOPEDIA_EDITORIAL, articleAuthorBlock, VARIETY_WIKIDATA, SPEAKABLE } from "../../../lib/authors";
-import { getEnrichmentSections } from "../../../lib/varieties-enrichment";
+import { getEnrichmentSections, HAND_CRAFTED } from "../../../lib/varieties-enrichment";
 import { applyOgOverride } from "../../../lib/og-overrides";
 import TRAITS from "../../../lib/variety-traits.json";
+import KEEP from "../../../lib/variety-keep-indexed.json";
+const KEEP_INDEXED = new Set(KEEP.slugs);
 
 // ── Official-datasheet traits (lib/variety-traits.json): breeder / registry values, kept as published. ──
 const cleanLabel = (s) => String(s || "").replace(/\(.*?\)/g, "").replace(/^\d+(\.\d+)?\s+/, "").replace(/\s*\/\s*([\d.]+|[A-Z]{1,3})(\s.*)?$/, "").replace(/\s+/g, " ").replace(/[.;,\s]+$/, "").trim().toLowerCase();
@@ -63,9 +65,13 @@ export async function generateMetadata({ params }) {
     const t1 = `${v.name} — ${facts[0]}`;
     titleBase = t2.length <= 50 ? t2 : t1.length <= 50 ? t1 : titleBase;
   }
+  // Thin-page rule (Devendra, 7 Nov 2026): a variety with neither datasheet traits nor a hand-written profile is
+  // noindex,follow until traits arrive — Google judged ~140 thin pages "crawled, not indexed". It stays linked and in the Atlas.
+  const thin = !tt && !HAND_CRAFTED[slug] && !KEEP_INDEXED.has(slug);
   return applyOgOverride({
     title: titleBase,
     description: desc,
+    ...(thin ? { robots: { index: false, follow: true } } : {}),
     alternates: { canonical: `https://www.potatopedia.com/varieties/${slug}` },
     openGraph: {
       type: "article",

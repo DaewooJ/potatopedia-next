@@ -198,7 +198,11 @@ export async function GET() {
 
   // Lazy import varieties data to avoid loading on every sitemap render hop
   const { VARIETIES } = await import("../../lib/varieties-data");
-  const VARIETY_SLUGS = VARIETIES.map((v) => v.slug);
+  // Only varieties with datasheet traits or a hand-written profile (thin ones are noindex until filled).
+  const TRAITS = (await import("../../lib/variety-traits.json")).default;
+  const { HAND_CRAFTED } = await import("../../lib/varieties-enrichment");
+  const KEEP = new Set((await import("../../lib/variety-keep-indexed.json")).default.slugs);
+  const VARIETY_SLUGS = VARIETIES.map((v) => v.slug).filter((s) => TRAITS[s] || HAND_CRAFTED[s] || KEEP.has(s));
   const { PROBLEMS } = await import("../../lib/market");
   // Blog posts and answers come from the data itself (7 Nov 2026): the hard-coded list had only 28 of 67 posts.
   const { BLOG_POSTS } = await import("../../lib/data");
