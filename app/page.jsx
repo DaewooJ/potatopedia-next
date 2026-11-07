@@ -105,37 +105,41 @@ export default async function HomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@graph": [POTATOPEDIA_PUBLISHER, POTATOPEDIA_WEBSITE] }) }} />
 
       {/* ── Hero ── */}
-      <section className="hp-hero">
-        <div className="hp-glow" aria-hidden="true" />
-        <div className="hp-lines" aria-hidden="true" />
-        <header className="hp-nav">
-          <Link href="/" className="hp-logo">Potatopedia</Link>
-          <nav className="hp-links" aria-label="Main">
-            <Link href="/varieties">Varieties</Link>
-            <Link href="/countries">Countries</Link>
-            <Link href="/knowledge">Knowledge</Link>
-            <Link href="/answers">Answers</Link>
-            <Link href="/market">Market</Link>
-            <Link href="/machines">Machines</Link>
-            <Link href="/blog">Blog</Link>
-          </nav>
-          <a href="/advertise" className="hp-adv">Advertise</a>
-          <details className="hp-menu">
-            <summary aria-label="Menu">
-              <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 6h12M3 12h12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" /></svg>
-            </summary>
-            <div className="hp-menu-box">
+      <div className="hp-navwrap">
+          <header className="hp-nav">
+            <Link href="/" className="hp-logo">Potatopedia</Link>
+            <nav className="hp-links" aria-label="Main">
               <Link href="/varieties">Varieties</Link>
               <Link href="/countries">Countries</Link>
               <Link href="/knowledge">Knowledge</Link>
               <Link href="/answers">Answers</Link>
               <Link href="/market">Market</Link>
               <Link href="/machines">Machines</Link>
+              <Link href="/companies">Companies</Link>
               <Link href="/blog">Blog</Link>
-              <a href="/advertise">Advertise</a>
-            </div>
-          </details>
-        </header>
+            </nav>
+            <a href="/advertise" className="hp-adv">Advertise</a>
+            <details className="hp-menu">
+              <summary aria-label="Menu">
+                <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 6h12M3 12h12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" /></svg>
+              </summary>
+              <div className="hp-menu-box">
+                <Link href="/varieties">Varieties</Link>
+                <Link href="/countries">Countries</Link>
+                <Link href="/knowledge">Knowledge</Link>
+                <Link href="/answers">Answers</Link>
+                <Link href="/market">Market</Link>
+                <Link href="/machines">Machines</Link>
+                <Link href="/companies">Companies</Link>
+                <Link href="/blog">Blog</Link>
+                <a href="/advertise">Advertise</a>
+              </div>
+            </details>
+          </header>
+      </div>
+      <section className="hp-hero">
+        <div className="hp-glow" aria-hidden="true" />
+        <div className="hp-lines" aria-hidden="true" />
 
         <div className="hp-hero-in">
           <p className="hp-eyebrow hp-rise">The neutral reference on potatoes</p>
@@ -266,7 +270,7 @@ const CSS = `
   --glass:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.03)); --glass-line:rgba(255,255,255,.12); --chip-line:rgba(255,255,255,.16);
   --card:rgba(255,255,255,.04); --line:rgba(255,255,255,.08); --shadow:0 40px 100px rgba(0,0,0,.5); --glow:rgba(214,168,91,.22); --input:rgba(255,255,255,.06);
   --ivory:#F6F1E8; --ivory-card:#FFFDF9; --ivory-ink:#16140F; --ivory-mute:#5E584D; --ivory-line:#E6DCCB; --ivory-gold:#9A7238;
-  font-family: var(--hp-sans), system-ui, sans-serif; background: var(--bg); color: var(--ink); overflow-x: hidden; transition: background .6s ease, color .6s ease; }
+  font-family: var(--hp-sans), system-ui, sans-serif; background: var(--bg); color: var(--ink); overflow-x: clip; transition: background .6s ease, color .6s ease; }
 .hp[data-theme="light"] { --bg:#FBF8F2; --ink:#16140F; --ink2:#2E2A23; --mute:#5E584D; --mute2:#6E675B; --gold:#9A7238; --gold-faint:rgba(154,114,56,.28);
   --glass:linear-gradient(180deg,#FFFFFF,#FFFDF8); --glass-line:#E6DCCB; --chip-line:#DCD0BB; --card:#FFFFFF; --line:#E6DCCB;
   --shadow:0 30px 80px rgba(60,40,10,.10); --glow:rgba(214,168,91,.28); --input:#FFFFFF; --ivory:#F2EADC; --ivory-card:#FFFFFF; }
@@ -286,6 +290,7 @@ const CSS = `
 .hp-hero { position: relative; overflow: hidden; padding-bottom: 8px; }
 .hp-glow { position: absolute; left: 50%; top: -280px; width: 1200px; height: 780px; transform: translateX(-50%); background: radial-gradient(closest-side, var(--glow), transparent 70%); animation: hpGlow 7s ease-in-out infinite; pointer-events: none; }
 .hp-lines { position: absolute; inset: 0; background-image: linear-gradient(var(--line) 1px, transparent 1px); background-size: 100% 96px; opacity: .45; pointer-events: none; }
+.hp-navwrap { position: sticky; top: 0; z-index: 60; background: color-mix(in srgb, var(--bg) 84%, transparent); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
 .hp-nav { position: relative; z-index: 3; max-width: 1200px; margin: 0 auto; padding: 22px 32px; display: flex; align-items: center; gap: 28px; }
 .hp-logo { font-family: var(--hp-serif), Georgia, serif; font-size: 27px; text-decoration: none; letter-spacing: -.01em; }
 .hp-links { display: flex; gap: 26px; font-size: 14px; margin-left: 16px; }
