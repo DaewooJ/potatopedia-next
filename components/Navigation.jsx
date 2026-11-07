@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 // Premium chrome (7 Nov 2026): serif wordmark (replaces the red potato icon), quiet text nav,
-// "Ask Potatopedia…" pill to /ask and an Advertise pill to the homepage's companies section.
+// "Ask Potatopedia…" pill to /ask and an Advertise pill to /advertise (rate card).
 const LINKS = [
   { href: "/varieties", label: "Varieties", match: ["/varieties"] },
   { href: "/countries", label: "Countries", match: ["/countries", "/country"] },
@@ -54,7 +54,7 @@ export default function Navigation() {
         </nav>
         <div className="pn-right">
           <Link href="/ask" className="pn-ask">Ask Potatopedia…</Link>
-          <Link href="/#companies" className="pn-adv">Advertise</Link>
+          <Link href="/advertise" className="pn-adv">Advertise</Link>
           <button
             type="button"
             className="pn-burger"
@@ -78,7 +78,7 @@ export default function Navigation() {
             <Link key={l.href} href={l.href} className={on(l) ? "is-on" : undefined}>{l.label}</Link>
           ))}
           <Link href="/about" className={pathname === "/about" ? "is-on" : undefined}>About</Link>
-          <Link href="/#companies" className="pn-panel-adv">Advertise</Link>
+          <Link href="/advertise" className="pn-panel-adv">Advertise</Link>
         </nav>
       )}
     </header>

@@ -26,7 +26,6 @@ export default function Footer() {
             <p className="pf-k">Company</p>
             <Link href="/about">About</Link>
             <Link href="/contact">Contact</Link>
-            <Link href="/#companies">Advertise</Link>
             <Link href="/advertise">Advertise</Link>
             <a href="https://www.linkedin.com/company/potatopedia" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <a href="mailto:hello@potatopedia.com">hello@potatopedia.com</a>
