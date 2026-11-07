@@ -1,0 +1,49 @@
+{
+ "common_name": "ASN Potato",
+ "summary": "ASN Potato is a potato processor in Dronten, Flevoland, the Netherlands, founded in 1995. It sorts, stores, peels and packs fresh potatoes on its own premises and supplies them peeled or unpeeled, cut or whole. It works with Polder Potato on processing and delivery, and orders range from five kilos to five tonnes.",
+ "hq": {
+  "city": "Dronten",
+  "country": "Netherlands"
+ },
+ "founded": "1995",
+ "products": [
+  "Baby potatoes (kriel)",
+  "Fries (cut fries)",
+  "Slices",
+  "Cubes",
+  "Quarters",
+  "Halved and whole potatoes",
+  "Superbonken: large potatoes for cutting fresh fries",
+  "Peeled or unpeeled, packed or unpacked"
+ ],
+ "plants": [
+  {
+   "town": "Dronten",
+   "country": "Netherlands"
+  }
+ ],
+ "markets": [
+  "Foodservice",
+  "Wholesalers",
+  "Independent entrepreneurs",
+  "Large kitchens (institutional catering)",
+  "Meal suppliers"
+ ],
+ "facts": [
+  "Founded in 1995",
+  "Developed a peeling method in 1994 and has since refined cold peeling",
+  "Order sizes from five kilos to five tonnes",
+  "Potatoes come from long-term growers in the surrounding region"
+ ],
+ "contact": {
+  "website": "https://asnpotato.nl/",
+  "public_email": "info@asnpotato.nl",
+  "phone": "0321 – 33 62 72",
+  "address": "ASN Potato, Oudebosweg 14, 8251 RD Dronten, the Netherlands"
+ },
+ "limitations": [
+  "The website does not publish ownership, legal form, staff numbers, turnover or plant capacity.",
+  "Variety names, export markets and certifications are not listed.",
+  "The link with Polder Potato and the Pommetje product is mentioned but not explained."
+ ]
+}

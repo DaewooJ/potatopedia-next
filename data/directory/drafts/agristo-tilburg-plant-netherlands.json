@@ -1,0 +1,80 @@
+{
+ "common_name": "Agristo",
+ "summary": "Agristo is a Belgian family business that makes frozen potato products, mainly fries, at sites including a plant in Tilburg, Netherlands, bought in 2001. The group is headquartered in Wielsbeke, Belgium, and was founded in 1986. It reports 950,000 tonnes of finished product in 2025.",
+ "hq": {
+  "city": "Wielsbeke",
+  "country": "Belgium"
+ },
+ "founded": "1986 (forerunner Agrigel founded in 1983)",
+ "ownership": "Belgian family business",
+ "products": [
+  "Frozen fries, including premium fries and special cuts",
+  "Potato snacks and bites",
+  "Chips",
+  "Private label frozen potato products for retail",
+  "Custom signature fries for clients' brands",
+  "Potato flakes (production line in India)"
+ ],
+ "brands": [
+  "Maestro",
+  "Crrrock'n",
+  "SmartChef"
+ ],
+ "plants": [
+  {
+   "town": "Tilburg",
+   "country": "Netherlands"
+  },
+  {
+   "town": "Wielsbeke",
+   "country": "Belgium"
+  },
+  {
+   "town": "Harelbeke",
+   "country": "Belgium"
+  },
+  {
+   "town": "Nazareth",
+   "country": "Belgium"
+  },
+  {
+   "town": "Bijnor",
+   "country": "India"
+  },
+  {
+   "town": "Escaudoeuvres",
+   "country": "France"
+  },
+  {
+   "town": "Grand Forks",
+   "country": "United States"
+  }
+ ],
+ "markets": [
+  "Retail (private label)",
+  "Foodservice",
+  "Industrial customers",
+  "Products sold in 145 countries",
+  "France and Germany were the first export markets in 1987"
+ ],
+ "certifications": [
+  "BRC",
+  "IFS Food"
+ ],
+ "facts": [
+  "Tilburg production unit bought in 2001",
+  "Group: 950,000 tonnes of finished product in 2025",
+  "Group: 1,700 employees and €1.3 billion revenue",
+  "Works with 800 growers in Belgium, the Netherlands, France and Germany",
+  "Tilburg BRC certificate valid to 27 March 2027"
+ ],
+ "contact": {
+  "website": "https://www.agristo.com/nl",
+  "phone": "+32 (0)56 54 09 00",
+  "address": "Ridder de Ghellinckstraat 9, 8710 Wielsbeke, Belgium"
+ },
+ "limitations": [
+  "Capacity, tonnage, line count, employee numbers, products and markets for the Tilburg plant are not published on the pages read.",
+  "The Tilburg plant's own address, phone and email are not published; contact details are for the Wielsbeke head office."
+ ]
+}

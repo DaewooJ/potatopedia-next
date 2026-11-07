@@ -1,0 +1,49 @@
+{
+ "common_name": "Mencke",
+ "summary": "Mencke is a family farm in Barger-Compascuum, Drenthe, Netherlands, that breeds and selects starch potato varieties and grows seed potatoes. It became Mencke Landbouw B.V. in 2012, when Berend Mencke took it over. It is a member-breeder for Averis and represents the German variety NOVANO in the Netherlands.",
+ "hq": {
+  "city": "Barger-Compascuum",
+  "country": "Netherlands"
+ },
+ "founded": "2012 (as Mencke Landbouw B.V.; seed potato work from 1975)",
+ "ownership": "Run by Berend Mencke",
+ "products": [
+  "Starch potato varieties",
+  "Seed potatoes",
+  "Clone selection and breeding of starch potatoes",
+  "Representation of NOVANO in the Netherlands"
+ ],
+ "varieties": [
+  "BMC",
+  "MERENCO",
+  "NOVANO",
+  "MILANO"
+ ],
+ "plants": [
+  {
+   "town": "Barger-Compascuum",
+   "country": "Netherlands"
+  }
+ ],
+ "markets": [
+  "Netherlands"
+ ],
+ "facts": [
+  "About 3,000 clones a year received from AVEBE's breeding company",
+  "Selection takes at least 8 years",
+  "Seed potato growing and breeding work from 1975",
+  "Berend Mencke joined the partnership in 1993",
+  "Seed crates stored at about 3-6 °C in cold rooms"
+ ],
+ "contact": {
+  "website": "https://www.mencke.nl/",
+  "public_email": "info@mencke.nl",
+  "phone": "0031-651 364 903",
+  "address": "Verlengde Oosterdiep W.Z. 29, 7884 TM Barger-Compascuum, Netherlands"
+ },
+ "limitations": [
+  "Staff numbers, hectares, tonnes, seed generations and certification classes are not published on the pages read.",
+  "Export markets are not published, and neither are details for MILANO and ME 011-B-56.",
+  "The website does not state the scale behind its resistance scores."
+ ]
+}

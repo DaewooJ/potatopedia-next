@@ -56,6 +56,7 @@ export default function CompanyForm({ type, fields, submitLabel = "Send" }) {
       <div className="fc-grid">
         {fields.map((f) => {
           const id = `${type}-${f.name}`;
+          if (f.type === "hidden") return pre[f.name] ? <input key={f.name} type="hidden" name={f.name} value={pre[f.name]} /> : null;
           if (f.type === "checkbox") {
             return (
               <label key={f.name} className="fc-check fc-wide" htmlFor={id}>

@@ -1,0 +1,52 @@
+{
+ "common_name": "Frites uit Zuyd",
+ "summary": "Frites uit Zuyd is a Dutch maker of fresh, chilled pre-fried potato fries from Agria potatoes grown in the Netherlands, supplied to food service, wholesale, retail and events. Its address is in Almere, Flevoland, and its website carries the caption \"Amsterdam, since 2013\". It offers four cuts, including 8.7 mm thin.",
+ "hq": {
+  "city": "Almere",
+  "country": "Netherlands"
+ },
+ "products": [
+  "Fresh pre-fried fries, never frozen, made to order",
+  "Cut: 8.7 mm thin",
+  "Cut: 11 mm with skin",
+  "Cut: 13 mm with skin",
+  "Cut: 13 mm peeled",
+  "Food service: 10 kg reusable crates, packed open in grease-free paper",
+  "Retail: 450 g recyclable packs in thick and thin cuts"
+ ],
+ "plants": [
+  {
+   "town": "Almere",
+   "country": "Netherlands"
+  }
+ ],
+ "markets": [
+  "Restaurants and kitchens (food service)",
+  "Wholesale, including Hanos, Bidfood, VHC Jongens and Actifood",
+  "Supermarket retail",
+  "Events and festivals",
+  "Greater Amsterdam, Utrecht, 't Gooi, Flevoland and Noord-Holland",
+  "Limburg, Belgian Limburg and the coast from Scheveningen to Den Helder"
+ ],
+ "certifications": [
+  "FSSC 22000"
+ ],
+ "facts": [
+  "Fries are cooled to 2 °C in an 80-metre cooling tunnel",
+  "Potatoes: underwater weight of at least 380 g and tuber size over 58 mm",
+  "Potatoes grown in Limburg, the Flevopolder, Zeeland and the Haarlemmermeer",
+  "Daily delivery Monday to Saturday with its own refrigerated trucks",
+  "The factory runs fully electric and gas-free"
+ ],
+ "contact": {
+  "website": "https://fritesuitzuyd.nl/",
+  "public_email": "bestellingen@fritesuitzuyd.nl",
+  "phone": "020 261 37 37",
+  "address": "Beemsterweg 21, 1311 XC Almere, Netherlands"
+ },
+ "limitations": [
+  "The website does not publish the legal form, ownership, employee numbers, production capacity or annual tonnage.",
+  "It does not say what began in 2013 or confirm that the Almere address is the factory.",
+  "The number of growers and export markets beyond Belgian Limburg are not published."
+ ]
+}

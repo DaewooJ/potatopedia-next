@@ -1,0 +1,46 @@
+{
+ "common_name": "Selectiebedrijf Kooi",
+ "summary": "Selectiebedrijf Kooi is a Dutch seed potato company based in Aerdenhout, Noord-Holland. It sells seed potatoes and supplies ware potatoes of its own protected varieties to growers, merchants and wholesalers. It breeds its own varieties and tests new ones on trial fields in the Netherlands and abroad.",
+ "hq": {
+  "city": "Aerdenhout",
+  "country": "Netherlands"
+ },
+ "products": [
+  "Seed potatoes of its own protected varieties",
+  "Ware (table) potatoes",
+  "Breeding of new table potato varieties"
+ ],
+ "varieties": [
+  "Nemo",
+  "Obama",
+  "Festo",
+  "Magistral"
+ ],
+ "plants": [
+  {
+   "town": "Aerdenhout",
+   "country": "Netherlands"
+  }
+ ],
+ "markets": [
+  "Growers",
+  "Merchants",
+  "National and international wholesalers",
+  "Obama and Festo represented by STAMAGRI B.V."
+ ],
+ "facts": [
+  "Nemo: dry matter 21.7%, underwater weight 400 g",
+  "Obama: dry matter 18.2%, underwater weight 330 g",
+  "Festo: dry matter 19.7%, underwater weight 360 g"
+ ],
+ "contact": {
+  "website": "https://www.selectiebedrijfkooi.com/",
+  "public_email": "info@selectiebedrijfkooi.com",
+  "phone": "+31 6 50235185",
+  "address": "Selectiebedrijf KOOI B.V., Bentveldsduinweg 12, 2111 AK Aerdenhout, Netherlands"
+ },
+ "limitations": [
+  "Founding year, ownership, staff numbers, hectares, tonnes and seed certification classes are not published on the pages read.",
+  "Export countries, farm or store locations and any details for Magistral are not published."
+ ]
+}

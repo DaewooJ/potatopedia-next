@@ -1,0 +1,62 @@
+{
+ "common_name": "Duynie",
+ "summary": "Duynie is a Dutch company that turns co-products from the food and agri-industry into food, feed, petfood, technical and renewable products. For potatoes, it recovers starch from the process water of French fry and potato chip factories and refines it into food-grade and industrial starch. It is based in Katwijk (NB) and has operated since 1968.",
+ "hq": {
+  "city": "Katwijk (NB)",
+  "country": "Netherlands"
+ },
+ "founded": "1968",
+ "products": [
+  "Native and modified potato starch recovered from processors' process water",
+  "Food-grade upcycled potato starch (binder and thickener)",
+  "Modified potato starch for water-based drilling fluids",
+  "Potato starch for paper and packaging (wet end, size press, coating, corrugation)",
+  "Modified potato starch adhesives (wallpaper, paper sack and paper bag glue)",
+  "Modified potato starch for textile finishing and sizing",
+  "Starch Recovery Service for potato processors"
+ ],
+ "brands": [
+  "Drillamyl WP",
+  "Stabodrill HT",
+  "Novinexx",
+  "Novitexx",
+  "Novicoll"
+ ],
+ "plants": [
+  {
+   "town": "Katwijk (NB)",
+   "country": "Netherlands"
+  }
+ ],
+ "markets": [
+  "Starch shipped worldwide",
+  "Drilling: oil and gas, mining, water and geothermal",
+  "Paper and packaging",
+  "Adhesives",
+  "Textile",
+  "Food, feed and petfood"
+ ],
+ "certifications": [
+  "FSSC 22000",
+  "Halal",
+  "Kosher",
+  "API 13A",
+  "ISO 13500"
+ ],
+ "facts": [
+  "Active since 1968",
+  "20 strategic locations in Europe",
+  "500 employees",
+  "Drillamyl WP rated for temperatures up to 125°C; Stabodrill HT up to 150°C"
+ ],
+ "contact": {
+  "website": "https://www.duynie.com",
+  "public_email": "ingredients@duynie.com",
+  "phone": "+31 (0)485 744300",
+  "address": "Lange Oijen 29, Katwijk (NB), 5433 NG, The Netherlands"
+ },
+ "limitations": [
+  "The pages read do not publish the legal name, the ownership structure, individual plant towns, starch capacity or turnover.",
+  "The history of the former Novidon business and its merger into Duynie is not described on the website."
+ ]
+}

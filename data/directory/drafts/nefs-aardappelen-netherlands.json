@@ -1,0 +1,46 @@
+{
+ "common_name": "Nefs Aardappelen",
+ "summary": "Nefs Aardappelen is a potato processor in Halsteren, Noord-Brabant, that peels and cuts fresh chilled potato products, mainly fresh fries, for snack bars, large kitchens and greengrocers. It was founded in 1964 as a potato grower and trader and began peeling and cutting in 1988.",
+ "hq": {
+  "city": "Halsteren",
+  "country": "Netherlands"
+ },
+ "founded": "1964",
+ "products": [
+  "Fresh fries in 10, 11, 12 and 13 mm cuts",
+  "Skin-on fresh fries, 13 mm",
+  "Peeled and washed bonken for cutting fries",
+  "Cut table potatoes for cooking",
+  "Fresh wedges",
+  "Kriel (small potatoes)",
+  "Stamppot potatoes",
+  "Potato slices"
+ ],
+ "plants": [
+  {
+   "town": "Halsteren",
+   "country": "Netherlands"
+  }
+ ],
+ "markets": [
+  "Cafetarias (snack bars)",
+  "Large kitchens",
+  "Greengrocers",
+  "Hospitality (horeca) businesses",
+  "Delivery by own refrigerated transport"
+ ],
+ "facts": [
+  "Founded in 1964 as a grower and trader of potatoes for large kitchens and cafeterias",
+  "Began peeling and cutting potato products in 1988",
+  "Products are vacuum-packed with a stated shelf life of six days",
+  "Pack sizes of 1, 5, 10 and 20 kg",
+  "Delivers to customers several times a week with its own refrigerated transport"
+ ],
+ "contact": {
+  "website": "https://nefsaardappelen.nl/",
+  "public_email": "Info@nefsaardappelen.nl",
+  "phone": "0164-682113",
+  "address": "Nefs Aardappelen, Koningsspil 15, 4661 TW Halsteren, Noord-Brabant, Netherlands"
+ },
+ "limitations": "The website does not publish a legal entity name, owners, staff numbers, revenue or production capacity. Potato varieties, growers, delivery area, prices and certifications are not given on the pages read."
+}

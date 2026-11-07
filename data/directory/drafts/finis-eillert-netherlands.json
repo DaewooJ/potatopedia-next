@@ -1,0 +1,49 @@
+{
+ "common_name": "Finis & Eillert",
+ "summary": "Finis & Eillert is a Dutch maker of machines and processing lines for vegetable processing, based in Ulft. For potatoes it builds destoners, peelers, slicers, halvers, profilers and inspection tables. It is a family business in its fourth generation, dates its machine production to 1925, and Finis and Eillert combined in 2011.",
+ "hq": {
+  "city": "Ulft",
+  "country": "Netherlands"
+ },
+ "founded": "1925 (first factory; forerunner Technisch Bureau Finis owned by Alois van Raaij in 1917)",
+ "ownership": "Family-owned, fourth generation",
+ "machines": [
+  "BLADE: continuous knife or abrasive disc peeler for potatoes and root vegetables",
+  "Rollerpeeler FRS: abrasive roller peeler for peeling or pre-peeling potatoes and root vegetables",
+  "B25 Knife Peeler: peeler with hardened knives for potatoes and carrots",
+  "C25 Abrasive Peeler: peeler with a carborundum-coated interior for potatoes and carrots",
+  "APM: abrasive peeler for potatoes and other tubers, with pneumatic control of peeling time",
+  "Hydrocutter: water-pressure slicer for French fries, wedges, halves and quarters",
+  "Halver: cuts peeled potatoes into halves with a rotating circular knife",
+  "Profiler: gives potatoes a uniform rounded shape, including peeled rounded cubes (baby potatoes)",
+  "Roller Inspection Table: turns peeled potatoes on rollers so operators can inspect all sides",
+  "Destoning solutions: Stone Catcher, Vertical Auger and Cyclone De-stoners remove stones in water"
+ ],
+ "plants": [
+  {
+   "town": "Ulft",
+   "country": "Netherlands"
+  }
+ ],
+ "markets": [
+  "Agents worldwide giving support in local languages"
+ ],
+ "facts": [
+  "1925: first company-owned factory opened and FINIS machine production began",
+  "2011: Finis and Eillert joined forces; Finis partly acquired Eillert",
+  "Hydrocutter capacity: up to 8,000 kg/h",
+  "Tuberous vegetables line capacity: 400–500 kg per hour",
+  "Abrasive peeling line capacity: about 1,000–1,200 kg/hour input"
+ ],
+ "contact": {
+  "website": "https://finis-eillert.com/",
+  "public_email": "info@finis-eillert.com",
+  "phone": "+31 315 69 55 69",
+  "address": "de Bolanden 1, 7071 PW Ulft, The Netherlands"
+ },
+ "limitations": [
+  "Throughput is published only for the Hydrocutter and two processing lines; other machines have no stated capacity.",
+  "The legal entity name, headcount, revenue, named customers and installation countries are not published on the pages read.",
+  "The site does not say whether manufacturing takes place at the Ulft head office."
+ ]
+}

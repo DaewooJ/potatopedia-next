@@ -225,9 +225,18 @@ export async function GET() {
   ];
 
   // Company directory: only once DIRECTORY_PUBLIC is true in lib/directory.js (noindex review phase until then).
-  const { DIRECTORY_PUBLIC, listCompanies } = await import("../../lib/directory");
+  // Landing pages (types, machine types with ≥ 2 makers, countries with ≥ 2 companies) are generated from the data.
+  const { DIRECTORY_PUBLIC, listCompanies, landingPages, countrySlug, KIND_PATH } = await import("../../lib/directory");
+  const dirRows = DIRECTORY_PUBLIC ? await listCompanies().catch(() => []) : [];
+  const dirLanding = landingPages(dirRows);
   const companyPages = DIRECTORY_PUBLIC
-    ? [{ loc: "/companies", priority: "0.8", changefreq: "weekly" }, ...(await listCompanies().catch(() => [])).map((c) => ({ loc: `/companies/${c.slug}`, priority: "0.6", changefreq: "monthly" }))]
+    ? [
+        { loc: "/companies", priority: "0.8", changefreq: "weekly" },
+        ...[...new Set(dirRows.map((c) => c.kind))].map((k) => ({ loc: `/companies/${KIND_PATH[k]}`, priority: "0.7", changefreq: "weekly" })),
+        ...dirLanding.segments.map((s) => ({ loc: `/companies/machinery/${s}`, priority: "0.6", changefreq: "weekly" })),
+        ...dirLanding.countries.map((c) => ({ loc: `/companies/country/${countrySlug(c)}`, priority: "0.6", changefreq: "weekly" })),
+        ...dirRows.map((c) => ({ loc: `/companies/${c.slug}`, priority: "0.6", changefreq: "monthly" })),
+      ]
     : [];
 
   const allPages = [...staticPages, ...dynamicPages, ...companyPages];

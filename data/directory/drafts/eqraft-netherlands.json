@@ -1,0 +1,65 @@
+{
+ "common_name": "Eqraft",
+ "summary": "Eqraft is a Dutch maker of grading, weighing, bagging and handling machines and complete lines for potatoes and onions, based in Emmeloord. Its roots go back to Emmeloord Repair and Construction, founded in 1984. Hydratec Industries NV has been the majority shareholder since January 2025.",
+ "hq": {
+  "city": "Emmeloord",
+  "country": "Netherlands"
+ },
+ "founded": "1984 (as Emmeloord Repair and Construction; continued as Eqraft from 2017, under Proqraft BV from 2019)",
+ "ownership": "Majority shareholder Hydratec Industries NV since January 2025",
+ "machines": [
+  "Combination Scale: multihead weigher with 12 or 16 buckets of 14 litres, used for seed potatoes",
+  "Baxmatic: automatic bag filler for 1.5-25 kg bags",
+  "Cratefiller: crate filling, shown with the weigher at Interpom 2026",
+  "Eqrader potato version: optical sorter by size, weight, shape and defects (in development)",
+  "Brushing Machine: brushing and cleaning of produce",
+  "Storage Bunker: buffer storage in the line",
+  "Bin Tipper: tipping bins into the line",
+  "Bin Filler: filling bins with produce",
+  "Check Weigher: checking packed weights",
+  "Big Bag Filler Bulk: filling big bags with bulk produce"
+ ],
+ "brands": [
+  "Eqraft",
+  "Eqrader",
+  "Baxmatic",
+  "Eqontrol"
+ ],
+ "plants": [
+  {
+   "town": "Emmeloord",
+   "country": "Netherlands"
+  },
+  {
+   "town": "Goes",
+   "country": "Netherlands"
+  },
+  {
+   "town": "Richland",
+   "country": "United States"
+  }
+ ],
+ "markets": [
+  "Europe",
+  "North America",
+  "Australia",
+  "New Zealand"
+ ],
+ "facts": [
+  "2017: ERC merged with Qreenno and Propak and continued as Eqraft",
+  "Klaas van de Poppe became CEO effective 1 May 2026",
+  "Potato Eqrader capacity target: 15-20 tonnes per hour for table potatoes",
+  "Potato Eqrader capacity target: 25-30 tonnes per hour for the fries industry",
+  "Schuiling seed potato packing line target: 15-20 tonnes per hour"
+ ],
+ "contact": {
+  "website": "https://www.eqraft.com/",
+  "public_email": "info@eqraft.com",
+  "phone": "+31 527 256 130",
+  "address": "Eqraft (Proqraft BV), Werktuigenweg 7, 8304 AZ Emmeloord, Netherlands"
+ },
+ "limitations": [
+  "Staff numbers, revenue and capacities for most machines are not published on the pages read.",
+  "The machinery page does not say which machines are used for potatoes, and the potato version of the Eqrader was described as in development with no commercial installation named."
+ ]
+}

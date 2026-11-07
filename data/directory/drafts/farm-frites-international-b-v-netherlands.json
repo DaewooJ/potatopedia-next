@@ -1,0 +1,69 @@
+{
+ "common_name": "Farm Frites",
+ "summary": "Farm Frites is an independent family business that makes frozen and chilled fries, potato specialties and appetizers, mainly for foodservice. It is based in Oudenhoorn, the Netherlands, and was founded in 1971 by farmer Gerrit de Bruijne. It says it processes 1.5 million tonnes of potatoes every year.",
+ "hq": {
+  "city": "Oudenhoorn",
+  "country": "Netherlands"
+ },
+ "founded": "1971",
+ "ownership": "Independent family business",
+ "products": [
+  "Regular fries, frozen and chilled",
+  "Finest and Urban Fries cuts",
+  "Chef's Harvest and Chef's Specials Crispy Coated fries",
+  "Home-Style, Fast Fry and Quick Oven fries",
+  "Sweet potato fries",
+  "Potato specialties (duchesses, noisettes, alphabytes)",
+  "Pre-cooked potatoes",
+  "Appetizers"
+ ],
+ "brands": [
+  "Farm Frites"
+ ],
+ "plants": [
+  {
+   "town": "Oudenhoorn",
+   "country": "Netherlands"
+  },
+  {
+   "town": "Lębork",
+   "country": "Poland"
+  },
+  {
+   "town": "10th of Ramadan City",
+   "country": "Egypt"
+  }
+ ],
+ "markets": [
+  "Products served in more than 100 countries",
+  "Mainly foodservice",
+  "Retail range in Egypt",
+  "Regional sales representatives across Poland"
+ ],
+ "certifications": [
+  "GlobalG.A.P.",
+  "BRC",
+  "IFS",
+  "Halal",
+  "Kosher",
+  "RSPO Mass Balance"
+ ],
+ "facts": [
+  "Five manufacturing facilities",
+  "Transforms 1.5 million tonnes of potatoes every year",
+  "Works with over 750 potato growers in the Netherlands, Belgium, Poland and Egypt",
+  "More than 80 types of fries, potato specialties and appetizers",
+  "Over 1,600 colleagues (careers page says over 1,500)"
+ ],
+ "contact": {
+  "website": "https://www.farmfrites.com/",
+  "public_email": "info@farmfrites.com",
+  "phone": "+31 181 466 888",
+  "address": "Molendijk 108, 3227 CD Oudenhoorn, the Netherlands"
+ },
+ "limitations": [
+  "The towns of the five manufacturing facilities and capacity per plant are not published on the pages read.",
+  "Turnover, ownership shares, hectares and current variety names are not published.",
+  "Pages give different figures for staff (over 1,500 vs over 1,600) and sales offices (forty vs 43)."
+ ]
+}

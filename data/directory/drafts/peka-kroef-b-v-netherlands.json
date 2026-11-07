@@ -1,0 +1,77 @@
+{
+ "common_name": "Peka Kroef",
+ "summary": "Peka Kroef is a third-generation, family-owned company in Odiliapeel, Netherlands, that processes fresh, chilled potato products: peeled and cut potatoes, baby potatoes, mash and gratins. It supplies retail, foodservice and the food industry, and has specialised in this work since 1970.",
+ "hq": {
+  "city": "Odiliapeel",
+  "country": "Netherlands"
+ },
+ "founded": "1970 (potato trading by Piet Kroef began in the 1950s)",
+ "ownership": "100% family-owned, third generation",
+ "products": [
+  "Fresh fries",
+  "Seasoned potatoes and wedges",
+  "Potato gratins, including vegan and sweet potato gratins",
+  "Potato mash and purée",
+  "Plain peeled, cut, sliced and diced potatoes",
+  "Baby potatoes (kriel and mini kriel)",
+  "Plain potatoes with no salt or additives for the food industry",
+  "Gas-packed products for Scandinavian retail"
+ ],
+ "brands": [
+  "Freshline",
+  "Blanchies",
+  "Original"
+ ],
+ "plants": [
+  {
+   "town": "Odiliapeel",
+   "country": "Netherlands"
+  },
+  {
+   "town": "Venray",
+   "country": "Netherlands"
+  },
+  {
+   "town": "Asten",
+   "country": "Netherlands"
+  },
+  {
+   "town": "Cuijk",
+   "country": "Netherlands"
+  },
+  {
+   "town": "Katwijk",
+   "country": "Netherlands"
+  }
+ ],
+ "markets": [
+  "Retail, foodservice and the food industry",
+  "Netherlands (home market)",
+  "Western, Northern, Central and Southern Europe",
+  "United States",
+  "Chile",
+  "24 countries listed on the markets page"
+ ],
+ "certifications": [
+  "IFS Food",
+  "Beter Leven Keurmerk"
+ ],
+ "facts": [
+  "90% of its potatoes are grown within a 60 km radius of Odiliapeel",
+  "Potato gratin production began in 1985",
+  "Acquired Frespo (Katwijk) in 2024",
+  "SBTi-validated target: 54.7% cut in scope 1 and 2 emissions by 2035 vs 2024",
+  "Pack sizes range from 200 g to 5 kg"
+ ],
+ "contact": {
+  "website": "https://pekakroef.com/",
+  "public_email": "info@pekakroef.com",
+  "phone": "+31 413 279 279",
+  "address": "Beukenlaan 61, 5409 SX Odiliapeel, Nederland"
+ },
+ "limitations": [
+  "Processing capacity, revenue and employee numbers are not published on the pages read.",
+  "The roles of the Venray, Asten, Cuijk and Katwijk sites are not described.",
+  "Grower numbers, acreage, storage capacity and progress figures on sustainability targets are not given."
+ ]
+}

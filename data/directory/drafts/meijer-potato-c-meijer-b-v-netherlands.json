@@ -1,0 +1,94 @@
+{
+ "common_name": "Meijer Potato",
+ "summary": "Meijer Potato is a Dutch family business in Rilland, Zeeland, that breeds potato varieties and sells them as seed potatoes or under licence for table, French fry and chips use. It traces its start to a potato trader, Kees Meijer sr., and the fourth generation now works in the business. Its varieties are available in 60 countries.",
+ "hq": {
+  "city": "Rilland",
+  "country": "Netherlands"
+ },
+ "founded": "1920 (\"Passion for potatoes since 1920\")",
+ "ownership": "Family-owned, fourth generation active",
+ "products": [
+  "Seed potatoes of own-bred varieties",
+  "Variety licences",
+  "Table potato varieties",
+  "French fry varieties",
+  "Chips (crisps) varieties",
+  "Potato breeding"
+ ],
+ "varieties": [
+  "Acoustic",
+  "Country",
+  "Cupido",
+  "Jazzy",
+  "Lady Christl",
+  "Lady Jane",
+  "Melody",
+  "Musica",
+  "Soprano",
+  "Sound",
+  "Lady Amarilla",
+  "Lady Anna",
+  "Lady Luce",
+  "Lady Olympia",
+  "Lady Alicia",
+  "Lady Avalon",
+  "Lady Britta",
+  "Lady Claire",
+  "Lady Rosetta"
+ ],
+ "plants": [
+  {
+   "town": "Rilland",
+   "country": "Netherlands"
+  },
+  {
+   "town": "Emmeloord",
+   "country": "Netherlands"
+  },
+  {
+   "town": "Beaurains",
+   "country": "France"
+  },
+  {
+   "town": "Holt",
+   "country": "United Kingdom"
+  },
+  {
+   "town": "Szymankowo",
+   "country": "Poland"
+  },
+  {
+   "town": "Sevilla",
+   "country": "Spain"
+  },
+  {
+   "town": "Nevşehir",
+   "country": "Turkey"
+  }
+ ],
+ "markets": [
+  "Seed potatoes and licences in 60 countries",
+  "Active on all continents",
+  "Own staff or subsidiaries in the Netherlands, France, the United Kingdom, Poland, Spain and Turkey",
+  "Spain and Portugal served from Sevilla",
+  "Table potato, French fry and chips segments"
+ ],
+ "facts": [
+  "85 permanent employees",
+  "Staff in 6 countries",
+  "6 locations, including participations",
+  "More than 300 seed potato growers (organisation page)",
+  "About 8-12 years from first cross to a variety on the market"
+ ],
+ "contact": {
+  "website": "https://www.meijerpotato.com",
+  "public_email": "info@meijerpotato.com",
+  "phone": "+31 (0)113 - 76 01 00",
+  "address": "Bathseweg 45, 4411 RK Rilland, the Netherlands"
+ },
+ "limitations": [
+  "Turnover, seed volumes, hectares, seed generations and a full export-country list are not published on the pages read.",
+  "The site gives 21 varieties in its portfolio but lists 19 names, and gives grower numbers of more than 300 and more than 250 on different pages.",
+  "The subsidiaries page lists addresses but does not say what each subsidiary does."
+ ]
+}

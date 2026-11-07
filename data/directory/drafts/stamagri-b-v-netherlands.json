@@ -1,0 +1,80 @@
+{
+ "common_name": "Stamagri",
+ "summary": "Stamagri is a family business in 't Zand, Noord-Holland, run by Milo and Zico Stam. It trades and exports NAK-certified seed potatoes, buys, grades and packs table potatoes, and sells fresh-cut fries made from Agria grown on its own land. The family's potato growing in 't Zand dates back to 1966.",
+ "hq": {
+  "city": "'t Zand",
+  "country": "Netherlands"
+ },
+ "founded": "1966 (roots: grandfather first planted potatoes in 't Zand)",
+ "ownership": "Family-owned, run by Milo and Zico Stam (third generation)",
+ "products": [
+  "NAK-certified seed potatoes (classes S / SE / E / A)",
+  "Seed gradings 28/35, 35/50, 35/55, 50/55, 55/65 mm",
+  "Table potatoes, sorted and packed",
+  "Processing potatoes for fries and crisps (on request)",
+  "Fresh-cut fries (Stam Friet) from Agria",
+  "Representation of varieties Obama and Festo"
+ ],
+ "varieties": [
+  "Obama",
+  "Festo",
+  "Alpha",
+  "Baraka",
+  "Bartina",
+  "Cara",
+  "Jaerla",
+  "Kondor",
+  "Liseta",
+  "Monalisa",
+  "Mondial",
+  "Nicola",
+  "Agria",
+  "Bintje",
+  "Desiree",
+  "Frieslander",
+  "Kennebec",
+  "Premiere",
+  "Spunta",
+  "Diamant",
+  "Hermes",
+  "Lady Rosetta"
+ ],
+ "brands": [
+  "Stam Friet"
+ ],
+ "plants": [
+  {
+   "town": "'t Zand",
+   "country": "Netherlands",
+   "capacity_as_stated": "up to 300 tonnes per day"
+  }
+ ],
+ "markets": [
+  "Morocco",
+  "Greece",
+  "Spain",
+  "Germany",
+  "France",
+  "Eastern European countries"
+ ],
+ "certifications": [
+  "NAK"
+ ],
+ "facts": [
+  "5,000 m² production hall with automated sorting and packing lines and cold storage",
+  "Sorting speed of 30 tonnes per hour",
+  "Trades 20+ varieties; availability varies by season",
+  "Obama and Festo represented in cooperation with Selectiebedrijf Kooi BV",
+  "Packs in 10, 25 or 50 kg bags and 1,000-1,250 kg big bags"
+ ],
+ "contact": {
+  "website": "https://stamagri.nl/en/",
+  "public_email": "info(at)stamagri.nl",
+  "phone": "+31 6 228 985 50",
+  "address": "Nollenweg 5, 1756 CN 't Zand, Noord-Holland, Netherlands"
+ },
+ "limitations": [
+  "Hectares, seed volumes, seed generations and export volumes by country are not published on the pages read.",
+  "No own breeding programme, overseas agents or foreign branches are published; capacity figures are the company's own statements."
+ ]
+}

@@ -1,0 +1,61 @@
+{
+ "common_name": "Mooij Agro",
+ "summary": "Mooij Agro is a Dutch maker of climate control, ventilation and automation systems for potato and other crop stores, based in Hegelsom and Horst in Limburg. Founded in 1981, it has been part of Hotraco Group since 2001. Its dealer network is active in 21 countries.",
+ "hq": {
+  "city": "Hegelsom",
+  "country": "Netherlands"
+ },
+ "founded": "1981",
+ "ownership": "Part of Hotraco Group since 2001",
+ "machines": [
+  "Croptimiz-r MAX: 12-inch controller for facilities with several storage cells",
+  "Croptimiz-r Compact: 7-inch controller for one or two storage cells",
+  "Croptimiz-r PC management programme: shows, saves and exports store data",
+  "Smart Cooling Manager: coordinates cooling cells, cooling units and ventilation",
+  "Smart Energy Manager: estimates power use, peak shaving and priority power sharing among cells",
+  "iHotraco Storage Data: collects and stores storage data centrally in the cloud",
+  "Bulk store ventilation: floor and duct ventilation systems",
+  "Box store ventilation: pressure, aspiration, room and letterbox pressure ventilation",
+  "Exact-Air: full-length air and humidity system",
+  "CO2 Exchange kits: extract CO2 and replace it with fresh air"
+ ],
+ "brands": [
+  "Croptimiz-r",
+  "Exact-Air",
+  "Every-Air",
+  "iHotraco"
+ ],
+ "plants": [
+  {
+   "town": "Hegelsom",
+   "country": "Netherlands"
+  },
+  {
+   "town": "Horst",
+   "country": "Netherlands"
+  }
+ ],
+ "markets": [
+  "Dealer network active in 21 countries",
+  "Europe, including the Netherlands, Germany, Denmark, Poland, Finland and Ukraine",
+  "Argentina, Brazil, Paraguay and Canada",
+  "China, Japan, Kazakhstan and Pakistan"
+ ],
+ "facts": [
+  "Part of Hotraco Group since 2001; Hotraco was founded in 1974",
+  "Argentina project: 10 cells of 1,800 tons each, 18,000 tons in total",
+  "Garmann Landwirtschaft project: box storage of about 4,000 tonnes in three rooms",
+  "Denmark project: 2,000-ton box store for seed potatoes, completed 2017",
+  "Helpdesk and service centre open 24/7"
+ ],
+ "contact": {
+  "website": "https://www.mooij-agro.com/en/",
+  "phone": "+31 77 327 50 45",
+  "address": "Stationsstraat 142, 5963 AC Hegelsom, the Netherlands"
+ },
+ "limitations": [
+  "No technical specifications such as capacity, airflow or power are published for any product.",
+  "Staff numbers, revenue and installation totals are not published, and no general email address is given.",
+  "The legal entity named on the site is Hotraco Agri B.V.; the ownership links between Speria, Munters and Hotraco are not fully stated."
+ ]
+}

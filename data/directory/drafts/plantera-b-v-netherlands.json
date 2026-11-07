@@ -1,0 +1,81 @@
+{
+ "common_name": "Plantera",
+ "summary": "Plantera is a Dutch company that breeds, produces and sells seed potatoes and ware potatoes, mainly of its own varieties. It is based in Marknesse, Flevoland, with a breeding farm in Wieringerwerf. It was founded in 2014 by Gerard Bovée and Jeroen van Soesbergen and says it sells about 8,000 tonnes of seed potatoes a year.",
+ "hq": {
+  "city": "Marknesse",
+  "country": "Netherlands"
+ },
+ "founded": "2014",
+ "products": [
+  "Seed potatoes of its own varieties",
+  "Ware (consumption) potatoes",
+  "Own varieties for table, chips, fries, peeling and specialty segments",
+  "Non-protected varieties (Agria, Charlotte, Désirée, Hermes, Nicola, Spunta)",
+  "Variety licences for multiplication and sale abroad",
+  "Potato breeding and variety testing",
+  "Cultivation guidance and customer support"
+ ],
+ "varieties": [
+  "Celebration",
+  "Efera",
+  "Ella",
+  "Inova",
+  "Lily Rose",
+  "Lucera",
+  "Meera",
+  "Mondeo",
+  "Oscar",
+  "Purple Rain",
+  "Sherman",
+  "Titanium",
+  "Vicenta",
+  "Virgil",
+  "Vitabella",
+  "Vitanoire",
+  "Agria",
+  "Charlotte",
+  "Désirée",
+  "Hermes",
+  "Nicola",
+  "Spunta"
+ ],
+ "plants": [
+  {
+   "town": "Marknesse",
+   "country": "Netherlands"
+  },
+  {
+   "town": "Wieringerwerf",
+   "country": "Netherlands"
+  },
+  {
+   "town": "Vilgertshofen",
+   "country": "Germany"
+  }
+ ],
+ "markets": [
+  "More than 25 countries in Northwest Europe, Southern Europe and North Africa",
+  "Dutch-grown seed mostly sold in Europe, North Africa and the Near East",
+  "Licence partners in France, Spain, the United Kingdom, Canada, Australia, New Zealand and South Africa",
+  "Licence cultivation also listed in the United States",
+  "Segments: fresh export, fresh retail, peeled potatoes and specialty varieties"
+ ],
+ "facts": [
+  "About 450 ha in total, including 325 ha of seed potato cultivation in the Netherlands",
+  "About 8,000 tonnes of seed potatoes and 8,000 tonnes of consumption potatoes per year",
+  "About 65 growers",
+  "Roughly 20% of its cultivation and trade is organic",
+  "Plantera Seed BV founded in 2016; Plantera GmbH founded at the end of 2024"
+ ],
+ "contact": {
+  "website": "https://plantera.nl",
+  "public_email": "info@plantera.nl",
+  "phone": "+31 (0)527 26 41 28",
+  "address": "Hamerslag 2, 8316 GC Marknesse, Netherlands"
+ },
+ "limitations": [
+  "Ownership, turnover and staff numbers are not published on the pages read.",
+  "Seed classes, certification and the names of foreign licensees or agents are not published.",
+  "Per-variety technical figures such as dry matter and resistance scores were not read, and the year of the stated hectares and tonnes is not given."
+ ]
+}

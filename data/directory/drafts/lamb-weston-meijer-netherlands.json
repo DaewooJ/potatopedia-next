@@ -1,0 +1,84 @@
+{
+ "common_name": "Lamb Weston",
+ "summary": "Lamb Weston EMEA (legal entity Lamb Weston B.V.) makes frozen fries, potato specialties and dried potato flakes for foodservice, retail and the food industry. It has offices in Breda and Kruiningen in the Netherlands and six factories in the Netherlands, the United Kingdom and Austria. It began as a 1994 joint venture of Meijer Frozen Food and Lamb Weston.",
+ "hq": {
+  "city": "Breda",
+  "country": "Netherlands"
+ },
+ "founded": "1994 (joint venture of Meijer Frozen Food, 1985, and Lamb Weston, 1950)",
+ "products": [
+  "Frozen fries for foodservice",
+  "Potato specialties (twisters, crisscuts, dippers, wedges, hash browns, rösti)",
+  "Sweet potato products",
+  "Appetizers for foodservice",
+  "Frozen potato products for supermarket retail",
+  "Dried potato flakes for the food industry",
+  "Semi-finished products for soups, mash and binding"
+ ],
+ "brands": [
+  "Lamb Weston",
+  "Frites Atelier by Lamb Weston",
+  "Connoisseur",
+  "Private Reserve",
+  "Stealth Fries",
+  "Poundo Potatoes"
+ ],
+ "plants": [
+  {
+   "town": "Kruiningen",
+   "country": "Netherlands"
+  },
+  {
+   "town": "Bergen op Zoom",
+   "country": "Netherlands"
+  },
+  {
+   "town": "Oosterbierum",
+   "country": "Netherlands"
+  },
+  {
+   "town": "Broekhuizenvorst",
+   "country": "Netherlands"
+  },
+  {
+   "town": "Wisbech",
+   "country": "United Kingdom"
+  },
+  {
+   "town": "Hollabrunn",
+   "country": "Austria"
+  },
+  {
+   "town": "Breda",
+   "country": "Netherlands"
+  },
+  {
+   "town": "Dubai",
+   "country": "United Arab Emirates"
+  }
+ ],
+ "markets": [
+  "Products sold in more than 110 countries",
+  "Foodservice",
+  "Retail (supermarkets)",
+  "Food industry (potato flakes)",
+  "Sales offices in São Paulo (Brazil) and Lagos (Nigeria)"
+ ],
+ "facts": [
+  "Produces more than 30,000 tonnes of potato flakes a year",
+  "Meijer family began growing potatoes in Kruiningen in 1920",
+  "Meijer Frozen Food began frozen products and flakes in 1985",
+  "Acquired four plants (Oosterbierum, Bergen op Zoom, Wisbech, Hollabrunn) in 2000–2010",
+  "Acquired the Broekhuizenvorst plant in 2017"
+ ],
+ "contact": {
+  "website": "https://www.lambweston.eu/nl",
+  "public_email": "info@lambweston.eu",
+  "phone": "+31 88 00 33 200",
+  "address": "Topaasstraat 54-62, 4817 HW Breda, Netherlands"
+ },
+ "limitations": [
+  "Current ownership of the European business and the terms of the 1994 joint venture are not stated on the pages read.",
+  "Plant capacities, total frozen production, turnover, employee numbers, grower numbers, varieties and certifications are not published on the pages read."
+ ]
+}

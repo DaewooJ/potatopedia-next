@@ -1,0 +1,52 @@
+{
+ "common_name": "Yellow Chips",
+ "summary": "Yellow Chips makes organic potato chips and vegetable chips at its factory in Emmeloord, Netherlands. It began in 2013 and sells under its own GoPure brand and as private label across Europe. The About page says a team of 100 people works there.",
+ "hq": {
+  "city": "Emmeloord",
+  "country": "Netherlands"
+ },
+ "founded": "2013",
+ "products": [
+  "Classic potato chips",
+  "Canyon thick-cut potato chips",
+  "Natural Crunch batch-cooked potato chips",
+  "Vegetable chips: parsnip, beet, sweet potato",
+  "Private-label organic chips for retail"
+ ],
+ "brands": [
+  "GoPure"
+ ],
+ "plants": [
+  {
+   "town": "Emmeloord",
+   "country": "Netherlands"
+  }
+ ],
+ "markets": [
+  "Whole European market",
+  "Sold in Berlin, Amsterdam, Stockholm and Madrid",
+  "Health food stores",
+  "Food service (GoPure)",
+  "Retail private label"
+ ],
+ "certifications": [
+  "BRCGS (Grade AA)"
+ ],
+ "facts": [
+  "Began in 2013 near Emmeloord in the Noordoostpolder",
+  "Team of 100 people",
+  "Fries in 100% organic sunflower oil",
+  "Potato variety used: Agria",
+  "BRCGS Grade AA certification announced 11 March 2025"
+ ],
+ "contact": {
+  "website": "https://www.yellowchips.nl/en/",
+  "public_email": "info@yellowchips.nl",
+  "phone": "+31 (0) 85 877 11 60",
+  "address": "Yellow Chips B.V., Fabrieksweg 6, 8304 AT Emmeloord, The Netherlands"
+ },
+ "limitations": [
+  "Ownership, processing capacity, potato volumes and turnover are not published on the pages read.",
+  "Number of growers, named customers and the organic certificate body are not published."
+ ]
+}

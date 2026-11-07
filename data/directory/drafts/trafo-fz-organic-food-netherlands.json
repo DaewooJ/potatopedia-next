@@ -1,0 +1,55 @@
+{
+ "common_name": "Trafo",
+ "summary": "Trafo is a family business in Wolvega, Netherlands, that makes organic potato crisps and other snacks from vegetables, maize and pulses. Its potato crisps are fried in sunflower, coconut or olive oil, using potatoes from the Flevopolder. The company says it has worked with local farmers since 1983.",
+ "hq": {
+  "city": "Wolvega",
+  "country": "Netherlands"
+ },
+ "ownership": "Family business",
+ "products": [
+  "Classic organic potato crisps fried in sunflower oil",
+  "Ribbed (crinkle-cut) potato crisps",
+  "Handcooked potato chips",
+  "Potato crisps fried in coconut oil or olive oil",
+  "Vegetable crisps (carrot, red beetroot, parsnip, sweet potato)",
+  "Legume and protein chips from pulses, chickpeas and lentils",
+  "Pea, chickpea and lentil flips; oven-baked corn flips",
+  "Tortilla chips, popcorn, pretzel sticks and children's snacks"
+ ],
+ "brands": [
+  "Trafo"
+ ],
+ "plants": [
+  {
+   "town": "Wolvega",
+   "country": "Netherlands"
+  }
+ ],
+ "markets": [
+  "Netherlands: Ekoplaza, Odin shops, independent health food shops",
+  "Germany: SuperBiomarkt, Alnatura, Biocompany, Denns biomarkets",
+  "Belgium: Färm, Bioplanet",
+  "United Kingdom: Planet Organic, Superfood Market",
+  "Health food and organic specialty stores",
+  "Other countries, not named"
+ ],
+ "certifications": [
+  "Skal (organic)"
+ ],
+ "facts": [
+  "Has made crisps for more than 30 years",
+  "Has worked with local farmers since 1983",
+  "Potatoes come from the Flevopolder",
+  "Classic crisps sold in 12 x 125 g cases"
+ ],
+ "contact": {
+  "website": "https://www.trafochips.nl",
+  "public_email": "info@fzorganicfood.com",
+  "phone": "+31 (0)561 611000"
+ },
+ "limitations": [
+  "The legal company name, street address, founding year and owners are not published on the pages read.",
+  "Plant capacity, output, potato tonnage, varieties, staff numbers and turnover are not published.",
+  "No certifications other than Skal organic are published."
+ ]
+}

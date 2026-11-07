@@ -1,0 +1,94 @@
+{
+ "common_name": "HZPC",
+ "summary": "HZPC is a Dutch company that breeds potato varieties and trades seed potatoes, with its head office in Joure, Friesland. It was formed in 1999 by the merger of Hettema (founded 1898) and ZPC (founded 1919). It is wholly owned by the HZPC Association, whose certificates are held by growers, breeders and staff.",
+ "hq": {
+  "city": "Joure",
+  "country": "Netherlands"
+ },
+ "founded": "1999 (merger of Hettema & Sons, 1898, and ZPC, 1919)",
+ "ownership": "100% held by Vereniging HZPC; certificates held by (former) growers, breeders and staff",
+ "products": [
+  "Seed potatoes",
+  "Minitubers",
+  "Potato varieties for retail fresh, salad, traditional, French fries and crisps",
+  "Potato breeding and variety development",
+  "Hybrid true potato seed (TPS) breeding",
+  "Concept development"
+ ],
+ "varieties": [
+  "Alverstone Russet",
+  "Asterix",
+  "Cardyma",
+  "Challenger",
+  "Felsina",
+  "Innovator",
+  "Invictus",
+  "Ivory Russet",
+  "Quintera",
+  "Sagitta",
+  "Travolta",
+  "Victoria",
+  "Cayman",
+  "Heraclea",
+  "Norman",
+  "Taurus",
+  "Triple7",
+  "Annabelle",
+  "Colomba",
+  "Carrera",
+  "Memphis",
+  "Monalisa",
+  "Mozart",
+  "Red Scarlett",
+  "Sifra",
+  "Desiree",
+  "Mondial",
+  "Spunta",
+  "Liseta",
+  "Taycan"
+ ],
+ "brands": [
+  "Leon&León",
+  "Even Greener",
+  "NOVA"
+ ],
+ "plants": [
+  {
+   "town": "Joure",
+   "country": "Netherlands"
+  },
+  {
+   "town": "Metslawier",
+   "country": "Netherlands"
+  },
+  {
+   "town": "Wageningen",
+   "country": "Netherlands"
+  }
+ ],
+ "markets": [
+  "Exports to 96 countries",
+  "Offices in 16 countries",
+  "Representatives in 9 countries, including Bangladesh, Pakistan and South Africa",
+  "Agents and distributors in other countries",
+  "Segments: Retail Fresh, Traditional, French Fries, Crisps"
+ ],
+ "facts": [
+  "Employees: 400",
+  "Turnover: EUR 415 million (year not stated)",
+  "Seed potatoes: 941,000 tons; growers: 1,000",
+  "Minitubers in the Netherlands: 9 million; protected varieties: 130+",
+  "R&D investment: EUR 11 million a year; hybrid breeding started in 2011"
+ ],
+ "contact": {
+  "website": "https://www.hzpc.com/",
+  "public_email": "info@hzpc.com",
+  "phone": "+31 (0) 513 48 98 88",
+  "address": "HZPC Holland B.V., Edisonweg 5, 8501 XG Joure, The Netherlands"
+ },
+ "limitations": [
+  "The facts and figures page does not give a reference year, and some figures differ between pages.",
+  "Seed certification classes, seed hectares, storage capacity and the addresses of foreign offices are not published on the pages read.",
+  "Dry matter, yield and disease resistance values are not given in the variety catalogue."
+ ]
+}

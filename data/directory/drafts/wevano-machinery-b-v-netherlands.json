@@ -1,0 +1,53 @@
+{
+ "common_name": "Wevano",
+ "summary": "Wevano is a machine builder in Emmeloord, the Netherlands, making sorting, grading, cleaning, inspection, storage, filling, emptying and conveying machines and complete lines for potatoes and other crops. It was founded in 2000 and does its engineering, construction and assembly at its own site. Its JW 1300 grader handles up to 25 tonnes per hour.",
+ "hq": {
+  "city": "Emmeloord",
+  "country": "Netherlands"
+ },
+ "founded": "2000",
+ "machines": [
+  "U-Vision: camera sorter for size and defects, up to 11 tonnes per hour",
+  "JCL-1000: camera quality sorter making three output streams, up to 12 tonnes per hour",
+  "JW 1300: square-mesh grader with 5 screen decks, up to 25 tonnes per hour",
+  "PU Rollerset: roller set for soil removal, spreading and sorting",
+  "Kluitenscheider (clod separator): separates clods from potatoes, type 1 up to 6 tonnes per hour",
+  "Egelband (spiked belt): removes loose soil and haulm residue in the sorting line",
+  "Borstelmachine: brushing machine that cleans potatoes before inspection or sorting",
+  "Ontsmettingsset: stainless roller set for treating potatoes after the inspection table",
+  "Leestafel and leescabine: inspection table and insulated inspection cabin built to order",
+  "Doseerbunker: dosing bunker built to order for 3-4 up to 10-12 tonnes"
+ ],
+ "plants": [
+  {
+   "town": "Emmeloord",
+   "country": "Netherlands"
+  }
+ ],
+ "markets": [
+  "Netherlands",
+  "Germany, through dealer Muss Agrartechnik"
+ ],
+ "certifications": [
+  "VCA",
+  "SBB"
+ ],
+ "facts": [
+  "Founded in 2000",
+  "U-Vision camera sorter capacity up to 11 tonnes per hour",
+  "JCL-1000 sorter capacity up to 12 tonnes per hour, depending on the batch",
+  "JW 1300 grader capacity up to 25 tonnes per hour over 5 screen decks",
+  "Two U-Vision optical sorting lines in operation at two companies in Germany (news, February 2026)"
+ ],
+ "contact": {
+  "website": "https://wevano.nl/",
+  "public_email": "info@wevano.nl",
+  "phone": "+31 (0)514-56 92 77",
+  "address": "Franc 50, 8305 BS Emmeloord, The Netherlands"
+ },
+ "limitations": [
+  "The legal form, registration numbers, founders, ownership and staff numbers are not published on the pages read.",
+  "No capacities are published for fillers, emptiers, conveyors or complete lines, and the camera technology of the sorters is not described.",
+  "Export countries other than Germany, customers behind the project references and prices are not published."
+ ]
+}

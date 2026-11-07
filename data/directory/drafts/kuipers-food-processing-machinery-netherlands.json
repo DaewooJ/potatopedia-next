@@ -1,0 +1,54 @@
+{
+ "common_name": "Kuipers FPM",
+ "summary": "Kuipers FPM is a Dutch maker of industrial frying systems and turnkey snack and potato processing lines, including potato chip (crisp) plants and French fries plants. It is based in Woerden and dates its start to 1985, when it began as an engineering consultancy. It reports clients in over 60 countries.",
+ "hq": {
+  "city": "Woerden",
+  "country": "Netherlands"
+ },
+ "founded": "1985 (engineering consultancy; own frying systems from 1987)",
+ "machines": [
+  "Potato chips plant: turnkey line that cleans, peels, slices, blanches, de-waters, fries and flavours",
+  "Potato chips plant capacities: 500, 750, 1000 and 1500 kg/h line outputs as listed",
+  "French fries plant: turnkey line from raw potato receipt to IQF freezing",
+  "French fries plant capacities: 2000, 3000, 5000 and 10000 kg/h listed; text says up to 5 t/h",
+  "Peelers: steam or abrasive peeling within the French fries line",
+  "Cutting: hydro or mechanical cutting of fries",
+  "Blanchers and SAPP dip belt: colour control and prevention of after-cooking darkening",
+  "Fryer: PLC-controlled frying with oil filtration and oil volume control",
+  "Batter coating unit (optional): coats fries between dryer and fryer",
+  "Vapor scrubber unit: energy recovery, oil filtering and odour elimination for high-moisture products"
+ ],
+ "brands": [
+  "Krispfood"
+ ],
+ "plants": [
+  {
+   "town": "Woerden",
+   "country": "Netherlands"
+  }
+ ],
+ "markets": [
+  "Clients in over 60 countries",
+  "India (Krispfood brand with SV Agri)",
+  "Middle East (first sales outside Europe from 1995)",
+  "Belgium and the Netherlands (early sales 1985-1995)"
+ ],
+ "facts": [
+  "Began designing and manufacturing its own frying systems in 1987",
+  "Present in over 35 countries by 2005",
+  "French fries plant upgraded in 2021 for turnkey supply at 1 to 5 tons per hour output",
+  "Acquired Lalesse Extrusion in 2024",
+  "Co-founded Krispfood with SV Agri in 2024"
+ ],
+ "contact": {
+  "website": "https://kuipers.nu/",
+  "public_email": "info@kuipers.nu",
+  "phone": "(+31) 348 43 26 08",
+  "address": "Vijzelmolenlaan 5, 3447GX Woerden, Netherlands"
+ },
+ "limitations": [
+  "Machine model names, per-machine specifications and prices are not published, apart from a PC500 sample layout file.",
+  "Named customers, revenue, headcount, ownership and the legal entity name are not published on the pages read.",
+  "The maximum French fries capacity is stated inconsistently (5 t/h in the text, 10000 kg/h as a listed option)."
+ ]
+}

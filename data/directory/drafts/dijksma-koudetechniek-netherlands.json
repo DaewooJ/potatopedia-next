@@ -1,0 +1,54 @@
+{
+ "common_name": "Dijksma",
+ "summary": "Dijksma Koudetechniek is a refrigeration, ventilation and electrical installer for crop stores, including ware and seed potato stores and crate storage. It is based in Emmeloord, Netherlands. It was founded in 1978 by Henk Dijksma senior and is a family business, fully owned by Henk Dijksma junior since 2005.",
+ "hq": {
+  "city": "Emmeloord",
+  "country": "Netherlands"
+ },
+ "founded": "1978 (as Technisch Bureau Dijksma, Marknesse)",
+ "ownership": "Family business, owned by Henk Dijksma junior since 2005",
+ "machines": [
+  "Potato storage refrigeration: new build, renovation and expansion of cooling in barns for potatoes",
+  "Crate storage blow ventilation: air blown between crates or through the pallet opening",
+  "Crate storage suction ventilation: air drawn through crates to regulate potato storage",
+  "Cold cell electronics and controls: electronic and control part of storage cells"
+ ],
+ "plants": [
+  {
+   "town": "Emmeloord",
+   "country": "Netherlands"
+  }
+ ],
+ "markets": [
+  "Mainly Flevoland, Overijssel and Friesland",
+  "Throughout the Netherlands (onion storage)",
+  "Agricultural and horticultural businesses",
+  "Industrial clients, including restaurants"
+ ],
+ "certifications": [
+  "ISO 9001",
+  "VCA",
+  "NVKL",
+  "F-gas certification for companies (BRL100)",
+  "PED H1",
+  "WiK"
+ ],
+ "facts": [
+  "Founded 1978 in Marknesse; moved to Emmeloord in 1993",
+  "Premises expanded by 900 m² in 1999",
+  "Henk Dijksma junior joined in 1992, co-owner in 2000, full owner in 2005",
+  "Breakdown service available 24 hours a day",
+  "Also installs storage for onions, carrots, chicory roots and ULO fruit storage"
+ ],
+ "contact": {
+  "website": "https://dijksma.nl/",
+  "public_email": "info@dijksma.nl",
+  "phone": "0527 502 200 (+31 527 502 200)",
+  "address": "Dijksma Koudetechniek BV, Gulden 2, 8305 BV Emmeloord, Netherlands"
+ },
+ "limitations": [
+  "Staff numbers, turnover, named customers and projects are not published on the pages read.",
+  "Equipment brands, refrigerant types, cooling capacities, store sizes, airflow figures and potato storage temperatures are not published.",
+  "The company installs storage climate systems and does not list potato handling, sorting or processing machines."
+ ]
+}

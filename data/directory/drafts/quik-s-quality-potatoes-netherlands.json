@@ -1,0 +1,67 @@
+{
+ "common_name": "Quik's",
+ "summary": "Quik's Quality Potatoes is a family-owned company in Hedel, Netherlands, that washes, sorts and packs fresh potatoes. Since 2001 it has also made chilled, ready-to-cook potato products such as pre-fried fresh fries, mashed potatoes and baby potatoes. Hendrik Quik started the potato trade in 1932.",
+ "hq": {
+  "city": "Hedel",
+  "country": "Netherlands"
+ },
+ "founded": "1932",
+ "ownership": "Family-owned",
+ "products": [
+  "Washed, sorted and packed fresh table potatoes",
+  "Pre-fried fresh fries, including RustiQue fries with skin",
+  "Potato wedges with skin, paprika (BBQ)",
+  "Chilled mashed potatoes",
+  "Baby potatoes with rosemary and sea salt",
+  "Potato gratin with grated cheese",
+  "Hasselback, roast and pof (jacket) potatoes",
+  "Private-label potato products for retailers"
+ ],
+ "brands": [
+  "Quik's",
+  "Quik's Culinair",
+  "Quik's Fresh",
+  "Quik's Fresh Potatoes"
+ ],
+ "plants": [
+  {
+   "town": "Hedel",
+   "country": "Netherlands"
+  }
+ ],
+ "markets": [
+  "Retail: supermarkets and greengrocers",
+  "Foodservice: hospitality, catering and large-scale kitchens",
+  "Food industry",
+  "Consumers",
+  "Customers in the Netherlands and abroad",
+  "Just-in-time delivery across Northwest Europe"
+ ],
+ "certifications": [
+  "NAO",
+  "GlobalG.A.P.",
+  "IFS",
+  "GMP+",
+  "PlanetProof",
+  "SKAL Bio",
+  "BRC"
+ ],
+ "facts": [
+  "1932: Hendrik Quik starts the potato trade",
+  "2001: starts processing potatoes into ready-to-cook products",
+  "2015: fresh potato and potato products divisions brought together as Quik's Quality Potatoes",
+  "RustiQue fries sold in packs from 700 g to 5 kg, pre-fried in 100% sunflower oil",
+  "SBTi-validated target: scope 1 and 2 emissions down 63% (absolute) by 2035, base year 2024"
+ ],
+ "contact": {
+  "website": "https://www.quiks.nl/",
+  "public_email": "info@quiks.nl",
+  "phone": "+31 (0)73 599 20 93",
+  "address": "Akkerseweg 13b, 5321 HG Hedel, Netherlands"
+ },
+ "limitations": [
+  "Processing capacity, tonnages, turnover and employee numbers are not published on the pages read.",
+  "No plant other than the Hedel address, no export countries and no grower numbers are given.",
+  "Current legal entity names and shareholders are not published."
+ ]
+}

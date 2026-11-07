@@ -1,0 +1,82 @@
+{
+ "common_name": "Q-Potato",
+ "summary": "Q-Potato is a potato trading company in Lemmer, Friesland, Netherlands, that buys and sells seed and ware potatoes, mainly grown on clay soils. It was formed in 2014 by merging ATF Potato BV and Q-Potato Holland BV. Its seed trade focuses on free (non-proprietary) varieties, mostly supplied by growers under pool contracts.",
+ "hq": {
+  "city": "Lemmer",
+  "country": "Netherlands"
+ },
+ "founded": "2014 (merger of ATF Potato BV and Q-Potato Holland BV)",
+ "products": [
+  "Seed potatoes of free (non-proprietary) varieties",
+  "Ware (table) potatoes",
+  "Processing seed potatoes",
+  "Seed potato pool contracts for growers",
+  "Ware potato pool (Q-Potato Pool)",
+  "Buy-back contracts for ware potatoes"
+ ],
+ "varieties": [
+  "Agata",
+  "Agria",
+  "Bartina",
+  "Camillo",
+  "Cammeo",
+  "Cara",
+  "Cartagena",
+  "Desiree",
+  "Fantini",
+  "Fiorella",
+  "Hermes",
+  "Lady Rosetta",
+  "Marcelle",
+  "Monalisa",
+  "Mondial",
+  "Morisa",
+  "Spunta",
+  "Zoom",
+  "Jaerla",
+  "Kondor",
+  "Liseta",
+  "Diamant",
+  "Baraka",
+  "Premiere",
+  "Kennebec",
+  "Nicola",
+  "Alpha",
+  "Innovator",
+  "Markies",
+  "Alegria"
+ ],
+ "plants": [
+  {
+   "town": "Lemmer",
+   "country": "Netherlands"
+  }
+ ],
+ "markets": [
+  "Seed potato buyers in Southern Europe",
+  "Seed potato buyers in Africa",
+  "Seed potato buyers in the Middle East",
+  "Variety range suited mainly to Southern Europe, North Africa and the Middle East"
+ ],
+ "certifications": [
+  "NAO hygiene code",
+  "GlobalG.A.P. Chain of Custody"
+ ],
+ "facts": [
+  "Formed in 2014 by merging ATF Potato BV and Q-Potato Holland BV",
+  "Aims to cover no more than 75% of customers' demand with pool contracts",
+  "Growers are mostly in the Netherlands and Denmark",
+  "GlobalGAP Chain of Custody certificate CU 901545 (2025-2026)"
+ ],
+ "contact": {
+  "website": "https://qpotato.com/en-us/",
+  "public_email": "info@qpotato.com",
+  "phone": "+31 514 533 188",
+  "address": "Roggemole 6-12, 8531 WB Lemmer, Holland"
+ },
+ "limitations": [
+  "Staff numbers, turnover, volumes, hectares, seed classes and ownership are not published on the pages read.",
+  "The company does not state that it breeds or owns any variety, and no breeder is given for the varieties listed.",
+  "Some pages disagree, for example on maturity for Cartagena and Marcelle and on the postcode (8531 WB and 8530 WB)."
+ ]
+}

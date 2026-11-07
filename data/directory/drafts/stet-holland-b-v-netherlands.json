@@ -1,0 +1,27 @@
+{
+ "common_name": "STET Potato",
+ "summary": "STET Potato is a seed potato company that develops, grows and exports seed potatoes. Its Dutch arm, STET Holland, is the main office and export company, and there are sister companies in France and the United Kingdom. The website is run within the HZPC Group, but it does not set out the formal ownership.",
+ "hq": {
+  "country": "Netherlands"
+ },
+ "products": [
+  "Seed potatoes",
+  "Seed potato varieties for chips (crisps) and French fries"
+ ],
+ "markets": [
+  "Growing areas with hot, continental and Mediterranean climates",
+  "Processors of chips (crisps) and French fries"
+ ],
+ "facts": [
+  "Group companies: STET Holland (Netherlands), STET France (France) and STET Potato Ltd. (United Kingdom)",
+  "Holds the annual STET Potato Days, held 4-6 November 2026 at Transportweg 7a, Emmeloord"
+ ],
+ "contact": {
+  "website": "https://stet-potato.com/",
+  "public_email": "info@stet-potato.com"
+ },
+ "limitations": [
+  "The pages read do not publish variety names, the founding year, employee numbers, seed production figures or export countries.",
+  "No head office postal address or phone number is given on the pages read, and the formal ownership structure is not stated."
+ ]
+}

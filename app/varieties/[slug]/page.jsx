@@ -18,6 +18,7 @@ import { applyOgOverride } from "../../../lib/og-overrides";
 import TRAITS from "../../../lib/variety-traits.json";
 import KEEP from "../../../lib/variety-keep-indexed.json";
 const KEEP_INDEXED = new Set(KEEP.slugs);
+import { breederIndex, matchBreeder } from "../../../lib/directory";
 
 // ── Official-datasheet traits (lib/variety-traits.json): breeder / registry values, kept as published. ──
 const cleanLabel = (s) => String(s || "").replace(/\(.*?\)/g, "").replace(/^\d+(\.\d+)?\s+/, "").replace(/\s*\/\s*([\d.]+|[A-Z]{1,3})(\s.*)?$/, "").replace(/\s+/g, " ").replace(/[.;,\s]+$/, "").trim().toLowerCase();
@@ -217,6 +218,8 @@ export default async function VarietyDetailPage({ params }) {
   const rivals = getRelatedVarieties(v, 3);
   const nameWords = v.name.split(/\s+/);
   const enrichment = getEnrichmentSections(v, relatedVarieties);
+  // Breeder in the company directory (8 Nov 2026): matched by name in the breeder / origin text; never blocks the page.
+  const breederCo = matchBreeder(await breederIndex(), `${traits?.breeder || ""} ${v.origin || ""}`);
 
   return (
     <>
@@ -255,6 +258,13 @@ export default async function VarietyDetailPage({ params }) {
                 ))}
               </tbody>
             </table>
+            {breederCo && (
+              <p style={{ margin: "12px 0 0", fontSize: 14.5 }}>
+                <Link href={`/companies/${breederCo.slug}`} style={{ color: "var(--gold)", textDecoration: "none", fontWeight: 500 }}>
+                  Breeder in the directory: {breederCo.common} →
+                </Link>
+              </p>
+            )}
             {traits?.sources?.length > 0 && (
               <div className="dz-sources" style={{ marginTop: 14, fontSize: 14, color: "var(--mute)" }}>
                 <p style={{ margin: "0 0 6px", fontWeight: 500, color: "var(--ink)" }}>Sources</p>

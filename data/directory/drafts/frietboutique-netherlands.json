@@ -1,0 +1,60 @@
+{
+ "common_name": "Frietboutique",
+ "summary": "Frietboutique is a small Dutch fresh-fries business that runs four shops in Rotterdam, Amsterdam and Laren and supplies fresh fries to restaurants. It washes, hand-cuts and pre-fries Dutch Agria potatoes every day. It was founded in 2013 by Sammy Berendsen and Pebbles van Noorden.",
+ "hq": {
+  "city": "Rotterdam",
+  "country": "Netherlands"
+ },
+ "founded": "2013",
+ "products": [
+  "Fresh fries made from Dutch Agria potatoes",
+  "Fresh fries supplied to restaurants",
+  "Snacks with meat, vegetarian and vegan options",
+  "Homemade ice cream (IJsboutique)",
+  "Milkshakes, iced coffee, coffee and soft drinks",
+  "Event catering with a food truck and an ice cart"
+ ],
+ "brands": [
+  "Frietboutique",
+  "IJsboutique"
+ ],
+ "plants": [
+  {
+   "town": "Rotterdam Hillegersberg",
+   "country": "Netherlands"
+  },
+  {
+   "town": "Rotterdam Kralingen",
+   "country": "Netherlands"
+  },
+  {
+   "town": "Amsterdam Oud-Zuid",
+   "country": "Netherlands"
+  },
+  {
+   "town": "Laren",
+   "country": "Netherlands"
+  }
+ ],
+ "markets": [
+  "Walk-in sales at four shops",
+  "Online ordering for pickup at each shop",
+  "Restaurants throughout the Netherlands",
+  "Event catering"
+ ],
+ "facts": [
+  "Founded in 2013; marked its 10th anniversary in 2023",
+  "Four shops: two in Rotterdam, one in Amsterdam, one in Laren",
+  "Uses the Agria potato variety, grown in the Netherlands"
+ ],
+ "contact": {
+  "website": "https://www.frietboutique.nl/",
+  "public_email": "info@frietboutique.nl",
+  "phone": "06 30 41 21 09",
+  "address": "Bergse Dorpsstraat 16A, 3054 GD Rotterdam"
+ },
+ "limitations": [
+  "The website does not publish a legal entity name, ownership structure, or a production site separate from the shops.",
+  "Capacity, potato volumes, turnover, growers, export markets and certifications are not published on the pages read."
+ ]
+}

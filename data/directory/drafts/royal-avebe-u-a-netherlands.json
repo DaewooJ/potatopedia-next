@@ -1,0 +1,87 @@
+{
+ "common_name": "Avebe",
+ "summary": "Avebe is a Dutch farmers' cooperative, founded in 1919, that processes starch potatoes grown by its members into potato starch and potato protein ingredients for food, animal nutrition and industrial uses. It is based in Veendam, with production sites in the Netherlands, Germany and Sweden, and has more than 2,000 members.",
+ "hq": {
+  "city": "Veendam",
+  "country": "Netherlands"
+ },
+ "founded": "1919 (as Coöperatief Aardappelmeel Verkoop Bureau)",
+ "ownership": "Farmers' cooperative with more than 2,000 members",
+ "products": [
+  "Native potato starch",
+  "Potato starch derivatives, including starch ethers",
+  "Potato protein",
+  "Potato fibres",
+  "Ingredients for plant-based dairy and meat, bakery, soups, sauces and snacks",
+  "Ingredients for petfood, farm animal feed and aquafeed",
+  "Starch products for paper, building and construction, and adhesives"
+ ],
+ "brands": [
+  "ETENIA",
+  "Solan",
+  "Solanic",
+  "PerfectaSOL",
+  "Eliane",
+  "PASELLI",
+  "Farinex",
+  "AVEDEX"
+ ],
+ "plants": [
+  {
+   "town": "Foxhol",
+   "country": "Netherlands"
+  },
+  {
+   "town": "Gasselternijveen",
+   "country": "Netherlands"
+  },
+  {
+   "town": "Ter Apelkanaal",
+   "country": "Netherlands"
+  },
+  {
+   "town": "Dallmin",
+   "country": "Germany"
+  },
+  {
+   "town": "Lüchow",
+   "country": "Germany"
+  },
+  {
+   "town": "Malmö",
+   "country": "Sweden"
+  },
+  {
+   "town": "Veendam",
+   "country": "Netherlands"
+  },
+  {
+   "town": "Groningen",
+   "country": "Netherlands"
+  }
+ ],
+ "markets": [
+  "Food",
+  "Animal nutrition",
+  "Industrial (paper, building and construction, adhesives)",
+  "Customers around the world, with sales offices in the UK, USA, China, Singapore, Taiwan and Japan",
+  "Starch ethers stocked worldwide through a network of distributors"
+ ],
+ "facts": [
+  "More than 2,000 members and a team of 1,300 professionals",
+  "Averis varieties make up at least 80% of the seed potatoes Avebe growers use",
+  "First Solanic protein factory opened in Gasselternijveen in 2007",
+  "Innovation Center opened in Groningen in 2018",
+  "2030 target: cut ecological footprint by 30% compared to 2022/2023"
+ ],
+ "contact": {
+  "website": "https://www.avebe.com/",
+  "public_email": "info@avebe.com",
+  "phone": "+31 (0)598 669 111",
+  "address": "Prins Hendrikplein 20, 9641 GK Veendam, the Netherlands"
+ },
+ "limitations": [
+  "The pages read do not publish tonnes of potatoes processed, plant capacities, what each plant makes, turnover or starch potato hectares.",
+  "The site says Avebe holds several certificates but does not name them, and no variety names are given."
+ ]
+}

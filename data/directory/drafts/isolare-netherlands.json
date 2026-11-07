@@ -1,0 +1,45 @@
+{
+ "common_name": "Isolare",
+ "summary": "Isolare is a Dutch contractor that designs and builds insulated, conditioned spaces, including cold rooms, ULO cells and storage sheds for potatoes, carrots, sugar beet and flower bulbs. It is based in Rhenen, in the province of Utrecht. Its sandwich panels for walls, facades and ceilings range from 40 mm to 300 mm thick.",
+ "hq": {
+  "city": "Rhenen",
+  "country": "Netherlands"
+ },
+ "machines": [
+  "Storage sheds (bewaarloodsen): insulated, ventilated, climate-controlled long-term potato storage"
+ ],
+ "plants": [
+  {
+   "town": "Rhenen",
+   "country": "Netherlands"
+  }
+ ],
+ "markets": [
+  "Fruit and vegetables (AGF)",
+  "Meat",
+  "Fish",
+  "Bread",
+  "Dairy"
+ ],
+ "certifications": [
+  "ISO 9001",
+  "ISO 14001",
+  "VCA*"
+ ],
+ "facts": [
+  "Sandwich panels for walls, facades and ceilings: 40 mm to 300 mm thick",
+  "Conditioned swing doors PIR-insulated up to 150 mm; sliding doors up to 140 mm",
+  "Supplied insulation and cold doors for a cooled potato and onion storage barn at De Lingehof, Randwijk"
+ ],
+ "contact": {
+  "website": "https://www.isolare.nl/",
+  "public_email": "info@isolare.nl",
+  "phone": "0488 - 411 102",
+  "address": "Utrechtsestraatweg 220b, 3911 TX Rhenen, Netherlands"
+ },
+ "limitations": [
+  "The website does not publish a founding year, ownership, legal entity details, employee numbers or turnover.",
+  "Storage shed capacities, dimensions and technical specifications are not published.",
+  "Isolare builds insulated storage and conditioned rooms; it does not list potato handling, sorting or processing machines."
+ ]
+}

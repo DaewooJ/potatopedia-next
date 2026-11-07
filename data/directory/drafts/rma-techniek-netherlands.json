@@ -1,0 +1,44 @@
+{
+ "common_name": "RMA Techniek",
+ "summary": "RMA Techniek designs and builds custom machines, mainly for the food industry, in its own workshop in 's Heer Arendskerke, Zeeland, Netherlands. For potatoes it makes sampling, tare and quality-assessment equipment, including camera-based defect analysers, 3D size sorters and dry matter analysers. It was founded in 2006.",
+ "hq": {
+  "city": "'s Heer Arendskerke",
+  "country": "Netherlands"
+ },
+ "founded": "2006",
+ "machines": [
+  "Defects sorteerder: AI camera sorter that classifies potatoes by defect, with optional ejection",
+  "Defect analyser: AI camera classification of potato sample defects on a roller conveyor",
+  "Internal Defects Analyser: automatic slicer and camera that detects internal potato defects",
+  "Hyperspectral analyser: measures dry matter content and distribution in potato slices",
+  "Optical size sorter: 3D camera measures potato length, width and height, ejects by spec",
+  "3D Camera hoge capaciteit: measures and sorts potatoes by size within a tare line",
+  "3D Camera Friet: measures length and height of french fries per sample",
+  "SolEye 3.0: manual classification of fries by frying colour, with data saving",
+  "Expert line tare lines: automated sampling and tare lines with cutter, fryer and 3D camera",
+  "Potato crate handling line: automated sampling, sizing, weighing and crate filling"
+ ],
+ "plants": [
+  {
+   "town": "'s Heer Arendskerke",
+   "country": "Netherlands"
+  }
+ ],
+ "facts": [
+  "Founded in 2006 as a one-person business",
+  "Chamber of Commerce (KvK) number 57464510 (Middelburg)",
+  "Peeler/washers and underwater weighers listed in 15 kg and 25 kg batch sizes",
+  "Hyperspectral analyser development partly funded by the Province of Zeeland"
+ ],
+ "contact": {
+  "website": "https://www.rma-techniek.nl/",
+  "public_email": "info@rma-techniek.nl",
+  "phone": "+31 (0)113-769041",
+  "address": "RMA Techniek, Nijverheidsstraat 4, 4458 AV 's Heer Arendskerke, Netherlands"
+ },
+ "limitations": [
+  "No capacity figures, camera specifications, accuracy figures or prices are published for any potato machine.",
+  "The legal form, owners and headcount are not published.",
+  "The projects pages name no customers, countries or years."
+ ]
+}

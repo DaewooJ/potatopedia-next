@@ -1,0 +1,58 @@
+{
+ "common_name": "Kleinjan's",
+ "summary": "Kleinjan's is a family-run potato trading and packing company in Goudswaard, the Netherlands, dealing in seed, table, export and industrial potatoes and running its own sorting and packing operation. Jaap Kleinjan started the business in 1975. Its subsidiary Kleinjan's Teelt B.V. has organised its own seed potato production since 2001.",
+ "hq": {
+  "city": "Goudswaard",
+  "country": "Netherlands"
+ },
+ "founded": "1975",
+ "ownership": "Family-owned",
+ "products": [
+  "Seed potatoes grown under licence by selected seed growers",
+  "Open (free) seed varieties for local and export markets",
+  "Table potatoes, about 30 varieties incl. grill and baby potatoes",
+  "Export potatoes, including new potatoes for distant destinations",
+  "Industrial potatoes, including for peeling plants",
+  "Sorting and packing: 5 kg poly bags, 10 to 25 kg bags, big bags"
+ ],
+ "plants": [
+  {
+   "town": "Goudswaard",
+   "country": "Netherlands"
+  },
+  {
+   "town": "Aardenburg",
+   "country": "Netherlands"
+  }
+ ],
+ "markets": [
+  "Local market",
+  "Export market",
+  "Supermarkets (new potatoes from June to August)",
+  "Peeling plants (industrial potatoes)"
+ ],
+ "certifications": [
+  "ISO 9001:2015",
+  "GLOBALG.A.P.",
+  "SKAL",
+  "NAO Hygiënecode",
+  "PlanetProof",
+  "NAO Wasplaats"
+ ],
+ "facts": [
+  "1991: warehouse of about 1,250 m² built in Goudswaard",
+  "2005: Goudswaard warehouse gained 700 m² of floor space and two dock shelters",
+  "2014: Aardenburg sorting site (opened 1999) closed; machines moved to Goudswaard",
+  "Second generation: Adrie Kleinjan took over the whole company in 2002"
+ ],
+ "contact": {
+  "website": "https://kleinjansaardappelhandel.nl/",
+  "public_email": "info@kleinjansaardappelhandel.nl",
+  "phone": "+31 (0)186-692900",
+  "address": "Kleinjan's Aardappelhandel B.V., Zuidoordseweg 6, 3267 LW Goudswaard, the Netherlands"
+ },
+ "limitations": [
+  "The website names no seed or table potato varieties, licensing breeders, export countries or agents.",
+  "Seed hectares, tonnages, generations, storage capacity, sorting throughput, turnover and staff numbers are not published on the pages read."
+ ]
+}

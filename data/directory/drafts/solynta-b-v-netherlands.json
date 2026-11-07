@@ -1,0 +1,49 @@
+{
+ "common_name": "Solynta",
+ "summary": "Solynta is a non-GMO hybrid potato breeder that supplies hybrid true potato seed instead of seed tubers. It is based in Wageningen, the Netherlands, and was founded in 2007. EW GROUP acquired a majority stake in January 2026.",
+ "hq": {
+  "city": "Wageningen",
+  "country": "Netherlands"
+ },
+ "founded": "2007",
+ "ownership": "Majority stake held by EW GROUP (since 26 January 2026)",
+ "products": [
+  "Hybrid true potato seed (HTPS)",
+  "Diploid hybrid potato varieties",
+  "Bulk seed for home-garden packers (EU)"
+ ],
+ "varieties": [
+  "SOLHY019",
+  "SOLHY023"
+ ],
+ "plants": [
+  {
+   "town": "Wageningen",
+   "country": "Netherlands"
+  }
+ ],
+ "markets": [
+  "Kenya",
+  "India (smallholder growers, with Bayer)",
+  "European Union home-garden market (via Pieterpik)",
+  "Netherlands",
+  "USA, Canada and rest of world (sales contact)"
+ ],
+ "facts": [
+  "135 employees from 14 nationalities (Careers page)",
+  "Seed rate about 25 grams per hectare, against 2,500 kg of seed tubers",
+  "€20 million venture debt from the European Investment Bank, announced 18 July 2025",
+  "SOLHY019 registered on the Dutch National Variety Register, announced 11 June 2026",
+  "SOLHY023 approved and registered in Kenya, press release dated 21 July 2026"
+ ],
+ "contact": {
+  "website": "https://www.solynta.com/",
+  "public_email": "sales@solynta.com",
+  "address": "Solynta, Dreijenlaan 2, 6703 HA Wageningen, The Netherlands"
+ },
+ "limitations": [
+  "Revenue, seed production volumes, greenhouse locations and certifications are not published on the pages read.",
+  "Only two varieties are named, without market type or maturity.",
+  "Staff figures come from a Careers page marked 2023 and may be out of date."
+ ]
+}
