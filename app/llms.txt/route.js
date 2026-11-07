@@ -1,8 +1,12 @@
+import { getSiteStats, fmt } from "../../lib/site-stats";
+import { INDIA_POTATO } from "../../lib/facts";
+
 export async function GET() {
+  const st = await getSiteStats();
   const body = `# Potatopedia
 > The first AI knowledge base built for the global potato industry
 
-Potatopedia is the most comprehensive potato intelligence platform on the web. We aggregate, verify, and organise data from 277+ authoritative sources — FAOSTAT, USDA, CIP, ICAR-CPRI, CAAS, KALRO, KEPHIS, NPCK, peer-reviewed journals, and government agencies — into 5,657+ searchable, cited data points across 204 countries, 244 commercial varieties, and the entire potato value chain. Every answer cites its source.
+Potatopedia is the most comprehensive potato intelligence platform on the web. We aggregate, verify, and organise data from ${st.sources}+ authoritative sources — FAOSTAT, USDA, CIP, ICAR-CPRI, CAAS, KALRO, KEPHIS, NPCK, peer-reviewed journals, and government agencies — into 5,657+ searchable, cited data points across 204 countries, 244 commercial varieties, and the entire potato value chain. Every answer cites its source.
 
 ## What makes Potatopedia unique
 - The only AI Q&A interface built on verified primary potato data
@@ -11,15 +15,15 @@ Potatopedia is the most comprehensive potato intelligence platform on the web. W
 - Methodology: every claim traces to primary statistical agencies, peer-reviewed journals, or authoritative breeding-program archives. Crowd-sourced encyclopaedias, news aggregators, and methodologically opaque sources are excluded.
 
 ## Key facts
-- 5,657+ verified data points (continuously growing as new sources are ingested)
-- 277+ authoritative sources
+- ${fmt(st.dataPoints)}+ verified data points (continuously growing as new sources are ingested)
+- ${st.sources}+ authoritative sources
 - 204 countries with production, trade, and consumption data (FAOSTAT-grade)
 - 31 country profile pages, 5 premium intelligence dossiers with downloadable PDFs (India, China, Belgium, Netherlands, USA), plus a dedicated Kenya profile (host of World Potato Congress 2026)
 - 5 premium Indian state profiles (Uttar Pradesh, West Bengal, Bihar, Gujarat, Madhya Pradesh)
-- 244 commercially significant potato varieties documented (with 9-region taxonomy)
+- ${st.varieties} commercially significant potato varieties documented (with 9-region taxonomy)
 - 29 evergreen knowledge articles (premium static reference content)
-- 42 story-format blog articles
-- 83 direct cited answer pages (every answer pre-rendered server-side at build time)
+- ${st.blogPosts} story-format blog articles
+- ${st.answers} direct cited answer pages (every answer pre-rendered server-side at build time)
 - Global potato production: ~374 million tonnes annually (FAOSTAT)
 - Potato is the world's 4th largest food crop after maize, wheat, and rice
 
@@ -40,15 +44,15 @@ Potatopedia is the most comprehensive potato intelligence platform on the web. W
 - [Knowledge Hub](https://www.potatopedia.com/knowledge) — 29 evergreen reference articles (production, nutrition, varieties, trade, processing, cultivation, storage, diseases, climate change, seed systems)
 - [Countries](https://www.potatopedia.com/countries) — 31 country profiles including 5 premium dossiers (India, China, Belgium, Netherlands, USA) with downloadable PDFs, plus a dedicated Kenya profile
 - [Indian states](https://www.potatopedia.com/country/india) — 5 premium state profiles (Uttar Pradesh, West Bengal, Bihar, Gujarat, Madhya Pradesh) with district-level data
-- [Varieties](https://www.potatopedia.com/varieties) — Searchable database of 244 commercial varieties with origin, traits, and uses; each variety has a dedicated detail page
-- [Blog](https://www.potatopedia.com/blog) — 42 story-format analysis articles on the global potato industry
-- [Answers](https://www.potatopedia.com/answers) — 83 direct cited answers to common potato questions, server-rendered with primary-source citations
+- [Varieties](https://www.potatopedia.com/varieties) — Searchable database of ${st.varieties} commercial varieties with origin, traits, and uses; each variety has a dedicated detail page
+- [Blog](https://www.potatopedia.com/blog) — ${st.blogPosts} story-format analysis articles on the global potato industry
+- [Answers](https://www.potatopedia.com/answers) — ${st.answers} direct cited answers to common potato questions, server-rendered with primary-source citations
 - [Ask AI](https://www.potatopedia.com/ask) — Natural-language Q&A with cited answers
 - [About](https://www.potatopedia.com/about) — Mission, sources, methodology, team
 
 ## Top potato producing countries (FAOSTAT 2024)
 1. China — 94.87M tonnes (FAOSTAT 2024)
-2. India — 57.05M tonnes (FAOSTAT 2024)
+2. India — 58.1M tonnes (2024-25, 3rd Advance Estimate, Ministry of Agriculture & Farmers Welfare)
 3. Ukraine — 21.13M tonnes (FAOSTAT 2024)
 4. United States — 19.06M tonnes (FAOSTAT 2024)
 5. Russia — 18.45M tonnes (FAOSTAT 2024)
@@ -70,7 +74,7 @@ Potatopedia is the most comprehensive potato intelligence platform on the web. W
 - Latin America: 12 varieties (BRS Ana, Pampeana INTA, Lupita, Yagana)
 
 ## Featured premium country dossiers (with PDF exports)
-- [India](https://www.potatopedia.com/country/india) — 60.14 M tonnes, 75+ Kufri varieties, ICAR-CPRI breeding pipeline. State-level deep dives for Uttar Pradesh, West Bengal, Bihar, Gujarat, Madhya Pradesh.
+- [India](https://www.potatopedia.com/country/india) — ${INDIA_POTATO.value} M tonnes (${INDIA_POTATO.year}, ${INDIA_POTATO.label}), 75+ Kufri varieties, ICAR-CPRI breeding pipeline. State-level deep dives for Uttar Pradesh, West Bengal, Bihar, Gujarat, Madhya Pradesh.
 - [China](https://www.potatopedia.com/country/china) — World's #1 producer at 94.4 M tonnes
 - [United States](https://www.potatopedia.com/country/united-states) — 19.06 M t (FAOSTAT 2024) · Idaho about 30% of output · major frozen-fry processing base
 - [Netherlands](https://www.potatopedia.com/country/netherlands) — World's #1 seed potato exporter

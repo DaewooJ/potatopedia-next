@@ -1,25 +1,29 @@
 import { ppCSS } from "../../lib/styles";
 import AboutStats from "../../components/AboutStats";
+import { getSiteStats, fmt } from "../../lib/site-stats";
 import { UPDATED_SHORT } from "../../lib/data";
 import { POTATOPEDIA_PUBLISHER, POTATOPEDIA_EDITORIAL, POTATOPEDIA_WEBSITE } from "../../lib/authors";
 
-export const metadata = {
+export async function generateMetadata() {
+  const st = await getSiteStats();
+  return {
   title: "About Potatopedia",
-  description: "The world's AI-powered potato knowledge base. 5,657+ verified data points from FAOSTAT, USDA, CIP, ICAR-CPRI, and 277 authoritative sources covering 204 countries, 244 varieties, and the entire potato value chain.",
+  description: `The world's AI-powered potato knowledge base. ${fmt(st.dataPoints)}+ verified data points from FAOSTAT, USDA, CIP, ICAR-CPRI, and ${st.sources} authoritative sources covering 204 countries, ${st.varieties} varieties, and the entire potato value chain.`,
   alternates: { canonical: "https://www.potatopedia.com/about" },
   openGraph: {
     type: "website",
     url: "https://www.potatopedia.com/about",
     title: "About Potatopedia — The World's AI-Powered Potato Knowledge Base",
-    description: "5,657 verified data points across 204 countries, sourced from FAOSTAT, USDA, CIP, ICAR-CPRI, peer-reviewed journals, and 277 authoritative sources.",
+    description: `${fmt(st.dataPoints)} verified data points across 204 countries, sourced from FAOSTAT, USDA, CIP, ICAR-CPRI, peer-reviewed journals, and ${st.sources} authoritative sources.`,
   },
-};
+  };
+}
 
-const faqs = [
-  { q: "What is Potatopedia?", a: "Potatopedia is the world's first AI-powered potato knowledge base. We aggregate, verify, and organise data from 277 authoritative sources — FAOSTAT, USDA, CIP, ICAR-CPRI, peer-reviewed journals, and government agencies — into 5,657 searchable data points covering 204 countries, 244 varieties, and the complete potato value chain." },
+const buildFaqs = (st) => [
+  { q: "What is Potatopedia?", a: `Potatopedia is the world's first AI-powered potato knowledge base. We aggregate, verify, and organise data from ${st.sources} authoritative sources — FAOSTAT, USDA, CIP, ICAR-CPRI, peer-reviewed journals, and government agencies — into ${fmt(st.dataPoints)} searchable data points covering 204 countries, ${st.varieties} varieties, and the complete potato value chain.` },
   { q: "Where does the data come from?", a: "Primary sources only: FAOSTAT (UN FAO), USDA NASS/ERS, CIP (International Potato Center, Lima), ICAR-CPRI (India), CAAS (China), UN Comtrade, Eurostat, AHDB Potatoes (UK), PMC/PubMed, and dozens of national agriculture ministries. We exclude crowd-sourced encyclopaedias, news aggregators, and sources whose methodology can't be inspected." },
   { q: "How accurate is the data?", a: "Every data point traces to a primary or peer-reviewed source. The backend tracks source provenance for each fact, and the AI Q&A interface returns citations with every answer." },
-  { q: "Is Potatopedia free to use?", a: "Yes — completely free, with no paywalls or subscriptions. The mission is to make potato intelligence accessible to researchers, growers, traders, policymakers, and students worldwide." },
+  { q: "Is Potatopedia free to use?", a: "Yes — free, with no paywall or subscription. Any sponsored placement is clearly labelled and never mixed into the sourced data. The mission is to make potato intelligence accessible to researchers, growers, traders, policymakers, and students worldwide." },
   { q: "Can I contribute data?", a: "Yes. We welcome contributions from researchers, breeders, agricultural extension specialists, and industry professionals. Email hello@potatopedia.com with the data, source, and methodology, and we'll work with you to verify and integrate it." },
   { q: "Who built Potatopedia?", a: "A small team of agricultural data professionals and potato-industry specialists with experience across Germany, the Netherlands, France, Canada, India, China, and South Africa." },
 ];
@@ -45,7 +49,7 @@ function tagColor(tag) {
 }
 
 // Full @graph: Organization + WebSite + Person (operator + editorial team) + AboutPage + FAQPage
-const aboutJsonLd = {
+const buildJsonLd = (faqs) => ({
   "@context": "https://schema.org",
   "@graph": [
     POTATOPEDIA_PUBLISHER,
@@ -71,9 +75,12 @@ const aboutJsonLd = {
       })),
     },
   ],
-};
+});
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const st = await getSiteStats();
+  const faqs = buildFaqs(st);
+  const aboutJsonLd = buildJsonLd(faqs);
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutJsonLd) }} />
@@ -104,7 +111,7 @@ export default function AboutPage() {
       </section>
 
       {/* Stats (client island) */}
-      <AboutStats />
+      <AboutStats dataPoints={fmt(st.dataPoints)} sources={String(st.sources)} />
 
       {/* Mission */}
       <section style={{ maxWidth: 760, margin: "0 auto", padding: "64px 24px", textAlign: "center" }}>
@@ -113,17 +120,17 @@ export default function AboutPage() {
           Potato Intelligence, Verified and Citable
         </h2>
         <p style={{ fontSize: 15, color: "var(--mute)", lineHeight: 1.7, maxWidth: 640, margin: "0 auto" }}>
-          Potato data is scattered across UN agencies, national research institutes, breeder datasheets, and trade associations — finding a reliable answer usually means hours of searching PDFs and statistical portals, with no guarantee it's citable. Potatopedia changes that: we aggregate, verify, and organise data from 277 authoritative sources, then make it instantly searchable with AI, with citations on every answer. Built for growers, traders, researchers, policymakers, and anyone who needs an answer they can stand behind — completely free, no paywalls, no ads.
+          Potato data is scattered across UN agencies, national research institutes, breeder datasheets, and trade associations — finding a reliable answer usually means hours of searching PDFs and statistical portals, with no guarantee it's citable. Potatopedia changes that: we aggregate, verify, and organise data from {st.sources} authoritative sources, then make it instantly searchable with AI, with citations on every answer. Built for growers, traders, researchers, policymakers, and anyone who needs an answer they can stand behind — free, no paywall; any sponsored placement is clearly labelled.
         </p>
       </section>
 
       {/* Data Sources */}
       <section style={{ background: "var(--paper)", borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)" }}>
         <div style={{ maxWidth: 1000, margin: "0 auto", padding: "64px 24px", textAlign: "center" }}>
-          <span style={{ display: "inline-block", fontSize: 11, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 2.5, marginBottom: 12 }}>277 Authoritative Sources</span>
+          <span style={{ display: "inline-block", fontSize: 11, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 2.5, marginBottom: 12 }}>{st.sources} Authoritative Sources</span>
           <h2 style={{ fontSize: 30, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, marginBottom: 14 }}>Where Our Data Comes From</h2>
           <p style={{ fontSize: 14, color: "var(--mute)", lineHeight: 1.7, maxWidth: 620, margin: "0 auto 36px" }}>
-            Primary sources only. Nine representative source families below; the full back-end indexes 277 unique upstream sources.
+            Primary sources only. Nine representative source families below; the full back-end indexes {st.sources} unique upstream sources.
           </p>
           <div className="pp-about-3col" style={{ display: "grid", gap: 16 }}>
             {sources.map((s, i) => {
@@ -181,9 +188,6 @@ export default function AboutPage() {
           <a href="https://www.linkedin.com/company/potatopedia" target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", padding: "12px 28px", borderRadius: 12, background: "var(--card)", color: "var(--ink)", fontSize: 14, fontWeight: 700, textDecoration: "none", border: "1px solid var(--line)" }}>
             LinkedIn &rarr;
           </a>
-        </div>
-        <div style={{ fontSize: 13, color: "var(--mute2)", lineHeight: 1.7 }}>
-          Sister site for Indian-market potato intelligence: <a href="https://www.indianpotato.com" target="_blank" rel="noopener noreferrer" style={{ color: "var(--gold)", textDecoration: "none", fontWeight: 600 }}>indianpotato.com</a>
         </div>
       </section>
     </>

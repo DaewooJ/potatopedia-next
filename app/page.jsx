@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { getSiteStats } from "../lib/site-stats";
 import { POTATOPEDIA_PUBLISHER, POTATOPEDIA_WEBSITE } from "../lib/authors";
 import { VARIETIES } from "../lib/varieties-data";
 import { COUNTRIES } from "../lib/data";
@@ -68,14 +69,8 @@ function pickPopular(all) {
 }
 
 async function getStats() {
-  try {
-    const r = await fetch("https://potatopedia-backend.onrender.com/stats", { next: { revalidate: 3600 }, signal: AbortSignal.timeout(8000) });
-    if (!r.ok) return null;
-    const s = await r.json();
-    return { points: s.total_chunks, sources: s.unique_sources };
-  } catch {
-    return null;
-  }
+  const st = await getSiteStats();
+  return { points: st.dataPoints, sources: st.sources };
 }
 
 export default async function HomePage() {
