@@ -2,11 +2,16 @@ import { Poppins } from "next/font/google";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import SiteChrome from "../components/SiteChrome";
+import { serif, sans } from "../lib/fonts";
+import { PP_CSS, THEME_INIT } from "../lib/theme";
 
+// Poppins stays only for /ask (its own full-screen layout) and the legal pages' literal font stacks;
+// it is not preloaded, so reading pages load just Instrument Serif + Inter (premium system, 7 Nov 2026).
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800", "900"],
   display: "swap",
+  preload: false,
 });
 
 export const metadata = {
@@ -41,8 +46,9 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${serif.variable} ${sans.variable}`} suppressHydrationWarning>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: THEME_INIT }} />
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-0CXVFJDBF7"
@@ -59,7 +65,7 @@ export default function RootLayout({ children }) {
         {/* Global styles — inline approach matching existing app */}
         <style>{`
           * { margin: 0; padding: 0; box-sizing: border-box; }
-          body { -webkit-font-smoothing: antialiased; background: #fff; }
+          body { -webkit-font-smoothing: antialiased; }
           @keyframes ppFadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
           @keyframes ppFadeIn { from { opacity: 0; } to { opacity: 1; } }
           .pp-fade-up { animation: ppFadeUp 0.7s ease-out both; }
@@ -70,6 +76,7 @@ export default function RootLayout({ children }) {
             .pp-hamburger { display: flex !important; }
           }
         `}</style>
+        <style>{PP_CSS}</style>
       </head>
       <body className={poppins.className}>
         <SiteChrome>{children}</SiteChrome>

@@ -101,8 +101,8 @@ export default function ContentRequestCTA({
     return (
       <div
         style={{
-          background: "#FFFFFF",
-          border: "1px solid rgba(198,40,40,0.18)",
+          background: "var(--card)",
+          border: "1px solid rgba(154,114,56,0.18)",
           borderRadius: 14,
           padding: isCompact ? "20px 22px" : "28px 32px",
           maxWidth: 720,
@@ -115,9 +115,9 @@ export default function ContentRequestCTA({
             display: "inline-flex",
             alignItems: "center",
             gap: 8,
-            background: "rgba(76,175,80,0.08)",
-            color: "#2E7D32",
-            border: "1px solid rgba(76,175,80,0.2)",
+            background: "rgba(154,114,56,0.08)",
+            color: "var(--gold)",
+            border: "1px solid rgba(154,114,56,0.2)",
             padding: "6px 14px",
             borderRadius: 20,
             fontSize: 12,
@@ -129,10 +129,10 @@ export default function ContentRequestCTA({
           <span aria-hidden="true">✓</span>
           <span>Request received</span>
         </div>
-        <h3 style={{ fontSize: isCompact ? 18 : 22, fontWeight: 700, color: "#1A1A1A", margin: "0 0 8px" }}>
+        <h3 style={{ fontSize: isCompact ? 18 : 22, fontWeight: 700, color: "var(--ink)", margin: "0 0 8px" }}>
           Thanks — we&apos;ve logged your request.
         </h3>
-        <p style={{ fontSize: 14, color: "#555", lineHeight: 1.6, margin: 0, maxWidth: 480, marginInline: "auto" }}>
+        <p style={{ fontSize: 14, color: "var(--mute)", lineHeight: 1.6, margin: 0, maxWidth: 480, marginInline: "auto" }}>
           We prioritize new content based on user demand. If you provided your email, we&apos;ll let you know when this topic is published.
         </p>
       </div>
@@ -143,13 +143,13 @@ export default function ContentRequestCTA({
     <form
       onSubmit={handleSubmit}
       style={{
-        background: "linear-gradient(180deg,#FFFFFF 0%,#FFF8F8 100%)",
-        border: "1px solid rgba(198,40,40,0.14)",
+        background: "var(--card)",
+        border: "1px solid rgba(154,114,56,0.14)",
         borderRadius: 16,
         padding: isCompact ? "24px 22px" : "36px 36px",
         maxWidth: 720,
         margin: "0 auto",
-        boxShadow: "0 1px 3px rgba(198,40,40,0.04), 0 8px 24px rgba(0,0,0,0.03)",
+        boxShadow: "0 1px 3px rgba(154,114,56,0.04), 0 8px 24px rgba(0,0,0,0.03)",
       }}
       autoComplete="off"
       noValidate
@@ -160,10 +160,10 @@ export default function ContentRequestCTA({
             display: "inline-block",
             fontSize: 10,
             fontWeight: 700,
-            color: "#C62828",
+            color: "var(--gold)",
             textTransform: "uppercase",
             letterSpacing: 2,
-            background: "rgba(198,40,40,0.06)",
+            background: "rgba(154,114,56,0.06)",
             padding: "4px 12px",
             borderRadius: 20,
             marginBottom: 14,
@@ -175,7 +175,7 @@ export default function ContentRequestCTA({
           style={{
             fontSize: isCompact ? 20 : 26,
             fontWeight: 800,
-            color: "#1A1A1A",
+            color: "var(--ink)",
             letterSpacing: -0.6,
             lineHeight: 1.2,
             margin: "0 0 8px",
@@ -186,7 +186,7 @@ export default function ContentRequestCTA({
         <p
           style={{
             fontSize: 14,
-            color: "#666",
+            color: "var(--mute)",
             lineHeight: 1.6,
             margin: "0 auto",
             maxWidth: 460,
@@ -213,7 +213,7 @@ export default function ContentRequestCTA({
       </div>
 
       {/* Topic textarea */}
-      <label htmlFor="content-request-topic" style={{ display: "block", fontSize: 12, fontWeight: 600, color: "#444", marginBottom: 6 }}>
+      <label htmlFor="content-request-topic" style={{ display: "block", fontSize: 12, fontWeight: 600, color: "var(--ink2)", marginBottom: 6 }}>
         What would you like us to cover?
       </label>
       <textarea
@@ -229,23 +229,23 @@ export default function ContentRequestCTA({
           padding: "12px 14px",
           fontSize: 14,
           fontFamily: "inherit",
-          border: "1px solid #E5E5E5",
+          border: "1px solid var(--line)",
           borderRadius: 10,
           outline: "none",
-          background: "#fff",
-          color: "#1A1A1A",
+          background: "var(--card)",
+          color: "var(--ink)",
           lineHeight: 1.5,
           resize: "vertical",
           transition: "border-color 0.15s, box-shadow 0.15s",
           boxSizing: "border-box",
         }}
-        onFocus={(e) => { e.target.style.borderColor = "#C62828"; e.target.style.boxShadow = "0 0 0 3px rgba(198,40,40,0.08)"; }}
+        onFocus={(e) => { e.target.style.borderColor = "var(--gold)"; e.target.style.boxShadow = "0 0 0 3px rgba(154,114,56,0.08)"; }}
         onBlur={(e) => { e.target.style.borderColor = "#E5E5E5"; e.target.style.boxShadow = "none"; }}
       />
 
       {/* Email (optional) */}
-      <label htmlFor="content-request-email" style={{ display: "block", fontSize: 12, fontWeight: 600, color: "#444", marginTop: 14, marginBottom: 6 }}>
-        Email <span style={{ fontWeight: 400, color: "#999" }}>(optional &mdash; we&apos;ll notify you when published)</span>
+      <label htmlFor="content-request-email" style={{ display: "block", fontSize: 12, fontWeight: 600, color: "var(--ink2)", marginTop: 14, marginBottom: 6 }}>
+        Email <span style={{ fontWeight: 400, color: "var(--mute2)" }}>(optional &mdash; we&apos;ll notify you when published)</span>
       </label>
       <input
         id="content-request-email"
@@ -260,20 +260,20 @@ export default function ContentRequestCTA({
           padding: "12px 14px",
           fontSize: 14,
           fontFamily: "inherit",
-          border: "1px solid #E5E5E5",
+          border: "1px solid var(--line)",
           borderRadius: 10,
           outline: "none",
-          background: "#fff",
-          color: "#1A1A1A",
+          background: "var(--card)",
+          color: "var(--ink)",
           transition: "border-color 0.15s, box-shadow 0.15s",
           boxSizing: "border-box",
         }}
-        onFocus={(e) => { e.target.style.borderColor = "#C62828"; e.target.style.boxShadow = "0 0 0 3px rgba(198,40,40,0.08)"; }}
+        onFocus={(e) => { e.target.style.borderColor = "var(--gold)"; e.target.style.boxShadow = "0 0 0 3px rgba(154,114,56,0.08)"; }}
         onBlur={(e) => { e.target.style.borderColor = "#E5E5E5"; e.target.style.boxShadow = "none"; }}
       />
 
       {error && (
-        <div role="alert" style={{ marginTop: 12, fontSize: 13, color: "#C62828", fontWeight: 500 }}>
+        <div role="alert" style={{ marginTop: 12, fontSize: 13, color: "var(--gold)", fontWeight: 500 }}>
           {error}
         </div>
       )}
@@ -287,7 +287,7 @@ export default function ContentRequestCTA({
             alignItems: "center",
             gap: 8,
             padding: "12px 28px",
-            background: "linear-gradient(135deg,#C62828,#E53935)",
+            background: "var(--accent-bg)",
             color: "#fff",
             border: "none",
             borderRadius: 12,
@@ -295,7 +295,7 @@ export default function ContentRequestCTA({
             fontWeight: 700,
             fontFamily: "inherit",
             cursor: busy ? "wait" : "pointer",
-            boxShadow: "0 1px 2px rgba(198,40,40,0.18), 0 4px 12px rgba(198,40,40,0.10)",
+            boxShadow: "0 1px 2px rgba(154,114,56,0.18), 0 4px 12px rgba(154,114,56,0.10)",
             transition: "transform 0.12s ease, box-shadow 0.12s ease, opacity 0.15s",
             opacity: busy ? 0.8 : 1,
           }}
@@ -304,7 +304,7 @@ export default function ContentRequestCTA({
         </button>
       </div>
 
-      <p style={{ fontSize: 11, color: "#999", textAlign: "center", marginTop: 14, marginBottom: 0, lineHeight: 1.5 }}>
+      <p style={{ fontSize: 11, color: "var(--mute2)", textAlign: "center", marginTop: 14, marginBottom: 0, lineHeight: 1.5 }}>
         Submission opens your email app with the message pre-filled. We read every request.
       </p>
     </form>

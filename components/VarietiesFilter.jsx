@@ -105,51 +105,51 @@ export default function VarietiesFilter({ totalCount, regionCounts = {} }) {
     <div style={{ maxWidth: 1080, margin: "0 auto", padding: "0 48px 24px" }} className="pp-section">
       {/* Top row */}
       <div style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap", marginBottom: 18 }}>
-        <div style={{ flex: 1, minWidth: 220, display: "flex", alignItems: "center", gap: 10, background: "white", borderRadius: 10, border: "1.5px solid #ececec", padding: "0 14px" }}>
+        <div style={{ flex: 1, minWidth: 220, display: "flex", alignItems: "center", gap: 10, background: "var(--card)", borderRadius: 10, border: "1.5px solid var(--line)", padding: "0 14px" }}>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#bbb" strokeWidth="2"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>
           <input
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search varieties (e.g. Russet Burbank, Kufri, Shangi, Bintje)"
-            style={{ flex: 1, border: "none", outline: "none", fontSize: 14, fontFamily: "inherit", padding: "10px 0", background: "transparent", color: "#333" }}
+            style={{ flex: 1, border: "none", outline: "none", fontSize: 14, fontFamily: "inherit", padding: "10px 0", background: "transparent", color: "var(--ink2)" }}
           />
-          {search && <button onClick={() => setSearch("")} style={{ border: "none", background: "transparent", fontSize: 16, color: "#999", cursor: "pointer" }} aria-label="Clear search">×</button>}
+          {search && <button onClick={() => setSearch("")} style={{ border: "none", background: "transparent", fontSize: 16, color: "var(--mute2)", cursor: "pointer" }} aria-label="Clear search">×</button>}
         </div>
-        <select value={sort} onChange={(e) => setSort(e.target.value)} style={{ padding: "10px 14px", borderRadius: 10, border: "1.5px solid #ececec", background: "white", fontSize: 13, fontFamily: "inherit", cursor: "pointer", color: "#444" }}>
+        <select value={sort} onChange={(e) => setSort(e.target.value)} style={{ padding: "10px 14px", borderRadius: 10, border: "1.5px solid var(--line)", background: "var(--card)", fontSize: 13, fontFamily: "inherit", cursor: "pointer", color: "var(--ink2)" }}>
           {SORT_OPTIONS.map(o => <option key={o.value} value={o.value}>Sort: {o.label}</option>)}
         </select>
-        <span style={{ fontSize: 12, color: "#999", whiteSpace: "nowrap" }}>
+        <span style={{ fontSize: 12, color: "var(--mute2)", whiteSpace: "nowrap" }}>
           {matchCount} of {totalCount}
         </span>
         {activeCount > 0 && (
-          <button onClick={clearAll} style={{ fontSize: 12, color: "#C62828", background: "transparent", border: "1px solid rgba(198,40,40,0.25)", padding: "6px 12px", borderRadius: 16, cursor: "pointer", fontFamily: "inherit", fontWeight: 600 }}>
+          <button onClick={clearAll} style={{ fontSize: 12, color: "var(--gold)", background: "transparent", border: "1px solid rgba(154,114,56,0.25)", padding: "6px 12px", borderRadius: 16, cursor: "pointer", fontFamily: "inherit", fontWeight: 600 }}>
             Clear {activeCount} filter{activeCount > 1 ? "s" : ""}
           </button>
         )}
       </div>
 
-      <div style={{ marginBottom: 6, fontSize: 11, fontWeight: 700, color: "#999", textTransform: "uppercase", letterSpacing: 1.5 }}>Region</div>
+      <div style={{ marginBottom: 6, fontSize: 11, fontWeight: 700, color: "var(--mute2)", textTransform: "uppercase", letterSpacing: 1.5 }}>Region</div>
       <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 14 }}>
         {REGION_ORDER.map((r) => (
           <button key={r} className="pp-pill" onClick={() => setRegion(r)} style={{
             padding: "6px 14px", borderRadius: 18, border: "1px solid",
-            borderColor: region === r ? "#C62828" : "#e0e0e0",
-            background: region === r ? "#C62828" : "white",
+            borderColor: region === r ? "var(--gold)" : "#e0e0e0",
+            background: region === r ? "var(--gold)" : "white",
             color: region === r ? "white" : "#666",
             fontSize: 12, fontWeight: 600, cursor: "pointer", fontFamily: "inherit",
           }}>{r}{r !== "All" && regionCounts[r] ? ` (${regionCounts[r]})` : ""}</button>
         ))}
       </div>
 
-      <div style={{ marginBottom: 6, fontSize: 11, fontWeight: 700, color: "#999", textTransform: "uppercase", letterSpacing: 1.5 }}>Use</div>
+      <div style={{ marginBottom: 6, fontSize: 11, fontWeight: 700, color: "var(--mute2)", textTransform: "uppercase", letterSpacing: 1.5 }}>Use</div>
       <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 14 }}>
         {USE_ORDER.map((u) => {
           const c = USE_COLORS[u];
           return (
             <button key={u} className="pp-pill" onClick={() => setUse(u)} style={{
               padding: "6px 14px", borderRadius: 18, border: "1px solid",
-              borderColor: use === u ? (c?.fg || "#C62828") : "#e0e0e0",
-              background: use === u ? (c?.fg || "#C62828") : "white",
+              borderColor: use === u ? (c?.fg || "var(--gold)") : "#e0e0e0",
+              background: use === u ? (c?.fg || "var(--gold)") : "white",
               color: use === u ? "white" : "#666",
               fontSize: 12, fontWeight: 600, cursor: "pointer", fontFamily: "inherit",
             }}>{u}</button>
@@ -157,13 +157,13 @@ export default function VarietiesFilter({ totalCount, regionCounts = {} }) {
         })}
       </div>
 
-      <div style={{ marginBottom: 6, fontSize: 11, fontWeight: 700, color: "#999", textTransform: "uppercase", letterSpacing: 1.5 }}>Tier</div>
+      <div style={{ marginBottom: 6, fontSize: 11, fontWeight: 700, color: "var(--mute2)", textTransform: "uppercase", letterSpacing: 1.5 }}>Tier</div>
       <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
         {TIER_ORDER.map((t) => (
           <button key={t} className="pp-pill" onClick={() => setTier(t)} style={{
             padding: "6px 14px", borderRadius: 18, border: "1px solid",
-            borderColor: tier === t ? "#C62828" : "#e0e0e0",
-            background: tier === t ? "#C62828" : "white",
+            borderColor: tier === t ? "var(--gold)" : "#e0e0e0",
+            background: tier === t ? "var(--gold)" : "white",
             color: tier === t ? "white" : "#666",
             fontSize: 12, fontWeight: 600, cursor: "pointer", fontFamily: "inherit",
           }}>{t}</button>

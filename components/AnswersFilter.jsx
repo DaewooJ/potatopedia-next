@@ -28,16 +28,16 @@ export default function AnswersFilter({ answers }) {
       {/* Filter bar */}
       <div style={{ marginBottom: 24 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 16, flexWrap: "wrap", marginBottom: 16 }}>
-          <div style={{ flex: 1, minWidth: 200, display: "flex", alignItems: "center", gap: 10, background: "white", borderRadius: 12, border: "1.5px solid #eee", padding: "0 14px" }}>
+          <div style={{ flex: 1, minWidth: 200, display: "flex", alignItems: "center", gap: 10, background: "var(--card)", borderRadius: 12, border: "1.5px solid var(--line)", padding: "0 14px" }}>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#bbb" strokeWidth="2"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>
             <input
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search questions..."
-              style={{ flex: 1, border: "none", outline: "none", fontSize: 14, fontFamily: "inherit", padding: "10px 0", background: "transparent", color: "#333" }}
+              style={{ flex: 1, border: "none", outline: "none", fontSize: 14, fontFamily: "inherit", padding: "10px 0", background: "transparent", color: "var(--ink2)" }}
             />
           </div>
-          <span style={{ fontSize: 13, color: "#999", fontWeight: 500, whiteSpace: "nowrap" }}>
+          <span style={{ fontSize: 13, color: "var(--mute2)", fontWeight: 500, whiteSpace: "nowrap" }}>
             Showing {filtered.length} of {answers.length} questions
           </span>
         </div>
@@ -49,8 +49,8 @@ export default function AnswersFilter({ answers }) {
               onClick={() => setCategory(c)}
               style={{
                 padding: "6px 16px", borderRadius: 20, border: "1px solid",
-                borderColor: category === c ? "#C62828" : "#e0e0e0",
-                background: category === c ? "#C62828" : "white",
+                borderColor: category === c ? "var(--gold)" : "#e0e0e0",
+                background: category === c ? "var(--gold)" : "white",
                 color: category === c ? "white" : "#666",
                 fontSize: 12, fontWeight: 600, cursor: "pointer", fontFamily: "inherit",
               }}
@@ -71,7 +71,7 @@ export default function AnswersFilter({ answers }) {
               style={{
                 display: visible ? "block" : "none",
                 padding: "20px 24px", borderRadius: 14,
-                border: "1px solid rgba(0,0,0,0.06)", background: "#fff",
+                border: "1px solid var(--line)", background: "var(--card)",
                 textDecoration: "none", position: "relative",
               }}
             >
@@ -79,13 +79,13 @@ export default function AnswersFilter({ answers }) {
                 <div style={{ flex: 1 }}>
                   <span style={{
                     display: "inline-block", fontSize: 10, fontWeight: 700,
-                    color: "#C62828", textTransform: "uppercase", letterSpacing: 1.5,
-                    background: "rgba(198,40,40,0.06)", padding: "3px 10px",
+                    color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.5,
+                    background: "rgba(154,114,56,0.06)", padding: "3px 10px",
                     borderRadius: 6, marginBottom: 10,
                   }}>{pa.category}</span>
-                  <h2 style={{ fontSize: 15, fontWeight: 600, color: "#1A1A1A", lineHeight: 1.5, margin: 0 }}>{pa.question}</h2>
+                  <h2 style={{ fontSize: 15, fontWeight: 600, color: "var(--ink)", lineHeight: 1.5, margin: 0 }}>{pa.question}</h2>
                 </div>
-                <span style={{ fontSize: 18, color: "#ccc", flexShrink: 0, marginTop: 4 }}>&rarr;</span>
+                <span style={{ fontSize: 18, color: "var(--mute3)", flexShrink: 0, marginTop: 4 }}>&rarr;</span>
               </div>
             </Link>
           );
@@ -93,9 +93,9 @@ export default function AnswersFilter({ answers }) {
       </div>
 
       {filtered.length === 0 && (
-        <div style={{ textAlign: "center", padding: "40px 0", color: "#999" }}>
+        <div style={{ textAlign: "center", padding: "40px 0", color: "var(--mute2)" }}>
           <p style={{ fontSize: 16, marginBottom: 8 }}>No questions match your filter.</p>
-          <button onClick={() => { setCategory("All"); setSearch(""); }} style={{ fontSize: 14, color: "#C62828", background: "none", border: "none", cursor: "pointer", fontFamily: "inherit", fontWeight: 600 }}>Clear filters</button>
+          <button onClick={() => { setCategory("All"); setSearch(""); }} style={{ fontSize: 14, color: "var(--gold)", background: "none", border: "none", cursor: "pointer", fontFamily: "inherit", fontWeight: 600 }}>Clear filters</button>
         </div>
       )}
     </section>

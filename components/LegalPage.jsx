@@ -24,15 +24,15 @@ export const COMPANY = {
 // Single source of truth for the "last updated" stamp shown on every page.
 export const LAST_UPDATED = "May 29, 2026";
 
-const RED = "#C62828";
+const RED = "var(--gold)";
 const FONT =
   '"Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
 
 const S = {
   page: {
     fontFamily: FONT,
-    background: "#FFFFFF",
-    color: "#333",
+    background: "var(--card)",
+    color: "var(--ink2)",
     minHeight: "100vh",
   },
   container: {
@@ -53,42 +53,42 @@ const S = {
     fontWeight: 800,
     letterSpacing: -1,
     lineHeight: 1.15,
-    color: "#1A1A1A",
+    color: "var(--ink)",
     margin: "0 0 10px",
   },
-  meta: { fontSize: 13, color: "#888", margin: "0 0 8px" },
-  intro: { fontSize: 15, color: "#555", lineHeight: 1.7, margin: "16px 0 0" },
-  rule: { border: 0, borderTop: "1px solid #eee", margin: "32px 0" },
+  meta: { fontSize: 13, color: "var(--mute2)", margin: "0 0 8px" },
+  intro: { fontSize: 15, color: "var(--mute)", lineHeight: 1.7, margin: "16px 0 0" },
+  rule: { border: 0, borderTop: "1px solid var(--line)", margin: "32px 0" },
   h2: {
     fontSize: 20,
     fontWeight: 700,
-    color: "#1A1A1A",
+    color: "var(--ink)",
     margin: "36px 0 12px",
   },
-  p: { fontSize: 15, lineHeight: 1.75, color: "#444", margin: "0 0 14px" },
+  p: { fontSize: 15, lineHeight: 1.75, color: "var(--ink2)", margin: "0 0 14px" },
   ul: { margin: "0 0 16px", paddingLeft: 22 },
-  li: { fontSize: 15, lineHeight: 1.7, color: "#444", marginBottom: 8 },
+  li: { fontSize: 15, lineHeight: 1.7, color: "var(--ink2)", marginBottom: 8 },
   a: { color: RED, textDecoration: "none", fontWeight: 600 },
   callout: {
-    background: "#FAFAFA",
-    border: "1px solid #eee",
+    background: "var(--paper)",
+    border: "1px solid var(--line)",
     borderLeft: `4px solid ${RED}`,
     borderRadius: "0 10px 10px 0",
     padding: "16px 20px",
     margin: "0 0 18px",
     fontSize: 14.5,
     lineHeight: 1.7,
-    color: "#555",
+    color: "var(--mute)",
   },
   card: {
-    background: "#FFFFFF",
-    border: "1px solid #eee",
+    background: "var(--card)",
+    border: "1px solid var(--line)",
     borderRadius: 12,
     padding: "22px 24px",
     margin: "8px 0",
   },
-  cardRow: { fontSize: 14.5, lineHeight: 1.9, color: "#444" },
-  cardLabel: { color: "#888", fontWeight: 600, marginRight: 6 },
+  cardRow: { fontSize: 14.5, lineHeight: 1.9, color: "var(--ink2)" },
+  cardLabel: { color: "var(--mute2)", fontWeight: 600, marginRight: 6 },
   backLink: {
     display: "inline-block",
     marginTop: 40,

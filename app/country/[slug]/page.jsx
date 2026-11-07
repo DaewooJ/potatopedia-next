@@ -37,7 +37,7 @@ function CountryBlogPosts({ countrySlug }) {
   const slugs = COUNTRY_TO_BLOGS[countrySlug] || [];
   if (slugs.length === 0) return null;
   return (
-    <section className="pp-country-blog pp-no-print" style={{ padding: "40px 0", background: "#fff", borderTop: "1px solid #f0f0f0", borderBottom: "1px solid #f0f0f0" }}>
+    <section className="pp-country-blog pp-no-print" style={{ padding: "40px 0", background: "var(--card)", borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px" }}>
         <RelatedBlogPosts slugs={slugs} title="Read our analysis" subtitle="Story-format coverage of this country's potato industry — context, trends, and the why behind the numbers." />
       </div>
@@ -50,32 +50,32 @@ function CountryVarieties({ countrySlug, countryName }) {
   if (!all || all.length === 0) return null;
   const top = all.slice(0, 8);
   return (
-    <section className="pp-country-varieties pp-no-print" style={{ padding: "48px 0", background: "#FAFAFA", borderTop: "1px solid #f0f0f0", borderBottom: "1px solid #f0f0f0" }}>
+    <section className="pp-country-varieties pp-no-print" style={{ padding: "48px 0", background: "var(--paper)", borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", flexWrap: "wrap", gap: 14, marginBottom: 22 }}>
           <div>
-            <div style={{ fontSize: 11, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 2, marginBottom: 8 }}>Varieties grown here</div>
-            <h2 style={{ fontSize: 26, fontWeight: 800, color: "#1A1A1A", letterSpacing: -0.7, margin: 0 }}>
+            <div style={{ fontSize: 11, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 2, marginBottom: 8 }}>Varieties grown here</div>
+            <h2 style={{ fontSize: 26, fontWeight: 800, color: "var(--ink)", letterSpacing: -0.7, margin: 0 }}>
               Top potato varieties from {countryName}
             </h2>
-            <p style={{ fontSize: 14, color: "#666", marginTop: 6, marginBottom: 0 }}>
+            <p style={{ fontSize: 14, color: "var(--mute)", marginTop: 6, marginBottom: 0 }}>
               {all.length} commercially significant {all.length === 1 ? "variety" : "varieties"} documented in our database{all.length > 8 ? " (showing top 8)" : ""}.
             </p>
           </div>
           {all.length > 8 && (
-            <Link href="/varieties" style={{ fontSize: 13, color: "#C62828", fontWeight: 600, textDecoration: "none", whiteSpace: "nowrap" }}>
+            <Link href="/varieties" style={{ fontSize: 13, color: "var(--gold)", fontWeight: 600, textDecoration: "none", whiteSpace: "nowrap" }}>
               All {all.length} →
             </Link>
           )}
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: 12 }}>
           {top.map(v => (
-            <Link key={v.slug} href={"/varieties/" + v.slug} style={{ display: "block", textDecoration: "none", color: "inherit", background: "#fff", border: "1px solid #ececec", borderRadius: 10, padding: "14px 16px" }}>
+            <Link key={v.slug} href={"/varieties/" + v.slug} style={{ display: "block", textDecoration: "none", color: "inherit", background: "var(--card)", border: "1px solid var(--line)", borderRadius: 10, padding: "14px 16px" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: 6, marginBottom: 4 }}>
-                <div style={{ fontSize: 14, fontWeight: 700, color: "#1A1A1A" }}>{v.name}</div>
-                {v.year && <div style={{ fontSize: 11, color: "#999" }}>{v.year}</div>}
+                <div style={{ fontSize: 14, fontWeight: 700, color: "var(--ink)" }}>{v.name}</div>
+                {v.year && <div style={{ fontSize: 11, color: "var(--mute2)" }}>{v.year}</div>}
               </div>
-              <div style={{ fontSize: 12, color: "#666", lineHeight: 1.5 }}>{v.trait.length > 110 ? v.trait.slice(0, 110) + "…" : v.trait}</div>
+              <div style={{ fontSize: 12, color: "var(--mute)", lineHeight: 1.5 }}>{v.trait.length > 110 ? v.trait.slice(0, 110) + "…" : v.trait}</div>
             </Link>
           ))}
         </div>
@@ -295,30 +295,30 @@ function StandardCountryPage({ c, slug }) {
   };
 
   return (
-    <div className="pp-country-page" style={{ minHeight: "100vh", background: "#fff", overflowX: "hidden" }}>
+    <div className="pp-country-page" style={{ minHeight: "100vh", background: "var(--card)", overflowX: "hidden" }}>
       <style>{ppCSS}</style>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
 
       <section style={{ paddingTop: 52, paddingBottom: 40, textAlign: "center", position: "relative", overflow: "hidden" }}>
-        <div style={{ position: "absolute", top: -100, left: "50%", transform: "translateX(-50%)", width: 600, height: 600, background: "radial-gradient(circle,rgba(198,40,40,0.04) 0%,transparent 70%)", borderRadius: "50%", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", top: -100, left: "50%", transform: "translateX(-50%)", width: 600, height: 600, background: "radial-gradient(circle,rgba(154,114,56,0.04) 0%,transparent 70%)", borderRadius: "50%", pointerEvents: "none" }} />
         <div style={{ maxWidth: 700, margin: "0 auto", padding: "0 24px", position: "relative" }}>
-          <Link href="/countries" style={{ fontSize: 13, color: "#C62828", textDecoration: "none", fontWeight: 500, marginBottom: 20, display: "inline-flex", alignItems: "center", gap: 6, padding: "6px 14px", borderRadius: 8, background: "rgba(198,40,40,0.04)", border: "1px solid rgba(198,40,40,0.1)" }}>&larr; All Countries</Link>
+          <Link href="/countries" style={{ fontSize: 13, color: "var(--gold)", textDecoration: "none", fontWeight: 500, marginBottom: 20, display: "inline-flex", alignItems: "center", gap: 6, padding: "6px 14px", borderRadius: 8, background: "rgba(154,114,56,0.04)", border: "1px solid rgba(154,114,56,0.1)" }}>&larr; All Countries</Link>
           <div style={{ fontSize: 72, marginTop: 16, marginBottom: 12 }}>{c.flag}</div>
-          <h1 style={{ fontSize: 40, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1.5, marginBottom: 8, lineHeight: 1.15 }}>{c.name}</h1>
-          <div style={{ display: "inline-block", fontSize: 13, color: "#C62828", fontWeight: 600, background: "rgba(198,40,40,0.06)", borderRadius: 20, padding: "6px 18px", marginBottom: 16 }}>#{c.rank} Global Producer &middot; {c.region}</div>
-          <p style={{ fontSize: 16, color: "#555", lineHeight: 1.6, maxWidth: 520, margin: "0 auto" }}>{c.highlight}</p>
+          <h1 style={{ fontSize: 40, fontWeight: 800, color: "var(--ink)", letterSpacing: -1.5, marginBottom: 8, lineHeight: 1.15 }}>{c.name}</h1>
+          <div style={{ display: "inline-block", fontSize: 13, color: "var(--gold)", fontWeight: 600, background: "rgba(154,114,56,0.06)", borderRadius: 20, padding: "6px 18px", marginBottom: 16 }}>#{c.rank} Global Producer &middot; {c.region}</div>
+          <p style={{ fontSize: 16, color: "var(--mute)", lineHeight: 1.6, maxWidth: 520, margin: "0 auto" }}>{c.highlight}</p>
         </div>
       </section>
 
-      <section style={{ borderTop: "1px solid #f0f0f0", borderBottom: "1px solid #f0f0f0", background: "#FAFAFA" }}>
+      <section style={{ borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)", background: "var(--paper)" }}>
         <div style={{ maxWidth: 800, margin: "0 auto", padding: "40px 48px" }}>
           <div className="pp-stats-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 24 }}>
             {statItems.map((s, i) => (
               <div key={i} style={{ textAlign: "center" }}>
                 <div style={{ fontSize: 26, marginBottom: 4 }}>{s.icon}</div>
-                <div style={{ fontSize: 26, fontWeight: 800, color: "#1A1A1A", letterSpacing: -0.5, lineHeight: 1 }}>{s.value}</div>
-                <div style={{ fontSize: 11, color: "#999", fontWeight: 500, marginTop: 4, textTransform: "uppercase", letterSpacing: 1 }}>{s.label}</div>
+                <div style={{ fontSize: 26, fontWeight: 800, color: "var(--ink)", letterSpacing: -0.5, lineHeight: 1 }}>{s.value}</div>
+                <div style={{ fontSize: 11, color: "var(--mute2)", fontWeight: 500, marginTop: 4, textTransform: "uppercase", letterSpacing: 1 }}>{s.label}</div>
               </div>
             ))}
           </div>
@@ -326,7 +326,7 @@ function StandardCountryPage({ c, slug }) {
       </section>
 
       {/* 5-year FAOSTAT trajectory band — uses shared TrajectoryTable component */}
-      <section style={{ background: "#fff", borderBottom: "1px solid #f0f0f0", padding: "32px 48px" }}>
+      <section style={{ background: "var(--card)", borderBottom: "1px solid var(--line)", padding: "32px 48px" }}>
         <div style={{ maxWidth: 800, margin: "0 auto" }}>
           <TrajectoryTable slug={c.slug} />
         </div>
@@ -339,21 +339,21 @@ function StandardCountryPage({ c, slug }) {
       <CountryBlogPosts countrySlug={c.slug} />
 
       {regionPeers.length > 0 && (
-        <section style={{ background: "#FAFAFA", borderTop: "1px solid #f0f0f0" }}>
+        <section style={{ background: "var(--paper)", borderTop: "1px solid var(--line)" }}>
           <div style={{ maxWidth: 1000, margin: "0 auto", padding: "56px 48px" }}>
-            <h2 style={{ fontSize: 22, fontWeight: 700, color: "#1A1A1A", textAlign: "center", marginBottom: 24 }}>More in {c.region}</h2>
+            <h2 style={{ fontSize: 22, fontWeight: 700, color: "var(--ink)", textAlign: "center", marginBottom: 24 }}>More in {c.region}</h2>
             <div className="pp-countries-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 16 }}>
               {regionPeers.map((x) => (
                 <Link
                   key={x.slug}
                   href={"/country/" + x.slug}
                   className="pp-country-card"
-                  style={{ background: "white", borderRadius: 16, padding: "22px 16px", textAlign: "center", border: "1px solid #eee", textDecoration: "none", color: "inherit" }}
+                  style={{ background: "var(--card)", borderRadius: 16, padding: "22px 16px", textAlign: "center", border: "1px solid var(--line)", textDecoration: "none", color: "inherit" }}
                 >
                   <div style={{ fontSize: 32, marginBottom: 6 }}>{x.flag}</div>
-                  <div style={{ fontSize: 14, fontWeight: 600, color: "#1A1A1A", marginBottom: 4 }}>{x.name}</div>
-                  <div style={{ fontSize: 20, color: "#C62828", fontWeight: 800, lineHeight: 1 }}>{x.prod}</div>
-                  <div style={{ fontSize: 10, color: "#aaa", marginTop: 2 }}>#{x.rank} Global</div>
+                  <div style={{ fontSize: 14, fontWeight: 600, color: "var(--ink)", marginBottom: 4 }}>{x.name}</div>
+                  <div style={{ fontSize: 20, color: "var(--gold)", fontWeight: 800, lineHeight: 1 }}>{x.prod}</div>
+                  <div style={{ fontSize: 10, color: "var(--mute3)", marginTop: 2 }}>#{x.rank} Global</div>
                 </Link>
               ))}
             </div>
@@ -545,14 +545,14 @@ function IndiaProfilePage({ c }) {
 
   // Style helpers
   const sectionWrap = { maxWidth: 1080, margin: "0 auto", padding: "0 24px" };
-  const sectionTitle = { fontSize: 22, fontWeight: 700, color: "#1A1A1A", margin: "0 0 16px", paddingLeft: 12, borderLeft: "4px solid #C62828", lineHeight: 1.2 };
-  const tableTH = { padding: "10px 12px", textAlign: "left", background: "#C62828", color: "#fff", fontSize: 12, fontWeight: 700, textTransform: "uppercase", letterSpacing: 0.5 };
-  const tableTD = { padding: "10px 12px", fontSize: 13.5, borderBottom: "1px solid #eee", color: "#333" };
-  const proseP = { fontSize: 14.5, color: "#444", lineHeight: 1.7, margin: "0 0 12px" };
-  const sourceLine = { fontSize: 12, color: "#999", fontStyle: "italic", margin: "4px 0 0" };
+  const sectionTitle = { fontSize: 22, fontWeight: 700, color: "var(--ink)", margin: "0 0 16px", paddingLeft: 12, borderLeft: "4px solid var(--gold)", lineHeight: 1.2 };
+  const tableTH = { padding: "10px 12px", textAlign: "left", background: "var(--accent-bg)", color: "#fff", fontSize: 12, fontWeight: 700, textTransform: "uppercase", letterSpacing: 0.5 };
+  const tableTD = { padding: "10px 12px", fontSize: 13.5, borderBottom: "1px solid var(--line)", color: "var(--ink2)" };
+  const proseP = { fontSize: 14.5, color: "var(--ink2)", lineHeight: 1.7, margin: "0 0 12px" };
+  const sourceLine = { fontSize: 12, color: "var(--mute2)", fontStyle: "italic", margin: "4px 0 0" };
 
   return (
-    <div className="pp-country-page pp-country-india" style={{ minHeight: "100vh", background: "#fff", overflowX: "hidden", fontFamily: "Poppins, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
+    <div className="pp-country-page pp-country-india" style={{ minHeight: "100vh", background: "var(--card)", overflowX: "hidden", fontFamily: "inherit" }}>
       <style>{ppCSS}</style>
       <style>{printCSS}</style>
       <style>{`
@@ -572,10 +572,10 @@ function IndiaProfilePage({ c }) {
         @media (max-width: 480px) {
           .pp-vital-stats-grid { grid-template-columns: 1fr 1fr !important; gap: 8px !important; }
         }
-        .pp-share-bar-track { position: relative; height: 6px; background: rgba(198,40,40,0.08); border-radius: 3px; min-width: 80px; margin-top: 4px; }
-        .pp-share-bar-fill { position: absolute; top: 0; left: 0; height: 100%; background: linear-gradient(90deg,#C62828,#E53935); border-radius: 3px; }
+        .pp-share-bar-track { position: relative; height: 6px; background: rgba(154,114,56,0.08); border-radius: 3px; min-width: 80px; margin-top: 4px; }
+        .pp-share-bar-fill { position: absolute; top: 0; left: 0; height: 100%; background: var(--accent-bg); border-radius: 3px; }
         .pp-quickfact-card { transition: transform 0.15s ease, box-shadow 0.15s ease; }
-        .pp-quickfact-card:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(198,40,40,0.08); }
+        .pp-quickfact-card:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(154,114,56,0.08); }
       `}</style>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
@@ -597,10 +597,10 @@ function IndiaProfilePage({ c }) {
       </div>
 
       {/* ─── S1 · Executive Banner ─── */}
-      <section className="pp-india-banner" style={{ borderBottom: "2px solid #C62828", background: "linear-gradient(180deg,#FFF 0%,#FFF8F8 100%)" }}>
+      <section className="pp-india-banner" style={{ borderBottom: "2px solid var(--gold)", background: "var(--card)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <div style={{ paddingTop: 24, paddingBottom: 8 }}>
-            <Link href="/countries" className="pp-no-print" style={{ fontSize: 12, color: "#C62828", textDecoration: "none", fontWeight: 500, display: "inline-flex", alignItems: "center", gap: 4 }}>
+            <Link href="/countries" className="pp-no-print" style={{ fontSize: 12, color: "var(--gold)", textDecoration: "none", fontWeight: 500, display: "inline-flex", alignItems: "center", gap: 4 }}>
               &larr; All Countries
             </Link>
           </div>
@@ -609,13 +609,13 @@ function IndiaProfilePage({ c }) {
               <div className="pp-india-banner-flag" style={{ fontSize: 80, lineHeight: 1 }}>{c.flag}</div>
               <div>
                 <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 8, flexWrap: "wrap" }}>
-                  <span style={{ fontSize: 11, fontWeight: 700, color: "#fff", background: "#C62828", padding: "4px 10px", borderRadius: 4, textTransform: "uppercase", letterSpacing: 1 }}>#{c.rank} Global Producer</span>
-                  <span style={{ fontSize: 11, fontWeight: 600, color: "#444", background: "rgba(0,0,0,0.05)", padding: "4px 10px", borderRadius: 4 }}>{c.region}</span>
-                  <span style={{ fontSize: 11, fontWeight: 600, color: "#444", background: "rgba(0,0,0,0.05)", padding: "4px 10px", borderRadius: 4 }}>FAOSTAT 2023</span>
+                  <span style={{ fontSize: 11, fontWeight: 700, color: "#fff", background: "var(--accent-bg)", padding: "4px 10px", borderRadius: 4, textTransform: "uppercase", letterSpacing: 1 }}>#{c.rank} Global Producer</span>
+                  <span style={{ fontSize: 11, fontWeight: 600, color: "var(--ink2)", background: "rgba(0,0,0,0.05)", padding: "4px 10px", borderRadius: 4 }}>{c.region}</span>
+                  <span style={{ fontSize: 11, fontWeight: 600, color: "var(--ink2)", background: "rgba(0,0,0,0.05)", padding: "4px 10px", borderRadius: 4 }}>FAOSTAT 2023</span>
                 </div>
-                <h1 style={{ fontSize: 44, fontWeight: 800, color: "#1A1A1A", margin: 0, letterSpacing: -1.5, lineHeight: 1.1 }}>{c.name}</h1>
-                <p className="pp-india-tagline" style={{ fontSize: 16, color: "#444", margin: "10px 0 0", lineHeight: 1.5, maxWidth: 600 }}>
-                  World&apos;s <strong>#2 potato producer</strong> at <strong style={{ color: "#C62828" }}>60.14 M tonnes</strong>. Uttar Pradesh leads at 33.5% of national output. Frozen French fry exports up <strong>30.9% in 2024</strong>.
+                <h1 style={{ fontSize: 44, fontWeight: 800, color: "var(--ink)", margin: 0, letterSpacing: -1.5, lineHeight: 1.1 }}>{c.name}</h1>
+                <p className="pp-india-tagline" style={{ fontSize: 16, color: "var(--ink2)", margin: "10px 0 0", lineHeight: 1.5, maxWidth: 600 }}>
+                  World&apos;s <strong>#2 potato producer</strong> at <strong style={{ color: "var(--gold)" }}>60.14 M tonnes</strong>. Uttar Pradesh leads at 33.5% of national output. Frozen French fry exports up <strong>30.9% in 2024</strong>.
                 </p>
               </div>
             </div>
@@ -630,9 +630,9 @@ function IndiaProfilePage({ c }) {
       <style>{`
         .pp-state-gateway-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
         .pp-state-gateway-card { transition: transform 0.18s ease, box-shadow 0.18s ease; }
-        .pp-state-gateway-card:hover { transform: translateY(-4px); box-shadow: 0 4px 16px rgba(0,0,0,0.06), 0 12px 32px rgba(198,40,40,0.08); }
+        .pp-state-gateway-card:hover { transform: translateY(-4px); box-shadow: 0 4px 16px rgba(0,0,0,0.06), 0 12px 32px rgba(154,114,56,0.08); }
         .pp-state-gateway-cta { transition: background 0.18s ease, color 0.18s ease; }
-        .pp-state-gateway-card:hover .pp-state-gateway-cta { background: linear-gradient(135deg,#C62828,#E53935); color: #fff !important; }
+        .pp-state-gateway-card:hover .pp-state-gateway-cta { background: var(--accent-bg); color: #fff !important; }
         @media (max-width: 1024px) { .pp-state-gateway-grid { grid-template-columns: repeat(3, 1fr); } }
         @media (max-width: 768px) {
           .pp-state-gateway-scroll { display: flex !important; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; padding: 0 20px 8px; -webkit-overflow-scrolling: touch; }
@@ -643,12 +643,12 @@ function IndiaProfilePage({ c }) {
         }
         @media (min-width: 769px) { .pp-state-gateway-scroll { display: none !important; } }
       `}</style>
-      <section className="pp-state-gateway" style={{ background: "#FAFAFA", borderTop: "4px solid #C62828", borderBottom: "1px solid #f0f0f0", padding: "56px 0 48px" }}>
+      <section className="pp-state-gateway" style={{ background: "var(--paper)", borderTop: "4px solid var(--gold)", borderBottom: "1px solid var(--line)", padding: "56px 0 48px" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <div style={{ marginBottom: 24, maxWidth: 800 }}>
-            <span style={{ display: "inline-block", fontSize: 11, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 2.5, marginBottom: 10 }}>Explore by State</span>
-            <h2 style={{ fontSize: 26, fontWeight: 800, color: "#1A1A1A", letterSpacing: -0.8, lineHeight: 1.25, margin: "0 0 12px" }}>India&apos;s 14 Potato State Profiles &mdash; Deep Industry Coverage</h2>
-            <p style={{ fontSize: 14, color: "#555", lineHeight: 1.7, margin: 0 }}>Each profile covers state-level production from DA&amp;FW Horticultural Statistics at a Glance 2024 plus district-wise data where available, ICAR-CPRI variety recommendations, research infrastructure, and honest data-scope notes &mdash; drawn from ICAR-CPRI, DA&amp;FW, NHB, ICAR-RCNEH, state agricultural universities, and peer-reviewed sources.</p>
+            <span style={{ display: "inline-block", fontSize: 11, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 2.5, marginBottom: 10 }}>Explore by State</span>
+            <h2 style={{ fontSize: 26, fontWeight: 800, color: "var(--ink)", letterSpacing: -0.8, lineHeight: 1.25, margin: "0 0 12px" }}>India&apos;s 14 Potato State Profiles &mdash; Deep Industry Coverage</h2>
+            <p style={{ fontSize: 14, color: "var(--mute)", lineHeight: 1.7, margin: 0 }}>Each profile covers state-level production from DA&amp;FW Horticultural Statistics at a Glance 2024 plus district-wise data where available, ICAR-CPRI variety recommendations, research infrastructure, and honest data-scope notes &mdash; drawn from ICAR-CPRI, DA&amp;FW, NHB, ICAR-RCNEH, state agricultural universities, and peer-reviewed sources.</p>
           </div>
           {(() => {
             const stateGateway = [
@@ -667,21 +667,21 @@ function IndiaProfilePage({ c }) {
               { slug: "manipur", name: "Manipur", rank: "#20", prod: "14.63K tonnes", share: "0.03% of India", teaser: "Small producer. Series shows an apparent 22× area jump 2019-20 → 2021-22 — flagged honestly as reporting-baseline revision, not real agronomic growth.", variety: "Kufri (ICAR-RCNEH rec.)" },
               { slug: "arunachal-pradesh", name: "Arunachal Pradesh", rank: "#22", prod: "6.07K tonnes", share: "0.01% of India", teaser: "India's smallest measurable producer. 4 years of identical figures then a 22× step change in 2023-24 — almost certainly survey methodology revision.", variety: "Kufri (ICAR-RCNEH rec.)" },
             ];
-            const cardStyle = { background: "#fff", border: "1px solid #ececec", borderTop: "4px solid #C62828", borderRadius: 12, padding: "18px 18px 16px", textDecoration: "none", color: "inherit", display: "flex", flexDirection: "column", minHeight: 220 };
+            const cardStyle = { background: "var(--card)", border: "1px solid var(--line)", borderTop: "4px solid var(--gold)", borderRadius: 12, padding: "18px 18px 16px", textDecoration: "none", color: "inherit", display: "flex", flexDirection: "column", minHeight: 220 };
             const renderCard = (s, mobileClass) => (
               <a key={s.slug} href={`/country/india/${s.slug}`} className={`pp-state-gateway-card ${mobileClass || ""}`} style={cardStyle}>
                 <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", marginBottom: 10 }}>
-                  <span style={{ display: "inline-block", fontSize: 12, fontWeight: 700, color: "#C62828", background: "#fff", border: "1px solid rgba(198,40,40,0.25)", padding: "3px 10px", borderRadius: 14, lineHeight: 1 }}>{s.rank}</span>
-                  <span style={{ fontSize: 10, color: "#999", textTransform: "uppercase", letterSpacing: 1.2 }}>India</span>
+                  <span style={{ display: "inline-block", fontSize: 12, fontWeight: 700, color: "var(--gold)", background: "var(--card)", border: "1px solid rgba(154,114,56,0.25)", padding: "3px 10px", borderRadius: 14, lineHeight: 1 }}>{s.rank}</span>
+                  <span style={{ fontSize: 10, color: "var(--mute2)", textTransform: "uppercase", letterSpacing: 1.2 }}>India</span>
                 </div>
-                <div style={{ fontSize: 18, fontWeight: 800, color: "#1A1A1A", letterSpacing: -0.4, marginBottom: 6, lineHeight: 1.25 }}>{s.name}</div>
-                <div style={{ fontSize: 16, fontWeight: 700, color: "#1A1A1A", marginBottom: 4 }}>{s.prod}<span style={{ fontSize: 11, color: "#999", fontWeight: 500 }}> /yr</span></div>
-                <div style={{ display: "inline-block", fontSize: 11, fontWeight: 700, color: "#C62828", background: "rgba(198,40,40,0.06)", padding: "3px 8px", borderRadius: 6, marginBottom: 10, alignSelf: "flex-start" }}>{s.share}</div>
-                <div style={{ fontSize: 12.5, color: "#555", lineHeight: 1.55, marginBottom: 12, flex: 1 }}>{s.teaser}</div>
+                <div style={{ fontSize: 18, fontWeight: 800, color: "var(--ink)", letterSpacing: -0.4, marginBottom: 6, lineHeight: 1.25 }}>{s.name}</div>
+                <div style={{ fontSize: 16, fontWeight: 700, color: "var(--ink)", marginBottom: 4 }}>{s.prod}<span style={{ fontSize: 11, color: "var(--mute2)", fontWeight: 500 }}> /yr</span></div>
+                <div style={{ display: "inline-block", fontSize: 11, fontWeight: 700, color: "var(--gold)", background: "rgba(154,114,56,0.06)", padding: "3px 8px", borderRadius: 6, marginBottom: 10, alignSelf: "flex-start" }}>{s.share}</div>
+                <div style={{ fontSize: 12.5, color: "var(--mute)", lineHeight: 1.55, marginBottom: 12, flex: 1 }}>{s.teaser}</div>
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 10 }}>
-                  <span style={{ display: "inline-block", fontSize: 10, color: "#666", fontWeight: 600, background: "#FAFAFA", border: "1px solid #ececec", padding: "2px 8px", borderRadius: 4 }}>{s.variety}</span>
+                  <span style={{ display: "inline-block", fontSize: 10, color: "var(--mute)", fontWeight: 600, background: "var(--paper)", border: "1px solid var(--line)", padding: "2px 8px", borderRadius: 4 }}>{s.variety}</span>
                 </div>
-                <div className="pp-state-gateway-cta" style={{ background: "#FAFAFA", border: "1px solid #ececec", borderRadius: 8, padding: "9px 12px", textAlign: "center", fontSize: 13, fontWeight: 700, color: "#C62828" }}>Explore {s.name} →</div>
+                <div className="pp-state-gateway-cta" style={{ background: "var(--paper)", border: "1px solid var(--line)", borderRadius: 8, padding: "9px 12px", textAlign: "center", fontSize: 13, fontWeight: 700, color: "var(--gold)" }}>Explore {s.name} →</div>
               </a>
             );
             return (
@@ -699,9 +699,9 @@ function IndiaProfilePage({ c }) {
       </section>
 
       {/* ─── S2 · Vital Statistics Dashboard ─── */}
-      <section className="pp-vital-stats" style={{ background: "#0F1115", padding: "40px 0", color: "#fff" }}>
+      <section className="pp-vital-stats" style={{ background: "var(--panel)", padding: "40px 0", color: "#fff" }}>
         <div style={sectionWrap} className="pp-section-wrap">
-          <div data-summary="true" className="pp-vital-stats-summary" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", borderLeft: "3px solid #E53935", borderRadius: "0 8px 8px 0", padding: "16px 20px", marginBottom: 28, fontSize: 14, lineHeight: 1.7, color: "#E5E5E5" }}>
+          <div data-summary="true" className="pp-vital-stats-summary" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", borderLeft: "3px solid var(--gold)", borderRadius: "0 8px 8px 0", padding: "16px 20px", marginBottom: 28, fontSize: 14, lineHeight: 1.7, color: "#E5E5E5" }}>
             <strong style={{ color: "#fff" }}>India produced 60.14 million tonnes of potatoes in 2023</strong> (FAOSTAT) on 2.33 million hectares, ranking <strong>#2 globally</strong> after China. National yield of 25.8 t/ha is above the world average of 22.8 t/ha. <strong>Uttar Pradesh accounts for 33.46%</strong> of national output (20.13 M t). <strong>85% of India&apos;s crop is grown during the rabi (winter) season.</strong> Processing share is just 7&ndash;8% of total production but frozen French fry exports grew <strong>30.9% in 2024</strong> to 268,342 tonnes &mdash; the 8th-largest exporter globally. India operates the world&apos;s 2nd-largest cold storage network at 39.42 M tonnes capacity. Only 15% of seed used is certified.
           </div>
           <div className="pp-vital-stats-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16 }}>
@@ -709,7 +709,7 @@ function IndiaProfilePage({ c }) {
               <div key={i} className="pp-vital-stat-cell" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 10, padding: "18px 16px" }}>
                 <div className="pp-vital-stat-value" style={{ fontSize: 26, fontWeight: 800, color: "#fff", letterSpacing: -0.5, lineHeight: 1.1, fontVariantNumeric: "tabular-nums" }}>
                   {s.value}
-                  {s.positive && <span className="pp-delta-up" style={{ display: "inline-block", marginLeft: 8, fontSize: 10, fontWeight: 700, color: "#4CAF50", background: "rgba(76,175,80,0.12)", padding: "2px 6px", borderRadius: 3, verticalAlign: "middle" }}>YoY</span>}
+                  {s.positive && <span className="pp-delta-up" style={{ display: "inline-block", marginLeft: 8, fontSize: 10, fontWeight: 700, color: "var(--gold)", background: "rgba(154,114,56,0.12)", padding: "2px 6px", borderRadius: 3, verticalAlign: "middle" }}>YoY</span>}
                 </div>
                 <div className="pp-vital-stat-label" style={{ fontSize: 10, fontWeight: 600, color: "rgba(255,255,255,0.55)", textTransform: "uppercase", letterSpacing: 1.2, marginTop: 8 }}>{s.label}</div>
                 <div className="pp-vital-stat-sub" style={{ fontSize: 11, color: "rgba(255,255,255,0.4)", marginTop: 4 }}>{s.sub}</div>
@@ -720,28 +720,28 @@ function IndiaProfilePage({ c }) {
       </section>
 
       {/* ─── Mobile-only PDF download CTA (between stats and quick facts) ─── */}
-      <section className="pp-mobile-pdf-cta pp-no-print" style={{ background: "#fff", borderBottom: "1px solid #f0f0f0", padding: "20px 0", textAlign: "center" }}>
+      <section className="pp-mobile-pdf-cta pp-no-print" style={{ background: "var(--card)", borderBottom: "1px solid var(--line)", padding: "20px 0", textAlign: "center" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <PdfDownloadButton size="md" placement="banner" />
-          <div style={{ fontSize: 11, color: "#888", marginTop: 8, fontWeight: 500 }}>A4-formatted report &middot; all sections, all tables</div>
+          <div style={{ fontSize: 11, color: "var(--mute2)", marginTop: 8, fontWeight: 500 }}>A4-formatted report &middot; all sections, all tables</div>
         </div>
       </section>
 
       {/* ─── S3 · Quick Facts Strip ─── */}
-      <section className="pp-trajectory-band" style={{ background: "#fff", borderBottom: "1px solid #f0f0f0", padding: "32px 0" }}>
+      <section className="pp-trajectory-band" style={{ background: "var(--card)", borderBottom: "1px solid var(--line)", padding: "32px 0" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={{ ...sectionTitle, marginBottom: 16 }}>FAOSTAT 7-year production trajectory</h2>
           <TrajectoryTable slug={c.slug} />
         </div>
       </section>
 
-      <section className="pp-quickfacts" data-pdf-break-after style={{ background: "#FAFAFA", borderBottom: "1px solid #f0f0f0", padding: "40px 0" }}>
+      <section className="pp-quickfacts" data-pdf-break-after style={{ background: "var(--paper)", borderBottom: "1px solid var(--line)", padding: "40px 0" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Did you know?</h2>
           <div className="pp-quickfacts-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16 }}>
             {quickFacts.map((f, i) => (
-              <div key={i} className="pp-quickfact-card" style={{ background: "#fff", border: "1px solid #ececec", borderRadius: 10, padding: "16px 18px", fontSize: 13.5, color: "#333", lineHeight: 1.55, display: "flex", gap: 10, alignItems: "flex-start" }}>
-                <span style={{ flexShrink: 0, color: "#C62828", fontWeight: 800, fontSize: 16, lineHeight: 1.3 }}>&#9642;</span>
+              <div key={i} className="pp-quickfact-card" style={{ background: "var(--card)", border: "1px solid var(--line)", borderRadius: 10, padding: "16px 18px", fontSize: 13.5, color: "var(--ink2)", lineHeight: 1.55, display: "flex", gap: 10, alignItems: "flex-start" }}>
+                <span style={{ flexShrink: 0, color: "var(--gold)", fontWeight: 800, fontSize: 16, lineHeight: 1.3 }}>&#9642;</span>
                 <span>{f}</span>
               </div>
             ))}
@@ -750,7 +750,7 @@ function IndiaProfilePage({ c }) {
       </section>
 
       {/* ─── S4 · Production by State ─── */}
-      <section style={{ padding: "48px 0", borderBottom: "1px solid #f0f0f0", background: "#fff" }}>
+      <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--card)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Production by State</h2>
           <p style={proseP}>The Indo-Gangetic Plain dominates: the top three states (Uttar Pradesh, West Bengal, Bihar) together account for approximately <strong>70% of national production</strong> (DA&amp;FW Horticultural Statistics at a Glance 2024). Gujarat is the centre of processing-grade and exportable potato cultivation, hosting roughly 80% of India&apos;s organised processing capacity.</p>
@@ -762,19 +762,19 @@ function IndiaProfilePage({ c }) {
                   const stateProfileMap = { "Uttar Pradesh": "uttar-pradesh", "West Bengal": "west-bengal", "Bihar": "bihar", "Gujarat": "gujarat", "Madhya Pradesh": "madhya-pradesh", "Maharashtra": "maharashtra", "Jharkhand": "jharkhand", "Assam": "assam", "Andhra Pradesh": "andhra-pradesh", "Meghalaya": "meghalaya", "Tripura": "tripura", "Nagaland": "nagaland", "Manipur": "manipur", "Arunachal Pradesh": "arunachal-pradesh" };
                   const profileSlug = stateProfileMap[r[0]];
                   return (
-                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
-                    <td style={{ ...tableTD, fontWeight: i < 3 ? 700 : 500, color: "#1A1A1A" }}>{profileSlug ? <Link href={`/country/india/${profileSlug}`} style={{ color: "#C62828", textDecoration: "none", fontWeight: i < 3 ? 700 : 600 }}>{r[0]} →</Link> : r[0]}</td>
-                    <td style={{ ...tableTD, color: i < 3 ? "#C62828" : "#1A1A1A", fontWeight: 600 }}>{r[1]}</td>
+                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
+                    <td style={{ ...tableTD, fontWeight: i < 3 ? 700 : 500, color: "var(--ink)" }}>{profileSlug ? <Link href={`/country/india/${profileSlug}`} style={{ color: "var(--gold)", textDecoration: "none", fontWeight: i < 3 ? 700 : 600 }}>{r[0]} →</Link> : r[0]}</td>
+                    <td style={{ ...tableTD, color: i < 3 ? "var(--gold)" : "var(--ink)", fontWeight: 600 }}>{r[1]}</td>
                     <td style={tableTD}>
                       <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
-                        <span style={{ fontWeight: 600, fontSize: 13, color: "#1A1A1A" }}>{r[2].toFixed(1)}%</span>
+                        <span style={{ fontWeight: 600, fontSize: 13, color: "var(--ink)" }}>{r[2].toFixed(1)}%</span>
                         <div className="pp-share-bar-track">
                           <div className="pp-share-bar-fill" style={{ width: Math.min(100, r[2] * 2.8) + "%" }} />
                         </div>
                       </div>
                     </td>
                     <td style={tableTD}>{r[3]}</td>
-                    <td style={{ ...tableTD, color: "#666", fontSize: 12.5 }}>{r[4]}</td>
+                    <td style={{ ...tableTD, color: "var(--mute)", fontSize: 12.5 }}>{r[4]}</td>
                   </tr>
                   );
                 })}
@@ -783,28 +783,28 @@ function IndiaProfilePage({ c }) {
           </div>
           <p style={sourceLine}>Source: FAOSTAT 2023 (national); ICAR-CPRI state-wise estimates 2023-24; Gujarat Agriculture Department; PIB Government of India. Top-5 state names link to dedicated industry profiles above; full state deep-dives are linked at the top of this page.</p>
 
-          <div className="pp-ai-inline-cta pp-no-print" style={{ marginTop: 16, padding: "10px 16px", background: "rgba(198,40,40,0.04)", borderLeft: "3px solid #C62828", borderRadius: "0 6px 6px 0", fontSize: 13, color: "#444" }}>
-            Want details on a specific state or district? <a href="#ai-explorer" style={{ color: "#C62828", fontWeight: 600, textDecoration: "none" }}>Ask Potatopedia AI &rarr;</a>
+          <div className="pp-ai-inline-cta pp-no-print" style={{ marginTop: 16, padding: "10px 16px", background: "rgba(154,114,56,0.04)", borderLeft: "3px solid var(--gold)", borderRadius: "0 6px 6px 0", fontSize: 13, color: "var(--ink2)" }}>
+            Want details on a specific state or district? <a href="#ai-explorer" style={{ color: "var(--gold)", fontWeight: 600, textDecoration: "none" }}>Ask Potatopedia AI &rarr;</a>
           </div>
         </div>
       </section>
 
       {/* ─── S5 · Growing Calendar & Agro-Climatic Zones ─── */}
-      <section style={{ padding: "48px 0", borderBottom: "1px solid #f0f0f0", background: "#FAFAFA" }}>
+      <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--paper)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Growing Calendar &amp; Agro-Climatic Zones</h2>
           <p style={proseP}>India&apos;s potato cultivation spans <strong>eight ICAR-CPRI agro-ecological zones</strong>, from sea-level coast to 4,000 m altitude. The rabi (winter) season dominates national output; kharif (summer) and year-round hill cultivation are crucial for virus-free seed production. Climate change is shortening the rabi growing window in the Indo-Gangetic Plains by an estimated <strong>5&ndash;10 days per decade</strong> (CPRI Vision 2050).</p>
           <div style={{ overflowX: "auto", marginTop: 12 }}>
-            <table style={{ width: "100%", borderCollapse: "collapse", background: "#fff" }}>
+            <table style={{ width: "100%", borderCollapse: "collapse", background: "var(--card)" }}>
               <thead><tr>{["Season / Zone", "Region", "Planting", "Harvest", "Share of National Output"].map((h) => <th key={h} style={tableTH}>{h}</th>)}</tr></thead>
               <tbody>
                 {seasonRows.map((r, i) => (
-                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                     <td style={{ ...tableTD, fontWeight: 600 }}>{r[0]}</td>
                     <td style={tableTD}>{r[1]}</td>
                     <td style={tableTD}>{r[2]}</td>
                     <td style={tableTD}>{r[3]}</td>
-                    <td style={{ ...tableTD, fontSize: 12.5, color: "#666" }}>{r[4]}</td>
+                    <td style={{ ...tableTD, fontSize: 12.5, color: "var(--mute)" }}>{r[4]}</td>
                   </tr>
                 ))}
               </tbody>
@@ -815,7 +815,7 @@ function IndiaProfilePage({ c }) {
       </section>
 
       {/* ─── S6 · Variety Portfolio ─── */}
-      <section style={{ padding: "48px 0", borderBottom: "1px solid #f0f0f0", background: "#fff" }}>
+      <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--card)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Variety Portfolio</h2>
           <p style={proseP}>India&apos;s ICAR-Central Potato Research Institute (CPRI) in Shimla has released <strong>75+ Kufri varieties</strong> since the 1960s, and CPRI-bred varieties now occupy <strong>94%+ of Indian potato acreage</strong>. <strong>Kufri Pukhraj is the single most-planted variety nationwide</strong>, dominant in UP, Gujarat, and Punjab. Processing varieties (Chipsona series, Frysona, plus imported Santana and Lady Rosetta under contract) cover the rapidly growing chip and frozen-fry industries. The 2025 release wave (Tejas, Ratan, Chipbharat 1) yields <strong>37&ndash;40 t/ha</strong> &mdash; a 60&ndash;70% jump over Kufri Jyoti from 1968.</p>
@@ -824,11 +824,11 @@ function IndiaProfilePage({ c }) {
               <thead><tr>{["Variety", "Year", "Type", "Key States", "Yield", "Dry Matter", "Maturity"].map((h) => <th key={h} style={tableTH}>{h}</th>)}</tr></thead>
               <tbody>
                 {varietyRows.map((r, i) => (
-                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
-                    <td style={{ ...tableTD, fontWeight: 600, color: "#1A1A1A" }}>{r[0]}</td>
+                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
+                    <td style={{ ...tableTD, fontWeight: 600, color: "var(--ink)" }}>{r[0]}</td>
                     <td style={tableTD}>{r[1]}</td>
-                    <td style={{ ...tableTD, color: r[2].includes("processing") || r[2].includes("French") || r[2].includes("Chip") ? "#C62828" : "#1A1A1A", fontWeight: 500 }}>{r[2]}</td>
-                    <td style={{ ...tableTD, fontSize: 12.5, color: "#666" }}>{r[3]}</td>
+                    <td style={{ ...tableTD, color: r[2].includes("processing") || r[2].includes("French") || r[2].includes("Chip") ? "var(--gold)" : "var(--ink)", fontWeight: 500 }}>{r[2]}</td>
+                    <td style={{ ...tableTD, fontSize: 12.5, color: "var(--mute)" }}>{r[3]}</td>
                     <td style={tableTD}>{r[4]}</td>
                     <td style={tableTD}>{r[5]}</td>
                     <td style={tableTD}>{r[6]}</td>
@@ -838,43 +838,43 @@ function IndiaProfilePage({ c }) {
             </table>
           </div>
           <p style={sourceLine}>Source: ICAR-CPRI variety catalogue; PIB variety-release notifications 2024 &amp; 2025; Gujarat Agriculture Department processing-variety data.</p>
-          <p className="pp-read-more-link" style={{ ...proseP, marginTop: 16, fontSize: 13.5 }}>Read more: <Link href="/knowledge/kufri-potato-varieties-india" style={{ color: "#C62828", textDecoration: "none", fontWeight: 600 }}>Complete Kufri Varieties Guide &rarr;</Link></p>
+          <p className="pp-read-more-link" style={{ ...proseP, marginTop: 16, fontSize: 13.5 }}>Read more: <Link href="/knowledge/kufri-potato-varieties-india" style={{ color: "var(--gold)", textDecoration: "none", fontWeight: 600 }}>Complete Kufri Varieties Guide &rarr;</Link></p>
         </div>
       </section>
 
       {/* ─── S7 · Trade Profile ─── */}
-      <section style={{ padding: "48px 0", borderBottom: "1px solid #f0f0f0", background: "#FAFAFA" }}>
+      <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--paper)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Trade Profile</h2>
-          <p style={proseP}>India has transformed from a net potato importer into the <strong>world&apos;s 8th-largest frozen French fry exporter</strong> in under a decade. <strong>Frozen fry exports reached 268,342 tonnes in 2024 (+30.9% YoY)</strong>, valued at over $178 million in 2023-24 (APEDA). Major destinations: Southeast Asia (Vietnam, Philippines, Indonesia), the Middle East (UAE, Saudi Arabia, Qatar), and select African markets. India also exports approximately 270,000 tonnes of fresh potatoes annually, primarily to <Link href="/country/nepal" style={{ color: "#C62828", textDecoration: "none" }}>Nepal</Link>, <Link href="/country/bangladesh" style={{ color: "#C62828", textDecoration: "none" }}>Bangladesh</Link>, Sri Lanka, Malaysia, UAE, and Oman.</p>
+          <p style={proseP}>India has transformed from a net potato importer into the <strong>world&apos;s 8th-largest frozen French fry exporter</strong> in under a decade. <strong>Frozen fry exports reached 268,342 tonnes in 2024 (+30.9% YoY)</strong>, valued at over $178 million in 2023-24 (APEDA). Major destinations: Southeast Asia (Vietnam, Philippines, Indonesia), the Middle East (UAE, Saudi Arabia, Qatar), and select African markets. India also exports approximately 270,000 tonnes of fresh potatoes annually, primarily to <Link href="/country/nepal" style={{ color: "var(--gold)", textDecoration: "none" }}>Nepal</Link>, <Link href="/country/bangladesh" style={{ color: "var(--gold)", textDecoration: "none" }}>Bangladesh</Link>, Sri Lanka, Malaysia, UAE, and Oman.</p>
           <div style={{ overflowX: "auto", marginTop: 12 }}>
-            <table style={{ width: "100%", borderCollapse: "collapse", fontVariantNumeric: "tabular-nums", background: "#fff" }}>
+            <table style={{ width: "100%", borderCollapse: "collapse", fontVariantNumeric: "tabular-nums", background: "var(--card)" }}>
               <thead><tr>{["Category", "Direction", "Volume / Value", "Trend / Year", "Notes"].map((h) => <th key={h} style={tableTH}>{h}</th>)}</tr></thead>
               <tbody>
                 {tradeRows.map((r, i) => (
-                  <tr key={r[0] + i} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                  <tr key={r[0] + i} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                     <td style={{ ...tableTD, fontWeight: 600 }}>{r[0]}</td>
                     <td style={tableTD}>{r[1]}</td>
-                    <td style={{ ...tableTD, color: "#C62828", fontWeight: 600 }}>{r[2]}</td>
+                    <td style={{ ...tableTD, color: "var(--gold)", fontWeight: 600 }}>{r[2]}</td>
                     <td style={tableTD}>{r[3]}</td>
-                    <td style={{ ...tableTD, fontSize: 12.5, color: "#666" }}>{r[4]}</td>
+                    <td style={{ ...tableTD, fontSize: 12.5, color: "var(--mute)" }}>{r[4]}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
           <p style={sourceLine}>Source: APEDA 2023-24 trade data; DGCIS; FAOSTAT global trade flow 2024.</p>
-          <div className="pp-trajectory-callout" style={{ marginTop: 16, padding: "16px 20px", background: "linear-gradient(135deg,rgba(198,40,40,0.04),rgba(229,57,53,0.02))", border: "1px solid rgba(198,40,40,0.12)", borderRadius: 10 }}>
-            <div style={{ fontSize: 13, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 1, marginBottom: 6 }}>Frozen Fry Trajectory</div>
-            <div style={{ fontSize: 14, color: "#1A1A1A", lineHeight: 1.6 }}>
-              <strong>2015:</strong> 5,000 tonnes &nbsp;&rarr;&nbsp; <strong>2020:</strong> ~80,000 tonnes &nbsp;&rarr;&nbsp; <strong>2024:</strong> 268,342 tonnes &mdash; a <strong style={{ color: "#C62828" }}>54&times; increase</strong> in nine years.
+          <div className="pp-trajectory-callout" style={{ marginTop: 16, padding: "16px 20px", background: "linear-gradient(135deg,rgba(154,114,56,0.04),rgba(154,114,56,0.02))", border: "1px solid rgba(154,114,56,0.12)", borderRadius: 10 }}>
+            <div style={{ fontSize: 13, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1, marginBottom: 6 }}>Frozen Fry Trajectory</div>
+            <div style={{ fontSize: 14, color: "var(--ink)", lineHeight: 1.6 }}>
+              <strong>2015:</strong> 5,000 tonnes &nbsp;&rarr;&nbsp; <strong>2020:</strong> ~80,000 tonnes &nbsp;&rarr;&nbsp; <strong>2024:</strong> 268,342 tonnes &mdash; a <strong style={{ color: "var(--gold)" }}>54&times; increase</strong> in nine years.
             </div>
           </div>
         </div>
       </section>
 
       {/* ─── S8 · Industry & Processing ─── */}
-      <section style={{ padding: "48px 0", borderBottom: "1px solid #f0f0f0", background: "#fff" }}>
+      <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--card)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Processing Industry &amp; Major Players</h2>
           <p style={proseP}>India processes only <strong>7&ndash;8% of its potato crop</strong> &mdash; vs. 60&ndash;65% in the United States and 15% in China. The gap is the growth headroom: India&apos;s processed-potato market is valued at <strong>$1.8 billion (2024)</strong> with projected 10% CAGR through 2033. <strong>Gujarat hosts 80% of processing capacity</strong>, anchored by McCain&apos;s Mehsana facility (2007 plant; $69M expansion in 2013). The chip segment is led by PepsiCo/Frito-Lay (Lay&apos;s, Uncle Chipps, Kurkure), ITC (Bingo), and Haldiram&apos;s (aloo bhujia volume leader). Processing growth has driven Gujarat farmer incomes up an average <strong>75% since 2017</strong>.</p>
@@ -883,48 +883,48 @@ function IndiaProfilePage({ c }) {
               <thead><tr>{["Company", "Category", "Key Location", "Notes"].map((h) => <th key={h} style={tableTH}>{h}</th>)}</tr></thead>
               <tbody>
                 {companyRows.map((r, i) => (
-                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                     <td style={{ ...tableTD, fontWeight: 600 }}>{r[0]}</td>
                     <td style={tableTD}>{r[1]}</td>
                     <td style={tableTD}>{r[2]}</td>
-                    <td style={{ ...tableTD, fontSize: 12.5, color: "#666" }}>{r[3]}</td>
+                    <td style={{ ...tableTD, fontSize: 12.5, color: "var(--mute)" }}>{r[3]}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
           <p style={sourceLine}>Source: Company filings; APEDA processor registry; Gujarat Agriculture Department; ICAR-CPRI processing-industry research.</p>
-          <p className="pp-read-more-link" style={{ ...proseP, marginTop: 16, fontSize: 13.5 }}>Read more: <Link href="/knowledge/how-potatoes-are-processed" style={{ color: "#C62828", textDecoration: "none", fontWeight: 600 }}>How Potatoes Are Processed: Farm to Fry &rarr;</Link> &middot; <Link href="/knowledge/mcdonalds-potato-varieties" style={{ color: "#C62828", textDecoration: "none", fontWeight: 600 }}>What Potatoes Does McDonald&apos;s Use? &rarr;</Link></p>
+          <p className="pp-read-more-link" style={{ ...proseP, marginTop: 16, fontSize: 13.5 }}>Read more: <Link href="/knowledge/how-potatoes-are-processed" style={{ color: "var(--gold)", textDecoration: "none", fontWeight: 600 }}>How Potatoes Are Processed: Farm to Fry &rarr;</Link> &middot; <Link href="/knowledge/mcdonalds-potato-varieties" style={{ color: "var(--gold)", textDecoration: "none", fontWeight: 600 }}>What Potatoes Does McDonald&apos;s Use? &rarr;</Link></p>
         </div>
       </section>
 
       {/* ─── S9 · Cold Storage Infrastructure (NEW) ─── */}
-      <section style={{ padding: "48px 0", borderBottom: "1px solid #f0f0f0", background: "#FAFAFA" }}>
+      <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--paper)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Cold Storage Infrastructure</h2>
           <p style={proseP}>India operates the <strong>world&apos;s second-largest potato cold-storage network</strong> &mdash; approximately <strong>8,600 facilities</strong> with <strong>39.42 million tonnes total capacity</strong> (National Horticulture Board). Roughly 75% of this horticultural capacity is dedicated to potatoes, giving India ~29&ndash;30 M tonnes of potato-specific storage. Despite this scale, cold-chain capacity remains critically uneven across states: West Bengal can only store 40&ndash;45% of state production; Bihar manages just 15%; <strong>12 Bihar districts have zero cold-storage facilities</strong>. The Government of India provides <strong>50% subsidies</strong> on new Type-1 cold-storage units under NHM/MIDH schemes.</p>
           <div style={{ overflowX: "auto", marginTop: 12 }}>
-            <table style={{ width: "100%", borderCollapse: "collapse", background: "#fff" }}>
+            <table style={{ width: "100%", borderCollapse: "collapse", background: "var(--card)" }}>
               <thead><tr>{["State", "Approx. Facilities", "Potato-Specific Capacity", "Notes"].map((h) => <th key={h} style={tableTH}>{h}</th>)}</tr></thead>
               <tbody>
                 {coldStorageRows.map((r, i) => (
-                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                     <td style={{ ...tableTD, fontWeight: 600 }}>{r[0]}</td>
                     <td style={tableTD}>{r[1]}</td>
-                    <td style={{ ...tableTD, color: "#C62828", fontWeight: 600 }}>{r[2]}</td>
-                    <td style={{ ...tableTD, fontSize: 12.5, color: "#666" }}>{r[3]}</td>
+                    <td style={{ ...tableTD, color: "var(--gold)", fontWeight: 600 }}>{r[2]}</td>
+                    <td style={{ ...tableTD, fontSize: 12.5, color: "var(--mute)" }}>{r[3]}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
           <p style={sourceLine}>Source: National Horticulture Board (NHB); All-India Coordinated Research Project on Potato (AICRP); CPRI cold-chain research.</p>
-          <p className="pp-read-more-link" style={{ ...proseP, marginTop: 16, fontSize: 13.5 }}>Read more: <Link href="/knowledge/potato-storage-cold-chain" style={{ color: "#C62828", textDecoration: "none", fontWeight: 600 }}>Potato Cold Storage: Temperatures, Design, and Post-Harvest Losses &rarr;</Link></p>
+          <p className="pp-read-more-link" style={{ ...proseP, marginTop: 16, fontSize: 13.5 }}>Read more: <Link href="/knowledge/potato-storage-cold-chain" style={{ color: "var(--gold)", textDecoration: "none", fontWeight: 600 }}>Potato Cold Storage: Temperatures, Design, and Post-Harvest Losses &rarr;</Link></p>
         </div>
       </section>
 
       {/* ─── S10 · Seed Potato System (NEW) ─── */}
-      <section style={{ padding: "48px 0", borderBottom: "1px solid #f0f0f0", background: "#fff" }}>
+      <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--card)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Seed Potato System: India&apos;s 85% Problem</h2>
           <p style={proseP}>India&apos;s annual seed potato requirement is approximately <strong>8 million tonnes</strong> &mdash; but only <strong>15% is met by certified seed</strong>, while <strong>85% is farm-saved</strong> (CPRI Vision 2050; Singh &amp; Pandey, Potato Journal 2019). This is one of the world&apos;s lowest certified-seed adoption rates and CPRI identifies it as the &ldquo;single largest constraint on Indian potato productivity improvement.&rdquo; Farm-saved seed carries <strong>30&ndash;60% virus incidence</strong> versus near-zero in certified material, producing a 20&ndash;30% yield penalty per generation that compounds over years.</p>
@@ -934,30 +934,30 @@ function IndiaProfilePage({ c }) {
               <thead><tr>{["Metric", "Value", "Source / Note"].map((h) => <th key={h} style={tableTH}>{h}</th>)}</tr></thead>
               <tbody>
                 {seedSystemRows.map((r, i) => (
-                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                     <td style={{ ...tableTD, fontWeight: 600 }}>{r[0]}</td>
-                    <td style={{ ...tableTD, color: "#C62828", fontWeight: 600 }}>{r[1]}</td>
-                    <td style={{ ...tableTD, fontSize: 12.5, color: "#666" }}>{r[2]}</td>
+                    <td style={{ ...tableTD, color: "var(--gold)", fontWeight: 600 }}>{r[1]}</td>
+                    <td style={{ ...tableTD, fontSize: 12.5, color: "var(--mute)" }}>{r[2]}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
           <p style={sourceLine}>Source: CPRI Vision 2050; Singh &amp; Pandey, Potato Journal (2019); ICAR-CPRI aeroponic facility documentation.</p>
-          <p className="pp-read-more-link" style={{ ...proseP, marginTop: 16, fontSize: 13.5 }}>Read more: <Link href="/knowledge/seed-potato-systems" style={{ color: "#C62828", textDecoration: "none", fontWeight: 600 }}>Seed Potato Systems: Certification, Trade &amp; Multiplication &rarr;</Link></p>
+          <p className="pp-read-more-link" style={{ ...proseP, marginTop: 16, fontSize: 13.5 }}>Read more: <Link href="/knowledge/seed-potato-systems" style={{ color: "var(--gold)", textDecoration: "none", fontWeight: 600 }}>Seed Potato Systems: Certification, Trade &amp; Multiplication &rarr;</Link></p>
         </div>
       </section>
 
       {/* ─── S11 · Consumption & Cuisine (NEW) ─── */}
-      <section style={{ padding: "48px 0", borderBottom: "1px solid #f0f0f0", background: "#FAFAFA" }}>
+      <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--paper)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Consumption &amp; Indian Cuisine</h2>
           <p style={proseP}>India&apos;s per-capita potato consumption is approximately <strong>28 kg per year</strong> &mdash; below the global average of 33 kg but rising steadily as urban income growth fuels both fresh and processed demand. <strong>Fresh consumption dominates at 68.5% of total utilisation</strong>; processed potato (chips, frozen fries, dehydrated, flakes) is just 7&ndash;8% but growing 10%+ annually. The potato is integral to virtually every regional cuisine, with hundreds of preparations across India&apos;s culinary geography.</p>
           <div className="pp-cuisine-grid" style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 16, marginTop: 16 }}>
             {consumptionDishes.map((c2, i) => (
-              <div key={c2.region} style={{ background: "#fff", border: "1px solid #ececec", borderRadius: 10, padding: "18px 20px" }}>
-                <div style={{ fontSize: 11, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 6 }}>{c2.region} India</div>
-                <div style={{ fontSize: 14, color: "#1A1A1A", lineHeight: 1.6 }}>{c2.dishes}</div>
+              <div key={c2.region} style={{ background: "var(--card)", border: "1px solid var(--line)", borderRadius: 10, padding: "18px 20px" }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 6 }}>{c2.region} India</div>
+                <div style={{ fontSize: 14, color: "var(--ink)", lineHeight: 1.6 }}>{c2.dishes}</div>
               </div>
             ))}
           </div>
@@ -967,7 +967,7 @@ function IndiaProfilePage({ c }) {
       </section>
 
       {/* ─── S12 · Government Policy ─── */}
-      <section style={{ padding: "48px 0", borderBottom: "1px solid #f0f0f0", background: "#fff" }}>
+      <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--card)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Government Policy &amp; Regulatory Framework</h2>
           <p style={proseP}>India&apos;s potato sector operates under a multi-layered policy regime: state-run APMC mandis as the primary marketing channel, the Essential Commodities Act framework permitting stock-limit imposition during volatility, and central horticulture missions providing capital subsidies for cold storage and seed production. Unlike wheat and rice, potato does <strong>not</strong> have a formal MSP (Minimum Support Price) &mdash; price discovery is left to mandi auctions, which contributes to the pronounced volatility documented in challenges below.</p>
@@ -976,9 +976,9 @@ function IndiaProfilePage({ c }) {
               <thead><tr>{["Policy / Programme", "Description"].map((h) => <th key={h} style={tableTH}>{h}</th>)}</tr></thead>
               <tbody>
                 {policyRows.map((r, i) => (
-                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                     <td style={{ ...tableTD, fontWeight: 600, width: "32%" }}>{r[0]}</td>
-                    <td style={{ ...tableTD, fontSize: 13, color: "#1A1A1A" }}>{r[1]}</td>
+                    <td style={{ ...tableTD, fontSize: 13, color: "var(--ink)" }}>{r[1]}</td>
                   </tr>
                 ))}
               </tbody>
@@ -989,19 +989,19 @@ function IndiaProfilePage({ c }) {
       </section>
 
       {/* ─── S13 · Challenges (NEW) ─── */}
-      <section style={{ padding: "48px 0", borderBottom: "1px solid #f0f0f0", background: "#FAFAFA" }}>
+      <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--paper)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Industry Challenges</h2>
           <p style={proseP}>India&apos;s status as the world&apos;s #2 potato producer masks structural pressures across price formation, climate adaptation, seed quality, and cold-chain coverage. Each challenge below has direct, measurable impact on farmer income, marketable yield, and value-chain efficiency.</p>
           <div style={{ overflowX: "auto", marginTop: 12 }}>
-            <table style={{ width: "100%", borderCollapse: "collapse", background: "#fff" }}>
+            <table style={{ width: "100%", borderCollapse: "collapse", background: "var(--card)" }}>
               <thead><tr>{["Challenge", "Magnitude", "Root Driver / Note"].map((h) => <th key={h} style={tableTH}>{h}</th>)}</tr></thead>
               <tbody>
                 {challengeRows.map((r, i) => (
-                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                     <td style={{ ...tableTD, fontWeight: 600 }}>{r[0]}</td>
-                    <td style={{ ...tableTD, color: "#C62828", fontWeight: 600 }}>{r[1]}</td>
-                    <td style={{ ...tableTD, fontSize: 12.5, color: "#444" }}>{r[2]}</td>
+                    <td style={{ ...tableTD, color: "var(--gold)", fontWeight: 600 }}>{r[1]}</td>
+                    <td style={{ ...tableTD, fontSize: 12.5, color: "var(--ink2)" }}>{r[2]}</td>
                   </tr>
                 ))}
               </tbody>
@@ -1012,7 +1012,7 @@ function IndiaProfilePage({ c }) {
       </section>
 
       {/* ─── S14 · Future Outlook ─── */}
-      <section style={{ padding: "44px 0", borderBottom: "1px solid #f0f0f0", background: "#fff" }}>
+      <section style={{ padding: "44px 0", borderBottom: "1px solid var(--line)", background: "var(--card)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Future Outlook</h2>
           <p style={proseP}>Three trajectories define India&apos;s potato sector to 2030:</p>
@@ -1024,10 +1024,10 @@ function IndiaProfilePage({ c }) {
 
       {/* ─── S15 · AI Explorer Block — TWO BANDS (dark heading, light widget) ─── */}
       {/* Dark intro band */}
-      <section id="ai-explorer" className="pp-ai-explorer-band pp-no-print" style={{ background: "linear-gradient(135deg,#0F1115 0%,#1A1F26 100%)", color: "#fff", padding: "52px 0 36px" }}>
+      <section id="ai-explorer" className="pp-ai-explorer-band pp-no-print" style={{ background: "var(--panel)", color: "#fff", padding: "52px 0 36px" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <div style={{ maxWidth: 760, margin: "0 auto", textAlign: "center" }}>
-            <div style={{ fontSize: 11, fontWeight: 700, color: "#E53935", textTransform: "uppercase", letterSpacing: 2, marginBottom: 14 }}>Potatopedia AI &middot; India</div>
+            <div style={{ fontSize: 11, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 2, marginBottom: 14 }}>Potatopedia AI &middot; India</div>
             <h2 style={{ fontSize: 32, fontWeight: 800, color: "#fff", margin: "0 0 12px", letterSpacing: -1, lineHeight: 1.2 }}>Ask Anything About India&apos;s Potato Industry</h2>
             <p style={{ fontSize: 15, color: "rgba(255,255,255,0.7)", margin: "0", lineHeight: 1.6 }}>
               Get data-backed answers from our 5,657 data-point knowledge base &mdash; pre-filtered for India.
@@ -1036,7 +1036,7 @@ function IndiaProfilePage({ c }) {
         </div>
       </section>
       {/* Light widget band — CountryAI renders on its own light background, no contrast issue */}
-      <section className="pp-ai-explorer-light pp-no-print" style={{ background: "#fff", borderTop: "0", borderBottom: "1px solid #f0f0f0" }}>
+      <section className="pp-ai-explorer-light pp-no-print" style={{ background: "var(--card)", borderTop: "0", borderBottom: "1px solid var(--line)" }}>
         <CountryAI countryName="India" countrySlug="india" />
       </section>
 
@@ -1045,16 +1045,16 @@ function IndiaProfilePage({ c }) {
 
       <CountryBlogPosts countrySlug={c.slug} />
 
-      <section className="pp-comparable-countries pp-no-print" style={{ background: "#FAFAFA", borderTop: "1px solid #f0f0f0", padding: "48px 0" }}>
+      <section className="pp-comparable-countries pp-no-print" style={{ background: "var(--paper)", borderTop: "1px solid var(--line)", padding: "48px 0" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={{ ...sectionTitle, textAlign: "left" }}>Compare with Regional Peers</h2>
           <div className="pp-india-comparable-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 16, marginTop: 8 }}>
             {COUNTRIES.filter((x) => ["china", "bangladesh", "pakistan", "indonesia"].includes(x.slug)).map((x) => (
-              <Link key={x.slug} href={"/country/" + x.slug} style={{ background: "white", borderRadius: 14, padding: "20px 16px", textAlign: "center", border: "1px solid #ececec", textDecoration: "none", color: "inherit", transition: "border-color 0.15s, box-shadow 0.15s" }}>
+              <Link key={x.slug} href={"/country/" + x.slug} style={{ background: "var(--card)", borderRadius: 14, padding: "20px 16px", textAlign: "center", border: "1px solid var(--line)", textDecoration: "none", color: "inherit", transition: "border-color 0.15s, box-shadow 0.15s" }}>
                 <div style={{ fontSize: 36, marginBottom: 8 }}>{x.flag}</div>
-                <div style={{ fontSize: 14, fontWeight: 700, color: "#1A1A1A", marginBottom: 4 }}>{x.name}</div>
-                <div style={{ fontSize: 22, color: "#C62828", fontWeight: 800, lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{x.prod}</div>
-                <div style={{ fontSize: 11, color: "#888", marginTop: 4 }}>#{x.rank} Global &middot; {x.yield}</div>
+                <div style={{ fontSize: 14, fontWeight: 700, color: "var(--ink)", marginBottom: 4 }}>{x.name}</div>
+                <div style={{ fontSize: 22, color: "var(--gold)", fontWeight: 800, lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{x.prod}</div>
+                <div style={{ fontSize: 11, color: "var(--mute2)", marginTop: 4 }}>#{x.rank} Global &middot; {x.yield}</div>
               </Link>
             ))}
           </div>
@@ -1062,11 +1062,11 @@ function IndiaProfilePage({ c }) {
       </section>
 
       {/* ─── S17 · Related Knowledge & Sources ─── */}
-      <section style={{ padding: "48px 0", background: "#fff" }}>
+      <section style={{ padding: "48px 0", background: "var(--card)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 32 }} className="pp-india-related-grid">
             <div>
-              <h3 style={{ fontSize: 14, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 14 }}>Related Knowledge</h3>
+              <h3 style={{ fontSize: 14, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 14 }}>Related Knowledge</h3>
               <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
                 {[
                   { slug: "kufri-potato-varieties-india", title: "Kufri Potato Varieties: India's Complete Guide", desc: "75+ varieties from CPRI Shimla — Jyoti, Pukhraj, Chipsona, Frysona, Tejas." },
@@ -1076,26 +1076,26 @@ function IndiaProfilePage({ c }) {
                   { slug: "potato-storage-cold-chain", title: "Potato Cold Storage: Temperatures, Design, Post-Harvest Losses", desc: "How India's 39M-tonne cold network compares globally." },
                   { slug: "global-potato-trade", title: "Global Potato Trade Statistics", desc: "$22.8B trade — frozen fry exports led by Belgium, India growing fastest." },
                 ].map((a) => (
-                  <Link key={a.slug} href={"/knowledge/" + a.slug} style={{ background: "#fff", border: "1px solid #ececec", borderRadius: 10, padding: "12px 16px", textDecoration: "none", color: "inherit", transition: "border-color 0.15s" }}>
-                    <div style={{ fontSize: 14, fontWeight: 600, color: "#1A1A1A", marginBottom: 3 }}>{a.title}</div>
-                    <div style={{ fontSize: 12.5, color: "#666", lineHeight: 1.5 }}>{a.desc}</div>
+                  <Link key={a.slug} href={"/knowledge/" + a.slug} style={{ background: "var(--card)", border: "1px solid var(--line)", borderRadius: 10, padding: "12px 16px", textDecoration: "none", color: "inherit", transition: "border-color 0.15s" }}>
+                    <div style={{ fontSize: 14, fontWeight: 600, color: "var(--ink)", marginBottom: 3 }}>{a.title}</div>
+                    <div style={{ fontSize: 12.5, color: "var(--mute)", lineHeight: 1.5 }}>{a.desc}</div>
                   </Link>
                 ))}
               </div>
             </div>
-            <div className="pp-sources-block" style={{ background: "#FAFAFA", border: "1px solid #ececec", borderRadius: 10, padding: "20px 22px" }}>
-              <h3 style={{ fontSize: 14, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 14 }}>Sources</h3>
+            <div className="pp-sources-block" style={{ background: "var(--paper)", border: "1px solid var(--line)", borderRadius: 10, padding: "20px 22px" }}>
+              <h3 style={{ fontSize: 14, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 14 }}>Sources</h3>
               <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 8 }}>
-                <li style={{ fontSize: 12, color: "#444", lineHeight: 1.55 }}><strong>FAOSTAT 2023</strong> — UN Food and Agriculture Organization production data</li>
-                <li style={{ fontSize: 12, color: "#444", lineHeight: 1.55 }}><strong>ICAR-CPRI</strong> — Central Potato Research Institute, Shimla; variety catalogue, Vision 2050, agro-climatic zones</li>
-                <li style={{ fontSize: 12, color: "#444", lineHeight: 1.55 }}><strong>PIB Government of India</strong> — variety release notifications 2024 and 2025</li>
-                <li style={{ fontSize: 12, color: "#444", lineHeight: 1.55 }}><strong>APEDA / DGCIS</strong> — Agricultural Export Promotion Authority; trade statistics 2023-24</li>
-                <li style={{ fontSize: 12, color: "#444", lineHeight: 1.55 }}><strong>National Horticulture Board (NHB)</strong> — cold storage capacity statistics</li>
-                <li style={{ fontSize: 12, color: "#444", lineHeight: 1.55 }}><strong>Department of Agriculture &amp; Farmers Welfare</strong> — area, production, advance estimates</li>
-                <li style={{ fontSize: 12, color: "#444", lineHeight: 1.55 }}><strong>Singh &amp; Pandey, Potato Journal (2019, 2022)</strong> — peer-reviewed seed-system and variety performance</li>
-                <li style={{ fontSize: 12, color: "#444", lineHeight: 1.55 }}><strong>Gujarat Agriculture Department</strong> — processing-variety acreage data</li>
-                <li style={{ fontSize: 12, color: "#444", lineHeight: 1.55 }}><strong>CIP</strong> — International Potato Center, Lima; collaboration data with ICAR-CPRI</li>
-                <li style={{ fontSize: 12, color: "#444", lineHeight: 1.55 }}><strong>AICRP on Potato</strong> — All-India Coordinated Research Project annual reports</li>
+                <li style={{ fontSize: 12, color: "var(--ink2)", lineHeight: 1.55 }}><strong>FAOSTAT 2023</strong> — UN Food and Agriculture Organization production data</li>
+                <li style={{ fontSize: 12, color: "var(--ink2)", lineHeight: 1.55 }}><strong>ICAR-CPRI</strong> — Central Potato Research Institute, Shimla; variety catalogue, Vision 2050, agro-climatic zones</li>
+                <li style={{ fontSize: 12, color: "var(--ink2)", lineHeight: 1.55 }}><strong>PIB Government of India</strong> — variety release notifications 2024 and 2025</li>
+                <li style={{ fontSize: 12, color: "var(--ink2)", lineHeight: 1.55 }}><strong>APEDA / DGCIS</strong> — Agricultural Export Promotion Authority; trade statistics 2023-24</li>
+                <li style={{ fontSize: 12, color: "var(--ink2)", lineHeight: 1.55 }}><strong>National Horticulture Board (NHB)</strong> — cold storage capacity statistics</li>
+                <li style={{ fontSize: 12, color: "var(--ink2)", lineHeight: 1.55 }}><strong>Department of Agriculture &amp; Farmers Welfare</strong> — area, production, advance estimates</li>
+                <li style={{ fontSize: 12, color: "var(--ink2)", lineHeight: 1.55 }}><strong>Singh &amp; Pandey, Potato Journal (2019, 2022)</strong> — peer-reviewed seed-system and variety performance</li>
+                <li style={{ fontSize: 12, color: "var(--ink2)", lineHeight: 1.55 }}><strong>Gujarat Agriculture Department</strong> — processing-variety acreage data</li>
+                <li style={{ fontSize: 12, color: "var(--ink2)", lineHeight: 1.55 }}><strong>CIP</strong> — International Potato Center, Lima; collaboration data with ICAR-CPRI</li>
+                <li style={{ fontSize: 12, color: "var(--ink2)", lineHeight: 1.55 }}><strong>AICRP on Potato</strong> — All-India Coordinated Research Project annual reports</li>
               </ul>
             </div>
           </div>
@@ -1108,11 +1108,11 @@ function IndiaProfilePage({ c }) {
         potatopedia.com &nbsp;·&nbsp; hello@potatopedia.com &nbsp;·&nbsp; linkedin.com/company/potatopedia
       </div>
 
-      <section className="pp-bottom-cta pp-no-print" style={{ background: "linear-gradient(180deg,#FFF8F8 0%,#FFFFFF 100%)", borderTop: "1px solid #f0f0f0", padding: "44px 0", textAlign: "center" }}>
+      <section className="pp-bottom-cta pp-no-print" style={{ background: "var(--card)", borderTop: "1px solid var(--line)", padding: "44px 0", textAlign: "center" }}>
         <div style={sectionWrap} className="pp-section-wrap">
-          <div style={{ fontSize: 13, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 10 }}>Premium Export</div>
-          <h3 style={{ fontSize: 22, fontWeight: 700, color: "#1A1A1A", margin: "0 0 8px" }}>Download the Full India Industry Profile</h3>
-          <p style={{ fontSize: 14, color: "#666", margin: "0 0 22px", maxWidth: 520, marginLeft: "auto", marginRight: "auto", lineHeight: 1.6 }}>
+          <div style={{ fontSize: 13, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 10 }}>Premium Export</div>
+          <h3 style={{ fontSize: 22, fontWeight: 700, color: "var(--ink)", margin: "0 0 8px" }}>Download the Full India Industry Profile</h3>
+          <p style={{ fontSize: 14, color: "var(--mute)", margin: "0 0 22px", maxWidth: 520, marginLeft: "auto", marginRight: "auto", lineHeight: 1.6 }}>
             All sections, all tables, all sources &mdash; formatted for A4 printing or sharing as a PDF report. Branded footer on every page (potatopedia.com &middot; hello@potatopedia.com &middot; linkedin.com/company/potatopedia).
           </p>
           <PdfDownloadButton size="lg" placement="footer" />
@@ -1251,14 +1251,14 @@ function ChinaProfilePage({ c }) {
   };
 
   const sectionWrap = { maxWidth: 1080, margin: "0 auto", padding: "0 24px" };
-  const sectionTitle = { fontSize: 22, fontWeight: 700, color: "#1A1A1A", margin: "0 0 16px", paddingLeft: 12, borderLeft: "4px solid #C62828", lineHeight: 1.2 };
-  const tableTH = { padding: "10px 12px", textAlign: "left", background: "#C62828", color: "#fff", fontSize: 12, fontWeight: 700, textTransform: "uppercase", letterSpacing: 0.5 };
-  const tableTD = { padding: "10px 12px", fontSize: 13.5, borderBottom: "1px solid #eee", color: "#333" };
-  const proseP = { fontSize: 14.5, color: "#444", lineHeight: 1.7, margin: "0 0 12px" };
-  const sourceLine = { fontSize: 12, color: "#999", fontStyle: "italic", margin: "4px 0 0" };
+  const sectionTitle = { fontSize: 22, fontWeight: 700, color: "var(--ink)", margin: "0 0 16px", paddingLeft: 12, borderLeft: "4px solid var(--gold)", lineHeight: 1.2 };
+  const tableTH = { padding: "10px 12px", textAlign: "left", background: "var(--accent-bg)", color: "#fff", fontSize: 12, fontWeight: 700, textTransform: "uppercase", letterSpacing: 0.5 };
+  const tableTD = { padding: "10px 12px", fontSize: 13.5, borderBottom: "1px solid var(--line)", color: "var(--ink2)" };
+  const proseP = { fontSize: 14.5, color: "var(--ink2)", lineHeight: 1.7, margin: "0 0 12px" };
+  const sourceLine = { fontSize: 12, color: "var(--mute2)", fontStyle: "italic", margin: "4px 0 0" };
 
   return (
-    <div className="pp-country-page pp-country-india" style={{ minHeight: "100vh", background: "#fff", overflowX: "hidden", fontFamily: "Poppins, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
+    <div className="pp-country-page pp-country-india" style={{ minHeight: "100vh", background: "var(--card)", overflowX: "hidden", fontFamily: "inherit" }}>
       <style>{ppCSS}</style>
       <style>{printCSS}</style>
       <style>{`
@@ -1275,8 +1275,8 @@ function ChinaProfilePage({ c }) {
         @media (max-width: 480px) {
           .pp-vital-stats-grid { grid-template-columns: 1fr 1fr !important; gap: 8px !important; }
         }
-        .pp-share-bar-track { position: relative; height: 6px; background: rgba(198,40,40,0.08); border-radius: 3px; min-width: 80px; margin-top: 4px; }
-        .pp-share-bar-fill { position: absolute; top: 0; left: 0; height: 100%; background: linear-gradient(90deg,#C62828,#E53935); border-radius: 3px; }
+        .pp-share-bar-track { position: relative; height: 6px; background: rgba(154,114,56,0.08); border-radius: 3px; min-width: 80px; margin-top: 4px; }
+        .pp-share-bar-fill { position: absolute; top: 0; left: 0; height: 100%; background: var(--accent-bg); border-radius: 3px; }
       `}</style>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
@@ -1297,23 +1297,23 @@ function ChinaProfilePage({ c }) {
       </div>
 
       {/* S1 · Executive Banner */}
-      <section className="pp-india-banner" style={{ borderBottom: "2px solid #C62828", background: "linear-gradient(180deg,#FFF 0%,#FFF8F8 100%)" }}>
+      <section className="pp-india-banner" style={{ borderBottom: "2px solid var(--gold)", background: "var(--card)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <div style={{ paddingTop: 24, paddingBottom: 8 }}>
-            <Link href="/countries" className="pp-no-print" style={{ fontSize: 12, color: "#C62828", textDecoration: "none", fontWeight: 500, display: "inline-flex", alignItems: "center", gap: 4 }}>&larr; All Countries</Link>
+            <Link href="/countries" className="pp-no-print" style={{ fontSize: 12, color: "var(--gold)", textDecoration: "none", fontWeight: 500, display: "inline-flex", alignItems: "center", gap: 4 }}>&larr; All Countries</Link>
           </div>
           <div className="pp-india-banner-row" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 32, paddingBottom: 28 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 24 }}>
               <div className="pp-india-banner-flag" style={{ fontSize: 80, lineHeight: 1 }}>{c.flag}</div>
               <div>
                 <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 8, flexWrap: "wrap" }}>
-                  <span style={{ fontSize: 11, fontWeight: 700, color: "#fff", background: "#C62828", padding: "4px 10px", borderRadius: 4, textTransform: "uppercase", letterSpacing: 1 }}>#{c.rank} Global Producer</span>
-                  <span style={{ fontSize: 11, fontWeight: 600, color: "#444", background: "rgba(0,0,0,0.05)", padding: "4px 10px", borderRadius: 4 }}>{c.region}</span>
-                  <span style={{ fontSize: 11, fontWeight: 600, color: "#444", background: "rgba(0,0,0,0.05)", padding: "4px 10px", borderRadius: 4 }}>FAOSTAT 2023</span>
+                  <span style={{ fontSize: 11, fontWeight: 700, color: "#fff", background: "var(--accent-bg)", padding: "4px 10px", borderRadius: 4, textTransform: "uppercase", letterSpacing: 1 }}>#{c.rank} Global Producer</span>
+                  <span style={{ fontSize: 11, fontWeight: 600, color: "var(--ink2)", background: "rgba(0,0,0,0.05)", padding: "4px 10px", borderRadius: 4 }}>{c.region}</span>
+                  <span style={{ fontSize: 11, fontWeight: 600, color: "var(--ink2)", background: "rgba(0,0,0,0.05)", padding: "4px 10px", borderRadius: 4 }}>FAOSTAT 2023</span>
                 </div>
-                <h1 style={{ fontSize: 44, fontWeight: 800, color: "#1A1A1A", margin: 0, letterSpacing: -1.5, lineHeight: 1.1 }}>{c.name}</h1>
-                <p className="pp-india-tagline" style={{ fontSize: 16, color: "#444", margin: "10px 0 0", lineHeight: 1.5, maxWidth: 600 }}>
-                  World&apos;s <strong>#1 potato producer</strong> at <strong style={{ color: "#C62828" }}>93.49 M tonnes</strong> &mdash; 24.4% of global output. Net exporter of frozen French fries since 2022. The 2015 Staple Food Strategy elevated potato to China&apos;s 4th national staple.
+                <h1 style={{ fontSize: 44, fontWeight: 800, color: "var(--ink)", margin: 0, letterSpacing: -1.5, lineHeight: 1.1 }}>{c.name}</h1>
+                <p className="pp-india-tagline" style={{ fontSize: 16, color: "var(--ink2)", margin: "10px 0 0", lineHeight: 1.5, maxWidth: 600 }}>
+                  World&apos;s <strong>#1 potato producer</strong> at <strong style={{ color: "var(--gold)" }}>93.49 M tonnes</strong> &mdash; 24.4% of global output. Net exporter of frozen French fries since 2022. The 2015 Staple Food Strategy elevated potato to China&apos;s 4th national staple.
                 </p>
               </div>
             </div>
@@ -1323,9 +1323,9 @@ function ChinaProfilePage({ c }) {
       </section>
 
       {/* S2 · Vital Stats Dashboard */}
-      <section className="pp-vital-stats" style={{ background: "#0F1115", padding: "40px 0", color: "#fff" }}>
+      <section className="pp-vital-stats" style={{ background: "var(--panel)", padding: "40px 0", color: "#fff" }}>
         <div style={sectionWrap} className="pp-section-wrap">
-          <div data-summary="true" className="pp-vital-stats-summary" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", borderLeft: "3px solid #E53935", borderRadius: "0 8px 8px 0", padding: "16px 20px", marginBottom: 28, fontSize: 14, lineHeight: 1.7, color: "#E5E5E5" }}>
+          <div data-summary="true" className="pp-vital-stats-summary" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", borderLeft: "3px solid var(--gold)", borderRadius: "0 8px 8px 0", padding: "16px 20px", marginBottom: 28, fontSize: 14, lineHeight: 1.7, color: "#E5E5E5" }}>
             <strong style={{ color: "#fff" }}>China produced 93.49 million tonnes of potatoes in 2023</strong> (FAOSTAT) on 4.57 million hectares &mdash; <strong>24.4% of global output</strong> and the world&apos;s #1 ranking. Production is concentrated in two zones: the Northern Single-Crop Zone (50% of area) led by <strong>Inner Mongolia and Gansu</strong>, and the Southwestern Mixed-Cropping Zone (37%) led by <strong>Sichuan, Yunnan, and Guizhou</strong>. The 2015 <strong>Potato Staple Food Strategy</strong> positioned potato as China&apos;s 4th national staple. Only 15% of the crop is processed (vs 60%+ in the US) but frozen French fry output reached <strong>1.274 M tonnes in 2023</strong> and China became a <strong>net frozen-fry exporter for the first time in 2022</strong>.
           </div>
           <div className="pp-vital-stats-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16 }}>
@@ -1333,7 +1333,7 @@ function ChinaProfilePage({ c }) {
               <div key={i} className="pp-vital-stat-cell" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 10, padding: "18px 16px" }}>
                 <div className="pp-vital-stat-value" style={{ fontSize: 22, fontWeight: 800, color: "#fff", letterSpacing: -0.5, lineHeight: 1.15, fontVariantNumeric: "tabular-nums" }}>
                   {s.value}
-                  {s.positive && <span className="pp-delta-up" style={{ display: "inline-block", marginLeft: 8, fontSize: 9, fontWeight: 700, color: "#4CAF50", background: "rgba(76,175,80,0.12)", padding: "2px 6px", borderRadius: 3, verticalAlign: "middle" }}>NEW</span>}
+                  {s.positive && <span className="pp-delta-up" style={{ display: "inline-block", marginLeft: 8, fontSize: 9, fontWeight: 700, color: "var(--gold)", background: "rgba(154,114,56,0.12)", padding: "2px 6px", borderRadius: 3, verticalAlign: "middle" }}>NEW</span>}
                 </div>
                 <div className="pp-vital-stat-label" style={{ fontSize: 10, fontWeight: 600, color: "rgba(255,255,255,0.55)", textTransform: "uppercase", letterSpacing: 1.2, marginTop: 8 }}>{s.label}</div>
                 <div className="pp-vital-stat-sub" style={{ fontSize: 11, color: "rgba(255,255,255,0.4)", marginTop: 4 }}>{s.sub}</div>
@@ -1344,28 +1344,28 @@ function ChinaProfilePage({ c }) {
       </section>
 
       {/* Mobile-only PDF CTA */}
-      <section className="pp-mobile-pdf-cta pp-no-print" style={{ background: "#fff", borderBottom: "1px solid #f0f0f0", padding: "20px 0", textAlign: "center" }}>
+      <section className="pp-mobile-pdf-cta pp-no-print" style={{ background: "var(--card)", borderBottom: "1px solid var(--line)", padding: "20px 0", textAlign: "center" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <PdfDownloadButton size="md" placement="banner" />
-          <div style={{ fontSize: 11, color: "#888", marginTop: 8, fontWeight: 500 }}>A4-formatted report &middot; all sections, all tables</div>
+          <div style={{ fontSize: 11, color: "var(--mute2)", marginTop: 8, fontWeight: 500 }}>A4-formatted report &middot; all sections, all tables</div>
         </div>
       </section>
 
       {/* S3 · Quick Facts */}
-      <section className="pp-trajectory-band" style={{ background: "#fff", borderBottom: "1px solid #f0f0f0", padding: "32px 0" }}>
+      <section className="pp-trajectory-band" style={{ background: "var(--card)", borderBottom: "1px solid var(--line)", padding: "32px 0" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={{ ...sectionTitle, marginBottom: 16 }}>FAOSTAT 7-year production trajectory</h2>
           <TrajectoryTable slug={c.slug} />
         </div>
       </section>
 
-      <section className="pp-quickfacts" data-pdf-break-after style={{ background: "#FAFAFA", borderBottom: "1px solid #f0f0f0", padding: "40px 0" }}>
+      <section className="pp-quickfacts" data-pdf-break-after style={{ background: "var(--paper)", borderBottom: "1px solid var(--line)", padding: "40px 0" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Did you know?</h2>
           <div className="pp-quickfacts-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16 }}>
             {quickFacts.map((f, i) => (
-              <div key={i} style={{ background: "#fff", border: "1px solid #ececec", borderRadius: 10, padding: "16px 18px", fontSize: 13.5, color: "#333", lineHeight: 1.55, display: "flex", gap: 10, alignItems: "flex-start" }}>
-                <span style={{ flexShrink: 0, color: "#C62828", fontWeight: 800, fontSize: 16, lineHeight: 1.3 }}>&#9642;</span>
+              <div key={i} style={{ background: "var(--card)", border: "1px solid var(--line)", borderRadius: 10, padding: "16px 18px", fontSize: 13.5, color: "var(--ink2)", lineHeight: 1.55, display: "flex", gap: 10, alignItems: "flex-start" }}>
+                <span style={{ flexShrink: 0, color: "var(--gold)", fontWeight: 800, fontSize: 16, lineHeight: 1.3 }}>&#9642;</span>
                 <span>{f}</span>
               </div>
             ))}
@@ -1374,7 +1374,7 @@ function ChinaProfilePage({ c }) {
       </section>
 
       {/* S4 · Production by Province */}
-      <section style={{ padding: "48px 0", borderBottom: "1px solid #f0f0f0", background: "#fff" }}>
+      <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--card)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Production by Province</h2>
           <p style={proseP}>The top six provinces &mdash; Sichuan, Yunnan, Guizhou, Inner Mongolia, Gansu, and Chongqing &mdash; together cultivate <strong>67% of China&apos;s total potato area</strong> (3.69 M ha across 6 provinces), with Sichuan, Yunnan, and Guizhou each producing over 12 M tonnes. The Northern Single-Crop Zone (Inner Mongolia + Gansu) dominates seed and processing supply; the Southwestern Mixed-Cropping Zone (Sichuan/Yunnan/Guizhou) leads volume but is mostly fresh-consumption.</p>
@@ -1383,19 +1383,19 @@ function ChinaProfilePage({ c }) {
               <thead><tr>{["Province", "Production (M t)", "% of National", "Zone", "Dominant Varieties"].map((h, idx) => <th key={h} style={{ ...tableTH, width: idx === 2 ? "20%" : undefined }}>{h}</th>)}</tr></thead>
               <tbody>
                 {provinceRows.map((r, i) => (
-                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
-                    <td style={{ ...tableTD, fontWeight: i < 3 ? 700 : 500, color: "#1A1A1A" }}>{r[0]}</td>
-                    <td style={{ ...tableTD, color: i < 3 ? "#C62828" : "#1A1A1A", fontWeight: 600 }}>{r[1]}</td>
+                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
+                    <td style={{ ...tableTD, fontWeight: i < 3 ? 700 : 500, color: "var(--ink)" }}>{r[0]}</td>
+                    <td style={{ ...tableTD, color: i < 3 ? "var(--gold)" : "var(--ink)", fontWeight: 600 }}>{r[1]}</td>
                     <td style={tableTD}>
                       <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
-                        <span style={{ fontWeight: 600, fontSize: 13, color: "#1A1A1A" }}>{r[2].toFixed(1)}%</span>
+                        <span style={{ fontWeight: 600, fontSize: 13, color: "var(--ink)" }}>{r[2].toFixed(1)}%</span>
                         <div className="pp-share-bar-track">
                           <div className="pp-share-bar-fill" style={{ width: Math.min(100, r[2] * 6) + "%" }} />
                         </div>
                       </div>
                     </td>
                     <td style={tableTD}>{r[3]}</td>
-                    <td style={{ ...tableTD, color: "#666", fontSize: 12.5 }}>{r[4]}</td>
+                    <td style={{ ...tableTD, color: "var(--mute)", fontSize: 12.5 }}>{r[4]}</td>
                   </tr>
                 ))}
               </tbody>
@@ -1406,21 +1406,21 @@ function ChinaProfilePage({ c }) {
       </section>
 
       {/* S5 · Agro-Ecological Zones */}
-      <section style={{ padding: "48px 0", borderBottom: "1px solid #f0f0f0", background: "#FAFAFA" }}>
+      <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--paper)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Four Agro-Ecological Zones</h2>
           <p style={proseP}>China organises potato production into <strong>four agro-ecological zones</strong> defined by CAAS, each with distinct climate, varieties, and cropping windows. The 2015 Staple Food Strategy explicitly targets potato expansion on marginal, arid, and highland areas where it doesn&apos;t compete with rice/wheat/corn for water or land.</p>
           <div style={{ overflowX: "auto", marginTop: 12 }}>
-            <table style={{ width: "100%", borderCollapse: "collapse", background: "#fff" }}>
+            <table style={{ width: "100%", borderCollapse: "collapse", background: "var(--card)" }}>
               <thead><tr>{["Zone", "Provinces", "Planting", "Harvest", "Notes"].map((h) => <th key={h} style={tableTH}>{h}</th>)}</tr></thead>
               <tbody>
                 {zoneRows.map((r, i) => (
-                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                     <td style={{ ...tableTD, fontWeight: 600 }}>{r[0]}</td>
                     <td style={{ ...tableTD, fontSize: 12.5 }}>{r[1]}</td>
                     <td style={tableTD}>{r[2]}</td>
                     <td style={tableTD}>{r[3]}</td>
-                    <td style={{ ...tableTD, fontSize: 12.5, color: "#666" }}>{r[4]}</td>
+                    <td style={{ ...tableTD, fontSize: 12.5, color: "var(--mute)" }}>{r[4]}</td>
                   </tr>
                 ))}
               </tbody>
@@ -1431,20 +1431,20 @@ function ChinaProfilePage({ c }) {
       </section>
 
       {/* S6 · Variety Portfolio */}
-      <section style={{ padding: "48px 0", borderBottom: "1px solid #f0f0f0", background: "#fff" }}>
+      <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--card)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Variety Portfolio</h2>
-          <p style={proseP}>Over the past decade China approved <strong>524 potato varieties nationally</strong>; <strong>378 are currently registered</strong>, of which 34% are processing varieties &mdash; a deliberate shift to support the rising chip and fry industries. Two CIP-derived varieties dominate: <Link href="/knowledge/kufri-potato-varieties-india" style={{ color: "#C62828", textDecoration: "none", fontWeight: 600 }}>Qingshu 9 (UNICA)</Link> in the drought-prone northwest and Cooperation 88 (Hezuo 88) in the late-blight-pressured southwest. Imported varieties (Atlantic, Favorita, Helan-15, Shepody) anchor processing.</p>
+          <p style={proseP}>Over the past decade China approved <strong>524 potato varieties nationally</strong>; <strong>378 are currently registered</strong>, of which 34% are processing varieties &mdash; a deliberate shift to support the rising chip and fry industries. Two CIP-derived varieties dominate: <Link href="/knowledge/kufri-potato-varieties-india" style={{ color: "var(--gold)", textDecoration: "none", fontWeight: 600 }}>Qingshu 9 (UNICA)</Link> in the drought-prone northwest and Cooperation 88 (Hezuo 88) in the late-blight-pressured southwest. Imported varieties (Atlantic, Favorita, Helan-15, Shepody) anchor processing.</p>
           <div style={{ overflowX: "auto", marginTop: 12 }}>
             <table style={{ width: "100%", borderCollapse: "collapse", fontVariantNumeric: "tabular-nums" }}>
               <thead><tr>{["Variety", "Year", "Type", "Key Provinces", "Yield", "Dry Matter"].map((h) => <th key={h} style={tableTH}>{h}</th>)}</tr></thead>
               <tbody>
                 {varietyRows.map((r, i) => (
-                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
-                    <td style={{ ...tableTD, fontWeight: 600, color: "#1A1A1A" }}>{r[0]}</td>
+                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
+                    <td style={{ ...tableTD, fontWeight: 600, color: "var(--ink)" }}>{r[0]}</td>
                     <td style={tableTD}>{r[1]}</td>
-                    <td style={{ ...tableTD, color: r[2].includes("processing") || r[2].includes("French") || r[2].includes("chip") ? "#C62828" : "#1A1A1A", fontWeight: 500 }}>{r[2]}</td>
-                    <td style={{ ...tableTD, fontSize: 12.5, color: "#666" }}>{r[3]}</td>
+                    <td style={{ ...tableTD, color: r[2].includes("processing") || r[2].includes("French") || r[2].includes("chip") ? "var(--gold)" : "var(--ink)", fontWeight: 500 }}>{r[2]}</td>
+                    <td style={{ ...tableTD, fontSize: 12.5, color: "var(--mute)" }}>{r[3]}</td>
                     <td style={tableTD}>{r[4]}</td>
                     <td style={tableTD}>{r[5]}</td>
                   </tr>
@@ -1457,21 +1457,21 @@ function ChinaProfilePage({ c }) {
       </section>
 
       {/* S7 · Trade Profile */}
-      <section style={{ padding: "48px 0", borderBottom: "1px solid #f0f0f0", background: "#FAFAFA" }}>
+      <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--paper)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Trade Profile</h2>
           <p style={proseP}>China shifted from net frozen-fry importer to <strong>net exporter for the first time in 2022</strong> &mdash; a trade-flow inversion driven by a price advantage of approximately 18% versus US suppliers ($922/t Chinese fries vs $1,128/t US fries delivered to the Philippines). Frozen-fry exports for January&ndash;October 2024 reached 155,100 tonnes, already exceeding the full prior-year figure. China is taking Asia-Pacific market share from US and European suppliers.</p>
           <div style={{ overflowX: "auto", marginTop: 12 }}>
-            <table style={{ width: "100%", borderCollapse: "collapse", background: "#fff" }}>
+            <table style={{ width: "100%", borderCollapse: "collapse", background: "var(--card)" }}>
               <thead><tr>{["Category", "Direction / Year", "Volume / Value", "Trend", "Notes"].map((h) => <th key={h} style={tableTH}>{h}</th>)}</tr></thead>
               <tbody>
                 {tradeRows.map((r, i) => (
-                  <tr key={r[0] + i} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                  <tr key={r[0] + i} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                     <td style={{ ...tableTD, fontWeight: 600 }}>{r[0]}</td>
                     <td style={tableTD}>{r[1]}</td>
-                    <td style={{ ...tableTD, color: "#C62828", fontWeight: 600 }}>{r[2]}</td>
+                    <td style={{ ...tableTD, color: "var(--gold)", fontWeight: 600 }}>{r[2]}</td>
                     <td style={tableTD}>{r[3]}</td>
-                    <td style={{ ...tableTD, fontSize: 12.5, color: "#666" }}>{r[4]}</td>
+                    <td style={{ ...tableTD, fontSize: 12.5, color: "var(--mute)" }}>{r[4]}</td>
                   </tr>
                 ))}
               </tbody>
@@ -1482,7 +1482,7 @@ function ChinaProfilePage({ c }) {
       </section>
 
       {/* S8 · Processing Industry */}
-      <section style={{ padding: "48px 0", borderBottom: "1px solid #f0f0f0", background: "#fff" }}>
+      <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--card)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Processing Industry &amp; Major Players</h2>
           <p style={proseP}>China&apos;s processing industry is concentrated in the Northern Single-Crop Zone, anchored by Inner Mongolia&apos;s 61 enterprises and Gansu&apos;s 46. Demand is driven by the explosive growth of QSR chains: McDonald&apos;s operates over 6,000 outlets in China and Yum China (KFC) over 10,000 &mdash; together creating frozen-fry demand that domestic processing only partially meets. PepsiCo / Frito-Lay (Lay&apos;s) is the chip-segment leader. Despite this scale, China processes just <strong>15% of its crop</strong> &mdash; vs. 60%+ in the US, Canada, and Europe &mdash; signalling enormous growth headroom.</p>
@@ -1491,23 +1491,23 @@ function ChinaProfilePage({ c }) {
               <thead><tr>{["Cluster / Player", "Activity", "Location", "Notes"].map((h) => <th key={h} style={tableTH}>{h}</th>)}</tr></thead>
               <tbody>
                 {processingRows.map((r, i) => (
-                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                     <td style={{ ...tableTD, fontWeight: 600 }}>{r[0]}</td>
                     <td style={tableTD}>{r[1]}</td>
                     <td style={tableTD}>{r[2]}</td>
-                    <td style={{ ...tableTD, fontSize: 12.5, color: "#666" }}>{r[3]}</td>
+                    <td style={{ ...tableTD, fontSize: 12.5, color: "var(--mute)" }}>{r[3]}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
           <p style={sourceLine}>Source: China potato processing industry registry (294 large/medium plants); Yum China + McDonald&apos;s outlet counts.</p>
-          <p className="pp-read-more-link" style={{ ...proseP, marginTop: 16, fontSize: 13.5 }}>Read more: <Link href="/knowledge/how-potatoes-are-processed" style={{ color: "#C62828", textDecoration: "none", fontWeight: 600 }}>How Potatoes Are Processed: Farm to Fry &rarr;</Link> &middot; <Link href="/knowledge/mcdonalds-potato-varieties" style={{ color: "#C62828", textDecoration: "none", fontWeight: 600 }}>What Potatoes Does McDonald&apos;s Use? &rarr;</Link></p>
+          <p className="pp-read-more-link" style={{ ...proseP, marginTop: 16, fontSize: 13.5 }}>Read more: <Link href="/knowledge/how-potatoes-are-processed" style={{ color: "var(--gold)", textDecoration: "none", fontWeight: 600 }}>How Potatoes Are Processed: Farm to Fry &rarr;</Link> &middot; <Link href="/knowledge/mcdonalds-potato-varieties" style={{ color: "var(--gold)", textDecoration: "none", fontWeight: 600 }}>What Potatoes Does McDonald&apos;s Use? &rarr;</Link></p>
         </div>
       </section>
 
       {/* S9 · The Staple Food Strategy */}
-      <section style={{ padding: "48px 0", borderBottom: "1px solid #f0f0f0", background: "#FAFAFA" }}>
+      <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--paper)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>The 2015 Potato Staple Food Strategy</h2>
           <p style={proseP}>In 2015, the Ministry of Agriculture and Rural Affairs (MARA) launched the <strong>&ldquo;Potato Staple Food Strategy&rdquo;</strong> (马铃薯主粮化战略) &mdash; positioning potato as China&apos;s 4th national staple alongside rice, wheat, and corn. The strategy is built on a deliberate principle: <em>do not compete with the three main staples for water or land</em>. Instead, target potato expansion on marginal, arid, and highland areas. The original target was <strong>10 million hectares of potato area by 2020</strong>; potato-flour blending into noodles, steamed buns, and bread became the core consumer-facing delivery channel.</p>
@@ -1517,7 +1517,7 @@ function ChinaProfilePage({ c }) {
       </section>
 
       {/* S9.5 · Consumption & Cuisine */}
-      <section style={{ padding: "48px 0", borderBottom: "1px solid #f0f0f0", background: "#fff" }}>
+      <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--card)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Consumption Patterns &amp; Cuisine</h2>
           <p style={proseP}>China consumed <strong>92.52 million tonnes of potatoes in 2024</strong> (CAAS Agricultural Information Research Institute) &mdash; approximately <strong>65 kg per person per year</strong>, placing China among the world&apos;s highest per-capita potato consumers in absolute volume terms despite a 1.4 billion population. The 2024 utilisation breakdown shows a clear shift from fresh to processed consumption.</p>
@@ -1533,12 +1533,12 @@ function ChinaProfilePage({ c }) {
                   ["Post-harvest losses", "9.79", "—", "—", "Storage / cold-chain gap"],
                   ["Total utilisation", "92.52", "65 (avg)", "—", "CAAS 2024 final estimate"],
                 ].map((r, i) => (
-                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                     <td style={{ ...tableTD, fontWeight: i < 3 ? 700 : 500 }}>{r[0]}</td>
-                    <td style={{ ...tableTD, color: "#C62828", fontWeight: 600 }}>{r[1]}</td>
+                    <td style={{ ...tableTD, color: "var(--gold)", fontWeight: 600 }}>{r[1]}</td>
                     <td style={tableTD}>{r[2]}</td>
                     <td style={tableTD}>{r[3]}</td>
-                    <td style={{ ...tableTD, fontSize: 12.5, color: "#666" }}>{r[4]}</td>
+                    <td style={{ ...tableTD, fontSize: 12.5, color: "var(--mute)" }}>{r[4]}</td>
                   </tr>
                 ))}
               </tbody>
@@ -1550,7 +1550,7 @@ function ChinaProfilePage({ c }) {
       </section>
 
       {/* S9.6 · Seed Production System */}
-      <section style={{ padding: "48px 0", borderBottom: "1px solid #f0f0f0", background: "#FAFAFA" }}>
+      <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--paper)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Seed Production System</h2>
           <p style={proseP}>Only an estimated <strong>20&ndash;30% of China&apos;s potato area uses certified seed</strong> according to CIP (International Potato Center) estimates &mdash; a major productivity constraint when compared to the Netherlands and the United States, both of which approach 100% certified-seed adoption. China&apos;s national average yield of <strong>~20.5 t/ha sits well below the Netherlands (~46 t/ha) and the US (~51 t/ha)</strong>, and CAAS attributes a substantial share of this gap to seed-quality limitations.</p>
@@ -1560,10 +1560,10 @@ function ChinaProfilePage({ c }) {
       </section>
 
       {/* S9.7 · Mechanisation & Farmer Economics */}
-      <section style={{ padding: "48px 0", borderBottom: "1px solid #f0f0f0", background: "#fff" }}>
+      <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--card)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Mechanisation &amp; Farmer Economics</h2>
-          <p style={proseP}>China&apos;s potato sector sits in the <strong>&ldquo;partially mechanised&rdquo; band at 30&ndash;50% adoption</strong> (CAAS), well ahead of <Link href="/country/india" style={{ color: "#C62828", textDecoration: "none" }}>India</Link> (5&ndash;20%) but behind fully mechanised regions in <Link href="/country/united-states" style={{ color: "#C62828", textDecoration: "none" }}>the United States</Link>, <Link href="/country/netherlands" style={{ color: "#C62828", textDecoration: "none" }}>Netherlands</Link>, and Western Europe (near 100%). Inner Mongolia and Gansu lead Chinese mechanisation, leveraging large-field irrigated production where harvesters and planters can be deployed at scale.</p>
+          <p style={proseP}>China&apos;s potato sector sits in the <strong>&ldquo;partially mechanised&rdquo; band at 30&ndash;50% adoption</strong> (CAAS), well ahead of <Link href="/country/india" style={{ color: "var(--gold)", textDecoration: "none" }}>India</Link> (5&ndash;20%) but behind fully mechanised regions in <Link href="/country/united-states" style={{ color: "var(--gold)", textDecoration: "none" }}>the United States</Link>, <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link>, and Western Europe (near 100%). Inner Mongolia and Gansu lead Chinese mechanisation, leveraging large-field irrigated production where harvesters and planters can be deployed at scale.</p>
           <p style={proseP}>2024 was a difficult year for Chinese potato farmer economics. According to CAAS data:</p>
           <div style={{ overflowX: "auto", marginTop: 12 }}>
             <table style={{ width: "100%", borderCollapse: "collapse", fontVariantNumeric: "tabular-nums" }}>
@@ -1575,11 +1575,11 @@ function ChinaProfilePage({ c }) {
                   ["Profit per hectare", "¥6,945 / ha", "−70.47%", "Sharpest single-year decline in recent record"],
                   ["Margin vs other grains", "Still positive", "—", "Potato remains more profitable than wheat/maize"],
                 ].map((r, i) => (
-                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                     <td style={{ ...tableTD, fontWeight: 600 }}>{r[0]}</td>
-                    <td style={{ ...tableTD, color: "#C62828", fontWeight: 600 }}>{r[1]}</td>
+                    <td style={{ ...tableTD, color: "var(--gold)", fontWeight: 600 }}>{r[1]}</td>
                     <td style={tableTD}>{r[2]}</td>
-                    <td style={{ ...tableTD, fontSize: 12.5, color: "#666" }}>{r[3]}</td>
+                    <td style={{ ...tableTD, fontSize: 12.5, color: "var(--mute)" }}>{r[3]}</td>
                   </tr>
                 ))}
               </tbody>
@@ -1591,12 +1591,12 @@ function ChinaProfilePage({ c }) {
       </section>
 
       {/* S9.8 · Trade Detail (China Customs 2024) */}
-      <section style={{ padding: "48px 0", borderBottom: "1px solid #f0f0f0", background: "#FAFAFA" }}>
+      <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--paper)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>2024 Trade Performance</h2>
           <p style={proseP}>China Customs General Administration data (via CAAS) shows continued export-led trade growth in 2024:</p>
           <div style={{ overflowX: "auto", marginTop: 12 }}>
-            <table style={{ width: "100%", borderCollapse: "collapse", fontVariantNumeric: "tabular-nums", background: "#fff" }}>
+            <table style={{ width: "100%", borderCollapse: "collapse", fontVariantNumeric: "tabular-nums", background: "var(--card)" }}>
               <thead><tr>{["Metric", "2024 Value", "YoY Change", "Notes"].map((h) => <th key={h} style={tableTH}>{h}</th>)}</tr></thead>
               <tbody>
                 {[
@@ -1605,11 +1605,11 @@ function ChinaProfilePage({ c }) {
                   ["Frozen-fry export share", "~155 K t (Jan–Oct)", "Already > full 2023", "Net exporter since 2022"],
                   ["FAOSTAT 2022 baseline", "626 K tonnes total exports", "—", "Trade trajectory accelerated 2022→2024"],
                 ].map((r, i) => (
-                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                     <td style={{ ...tableTD, fontWeight: 600 }}>{r[0]}</td>
-                    <td style={{ ...tableTD, color: "#C62828", fontWeight: 600 }}>{r[1]}</td>
+                    <td style={{ ...tableTD, color: "var(--gold)", fontWeight: 600 }}>{r[1]}</td>
                     <td style={tableTD}>{r[2]}</td>
-                    <td style={{ ...tableTD, fontSize: 12.5, color: "#666" }}>{r[3]}</td>
+                    <td style={{ ...tableTD, fontSize: 12.5, color: "var(--mute)" }}>{r[3]}</td>
                   </tr>
                 ))}
               </tbody>
@@ -1620,7 +1620,7 @@ function ChinaProfilePage({ c }) {
       </section>
 
       {/* S10 · Challenges */}
-      <section style={{ padding: "48px 0", borderBottom: "1px solid #f0f0f0", background: "#fff" }}>
+      <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--card)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Industry Challenges</h2>
           <div style={{ overflowX: "auto", marginTop: 12 }}>
@@ -1628,10 +1628,10 @@ function ChinaProfilePage({ c }) {
               <thead><tr>{["Challenge", "Magnitude", "Driver / Note"].map((h) => <th key={h} style={tableTH}>{h}</th>)}</tr></thead>
               <tbody>
                 {challengeRows.map((r, i) => (
-                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                     <td style={{ ...tableTD, fontWeight: 600 }}>{r[0]}</td>
-                    <td style={{ ...tableTD, color: "#C62828", fontWeight: 600 }}>{r[1]}</td>
-                    <td style={{ ...tableTD, fontSize: 12.5, color: "#444" }}>{r[2]}</td>
+                    <td style={{ ...tableTD, color: "var(--gold)", fontWeight: 600 }}>{r[1]}</td>
+                    <td style={{ ...tableTD, fontSize: 12.5, color: "var(--ink2)" }}>{r[2]}</td>
                   </tr>
                 ))}
               </tbody>
@@ -1641,10 +1641,10 @@ function ChinaProfilePage({ c }) {
       </section>
 
       {/* S11 · AI Explorer — two bands (FIXED contrast pattern) */}
-      <section id="ai-explorer" className="pp-ai-explorer-band pp-no-print" style={{ background: "linear-gradient(135deg,#0F1115 0%,#1A1F26 100%)", color: "#fff", padding: "52px 0 36px" }}>
+      <section id="ai-explorer" className="pp-ai-explorer-band pp-no-print" style={{ background: "var(--panel)", color: "#fff", padding: "52px 0 36px" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <div style={{ maxWidth: 760, margin: "0 auto", textAlign: "center" }}>
-            <div style={{ fontSize: 11, fontWeight: 700, color: "#E53935", textTransform: "uppercase", letterSpacing: 2, marginBottom: 14 }}>Potatopedia AI &middot; China</div>
+            <div style={{ fontSize: 11, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 2, marginBottom: 14 }}>Potatopedia AI &middot; China</div>
             <h2 style={{ fontSize: 32, fontWeight: 800, color: "#fff", margin: "0 0 12px", letterSpacing: -1, lineHeight: 1.2 }}>Ask Anything About China&apos;s Potato Industry</h2>
             <p style={{ fontSize: 15, color: "rgba(255,255,255,0.7)", margin: "0", lineHeight: 1.6 }}>
               Get data-backed answers from our 5,657 data-point knowledge base &mdash; pre-filtered for China.
@@ -1652,7 +1652,7 @@ function ChinaProfilePage({ c }) {
           </div>
         </div>
       </section>
-      <section className="pp-ai-explorer-light pp-no-print" style={{ background: "#fff", borderTop: "0", borderBottom: "1px solid #f0f0f0" }}>
+      <section className="pp-ai-explorer-light pp-no-print" style={{ background: "var(--card)", borderTop: "0", borderBottom: "1px solid var(--line)" }}>
         <CountryAI countryName="China" countrySlug="china" />
       </section>
 
@@ -1661,16 +1661,16 @@ function ChinaProfilePage({ c }) {
 
       <CountryBlogPosts countrySlug={c.slug} />
 
-      <section className="pp-comparable-countries pp-no-print" style={{ background: "#FAFAFA", borderTop: "1px solid #f0f0f0", padding: "48px 0" }}>
+      <section className="pp-comparable-countries pp-no-print" style={{ background: "var(--paper)", borderTop: "1px solid var(--line)", padding: "48px 0" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={{ ...sectionTitle, textAlign: "left" }}>Compare with Regional Peers</h2>
           <div className="pp-india-comparable-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 16, marginTop: 8 }}>
             {COUNTRIES.filter((x) => ["india", "bangladesh", "japan", "south-korea"].includes(x.slug)).map((x) => (
-              <Link key={x.slug} href={"/country/" + x.slug} style={{ background: "white", borderRadius: 14, padding: "20px 16px", textAlign: "center", border: "1px solid #ececec", textDecoration: "none", color: "inherit", transition: "border-color 0.15s" }}>
+              <Link key={x.slug} href={"/country/" + x.slug} style={{ background: "var(--card)", borderRadius: 14, padding: "20px 16px", textAlign: "center", border: "1px solid var(--line)", textDecoration: "none", color: "inherit", transition: "border-color 0.15s" }}>
                 <div style={{ fontSize: 36, marginBottom: 8 }}>{x.flag}</div>
-                <div style={{ fontSize: 14, fontWeight: 700, color: "#1A1A1A", marginBottom: 4 }}>{x.name}</div>
-                <div style={{ fontSize: 22, color: "#C62828", fontWeight: 800, lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{x.prod}</div>
-                <div style={{ fontSize: 11, color: "#888", marginTop: 4 }}>#{x.rank} Global &middot; {x.yield}</div>
+                <div style={{ fontSize: 14, fontWeight: 700, color: "var(--ink)", marginBottom: 4 }}>{x.name}</div>
+                <div style={{ fontSize: 22, color: "var(--gold)", fontWeight: 800, lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{x.prod}</div>
+                <div style={{ fontSize: 11, color: "var(--mute2)", marginTop: 4 }}>#{x.rank} Global &middot; {x.yield}</div>
               </Link>
             ))}
           </div>
@@ -1678,11 +1678,11 @@ function ChinaProfilePage({ c }) {
       </section>
 
       {/* S13 · Related & Sources */}
-      <section style={{ padding: "48px 0", background: "#fff" }}>
+      <section style={{ padding: "48px 0", background: "var(--card)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 32 }} className="pp-india-related-grid">
             <div>
-              <h3 style={{ fontSize: 14, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 14 }}>Related Knowledge</h3>
+              <h3 style={{ fontSize: 14, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 14 }}>Related Knowledge</h3>
               <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
                 {[
                   { slug: "top-potato-producing-countries", title: "Top Potato Producing Countries 2025", desc: "China #1 at 94.4 M tonnes, India #2 at 60.14 M tonnes." },
@@ -1690,24 +1690,24 @@ function ChinaProfilePage({ c }) {
                   { slug: "mcdonalds-potato-varieties", title: "What Potatoes Does McDonald's Use?", desc: "The Russet Burbank story behind the global frozen fry industry." },
                   { slug: "global-potato-trade", title: "Global Potato Trade Statistics", desc: "$22.8B trade — Belgium leads frozen fries; China rising fast." },
                 ].map((a) => (
-                  <Link key={a.slug} href={"/knowledge/" + a.slug} style={{ background: "#fff", border: "1px solid #ececec", borderRadius: 10, padding: "12px 16px", textDecoration: "none", color: "inherit", transition: "border-color 0.15s" }}>
-                    <div style={{ fontSize: 14, fontWeight: 600, color: "#1A1A1A", marginBottom: 3 }}>{a.title}</div>
-                    <div style={{ fontSize: 12.5, color: "#666", lineHeight: 1.5 }}>{a.desc}</div>
+                  <Link key={a.slug} href={"/knowledge/" + a.slug} style={{ background: "var(--card)", border: "1px solid var(--line)", borderRadius: 10, padding: "12px 16px", textDecoration: "none", color: "inherit", transition: "border-color 0.15s" }}>
+                    <div style={{ fontSize: 14, fontWeight: 600, color: "var(--ink)", marginBottom: 3 }}>{a.title}</div>
+                    <div style={{ fontSize: 12.5, color: "var(--mute)", lineHeight: 1.5 }}>{a.desc}</div>
                   </Link>
                 ))}
               </div>
             </div>
-            <div className="pp-sources-block" style={{ background: "#FAFAFA", border: "1px solid #ececec", borderRadius: 10, padding: "20px 22px" }}>
-              <h3 style={{ fontSize: 14, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 14 }}>Sources</h3>
+            <div className="pp-sources-block" style={{ background: "var(--paper)", border: "1px solid var(--line)", borderRadius: 10, padding: "20px 22px" }}>
+              <h3 style={{ fontSize: 14, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 14 }}>Sources</h3>
               <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 8 }}>
-                <li style={{ fontSize: 12, color: "#444", lineHeight: 1.55 }}><strong>FAOSTAT 2023</strong> — UN Food and Agriculture Organization production data</li>
-                <li style={{ fontSize: 12, color: "#444", lineHeight: 1.55 }}><strong>CAAS</strong> — Chinese Academy of Agricultural Sciences; variety registry, zone classification, breeding</li>
-                <li style={{ fontSize: 12, color: "#444", lineHeight: 1.55 }}><strong>MARA</strong> — Ministry of Agriculture and Rural Affairs; staple-food strategy</li>
-                <li style={{ fontSize: 12, color: "#444", lineHeight: 1.55 }}><strong>NBS China</strong> — National Bureau of Statistics; provincial production data</li>
-                <li style={{ fontSize: 12, color: "#444", lineHeight: 1.55 }}><strong>CIP</strong> — International Potato Center; Qingshu 9 (UNICA) + Cooperation 88 release documentation</li>
-                <li style={{ fontSize: 12, color: "#444", lineHeight: 1.55 }}><strong>Yunnan Normal University</strong> — Cooperation 88 (Hezuo 88) breeding co-development</li>
-                <li style={{ fontSize: 12, color: "#444", lineHeight: 1.55 }}><strong>RTB / CGIAR</strong> — Qingshu 9 success-story documentation</li>
-                <li style={{ fontSize: 12, color: "#444", lineHeight: 1.55 }}><strong>China Customs</strong> — frozen-fry export data 2022-2024</li>
+                <li style={{ fontSize: 12, color: "var(--ink2)", lineHeight: 1.55 }}><strong>FAOSTAT 2023</strong> — UN Food and Agriculture Organization production data</li>
+                <li style={{ fontSize: 12, color: "var(--ink2)", lineHeight: 1.55 }}><strong>CAAS</strong> — Chinese Academy of Agricultural Sciences; variety registry, zone classification, breeding</li>
+                <li style={{ fontSize: 12, color: "var(--ink2)", lineHeight: 1.55 }}><strong>MARA</strong> — Ministry of Agriculture and Rural Affairs; staple-food strategy</li>
+                <li style={{ fontSize: 12, color: "var(--ink2)", lineHeight: 1.55 }}><strong>NBS China</strong> — National Bureau of Statistics; provincial production data</li>
+                <li style={{ fontSize: 12, color: "var(--ink2)", lineHeight: 1.55 }}><strong>CIP</strong> — International Potato Center; Qingshu 9 (UNICA) + Cooperation 88 release documentation</li>
+                <li style={{ fontSize: 12, color: "var(--ink2)", lineHeight: 1.55 }}><strong>Yunnan Normal University</strong> — Cooperation 88 (Hezuo 88) breeding co-development</li>
+                <li style={{ fontSize: 12, color: "var(--ink2)", lineHeight: 1.55 }}><strong>RTB / CGIAR</strong> — Qingshu 9 success-story documentation</li>
+                <li style={{ fontSize: 12, color: "var(--ink2)", lineHeight: 1.55 }}><strong>China Customs</strong> — frozen-fry export data 2022-2024</li>
               </ul>
             </div>
           </div>
@@ -1720,11 +1720,11 @@ function ChinaProfilePage({ c }) {
         potatopedia.com &nbsp;·&nbsp; hello@potatopedia.com &nbsp;·&nbsp; linkedin.com/company/potatopedia
       </div>
 
-      <section className="pp-bottom-cta pp-no-print" style={{ background: "linear-gradient(180deg,#FFF8F8 0%,#FFFFFF 100%)", borderTop: "1px solid #f0f0f0", padding: "44px 0", textAlign: "center" }}>
+      <section className="pp-bottom-cta pp-no-print" style={{ background: "var(--card)", borderTop: "1px solid var(--line)", padding: "44px 0", textAlign: "center" }}>
         <div style={sectionWrap} className="pp-section-wrap">
-          <div style={{ fontSize: 13, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 10 }}>Premium Export</div>
-          <h3 style={{ fontSize: 22, fontWeight: 700, color: "#1A1A1A", margin: "0 0 8px" }}>Download the Full China Industry Profile</h3>
-          <p style={{ fontSize: 14, color: "#666", margin: "0 0 22px", maxWidth: 520, marginLeft: "auto", marginRight: "auto", lineHeight: 1.6 }}>
+          <div style={{ fontSize: 13, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 10 }}>Premium Export</div>
+          <h3 style={{ fontSize: 22, fontWeight: 700, color: "var(--ink)", margin: "0 0 8px" }}>Download the Full China Industry Profile</h3>
+          <p style={{ fontSize: 14, color: "var(--mute)", margin: "0 0 22px", maxWidth: 520, marginLeft: "auto", marginRight: "auto", lineHeight: 1.6 }}>
             All sections, all tables, all sources &mdash; formatted for A4 printing or sharing as a PDF report. Branded footer on every page (potatopedia.com &middot; hello@potatopedia.com &middot; linkedin.com/company/potatopedia).
           </p>
           <PdfDownloadButton size="lg" placement="footer" />
@@ -1847,14 +1847,14 @@ function BelgiumProfilePage({ c }) {
   };
 
   const sectionWrap = { maxWidth: 1080, margin: "0 auto", padding: "0 24px" };
-  const sectionTitle = { fontSize: 22, fontWeight: 700, color: "#1A1A1A", margin: "0 0 16px", paddingLeft: 12, borderLeft: "4px solid #C62828", lineHeight: 1.2 };
-  const tableTH = { padding: "10px 12px", textAlign: "left", background: "#C62828", color: "#fff", fontSize: 12, fontWeight: 700, textTransform: "uppercase", letterSpacing: 0.5 };
-  const tableTD = { padding: "10px 12px", fontSize: 13.5, borderBottom: "1px solid #eee", color: "#333" };
-  const proseP = { fontSize: 14.5, color: "#444", lineHeight: 1.7, margin: "0 0 12px" };
-  const sourceLine = { fontSize: 12, color: "#999", fontStyle: "italic", margin: "4px 0 0" };
+  const sectionTitle = { fontSize: 22, fontWeight: 700, color: "var(--ink)", margin: "0 0 16px", paddingLeft: 12, borderLeft: "4px solid var(--gold)", lineHeight: 1.2 };
+  const tableTH = { padding: "10px 12px", textAlign: "left", background: "var(--accent-bg)", color: "#fff", fontSize: 12, fontWeight: 700, textTransform: "uppercase", letterSpacing: 0.5 };
+  const tableTD = { padding: "10px 12px", fontSize: 13.5, borderBottom: "1px solid var(--line)", color: "var(--ink2)" };
+  const proseP = { fontSize: 14.5, color: "var(--ink2)", lineHeight: 1.7, margin: "0 0 12px" };
+  const sourceLine = { fontSize: 12, color: "var(--mute2)", fontStyle: "italic", margin: "4px 0 0" };
 
   return (
-    <div className="pp-country-page pp-country-india" style={{ minHeight: "100vh", background: "#fff", overflowX: "hidden", fontFamily: "Poppins, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
+    <div className="pp-country-page pp-country-india" style={{ minHeight: "100vh", background: "var(--card)", overflowX: "hidden", fontFamily: "inherit" }}>
       <style>{ppCSS}</style>
       <style>{printCSS}</style>
       <style>{`
@@ -1871,8 +1871,8 @@ function BelgiumProfilePage({ c }) {
         @media (max-width: 480px) {
           .pp-vital-stats-grid { grid-template-columns: 1fr 1fr !important; gap: 8px !important; }
         }
-        .pp-share-bar-track { position: relative; height: 6px; background: rgba(198,40,40,0.08); border-radius: 3px; min-width: 80px; margin-top: 4px; }
-        .pp-share-bar-fill { position: absolute; top: 0; left: 0; height: 100%; background: linear-gradient(90deg,#C62828,#E53935); border-radius: 3px; }
+        .pp-share-bar-track { position: relative; height: 6px; background: rgba(154,114,56,0.08); border-radius: 3px; min-width: 80px; margin-top: 4px; }
+        .pp-share-bar-fill { position: absolute; top: 0; left: 0; height: 100%; background: var(--accent-bg); border-radius: 3px; }
       `}</style>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
@@ -1892,23 +1892,23 @@ function BelgiumProfilePage({ c }) {
         potatopedia.com &nbsp;·&nbsp; hello@potatopedia.com &nbsp;·&nbsp; linkedin.com/company/potatopedia
       </div>
 
-      <section className="pp-india-banner" style={{ borderBottom: "2px solid #C62828", background: "linear-gradient(180deg,#FFF 0%,#FFF8F8 100%)" }}>
+      <section className="pp-india-banner" style={{ borderBottom: "2px solid var(--gold)", background: "var(--card)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <div style={{ paddingTop: 24, paddingBottom: 8 }}>
-            <Link href="/countries" className="pp-no-print" style={{ fontSize: 12, color: "#C62828", textDecoration: "none", fontWeight: 500, display: "inline-flex", alignItems: "center", gap: 4 }}>&larr; All Countries</Link>
+            <Link href="/countries" className="pp-no-print" style={{ fontSize: 12, color: "var(--gold)", textDecoration: "none", fontWeight: 500, display: "inline-flex", alignItems: "center", gap: 4 }}>&larr; All Countries</Link>
           </div>
           <div className="pp-india-banner-row" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 32, paddingBottom: 28 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 24 }}>
               <div className="pp-india-banner-flag" style={{ fontSize: 80, lineHeight: 1 }}>{c.flag}</div>
               <div>
                 <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 8, flexWrap: "wrap" }}>
-                  <span style={{ fontSize: 11, fontWeight: 700, color: "#fff", background: "#C62828", padding: "4px 10px", borderRadius: 4, textTransform: "uppercase", letterSpacing: 1 }}>#{c.rank} Global Producer</span>
-                  <span style={{ fontSize: 11, fontWeight: 600, color: "#444", background: "rgba(0,0,0,0.05)", padding: "4px 10px", borderRadius: 4 }}>{c.region}</span>
-                  <span style={{ fontSize: 11, fontWeight: 600, color: "#444", background: "rgba(0,0,0,0.05)", padding: "4px 10px", borderRadius: 4 }}>FAOSTAT 2023</span>
+                  <span style={{ fontSize: 11, fontWeight: 700, color: "#fff", background: "var(--accent-bg)", padding: "4px 10px", borderRadius: 4, textTransform: "uppercase", letterSpacing: 1 }}>#{c.rank} Global Producer</span>
+                  <span style={{ fontSize: 11, fontWeight: 600, color: "var(--ink2)", background: "rgba(0,0,0,0.05)", padding: "4px 10px", borderRadius: 4 }}>{c.region}</span>
+                  <span style={{ fontSize: 11, fontWeight: 600, color: "var(--ink2)", background: "rgba(0,0,0,0.05)", padding: "4px 10px", borderRadius: 4 }}>FAOSTAT 2023</span>
                 </div>
-                <h1 style={{ fontSize: 44, fontWeight: 800, color: "#1A1A1A", margin: 0, letterSpacing: -1.5, lineHeight: 1.1 }}>{c.name}</h1>
-                <p className="pp-india-tagline" style={{ fontSize: 16, color: "#444", margin: "10px 0 0", lineHeight: 1.5, maxWidth: 600 }}>
-                  World&apos;s <strong>#1 frozen French fry exporter</strong> at <strong style={{ color: "#C62828" }}>$4.6 billion</strong>. 8.61 M tonnes domestic + 1.5&ndash;2 M tonnes imported raw, processed by 5+ major plants in the Westhoek region of West Flanders.
+                <h1 style={{ fontSize: 44, fontWeight: 800, color: "var(--ink)", margin: 0, letterSpacing: -1.5, lineHeight: 1.1 }}>{c.name}</h1>
+                <p className="pp-india-tagline" style={{ fontSize: 16, color: "var(--ink2)", margin: "10px 0 0", lineHeight: 1.5, maxWidth: 600 }}>
+                  World&apos;s <strong>#1 frozen French fry exporter</strong> at <strong style={{ color: "var(--gold)" }}>$4.6 billion</strong>. 8.61 M tonnes domestic + 1.5&ndash;2 M tonnes imported raw, processed by 5+ major plants in the Westhoek region of West Flanders.
                 </p>
               </div>
             </div>
@@ -1917,9 +1917,9 @@ function BelgiumProfilePage({ c }) {
         </div>
       </section>
 
-      <section className="pp-vital-stats" style={{ background: "#0F1115", padding: "40px 0", color: "#fff" }}>
+      <section className="pp-vital-stats" style={{ background: "var(--panel)", padding: "40px 0", color: "#fff" }}>
         <div style={sectionWrap} className="pp-section-wrap">
-          <div data-summary="true" className="pp-vital-stats-summary" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", borderLeft: "3px solid #E53935", borderRadius: "0 8px 8px 0", padding: "16px 20px", marginBottom: 28, fontSize: 14, lineHeight: 1.7, color: "#E5E5E5" }}>
+          <div data-summary="true" className="pp-vital-stats-summary" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", borderLeft: "3px solid var(--gold)", borderRadius: "0 8px 8px 0", padding: "16px 20px", marginBottom: 28, fontSize: 14, lineHeight: 1.7, color: "#E5E5E5" }}>
             <strong style={{ color: "#fff" }}>Belgium produced 8.61 million tonnes of potatoes in 2023</strong> (FAOSTAT) on 95,700 hectares at 42.0 t/ha &mdash; nearly 2&times; the world average. <strong>Acreage has nearly doubled since 2000</strong> (from ~55K to 105K ha by 2024), driven entirely by processing demand. Belgium is the <strong>world&apos;s #1 frozen French fry exporter at $4.6 billion</strong>, processing 5.5&ndash;6 M tonnes of raw potatoes per year &mdash; more than the country grows. <strong>Five major processors operate within a 30 km radius</strong> in the Westhoek region of West Flanders. Top players: Clarebout (1.5 M t/yr), Agristo (600K+ t/yr), Mydibel (400K t/yr), Lutosa/McCain, Farm Frites.
           </div>
           <div className="pp-vital-stats-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16 }}>
@@ -1927,7 +1927,7 @@ function BelgiumProfilePage({ c }) {
               <div key={i} className="pp-vital-stat-cell" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 10, padding: "18px 16px" }}>
                 <div className="pp-vital-stat-value" style={{ fontSize: 22, fontWeight: 800, color: "#fff", letterSpacing: -0.5, lineHeight: 1.15, fontVariantNumeric: "tabular-nums" }}>
                   {s.value}
-                  {s.positive && <span className="pp-delta-up" style={{ display: "inline-block", marginLeft: 8, fontSize: 9, fontWeight: 700, color: "#4CAF50", background: "rgba(76,175,80,0.12)", padding: "2px 6px", borderRadius: 3, verticalAlign: "middle" }}>GROWTH</span>}
+                  {s.positive && <span className="pp-delta-up" style={{ display: "inline-block", marginLeft: 8, fontSize: 9, fontWeight: 700, color: "var(--gold)", background: "rgba(154,114,56,0.12)", padding: "2px 6px", borderRadius: 3, verticalAlign: "middle" }}>GROWTH</span>}
                 </div>
                 <div className="pp-vital-stat-label" style={{ fontSize: 10, fontWeight: 600, color: "rgba(255,255,255,0.55)", textTransform: "uppercase", letterSpacing: 1.2, marginTop: 8 }}>{s.label}</div>
                 <div className="pp-vital-stat-sub" style={{ fontSize: 11, color: "rgba(255,255,255,0.4)", marginTop: 4 }}>{s.sub}</div>
@@ -1937,27 +1937,27 @@ function BelgiumProfilePage({ c }) {
         </div>
       </section>
 
-      <section className="pp-mobile-pdf-cta pp-no-print" style={{ background: "#fff", borderBottom: "1px solid #f0f0f0", padding: "20px 0", textAlign: "center" }}>
+      <section className="pp-mobile-pdf-cta pp-no-print" style={{ background: "var(--card)", borderBottom: "1px solid var(--line)", padding: "20px 0", textAlign: "center" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <PdfDownloadButton size="md" placement="banner" />
-          <div style={{ fontSize: 11, color: "#888", marginTop: 8, fontWeight: 500 }}>A4-formatted report &middot; all sections, all tables</div>
+          <div style={{ fontSize: 11, color: "var(--mute2)", marginTop: 8, fontWeight: 500 }}>A4-formatted report &middot; all sections, all tables</div>
         </div>
       </section>
 
-      <section className="pp-trajectory-band" style={{ background: "#fff", borderBottom: "1px solid #f0f0f0", padding: "32px 0" }}>
+      <section className="pp-trajectory-band" style={{ background: "var(--card)", borderBottom: "1px solid var(--line)", padding: "32px 0" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={{ ...sectionTitle, marginBottom: 16 }}>FAOSTAT 7-year production trajectory</h2>
           <TrajectoryTable slug={c.slug} />
         </div>
       </section>
 
-      <section className="pp-quickfacts" data-pdf-break-after style={{ background: "#FAFAFA", borderBottom: "1px solid #f0f0f0", padding: "40px 0" }}>
+      <section className="pp-quickfacts" data-pdf-break-after style={{ background: "var(--paper)", borderBottom: "1px solid var(--line)", padding: "40px 0" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Did you know?</h2>
           <div className="pp-quickfacts-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16 }}>
             {quickFacts.map((f, i) => (
-              <div key={i} style={{ background: "#fff", border: "1px solid #ececec", borderRadius: 10, padding: "16px 18px", fontSize: 13.5, color: "#333", lineHeight: 1.55, display: "flex", gap: 10, alignItems: "flex-start" }}>
-                <span style={{ flexShrink: 0, color: "#C62828", fontWeight: 800, fontSize: 16, lineHeight: 1.3 }}>&#9642;</span>
+              <div key={i} style={{ background: "var(--card)", border: "1px solid var(--line)", borderRadius: 10, padding: "16px 18px", fontSize: 13.5, color: "var(--ink2)", lineHeight: 1.55, display: "flex", gap: 10, alignItems: "flex-start" }}>
+                <span style={{ flexShrink: 0, color: "var(--gold)", fontWeight: 800, fontSize: 16, lineHeight: 1.3 }}>&#9642;</span>
                 <span>{f}</span>
               </div>
             ))}
@@ -1965,7 +1965,7 @@ function BelgiumProfilePage({ c }) {
         </div>
       </section>
 
-      <section style={{ padding: "48px 0", borderBottom: "1px solid #f0f0f0", background: "#fff" }}>
+      <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--card)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Production by Region</h2>
           <p style={proseP}><strong>West Flanders is the dominant production region</strong>, hosting both the largest domestic acreage and the Westhoek processing cluster (Clarebout, Agristo, Lutosa). Hainaut in Wallonia is the secondary hub, anchored by Mydibel (Mouscron) and Lutosa (Leuze-en-Hainaut). Flemish loam soils and the temperate maritime climate support yields of 40&ndash;50 t/ha &mdash; well above the world average of 22.8 t/ha.</p>
@@ -1974,18 +1974,18 @@ function BelgiumProfilePage({ c }) {
               <thead><tr>{["Region", "Production (M t)", "% of National", "Notes"].map((h, idx) => <th key={h} style={{ ...tableTH, width: idx === 2 ? "20%" : undefined }}>{h}</th>)}</tr></thead>
               <tbody>
                 {regionRows.map((r, i) => (
-                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
-                    <td style={{ ...tableTD, fontWeight: i < 3 ? 700 : 500, color: "#1A1A1A" }}>{r[0]}</td>
-                    <td style={{ ...tableTD, color: i < 3 ? "#C62828" : "#1A1A1A", fontWeight: 600 }}>{r[1]}</td>
+                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
+                    <td style={{ ...tableTD, fontWeight: i < 3 ? 700 : 500, color: "var(--ink)" }}>{r[0]}</td>
+                    <td style={{ ...tableTD, color: i < 3 ? "var(--gold)" : "var(--ink)", fontWeight: 600 }}>{r[1]}</td>
                     <td style={tableTD}>
                       <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
-                        <span style={{ fontWeight: 600, fontSize: 13, color: "#1A1A1A" }}>{r[2]}%</span>
+                        <span style={{ fontWeight: 600, fontSize: 13, color: "var(--ink)" }}>{r[2]}%</span>
                         <div className="pp-share-bar-track">
                           <div className="pp-share-bar-fill" style={{ width: Math.min(100, r[2] * 2.4) + "%" }} />
                         </div>
                       </div>
                     </td>
-                    <td style={{ ...tableTD, color: "#666", fontSize: 12.5 }}>{r[3]}</td>
+                    <td style={{ ...tableTD, color: "var(--mute)", fontSize: 12.5 }}>{r[3]}</td>
                   </tr>
                 ))}
               </tbody>
@@ -1995,7 +1995,7 @@ function BelgiumProfilePage({ c }) {
         </div>
       </section>
 
-      <section style={{ padding: "48px 0", borderBottom: "1px solid #f0f0f0", background: "#FAFAFA" }}>
+      <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--paper)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Variety Portfolio</h2>
           <p style={proseP}>Belgian potato cultivation is dominated by <strong>Dutch-bred processing varieties</strong> &mdash; a reflection of the country&apos;s identity as a fry-processing hub rather than a fresh-market grower. <strong>Fontane has overtaken the historic Bintje</strong> as the leading processing variety, prized for low reducing-sugar content and consistent fry quality. Innovator (premium russet), Challenger, and Markies round out the major processing portfolio. <strong>Bintje (1910)</strong> remains a cultural cornerstone but is in declining commercial use.</p>
@@ -2004,11 +2004,11 @@ function BelgiumProfilePage({ c }) {
               <thead><tr>{["Variety", "Year / Origin", "Type", "Notes", "Yield", "Dry Matter"].map((h) => <th key={h} style={tableTH}>{h}</th>)}</tr></thead>
               <tbody>
                 {varietyRows.map((r, i) => (
-                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
-                    <td style={{ ...tableTD, fontWeight: 600, color: "#1A1A1A" }}>{r[0]}</td>
+                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
+                    <td style={{ ...tableTD, fontWeight: 600, color: "var(--ink)" }}>{r[0]}</td>
                     <td style={tableTD}>{r[1]}</td>
-                    <td style={{ ...tableTD, color: r[2].includes("Processing") || r[2].includes("Crisp") ? "#C62828" : "#1A1A1A", fontWeight: 500 }}>{r[2]}</td>
-                    <td style={{ ...tableTD, fontSize: 12.5, color: "#666" }}>{r[3]}</td>
+                    <td style={{ ...tableTD, color: r[2].includes("Processing") || r[2].includes("Crisp") ? "var(--gold)" : "var(--ink)", fontWeight: 500 }}>{r[2]}</td>
+                    <td style={{ ...tableTD, fontSize: 12.5, color: "var(--mute)" }}>{r[3]}</td>
                     <td style={tableTD}>{r[4]}</td>
                     <td style={tableTD}>{r[5]}</td>
                   </tr>
@@ -2020,7 +2020,7 @@ function BelgiumProfilePage({ c }) {
         </div>
       </section>
 
-      <section style={{ padding: "48px 0", borderBottom: "1px solid #f0f0f0", background: "#fff" }}>
+      <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--card)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>The Westhoek Processing Cluster</h2>
           <p style={proseP}>Belgium&apos;s frozen-fry industry is the most geographically concentrated processing cluster in global agriculture: <strong>five major plants within a 30-kilometre radius</strong> in the Westhoek region of West Flanders, supported by another five+ across the country. The cluster employs over 12,000 people directly and supplies frozen fries to 150+ countries. Major operators are profiled below.</p>
@@ -2029,36 +2029,36 @@ function BelgiumProfilePage({ c }) {
               <thead><tr>{["Processor", "Capacity", "Location", "Notes"].map((h) => <th key={h} style={tableTH}>{h}</th>)}</tr></thead>
               <tbody>
                 {processorRows.map((r, i) => (
-                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                     <td style={{ ...tableTD, fontWeight: 600 }}>{r[0]}</td>
-                    <td style={{ ...tableTD, color: "#C62828", fontWeight: 600 }}>{r[1]}</td>
+                    <td style={{ ...tableTD, color: "var(--gold)", fontWeight: 600 }}>{r[1]}</td>
                     <td style={tableTD}>{r[2]}</td>
-                    <td style={{ ...tableTD, fontSize: 12.5, color: "#666" }}>{r[3]}</td>
+                    <td style={{ ...tableTD, fontSize: 12.5, color: "var(--mute)" }}>{r[3]}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
           <p style={sourceLine}>Source: Belgapom member registry; company filings; FoodNavigator industry reporting on cross-border expansion.</p>
-          <p className="pp-read-more-link" style={{ ...proseP, marginTop: 16, fontSize: 13.5 }}>Read more: <Link href="/knowledge/how-potatoes-are-processed" style={{ color: "#C62828", textDecoration: "none", fontWeight: 600 }}>How Potatoes Are Processed: Farm to Fry &rarr;</Link> &middot; <Link href="/knowledge/mcdonalds-potato-varieties" style={{ color: "#C62828", textDecoration: "none", fontWeight: 600 }}>What Potatoes Does McDonald&apos;s Use? &rarr;</Link></p>
+          <p className="pp-read-more-link" style={{ ...proseP, marginTop: 16, fontSize: 13.5 }}>Read more: <Link href="/knowledge/how-potatoes-are-processed" style={{ color: "var(--gold)", textDecoration: "none", fontWeight: 600 }}>How Potatoes Are Processed: Farm to Fry &rarr;</Link> &middot; <Link href="/knowledge/mcdonalds-potato-varieties" style={{ color: "var(--gold)", textDecoration: "none", fontWeight: 600 }}>What Potatoes Does McDonald&apos;s Use? &rarr;</Link></p>
         </div>
       </section>
 
-      <section style={{ padding: "48px 0", borderBottom: "1px solid #f0f0f0", background: "#FAFAFA" }}>
+      <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--paper)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Trade Profile</h2>
-          <p style={proseP}>Belgium&apos;s trade story is uniquely lopsided: it imports 1.5&ndash;2 million tonnes of raw potatoes annually from neighbouring <Link href="/country/france" style={{ color: "#C62828", textDecoration: "none" }}>France</Link>, the <Link href="/country/netherlands" style={{ color: "#C62828", textDecoration: "none" }}>Netherlands</Link>, and <Link href="/country/germany" style={{ color: "#C62828", textDecoration: "none" }}>Germany</Link> &mdash; and exports approximately <strong>€3.4 billion (Eurostat 2023) worth of frozen French fries</strong> to over 150 countries. The country accounts for <strong>25&ndash;30% of global frozen-fry exports by volume</strong>. Top markets: France, UK, Netherlands, Germany within the EU; rapidly growing penetration in the US, Brazil, Saudi Arabia, Japan, South Korea, Australia, and Sub-Saharan Africa.</p>
+          <p style={proseP}>Belgium&apos;s trade story is uniquely lopsided: it imports 1.5&ndash;2 million tonnes of raw potatoes annually from neighbouring <Link href="/country/france" style={{ color: "var(--gold)", textDecoration: "none" }}>France</Link>, the <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link>, and <Link href="/country/germany" style={{ color: "var(--gold)", textDecoration: "none" }}>Germany</Link> &mdash; and exports approximately <strong>€3.4 billion (Eurostat 2023) worth of frozen French fries</strong> to over 150 countries. The country accounts for <strong>25&ndash;30% of global frozen-fry exports by volume</strong>. Top markets: France, UK, Netherlands, Germany within the EU; rapidly growing penetration in the US, Brazil, Saudi Arabia, Japan, South Korea, Australia, and Sub-Saharan Africa.</p>
           <div style={{ overflowX: "auto", marginTop: 12 }}>
-            <table style={{ width: "100%", borderCollapse: "collapse", background: "#fff" }}>
+            <table style={{ width: "100%", borderCollapse: "collapse", background: "var(--card)" }}>
               <thead><tr>{["Category", "Direction", "Volume / Value", "Trend / Position", "Notes"].map((h) => <th key={h} style={tableTH}>{h}</th>)}</tr></thead>
               <tbody>
                 {tradeRows.map((r, i) => (
-                  <tr key={r[0] + i} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                  <tr key={r[0] + i} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                     <td style={{ ...tableTD, fontWeight: 600 }}>{r[0]}</td>
                     <td style={tableTD}>{r[1]}</td>
-                    <td style={{ ...tableTD, color: "#C62828", fontWeight: 600 }}>{r[2]}</td>
+                    <td style={{ ...tableTD, color: "var(--gold)", fontWeight: 600 }}>{r[2]}</td>
                     <td style={tableTD}>{r[3]}</td>
-                    <td style={{ ...tableTD, fontSize: 12.5, color: "#666" }}>{r[4]}</td>
+                    <td style={{ ...tableTD, fontSize: 12.5, color: "var(--mute)" }}>{r[4]}</td>
                   </tr>
                 ))}
               </tbody>
@@ -2069,7 +2069,7 @@ function BelgiumProfilePage({ c }) {
       </section>
 
       {/* Growing Conditions & Calendar (NEW) */}
-      <section style={{ padding: "48px 0", borderBottom: "1px solid #f0f0f0", background: "#fff" }}>
+      <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--card)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Growing Conditions &amp; Calendar</h2>
           <p style={proseP}>Belgium has near-ideal potato growing conditions: a <strong>temperate maritime climate</strong> with mild summers (avg 18&ndash;22&deg;C) and reliable rainfall (700&ndash;850 mm/year), <strong>fertile loam soils</strong> across both Flanders and Wallonia, and a long frost-free growing season aligned with North-Western European norms. The combination supports yields of <strong>40&ndash;50 t/ha</strong> &mdash; nearly 2&times; the world average of 22.8 t/ha.</p>
@@ -2086,11 +2086,11 @@ function BelgiumProfilePage({ c }) {
                   ["Harvest", "Sep–Oct", "Flanders + Wallonia", "Yield 40–50 t/ha typical"],
                   ["Storage / cold chain", "Oct–Apr (next yr)", "Westhoek + processing hubs", "Ambient cooling + CIPC alternatives"],
                 ].map((r, i) => (
-                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                     <td style={{ ...tableTD, fontWeight: 600 }}>{r[0]}</td>
-                    <td style={{ ...tableTD, color: "#C62828", fontWeight: 600 }}>{r[1]}</td>
+                    <td style={{ ...tableTD, color: "var(--gold)", fontWeight: 600 }}>{r[1]}</td>
                     <td style={tableTD}>{r[2]}</td>
-                    <td style={{ ...tableTD, fontSize: 12.5, color: "#666" }}>{r[3]}</td>
+                    <td style={{ ...tableTD, fontSize: 12.5, color: "var(--mute)" }}>{r[3]}</td>
                   </tr>
                 ))}
               </tbody>
@@ -2101,7 +2101,7 @@ function BelgiumProfilePage({ c }) {
       </section>
 
       {/* Frites Culture & Consumption (NEW) */}
-      <section style={{ padding: "48px 0", borderBottom: "1px solid #f0f0f0", background: "#FAFAFA" }}>
+      <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--paper)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Consumption &amp; Frites Culture</h2>
           <p style={proseP}>Belgium consumes <strong>~80&ndash;90.8 kg of potatoes per person per year</strong> (FAOSTAT 2023; Belgapom) &mdash; among the highest per-capita rates in Europe. Most of that consumption flows through the country&apos;s defining food tradition: <strong>frites</strong>, served from approximately <strong>5,000 frituren / fritkoten</strong> (fry stands) operating across the country. <strong>Belgian frites culture has been recognised by UNESCO for its candidacy on the Representative List of the Intangible Cultural Heritage of Humanity</strong>, formalising what Belgians have long claimed: that frites are not fast food in Belgium, they are a national institution.</p>
@@ -2112,17 +2112,17 @@ function BelgiumProfilePage({ c }) {
       </section>
 
       {/* Seed Potato System (NEW) */}
-      <section style={{ padding: "48px 0", borderBottom: "1px solid #f0f0f0", background: "#fff" }}>
+      <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--card)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Seed Potato System: A Net Importer</h2>
-          <p style={proseP}>Despite its processing dominance, Belgium is a <strong>net importer of seed potatoes</strong>. The country produces only <strong>3,000&ndash;4,000 hectares of seed potatoes</strong> domestically &mdash; a fraction of neighbouring <Link href="/country/netherlands" style={{ color: "#C62828", textDecoration: "none" }}>Netherlands&apos; 37,000&ndash;40,000 hectares</Link>, which dominates EU and global seed-potato exports. Belgian processing varieties (Fontane, Innovator, Markies, Lady Rosetta) are overwhelmingly Dutch-bred, and most certified seed enters Belgium from <Link href="/country/netherlands" style={{ color: "#C62828", textDecoration: "none" }}>NL</Link> and <Link href="/country/france" style={{ color: "#C62828", textDecoration: "none" }}>France</Link>.</p>
+          <p style={proseP}>Despite its processing dominance, Belgium is a <strong>net importer of seed potatoes</strong>. The country produces only <strong>3,000&ndash;4,000 hectares of seed potatoes</strong> domestically &mdash; a fraction of neighbouring <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands&apos; 37,000&ndash;40,000 hectares</Link>, which dominates EU and global seed-potato exports. Belgian processing varieties (Fontane, Innovator, Markies, Lady Rosetta) are overwhelmingly Dutch-bred, and most certified seed enters Belgium from <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>NL</Link> and <Link href="/country/france" style={{ color: "var(--gold)", textDecoration: "none" }}>France</Link>.</p>
           <p style={proseP}>Belgian seed-quality oversight is handled by the federal seed authority in coordination with industry through Belgapom and processor-led contract specifications. The country&apos;s <strong>seed-multiplication ratio is high</strong> (yields of 40+ t/ha mean a few thousand hectares of seed support the entire ware crop), but the dependence on Dutch breeders for genetic improvement is a strategic vulnerability that Belgian industry continues to navigate via long-term supplier relationships.</p>
           <p style={sourceLine}>Source: Eurostat seed-potato trade data; NAK Annual Report 2023 (cross-border supplier reference); Belgapom seed-system overview.</p>
         </div>
       </section>
 
       {/* Sustainability / Nitrogen Regulation (NEW) */}
-      <section style={{ padding: "48px 0", borderBottom: "1px solid #f0f0f0", background: "#FAFAFA" }}>
+      <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--paper)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Sustainability &amp; Nitrogen Regulation</h2>
           <p style={proseP}>Belgian potato production operates under the <strong>EU Nitrates Directive (91/676/EEC)</strong>, which caps organic-source nitrogen application at <strong>170 kg N/ha</strong> in nitrate vulnerable zones (NVZs) and requires total nitrogen management to keep groundwater nitrate concentrations below <strong>50 mg/L</strong>. Potato is among the most nitrogen-intensive horticultural crops &mdash; typically requiring 200&ndash;250 kg N/ha for optimal yields with <strong>nitrogen use efficiency of just 60&ndash;70%</strong> (Zebarth et al. 2009, American Journal of Potato Research) &mdash; meaning 30&ndash;40% of applied N is lost via leaching, denitrification, or volatilisation. Belgium&apos;s sandy soils in parts of Limburg and West Flanders are particularly leaching-prone.</p>
@@ -2137,10 +2137,10 @@ function BelgiumProfilePage({ c }) {
       </section>
 
       {/* Research & Breeding (NEW) */}
-      <section style={{ padding: "48px 0", borderBottom: "1px solid #f0f0f0", background: "#fff" }}>
+      <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--card)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Research &amp; Breeding</h2>
-          <p style={proseP}>Belgium does not operate dedicated national-scale potato breeding programmes comparable to those in the <Link href="/country/netherlands" style={{ color: "#C62828", textDecoration: "none" }}>Netherlands</Link> (Agrico, HZPC, Meijer) or other potato powerhouses. Instead, innovation is <strong>industry-led</strong> through partnerships between Belgian processors, the Dutch breeders supplying their seed, and applied-research bodies including:</p>
+          <p style={proseP}>Belgium does not operate dedicated national-scale potato breeding programmes comparable to those in the <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link> (Agrico, HZPC, Meijer) or other potato powerhouses. Instead, innovation is <strong>industry-led</strong> through partnerships between Belgian processors, the Dutch breeders supplying their seed, and applied-research bodies including:</p>
           <p style={proseP}>&bull; <strong>PCA</strong> (Provincieel Centrum voor Aardappelteelt) &mdash; provincial agronomic research and extension based in West Flanders.<br />
           &bull; <strong>ILVO</strong> (Flanders Research Institute for Agriculture, Fisheries and Food) &mdash; applied research on disease management, sustainability, and post-harvest quality.<br />
           &bull; <strong>CRA-W</strong> (Walloon Agricultural Research Centre) &mdash; complementary research for Wallonia.<br />
@@ -2151,7 +2151,7 @@ function BelgiumProfilePage({ c }) {
         </div>
       </section>
 
-      <section style={{ padding: "48px 0", borderBottom: "1px solid #f0f0f0", background: "#fff" }}>
+      <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--card)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Industry Challenges</h2>
           <div style={{ overflowX: "auto", marginTop: 12 }}>
@@ -2159,10 +2159,10 @@ function BelgiumProfilePage({ c }) {
               <thead><tr>{["Challenge", "Magnitude", "Driver / Note"].map((h) => <th key={h} style={tableTH}>{h}</th>)}</tr></thead>
               <tbody>
                 {challengeRows.map((r, i) => (
-                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                     <td style={{ ...tableTD, fontWeight: 600 }}>{r[0]}</td>
-                    <td style={{ ...tableTD, color: "#C62828", fontWeight: 600 }}>{r[1]}</td>
-                    <td style={{ ...tableTD, fontSize: 12.5, color: "#444" }}>{r[2]}</td>
+                    <td style={{ ...tableTD, color: "var(--gold)", fontWeight: 600 }}>{r[1]}</td>
+                    <td style={{ ...tableTD, fontSize: 12.5, color: "var(--ink2)" }}>{r[2]}</td>
                   </tr>
                 ))}
               </tbody>
@@ -2171,10 +2171,10 @@ function BelgiumProfilePage({ c }) {
         </div>
       </section>
 
-      <section id="ai-explorer" className="pp-ai-explorer-band pp-no-print" style={{ background: "linear-gradient(135deg,#0F1115 0%,#1A1F26 100%)", color: "#fff", padding: "52px 0 36px" }}>
+      <section id="ai-explorer" className="pp-ai-explorer-band pp-no-print" style={{ background: "var(--panel)", color: "#fff", padding: "52px 0 36px" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <div style={{ maxWidth: 760, margin: "0 auto", textAlign: "center" }}>
-            <div style={{ fontSize: 11, fontWeight: 700, color: "#E53935", textTransform: "uppercase", letterSpacing: 2, marginBottom: 14 }}>Potatopedia AI &middot; Belgium</div>
+            <div style={{ fontSize: 11, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 2, marginBottom: 14 }}>Potatopedia AI &middot; Belgium</div>
             <h2 style={{ fontSize: 32, fontWeight: 800, color: "#fff", margin: "0 0 12px", letterSpacing: -1, lineHeight: 1.2 }}>Ask Anything About Belgium&apos;s Potato Industry</h2>
             <p style={{ fontSize: 15, color: "rgba(255,255,255,0.7)", margin: "0", lineHeight: 1.6 }}>
               Get data-backed answers from our 5,657 data-point knowledge base &mdash; pre-filtered for Belgium.
@@ -2182,7 +2182,7 @@ function BelgiumProfilePage({ c }) {
           </div>
         </div>
       </section>
-      <section className="pp-ai-explorer-light pp-no-print" style={{ background: "#fff", borderTop: "0", borderBottom: "1px solid #f0f0f0" }}>
+      <section className="pp-ai-explorer-light pp-no-print" style={{ background: "var(--card)", borderTop: "0", borderBottom: "1px solid var(--line)" }}>
         <CountryAI countryName="Belgium" countrySlug="belgium" />
       </section>
 
@@ -2190,27 +2190,27 @@ function BelgiumProfilePage({ c }) {
 
       <CountryBlogPosts countrySlug={c.slug} />
 
-      <section className="pp-comparable-countries pp-no-print" style={{ background: "#FAFAFA", borderTop: "1px solid #f0f0f0", padding: "48px 0" }}>
+      <section className="pp-comparable-countries pp-no-print" style={{ background: "var(--paper)", borderTop: "1px solid var(--line)", padding: "48px 0" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={{ ...sectionTitle, textAlign: "left" }}>Compare with European Peers</h2>
           <div className="pp-india-comparable-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 16, marginTop: 8 }}>
             {COUNTRIES.filter((x) => ["netherlands", "germany", "france", "united-kingdom"].includes(x.slug)).map((x) => (
-              <Link key={x.slug} href={"/country/" + x.slug} style={{ background: "white", borderRadius: 14, padding: "20px 16px", textAlign: "center", border: "1px solid #ececec", textDecoration: "none", color: "inherit", transition: "border-color 0.15s" }}>
+              <Link key={x.slug} href={"/country/" + x.slug} style={{ background: "var(--card)", borderRadius: 14, padding: "20px 16px", textAlign: "center", border: "1px solid var(--line)", textDecoration: "none", color: "inherit", transition: "border-color 0.15s" }}>
                 <div style={{ fontSize: 36, marginBottom: 8 }}>{x.flag}</div>
-                <div style={{ fontSize: 14, fontWeight: 700, color: "#1A1A1A", marginBottom: 4 }}>{x.name}</div>
-                <div style={{ fontSize: 22, color: "#C62828", fontWeight: 800, lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{x.prod}</div>
-                <div style={{ fontSize: 11, color: "#888", marginTop: 4 }}>#{x.rank} Global &middot; {x.yield}</div>
+                <div style={{ fontSize: 14, fontWeight: 700, color: "var(--ink)", marginBottom: 4 }}>{x.name}</div>
+                <div style={{ fontSize: 22, color: "var(--gold)", fontWeight: 800, lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{x.prod}</div>
+                <div style={{ fontSize: 11, color: "var(--mute2)", marginTop: 4 }}>#{x.rank} Global &middot; {x.yield}</div>
               </Link>
             ))}
           </div>
         </div>
       </section>
 
-      <section style={{ padding: "48px 0", background: "#fff" }}>
+      <section style={{ padding: "48px 0", background: "var(--card)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 32 }} className="pp-india-related-grid">
             <div>
-              <h3 style={{ fontSize: 14, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 14 }}>Related Knowledge</h3>
+              <h3 style={{ fontSize: 14, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 14 }}>Related Knowledge</h3>
               <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
                 {[
                   { slug: "how-potatoes-are-processed", title: "How Potatoes Are Processed: Farm to Fry", desc: "Frozen fries, chips, starch — the global $40-80B processing industry." },
@@ -2218,24 +2218,24 @@ function BelgiumProfilePage({ c }) {
                   { slug: "global-potato-trade", title: "Global Potato Trade Statistics", desc: "$22.8B trade — Belgium leads frozen fries at 25-30% of global exports." },
                   { slug: "top-potato-producing-countries", title: "Top Potato Producing Countries 2025", desc: "FAOSTAT rankings — Belgium #18 by production but #1 in fry trade." },
                 ].map((a) => (
-                  <Link key={a.slug} href={"/knowledge/" + a.slug} style={{ background: "#fff", border: "1px solid #ececec", borderRadius: 10, padding: "12px 16px", textDecoration: "none", color: "inherit", transition: "border-color 0.15s" }}>
-                    <div style={{ fontSize: 14, fontWeight: 600, color: "#1A1A1A", marginBottom: 3 }}>{a.title}</div>
-                    <div style={{ fontSize: 12.5, color: "#666", lineHeight: 1.5 }}>{a.desc}</div>
+                  <Link key={a.slug} href={"/knowledge/" + a.slug} style={{ background: "var(--card)", border: "1px solid var(--line)", borderRadius: 10, padding: "12px 16px", textDecoration: "none", color: "inherit", transition: "border-color 0.15s" }}>
+                    <div style={{ fontSize: 14, fontWeight: 600, color: "var(--ink)", marginBottom: 3 }}>{a.title}</div>
+                    <div style={{ fontSize: 12.5, color: "var(--mute)", lineHeight: 1.5 }}>{a.desc}</div>
                   </Link>
                 ))}
               </div>
             </div>
-            <div className="pp-sources-block" style={{ background: "#FAFAFA", border: "1px solid #ececec", borderRadius: 10, padding: "20px 22px" }}>
-              <h3 style={{ fontSize: 14, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 14 }}>Sources</h3>
+            <div className="pp-sources-block" style={{ background: "var(--paper)", border: "1px solid var(--line)", borderRadius: 10, padding: "20px 22px" }}>
+              <h3 style={{ fontSize: 14, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 14 }}>Sources</h3>
               <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 8 }}>
-                <li style={{ fontSize: 12, color: "#444", lineHeight: 1.55 }}><strong>FAOSTAT 2023</strong> — UN Food and Agriculture Organization production data</li>
-                <li style={{ fontSize: 12, color: "#444", lineHeight: 1.55 }}><strong>Belgapom</strong> — Belgian Potato Trade and Processing Association; industry data</li>
-                <li style={{ fontSize: 12, color: "#444", lineHeight: 1.55 }}><strong>Eurostat 2023</strong> — EU production and trade statistics</li>
-                <li style={{ fontSize: 12, color: "#444", lineHeight: 1.55 }}><strong>NEPG</strong> — North-Western European Potato Growers; regional context</li>
-                <li style={{ fontSize: 12, color: "#444", lineHeight: 1.55 }}><strong>Statbel</strong> — Belgian Statistical Office; regional production</li>
-                <li style={{ fontSize: 12, color: "#444", lineHeight: 1.55 }}><strong>PCA</strong> — Provincieel Centrum voor Aardappelteelt; agronomic research</li>
-                <li style={{ fontSize: 12, color: "#444", lineHeight: 1.55 }}><strong>Agrico, HZPC, Meijer</strong> — Dutch breeder documentation for Fontane, Innovator, Markies, Lady Rosetta</li>
-                <li style={{ fontSize: 12, color: "#444", lineHeight: 1.55 }}><strong>Company filings</strong> — Clarebout, Agristo, Mydibel, McCain (Lutosa)</li>
+                <li style={{ fontSize: 12, color: "var(--ink2)", lineHeight: 1.55 }}><strong>FAOSTAT 2023</strong> — UN Food and Agriculture Organization production data</li>
+                <li style={{ fontSize: 12, color: "var(--ink2)", lineHeight: 1.55 }}><strong>Belgapom</strong> — Belgian Potato Trade and Processing Association; industry data</li>
+                <li style={{ fontSize: 12, color: "var(--ink2)", lineHeight: 1.55 }}><strong>Eurostat 2023</strong> — EU production and trade statistics</li>
+                <li style={{ fontSize: 12, color: "var(--ink2)", lineHeight: 1.55 }}><strong>NEPG</strong> — North-Western European Potato Growers; regional context</li>
+                <li style={{ fontSize: 12, color: "var(--ink2)", lineHeight: 1.55 }}><strong>Statbel</strong> — Belgian Statistical Office; regional production</li>
+                <li style={{ fontSize: 12, color: "var(--ink2)", lineHeight: 1.55 }}><strong>PCA</strong> — Provincieel Centrum voor Aardappelteelt; agronomic research</li>
+                <li style={{ fontSize: 12, color: "var(--ink2)", lineHeight: 1.55 }}><strong>Agrico, HZPC, Meijer</strong> — Dutch breeder documentation for Fontane, Innovator, Markies, Lady Rosetta</li>
+                <li style={{ fontSize: 12, color: "var(--ink2)", lineHeight: 1.55 }}><strong>Company filings</strong> — Clarebout, Agristo, Mydibel, McCain (Lutosa)</li>
               </ul>
             </div>
           </div>
@@ -2247,11 +2247,11 @@ function BelgiumProfilePage({ c }) {
         potatopedia.com &nbsp;·&nbsp; hello@potatopedia.com &nbsp;·&nbsp; linkedin.com/company/potatopedia
       </div>
 
-      <section className="pp-bottom-cta pp-no-print" style={{ background: "linear-gradient(180deg,#FFF8F8 0%,#FFFFFF 100%)", borderTop: "1px solid #f0f0f0", padding: "44px 0", textAlign: "center" }}>
+      <section className="pp-bottom-cta pp-no-print" style={{ background: "var(--card)", borderTop: "1px solid var(--line)", padding: "44px 0", textAlign: "center" }}>
         <div style={sectionWrap} className="pp-section-wrap">
-          <div style={{ fontSize: 13, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 10 }}>Premium Export</div>
-          <h3 style={{ fontSize: 22, fontWeight: 700, color: "#1A1A1A", margin: "0 0 8px" }}>Download the Full Belgium Industry Profile</h3>
-          <p style={{ fontSize: 14, color: "#666", margin: "0 0 22px", maxWidth: 520, marginLeft: "auto", marginRight: "auto", lineHeight: 1.6 }}>
+          <div style={{ fontSize: 13, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 10 }}>Premium Export</div>
+          <h3 style={{ fontSize: 22, fontWeight: 700, color: "var(--ink)", margin: "0 0 8px" }}>Download the Full Belgium Industry Profile</h3>
+          <p style={{ fontSize: 14, color: "var(--mute)", margin: "0 0 22px", maxWidth: 520, marginLeft: "auto", marginRight: "auto", lineHeight: 1.6 }}>
             All sections, all tables, all sources &mdash; formatted for A4 printing or sharing as a PDF report. Branded footer on every page (potatopedia.com &middot; hello@potatopedia.com &middot; linkedin.com/company/potatopedia).
           </p>
           <PdfDownloadButton size="lg" placement="footer" />
@@ -2418,14 +2418,14 @@ function NetherlandsProfilePage({ c }) {
   };
 
   const sectionWrap = { maxWidth: 1080, margin: "0 auto", padding: "0 24px" };
-  const sectionTitle = { fontSize: 22, fontWeight: 700, color: "#1A1A1A", margin: "0 0 16px", paddingLeft: 12, borderLeft: "4px solid #C62828", lineHeight: 1.2 };
-  const tableTH = { padding: "10px 12px", textAlign: "left", background: "#C62828", color: "#fff", fontSize: 12, fontWeight: 700, textTransform: "uppercase", letterSpacing: 0.5 };
-  const tableTD = { padding: "10px 12px", fontSize: 13.5, borderBottom: "1px solid #eee", color: "#333" };
-  const proseP = { fontSize: 14.5, color: "#444", lineHeight: 1.7, margin: "0 0 12px" };
-  const sourceLine = { fontSize: 12, color: "#999", fontStyle: "italic", margin: "4px 0 0" };
+  const sectionTitle = { fontSize: 22, fontWeight: 700, color: "var(--ink)", margin: "0 0 16px", paddingLeft: 12, borderLeft: "4px solid var(--gold)", lineHeight: 1.2 };
+  const tableTH = { padding: "10px 12px", textAlign: "left", background: "var(--accent-bg)", color: "#fff", fontSize: 12, fontWeight: 700, textTransform: "uppercase", letterSpacing: 0.5 };
+  const tableTD = { padding: "10px 12px", fontSize: 13.5, borderBottom: "1px solid var(--line)", color: "var(--ink2)" };
+  const proseP = { fontSize: 14.5, color: "var(--ink2)", lineHeight: 1.7, margin: "0 0 12px" };
+  const sourceLine = { fontSize: 12, color: "var(--mute2)", fontStyle: "italic", margin: "4px 0 0" };
 
   return (
-    <div className="pp-country-page pp-country-india" style={{ minHeight: "100vh", background: "#fff", overflowX: "hidden", fontFamily: "Poppins, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
+    <div className="pp-country-page pp-country-india" style={{ minHeight: "100vh", background: "var(--card)", overflowX: "hidden", fontFamily: "inherit" }}>
       <style>{ppCSS}</style>
       <style>{printCSS}</style>
       <style>{`
@@ -2442,8 +2442,8 @@ function NetherlandsProfilePage({ c }) {
         @media (max-width: 480px) {
           .pp-vital-stats-grid { grid-template-columns: 1fr 1fr !important; gap: 8px !important; }
         }
-        .pp-share-bar-track { position: relative; height: 6px; background: rgba(198,40,40,0.08); border-radius: 3px; min-width: 80px; margin-top: 4px; }
-        .pp-share-bar-fill { position: absolute; top: 0; left: 0; height: 100%; background: linear-gradient(90deg,#C62828,#E53935); border-radius: 3px; }
+        .pp-share-bar-track { position: relative; height: 6px; background: rgba(154,114,56,0.08); border-radius: 3px; min-width: 80px; margin-top: 4px; }
+        .pp-share-bar-fill { position: absolute; top: 0; left: 0; height: 100%; background: var(--accent-bg); border-radius: 3px; }
       `}</style>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
@@ -2464,23 +2464,23 @@ function NetherlandsProfilePage({ c }) {
       </div>
 
       {/* S1 · Executive Banner */}
-      <section className="pp-india-banner" style={{ borderBottom: "2px solid #C62828", background: "linear-gradient(180deg,#FFF 0%,#FFF8F8 100%)" }}>
+      <section className="pp-india-banner" style={{ borderBottom: "2px solid var(--gold)", background: "var(--card)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <div style={{ paddingTop: 24, paddingBottom: 8 }}>
-            <Link href="/countries" className="pp-no-print" style={{ fontSize: 12, color: "#C62828", textDecoration: "none", fontWeight: 500, display: "inline-flex", alignItems: "center", gap: 4 }}>&larr; All Countries</Link>
+            <Link href="/countries" className="pp-no-print" style={{ fontSize: 12, color: "var(--gold)", textDecoration: "none", fontWeight: 500, display: "inline-flex", alignItems: "center", gap: 4 }}>&larr; All Countries</Link>
           </div>
           <div className="pp-india-banner-row" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 32, paddingBottom: 28 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 24 }}>
               <div className="pp-india-banner-flag" style={{ fontSize: 80, lineHeight: 1 }}>{c.flag}</div>
               <div>
                 <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 8, flexWrap: "wrap" }}>
-                  <span style={{ fontSize: 11, fontWeight: 700, color: "#fff", background: "#C62828", padding: "4px 10px", borderRadius: 4, textTransform: "uppercase", letterSpacing: 1 }}>#{c.rank} Global Producer</span>
-                  <span style={{ fontSize: 11, fontWeight: 600, color: "#444", background: "rgba(0,0,0,0.05)", padding: "4px 10px", borderRadius: 4 }}>{c.region}</span>
-                  <span style={{ fontSize: 11, fontWeight: 600, color: "#444", background: "rgba(0,0,0,0.05)", padding: "4px 10px", borderRadius: 4 }}>Eurostat 2023</span>
+                  <span style={{ fontSize: 11, fontWeight: 700, color: "#fff", background: "var(--accent-bg)", padding: "4px 10px", borderRadius: 4, textTransform: "uppercase", letterSpacing: 1 }}>#{c.rank} Global Producer</span>
+                  <span style={{ fontSize: 11, fontWeight: 600, color: "var(--ink2)", background: "rgba(0,0,0,0.05)", padding: "4px 10px", borderRadius: 4 }}>{c.region}</span>
+                  <span style={{ fontSize: 11, fontWeight: 600, color: "var(--ink2)", background: "rgba(0,0,0,0.05)", padding: "4px 10px", borderRadius: 4 }}>Eurostat 2023</span>
                 </div>
-                <h1 style={{ fontSize: 44, fontWeight: 800, color: "#1A1A1A", margin: 0, letterSpacing: -1.5, lineHeight: 1.1 }}>{c.name}</h1>
-                <p className="pp-india-tagline" style={{ fontSize: 16, color: "#444", margin: "10px 0 0", lineHeight: 1.5, maxWidth: 600 }}>
-                  World&apos;s <strong style={{ color: "#C62828" }}>#1 seed-potato exporter</strong> &mdash; over 60% of the global certified-seed market. Home to HZPC, Agrico, Solynta, and AVEBE. The Silicon Valley of the global potato industry.
+                <h1 style={{ fontSize: 44, fontWeight: 800, color: "var(--ink)", margin: 0, letterSpacing: -1.5, lineHeight: 1.1 }}>{c.name}</h1>
+                <p className="pp-india-tagline" style={{ fontSize: 16, color: "var(--ink2)", margin: "10px 0 0", lineHeight: 1.5, maxWidth: 600 }}>
+                  World&apos;s <strong style={{ color: "var(--gold)" }}>#1 seed-potato exporter</strong> &mdash; over 60% of the global certified-seed market. Home to HZPC, Agrico, Solynta, and AVEBE. The Silicon Valley of the global potato industry.
                 </p>
               </div>
             </div>
@@ -2490,9 +2490,9 @@ function NetherlandsProfilePage({ c }) {
       </section>
 
       {/* S2 · Vital Stats */}
-      <section className="pp-vital-stats" style={{ background: "#0F1115", padding: "40px 0", color: "#fff" }}>
+      <section className="pp-vital-stats" style={{ background: "var(--panel)", padding: "40px 0", color: "#fff" }}>
         <div style={sectionWrap} className="pp-section-wrap">
-          <div data-summary="true" className="pp-vital-stats-summary" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", borderLeft: "3px solid #E53935", borderRadius: "0 8px 8px 0", padding: "16px 20px", marginBottom: 28, fontSize: 14, lineHeight: 1.7, color: "#E5E5E5" }}>
+          <div data-summary="true" className="pp-vital-stats-summary" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", borderLeft: "3px solid var(--gold)", borderRadius: "0 8px 8px 0", padding: "16px 20px", marginBottom: 28, fontSize: 14, lineHeight: 1.7, color: "#E5E5E5" }}>
             <strong style={{ color: "#fff" }}>The Netherlands produced 6.5 million tonnes of potatoes in 2023</strong> on 158,000 hectares (Eurostat) at <strong>41.1 t/ha</strong> &mdash; nearly 2&times; the world average. The country is the <strong>world&apos;s #1 certified seed-potato exporter</strong>, capturing over 60% of the global market and 69.2% of intra-EU seed-potato trade by value. Annual seed exports total <strong>800,000 tonnes to 80+ countries</strong>. The breeding ecosystem &mdash; HZPC, Agrico, Meijer, Europlant, Danespo NL, STET Holland, plus hybrid pioneer Solynta and WUR public research &mdash; ships <strong>more new commercial potato varieties per year than any other country in the world</strong>. AVEBE produces 600,000 t of starch annually; Aviko, Farm Frites, and Lamb Weston Meijer dominate frozen-fry processing.
           </div>
           <div className="pp-vital-stats-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16 }}>
@@ -2500,7 +2500,7 @@ function NetherlandsProfilePage({ c }) {
               <div key={i} className="pp-vital-stat-cell" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 10, padding: "18px 16px" }}>
                 <div className="pp-vital-stat-value" style={{ fontSize: 22, fontWeight: 800, color: "#fff", letterSpacing: -0.5, lineHeight: 1.15, fontVariantNumeric: "tabular-nums" }}>
                   {s.value}
-                  {s.positive && <span className="pp-delta-up" style={{ display: "inline-block", marginLeft: 8, fontSize: 9, fontWeight: 700, color: "#4CAF50", background: "rgba(76,175,80,0.12)", padding: "2px 6px", borderRadius: 3, verticalAlign: "middle" }}>EU</span>}
+                  {s.positive && <span className="pp-delta-up" style={{ display: "inline-block", marginLeft: 8, fontSize: 9, fontWeight: 700, color: "var(--gold)", background: "rgba(154,114,56,0.12)", padding: "2px 6px", borderRadius: 3, verticalAlign: "middle" }}>EU</span>}
                 </div>
                 <div className="pp-vital-stat-label" style={{ fontSize: 10, fontWeight: 600, color: "rgba(255,255,255,0.55)", textTransform: "uppercase", letterSpacing: 1.2, marginTop: 8 }}>{s.label}</div>
                 <div className="pp-vital-stat-sub" style={{ fontSize: 11, color: "rgba(255,255,255,0.4)", marginTop: 4 }}>{s.sub}</div>
@@ -2511,28 +2511,28 @@ function NetherlandsProfilePage({ c }) {
       </section>
 
       {/* Mobile-only PDF CTA */}
-      <section className="pp-mobile-pdf-cta pp-no-print" style={{ background: "#fff", borderBottom: "1px solid #f0f0f0", padding: "20px 0", textAlign: "center" }}>
+      <section className="pp-mobile-pdf-cta pp-no-print" style={{ background: "var(--card)", borderBottom: "1px solid var(--line)", padding: "20px 0", textAlign: "center" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <PdfDownloadButton size="md" placement="banner" />
-          <div style={{ fontSize: 11, color: "#888", marginTop: 8, fontWeight: 500 }}>A4-formatted report &middot; all sections, all tables</div>
+          <div style={{ fontSize: 11, color: "var(--mute2)", marginTop: 8, fontWeight: 500 }}>A4-formatted report &middot; all sections, all tables</div>
         </div>
       </section>
 
       {/* S3 · Quick Facts */}
-      <section className="pp-trajectory-band" style={{ background: "#fff", borderBottom: "1px solid #f0f0f0", padding: "32px 0" }}>
+      <section className="pp-trajectory-band" style={{ background: "var(--card)", borderBottom: "1px solid var(--line)", padding: "32px 0" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={{ ...sectionTitle, marginBottom: 16 }}>FAOSTAT 7-year production trajectory</h2>
           <TrajectoryTable slug={c.slug} />
         </div>
       </section>
 
-      <section className="pp-quickfacts" data-pdf-break-after style={{ background: "#FAFAFA", borderBottom: "1px solid #f0f0f0", padding: "40px 0" }}>
+      <section className="pp-quickfacts" data-pdf-break-after style={{ background: "var(--paper)", borderBottom: "1px solid var(--line)", padding: "40px 0" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Did you know?</h2>
           <div className="pp-quickfacts-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16 }}>
             {quickFacts.map((f, i) => (
-              <div key={i} style={{ background: "#fff", border: "1px solid #ececec", borderRadius: 10, padding: "16px 18px", fontSize: 13.5, color: "#333", lineHeight: 1.55, display: "flex", gap: 10, alignItems: "flex-start" }}>
-                <span style={{ flexShrink: 0, color: "#C62828", fontWeight: 800, fontSize: 16, lineHeight: 1.3 }}>&#9642;</span>
+              <div key={i} style={{ background: "var(--card)", border: "1px solid var(--line)", borderRadius: 10, padding: "16px 18px", fontSize: 13.5, color: "var(--ink2)", lineHeight: 1.55, display: "flex", gap: 10, alignItems: "flex-start" }}>
+                <span style={{ flexShrink: 0, color: "var(--gold)", fontWeight: 800, fontSize: 16, lineHeight: 1.3 }}>&#9642;</span>
                 <span>{f}</span>
               </div>
             ))}
@@ -2541,20 +2541,20 @@ function NetherlandsProfilePage({ c }) {
       </section>
 
       {/* S4 · Production by Province */}
-      <section style={{ padding: "48px 0", borderBottom: "1px solid #f0f0f0", background: "#fff" }}>
+      <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--card)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Production by Province &amp; Segment</h2>
-          <p style={proseP}>Despite its small footprint, the Netherlands is Europe&apos;s 3rd-largest potato producer at <strong>6.5 M tonnes / 158,000 ha (2023)</strong> — 13.4% of the EU total, behind only <Link href="/country/germany" style={{ color: "#C62828", textDecoration: "none" }}>Germany</Link> (24.0%) and <Link href="/country/france" style={{ color: "#C62828", textDecoration: "none" }}>France</Link> (17.9%). Production splits cleanly across three segments — <strong>ware (~47% area), seed (~27%), and industrial starch (~27%)</strong> — each anchored in distinct provinces. Drenthe and Groningen drive the starch belt for AVEBE; Flevoland delivers the country&apos;s top yields on reclaimed polder land; Noord-Holland and Friesland host the export-grade certified-seed sector.</p>
+          <p style={proseP}>Despite its small footprint, the Netherlands is Europe&apos;s 3rd-largest potato producer at <strong>6.5 M tonnes / 158,000 ha (2023)</strong> — 13.4% of the EU total, behind only <Link href="/country/germany" style={{ color: "var(--gold)", textDecoration: "none" }}>Germany</Link> (24.0%) and <Link href="/country/france" style={{ color: "var(--gold)", textDecoration: "none" }}>France</Link> (17.9%). Production splits cleanly across three segments — <strong>ware (~47% area), seed (~27%), and industrial starch (~27%)</strong> — each anchored in distinct provinces. Drenthe and Groningen drive the starch belt for AVEBE; Flevoland delivers the country&apos;s top yields on reclaimed polder land; Noord-Holland and Friesland host the export-grade certified-seed sector.</p>
           <div style={{ overflowX: "auto", marginTop: 12 }}>
             <table style={{ width: "100%", borderCollapse: "collapse", fontVariantNumeric: "tabular-nums" }}>
               <thead><tr>{["Province", "Area / Role", "Segment", "Notes"].map((h) => <th key={h} style={tableTH}>{h}</th>)}</tr></thead>
               <tbody>
                 {provinceRows.map((r, i) => (
-                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
-                    <td style={{ ...tableTD, fontWeight: i < 3 ? 700 : 500, color: "#1A1A1A" }}>{r[0]}</td>
-                    <td style={{ ...tableTD, color: i < 3 ? "#C62828" : "#1A1A1A", fontWeight: 600 }}>{r[1]}</td>
+                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
+                    <td style={{ ...tableTD, fontWeight: i < 3 ? 700 : 500, color: "var(--ink)" }}>{r[0]}</td>
+                    <td style={{ ...tableTD, color: i < 3 ? "var(--gold)" : "var(--ink)", fontWeight: 600 }}>{r[1]}</td>
                     <td style={tableTD}>{r[2]}</td>
-                    <td style={{ ...tableTD, fontSize: 12.5, color: "#666" }}>{r[3]}</td>
+                    <td style={{ ...tableTD, fontSize: 12.5, color: "var(--mute)" }}>{r[3]}</td>
                   </tr>
                 ))}
               </tbody>
@@ -2562,17 +2562,17 @@ function NetherlandsProfilePage({ c }) {
           </div>
           <p style={sourceLine}>Source: CBS Statistics Netherlands; Eurostat 2023; NAO/NAK regional data.</p>
 
-          <h3 style={{ fontSize: 16, fontWeight: 700, color: "#1A1A1A", margin: "24px 0 8px" }}>Segment split (CBS StatLine 2022 baseline)</h3>
+          <h3 style={{ fontSize: 16, fontWeight: 700, color: "var(--ink)", margin: "24px 0 8px" }}>Segment split (CBS StatLine 2022 baseline)</h3>
           <div style={{ overflowX: "auto", marginTop: 8 }}>
             <table style={{ width: "100%", borderCollapse: "collapse" }}>
               <thead><tr>{["Segment", "Share of Area", "Share of Production", "Anchor"].map((h) => <th key={h} style={tableTH}>{h}</th>)}</tr></thead>
               <tbody>
                 {segmentRows.map((r, i) => (
-                  <tr key={r[0]} style={{ background: i % 2 === 0 ? "rgba(198,40,40,0.03)" : "#fff" }}>
+                  <tr key={r[0]} style={{ background: i % 2 === 0 ? "rgba(154,114,56,0.03)" : "#fff" }}>
                     <td style={{ ...tableTD, fontWeight: 600 }}>{r[0]}</td>
-                    <td style={{ ...tableTD, color: "#C62828", fontWeight: 600 }}>{r[1]}</td>
+                    <td style={{ ...tableTD, color: "var(--gold)", fontWeight: 600 }}>{r[1]}</td>
                     <td style={tableTD}>{r[2]}</td>
-                    <td style={{ ...tableTD, fontSize: 12.5, color: "#666" }}>{r[3]}</td>
+                    <td style={{ ...tableTD, fontSize: 12.5, color: "var(--mute)" }}>{r[3]}</td>
                   </tr>
                 ))}
               </tbody>
@@ -2583,19 +2583,19 @@ function NetherlandsProfilePage({ c }) {
       </section>
 
       {/* S5 · Seed Potato Industry — THE CENTERPIECE */}
-      <section style={{ padding: "48px 0", borderBottom: "1px solid #f0f0f0", background: "#FAFAFA" }}>
+      <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--paper)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>The Seed Potato Industry — World&apos;s #1</h2>
           <p style={proseP}>This is the Netherlands&apos; defining global role. The country produces approximately <strong>1.5 million tonnes of seed potatoes per year</strong>, of which <strong>800,000 tonnes &mdash; 70&ndash;75% &mdash; are exported</strong> to over 80 countries. Dutch certified seed captures more than <strong>60% of the entire global certified-seed market</strong> and <strong>69.2% of intra-EU seed-potato trade by value</strong> (Eurostat 2023). The industry is built on three pillars: rigorous certification (NAK), commercial cooperatives (HZPC, Agrico, Meijer), and ideal growing conditions (cool maritime climate, low aphid pressure, premium polder soils).</p>
           <div style={{ overflowX: "auto", marginTop: 12 }}>
-            <table style={{ width: "100%", borderCollapse: "collapse", background: "#fff" }}>
+            <table style={{ width: "100%", borderCollapse: "collapse", background: "var(--card)" }}>
               <thead><tr>{["Metric", "Value", "Note"].map((h) => <th key={h} style={tableTH}>{h}</th>)}</tr></thead>
               <tbody>
                 {seedExportRows.map((r, i) => (
-                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                     <td style={{ ...tableTD, fontWeight: 600 }}>{r[0]}</td>
-                    <td style={{ ...tableTD, color: "#C62828", fontWeight: 600 }}>{r[1]}</td>
-                    <td style={{ ...tableTD, fontSize: 12.5, color: "#666" }}>{r[2]}</td>
+                    <td style={{ ...tableTD, color: "var(--gold)", fontWeight: 600 }}>{r[1]}</td>
+                    <td style={{ ...tableTD, fontSize: 12.5, color: "var(--mute)" }}>{r[2]}</td>
                   </tr>
                 ))}
               </tbody>
@@ -2603,12 +2603,12 @@ function NetherlandsProfilePage({ c }) {
           </div>
           <p style={sourceLine}>Source: NAK Annual Report 2023; CBS Statistics Netherlands (CBS table 7100eng); Eurostat 2023 trade data; NIVAP (Netherlands Potato Consultative Foundation); NVWA phytosanitary data.</p>
           <p style={proseP}><strong>Why Dutch seed dominates globally:</strong> the cool maritime summer (mean July temperature 17&ndash;19&deg;C, 700&ndash;800 mm annual rainfall) suppresses aphid populations &mdash; meaning fewer virus infections in the crop. Northern provinces (Flevoland, Friesland, Groningen, Drenthe, Noord-Holland, Zeeland) compound this with even lower aphid pressure. Reclaimed polder soils in Flevoland deliver near-perfect drainage, structure, and moisture retention. NAK&apos;s certification framework &mdash; ~110,000 field inspections + ~45,000 lab tests per year &mdash; enforces phytosanitary standards no other country has matched at scale.</p>
-          <p className="pp-read-more-link" style={{ ...proseP, marginTop: 16, fontSize: 13.5 }}>Read more: <Link href="/knowledge/seed-potato-systems" style={{ color: "#C62828", textDecoration: "none", fontWeight: 600 }}>Seed Potato Systems: Certification, Trade &amp; Multiplication &rarr;</Link></p>
+          <p className="pp-read-more-link" style={{ ...proseP, marginTop: 16, fontSize: 13.5 }}>Read more: <Link href="/knowledge/seed-potato-systems" style={{ color: "var(--gold)", textDecoration: "none", fontWeight: 600 }}>Seed Potato Systems: Certification, Trade &amp; Multiplication &rarr;</Link></p>
         </div>
       </section>
 
       {/* S6 · Breeders & Innovation Pipeline */}
-      <section style={{ padding: "48px 0", borderBottom: "1px solid #f0f0f0", background: "#fff" }}>
+      <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--card)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Breeders &amp; the Innovation Pipeline</h2>
           <p style={proseP}>Dutch breeders ship more new commercial potato varieties per year than any other country &mdash; the cumulative output of HZPC, Agrico, Meijer, Europlant, Danespo NL, and STET Holland flows into virtually every potato-producing region globally. Conventional tetraploid breeding takes 10&ndash;15 years from cross to commercial release; <strong>Solynta&apos;s hybrid breeding from true seed (developed in partnership with WUR / Wageningen University &amp; Research) compresses that to 6&ndash;8 years</strong>, enabling disease-resistance stacking and propagation via true potato seed instead of bulky tubers.</p>
@@ -2617,11 +2617,11 @@ function NetherlandsProfilePage({ c }) {
               <thead><tr>{["Company / Institution", "Location", "Role", "Detail"].map((h) => <th key={h} style={tableTH}>{h}</th>)}</tr></thead>
               <tbody>
                 {breederRows.map((r, i) => (
-                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                     <td style={{ ...tableTD, fontWeight: 600 }}>{r[0]}</td>
                     <td style={tableTD}>{r[1]}</td>
-                    <td style={{ ...tableTD, color: "#C62828", fontWeight: 600 }}>{r[2]}</td>
-                    <td style={{ ...tableTD, fontSize: 12.5, color: "#666" }}>{r[3]}</td>
+                    <td style={{ ...tableTD, color: "var(--gold)", fontWeight: 600 }}>{r[2]}</td>
+                    <td style={{ ...tableTD, fontSize: 12.5, color: "var(--mute)" }}>{r[3]}</td>
                   </tr>
                 ))}
               </tbody>
@@ -2632,20 +2632,20 @@ function NetherlandsProfilePage({ c }) {
       </section>
 
       {/* S7 · Variety Portfolio */}
-      <section style={{ padding: "48px 0", borderBottom: "1px solid #f0f0f0", background: "#FAFAFA" }}>
+      <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--paper)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Variety Portfolio</h2>
           <p style={proseP}>The Dutch breeding portfolio anchors the world&apos;s processing-quality fries (<strong>Innovator, Fontane, Markies</strong>), defines the European fresh-market premium tier (<strong>Colomba, Annabelle, Red Scarlett</strong>), and supplies developing-country export markets (<strong>Spunta, Mondial, Désirée</strong>). The historic <strong>Bintje</strong> (1910) is still grown but in commercial decline. Every major Belgian processor relies on Dutch-bred varieties for its raw material.</p>
           <div style={{ overflowX: "auto", marginTop: 12 }}>
-            <table data-print-wide style={{ width: "100%", borderCollapse: "collapse", fontVariantNumeric: "tabular-nums", background: "#fff" }}>
+            <table data-print-wide style={{ width: "100%", borderCollapse: "collapse", fontVariantNumeric: "tabular-nums", background: "var(--card)" }}>
               <thead><tr>{["Variety", "Breeder", "Type", "Key Traits", "Market Position"].map((h) => <th key={h} style={tableTH}>{h}</th>)}</tr></thead>
               <tbody>
                 {varietyRows.map((r, i) => (
-                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
-                    <td style={{ ...tableTD, fontWeight: 600, color: "#1A1A1A" }}>{r[0]}</td>
+                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
+                    <td style={{ ...tableTD, fontWeight: 600, color: "var(--ink)" }}>{r[0]}</td>
                     <td style={tableTD}>{r[1]}</td>
-                    <td style={{ ...tableTD, color: r[2].includes("Processing") || r[2].includes("Crisp") ? "#C62828" : "#1A1A1A", fontWeight: 500 }}>{r[2]}</td>
-                    <td style={{ ...tableTD, fontSize: 12.5, color: "#666" }}>{r[3]}</td>
+                    <td style={{ ...tableTD, color: r[2].includes("Processing") || r[2].includes("Crisp") ? "var(--gold)" : "var(--ink)", fontWeight: 500 }}>{r[2]}</td>
+                    <td style={{ ...tableTD, fontSize: 12.5, color: "var(--mute)" }}>{r[3]}</td>
                     <td style={tableTD}>{r[4]}</td>
                   </tr>
                 ))}
@@ -2657,46 +2657,46 @@ function NetherlandsProfilePage({ c }) {
       </section>
 
       {/* S8 · Processing Industry */}
-      <section style={{ padding: "48px 0", borderBottom: "1px solid #f0f0f0", background: "#fff" }}>
+      <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--card)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Processing Industry &amp; Major Players</h2>
-          <p style={proseP}>The Netherlands processes approximately <strong>3.5 million tonnes of potatoes annually &mdash; Europe&apos;s #2 processing country after <Link href="/country/belgium" style={{ color: "#C62828", textDecoration: "none" }}>Belgium</Link></strong>. The industry is structurally diverse: Aviko (Royal Cosun cooperative) leads chilled and out-of-home fries with ~50% of the global chilled-fry market; Farm Frites is a B2B frozen-fry powerhouse; Lamb Weston Meijer is a NL/US joint-venture frozen-fry producer; AVEBE dominates industrial starch; McCain operates a major Lewedorp facility.</p>
+          <p style={proseP}>The Netherlands processes approximately <strong>3.5 million tonnes of potatoes annually &mdash; Europe&apos;s #2 processing country after <Link href="/country/belgium" style={{ color: "var(--gold)", textDecoration: "none" }}>Belgium</Link></strong>. The industry is structurally diverse: Aviko (Royal Cosun cooperative) leads chilled and out-of-home fries with ~50% of the global chilled-fry market; Farm Frites is a B2B frozen-fry powerhouse; Lamb Weston Meijer is a NL/US joint-venture frozen-fry producer; AVEBE dominates industrial starch; McCain operates a major Lewedorp facility.</p>
           <div style={{ overflowX: "auto", marginTop: 12 }}>
             <table style={{ width: "100%", borderCollapse: "collapse" }}>
               <thead><tr>{["Company", "Location", "Activity", "Notes"].map((h) => <th key={h} style={tableTH}>{h}</th>)}</tr></thead>
               <tbody>
                 {processorRows.map((r, i) => (
-                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                     <td style={{ ...tableTD, fontWeight: 600 }}>{r[0]}</td>
                     <td style={tableTD}>{r[1]}</td>
-                    <td style={{ ...tableTD, color: "#C62828", fontWeight: 600 }}>{r[2]}</td>
-                    <td style={{ ...tableTD, fontSize: 12.5, color: "#666" }}>{r[3]}</td>
+                    <td style={{ ...tableTD, color: "var(--gold)", fontWeight: 600 }}>{r[2]}</td>
+                    <td style={{ ...tableTD, fontSize: 12.5, color: "var(--mute)" }}>{r[3]}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
           <p style={sourceLine}>Source: Royal Cosun annual reports (Aviko); Farm Frites company filings; Lamb Weston / Meijer joint-venture documentation; AVEBE cooperative reports; FAOSTAT 2022 starch trade data.</p>
-          <p className="pp-read-more-link" style={{ ...proseP, marginTop: 16, fontSize: 13.5 }}>Read more: <Link href="/knowledge/how-potatoes-are-processed" style={{ color: "#C62828", textDecoration: "none", fontWeight: 600 }}>How Potatoes Are Processed: Farm to Fry &rarr;</Link></p>
+          <p className="pp-read-more-link" style={{ ...proseP, marginTop: 16, fontSize: 13.5 }}>Read more: <Link href="/knowledge/how-potatoes-are-processed" style={{ color: "var(--gold)", textDecoration: "none", fontWeight: 600 }}>How Potatoes Are Processed: Farm to Fry &rarr;</Link></p>
         </div>
       </section>
 
       {/* S9 · Trade Profile */}
-      <section style={{ padding: "48px 0", borderBottom: "1px solid #f0f0f0", background: "#FAFAFA" }}>
+      <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--paper)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Trade Profile</h2>
-          <p style={proseP}>The Netherlands is a strongly <strong>net-exporter</strong> across virtually every potato product category and serves as Europe&apos;s logistics hub for cross-border raw-material flows. Dutch ware-potato imports (~1 M t/yr from <Link href="/country/germany" style={{ color: "#C62828", textDecoration: "none" }}>Germany</Link>, <Link href="/country/france" style={{ color: "#C62828", textDecoration: "none" }}>France</Link>, <Link href="/country/belgium" style={{ color: "#C62828", textDecoration: "none" }}>Belgium</Link>) feed processing capacity that exceeds domestic ware production.</p>
+          <p style={proseP}>The Netherlands is a strongly <strong>net-exporter</strong> across virtually every potato product category and serves as Europe&apos;s logistics hub for cross-border raw-material flows. Dutch ware-potato imports (~1 M t/yr from <Link href="/country/germany" style={{ color: "var(--gold)", textDecoration: "none" }}>Germany</Link>, <Link href="/country/france" style={{ color: "var(--gold)", textDecoration: "none" }}>France</Link>, <Link href="/country/belgium" style={{ color: "var(--gold)", textDecoration: "none" }}>Belgium</Link>) feed processing capacity that exceeds domestic ware production.</p>
           <div style={{ overflowX: "auto", marginTop: 12 }}>
-            <table style={{ width: "100%", borderCollapse: "collapse", fontVariantNumeric: "tabular-nums", background: "#fff" }}>
+            <table style={{ width: "100%", borderCollapse: "collapse", fontVariantNumeric: "tabular-nums", background: "var(--card)" }}>
               <thead><tr>{["Category", "Direction", "Volume / Value", "Position", "Notes"].map((h) => <th key={h} style={tableTH}>{h}</th>)}</tr></thead>
               <tbody>
                 {tradeRows.map((r, i) => (
-                  <tr key={r[0] + i} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                  <tr key={r[0] + i} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                     <td style={{ ...tableTD, fontWeight: 600 }}>{r[0]}</td>
                     <td style={tableTD}>{r[1]}</td>
-                    <td style={{ ...tableTD, color: "#C62828", fontWeight: 600 }}>{r[2]}</td>
+                    <td style={{ ...tableTD, color: "var(--gold)", fontWeight: 600 }}>{r[2]}</td>
                     <td style={tableTD}>{r[3]}</td>
-                    <td style={{ ...tableTD, fontSize: 12.5, color: "#666" }}>{r[4]}</td>
+                    <td style={{ ...tableTD, fontSize: 12.5, color: "var(--mute)" }}>{r[4]}</td>
                   </tr>
                 ))}
               </tbody>
@@ -2707,7 +2707,7 @@ function NetherlandsProfilePage({ c }) {
       </section>
 
       {/* S10 · Growing Conditions */}
-      <section style={{ padding: "48px 0", borderBottom: "1px solid #f0f0f0", background: "#fff" }}>
+      <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--card)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Growing Conditions &amp; Calendar</h2>
           <p style={proseP}>Dutch potato cultivation operates in a <strong>temperate maritime climate</strong> with mild summers (mean July temperature 17&ndash;19&deg;C), reliable rainfall (700&ndash;800 mm/year), and minimal extreme weather. The combination is uniquely well-suited to potato: cool nights protect tuber development; long daylight hours drive bulking; reclaimed polder soils (especially in Flevoland) deliver excellent drainage and structure. Northern provinces face significantly lower aphid pressure than continental European competitors &mdash; a defining advantage for virus-free seed production.</p>
@@ -2717,20 +2717,20 @@ function NetherlandsProfilePage({ c }) {
       </section>
 
       {/* S11 · Technology & Precision Agriculture */}
-      <section style={{ padding: "48px 0", borderBottom: "1px solid #f0f0f0", background: "#FAFAFA" }}>
+      <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--paper)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Technology &amp; Precision Agriculture</h2>
           <p style={proseP}>The Netherlands operates the <strong>most technologically advanced commercial potato sector in the world</strong>. GPS-guided planting, variable-rate fertiliser application, drone-based late-blight detection, and sensor-driven irrigation are universal across commercial farms. The result: nitrogen application has dropped from 250 → 180&ndash;200 kg N/ha over two decades while maintaining yields above 45 t/ha &mdash; an environmental and economic gain that no other producing country has matched.</p>
           <div style={{ overflowX: "auto", marginTop: 12 }}>
-            <table style={{ width: "100%", borderCollapse: "collapse", background: "#fff" }}>
+            <table style={{ width: "100%", borderCollapse: "collapse", background: "var(--card)" }}>
               <thead><tr>{["Technology", "Adoption", "Reference", "Impact"].map((h) => <th key={h} style={tableTH}>{h}</th>)}</tr></thead>
               <tbody>
                 {techRows.map((r, i) => (
-                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                     <td style={{ ...tableTD, fontWeight: 600 }}>{r[0]}</td>
                     <td style={tableTD}>{r[1]}</td>
-                    <td style={{ ...tableTD, fontSize: 12.5, color: "#666" }}>{r[2]}</td>
-                    <td style={{ ...tableTD, color: "#C62828", fontWeight: 600 }}>{r[3]}</td>
+                    <td style={{ ...tableTD, fontSize: 12.5, color: "var(--mute)" }}>{r[2]}</td>
+                    <td style={{ ...tableTD, color: "var(--gold)", fontWeight: 600 }}>{r[3]}</td>
                   </tr>
                 ))}
               </tbody>
@@ -2741,7 +2741,7 @@ function NetherlandsProfilePage({ c }) {
       </section>
 
       {/* S12 · Challenges */}
-      <section style={{ padding: "48px 0", borderBottom: "1px solid #f0f0f0", background: "#fff" }}>
+      <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--card)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Industry Challenges</h2>
           <p style={proseP}>Despite global leadership, the Dutch potato sector faces structural pressures across climate, regulation, and breeding-architecture transition.</p>
@@ -2750,10 +2750,10 @@ function NetherlandsProfilePage({ c }) {
               <thead><tr>{["Challenge", "Magnitude", "Driver / Note"].map((h) => <th key={h} style={tableTH}>{h}</th>)}</tr></thead>
               <tbody>
                 {challengeRows.map((r, i) => (
-                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                     <td style={{ ...tableTD, fontWeight: 600 }}>{r[0]}</td>
-                    <td style={{ ...tableTD, color: "#C62828", fontWeight: 600 }}>{r[1]}</td>
-                    <td style={{ ...tableTD, fontSize: 12.5, color: "#444" }}>{r[2]}</td>
+                    <td style={{ ...tableTD, color: "var(--gold)", fontWeight: 600 }}>{r[1]}</td>
+                    <td style={{ ...tableTD, fontSize: 12.5, color: "var(--ink2)" }}>{r[2]}</td>
                   </tr>
                 ))}
               </tbody>
@@ -2763,10 +2763,10 @@ function NetherlandsProfilePage({ c }) {
       </section>
 
       {/* S13 · AI Explorer — two bands */}
-      <section id="ai-explorer" className="pp-ai-explorer-band pp-no-print" style={{ background: "linear-gradient(135deg,#0F1115 0%,#1A1F26 100%)", color: "#fff", padding: "52px 0 36px" }}>
+      <section id="ai-explorer" className="pp-ai-explorer-band pp-no-print" style={{ background: "var(--panel)", color: "#fff", padding: "52px 0 36px" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <div style={{ maxWidth: 760, margin: "0 auto", textAlign: "center" }}>
-            <div style={{ fontSize: 11, fontWeight: 700, color: "#E53935", textTransform: "uppercase", letterSpacing: 2, marginBottom: 14 }}>Potatopedia AI &middot; Netherlands</div>
+            <div style={{ fontSize: 11, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 2, marginBottom: 14 }}>Potatopedia AI &middot; Netherlands</div>
             <h2 style={{ fontSize: 32, fontWeight: 800, color: "#fff", margin: "0 0 12px", letterSpacing: -1, lineHeight: 1.2 }}>Ask Anything About the Netherlands&apos; Potato Industry</h2>
             <p style={{ fontSize: 15, color: "rgba(255,255,255,0.7)", margin: "0", lineHeight: 1.6 }}>
               Get data-backed answers from our 5,657 data-point knowledge base &mdash; pre-filtered for Netherlands.
@@ -2774,7 +2774,7 @@ function NetherlandsProfilePage({ c }) {
           </div>
         </div>
       </section>
-      <section className="pp-ai-explorer-light pp-no-print" style={{ background: "#fff", borderTop: "0", borderBottom: "1px solid #f0f0f0" }}>
+      <section className="pp-ai-explorer-light pp-no-print" style={{ background: "var(--card)", borderTop: "0", borderBottom: "1px solid var(--line)" }}>
         <CountryAI countryName="Netherlands" countrySlug="netherlands" />
       </section>
 
@@ -2783,16 +2783,16 @@ function NetherlandsProfilePage({ c }) {
 
       <CountryBlogPosts countrySlug={c.slug} />
 
-      <section className="pp-comparable-countries pp-no-print" style={{ background: "#FAFAFA", borderTop: "1px solid #f0f0f0", padding: "48px 0" }}>
+      <section className="pp-comparable-countries pp-no-print" style={{ background: "var(--paper)", borderTop: "1px solid var(--line)", padding: "48px 0" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={{ ...sectionTitle, textAlign: "left" }}>Compare with European Peers</h2>
           <div className="pp-india-comparable-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 16, marginTop: 8 }}>
             {COUNTRIES.filter((x) => ["belgium", "germany", "france", "united-kingdom"].includes(x.slug)).map((x) => (
-              <Link key={x.slug} href={"/country/" + x.slug} style={{ background: "white", borderRadius: 14, padding: "20px 16px", textAlign: "center", border: "1px solid #ececec", textDecoration: "none", color: "inherit", transition: "border-color 0.15s" }}>
+              <Link key={x.slug} href={"/country/" + x.slug} style={{ background: "var(--card)", borderRadius: 14, padding: "20px 16px", textAlign: "center", border: "1px solid var(--line)", textDecoration: "none", color: "inherit", transition: "border-color 0.15s" }}>
                 <div style={{ fontSize: 36, marginBottom: 8 }}>{x.flag}</div>
-                <div style={{ fontSize: 14, fontWeight: 700, color: "#1A1A1A", marginBottom: 4 }}>{x.name}</div>
-                <div style={{ fontSize: 22, color: "#C62828", fontWeight: 800, lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{x.prod}</div>
-                <div style={{ fontSize: 11, color: "#888", marginTop: 4 }}>#{x.rank} Global &middot; {x.yield}</div>
+                <div style={{ fontSize: 14, fontWeight: 700, color: "var(--ink)", marginBottom: 4 }}>{x.name}</div>
+                <div style={{ fontSize: 22, color: "var(--gold)", fontWeight: 800, lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{x.prod}</div>
+                <div style={{ fontSize: 11, color: "var(--mute2)", marginTop: 4 }}>#{x.rank} Global &middot; {x.yield}</div>
               </Link>
             ))}
           </div>
@@ -2800,11 +2800,11 @@ function NetherlandsProfilePage({ c }) {
       </section>
 
       {/* S15 · Related & Sources */}
-      <section style={{ padding: "48px 0", background: "#fff" }}>
+      <section style={{ padding: "48px 0", background: "var(--card)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 32 }} className="pp-india-related-grid">
             <div>
-              <h3 style={{ fontSize: 14, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 14 }}>Related Knowledge</h3>
+              <h3 style={{ fontSize: 14, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 14 }}>Related Knowledge</h3>
               <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
                 {[
                   { slug: "seed-potato-systems", title: "Seed Potato Systems: Certification, Trade & Multiplication", desc: "How NAK and the Dutch system became the global gold standard." },
@@ -2812,26 +2812,26 @@ function NetherlandsProfilePage({ c }) {
                   { slug: "how-potatoes-are-processed", title: "How Potatoes Are Processed: Farm to Fry", desc: "Frozen fries, chips, starch — Aviko, Farm Frites, AVEBE in context." },
                   { slug: "top-potato-producing-countries", title: "Top Potato Producing Countries 2025", desc: "Netherlands #3 in EU; punches above its weight in trade." },
                 ].map((a) => (
-                  <Link key={a.slug} href={"/knowledge/" + a.slug} style={{ background: "#fff", border: "1px solid #ececec", borderRadius: 10, padding: "12px 16px", textDecoration: "none", color: "inherit", transition: "border-color 0.15s" }}>
-                    <div style={{ fontSize: 14, fontWeight: 600, color: "#1A1A1A", marginBottom: 3 }}>{a.title}</div>
-                    <div style={{ fontSize: 12.5, color: "#666", lineHeight: 1.5 }}>{a.desc}</div>
+                  <Link key={a.slug} href={"/knowledge/" + a.slug} style={{ background: "var(--card)", border: "1px solid var(--line)", borderRadius: 10, padding: "12px 16px", textDecoration: "none", color: "inherit", transition: "border-color 0.15s" }}>
+                    <div style={{ fontSize: 14, fontWeight: 600, color: "var(--ink)", marginBottom: 3 }}>{a.title}</div>
+                    <div style={{ fontSize: 12.5, color: "var(--mute)", lineHeight: 1.5 }}>{a.desc}</div>
                   </Link>
                 ))}
               </div>
             </div>
-            <div className="pp-sources-block" style={{ background: "#FAFAFA", border: "1px solid #ececec", borderRadius: 10, padding: "20px 22px" }}>
-              <h3 style={{ fontSize: 14, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 14 }}>Sources</h3>
+            <div className="pp-sources-block" style={{ background: "var(--paper)", border: "1px solid var(--line)", borderRadius: 10, padding: "20px 22px" }}>
+              <h3 style={{ fontSize: 14, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 14 }}>Sources</h3>
               <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 8 }}>
-                <li style={{ fontSize: 12, color: "#444", lineHeight: 1.55 }}><strong>FAOSTAT 2022/2023</strong> — UN Food and Agriculture Organization production and trade data</li>
-                <li style={{ fontSize: 12, color: "#444", lineHeight: 1.55 }}><strong>Eurostat 2023</strong> — EU production and intra-EU trade statistics</li>
-                <li style={{ fontSize: 12, color: "#444", lineHeight: 1.55 }}><strong>NAK</strong> — Netherlands General Inspection Service for Agricultural Seeds and Seed Potatoes; Annual Report 2023</li>
-                <li style={{ fontSize: 12, color: "#444", lineHeight: 1.55 }}><strong>CBS Statistics Netherlands</strong> — provincial production data, table 7100eng</li>
-                <li style={{ fontSize: 12, color: "#444", lineHeight: 1.55 }}><strong>NIVAP / NVWA</strong> — phytosanitary export protocols (80+ countries)</li>
-                <li style={{ fontSize: 12, color: "#444", lineHeight: 1.55 }}><strong>HZPC, Agrico, Meijer, Europlant, Danespo, STET Holland</strong> — breeder catalogues and corporate documentation</li>
-                <li style={{ fontSize: 12, color: "#444", lineHeight: 1.55 }}><strong>Solynta + WUR</strong> — hybrid breeding documentation; Ernst-Jan Eggers Sli-gene research (WUR Award 2022)</li>
-                <li style={{ fontSize: 12, color: "#444", lineHeight: 1.55 }}><strong>Royal Cosun (Aviko), Farm Frites, Lamb Weston Meijer, AVEBE</strong> — corporate reports + cooperative filings</li>
-                <li style={{ fontSize: 12, color: "#444", lineHeight: 1.55 }}><strong>Sugiura et al. (2016)</strong>, Precision Agriculture — drone-based late blight detection</li>
-                <li style={{ fontSize: 12, color: "#444", lineHeight: 1.55 }}><strong>NAO</strong> (Nederlandse Aardappel Organisatie) — sector market reports</li>
+                <li style={{ fontSize: 12, color: "var(--ink2)", lineHeight: 1.55 }}><strong>FAOSTAT 2022/2023</strong> — UN Food and Agriculture Organization production and trade data</li>
+                <li style={{ fontSize: 12, color: "var(--ink2)", lineHeight: 1.55 }}><strong>Eurostat 2023</strong> — EU production and intra-EU trade statistics</li>
+                <li style={{ fontSize: 12, color: "var(--ink2)", lineHeight: 1.55 }}><strong>NAK</strong> — Netherlands General Inspection Service for Agricultural Seeds and Seed Potatoes; Annual Report 2023</li>
+                <li style={{ fontSize: 12, color: "var(--ink2)", lineHeight: 1.55 }}><strong>CBS Statistics Netherlands</strong> — provincial production data, table 7100eng</li>
+                <li style={{ fontSize: 12, color: "var(--ink2)", lineHeight: 1.55 }}><strong>NIVAP / NVWA</strong> — phytosanitary export protocols (80+ countries)</li>
+                <li style={{ fontSize: 12, color: "var(--ink2)", lineHeight: 1.55 }}><strong>HZPC, Agrico, Meijer, Europlant, Danespo, STET Holland</strong> — breeder catalogues and corporate documentation</li>
+                <li style={{ fontSize: 12, color: "var(--ink2)", lineHeight: 1.55 }}><strong>Solynta + WUR</strong> — hybrid breeding documentation; Ernst-Jan Eggers Sli-gene research (WUR Award 2022)</li>
+                <li style={{ fontSize: 12, color: "var(--ink2)", lineHeight: 1.55 }}><strong>Royal Cosun (Aviko), Farm Frites, Lamb Weston Meijer, AVEBE</strong> — corporate reports + cooperative filings</li>
+                <li style={{ fontSize: 12, color: "var(--ink2)", lineHeight: 1.55 }}><strong>Sugiura et al. (2016)</strong>, Precision Agriculture — drone-based late blight detection</li>
+                <li style={{ fontSize: 12, color: "var(--ink2)", lineHeight: 1.55 }}><strong>NAO</strong> (Nederlandse Aardappel Organisatie) — sector market reports</li>
               </ul>
             </div>
           </div>
@@ -2844,11 +2844,11 @@ function NetherlandsProfilePage({ c }) {
         potatopedia.com &nbsp;·&nbsp; hello@potatopedia.com &nbsp;·&nbsp; linkedin.com/company/potatopedia
       </div>
 
-      <section className="pp-bottom-cta pp-no-print" style={{ background: "linear-gradient(180deg,#FFF8F8 0%,#FFFFFF 100%)", borderTop: "1px solid #f0f0f0", padding: "44px 0", textAlign: "center" }}>
+      <section className="pp-bottom-cta pp-no-print" style={{ background: "var(--card)", borderTop: "1px solid var(--line)", padding: "44px 0", textAlign: "center" }}>
         <div style={sectionWrap} className="pp-section-wrap">
-          <div style={{ fontSize: 13, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 10 }}>Premium Export</div>
-          <h3 style={{ fontSize: 22, fontWeight: 700, color: "#1A1A1A", margin: "0 0 8px" }}>Download the Full Netherlands Industry Profile</h3>
-          <p style={{ fontSize: 14, color: "#666", margin: "0 0 22px", maxWidth: 520, marginLeft: "auto", marginRight: "auto", lineHeight: 1.6 }}>
+          <div style={{ fontSize: 13, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 10 }}>Premium Export</div>
+          <h3 style={{ fontSize: 22, fontWeight: 700, color: "var(--ink)", margin: "0 0 8px" }}>Download the Full Netherlands Industry Profile</h3>
+          <p style={{ fontSize: 14, color: "var(--mute)", margin: "0 0 22px", maxWidth: 520, marginLeft: "auto", marginRight: "auto", lineHeight: 1.6 }}>
             All sections, all tables, all sources &mdash; formatted for A4 printing or sharing as a PDF report. Branded footer on every page (potatopedia.com &middot; hello@potatopedia.com &middot; linkedin.com/company/potatopedia).
           </p>
           <PdfDownloadButton size="lg" placement="footer" />
@@ -3016,14 +3016,14 @@ function UnitedStatesProfilePage({ c }) {
   };
 
   const sectionWrap = { maxWidth: 1080, margin: "0 auto", padding: "0 24px" };
-  const sectionTitle = { fontSize: 22, fontWeight: 700, color: "#1A1A1A", margin: "0 0 16px", paddingLeft: 12, borderLeft: "4px solid #C62828", lineHeight: 1.2 };
-  const tableTH = { padding: "10px 12px", textAlign: "left", background: "#C62828", color: "#fff", fontSize: 12, fontWeight: 700, textTransform: "uppercase", letterSpacing: 0.5 };
-  const tableTD = { padding: "10px 12px", fontSize: 13.5, borderBottom: "1px solid #eee", color: "#333" };
-  const proseP = { fontSize: 14.5, color: "#444", lineHeight: 1.7, margin: "0 0 12px" };
-  const sourceLine = { fontSize: 12, color: "#999", fontStyle: "italic", margin: "4px 0 0" };
+  const sectionTitle = { fontSize: 22, fontWeight: 700, color: "var(--ink)", margin: "0 0 16px", paddingLeft: 12, borderLeft: "4px solid var(--gold)", lineHeight: 1.2 };
+  const tableTH = { padding: "10px 12px", textAlign: "left", background: "var(--accent-bg)", color: "#fff", fontSize: 12, fontWeight: 700, textTransform: "uppercase", letterSpacing: 0.5 };
+  const tableTD = { padding: "10px 12px", fontSize: 13.5, borderBottom: "1px solid var(--line)", color: "var(--ink2)" };
+  const proseP = { fontSize: 14.5, color: "var(--ink2)", lineHeight: 1.7, margin: "0 0 12px" };
+  const sourceLine = { fontSize: 12, color: "var(--mute2)", fontStyle: "italic", margin: "4px 0 0" };
 
   return (
-    <div className="pp-country-page pp-country-india" style={{ minHeight: "100vh", background: "#fff", overflowX: "hidden", fontFamily: "Poppins, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
+    <div className="pp-country-page pp-country-india" style={{ minHeight: "100vh", background: "var(--card)", overflowX: "hidden", fontFamily: "inherit" }}>
       <style>{ppCSS}</style>
       <style>{printCSS}</style>
       <style>{`
@@ -3040,8 +3040,8 @@ function UnitedStatesProfilePage({ c }) {
         @media (max-width: 480px) {
           .pp-vital-stats-grid { grid-template-columns: 1fr 1fr !important; gap: 8px !important; }
         }
-        .pp-share-bar-track { position: relative; height: 6px; background: rgba(198,40,40,0.08); border-radius: 3px; min-width: 80px; margin-top: 4px; }
-        .pp-share-bar-fill { position: absolute; top: 0; left: 0; height: 100%; background: linear-gradient(90deg,#C62828,#E53935); border-radius: 3px; }
+        .pp-share-bar-track { position: relative; height: 6px; background: rgba(154,114,56,0.08); border-radius: 3px; min-width: 80px; margin-top: 4px; }
+        .pp-share-bar-fill { position: absolute; top: 0; left: 0; height: 100%; background: var(--accent-bg); border-radius: 3px; }
       `}</style>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
@@ -3061,23 +3061,23 @@ function UnitedStatesProfilePage({ c }) {
       </div>
 
       {/* S1 · Executive Banner */}
-      <section className="pp-india-banner" style={{ borderBottom: "2px solid #C62828", background: "linear-gradient(180deg,#FFF 0%,#FFF8F8 100%)" }}>
+      <section className="pp-india-banner" style={{ borderBottom: "2px solid var(--gold)", background: "var(--card)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <div style={{ paddingTop: 24, paddingBottom: 8 }}>
-            <Link href="/countries" className="pp-no-print" style={{ fontSize: 12, color: "#C62828", textDecoration: "none", fontWeight: 500, display: "inline-flex", alignItems: "center", gap: 4 }}>&larr; All Countries</Link>
+            <Link href="/countries" className="pp-no-print" style={{ fontSize: 12, color: "var(--gold)", textDecoration: "none", fontWeight: 500, display: "inline-flex", alignItems: "center", gap: 4 }}>&larr; All Countries</Link>
           </div>
           <div className="pp-india-banner-row" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 32, paddingBottom: 28 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 24 }}>
               <div className="pp-india-banner-flag" style={{ fontSize: 80, lineHeight: 1 }}>{c.flag}</div>
               <div>
                 <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 8, flexWrap: "wrap" }}>
-                  <span style={{ fontSize: 11, fontWeight: 700, color: "#fff", background: "#C62828", padding: "4px 10px", borderRadius: 4, textTransform: "uppercase", letterSpacing: 1 }}>#{c.rank} Global Producer</span>
-                  <span style={{ fontSize: 11, fontWeight: 600, color: "#444", background: "rgba(0,0,0,0.05)", padding: "4px 10px", borderRadius: 4 }}>{c.region}</span>
-                  <span style={{ fontSize: 11, fontWeight: 600, color: "#444", background: "rgba(0,0,0,0.05)", padding: "4px 10px", borderRadius: 4 }}>USDA NASS 2023</span>
+                  <span style={{ fontSize: 11, fontWeight: 700, color: "#fff", background: "var(--accent-bg)", padding: "4px 10px", borderRadius: 4, textTransform: "uppercase", letterSpacing: 1 }}>#{c.rank} Global Producer</span>
+                  <span style={{ fontSize: 11, fontWeight: 600, color: "var(--ink2)", background: "rgba(0,0,0,0.05)", padding: "4px 10px", borderRadius: 4 }}>{c.region}</span>
+                  <span style={{ fontSize: 11, fontWeight: 600, color: "var(--ink2)", background: "rgba(0,0,0,0.05)", padding: "4px 10px", borderRadius: 4 }}>USDA NASS 2023</span>
                 </div>
-                <h1 style={{ fontSize: 44, fontWeight: 800, color: "#1A1A1A", margin: 0, letterSpacing: -1.5, lineHeight: 1.1 }}>{c.name}</h1>
-                <p className="pp-india-tagline" style={{ fontSize: 16, color: "#444", margin: "10px 0 0", lineHeight: 1.5, maxWidth: 600 }}>
-                  World&apos;s <strong style={{ color: "#C62828" }}>highest potato yield at 51.4 t/ha</strong> &mdash; nearly 2.3&times; the global average. Idaho + Washington alone produce 55% of the US crop. Lamb Weston, Simplot, and McCain power a $5 B industry that exports $2.3 B / yr.
+                <h1 style={{ fontSize: 44, fontWeight: 800, color: "var(--ink)", margin: 0, letterSpacing: -1.5, lineHeight: 1.1 }}>{c.name}</h1>
+                <p className="pp-india-tagline" style={{ fontSize: 16, color: "var(--ink2)", margin: "10px 0 0", lineHeight: 1.5, maxWidth: 600 }}>
+                  World&apos;s <strong style={{ color: "var(--gold)" }}>highest potato yield at 51.4 t/ha</strong> &mdash; nearly 2.3&times; the global average. Idaho + Washington alone produce 55% of the US crop. Lamb Weston, Simplot, and McCain power a $5 B industry that exports $2.3 B / yr.
                 </p>
               </div>
             </div>
@@ -3087,9 +3087,9 @@ function UnitedStatesProfilePage({ c }) {
       </section>
 
       {/* S2 · Vital Stats */}
-      <section className="pp-vital-stats" style={{ background: "#0F1115", padding: "40px 0", color: "#fff" }}>
+      <section className="pp-vital-stats" style={{ background: "var(--panel)", padding: "40px 0", color: "#fff" }}>
         <div style={sectionWrap} className="pp-section-wrap">
-          <div data-summary="true" className="pp-vital-stats-summary" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", borderLeft: "3px solid #E53935", borderRadius: "0 8px 8px 0", padding: "16px 20px", marginBottom: 28, fontSize: 14, lineHeight: 1.7, color: "#E5E5E5" }}>
+          <div data-summary="true" className="pp-vital-stats-summary" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", borderLeft: "3px solid var(--gold)", borderRadius: "0 8px 8px 0", padding: "16px 20px", marginBottom: 28, fontSize: 14, lineHeight: 1.7, color: "#E5E5E5" }}>
             <strong style={{ color: "#fff" }}>The United States produced 19.96 million tonnes of potatoes in 2023</strong> on 388,900 hectares at <strong>51.4 t/ha &mdash; the world&apos;s highest commercial yield</strong> (USDA NASS; FAOSTAT). The crop generated <strong>$5.0 billion in farm-gate value</strong>; processors purchased <strong>269 million cwt (69% of the crop)</strong> in 2024. <strong>Idaho leads at 32%</strong> of national production (6.13 M t), followed by Washington at 23% (4.49 M t). Total potato exports reached a record <strong>$2.3 billion</strong> in July 2023 – June 2024 (+4% YoY), led by frozen French fries to Japan, Mexico, and South Korea. Russet Burbank, selected in 1876, still occupies ~40% of US acreage; Lamb Weston, Simplot, and McCain together control ~70% of the global frozen-fry market.
           </div>
           <div className="pp-vital-stats-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16 }}>
@@ -3097,7 +3097,7 @@ function UnitedStatesProfilePage({ c }) {
               <div key={i} className="pp-vital-stat-cell" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 10, padding: "18px 16px" }}>
                 <div className="pp-vital-stat-value" style={{ fontSize: 22, fontWeight: 800, color: "#fff", letterSpacing: -0.5, lineHeight: 1.15, fontVariantNumeric: "tabular-nums" }}>
                   {s.value}
-                  {s.positive && <span className="pp-delta-up" style={{ display: "inline-block", marginLeft: 8, fontSize: 9, fontWeight: 700, color: "#4CAF50", background: "rgba(76,175,80,0.12)", padding: "2px 6px", borderRadius: 3, verticalAlign: "middle" }}>RECORD</span>}
+                  {s.positive && <span className="pp-delta-up" style={{ display: "inline-block", marginLeft: 8, fontSize: 9, fontWeight: 700, color: "var(--gold)", background: "rgba(154,114,56,0.12)", padding: "2px 6px", borderRadius: 3, verticalAlign: "middle" }}>RECORD</span>}
                 </div>
                 <div className="pp-vital-stat-label" style={{ fontSize: 10, fontWeight: 600, color: "rgba(255,255,255,0.55)", textTransform: "uppercase", letterSpacing: 1.2, marginTop: 8 }}>{s.label}</div>
                 <div className="pp-vital-stat-sub" style={{ fontSize: 11, color: "rgba(255,255,255,0.4)", marginTop: 4 }}>{s.sub}</div>
@@ -3108,28 +3108,28 @@ function UnitedStatesProfilePage({ c }) {
       </section>
 
       {/* Mobile-only PDF CTA */}
-      <section className="pp-mobile-pdf-cta pp-no-print" style={{ background: "#fff", borderBottom: "1px solid #f0f0f0", padding: "20px 0", textAlign: "center" }}>
+      <section className="pp-mobile-pdf-cta pp-no-print" style={{ background: "var(--card)", borderBottom: "1px solid var(--line)", padding: "20px 0", textAlign: "center" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <PdfDownloadButton size="md" placement="banner" />
-          <div style={{ fontSize: 11, color: "#888", marginTop: 8, fontWeight: 500 }}>A4-formatted report &middot; all sections, all tables</div>
+          <div style={{ fontSize: 11, color: "var(--mute2)", marginTop: 8, fontWeight: 500 }}>A4-formatted report &middot; all sections, all tables</div>
         </div>
       </section>
 
       {/* S3 · Quick Facts */}
-      <section className="pp-trajectory-band" style={{ background: "#fff", borderBottom: "1px solid #f0f0f0", padding: "32px 0" }}>
+      <section className="pp-trajectory-band" style={{ background: "var(--card)", borderBottom: "1px solid var(--line)", padding: "32px 0" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={{ ...sectionTitle, marginBottom: 16 }}>FAOSTAT 7-year production trajectory</h2>
           <TrajectoryTable slug={c.slug} />
         </div>
       </section>
 
-      <section className="pp-quickfacts" data-pdf-break-after style={{ background: "#FAFAFA", borderBottom: "1px solid #f0f0f0", padding: "40px 0" }}>
+      <section className="pp-quickfacts" data-pdf-break-after style={{ background: "var(--paper)", borderBottom: "1px solid var(--line)", padding: "40px 0" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Did you know?</h2>
           <div className="pp-quickfacts-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16 }}>
             {quickFacts.map((f, i) => (
-              <div key={i} style={{ background: "#fff", border: "1px solid #ececec", borderRadius: 10, padding: "16px 18px", fontSize: 13.5, color: "#333", lineHeight: 1.55, display: "flex", gap: 10, alignItems: "flex-start" }}>
-                <span style={{ flexShrink: 0, color: "#C62828", fontWeight: 800, fontSize: 16, lineHeight: 1.3 }}>&#9642;</span>
+              <div key={i} style={{ background: "var(--card)", border: "1px solid var(--line)", borderRadius: 10, padding: "16px 18px", fontSize: 13.5, color: "var(--ink2)", lineHeight: 1.55, display: "flex", gap: 10, alignItems: "flex-start" }}>
+                <span style={{ flexShrink: 0, color: "var(--gold)", fontWeight: 800, fontSize: 16, lineHeight: 1.3 }}>&#9642;</span>
                 <span>{f}</span>
               </div>
             ))}
@@ -3138,7 +3138,7 @@ function UnitedStatesProfilePage({ c }) {
       </section>
 
       {/* S4 · Production by State */}
-      <section style={{ padding: "48px 0", borderBottom: "1px solid #f0f0f0", background: "#fff" }}>
+      <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--card)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Production by State</h2>
           <p style={proseP}>The Pacific Northwest dominates: Idaho + Washington + Oregon together produce <strong>62% of all US potatoes</strong>. Idaho alone delivers 32% (135.2 M cwt = 6.13 M tonnes) from the Magic Valley and Snake River Plain; Washington adds 23% (98.9 M cwt = 4.49 M t) from the Columbia Basin. Wisconsin, Oregon, North Dakota, Colorado, Michigan, Maine, and Minnesota round out the top tier. State-level yields range from <strong>Washington&apos;s world-leading 659 cwt/acre (73.8 t/ha)</strong> to ~300 cwt/acre in shorter-season states.</p>
@@ -3147,20 +3147,20 @@ function UnitedStatesProfilePage({ c }) {
               <thead><tr>{["State", "Production (M t)", "M cwt", "% of US", "Region", "Dominant Varieties"].map((h, idx) => <th key={h} style={{ ...tableTH, width: idx === 3 ? "16%" : undefined }}>{h}</th>)}</tr></thead>
               <tbody>
                 {stateRows.map((r, i) => (
-                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
-                    <td style={{ ...tableTD, fontWeight: i < 3 ? 700 : 500, color: "#1A1A1A" }}>{r[0]}</td>
-                    <td style={{ ...tableTD, color: i < 3 ? "#C62828" : "#1A1A1A", fontWeight: 600 }}>{r[1]}</td>
+                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
+                    <td style={{ ...tableTD, fontWeight: i < 3 ? 700 : 500, color: "var(--ink)" }}>{r[0]}</td>
+                    <td style={{ ...tableTD, color: i < 3 ? "var(--gold)" : "var(--ink)", fontWeight: 600 }}>{r[1]}</td>
                     <td style={tableTD}>{r[2]}</td>
                     <td style={tableTD}>
                       <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
-                        <span style={{ fontWeight: 600, fontSize: 13, color: "#1A1A1A" }}>{r[3].toFixed(1)}%</span>
+                        <span style={{ fontWeight: 600, fontSize: 13, color: "var(--ink)" }}>{r[3].toFixed(1)}%</span>
                         <div className="pp-share-bar-track">
                           <div className="pp-share-bar-fill" style={{ width: Math.min(100, r[3] * 3) + "%" }} />
                         </div>
                       </div>
                     </td>
                     <td style={tableTD}>{r[4]}</td>
-                    <td style={{ ...tableTD, color: "#666", fontSize: 12.5 }}>{r[5]}</td>
+                    <td style={{ ...tableTD, color: "var(--mute)", fontSize: 12.5 }}>{r[5]}</td>
                   </tr>
                 ))}
               </tbody>
@@ -3171,17 +3171,17 @@ function UnitedStatesProfilePage({ c }) {
       </section>
 
       {/* S5 · Russet Burbank story */}
-      <section style={{ padding: "48px 0", borderBottom: "1px solid #f0f0f0", background: "#FAFAFA" }}>
+      <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--paper)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>The Russet Burbank Story</h2>
           <p style={proseP}>Selected by Luther Burbank in <strong>1876</strong> in Lunenburg, Massachusetts, Russet Burbank still occupies <strong>~40% of all US potato acreage</strong> and 60&ndash;70% of Idaho&apos;s commercial production 150 years later. The variety&apos;s commercial dominance is the result of a single 1965 supply-chain decision: J.R. Simplot&apos;s contract with Ray Kroc to supply McDonald&apos;s with frozen Russet Burbank fries. That deal locked the entire global fast-food industry into Russet Burbank&apos;s long cylindrical tuber shape, high specific gravity, white flesh, and low reducing sugars &mdash; the four properties that produce the iconic golden, crispy McDonald&apos;s fry.</p>
           <p style={proseP}>The variety is notoriously difficult to grow well: susceptible to scab, PVY, late blight, and Verticillium wilt; prone to internal defects (hollow heart, brown center, sugar ends) under stress; and requires precise irrigation + nitrogen management. The Tri-State Variety Development Program (USDA-ARS Aberdeen + University of Idaho + Oregon State + Washington State) was created specifically to breed superior alternatives &mdash; releasing Ranger Russet (1991), Umatilla Russet (1998), Clearwater Russet (2008), Alpine Russet (2008), and Galena Russet (2018). Adoption is slow because processor specifications + storage infrastructure are calibrated to Burbank&apos;s exact characteristics.</p>
-          <p style={{ ...proseP, marginTop: 16, fontSize: 13.5 }}><Link href="/knowledge/russet-burbank-history" className="pp-read-more-link" style={{ color: "#C62828", textDecoration: "none", fontWeight: 600 }}>Read the full Russet Burbank history &rarr;</Link> &middot; <Link href="/knowledge/mcdonalds-potato-varieties" className="pp-read-more-link" style={{ color: "#C62828", textDecoration: "none", fontWeight: 600 }}>What Potatoes Does McDonald&apos;s Use? &rarr;</Link></p>
+          <p style={{ ...proseP, marginTop: 16, fontSize: 13.5 }}><Link href="/knowledge/russet-burbank-history" className="pp-read-more-link" style={{ color: "var(--gold)", textDecoration: "none", fontWeight: 600 }}>Read the full Russet Burbank history &rarr;</Link> &middot; <Link href="/knowledge/mcdonalds-potato-varieties" className="pp-read-more-link" style={{ color: "var(--gold)", textDecoration: "none", fontWeight: 600 }}>What Potatoes Does McDonald&apos;s Use? &rarr;</Link></p>
         </div>
       </section>
 
       {/* S6 · Variety Portfolio */}
-      <section style={{ padding: "48px 0", borderBottom: "1px solid #f0f0f0", background: "#fff" }}>
+      <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--card)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Variety Portfolio</h2>
           <p style={proseP}>US russet varieties together cover <strong>~70% of national acreage</strong> (USDA ERS 2024). The portfolio splits cleanly into processing russets (Burbank + Tri-State releases), fresh-market russets (Norkotah and selections), chip varieties (Atlantic, Snowden, Lamoka), heritage table varieties (Yukon Gold, Kennebec, Red Pontiac), and early reds (Norland). The Tri-State program has driven the modern russet pipeline since 1991.</p>
@@ -3190,13 +3190,13 @@ function UnitedStatesProfilePage({ c }) {
               <thead><tr>{["Variety", "Year / Breeder", "Type", "Key States", "Acreage Share", "Notes"].map((h) => <th key={h} style={tableTH}>{h}</th>)}</tr></thead>
               <tbody>
                 {varietyRows.map((r, i) => (
-                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
-                    <td style={{ ...tableTD, fontWeight: 600, color: "#1A1A1A" }}>{r[0]}</td>
+                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
+                    <td style={{ ...tableTD, fontWeight: 600, color: "var(--ink)" }}>{r[0]}</td>
                     <td style={tableTD}>{r[1]}</td>
-                    <td style={{ ...tableTD, color: r[2].includes("Processing") || r[2].includes("Chip") ? "#C62828" : "#1A1A1A", fontWeight: 500 }}>{r[2]}</td>
-                    <td style={{ ...tableTD, fontSize: 12.5, color: "#666" }}>{r[3]}</td>
+                    <td style={{ ...tableTD, color: r[2].includes("Processing") || r[2].includes("Chip") ? "var(--gold)" : "var(--ink)", fontWeight: 500 }}>{r[2]}</td>
+                    <td style={{ ...tableTD, fontSize: 12.5, color: "var(--mute)" }}>{r[3]}</td>
                     <td style={tableTD}>{r[4]}</td>
-                    <td style={{ ...tableTD, fontSize: 12.5, color: "#666" }}>{r[5]}</td>
+                    <td style={{ ...tableTD, fontSize: 12.5, color: "var(--mute)" }}>{r[5]}</td>
                   </tr>
                 ))}
               </tbody>
@@ -3207,7 +3207,7 @@ function UnitedStatesProfilePage({ c }) {
       </section>
 
       {/* S7 · Pacific Northwest Growing */}
-      <section style={{ padding: "48px 0", borderBottom: "1px solid #f0f0f0", background: "#FAFAFA" }}>
+      <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--paper)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Pacific Northwest Growing &amp; Yield Story</h2>
           <p style={proseP}>The US holds the <strong>world&apos;s highest commercial potato yield at 51.4 t/ha</strong> &mdash; more than 2.3&times; the global average of 22.8 t/ha. Washington State exceeds even the national figure at <strong>659 cwt/acre (73.8 t/ha)</strong>, making it the highest-yielding potato region anywhere on Earth. The yield advantage is the product of four reinforcing factors:</p>
@@ -3221,46 +3221,46 @@ function UnitedStatesProfilePage({ c }) {
       </section>
 
       {/* S8 · Processing Industry */}
-      <section style={{ padding: "48px 0", borderBottom: "1px solid #f0f0f0", background: "#fff" }}>
+      <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--card)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Processing Industry &amp; Major Players</h2>
-          <p style={proseP}><strong>69&ndash;71% of US potatoes are processed</strong>, the highest processing share of any major producer (vs. <Link href="/country/india" style={{ color: "#C62828", textDecoration: "none" }}>India</Link>&apos;s 7&ndash;8% and <Link href="/country/china" style={{ color: "#C62828", textDecoration: "none" }}>China</Link>&apos;s 15%). In 2024, processors purchased <strong>269 million cwt</strong> &mdash; roughly 12.2 million tonnes &mdash; with the bulk going to frozen French fries (36% of total US potato production), chips (23%), dehydrated products (8%), and refrigerated convenience products (4%) (Potatoes USA 2024 Utilization Report; USDA NASS).</p>
+          <p style={proseP}><strong>69&ndash;71% of US potatoes are processed</strong>, the highest processing share of any major producer (vs. <Link href="/country/india" style={{ color: "var(--gold)", textDecoration: "none" }}>India</Link>&apos;s 7&ndash;8% and <Link href="/country/china" style={{ color: "var(--gold)", textDecoration: "none" }}>China</Link>&apos;s 15%). In 2024, processors purchased <strong>269 million cwt</strong> &mdash; roughly 12.2 million tonnes &mdash; with the bulk going to frozen French fries (36% of total US potato production), chips (23%), dehydrated products (8%), and refrigerated convenience products (4%) (Potatoes USA 2024 Utilization Report; USDA NASS).</p>
           <div style={{ overflowX: "auto", marginTop: 12 }}>
             <table style={{ width: "100%", borderCollapse: "collapse" }}>
               <thead><tr>{["Company", "Headquarters", "Activity", "Notes"].map((h) => <th key={h} style={tableTH}>{h}</th>)}</tr></thead>
               <tbody>
                 {processorRows.map((r, i) => (
-                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                     <td style={{ ...tableTD, fontWeight: 600 }}>{r[0]}</td>
                     <td style={tableTD}>{r[1]}</td>
-                    <td style={{ ...tableTD, color: "#C62828", fontWeight: 600 }}>{r[2]}</td>
-                    <td style={{ ...tableTD, fontSize: 12.5, color: "#666" }}>{r[3]}</td>
+                    <td style={{ ...tableTD, color: "var(--gold)", fontWeight: 600 }}>{r[2]}</td>
+                    <td style={{ ...tableTD, fontSize: 12.5, color: "var(--mute)" }}>{r[3]}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
           <p style={sourceLine}>Source: USDA NASS Potatoes 2024 Summary; NPC 2025 Yearbook; company filings (Lamb Weston, Simplot, McCain Foods); USDA FAS global market reports.</p>
-          <p style={{ ...proseP, marginTop: 16, fontSize: 13.5 }}><Link href="/knowledge/how-potatoes-are-processed" className="pp-read-more-link" style={{ color: "#C62828", textDecoration: "none", fontWeight: 600 }}>Read more: How Potatoes Are Processed &rarr;</Link></p>
+          <p style={{ ...proseP, marginTop: 16, fontSize: 13.5 }}><Link href="/knowledge/how-potatoes-are-processed" className="pp-read-more-link" style={{ color: "var(--gold)", textDecoration: "none", fontWeight: 600 }}>Read more: How Potatoes Are Processed &rarr;</Link></p>
         </div>
       </section>
 
       {/* S9 · Trade Profile */}
-      <section style={{ padding: "48px 0", borderBottom: "1px solid #f0f0f0", background: "#FAFAFA" }}>
+      <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--paper)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Trade Profile</h2>
-          <p style={proseP}>The US set an <strong>all-time record of $2.3 billion in potato exports</strong> in the July 2023 &ndash; June 2024 period (NPC 2025 Yearbook), up 4.0% year-over-year. Frozen French fries dominate the mix at $1.5 B / 1.5 M tonnes &mdash; 64% of total export value &mdash; with Japan, Mexico, and South Korea as the top three destinations. Despite this volume, the US ranks <strong>#4 globally in frozen-fry exports by value</strong> (behind <Link href="/country/belgium" style={{ color: "#C62828", textDecoration: "none" }}>Belgium</Link>, <Link href="/country/netherlands" style={{ color: "#C62828", textDecoration: "none" }}>Netherlands</Link>, and <Link href="/country/canada" style={{ color: "#C62828", textDecoration: "none" }}>Canada</Link>) per USDA FAS.</p>
+          <p style={proseP}>The US set an <strong>all-time record of $2.3 billion in potato exports</strong> in the July 2023 &ndash; June 2024 period (NPC 2025 Yearbook), up 4.0% year-over-year. Frozen French fries dominate the mix at $1.5 B / 1.5 M tonnes &mdash; 64% of total export value &mdash; with Japan, Mexico, and South Korea as the top three destinations. Despite this volume, the US ranks <strong>#4 globally in frozen-fry exports by value</strong> (behind <Link href="/country/belgium" style={{ color: "var(--gold)", textDecoration: "none" }}>Belgium</Link>, <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link>, and <Link href="/country/canada" style={{ color: "var(--gold)", textDecoration: "none" }}>Canada</Link>) per USDA FAS.</p>
           <div style={{ overflowX: "auto", marginTop: 12 }}>
-            <table style={{ width: "100%", borderCollapse: "collapse", fontVariantNumeric: "tabular-nums", background: "#fff" }}>
+            <table style={{ width: "100%", borderCollapse: "collapse", fontVariantNumeric: "tabular-nums", background: "var(--card)" }}>
               <thead><tr>{["Category", "Direction", "Value / Volume", "Top Markets", "Notes"].map((h) => <th key={h} style={tableTH}>{h}</th>)}</tr></thead>
               <tbody>
                 {tradeRows.map((r, i) => (
-                  <tr key={r[0] + i} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                  <tr key={r[0] + i} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                     <td style={{ ...tableTD, fontWeight: 600 }}>{r[0]}</td>
                     <td style={tableTD}>{r[1]}</td>
-                    <td style={{ ...tableTD, color: "#C62828", fontWeight: 600 }}>{r[2]}</td>
+                    <td style={{ ...tableTD, color: "var(--gold)", fontWeight: 600 }}>{r[2]}</td>
                     <td style={tableTD}>{r[3]}</td>
-                    <td style={{ ...tableTD, fontSize: 12.5, color: "#666" }}>{r[4]}</td>
+                    <td style={{ ...tableTD, fontSize: 12.5, color: "var(--mute)" }}>{r[4]}</td>
                   </tr>
                 ))}
               </tbody>
@@ -3271,19 +3271,19 @@ function UnitedStatesProfilePage({ c }) {
       </section>
 
       {/* S10 · Consumption */}
-      <section style={{ padding: "48px 0", borderBottom: "1px solid #f0f0f0", background: "#fff" }}>
+      <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--card)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Consumption &amp; American Cuisine</h2>
-          <p style={proseP}>Americans consume approximately <strong>120 lbs (54 kg) of potatoes per person per year</strong> &mdash; comparable to <Link href="/country/canada" style={{ color: "#C62828", textDecoration: "none" }}>Canada</Link> (55 kg) but well below <Link href="/country/belgium" style={{ color: "#C62828", textDecoration: "none" }}>Belgium</Link> (80 kg) or the <Link href="/country/united-kingdom" style={{ color: "#C62828", textDecoration: "none" }}>UK</Link> (84 kg). What sets US consumption apart is the form: <strong>71% of US potatoes are processed</strong> &mdash; the highest processing share of any major producer. The fast-food fry industry plus retail frozen-product growth has progressively replaced fresh-potato cooking at home.</p>
+          <p style={proseP}>Americans consume approximately <strong>120 lbs (54 kg) of potatoes per person per year</strong> &mdash; comparable to <Link href="/country/canada" style={{ color: "var(--gold)", textDecoration: "none" }}>Canada</Link> (55 kg) but well below <Link href="/country/belgium" style={{ color: "var(--gold)", textDecoration: "none" }}>Belgium</Link> (80 kg) or the <Link href="/country/united-kingdom" style={{ color: "var(--gold)", textDecoration: "none" }}>UK</Link> (84 kg). What sets US consumption apart is the form: <strong>71% of US potatoes are processed</strong> &mdash; the highest processing share of any major producer. The fast-food fry industry plus retail frozen-product growth has progressively replaced fresh-potato cooking at home.</p>
           <div style={{ overflowX: "auto", marginTop: 12 }}>
             <table style={{ width: "100%", borderCollapse: "collapse" }}>
               <thead><tr>{["Use Category", "Share of US Crop", "Notes"].map((h) => <th key={h} style={tableTH}>{h}</th>)}</tr></thead>
               <tbody>
                 {consumptionRows.map((r, i) => (
-                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                     <td style={{ ...tableTD, fontWeight: 600 }}>{r[0]}</td>
-                    <td style={{ ...tableTD, color: "#C62828", fontWeight: 600 }}>{r[1]}</td>
-                    <td style={{ ...tableTD, fontSize: 12.5, color: "#666" }}>{r[2]}</td>
+                    <td style={{ ...tableTD, color: "var(--gold)", fontWeight: 600 }}>{r[1]}</td>
+                    <td style={{ ...tableTD, fontSize: 12.5, color: "var(--mute)" }}>{r[2]}</td>
                   </tr>
                 ))}
               </tbody>
@@ -3295,7 +3295,7 @@ function UnitedStatesProfilePage({ c }) {
       </section>
 
       {/* S11 · Tri-State Breeding Program */}
-      <section style={{ padding: "48px 0", borderBottom: "1px solid #f0f0f0", background: "#FAFAFA" }}>
+      <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--paper)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>The Tri-State Breeding Program</h2>
           <p style={proseP}>The <strong>Tri-State Potato Variety Development Program</strong> &mdash; a research collaboration among <strong>USDA-ARS Aberdeen (Idaho)</strong>, the <strong>University of Idaho</strong>, <strong>Oregon State University</strong>, and <strong>Washington State University</strong> &mdash; has been the primary engine of US russet variety improvement since the 1980s. Each Tri-State release goes through 10&ndash;12 years of multi-state field trials before commercial release.</p>
@@ -3306,19 +3306,19 @@ function UnitedStatesProfilePage({ c }) {
       </section>
 
       {/* S12 · Seed System */}
-      <section style={{ padding: "48px 0", borderBottom: "1px solid #f0f0f0", background: "#fff" }}>
+      <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--card)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Seed Certification System</h2>
-          <p style={proseP}>The US operates a <strong>state-level seed certification system</strong> rather than a single federal authority. Each major seed-producing state runs its own certification agency &mdash; collectively delivering near-100% certified seed usage in commercial potato production, in stark contrast to <Link href="/country/india" style={{ color: "#C62828", textDecoration: "none" }}>India</Link>&apos;s 15%. The seed pipeline runs Generation 0 (G0, in-vitro tissue culture mini-tubers) through G5 (final certified seed sold to commercial growers).</p>
+          <p style={proseP}>The US operates a <strong>state-level seed certification system</strong> rather than a single federal authority. Each major seed-producing state runs its own certification agency &mdash; collectively delivering near-100% certified seed usage in commercial potato production, in stark contrast to <Link href="/country/india" style={{ color: "var(--gold)", textDecoration: "none" }}>India</Link>&apos;s 15%. The seed pipeline runs Generation 0 (G0, in-vitro tissue culture mini-tubers) through G5 (final certified seed sold to commercial growers).</p>
           <div style={{ overflowX: "auto", marginTop: 12 }}>
             <table style={{ width: "100%", borderCollapse: "collapse" }}>
               <thead><tr>{["Certification Agency", "State", "Notes"].map((h) => <th key={h} style={tableTH}>{h}</th>)}</tr></thead>
               <tbody>
                 {seedSystemRows.map((r, i) => (
-                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                     <td style={{ ...tableTD, fontWeight: 600 }}>{r[0]}</td>
                     <td style={tableTD}>{r[1]}</td>
-                    <td style={{ ...tableTD, fontSize: 12.5, color: "#666" }}>{r[2]}</td>
+                    <td style={{ ...tableTD, fontSize: 12.5, color: "var(--mute)" }}>{r[2]}</td>
                   </tr>
                 ))}
               </tbody>
@@ -3329,19 +3329,19 @@ function UnitedStatesProfilePage({ c }) {
       </section>
 
       {/* S13 · Industry Challenges */}
-      <section style={{ padding: "48px 0", borderBottom: "1px solid #f0f0f0", background: "#FAFAFA" }}>
+      <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--paper)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Industry Challenges</h2>
           <p style={proseP}>Despite world-leading yields and trade share, the US potato sector faces systemic pressures across water security, labor, disease, and the slow Burbank-replacement transition.</p>
           <div style={{ overflowX: "auto", marginTop: 12 }}>
-            <table style={{ width: "100%", borderCollapse: "collapse", background: "#fff" }}>
+            <table style={{ width: "100%", borderCollapse: "collapse", background: "var(--card)" }}>
               <thead><tr>{["Challenge", "Magnitude", "Driver / Note"].map((h) => <th key={h} style={tableTH}>{h}</th>)}</tr></thead>
               <tbody>
                 {challengeRows.map((r, i) => (
-                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                  <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                     <td style={{ ...tableTD, fontWeight: 600 }}>{r[0]}</td>
-                    <td style={{ ...tableTD, color: "#C62828", fontWeight: 600 }}>{r[1]}</td>
-                    <td style={{ ...tableTD, fontSize: 12.5, color: "#444" }}>{r[2]}</td>
+                    <td style={{ ...tableTD, color: "var(--gold)", fontWeight: 600 }}>{r[1]}</td>
+                    <td style={{ ...tableTD, fontSize: 12.5, color: "var(--ink2)" }}>{r[2]}</td>
                   </tr>
                 ))}
               </tbody>
@@ -3352,10 +3352,10 @@ function UnitedStatesProfilePage({ c }) {
       </section>
 
       {/* S14 · AI Explorer */}
-      <section id="ai-explorer" className="pp-ai-explorer-band pp-no-print" style={{ background: "linear-gradient(135deg,#0F1115 0%,#1A1F26 100%)", color: "#fff", padding: "52px 0 36px" }}>
+      <section id="ai-explorer" className="pp-ai-explorer-band pp-no-print" style={{ background: "var(--panel)", color: "#fff", padding: "52px 0 36px" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <div style={{ maxWidth: 760, margin: "0 auto", textAlign: "center" }}>
-            <div style={{ fontSize: 11, fontWeight: 700, color: "#E53935", textTransform: "uppercase", letterSpacing: 2, marginBottom: 14 }}>Potatopedia AI &middot; United States</div>
+            <div style={{ fontSize: 11, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 2, marginBottom: 14 }}>Potatopedia AI &middot; United States</div>
             <h2 style={{ fontSize: 32, fontWeight: 800, color: "#fff", margin: "0 0 12px", letterSpacing: -1, lineHeight: 1.2 }}>Ask Anything About the US Potato Industry</h2>
             <p style={{ fontSize: 15, color: "rgba(255,255,255,0.7)", margin: "0", lineHeight: 1.6 }}>
               Get data-backed answers from our 5,657 data-point knowledge base &mdash; pre-filtered for the United States.
@@ -3363,7 +3363,7 @@ function UnitedStatesProfilePage({ c }) {
           </div>
         </div>
       </section>
-      <section className="pp-ai-explorer-light pp-no-print" style={{ background: "#fff", borderTop: "0", borderBottom: "1px solid #f0f0f0" }}>
+      <section className="pp-ai-explorer-light pp-no-print" style={{ background: "var(--card)", borderTop: "0", borderBottom: "1px solid var(--line)" }}>
         <CountryAI countryName="United States" countrySlug="united-states" />
       </section>
 
@@ -3372,16 +3372,16 @@ function UnitedStatesProfilePage({ c }) {
 
       <CountryBlogPosts countrySlug={c.slug} />
 
-      <section className="pp-comparable-countries pp-no-print" style={{ background: "#FAFAFA", borderTop: "1px solid #f0f0f0", padding: "48px 0" }}>
+      <section className="pp-comparable-countries pp-no-print" style={{ background: "var(--paper)", borderTop: "1px solid var(--line)", padding: "48px 0" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={{ ...sectionTitle, textAlign: "left" }}>Compare with Global Peers</h2>
           <div className="pp-india-comparable-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 16, marginTop: 8 }}>
             {COUNTRIES.filter((x) => ["canada", "china", "india", "netherlands", "belgium", "germany", "france", "russia"].includes(x.slug)).slice(0, 4).map((x) => (
-              <Link key={x.slug} href={"/country/" + x.slug} style={{ background: "white", borderRadius: 14, padding: "20px 16px", textAlign: "center", border: "1px solid #ececec", textDecoration: "none", color: "inherit", transition: "border-color 0.15s" }}>
+              <Link key={x.slug} href={"/country/" + x.slug} style={{ background: "var(--card)", borderRadius: 14, padding: "20px 16px", textAlign: "center", border: "1px solid var(--line)", textDecoration: "none", color: "inherit", transition: "border-color 0.15s" }}>
                 <div style={{ fontSize: 36, marginBottom: 8 }}>{x.flag}</div>
-                <div style={{ fontSize: 14, fontWeight: 700, color: "#1A1A1A", marginBottom: 4 }}>{x.name}</div>
-                <div style={{ fontSize: 22, color: "#C62828", fontWeight: 800, lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{x.prod}</div>
-                <div style={{ fontSize: 11, color: "#888", marginTop: 4 }}>#{x.rank} Global &middot; {x.yield}</div>
+                <div style={{ fontSize: 14, fontWeight: 700, color: "var(--ink)", marginBottom: 4 }}>{x.name}</div>
+                <div style={{ fontSize: 22, color: "var(--gold)", fontWeight: 800, lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{x.prod}</div>
+                <div style={{ fontSize: 11, color: "var(--mute2)", marginTop: 4 }}>#{x.rank} Global &middot; {x.yield}</div>
               </Link>
             ))}
           </div>
@@ -3389,11 +3389,11 @@ function UnitedStatesProfilePage({ c }) {
       </section>
 
       {/* S16 · Related & Sources */}
-      <section style={{ padding: "48px 0", background: "#fff" }}>
+      <section style={{ padding: "48px 0", background: "var(--card)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 32 }} className="pp-india-related-grid">
             <div>
-              <h3 style={{ fontSize: 14, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 14 }}>Related Knowledge</h3>
+              <h3 style={{ fontSize: 14, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 14 }}>Related Knowledge</h3>
               <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
                 {[
                   { slug: "russet-burbank-history", title: "Russet Burbank: 140 Years of Dominance", desc: "Luther Burbank's 1876 selection that anchors the global frozen fry industry." },
@@ -3403,28 +3403,28 @@ function UnitedStatesProfilePage({ c }) {
                   { slug: "top-potato-producing-countries", title: "Top Potato Producing Countries 2025", desc: "FAOSTAT rankings: USA #5 by production, #1 by yield." },
                   { slug: "global-potato-trade", title: "Global Potato Trade Statistics", desc: "$22.8B trade — USA at $2.3B record exports (frozen-fry-led)." },
                 ].map((a) => (
-                  <Link key={a.slug} href={"/knowledge/" + a.slug} style={{ background: "#fff", border: "1px solid #ececec", borderRadius: 10, padding: "12px 16px", textDecoration: "none", color: "inherit", transition: "border-color 0.15s" }}>
-                    <div style={{ fontSize: 14, fontWeight: 600, color: "#1A1A1A", marginBottom: 3 }}>{a.title}</div>
-                    <div style={{ fontSize: 12.5, color: "#666", lineHeight: 1.5 }}>{a.desc}</div>
+                  <Link key={a.slug} href={"/knowledge/" + a.slug} style={{ background: "var(--card)", border: "1px solid var(--line)", borderRadius: 10, padding: "12px 16px", textDecoration: "none", color: "inherit", transition: "border-color 0.15s" }}>
+                    <div style={{ fontSize: 14, fontWeight: 600, color: "var(--ink)", marginBottom: 3 }}>{a.title}</div>
+                    <div style={{ fontSize: 12.5, color: "var(--mute)", lineHeight: 1.5 }}>{a.desc}</div>
                   </Link>
                 ))}
               </div>
             </div>
-            <div className="pp-sources-block" style={{ background: "#FAFAFA", border: "1px solid #ececec", borderRadius: 10, padding: "20px 22px" }}>
-              <h3 style={{ fontSize: 14, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 14 }}>Sources</h3>
+            <div className="pp-sources-block" style={{ background: "var(--paper)", border: "1px solid var(--line)", borderRadius: 10, padding: "20px 22px" }}>
+              <h3 style={{ fontSize: 14, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 14 }}>Sources</h3>
               <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 8 }}>
-                <li style={{ fontSize: 12, color: "#444", lineHeight: 1.55 }}><strong>USDA NASS</strong> &mdash; Potatoes 2024 Summary; state-level production and farm-gate value</li>
-                <li style={{ fontSize: 12, color: "#444", lineHeight: 1.55 }}><strong>USDA ERS</strong> &mdash; variety acreage shares (Charts of Note); processing utilization data</li>
-                <li style={{ fontSize: 12, color: "#444", lineHeight: 1.55 }}><strong>USDA-ARS</strong> &mdash; Small Grains and Potato Germplasm Research Unit (Aberdeen ID); Tri-State variety release documentation</li>
-                <li style={{ fontSize: 12, color: "#444", lineHeight: 1.55 }}><strong>USDA FAS</strong> &mdash; Global Agricultural Trade System; export rankings</li>
-                <li style={{ fontSize: 12, color: "#444", lineHeight: 1.55 }}><strong>USDA APHIS</strong> &mdash; pale cyst nematode quarantine; phytosanitary export protocols</li>
-                <li style={{ fontSize: 12, color: "#444", lineHeight: 1.55 }}><strong>NPC 2025 Yearbook</strong> &mdash; National Potato Council; export records and industry statistics</li>
-                <li style={{ fontSize: 12, color: "#444", lineHeight: 1.55 }}><strong>Potatoes USA 2024 Utilization Report</strong> &mdash; consumption category breakdown</li>
-                <li style={{ fontSize: 12, color: "#444", lineHeight: 1.55 }}><strong>University of Idaho Extension</strong> &mdash; CIS / BUL series variety bulletins; agronomic protocols</li>
-                <li style={{ fontSize: 12, color: "#444", lineHeight: 1.55 }}><strong>Washington State Potato Commission + WSU</strong> &mdash; state-level yield and production data</li>
-                <li style={{ fontSize: 12, color: "#444", lineHeight: 1.55 }}><strong>Bureau of Reclamation</strong> &mdash; Snake River streamflow projections; water-supply outlook</li>
-                <li style={{ fontSize: 12, color: "#444", lineHeight: 1.55 }}><strong>U.S. Department of Commerce Foreign Trade Division</strong> &mdash; export value by category</li>
-                <li style={{ fontSize: 12, color: "#444", lineHeight: 1.55 }}><strong>Lamb Weston, J.R. Simplot Company, McCain Foods, ConAgra</strong> &mdash; corporate filings + sustainability reports</li>
+                <li style={{ fontSize: 12, color: "var(--ink2)", lineHeight: 1.55 }}><strong>USDA NASS</strong> &mdash; Potatoes 2024 Summary; state-level production and farm-gate value</li>
+                <li style={{ fontSize: 12, color: "var(--ink2)", lineHeight: 1.55 }}><strong>USDA ERS</strong> &mdash; variety acreage shares (Charts of Note); processing utilization data</li>
+                <li style={{ fontSize: 12, color: "var(--ink2)", lineHeight: 1.55 }}><strong>USDA-ARS</strong> &mdash; Small Grains and Potato Germplasm Research Unit (Aberdeen ID); Tri-State variety release documentation</li>
+                <li style={{ fontSize: 12, color: "var(--ink2)", lineHeight: 1.55 }}><strong>USDA FAS</strong> &mdash; Global Agricultural Trade System; export rankings</li>
+                <li style={{ fontSize: 12, color: "var(--ink2)", lineHeight: 1.55 }}><strong>USDA APHIS</strong> &mdash; pale cyst nematode quarantine; phytosanitary export protocols</li>
+                <li style={{ fontSize: 12, color: "var(--ink2)", lineHeight: 1.55 }}><strong>NPC 2025 Yearbook</strong> &mdash; National Potato Council; export records and industry statistics</li>
+                <li style={{ fontSize: 12, color: "var(--ink2)", lineHeight: 1.55 }}><strong>Potatoes USA 2024 Utilization Report</strong> &mdash; consumption category breakdown</li>
+                <li style={{ fontSize: 12, color: "var(--ink2)", lineHeight: 1.55 }}><strong>University of Idaho Extension</strong> &mdash; CIS / BUL series variety bulletins; agronomic protocols</li>
+                <li style={{ fontSize: 12, color: "var(--ink2)", lineHeight: 1.55 }}><strong>Washington State Potato Commission + WSU</strong> &mdash; state-level yield and production data</li>
+                <li style={{ fontSize: 12, color: "var(--ink2)", lineHeight: 1.55 }}><strong>Bureau of Reclamation</strong> &mdash; Snake River streamflow projections; water-supply outlook</li>
+                <li style={{ fontSize: 12, color: "var(--ink2)", lineHeight: 1.55 }}><strong>U.S. Department of Commerce Foreign Trade Division</strong> &mdash; export value by category</li>
+                <li style={{ fontSize: 12, color: "var(--ink2)", lineHeight: 1.55 }}><strong>Lamb Weston, J.R. Simplot Company, McCain Foods, ConAgra</strong> &mdash; corporate filings + sustainability reports</li>
               </ul>
             </div>
           </div>
@@ -3437,11 +3437,11 @@ function UnitedStatesProfilePage({ c }) {
       </div>
 
       {/* S17 · Footer PDF */}
-      <section className="pp-bottom-cta pp-no-print" style={{ background: "linear-gradient(180deg,#FFF8F8 0%,#FFFFFF 100%)", borderTop: "1px solid #f0f0f0", padding: "44px 0", textAlign: "center" }}>
+      <section className="pp-bottom-cta pp-no-print" style={{ background: "var(--card)", borderTop: "1px solid var(--line)", padding: "44px 0", textAlign: "center" }}>
         <div style={sectionWrap} className="pp-section-wrap">
-          <div style={{ fontSize: 13, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 10 }}>Premium Export</div>
-          <h3 style={{ fontSize: 22, fontWeight: 700, color: "#1A1A1A", margin: "0 0 8px" }}>Download the Full United States Industry Profile</h3>
-          <p style={{ fontSize: 14, color: "#666", margin: "0 0 22px", maxWidth: 520, marginLeft: "auto", marginRight: "auto", lineHeight: 1.6 }}>
+          <div style={{ fontSize: 13, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 10 }}>Premium Export</div>
+          <h3 style={{ fontSize: 22, fontWeight: 700, color: "var(--ink)", margin: "0 0 8px" }}>Download the Full United States Industry Profile</h3>
+          <p style={{ fontSize: 14, color: "var(--mute)", margin: "0 0 22px", maxWidth: 520, marginLeft: "auto", marginRight: "auto", lineHeight: 1.6 }}>
             All sections, all tables, all sources &mdash; formatted for A4 printing or sharing as a PDF report. Branded footer on every page (potatopedia.com &middot; hello@potatopedia.com &middot; linkedin.com/company/potatopedia).
           </p>
           <PdfDownloadButton size="lg" placement="footer" />
@@ -3455,44 +3455,44 @@ function UnitedStatesProfilePage({ c }) {
 
 function KenyaProfilePage({ c }) {
   const sectionWrap = { maxWidth: 1080, margin: "0 auto", padding: "0 24px" };
-  const sH2 = { fontSize: 22, fontWeight: 700, paddingLeft: 16, borderLeft: "4px solid #C62828", marginTop: 0, marginBottom: 14, color: "#1A1A1A" };
-  const sP = { fontSize: 14.5, color: "#444", lineHeight: 1.75, margin: "0 0 14px" };
-  const sIntro = { fontSize: 16, color: "#1A1A1A", lineHeight: 1.75, margin: "0 0 14px", fontWeight: 500 };
-  const sTh = { padding: "10px 12px", textAlign: "left", background: "#C62828", color: "#fff", fontSize: 13, fontWeight: 700 };
-  const sTd = { padding: "9px 12px", fontSize: 14, borderBottom: "1px solid #eee" };
-  const sSource = { fontSize: 12, color: "#999", marginTop: 8, marginBottom: 0, fontStyle: "italic" };
-  const cardWrap = { background: "#fff", border: "1px solid #ececec", borderRadius: 14, padding: "26px 28px 22px", marginBottom: 18 };
-  const linkRed = { color: "#C62828", textDecoration: "none", fontWeight: 600 };
-  const linkPlain = { color: "#C62828", textDecoration: "none" };
-  const qfBox = { background: "#FAFAFA", border: "1px solid #ececec", borderRadius: 10, padding: "14px 18px", marginBottom: 16 };
-  const qfTitle = { fontSize: 10, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 8 };
+  const sH2 = { fontSize: 22, fontWeight: 700, paddingLeft: 16, borderLeft: "4px solid var(--gold)", marginTop: 0, marginBottom: 14, color: "var(--ink)" };
+  const sP = { fontSize: 14.5, color: "var(--ink2)", lineHeight: 1.75, margin: "0 0 14px" };
+  const sIntro = { fontSize: 16, color: "var(--ink)", lineHeight: 1.75, margin: "0 0 14px", fontWeight: 500 };
+  const sTh = { padding: "10px 12px", textAlign: "left", background: "var(--accent-bg)", color: "#fff", fontSize: 13, fontWeight: 700 };
+  const sTd = { padding: "9px 12px", fontSize: 14, borderBottom: "1px solid var(--line)" };
+  const sSource = { fontSize: 12, color: "var(--mute2)", marginTop: 8, marginBottom: 0, fontStyle: "italic" };
+  const cardWrap = { background: "var(--card)", border: "1px solid var(--line)", borderRadius: 14, padding: "26px 28px 22px", marginBottom: 18 };
+  const linkRed = { color: "var(--gold)", textDecoration: "none", fontWeight: 600 };
+  const linkPlain = { color: "var(--gold)", textDecoration: "none" };
+  const qfBox = { background: "var(--paper)", border: "1px solid var(--line)", borderRadius: 10, padding: "14px 18px", marginBottom: 16 };
+  const qfTitle = { fontSize: 10, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 8 };
 
   const QuickFacts = ({ items }) => (
     <div data-quick-facts="true" style={qfBox}>
       <div style={qfTitle}>Quick Facts</div>
-      <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5px 18px", fontSize: 13, color: "#333" }}>
-        {items.map((it, i) => <li key={i} style={{ lineHeight: 1.5 }}><strong style={{ color: "#1A1A1A" }}>{it.label}:</strong> {it.value}</li>)}
+      <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5px 18px", fontSize: 13, color: "var(--ink2)" }}>
+        {items.map((it, i) => <li key={i} style={{ lineHeight: 1.5 }}><strong style={{ color: "var(--ink)" }}>{it.label}:</strong> {it.value}</li>)}
       </ul>
     </div>
   );
 
   const StatCallout = ({ number, unit, context, source }) => (
     <>
-      <style>{`.pp-ke-cb{display:flex;gap:18px;align-items:flex-start;margin:22px 0}.pp-ke-cbm{display:none}@media(max-width:640px){.pp-ke-cb{display:none!important}.pp-ke-cbm{display:block!important;margin:22px 0;border-left:4px solid #C62828;border-radius:0 10px 10px 0;background:#F7F7F7;padding:16px 18px}}`}</style>
+      <style>{`.pp-ke-cb{display:flex;gap:18px;align-items:flex-start;margin:22px 0}.pp-ke-cbm{display:none}@media(max-width:640px){.pp-ke-cb{display:none!important}.pp-ke-cbm{display:block!important;margin:22px 0;border-left: 4px solid var(--gold);border-radius:0 10px 10px 0;background: var(--paper);padding:16px 18px}}`}</style>
       <div className="pp-ke-cb">
-        <div style={{ background: "#C62828", borderRadius: 12, padding: "18px 22px", minWidth: 110, textAlign: "center", flexShrink: 0 }}>
+        <div style={{ background: "var(--accent-bg)", borderRadius: 12, padding: "18px 22px", minWidth: 110, textAlign: "center", flexShrink: 0 }}>
           <div style={{ fontSize: 24, fontWeight: 800, color: "#fff", lineHeight: 1 }}>{number}</div>
           {unit && <div style={{ fontSize: 11, color: "rgba(255,255,255,0.7)", marginTop: 4, textTransform: "uppercase" }}>{unit}</div>}
         </div>
         <div style={{ padding: "6px 0", flex: 1 }}>
-          <div style={{ fontSize: 14, color: "#555", lineHeight: 1.65 }}>{context}</div>
-          {source && <div style={{ fontSize: 11, color: "#aaa", marginTop: 6, fontStyle: "italic" }}>{source}</div>}
+          <div style={{ fontSize: 14, color: "var(--mute)", lineHeight: 1.65 }}>{context}</div>
+          {source && <div style={{ fontSize: 11, color: "var(--mute3)", marginTop: 6, fontStyle: "italic" }}>{source}</div>}
         </div>
       </div>
       <div className="pp-ke-cbm">
-        <div style={{ marginBottom: 6 }}><span style={{ fontSize: 22, fontWeight: 800, color: "#C62828" }}>{number}</span>{unit && <span style={{ fontSize: 13, fontWeight: 600, color: "#C62828", marginLeft: 4 }}>{unit}</span>}</div>
-        <div style={{ fontSize: 14, color: "#555", lineHeight: 1.65 }}>{context}</div>
-        {source && <div style={{ fontSize: 11, color: "#aaa", marginTop: 6, fontStyle: "italic" }}>{source}</div>}
+        <div style={{ marginBottom: 6 }}><span style={{ fontSize: 22, fontWeight: 800, color: "var(--gold)" }}>{number}</span>{unit && <span style={{ fontSize: 13, fontWeight: 600, color: "var(--gold)", marginLeft: 4 }}>{unit}</span>}</div>
+        <div style={{ fontSize: 14, color: "var(--mute)", lineHeight: 1.65 }}>{context}</div>
+        {source && <div style={{ fontSize: 11, color: "var(--mute3)", marginTop: 6, fontStyle: "italic" }}>{source}</div>}
       </div>
     </>
   );
@@ -3579,37 +3579,37 @@ function KenyaProfilePage({ c }) {
   ];
 
   return (
-    <div style={{ minHeight: "100vh", background: "#FFFFFF", color: "#1A1A1A" }}>
+    <div style={{ minHeight: "100vh", background: "var(--card)", color: "var(--ink)" }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@graph": jsonLdGraph }) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqItems.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) }) }} />
 
       {/* HERO with WPC 2026 callout */}
       <style>{`
-        .pp-ke-hero { padding: 56px 24px 40px; background: #FAFAFA; position: relative; overflow: hidden; border-bottom: 1px solid #f0f0f0; background-image: repeating-linear-gradient(0deg, rgba(198,40,40,0.04) 0, rgba(198,40,40,0.04) 1px, transparent 1px, transparent 60px), repeating-linear-gradient(90deg, rgba(198,40,40,0.04) 0, rgba(198,40,40,0.04) 1px, transparent 1px, transparent 60px); }
-        .pp-ke-wpc-banner { background: linear-gradient(135deg, #C62828, #8E0000); color: #fff; border-radius: 14px; padding: 18px 22px; margin-top: 20px; display: flex; gap: 16px; align-items: center; box-shadow: 0 8px 24px rgba(198,40,40,0.18); }
+        .pp-ke-hero { padding: 56px 24px 40px; background: var(--paper); position: relative; overflow: hidden; border-bottom: 1px solid var(--line); background-image: repeating-linear-gradient(0deg, rgba(154,114,56,0.04) 0, rgba(154,114,56,0.04) 1px, transparent 1px, transparent 60px), repeating-linear-gradient(90deg, rgba(154,114,56,0.04) 0, rgba(154,114,56,0.04) 1px, transparent 1px, transparent 60px); }
+        .pp-ke-wpc-banner { background: var(--accent-bg); color: #fff; border-radius: 14px; padding: 18px 22px; margin-top: 20px; display: flex; gap: 16px; align-items: center; box-shadow: 0 8px 24px rgba(154,114,56,0.18); }
         .pp-ke-wpc-banner .pp-ke-wpc-badge { background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.3); border-radius: 8px; padding: 8px 14px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.6; flex-shrink: 0; }
         .pp-ke-wpc-banner .pp-ke-wpc-text { flex: 1; line-height: 1.4; }
-        .pp-ke-wpc-banner .pp-ke-wpc-cta { background: #fff; color: #C62828; border-radius: 10px; padding: 10px 18px; font-size: 13px; font-weight: 800; text-decoration: none; flex-shrink: 0; white-space: nowrap; }
+        .pp-ke-wpc-banner .pp-ke-wpc-cta { background: var(--card); color: var(--gold); border-radius: 10px; padding: 10px 18px; font-size: 13px; font-weight: 800; text-decoration: none; flex-shrink: 0; white-space: nowrap; }
         @media (max-width: 768px) { .pp-ke-hero { padding: 40px 20px 32px; } .pp-ke-wpc-banner { flex-direction: column; align-items: flex-start; text-align: left; } }
       `}</style>
       <section className="pp-ke-hero">
-        <div style={{ position: "absolute", top: 16, right: 24, width: 200, height: 2, background: "linear-gradient(135deg,#C62828,transparent)", borderRadius: 1, zIndex: 0 }} />
+        <div style={{ position: "absolute", top: 16, right: 24, width: 200, height: 2, background: "var(--accent-bg)", borderRadius: 1, zIndex: 0 }} />
         <div style={{ position: "relative", zIndex: 1, maxWidth: 1080, margin: "0 auto" }}>
           <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 20, fontSize: 13, flexWrap: "wrap" }}>
-            <Link href="/" style={{ color: "#888", textDecoration: "none" }}>Home</Link>
-            <span style={{ color: "#ccc" }}>/</span>
-            <Link href="/countries" style={{ color: "#888", textDecoration: "none" }}>Countries</Link>
-            <span style={{ color: "#ccc" }}>/</span>
-            <span style={{ color: "#C62828", fontWeight: 700 }}>Kenya {c.flag}</span>
+            <Link href="/" style={{ color: "var(--mute2)", textDecoration: "none" }}>Home</Link>
+            <span style={{ color: "var(--mute3)" }}>/</span>
+            <Link href="/countries" style={{ color: "var(--mute2)", textDecoration: "none" }}>Countries</Link>
+            <span style={{ color: "var(--mute3)" }}>/</span>
+            <span style={{ color: "var(--gold)", fontWeight: 700 }}>Kenya {c.flag}</span>
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 14 }}>
-            <span style={{ display: "inline-block", fontSize: 10, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 1.5, background: "rgba(198,40,40,0.06)", padding: "4px 12px", borderRadius: 10 }}>Kenya · Africa &amp; Middle East</span>
-            <span style={{ fontSize: 12, color: "#999" }}>·</span>
-            <span style={{ fontSize: 12, color: "#999" }}>Updated {UPDATED_SHORT}</span>
-            <span style={{ fontSize: 12, color: "#999" }}>·</span>
-            <span style={{ fontSize: 12, color: "#999" }}>14 min read</span>
+            <span style={{ display: "inline-block", fontSize: 10, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.5, background: "rgba(154,114,56,0.06)", padding: "4px 12px", borderRadius: 10 }}>Kenya · Africa &amp; Middle East</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>·</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>Updated {UPDATED_SHORT}</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>·</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>14 min read</span>
           </div>
-          <h1 style={{ fontSize: 34, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, lineHeight: 1.18, margin: "0 0 12px", maxWidth: 920 }}>
+          <h1 style={{ fontSize: 34, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1.18, margin: "0 0 12px", maxWidth: 920 }}>
             Kenya Potato Industry: East Africa&apos;s Largest Producer &amp; Host of World Potato Congress 2026
           </h1>
 
@@ -3639,14 +3639,14 @@ function KenyaProfilePage({ c }) {
           ]} />
 
           {/* Definitive Answer */}
-          <div data-summary="true" style={{ background: "rgba(198,40,40,0.03)", border: "1px solid rgba(198,40,40,0.12)", borderLeft: "4px solid #C62828", borderRadius: "0 12px 12px 0", padding: "22px 28px", marginBottom: 22, fontSize: 16, color: "#333", lineHeight: 1.75 }}>
+          <div data-summary="true" style={{ background: "rgba(154,114,56,0.03)", border: "1px solid rgba(154,114,56,0.12)", borderLeft: "4px solid var(--gold)", borderRadius: "0 12px 12px 0", padding: "22px 28px", marginBottom: 22, fontSize: 16, color: "var(--ink2)", lineHeight: 1.75 }}>
             <p style={{ margin: 0 }}>
               <strong>Kenya is East Africa&apos;s largest potato producer and Africa&apos;s #2 producer overall, with 2.31 million tonnes from 239,325 hectares (FAOSTAT 2024).</strong> Nyandarua County alone delivers ~35% of national output, anchoring Kenya&apos;s &quot;potato basket&quot; on the Aberdare slopes and Kinangop plateau. The Shangi variety dominates 50–70% of cultivated area. State-average yield of 9.65 t/ha is well below the country&apos;s 30–40 t/ha potential — driven by a severe seed crisis where only 2–5% of seed planted is formally certified. Naivasha hosts the 13th World Potato Congress in October 2026.
             </p>
           </div>
 
           {/* Key Stat Strip */}
-          <style>{`.pp-ke-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:#1A1A1A;border-radius:12px;padding:26px 22px;margin-bottom:24px}@media(max-width:768px){.pp-ke-stats{grid-template-columns:repeat(2,1fr)!important;gap:18px!important;padding:22px 18px!important}}@media(max-width:400px){.pp-ke-stats{grid-template-columns:1fr!important}}`}</style>
+          <style>{`.pp-ke-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;background: var(--panel);border-radius:12px;padding:26px 22px;margin-bottom:24px}@media(max-width:768px){.pp-ke-stats{grid-template-columns:repeat(2,1fr)!important;gap:18px!important;padding:22px 18px!important}}@media(max-width:400px){.pp-ke-stats{grid-template-columns:1fr!important}}`}</style>
           <div className="pp-ke-stats">
             {[
               { v: "2.31M t", l: "Annual production" },
@@ -3662,9 +3662,9 @@ function KenyaProfilePage({ c }) {
           </div>
 
           {/* TOC */}
-          <details style={{ background: "#FAFAFA", border: "1px solid #eee", borderRadius: 10, padding: "12px 18px", marginBottom: 28 }}>
-            <summary style={{ cursor: "pointer", listStyle: "none", display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: 13, fontWeight: 600, color: "#555" }}>
-              <span>In this article (11 sections)</span><span style={{ fontSize: 10, color: "#bbb" }}>▾</span>
+          <details style={{ background: "var(--paper)", border: "1px solid var(--line)", borderRadius: 10, padding: "12px 18px", marginBottom: 28 }}>
+            <summary style={{ cursor: "pointer", listStyle: "none", display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: 13, fontWeight: 600, color: "var(--mute)" }}>
+              <span>In this article (11 sections)</span><span style={{ fontSize: 10, color: "var(--mute3)" }}>▾</span>
             </summary>
             <nav style={{ marginTop: 12, display: "flex", flexDirection: "column", gap: 4 }}>
               {[
@@ -3679,7 +3679,7 @@ function KenyaProfilePage({ c }) {
                 { id: "calendar", l: "When are potatoes planted and harvested in Kenya?" },
                 { id: "wpc-2026", l: "Why is Kenya hosting the World Potato Congress 2026?" },
                 { id: "challenges", l: "What are the major challenges facing Kenya's potato sector?" },
-              ].map((it, i) => <a key={i} href={"#" + it.id} style={{ fontSize: 13, color: "#555", textDecoration: "none", padding: "5px 0", borderBottom: "1px solid rgba(0,0,0,0.04)" }}>{it.l}</a>)}
+              ].map((it, i) => <a key={i} href={"#" + it.id} style={{ fontSize: 13, color: "var(--mute)", textDecoration: "none", padding: "5px 0", borderBottom: "1px solid var(--line)" }}>{it.l}</a>)}
             </nav>
           </details>
 
@@ -3708,12 +3708,12 @@ function KenyaProfilePage({ c }) {
                 <thead><tr>{["County", "Region", "Share / rank", "Key growing areas", "Top varieties"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
                 <tbody>
                   {counties.map((r, i) => (
-                    <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                    <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                       <td style={{ ...sTd, fontWeight: i < 3 ? 700 : 600 }}>{r[0]}</td>
                       <td style={sTd}>{r[1]}</td>
                       <td style={sTd} data-stat-type="county-share" data-stat-source="KEPHIS">{r[2]}</td>
-                      <td style={{ ...sTd, color: "#666" }}>{r[3]}</td>
-                      <td style={{ ...sTd, color: "#555" }}>{r[4]}</td>
+                      <td style={{ ...sTd, color: "var(--mute)" }}>{r[3]}</td>
+                      <td style={{ ...sTd, color: "var(--mute)" }}>{r[4]}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -3742,7 +3742,7 @@ function KenyaProfilePage({ c }) {
                 <thead><tr>{["Variety", "Origin / Released", "Adoption", "End use", "Maturity (days)"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
                 <tbody>
                   {varieties.map((r, i) => (
-                    <tr key={r[0]} style={{ background: i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                    <tr key={r[0]} style={{ background: i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                       <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
                       <td style={sTd}>{r[1]}</td>
                       <td style={sTd}>{r[2]}</td>
@@ -3819,8 +3819,8 @@ function KenyaProfilePage({ c }) {
           </section>
 
           {/* Card 10 — WPC 2026 (also linked from hero) */}
-          <section id="wpc-2026" data-card="wpc-2026" style={{ ...cardWrap, background: "linear-gradient(135deg, rgba(198,40,40,0.04), rgba(198,40,40,0.01))", borderTop: "4px solid #C62828" }}>
-            <div style={{ fontSize: 11, fontWeight: 800, color: "#C62828", textTransform: "uppercase", letterSpacing: 2, marginBottom: 8 }}>Host Country 2026</div>
+          <section id="wpc-2026" data-card="wpc-2026" style={{ ...cardWrap, background: "linear-gradient(135deg, rgba(154,114,56,0.04), rgba(154,114,56,0.01))", borderTop: "4px solid var(--gold)" }}>
+            <div style={{ fontSize: 11, fontWeight: 800, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 2, marginBottom: 8 }}>Host Country 2026</div>
             <h2 style={sH2}>Why is Kenya hosting the World Potato Congress 2026?</h2>
             <p style={sIntro}>Naivasha, Kenya hosts the 13th World Potato Congress at Sawela Lodges on Lake Naivasha, October 26–30, 2026 — the first time WPC has been hosted in East Africa (NPCK; FreshCrop Limited; wpc2026kenya.com). The congress is jointly organised by the National Potato Council of Kenya (NPCK) and FreshCrop Limited under the theme &quot;Global Potato Partnership for Enhanced Food Systems, Nutrition Security and Trade&quot; — a programmatic emphasis on food security, smallholder livelihoods, and South-South cooperation that distinguishes WPC 2026 from prior editions.</p>
             <QuickFacts items={[
@@ -3847,7 +3847,7 @@ function KenyaProfilePage({ c }) {
           </section>
 
           {/* Source Block */}
-          <div style={{ padding: "16px 20px", background: "#FAFAFA", borderRadius: 10, marginTop: 28, marginBottom: 8 }}>
+          <div style={{ padding: "16px 20px", background: "var(--paper)", borderRadius: 10, marginTop: 28, marginBottom: 8 }}>
             <div style={qfTitle}>Sources</div>
             {[
               "FAOSTAT 2024 — production, area, yield statistics for Kenya",
@@ -3862,20 +3862,20 @@ function KenyaProfilePage({ c }) {
               "Kaguongo et al. (2014) — Kenya potato value-chain study",
               "wpc2026kenya.com — World Potato Congress 2026 official site",
               "Hijmans, R.J. (2003). The effect of climate change on global potato production. American Journal of Potato Research 80: 271–280.",
-            ].map((s, i) => <div key={i} style={{ fontSize: 12, color: "#666", lineHeight: 1.6 }}>{s}</div>)}
+            ].map((s, i) => <div key={i} style={{ fontSize: 12, color: "var(--mute)", lineHeight: 1.6 }}>{s}</div>)}
           </div>
 
           {/* FAQ */}
           <section style={{ marginTop: 36 }}>
-            <h2 style={{ fontSize: 22, fontWeight: 700, color: "#1A1A1A", marginBottom: 14 }}>Frequently Asked Questions</h2>
+            <h2 style={{ fontSize: 22, fontWeight: 700, color: "var(--ink)", marginBottom: 14 }}>Frequently Asked Questions</h2>
             <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
               {faqItems.map((item, i) => (
-                <details key={i} style={{ padding: "16px 20px", borderRadius: 12, border: "1px solid #f0f0f0", background: "#FAFAFA" }}>
+                <details key={i} style={{ padding: "16px 20px", borderRadius: 12, border: "1px solid var(--line)", background: "var(--paper)" }}>
                   <summary style={{ cursor: "pointer", listStyle: "none", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12 }}>
-                    <span style={{ fontSize: 14, fontWeight: 600, color: "#1A1A1A", lineHeight: 1.4 }}>{item.q}</span>
-                    <span style={{ fontSize: 16, color: "#C62828", flexShrink: 0 }}>+</span>
+                    <span style={{ fontSize: 14, fontWeight: 600, color: "var(--ink)", lineHeight: 1.4 }}>{item.q}</span>
+                    <span style={{ fontSize: 16, color: "var(--gold)", flexShrink: 0 }}>+</span>
                   </summary>
-                  <p style={{ fontSize: 13, color: "#555", lineHeight: 1.7, marginTop: 12 }}>{item.a}</p>
+                  <p style={{ fontSize: 13, color: "var(--mute)", lineHeight: 1.7, marginTop: 12 }}>{item.a}</p>
                 </details>
               ))}
             </div>
@@ -3883,13 +3883,13 @@ function KenyaProfilePage({ c }) {
 
           {/* Related African Producers */}
           <section style={{ marginTop: 40 }}>
-            <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 14 }}>Other African potato producers</h2>
+            <h2 style={{ fontSize: 20, fontWeight: 700, color: "var(--ink)", marginBottom: 14 }}>Other African potato producers</h2>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px,1fr))", gap: 12 }}>
               {COUNTRIES.filter(x => ["egypt", "algeria", "south-africa"].includes(x.slug)).concat([{ slug: "ethiopia-placeholder", name: "Ethiopia", flag: "🇪🇹", prod: "1.0M (est.)", region: "Africa & ME" }]).map((s) => (
-                <a key={s.slug} href={s.slug === "ethiopia-placeholder" ? "/countries" : `/country/${s.slug}`} style={{ background: "#FAFAFA", border: "1px solid #eee", borderRadius: 12, padding: "16px 18px", textDecoration: "none", color: "inherit", display: "block" }}>
+                <a key={s.slug} href={s.slug === "ethiopia-placeholder" ? "/countries" : `/country/${s.slug}`} style={{ background: "var(--paper)", border: "1px solid var(--line)", borderRadius: 12, padding: "16px 18px", textDecoration: "none", color: "inherit", display: "block" }}>
                   <div style={{ fontSize: 22, marginBottom: 6 }}>{s.flag}</div>
-                  <div style={{ fontSize: 15, fontWeight: 700, color: "#1A1A1A", marginBottom: 4 }}>{s.name}</div>
-                  <div style={{ fontSize: 12, color: "#666" }}>{s.prod} tonnes · {s.region}</div>
+                  <div style={{ fontSize: 15, fontWeight: 700, color: "var(--ink)", marginBottom: 4 }}>{s.name}</div>
+                  <div style={{ fontSize: 12, color: "var(--mute)" }}>{s.prod} tonnes · {s.region}</div>
                 </a>
               ))}
             </div>
@@ -3897,7 +3897,7 @@ function KenyaProfilePage({ c }) {
 
           {/* Continue Reading */}
           <section style={{ marginTop: 36 }}>
-            <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 14 }}>Continue Reading</h2>
+            <h2 style={{ fontSize: 20, fontWeight: 700, color: "var(--ink)", marginBottom: 14 }}>Continue Reading</h2>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
               {[
                 { href: "/knowledge/seed-potato-systems", tag: "Agronomy", title: "Seed Potato Systems: Certification, Multiplication, Trade", desc: "Why Kenya's 95–98% informal-seed share is the country's biggest yield constraint." },
@@ -3905,19 +3905,19 @@ function KenyaProfilePage({ c }) {
                 { href: "/knowledge/climate-change-potatoes", tag: "Climate", title: "Climate Change & Potatoes: Heat Stress, Water Scarcity", desc: "East African yield-decline projections and CIP's heat-tolerant variety pipeline." },
                 { href: "/knowledge/potato-expo-2026", tag: "Events", title: "2026 Potato Expo & World Potato Congress", desc: "How WPC 2026 in Naivasha fits into the global potato events calendar." },
               ].map((a, i) => (
-                <Link key={i} href={a.href} style={{ background: "#FAFAFA", border: "1px solid #eee", borderRadius: 12, padding: "16px 18px", textDecoration: "none", color: "inherit", display: "block" }}>
-                  <span style={{ display: "inline-block", fontSize: 10, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 1.2, background: "rgba(198,40,40,0.06)", padding: "2px 8px", borderRadius: 6, marginBottom: 8 }}>{a.tag}</span>
-                  <div style={{ fontSize: 14, fontWeight: 600, color: "#1A1A1A", lineHeight: 1.4, marginBottom: 4 }}>{a.title}</div>
-                  <div style={{ fontSize: 12, color: "#888", lineHeight: 1.4 }}>{a.desc}</div>
+                <Link key={i} href={a.href} style={{ background: "var(--paper)", border: "1px solid var(--line)", borderRadius: 12, padding: "16px 18px", textDecoration: "none", color: "inherit", display: "block" }}>
+                  <span style={{ display: "inline-block", fontSize: 10, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.2, background: "rgba(154,114,56,0.06)", padding: "2px 8px", borderRadius: 6, marginBottom: 8 }}>{a.tag}</span>
+                  <div style={{ fontSize: 14, fontWeight: 600, color: "var(--ink)", lineHeight: 1.4, marginBottom: 4 }}>{a.title}</div>
+                  <div style={{ fontSize: 12, color: "var(--mute2)", lineHeight: 1.4 }}>{a.desc}</div>
                 </Link>
               ))}
             </div>
           </section>
 
           {/* Further Reading — large cross-link block */}
-          <section style={{ marginTop: 40, padding: "22px 24px", background: "#FAFAFA", border: "1px solid #ececec", borderRadius: 14 }}>
-            <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", margin: "0 0 6px" }}>Further reading</h2>
-            <p style={{ fontSize: 13, color: "#666", lineHeight: 1.6, marginBottom: 16 }}>Deeper Potatopedia references on seed systems, processing, varieties, and global potato production.</p>
+          <section style={{ marginTop: 40, padding: "22px 24px", background: "var(--paper)", border: "1px solid var(--line)", borderRadius: 14 }}>
+            <h2 style={{ fontSize: 20, fontWeight: 700, color: "var(--ink)", margin: "0 0 6px" }}>Further reading</h2>
+            <p style={{ fontSize: 13, color: "var(--mute)", lineHeight: 1.6, marginBottom: 16 }}>Deeper Potatopedia references on seed systems, processing, varieties, and global potato production.</p>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px,1fr))", gap: 16 }}>
               {[
                 { title: "Africa & global context", items: [
@@ -3984,10 +3984,10 @@ function KenyaProfilePage({ c }) {
                 ] },
               ].map((g) => (
                 <div key={g.title}>
-                  <div style={{ fontSize: 11, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 1.3, marginBottom: 8 }}>{g.title}</div>
+                  <div style={{ fontSize: 11, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.3, marginBottom: 8 }}>{g.title}</div>
                   <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: 4 }}>
                     {g.items.map((it) => (
-                      <li key={it.href}><Link href={it.href} style={{ fontSize: 13, color: "#444", textDecoration: "none", lineHeight: 1.5 }}>{it.label} →</Link></li>
+                      <li key={it.href}><Link href={it.href} style={{ fontSize: 13, color: "var(--ink2)", textDecoration: "none", lineHeight: 1.5 }}>{it.label} →</Link></li>
                     ))}
                   </ul>
                 </div>
@@ -3996,10 +3996,10 @@ function KenyaProfilePage({ c }) {
           </section>
 
           {/* Bottom CTA */}
-          <div style={{ marginTop: 44, padding: "28px 28px", borderRadius: 16, background: "linear-gradient(135deg, rgba(198,40,40,0.06), rgba(198,40,40,0.02))", border: "1px solid rgba(198,40,40,0.12)", textAlign: "center" }}>
-            <div style={{ fontSize: 18, fontWeight: 700, color: "#1A1A1A", marginBottom: 8 }}>Have a question about Kenya potato production?</div>
-            <div style={{ fontSize: 14, color: "#666", marginBottom: 16 }}>Ask Potatopedia AI for instant, data-backed answers drawn from FAOSTAT, KALRO, KEPHIS, NPCK, CIP, and other authoritative sources.</div>
-            <Link href="/ask" style={{ display: "inline-block", padding: "12px 28px", borderRadius: 12, background: "linear-gradient(135deg,#C62828,#E53935)", color: "#fff", fontSize: 14, fontWeight: 700, textDecoration: "none" }}>Ask Potatopedia AI →</Link>
+          <div style={{ marginTop: 44, padding: "28px 28px", borderRadius: 16, background: "linear-gradient(135deg, rgba(154,114,56,0.06), rgba(154,114,56,0.02))", border: "1px solid rgba(154,114,56,0.12)", textAlign: "center" }}>
+            <div style={{ fontSize: 18, fontWeight: 700, color: "var(--ink)", marginBottom: 8 }}>Have a question about Kenya potato production?</div>
+            <div style={{ fontSize: 14, color: "var(--mute)", marginBottom: 16 }}>Ask Potatopedia AI for instant, data-backed answers drawn from FAOSTAT, KALRO, KEPHIS, NPCK, CIP, and other authoritative sources.</div>
+            <Link href="/ask" style={{ display: "inline-block", padding: "12px 28px", borderRadius: 12, background: "var(--accent-bg)", color: "#fff", fontSize: 14, fontWeight: 700, textDecoration: "none" }}>Ask Potatopedia AI →</Link>
           </div>
 
         </div>
@@ -4038,7 +4038,7 @@ function TurkeyProfilePage({ c }) {
 
     keyStats: [
       { value: "6.90M t", label: "2024 production" },
-      { value: "+65.6%", label: "10-year growth", accent: "#4CAF50" },
+      { value: "+65.6%", label: "10-year growth", accent: "var(--gold)" },
       { value: "35.2 t/ha", label: "Yield (FAOSTAT 2024)" },
       { value: "Niğde-Nevşehir", label: "potato heartland" },
     ],
@@ -4070,7 +4070,7 @@ function TurkeyProfilePage({ c }) {
         ],
         body: [
           'Turkey\'s potato output has expanded dramatically across the past decade. Production rose from 4.166 million tonnes in 2014 to 5.20 million in 2022 and 5.70 million in 2023, before jumping to 6.90 million tonnes in 2024 (FAOSTAT) — a 65.6% increase over ten years. The expansion has been driven by area growth (a 30% area jump in 2024), yield improvement, and the emergence of a robust domestic processing industry.',
-          'On a regional basis, Turkey is unambiguously #1 in the Mediterranean and Middle East. <Link href="/country/egypt" style="color:#C62828;text-decoration:none;font-weight:600">Egypt</Link> (6.3M tonnes), <Link href="/country/algeria" style="color:#C62828;text-decoration:none;font-weight:600">Algeria</Link> (4.60M), and <Link href="/country/iran" style="color:#C62828;text-decoration:none;font-weight:600">Iran</Link> (2.92M after a decade-long water-driven decline) are the regional peers. Turkey&apos;s 2024 yield of 35.2 t/ha is approximately 1.6x the African average; the next yield-improvement frontier is closing the gap to leading European producers like <Link href="/country/germany" style="color:#C62828;text-decoration:none">Germany</Link> (45.3 t/ha) and <Link href="/country/netherlands" style="color:#C62828;text-decoration:none">Netherlands</Link> (41.7 t/ha).',
+          'On a regional basis, Turkey is unambiguously #1 in the Mediterranean and Middle East. <Link href="/country/egypt" style="color: var(--gold);text-decoration:none;font-weight:600">Egypt</Link> (6.3M tonnes), <Link href="/country/algeria" style="color: var(--gold);text-decoration:none;font-weight:600">Algeria</Link> (4.60M), and <Link href="/country/iran" style="color: var(--gold);text-decoration:none;font-weight:600">Iran</Link> (2.92M after a decade-long water-driven decline) are the regional peers. Turkey&apos;s 2024 yield of 35.2 t/ha is approximately 1.6x the African average; the next yield-improvement frontier is closing the gap to leading European producers like <Link href="/country/germany" style="color: var(--gold);text-decoration:none">Germany</Link> (45.3 t/ha) and <Link href="/country/netherlands" style="color: var(--gold);text-decoration:none">Netherlands</Link> (41.7 t/ha).',
         ],
         source: "Source: FAOSTAT 2024; Turkish Statistical Institute (TÜİK).",
       },
@@ -4103,7 +4103,7 @@ function TurkeyProfilePage({ c }) {
         body: [
           'Elevation matters more for Turkey than for any other major regional producer. While most Mediterranean potato regions struggle with summer heat-stress yield collapse, the Central Anatolian plateau\'s 800–1,200m altitude moderates summer temperatures into a 18–25°C daytime range — within the optimal tuberization window (15–20°C). Combined with cool nights (10–14°C in mid-summer), the region sustains tuberization through August in a way that lowland Mediterranean regions cannot.',
           'Volcanic soils contribute the second structural advantage. The Cappadocian volcanic legacy left the Nevşehir region with deep, well-drained, mineral-rich soils that retain moisture and support high yields. Combined with irrigation infrastructure built since the 1970s, the region delivers consistent 40–50 t/ha yields under commercial management — among the highest in the Middle East.',
-          'The third factor is processor anchoring. PepsiCo (Lay\'s chip operation) and domestic Cips brand both operate procurement networks in the heartland. Long-term contract farming with named varieties (Agria, Hermes, Lady Olympia for chip stock) supports premium pricing and disciplined agronomy. Read more on the global processing industry context in our <Link href="/knowledge/potato-processing-industry" style="color:#C62828;text-decoration:none">processing industry article</Link>.',
+          'The third factor is processor anchoring. PepsiCo (Lay\'s chip operation) and domestic Cips brand both operate procurement networks in the heartland. Long-term contract farming with named varieties (Agria, Hermes, Lady Olympia for chip stock) supports premium pricing and disciplined agronomy. Read more on the global processing industry context in our <Link href="/knowledge/potato-processing-industry" style="color: var(--gold);text-decoration:none">processing industry article</Link>.',
         ],
         callout: { number: "800–1,200m", unit: "elevation", context: "The Central Anatolian plateau's altitude is the single most important agroclimatic feature of Turkey's potato heartland — moderating summer heat that would otherwise collapse Mediterranean potato yields.", source: "Turkish Ministry of Agriculture and Forestry" },
       },
@@ -4125,8 +4125,8 @@ function TurkeyProfilePage({ c }) {
           ],
         },
         body: [
-          '<Link href="/varieties/agria" style="color:#C62828;text-decoration:none;font-weight:600">Agria</Link>\'s dominance reflects three factors: yellow flesh suits Turkish consumer taste preferences (avoiding the white-flesh "industrial" connotation), the variety\'s 35–50 t/ha yield potential matches Central Anatolian conditions, and Dutch certified-seed supply chains have been reliable since the 1980s. Newer chip-stock varieties (Melody, Hermes, Lady Olympia) are gaining ground as PepsiCo and Cips expand their processing capacity and require lower reducing-sugar varieties.',
-          'For broader context on chip-stock varieties globally see <Link href="/varieties/atlantic" style="color:#C62828;text-decoration:none">Atlantic</Link> (the dominant US chip variety) and our <Link href="/knowledge/potato-varieties-guide" style="color:#C62828;text-decoration:none">complete varieties guide</Link>.',
+          '<Link href="/varieties/agria" style="color: var(--gold);text-decoration:none;font-weight:600">Agria</Link>\'s dominance reflects three factors: yellow flesh suits Turkish consumer taste preferences (avoiding the white-flesh "industrial" connotation), the variety\'s 35–50 t/ha yield potential matches Central Anatolian conditions, and Dutch certified-seed supply chains have been reliable since the 1980s. Newer chip-stock varieties (Melody, Hermes, Lady Olympia) are gaining ground as PepsiCo and Cips expand their processing capacity and require lower reducing-sugar varieties.',
+          'For broader context on chip-stock varieties globally see <Link href="/varieties/atlantic" style="color: var(--gold);text-decoration:none">Atlantic</Link> (the dominant US chip variety) and our <Link href="/knowledge/potato-varieties-guide" style="color: var(--gold);text-decoration:none">complete varieties guide</Link>.',
         ],
         source: "Source: Turkish Ministry of Agriculture and Forestry variety register; Europatat; Turkish Statistical Institute.",
       },
@@ -4137,7 +4137,7 @@ function TurkeyProfilePage({ c }) {
         body: [
           'The Netherlands is Turkey\'s primary certified-seed supplier — Dutch breeders HZPC, Agrico, and Meijer ship Agria, Granola, Marfona, Melody, and other variety seed annually to Turkish multipliers. Germany supplies additional volumes including Hermes for the chip-processing chain. Domestic G3–G4 multiplication occurs primarily in Niğde, Nevşehir, and the Bolu cool-season region.',
           'TAGEM operates breeding-program research stations and supports varietal trials. The Turkish chip industry (PepsiCo, Cips) increasingly funds direct grower-supply programmes that include seed access as part of contract terms. <strong>[DATA NEEDED: precise share of Turkish potato area planted to certified seed]</strong> — backend confirms heavy Netherlands/Germany import dependence but doesn\'t quantify domestic certified vs. farm-saved share at uniform precision.',
-          'For broader context see our <Link href="/knowledge/seed-potato-systems" style="color:#C62828;text-decoration:none">seed potato systems article</Link> and <Link href="/answers/seed-potato-certification" style="color:#C62828;text-decoration:none">seed certification answer</Link>.',
+          'For broader context see our <Link href="/knowledge/seed-potato-systems" style="color: var(--gold);text-decoration:none">seed potato systems article</Link> and <Link href="/answers/seed-potato-certification" style="color: var(--gold);text-decoration:none">seed certification answer</Link>.',
         ],
         source: "Source: TAGEM (Turkish General Directorate of Agricultural Research); TÜRKTOB (Turkish Seed Industry Association); Ministry of Agriculture and Forestry seed-policy framework; Eurostat extra-EU seed exports.",
       },
@@ -4147,7 +4147,7 @@ function TurkeyProfilePage({ c }) {
         lead: "Istanbul, Ankara, and Izmir wholesale markets anchor Turkish potato distribution. The processing sector is dominated by <strong>PepsiCo (Lay\'s chips)</strong> and the <strong>domestic Cips brand</strong>, with frozen french fry processing expanding alongside Turkey\'s fast-growing QSR market. Per-capita consumption is approximately 49 kg/year (FAOSTAT).",
         body: [
           'PepsiCo operates Turkey\'s largest chip-processing footprint, with Lay\'s production drawing chip-stock contract growers across the Central Anatolian heartland. Cips (the leading domestic chip brand) operates parallel procurement programmes. The frozen french fry sector is more recent but expanding rapidly — driven by McDonald\'s Turkey, Burger King, and the broader Turkish fast-food market growth.',
-          'Mandi-equivalent wholesale prices vary substantially by season. Peak harvest (August–October) compresses prices; off-season periods (March–May) produce price recovery. <strong>[DATA NEEDED: live wholesale price feed for Turkish hal markets]</strong> — current pricing reflects multi-year typical ranges. For broader market-price context see our <Link href="/answers/potato-market-price-today" style="color:#C62828;text-decoration:none">potato market price answer</Link>.',
+          'Mandi-equivalent wholesale prices vary substantially by season. Peak harvest (August–October) compresses prices; off-season periods (March–May) produce price recovery. <strong>[DATA NEEDED: live wholesale price feed for Turkish hal markets]</strong> — current pricing reflects multi-year typical ranges. For broader market-price context see our <Link href="/answers/potato-market-price-today" style="color: var(--gold);text-decoration:none">potato market price answer</Link>.',
           'Turkey is also a notable potato exporter to neighboring markets including Iraq, Syria, Russia (subject to political conditions), and to Middle Eastern markets including Saudi Arabia and the Gulf states.',
         ],
         source: "Source: Turkish Statistical Institute (TÜİK); PepsiCo Turkey operations; Cips brand company communications; Ministry of Trade export statistics.",
@@ -4168,7 +4168,7 @@ function TurkeyProfilePage({ c }) {
         lead: "Turkey&apos;s potato heartland sits on Central Anatolian volcanic soils with sandy-loam to silty-loam profiles, pH 6.5–7.5, and excellent drainage — under a cool-summer continental climate that delivers the 15–20°C tuberization window potato requires (FAO; Turkish Ministry of Agriculture and Forestry).",
         body: [
           'The Central Anatolian plateau\'s 800–1,200m elevation is the structural foundation of Turkish potato productivity. Mean summer daytime temperatures of 22–28°C combine with cool nights (10–14°C in mid-summer) to keep tuberization metabolic rates within the optimum range. Cappadocian volcanic-derived soils provide the second pillar — well-drained, nutrient-rich profiles that match potato\'s rooting requirements.',
-          'Climate change pressure is real and growing. Across the past decade, Central Anatolian summer temperatures have shifted upward by approximately 0.8°C (Turkish State Meteorological Service). Drought-year frequency has increased, prompting expansion of drip-irrigation infrastructure and a gradual shift toward shorter-maturity varieties. <Link href="/knowledge/climate-change-potatoes" style="color:#C62828;text-decoration:none">Read on climate change and potatoes</Link>.',
+          'Climate change pressure is real and growing. Across the past decade, Central Anatolian summer temperatures have shifted upward by approximately 0.8°C (Turkish State Meteorological Service). Drought-year frequency has increased, prompting expansion of drip-irrigation infrastructure and a gradual shift toward shorter-maturity varieties. <Link href="/knowledge/climate-change-potatoes" style="color: var(--gold);text-decoration:none">Read on climate change and potatoes</Link>.',
         ],
         source: "Source: FAO; Turkish State Meteorological Service; Turkish Ministry of Agriculture and Forestry; ICAR-CPRI agroclimatic comparison data.",
       },
@@ -4194,7 +4194,7 @@ function TurkeyProfilePage({ c }) {
         lead: "<strong>Potato Days Turkiye</strong> is the annual Turkish potato industry conference held in Nevşehir — the country&apos;s commercial-potato capital. The event brings together growers, processors (PepsiCo, Cips), seed companies (HZPC, Agrico, Meijer), and Ministry of Agriculture officials for industry coordination, variety introductions, and policy dialogue (Turkish Ministry of Agriculture and Forestry; industry communications).",
         body: [
           'Nevşehir\'s positioning as Turkey\'s potato capital reflects three converging factors: it sits in the heart of the Niğde-Nevşehir-Aksaray production cluster; the region hosts the densest cold-storage infrastructure in the country; and historical processor decisions (PepsiCo\'s early procurement footprint in Cappadocia) anchored downstream demand here. The annual Potato Days event — usually scheduled in late summer or early autumn — consolidates the sector\'s commercial coordination.',
-          'For broader event context see our <Link href="/knowledge/potato-expo-2026" style="color:#C62828;text-decoration:none">global potato events guide</Link>. Turkey\'s industry-event maturity is meaningfully higher than other Middle Eastern regional peers.',
+          'For broader event context see our <Link href="/knowledge/potato-expo-2026" style="color: var(--gold);text-decoration:none">global potato events guide</Link>. Turkey\'s industry-event maturity is meaningfully higher than other Middle Eastern regional peers.',
         ],
         callout: { number: "Nevşehir", context: "Hosts Potato Days Turkiye annually — the Mediterranean / Middle East's most established potato industry convening, anchoring PepsiCo (Lay's), Cips, and Dutch / German seed companies in coordinated commercial dialogue.", source: "Turkish Ministry of Agriculture and Forestry; industry communications" },
       },
@@ -4306,7 +4306,7 @@ function IranProfilePage({ c }) {
         ],
         body: [
           'Iran\'s potato sector has traversed a decade-long contraction. After peak production of 5.14M tonnes in 2015 — placing Iran among the world\'s top 15 producers at the time — output fell progressively through the 2018–2023 window to a 2.34M-tonne trough in 2023 as multi-year drought conditions, depleting groundwater, and surface-water allocation conflicts compressed irrigated agricultural area. The 2024 partial recovery to 2.92M tonnes (+25% YoY) reflects modestly improved precipitation and area expansion (FAOSTAT 2024).',
-          'On a regional basis, Iran is now the Middle East\'s third-largest potato producer after <Link href="/country/turkey" style="color:#C62828;text-decoration:none;font-weight:600">Turkey</Link> (6.90M tonnes, 2024) and <Link href="/country/egypt" style="color:#C62828;text-decoration:none;font-weight:600">Egypt</Link> (6.3M). Iran\'s 2024 yield of 32.3 t/ha remains competitive with regional benchmarks — the multi-year production decline reflects compressed cultivated area rather than per-hectare productivity collapse.',
+          'On a regional basis, Iran is now the Middle East\'s third-largest potato producer after <Link href="/country/turkey" style="color: var(--gold);text-decoration:none;font-weight:600">Turkey</Link> (6.90M tonnes, 2024) and <Link href="/country/egypt" style="color: var(--gold);text-decoration:none;font-weight:600">Egypt</Link> (6.3M). Iran\'s 2024 yield of 32.3 t/ha remains competitive with regional benchmarks — the multi-year production decline reflects compressed cultivated area rather than per-hectare productivity collapse.',
         ],
         source: "Source: FAOSTAT 2024; FAO Iran Country Office.",
       },
@@ -4357,7 +4357,7 @@ function IranProfilePage({ c }) {
           ],
         },
         body: [
-          '<Link href="/varieties/agria" style="color:#C62828;text-decoration:none;font-weight:600">Agria</Link>\'s dominance reflects Dutch certified-seed supply chain depth and the variety\'s adaptability to Iranian highland conditions. The lack of indigenous Iranian potato breeding programmes at scale means most commercial varieties trace to European breeders. Iran does maintain some domestic seed multiplication through TARP (Tehran Agricultural Research Project) and provincial agricultural research stations, but at limited scale.',
+          '<Link href="/varieties/agria" style="color: var(--gold);text-decoration:none;font-weight:600">Agria</Link>\'s dominance reflects Dutch certified-seed supply chain depth and the variety\'s adaptability to Iranian highland conditions. The lack of indigenous Iranian potato breeding programmes at scale means most commercial varieties trace to European breeders. Iran does maintain some domestic seed multiplication through TARP (Tehran Agricultural Research Project) and provincial agricultural research stations, but at limited scale.',
         ],
         source: "Source: FAO Iran; Iranian Seed and Plant Registration Department; Eurostat extra-EU seed exports; CIP variety register.",
       },
@@ -4366,7 +4366,7 @@ function IranProfilePage({ c }) {
         lead: "Iran imports certified seed potatoes primarily from the <strong>Netherlands and Germany</strong>, with sanctions-related friction periodically constraining supply. Domestic seed multiplication is limited; the Iranian Seed and Plant Registration Department oversees the regulatory framework but actual certified-seed adoption remains modest (FAO Iran; Eurostat).",
         body: [
           'Dutch breeders HZPC, Agrico, and Meijer plus German breeders supply the bulk of Iran\'s certified seed imports. Seed travels primarily through Persian Gulf ports including Bandar Abbas and Bandar Imam Khomeini, with onward distribution to provincial multipliers. The system has historically functioned despite political tensions but seed-supply continuity is more fragile than for non-sanctioned producers.',
-          'Domestic G3–G4 multiplication occurs in Hamadan, Isfahan, Ardabil, and East Azerbaijan provinces but at limited scale relative to total cultivated area. <strong>[DATA NEEDED: precise share of Iranian potato area planted to certified seed]</strong>. For broader context see our <Link href="/knowledge/seed-potato-systems" style="color:#C62828;text-decoration:none">seed potato systems article</Link>.',
+          'Domestic G3–G4 multiplication occurs in Hamadan, Isfahan, Ardabil, and East Azerbaijan provinces but at limited scale relative to total cultivated area. <strong>[DATA NEEDED: precise share of Iranian potato area planted to certified seed]</strong>. For broader context see our <Link href="/knowledge/seed-potato-systems" style="color: var(--gold);text-decoration:none">seed potato systems article</Link>.',
         ],
         source: "Source: FAO Iran; Iranian Seed and Plant Registration Department; Eurostat extra-EU seed export data.",
       },
@@ -4375,7 +4375,7 @@ function IranProfilePage({ c }) {
         lead: "Iran's domestic market absorbs most national production, with Tehran, Mashhad, Isfahan, and Tabriz wholesale markets anchoring distribution. The processing sector — predominantly chips — is expanding with both domestic brands and limited international presence. Iran exports notable volumes to Iraq and Afghanistan (FAO Iran; Iranian Customs Administration).",
         body: [
           'Iran\'s chip-processing sector includes domestic brands operating at varying scales. The frozen french fry sector remains limited compared to regional peers like Turkey. Per-capita potato consumption is approximately 40 kg/year. <strong>[DATA NEEDED: complete named-processor list for Iran]</strong> — context confirms domestic chip processors but specific company names not exhaustively in approved sources.',
-          'Iran exports potatoes regionally — Iraq (largest market), Afghanistan, and the broader Persian Gulf region serve as buyer countries. Sanctions and currency volatility periodically affect export economics. Read more in our <Link href="/knowledge/global-potato-trade" style="color:#C62828;text-decoration:none">global potato trade reference</Link>.',
+          'Iran exports potatoes regionally — Iraq (largest market), Afghanistan, and the broader Persian Gulf region serve as buyer countries. Sanctions and currency volatility periodically affect export economics. Read more in our <Link href="/knowledge/global-potato-trade" style="color: var(--gold);text-decoration:none">global potato trade reference</Link>.',
         ],
         source: "Source: FAO Iran; Iranian Customs Administration export statistics; Statistical Centre of Iran market data.",
       },
@@ -4393,7 +4393,7 @@ function IranProfilePage({ c }) {
         lead: "Iran's potato belt sits on the Iranian plateau at 1,000–2,500m elevation, with cool-summer continental conditions and varied soil profiles ranging from alluvial in river valleys to volcanic on plateau highlands (FAO Iran; Iranian Statistical Centre).",
         body: [
           'Hamadan, Ardabil, and East Azerbaijan provinces benefit from cool-summer microclimates that support tuberization within the 15–20°C optimum despite Iran\'s broadly arid country-level climate. Soil profiles vary — Hamadan\'s alluvial valley floors and the volcanic-derived soils on plateau highlands both support potato — but irrigation is the universal binding constraint.',
-          'Climate change pressure is exceptionally acute. Iran has experienced one of the steepest agricultural-water declines among major producers in the 2019–2023 window. Surface-water reservoir levels have fallen sharply, groundwater depletion is widespread, and snowpack accumulation in the Zagros mountain range has been below average for multiple consecutive years. <Link href="/knowledge/climate-change-potatoes" style="color:#C62828;text-decoration:none">Read more on climate change and potatoes</Link>.',
+          'Climate change pressure is exceptionally acute. Iran has experienced one of the steepest agricultural-water declines among major producers in the 2019–2023 window. Surface-water reservoir levels have fallen sharply, groundwater depletion is widespread, and snowpack accumulation in the Zagros mountain range has been below average for multiple consecutive years. <Link href="/knowledge/climate-change-potatoes" style="color: var(--gold);text-decoration:none">Read more on climate change and potatoes</Link>.',
         ],
         source: "Source: FAO Iran; Iranian Meteorological Organisation; Iranian Ministry of Energy water-resources data.",
       },
@@ -4417,7 +4417,7 @@ function IranProfilePage({ c }) {
         body: [
           'The 2015–2023 contraction is unusual in scale among major potato producers globally. Multi-year drought reduced surface-water reservoir levels across central and western Iran. Groundwater depletion (already underway since the 1990s in heavily-pumped basins like Hamadan) accelerated. Provincial irrigation allocations were cut. Cumulative effect: cultivated area for potato compressed from approximately 160,000 hectares in 2015 toward approximately 76,000 hectares by 2023, before partial recovery to ~91,000 hectares in 2024.',
           'Sanctions-related friction in certified-seed imports compounded the agronomic stress. Currency depreciation made imported Dutch and German seed substantially more expensive in real terms, prompting some farmers to substitute farm-saved seed and accept progressive yield deterioration.',
-          'The 2024 recovery (+25% YoY) is encouraging but the sector remains well below the 2015 peak. Full recovery to 5M+ tonne production levels will require sustained multi-year improvement in surface-water availability plus continued certified-seed import access. Read on broader water-stress context in our <Link href="/answers/potato-water-footprint" style="color:#C62828;text-decoration:none">potato water footprint answer</Link>.',
+          'The 2024 recovery (+25% YoY) is encouraging but the sector remains well below the 2015 peak. Full recovery to 5M+ tonne production levels will require sustained multi-year improvement in surface-water availability plus continued certified-seed import access. Read on broader water-stress context in our <Link href="/answers/potato-water-footprint" style="color: var(--gold);text-decoration:none">potato water footprint answer</Link>.',
         ],
         callout: { number: "−55%", context: "Iran's production fell from 5.14M tonnes (2015 peak) to 2.34M tonnes (2023 trough), then partially recovered to 2.92M tonnes in 2024 (+25% YoY) — among the steepest contractions in any major potato-producing country in the past decade. Driver: multi-year drought + groundwater depletion + sanctions-era input friction.", source: "FAOSTAT 2024" },
       },
@@ -4519,7 +4519,7 @@ function AlgeriaProfilePage({ c }) {
         ],
         body: [
           'Algeria has emerged as one of Africa\'s most successful potato-sector stories of the past two decades. From less than 1.5 million tonnes in the early 2000s, production has more than tripled, with the dramatic uptick driven by Saharan center-pivot irrigation development in El Oued province alongside continued coastal Mediterranean production. Production peaked at ~5.0M tonnes in 2019 and has held in the 4.3–4.7M range across 2020–2024 (FAOSTAT). Algeria is essentially self-sufficient in potatoes and exports modestly to Tunisia, Mauritania, and the broader Maghreb region (FAOSTAT 2024; Algerian Ministry of Agriculture).',
-          'On a regional basis, Algeria is firmly Africa\'s #2 potato producer behind <Link href="/country/egypt" style="color:#C62828;text-decoration:none;font-weight:600">Egypt</Link> (6.30M tonnes). Algeria significantly outproduces all other African nations including <Link href="/country/kenya" style="color:#C62828;text-decoration:none;font-weight:600">Kenya</Link>, South Africa, Morocco, and Malawi.',
+          'On a regional basis, Algeria is firmly Africa\'s #2 potato producer behind <Link href="/country/egypt" style="color: var(--gold);text-decoration:none;font-weight:600">Egypt</Link> (6.30M tonnes). Algeria significantly outproduces all other African nations including <Link href="/country/kenya" style="color: var(--gold);text-decoration:none;font-weight:600">Kenya</Link>, South Africa, Morocco, and Malawi.',
         ],
         source: "Source: FAOSTAT 2024; Algerian Ministry of Agriculture and Rural Development (MADR); FAO Algeria Country Office.",
       },
@@ -4570,7 +4570,7 @@ function AlgeriaProfilePage({ c }) {
           ],
         },
         body: [
-          '<Link href="/varieties/spunta" style="color:#C62828;text-decoration:none;font-weight:600">Spunta</Link>\'s elongated yellow-flesh shape matches Algerian consumer preference and the variety\'s adaptability spans both Mediterranean and Saharan production systems. ITDAS (Technical Institute for the Development of Saharan Agronomy) and INRAA (National Institute of Agronomic Research of Algeria) conduct varietal evaluation work, including heat-tolerance screening for Saharan production conditions. <strong>[DATA NEEDED: complete official Algerian variety list with production-share percentages]</strong>.',
+          '<Link href="/varieties/spunta" style="color: var(--gold);text-decoration:none;font-weight:600">Spunta</Link>\'s elongated yellow-flesh shape matches Algerian consumer preference and the variety\'s adaptability spans both Mediterranean and Saharan production systems. ITDAS (Technical Institute for the Development of Saharan Agronomy) and INRAA (National Institute of Agronomic Research of Algeria) conduct varietal evaluation work, including heat-tolerance screening for Saharan production conditions. <strong>[DATA NEEDED: complete official Algerian variety list with production-share percentages]</strong>.',
         ],
         source: "Source: FAO Algeria; ITDAS variety register; INRAA varietal trials; Eurostat extra-EU seed potato exports.",
       },
@@ -4579,7 +4579,7 @@ function AlgeriaProfilePage({ c }) {
         lead: "Algeria imports the majority of its certified seed potatoes from the <strong>Netherlands, France, and Denmark</strong>, with domestic multiplication in Aïn Témouchent and select coastal provinces providing partial coverage. CNCC (Centre National de Contrôle et de Certification) regulates certified-seed standards (FAO Algeria; CNCC; Eurostat).",
         body: [
           'Algeria is one of the largest African importers of certified seed potatoes, sourcing primarily from Dutch breeders HZPC, Agrico, and Meijer plus French breeders Germicopa and Bretagne Plants. Seed enters via Algiers, Oran, and Béjaïa ports with onward distribution to provincial multipliers and direct to large-scale producers. Domestic G3–G4 multiplication has grown but does not yet meet domestic demand.',
-          'CNCC operates the certification framework with G2–G4 generations defined per EU-aligned standards. Aïn Témouchent and select Tell Atlas valleys host the principal domestic seed-multiplication zones. <strong>[DATA NEEDED: precise share of Algerian potato area planted to imported vs domestically-multiplied certified seed]</strong>. For broader context see our <Link href="/knowledge/seed-potato-systems" style="color:#C62828;text-decoration:none">seed potato systems article</Link>.',
+          'CNCC operates the certification framework with G2–G4 generations defined per EU-aligned standards. Aïn Témouchent and select Tell Atlas valleys host the principal domestic seed-multiplication zones. <strong>[DATA NEEDED: precise share of Algerian potato area planted to imported vs domestically-multiplied certified seed]</strong>. For broader context see our <Link href="/knowledge/seed-potato-systems" style="color: var(--gold);text-decoration:none">seed potato systems article</Link>.',
         ],
         source: "Source: FAO Algeria; CNCC (Centre National de Contrôle et de Certification); Eurostat extra-EU seed export data.",
       },
@@ -4587,8 +4587,8 @@ function AlgeriaProfilePage({ c }) {
         h2: "What are the major potato markets and prices in Algeria?",
         lead: "Algeria's domestic market absorbs the bulk of national production, with Algiers, Oran, and Constantine wholesale markets anchoring distribution. Per-capita potato consumption is approximately 60 kg/year — among the highest in Africa. Algeria exports modestly to Tunisia, Mauritania, and the wider Maghreb region (FAO Algeria; Algerian Customs).",
         body: [
-          'Per-capita consumption of approximately 60 kg/year places Algeria in the upper tier among African nations. Potato is a staple in Algerian cuisine — central to dishes like chorba (soup), tagine variants, and frites. Frozen french fry processing is limited compared to <Link href="/country/egypt" style="color:#C62828;text-decoration:none">Egypt</Link>; the domestic chip sector is growing but not yet at industrial scale.',
-          'Government regulation periodically intervenes in potato markets — strategic stock purchases during glut periods to support farm prices, and managed releases during shortage windows to control consumer prices. <strong>[DATA NEEDED: complete named-processor list for Algeria]</strong>. Read more in our <Link href="/knowledge/global-potato-trade" style="color:#C62828;text-decoration:none">global potato trade reference</Link>.',
+          'Per-capita consumption of approximately 60 kg/year places Algeria in the upper tier among African nations. Potato is a staple in Algerian cuisine — central to dishes like chorba (soup), tagine variants, and frites. Frozen french fry processing is limited compared to <Link href="/country/egypt" style="color: var(--gold);text-decoration:none">Egypt</Link>; the domestic chip sector is growing but not yet at industrial scale.',
+          'Government regulation periodically intervenes in potato markets — strategic stock purchases during glut periods to support farm prices, and managed releases during shortage windows to control consumer prices. <strong>[DATA NEEDED: complete named-processor list for Algeria]</strong>. Read more in our <Link href="/knowledge/global-potato-trade" style="color: var(--gold);text-decoration:none">global potato trade reference</Link>.',
         ],
         source: "Source: FAO Algeria; Algerian Customs; ONILEV (Office National Interprofessionnel des Légumes et des Viandes) market data.",
       },
@@ -4606,7 +4606,7 @@ function AlgeriaProfilePage({ c }) {
         lead: "Algeria's potato production spans two distinct climate zones: Mediterranean coastal (mild wet winters, hot dry summers) and Saharan desert (hot dry summers, cool dry winters). Soils range from coastal alluvial to desert sandy under center-pivot irrigation (FAO Algeria; ITDAS).",
         body: [
           'The coastal Mediterranean belt (Mascara, Aïn Defla, Mostaganem) operates classic spring-summer cycles with irrigated production on alluvial soils. Daytime summer temperatures of 28–32°C are at the upper edge of potato tuberization tolerance, requiring careful irrigation management. Winter is the off-season for the coastal belt.',
-          'The Saharan El Oued system inverts this calendar. Summer temperatures of 40–45°C make summer cultivation impossible, but cool winter conditions (December–February daytime 18–22°C, nights 5–10°C) are within potato\'s optimum. Center-pivot irrigation from the Continental Intercalaire aquifer eliminates the rainfall constraint. Sandy desert soils are surprisingly well-suited — high drainage, easy mechanical operations, low disease pressure. <Link href="/knowledge/climate-change-potatoes" style="color:#C62828;text-decoration:none">Read more on climate change and potatoes</Link>.',
+          'The Saharan El Oued system inverts this calendar. Summer temperatures of 40–45°C make summer cultivation impossible, but cool winter conditions (December–February daytime 18–22°C, nights 5–10°C) are within potato\'s optimum. Center-pivot irrigation from the Continental Intercalaire aquifer eliminates the rainfall constraint. Sandy desert soils are surprisingly well-suited — high drainage, easy mechanical operations, low disease pressure. <Link href="/knowledge/climate-change-potatoes" style="color: var(--gold);text-decoration:none">Read more on climate change and potatoes</Link>.',
         ],
         source: "Source: FAO Algeria; ITDAS (Technical Institute for the Development of Saharan Agronomy); Algerian National Meteorological Office.",
       },
@@ -4630,7 +4630,7 @@ function AlgeriaProfilePage({ c }) {
         body: [
           'A center-pivot irrigation system rotates a long sprinkler arm around a fixed pivot point, distributing water uniformly across a circular field. In El Oued, pivots draw water from deep wells (typically 200–500m depth) tapping the Continental Intercalaire aquifer. Pivot diameters typically span 400–600m, irrigating circular areas of 50–100 hectares. The visible distinguishing feature of El Oued from satellite imagery is hundreds of these green circles in otherwise arid desert.',
           'Operational economics: high upfront capital cost (well drilling, pivot equipment, electrical infrastructure) is amortised over multiple seasons; pumping cost is the dominant operating expense, partially offset by Algeria\'s subsidised agricultural diesel and electricity tariffs. Yields under center-pivot Saharan conditions are typically 30–40 t/ha — competitive with global benchmarks.',
-          'Sustainability is the central long-term question. The Continental Intercalaire is a non-renewable fossil aquifer; current extraction rates are not sustainable indefinitely. Government policy and ITDAS technical work focuses on water-use efficiency improvements (drip-irrigation conversions, deficit-irrigation strategies) but the fundamental constraint remains. Read on broader water-stress context in our <Link href="/answers/potato-water-footprint" style="color:#C62828;text-decoration:none">potato water footprint answer</Link>.',
+          'Sustainability is the central long-term question. The Continental Intercalaire is a non-renewable fossil aquifer; current extraction rates are not sustainable indefinitely. Government policy and ITDAS technical work focuses on water-use efficiency improvements (drip-irrigation conversions, deficit-irrigation strategies) but the fundamental constraint remains. Read on broader water-stress context in our <Link href="/answers/potato-water-footprint" style="color: var(--gold);text-decoration:none">potato water footprint answer</Link>.',
         ],
         callout: { number: "100s", context: "of center-pivot irrigation circles in El Oued province alone — visible from satellite as green discs in otherwise arid Saharan desert. Each 50–100 hectare pivot draws from the Continental Intercalaire fossil aquifer.", source: "ITDAS; FAO Algeria" },
       },
@@ -4705,7 +4705,7 @@ function UzbekistanProfilePage({ c }) {
       { value: "3.72M t", label: "2024 production" },
       { value: "~93 kg", label: "Per capita consumption" },
       { value: "120K ha", label: "Cultivated area" },
-      { value: "+28%", label: "2018→2024 growth", accent: "#4CAF50" },
+      { value: "+28%", label: "2018→2024 growth", accent: "var(--gold)" },
     ],
     tocItems: [
       { id: "industry-size", l: "How big is Uzbekistan's potato industry?" },
@@ -4783,7 +4783,7 @@ function UzbekistanProfilePage({ c }) {
           ],
         },
         body: [
-          '<Link href="/varieties/spunta" style="color:#C62828;text-decoration:none;font-weight:600">Spunta</Link>\'s elongated yellow-flesh form matches Uzbek consumer preference and the variety\'s adaptability to Central Asian conditions. Soviet-era Russian varieties (Nevsky, Lugovskoy, Adretta) remain widely cultivated and represent the legacy varietal portfolio that pre-dates EU-breeder adoption. <strong>[DATA NEEDED: official Uzbek variety list with current production-share percentages]</strong>.',
+          '<Link href="/varieties/spunta" style="color: var(--gold);text-decoration:none;font-weight:600">Spunta</Link>\'s elongated yellow-flesh form matches Uzbek consumer preference and the variety\'s adaptability to Central Asian conditions. Soviet-era Russian varieties (Nevsky, Lugovskoy, Adretta) remain widely cultivated and represent the legacy varietal portfolio that pre-dates EU-breeder adoption. <strong>[DATA NEEDED: official Uzbek variety list with current production-share percentages]</strong>.',
         ],
         source: "Source: FAO Uzbekistan; CACAARI variety register; Eurostat extra-EU seed exports; Russian Ministry of Agriculture cross-border seed data.",
       },
@@ -4792,7 +4792,7 @@ function UzbekistanProfilePage({ c }) {
         lead: "Uzbekistan imports the majority of its certified seed potatoes from <strong>Russia, the Netherlands, and Germany</strong>, with limited domestic G3–G4 multiplication. The Ministry of Agriculture oversees seed regulation; CACAARI supports regional seed-system coordination (FAO Uzbekistan; CACAARI; Eurostat).",
         body: [
           'Russian seed (legacy varieties Nevsky, Lugovskoy, Adretta) crosses overland via Kazakhstan; Dutch and German seed enters via Tashkent airport and various land routes. Domestic seed multiplication is modest in scale — Tashkent Province and parts of the Fergana Valley host multiplier farms but volumes meet only a fraction of national demand.',
-          'Smallholder seed-saving remains common, especially in the Fergana Valley, with associated yield deterioration over multiple generations. <strong>[DATA NEEDED: precise share of Uzbek potato area planted to certified vs farm-saved seed]</strong>. For broader context see our <Link href="/knowledge/seed-potato-systems" style="color:#C62828;text-decoration:none">seed potato systems article</Link>.',
+          'Smallholder seed-saving remains common, especially in the Fergana Valley, with associated yield deterioration over multiple generations. <strong>[DATA NEEDED: precise share of Uzbek potato area planted to certified vs farm-saved seed]</strong>. For broader context see our <Link href="/knowledge/seed-potato-systems" style="color: var(--gold);text-decoration:none">seed potato systems article</Link>.',
         ],
         source: "Source: FAO Uzbekistan; Ministry of Agriculture of Uzbekistan; CACAARI; Eurostat extra-EU seed export data.",
       },
@@ -4801,7 +4801,7 @@ function UzbekistanProfilePage({ c }) {
         lead: "Uzbekistan's domestic market absorbs the bulk of national production, with Tashkent's Chorsu Bazaar and provincial wholesale markets anchoring distribution. <strong>Per-capita consumption is ~93 kg/year</strong> — Central Asia's highest. Uzbekistan imports seasonally from Pakistan, Iran, and Russia (FAO Uzbekistan; Uzbek Customs).",
         body: [
           'Per-capita potato consumption of approximately 93 kg/year is among the highest globally — driven by potato\'s central role in Uzbek cuisine (potato osh, shashlik garnishes, samsa fillings). Seasonal import dependence is structural: domestic production peaks in autumn but cold-storage capacity does not bridge fully through to the next harvest. Pakistan and Iran supply spring imports; Russia supplements year-round.',
-          'Frozen french fry and chip processing remains nascent compared to <Link href="/country/turkey" style="color:#C62828;text-decoration:none">Turkey</Link> or <Link href="/country/egypt" style="color:#C62828;text-decoration:none">Egypt</Link>. <strong>[DATA NEEDED: complete named-processor list for Uzbekistan]</strong>. Read more in our <Link href="/knowledge/global-potato-trade" style="color:#C62828;text-decoration:none">global potato trade reference</Link>.',
+          'Frozen french fry and chip processing remains nascent compared to <Link href="/country/turkey" style="color: var(--gold);text-decoration:none">Turkey</Link> or <Link href="/country/egypt" style="color: var(--gold);text-decoration:none">Egypt</Link>. <strong>[DATA NEEDED: complete named-processor list for Uzbekistan]</strong>. Read more in our <Link href="/knowledge/global-potato-trade" style="color: var(--gold);text-decoration:none">global potato trade reference</Link>.',
         ],
         source: "Source: FAO Uzbekistan; Uzbek Customs Administration trade statistics; State Committee on Statistics market data.",
       },
@@ -4819,7 +4819,7 @@ function UzbekistanProfilePage({ c }) {
         lead: "Uzbekistan's potato belt occupies continental-climate irrigated lowland and mid-elevation foothill zones across the Amu Darya and Syr Darya basins, with hot dry summers, cold winters, and mostly alluvial / loess soils suited to irrigated cultivation (FAO Uzbekistan; CACAARI).",
         body: [
           'The Tashkent and Samarkand provinces benefit from foothill-influenced microclimates that moderate summer heat and extend the cool-season window. The Fergana Valley\'s irrigated lowlands operate at slightly higher mean temperatures but with reliable irrigation water. Surkhandarya is subtropical and supports earlier-season cultivation.',
-          'Climate change pressure is real and water-scarcity-driven. The Aral Sea crisis legacy — decades of upstream irrigation diversion drying the inland sea — is the defining environmental backstory of Uzbek agriculture. Trans-boundary water-management cooperation with Tajikistan, Kyrgyzstan, and Kazakhstan is essential but persistently challenging. <Link href="/knowledge/climate-change-potatoes" style="color:#C62828;text-decoration:none">Read more on climate change and potatoes</Link>.',
+          'Climate change pressure is real and water-scarcity-driven. The Aral Sea crisis legacy — decades of upstream irrigation diversion drying the inland sea — is the defining environmental backstory of Uzbek agriculture. Trans-boundary water-management cooperation with Tajikistan, Kyrgyzstan, and Kazakhstan is essential but persistently challenging. <Link href="/knowledge/climate-change-potatoes" style="color: var(--gold);text-decoration:none">Read more on climate change and potatoes</Link>.',
         ],
         source: "Source: FAO Uzbekistan; CACAARI climate analysis; Uzbek Hydrometeorological Service.",
       },
@@ -4843,7 +4843,7 @@ function UzbekistanProfilePage({ c }) {
         body: [
           'The Soviet agricultural transformation in Central Asia prioritised cotton cultivation but expanded irrigated agriculture broadly. Potato cultivation in Uzbekistan grew as a secondary crop within this framework. Independence in 1991 inherited functioning irrigation infrastructure but progressively weakening maintenance budgets through the 1990s; reform efforts since the early 2000s have stabilised the network with continued international (World Bank, ADB, EU) support.',
           'The Aral Sea crisis is the dramatic legacy of Soviet-era over-extraction — the world\'s fourth-largest lake reduced to ~10% of its original area by sustained upstream diversion. Modern Uzbek policy walks the tightrope of maintaining agricultural production while gradually shifting toward water-use efficiency. Drip-irrigation conversion is accelerating in higher-value crops.',
-          'Uzbek seed-potato infrastructure remains modest — Soviet-era state seed-farm consolidation was followed by post-1991 fragmentation, and the system has not yet rebuilt centralised certified-seed multiplication at scale. Read on broader water-stress context in our <Link href="/answers/potato-water-footprint" style="color:#C62828;text-decoration:none">potato water footprint answer</Link>.',
+          'Uzbek seed-potato infrastructure remains modest — Soviet-era state seed-farm consolidation was followed by post-1991 fragmentation, and the system has not yet rebuilt centralised certified-seed multiplication at scale. Read on broader water-stress context in our <Link href="/answers/potato-water-footprint" style="color: var(--gold);text-decoration:none">potato water footprint answer</Link>.',
         ],
         callout: { number: "20th C", context: "Soviet-era irrigation engineering on the Amu Darya and Syr Darya remains the structural foundation of Uzbek agriculture today. Modern policy walks the tightrope between maintaining production and rebalancing trans-boundary water use post-Aral Sea crisis.", source: "FAO Uzbekistan; CACAARI" },
       },
@@ -4946,8 +4946,8 @@ function ColombiaProfilePage({ c }) {
         ],
         body: [
           'Colombia\'s potato sector is one of South America\'s most dynamic — combining substantial production volume with one of the highest concentrations of smallholder cultivation globally (~90,000 farmers, average parcel below 5 hectares). The sector contributes meaningfully to rural employment and food security in the Andean highland departments of Boyacá, Cundinamarca, and Nariño (FEDEPAPA; FAO Colombia).',
-          '<strong>Why two production figures?</strong> Colombian national agencies (DANE, FEDEPAPA, Ministerio de Agricultura) report ~3.86M tonnes annually because they include <Link href="#papa-criolla" style="color:#C62828;text-decoration:none">papa criolla</Link> (Solanum phureja) within the Colombian potato sector total. FAOSTAT methodology treats papa criolla as a separate item code from "Potatoes" (item 116), so its standardized 2024 figure of 2.49M tonnes excludes the criolla contribution. The dual-statistic reflects different but equally valid accounting frameworks — and the gap directly measures papa criolla\'s scale in the Colombian sector.',
-          'On a regional basis, Colombia ranks behind <Link href="/country/peru" style="color:#C62828;text-decoration:none;font-weight:600">Peru</Link> (5.6M tonnes — the cradle of potato domestication) and <Link href="/country/brazil" style="color:#C62828;text-decoration:none;font-weight:600">Brazil</Link> (4.2M tonnes, FAOSTAT 2024). Colombia significantly outproduces Argentina, Chile, Ecuador, and Bolivia among South American peers under either accounting methodology.',
+          '<strong>Why two production figures?</strong> Colombian national agencies (DANE, FEDEPAPA, Ministerio de Agricultura) report ~3.86M tonnes annually because they include <Link href="#papa-criolla" style="color: var(--gold);text-decoration:none">papa criolla</Link> (Solanum phureja) within the Colombian potato sector total. FAOSTAT methodology treats papa criolla as a separate item code from "Potatoes" (item 116), so its standardized 2024 figure of 2.49M tonnes excludes the criolla contribution. The dual-statistic reflects different but equally valid accounting frameworks — and the gap directly measures papa criolla\'s scale in the Colombian sector.',
+          'On a regional basis, Colombia ranks behind <Link href="/country/peru" style="color: var(--gold);text-decoration:none;font-weight:600">Peru</Link> (5.6M tonnes — the cradle of potato domestication) and <Link href="/country/brazil" style="color: var(--gold);text-decoration:none;font-weight:600">Brazil</Link> (4.2M tonnes, FAOSTAT 2024). Colombia significantly outproduces Argentina, Chile, Ecuador, and Bolivia among South American peers under either accounting methodology.',
         ],
         source: "Source: FAOSTAT 2024 (Item 116, Potatoes); DANE — Departamento Administrativo Nacional de Estadística; FEDEPAPA — Federación Colombiana de Productores de Papa; FAO Colombia Country Office; Ministerio de Agricultura y Desarrollo Rural.",
       },
@@ -5017,7 +5017,7 @@ function ColombiaProfilePage({ c }) {
         lead: "Colombia operates a hybrid certified-seed system: domestic <strong>AGROSAVIA</strong> conducts breeding and basic-seed multiplication; <strong>ICA</strong> (Instituto Colombiano Agropecuario) regulates certified-seed standards; commercial multipliers and farmer associations handle G3–G4 propagation. Smallholder seed-saving remains widespread alongside formal-system adoption (AGROSAVIA; ICA; FEDEPAPA).",
         body: [
           'AGROSAVIA, the national agricultural research corporation, anchors Colombian potato breeding — including the dominant Diacol Capiro and improved papa criolla cultivars. CIP (International Potato Center) collaborates closely on genetic resources and breeding methodologies, leveraging Colombia\'s natural connection to the Andean origin region.',
-          'ICA regulates certified-seed standards through G0–G4 generation hierarchy. Commercial multipliers (e.g., Asociación Colombiana de Productores de Semilla de Papa) handle later-stage propagation; FEDEPAPA-affiliated farmer associations also conduct on-farm multiplication. <strong>[DATA NEEDED: precise share of Colombian potato area planted to certified vs farm-saved seed]</strong>. For broader context see our <Link href="/knowledge/seed-potato-systems" style="color:#C62828;text-decoration:none">seed potato systems article</Link>.',
+          'ICA regulates certified-seed standards through G0–G4 generation hierarchy. Commercial multipliers (e.g., Asociación Colombiana de Productores de Semilla de Papa) handle later-stage propagation; FEDEPAPA-affiliated farmer associations also conduct on-farm multiplication. <strong>[DATA NEEDED: precise share of Colombian potato area planted to certified vs farm-saved seed]</strong>. For broader context see our <Link href="/knowledge/seed-potato-systems" style="color: var(--gold);text-decoration:none">seed potato systems article</Link>.',
         ],
         source: "Source: AGROSAVIA — Corporación Colombiana de Investigación Agropecuaria; ICA — Instituto Colombiano Agropecuario; FEDEPAPA; CIP.",
       },
@@ -5026,7 +5026,7 @@ function ColombiaProfilePage({ c }) {
         lead: "Colombia's domestic market absorbs the bulk of national production, with Bogotá's Corabastos wholesale market anchoring distribution. Per-capita consumption is approximately 42 kg/year. The chip-processing sector is well-developed; frozen french fry processing remains modest compared to North American or European peers (FEDEPAPA; DANE).",
         body: [
           'Corabastos in Bogotá is the country\'s largest food wholesale market and the dominant fresh-potato distribution hub — supplying not only Bogotá itself but redistributing to other major cities including Medellín, Cali, and Barranquilla. Provincial wholesale markets in the major production departments (Tunja, Pasto) handle regional distribution.',
-          'Chip processors include Frito-Lay Colombia (PepsiCo) and domestic brands sourcing primarily from Diacol Capiro under contract production. The frozen french fry sector imports significant volumes from <Link href="/country/netherlands" style="color:#C62828;text-decoration:none">Netherlands</Link> and <Link href="/country/belgium" style="color:#C62828;text-decoration:none">Belgium</Link>; domestic frozen-fry production is limited compared to processing-volume peer countries. Read more in our <Link href="/knowledge/global-potato-trade" style="color:#C62828;text-decoration:none">global potato trade reference</Link>.',
+          'Chip processors include Frito-Lay Colombia (PepsiCo) and domestic brands sourcing primarily from Diacol Capiro under contract production. The frozen french fry sector imports significant volumes from <Link href="/country/netherlands" style="color: var(--gold);text-decoration:none">Netherlands</Link> and <Link href="/country/belgium" style="color: var(--gold);text-decoration:none">Belgium</Link>; domestic frozen-fry production is limited compared to processing-volume peer countries. Read more in our <Link href="/knowledge/global-potato-trade" style="color: var(--gold);text-decoration:none">global potato trade reference</Link>.',
         ],
         source: "Source: FEDEPAPA; DANE — National Administrative Department of Statistics; Corabastos market data; Colombian Customs trade statistics.",
       },
@@ -5044,7 +5044,7 @@ function ColombiaProfilePage({ c }) {
         lead: "Colombia's potato belt occupies tropical Andean highland zones at 2,000–3,500m elevation, where elevation-driven cool conditions enable potato cultivation despite the country's tropical latitude. Volcanic-derived soils predominate; rainfall is bimodal with wet seasons in March–May and September–November (FEDEPAPA; FAO Colombia).",
         body: [
           'Colombia\'s tropical-latitude location (4°N) is moderated by Andean elevation. At 2,500–3,500m, daytime temperatures are typically 12–20°C and nights drop to 5–10°C — within potato\'s tuberization optimum. The bimodal rainfall pattern (rather than unimodal) supports two production cycles per year in many regions.',
-          'Volcanic-derived Andean soils (mostly Andisols) are inherently fertile with high organic-matter content, good water-holding capacity, and excellent drainage. Slopes are challenging — much of Colombia\'s potato cultivation occurs on 10–30% slopes that constrain mechanisation and elevate erosion risk. <Link href="/knowledge/climate-change-potatoes" style="color:#C62828;text-decoration:none">Read more on climate change and potatoes</Link>.',
+          'Volcanic-derived Andean soils (mostly Andisols) are inherently fertile with high organic-matter content, good water-holding capacity, and excellent drainage. Slopes are challenging — much of Colombia\'s potato cultivation occurs on 10–30% slopes that constrain mechanisation and elevate erosion risk. <Link href="/knowledge/climate-change-potatoes" style="color: var(--gold);text-decoration:none">Read more on climate change and potatoes</Link>.',
         ],
         source: "Source: FAO Colombia; AGROSAVIA agroclimatic zoning; IDEAM — Instituto de Hidrología, Meteorología y Estudios Ambientales.",
       },
@@ -5133,7 +5133,7 @@ function PakistanProfilePage({ c }) {
     definitiveAnswer: '<strong>Pakistan produced an estimated 9.3–9.9 million tonnes of potatoes in FY2024–25</strong> &mdash; MNFSR’s Federal Committee on Agriculture put the figure at 9.3M tonnes (April 2025 communiqué), while a later official reading cited 9.9M tonnes, 44.7% above the FCA’s own 6.8M-tonne target. Either way, production has <strong>roughly doubled in five years</strong> from 4.55M tonnes in 2019-20 &mdash; the fastest growth rate among the world’s top-20 producers (FAOSTAT). <strong>Punjab Province grows 95–98% of the national crop</strong>, concentrated in Sahiwal, Sialkot, Okara, Lahore, Jhang, and Kasur districts. The growth story has a structural asterisk: <strong>less than 5% of planted seed is certified</strong> &mdash; MNFSR and FAO both identify this as the single biggest constraint on yield, ahead of water, climate, or land availability.',
     keyStats: [
       { value: "9.3–9.9M t", label: "FY2024-25 production" },
-      { value: "+83.7%", label: "Area growth, 2019–23", accent: "#4CAF50" },
+      { value: "+83.7%", label: "Area growth, 2019–23", accent: "var(--gold)" },
       { value: "95–98%", label: "Punjab's share of output" },
       { value: "<5%", label: "Certified seed use" },
     ],
@@ -5690,7 +5690,7 @@ function IndonesiaProfilePage({ c }) {
       { value: "1.22M t", label: "2023 production" },
       { value: "55%", label: "Yield gap vs. potential" },
       { value: "100K+ t", label: "2024 fresh imports" },
-      { value: "+6,000%", label: "China frozen-fry import growth, 2yr", accent: "#4CAF50" },
+      { value: "+6,000%", label: "China frozen-fry import growth, 2yr", accent: "var(--gold)" },
     ],
     tocItems: [
       { id: "industry-size", l: "Why has Indonesia's potato production stagnated?" },
@@ -5851,7 +5851,7 @@ function AustraliaProfilePage({ c }) {
       { value: "1.49M t", label: "FY2024-25 production" },
       { value: "$1.21B", label: "Production value (AUD)" },
       { value: "0", label: "Fresh potato imports (tonnes)" },
-      { value: "+50%", label: "5-yr value growth", accent: "#4CAF50" },
+      { value: "+50%", label: "5-yr value growth", accent: "var(--gold)" },
     ],
     tocItems: [
       { id: "industry-size", l: "How big is Australia's potato industry?" },
@@ -6184,7 +6184,7 @@ function EgyptProfilePage({ c }) {
       { value: "7–8.6M t", label: "2024 production" },
       { value: "4", label: "Growing seasons" },
       { value: "220K t", label: "2024 frozen fry exports" },
-      { value: "25–34%", label: "Cost edge vs. US fries", accent: "#4CAF50" },
+      { value: "25–34%", label: "Cost edge vs. US fries", accent: "var(--gold)" },
     ],
     tocItems: [
       { id: "industry-size", l: "How big is Egypt's potato industry?" },
@@ -6353,7 +6353,7 @@ function PeruProfilePage({ c }) {
     keyStats: [
       { value: "6.49M t", label: "2024 production" },
       { value: "3,000+", label: "Native varieties grown" },
-      { value: "+38.0%", label: "10-yr production growth", accent: "#4CAF50" },
+      { value: "+38.0%", label: "10-yr production growth", accent: "var(--gold)" },
       { value: "8,000+ yrs", label: "Since domestication" },
     ],
     tocItems: [
@@ -6648,7 +6648,7 @@ function UnitedKingdomProfilePage({ c }) {
       { value: "5.14M t", label: "2024 production" },
       { value: "68%", label: "Domestic supply share" },
       { value: "£1.46B", label: "2024 production value" },
-      { value: "+34.9%", label: "Seed price jump, 2024", accent: "#C62828" },
+      { value: "+34.9%", label: "Seed price jump, 2024", accent: "var(--gold)" },
     ],
     tocItems: [
       { id: "industry-size", l: "How big is the UK potato industry?" },
@@ -6803,7 +6803,7 @@ function FranceProfilePage({ c }) {
     keyStats: [
       { value: "8.6M t", label: "2024 production" },
       { value: "$1.41B", label: "2024 raw exports, #1 globally" },
-      { value: "+28%", label: "Export growth, 2023–24", accent: "#4CAF50" },
+      { value: "+28%", label: "Export growth, 2023–24", accent: "var(--gold)" },
       { value: "€700M+", label: "New processing investment (McCain + Agristo)" },
     ],
     tocItems: [
@@ -7090,7 +7090,7 @@ function UkraineProfilePage({ c }) {
       { value: "21.4M t", label: "2024 production" },
       { value: "#3", label: "Global production rank" },
       { value: "136 kg", label: "Per-capita consumption/yr" },
-      { value: "−9.9%", label: "10-yr production change", accent: "#C62828" },
+      { value: "−9.9%", label: "10-yr production change", accent: "var(--gold)" },
     ],
     tocItems: [
       { id: "industry-size", l: "How big is Ukraine's potato industry?" },
@@ -7212,7 +7212,7 @@ function RussiaProfilePage({ c }) {
     keyStats: [
       { value: "19.4M t", label: "2024 production" },
       { value: "#5", label: "Global production rank" },
-      { value: "−38.5%", label: "10-yr production decline", accent: "#C62828" },
+      { value: "−38.5%", label: "10-yr production decline", accent: "var(--gold)" },
       { value: "111 kg", label: "Per-capita consumption/yr" },
     ],
     tocItems: [
@@ -7336,7 +7336,7 @@ function PolandProfilePage({ c }) {
     definitiveAnswer: "<strong>Poland produced approximately 5.9&ndash;6.0 million tonnes of potatoes in 2024</strong> (FAOSTAT), and while that still ranks Poland among Europe's larger producers, the real story is structural: Polish potato-growing area collapsed from <strong>2.819 million hectares in 1961 to just 188,580 hectares by 2023 &mdash; a roughly 93% contraction</strong>, one of the most dramatic land-use shifts in any major agricultural sector globally. Poland was historically one of the world's largest potato producers by area, and even after this collapse remains significant: it's <strong>one of Europe's largest potato starch producers</strong>, exporting <strong>$97.4 million of potato starch in 2022</strong>, and hosts a McCain processing plant. Production concentrates in <strong>Greater Poland (Wielkopolska)</strong>, with Masuria, Podlasie, Lower Silesia, and the Lublin region contributing meaningfully. Poland now competes directly with Germany, the Netherlands, and France in European fresh and starch markets, from a far smaller land base than it once commanded.",
     keyStats: [
       { value: "~6M t", label: "2024 production" },
-      { value: "~93%", label: "Area contraction since 1961", accent: "#C62828" },
+      { value: "~93%", label: "Area contraction since 1961", accent: "var(--gold)" },
       { value: "189K ha", label: "2023 cultivated area" },
       { value: "$97.4M", label: "2022 starch exports" },
     ],
@@ -7614,7 +7614,7 @@ function BrazilProfilePage({ c }) {
     definitiveAnswer: "<strong>Brazil produced approximately 3.7 million tonnes of potatoes in 2023</strong> on about 120,000 hectares at a yield of 30.8 t/ha (FAOSTAT) &mdash; South America's <strong>second-largest producer after Peru</strong> by volume, but with meaningfully higher yields thanks to modern practices concentrated in the southeast and south. Brazil runs <strong>three distinct growing seasons per year</strong> (safra das águas, safra da seca, safra de inverno), a structural feature that distinguishes it from single-harvest temperate producers. The single most striking fact about Brazilian potatoes: the cultivar <strong>Agata accounts for an estimated 70% or more of everything planted nationally</strong> &mdash; a concentration level Embrapa plant pathologists have repeatedly warned increases vulnerability to late blight, bacterial wilt, and virus complex diseases. Despite solid production, Brazil is a <strong>significant net importer of frozen French fries</strong> &mdash; about 200,000 tonnes in 2023, worth over USD 250 million &mdash; led by Argentina, Belgium, and the Netherlands, since domestic frozen-fry processing hasn't kept pace with a growing QSR sector where McDonald's alone runs over 1,100 Brazilian outlets.",
     keyStats: [
       { value: "3.7M t", label: "2023 production" },
-      { value: "70%+", label: "Agata's share of area", accent: "#C62828" },
+      { value: "70%+", label: "Agata's share of area", accent: "var(--gold)" },
       { value: "3", label: "Growing seasons per year" },
       { value: "200K t", label: "2023 frozen fry imports" },
     ],
@@ -8024,7 +8024,7 @@ function SouthKoreaProfilePage({ c }) {
       { value: "570K+ t", label: "2024 production (5-yr high)" },
       { value: "<20%", label: "Domestic chipping-potato supply share" },
       { value: "183K t", label: "2023 frozen fry imports" },
-      { value: "+50%", label: "10-yr import growth", accent: "#C62828" },
+      { value: "+50%", label: "10-yr import growth", accent: "var(--gold)" },
     ],
     tocItems: [
       { id: "industry-size", l: "How big is South Korea's potato industry?" },

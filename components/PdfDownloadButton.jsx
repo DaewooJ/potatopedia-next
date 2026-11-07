@@ -32,18 +32,18 @@ export default function PdfDownloadButton({ size = "md", placement = "banner" })
     ...base,
     padding: isLarge ? "12px 22px" : "9px 16px",
     fontSize: isLarge ? 14 : 13,
-    background: "linear-gradient(135deg,#C62828,#E53935)",
+    background: "var(--accent-bg)",
     color: "#FFFFFF",
-    boxShadow: "0 1px 2px rgba(198,40,40,0.18), 0 4px 12px rgba(198,40,40,0.10)",
+    boxShadow: "0 1px 2px rgba(154,114,56,0.18), 0 4px 12px rgba(154,114,56,0.10)",
   };
 
   const footer = {
     ...base,
     padding: "16px 28px",
     fontSize: 15,
-    background: "#FFFFFF",
-    color: "#C62828",
-    border: "1.5px solid rgba(198,40,40,0.25)",
+    background: "var(--card)",
+    color: "var(--gold)",
+    border: "1.5px solid rgba(154,114,56,0.25)",
   };
 
   const style = placement === "footer" ? footer : banner;

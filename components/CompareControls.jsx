@@ -49,7 +49,7 @@ export default function CompareControls({ varieties, selectedSlugs, maxSlots = 4
 
   return (
     <div ref={containerRef} style={{ position: "relative", maxWidth: 560, margin: "0 auto" }}>
-      <div style={{ display: "flex", alignItems: "center", gap: 10, background: "#fff", borderRadius: 12, border: "1.5px solid #ececec", padding: "0 14px", opacity: canAdd ? 1 : 0.5 }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 10, background: "var(--card)", borderRadius: 12, border: "1.5px solid var(--line)", padding: "0 14px", opacity: canAdd ? 1 : 0.5 }}>
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#bbb" strokeWidth="2"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>
         <input
           value={query}
@@ -57,30 +57,30 @@ export default function CompareControls({ varieties, selectedSlugs, maxSlots = 4
           onFocus={() => setOpen(true)}
           disabled={!canAdd}
           placeholder={canAdd ? `Add a variety to compare (${selectedSlugs.length}/${maxSlots} selected)` : `${maxSlots} variety limit reached`}
-          style={{ flex: 1, border: "none", outline: "none", fontSize: 14, fontFamily: "inherit", padding: "12px 0", background: "transparent", color: "#333" }}
+          style={{ flex: 1, border: "none", outline: "none", fontSize: 14, fontFamily: "inherit", padding: "12px 0", background: "transparent", color: "var(--ink2)" }}
         />
         {query && (
-          <button onClick={() => { setQuery(""); setOpen(false); }} style={{ border: "none", background: "transparent", fontSize: 16, color: "#999", cursor: "pointer" }} aria-label="Clear">×</button>
+          <button onClick={() => { setQuery(""); setOpen(false); }} style={{ border: "none", background: "transparent", fontSize: 16, color: "var(--mute2)", cursor: "pointer" }} aria-label="Clear">×</button>
         )}
       </div>
 
       {open && matches.length > 0 && (
-        <div style={{ position: "absolute", top: "100%", left: 0, right: 0, background: "#fff", border: "1px solid #ececec", borderRadius: 12, boxShadow: "0 12px 32px rgba(0,0,0,0.08)", marginTop: 6, zIndex: 50, maxHeight: 320, overflowY: "auto" }}>
+        <div style={{ position: "absolute", top: "100%", left: 0, right: 0, background: "var(--card)", border: "1px solid var(--line)", borderRadius: 12, boxShadow: "0 12px 32px rgba(0,0,0,0.08)", marginTop: 6, zIndex: 50, maxHeight: 320, overflowY: "auto" }}>
           {matches.map((v) => (
             <button
               key={v.slug}
               onClick={() => addVariety(v.slug)}
-              style={{ display: "block", width: "100%", textAlign: "left", padding: "10px 16px", border: "none", borderBottom: "1px solid #f5f5f5", background: "#fff", cursor: "pointer", fontFamily: "inherit", color: "inherit" }}
+              style={{ display: "block", width: "100%", textAlign: "left", padding: "10px 16px", border: "none", borderBottom: "1px solid var(--line)", background: "var(--card)", cursor: "pointer", fontFamily: "inherit", color: "inherit" }}
             >
-              <div style={{ fontSize: 14, fontWeight: 700, color: "#1A1A1A" }}>{v.name}</div>
-              <div style={{ fontSize: 11, color: "#999" }}>{v.origin} · {v.region}{v.year ? ` · ${v.year}` : ""}</div>
+              <div style={{ fontSize: 14, fontWeight: 700, color: "var(--ink)" }}>{v.name}</div>
+              <div style={{ fontSize: 11, color: "var(--mute2)" }}>{v.origin} · {v.region}{v.year ? ` · ${v.year}` : ""}</div>
             </button>
           ))}
         </div>
       )}
 
       {open && query.trim() && matches.length === 0 && (
-        <div style={{ position: "absolute", top: "100%", left: 0, right: 0, background: "#fff", border: "1px solid #ececec", borderRadius: 12, marginTop: 6, padding: "12px 16px", color: "#999", fontSize: 13 }}>
+        <div style={{ position: "absolute", top: "100%", left: 0, right: 0, background: "var(--card)", border: "1px solid var(--line)", borderRadius: 12, marginTop: 6, padding: "12px 16px", color: "var(--mute2)", fontSize: 13 }}>
           No varieties match &ldquo;{query}&rdquo;. Try Russet Burbank, Bintje, Kufri, Shangi.
         </div>
       )}
@@ -96,7 +96,7 @@ export function RemoveButton({ slug, currentIds }) {
     else router.push(`/varieties/compare?ids=${newIds.join(",")}`);
   };
   return (
-    <button onClick={remove} aria-label={`Remove ${slug}`} style={{ border: "1px solid #ececec", background: "#fff", color: "#888", borderRadius: 16, padding: "4px 10px", fontSize: 11, fontWeight: 600, cursor: "pointer", fontFamily: "inherit" }}>
+    <button onClick={remove} aria-label={`Remove ${slug}`} style={{ border: "1px solid var(--line)", background: "var(--card)", color: "var(--mute2)", borderRadius: 16, padding: "4px 10px", fontSize: 11, fontWeight: 600, cursor: "pointer", fontFamily: "inherit" }}>
       Remove
     </button>
   );

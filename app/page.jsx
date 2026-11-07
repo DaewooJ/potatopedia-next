@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Instrument_Serif, Inter } from "next/font/google";
 import { POTATOPEDIA_PUBLISHER, POTATOPEDIA_WEBSITE } from "../lib/authors";
 import { VARIETIES } from "../lib/varieties-data";
 import { COUNTRIES } from "../lib/data";
@@ -8,6 +7,7 @@ import AskRoots from "../components/AskRoots";
 import ChainSection from "../components/ChainSection";
 import LeadForm from "../components/LeadForm";
 import ThemeFab from "../components/ThemeFab";
+import { serif, sans } from "../lib/fonts";
 
 // Homepage (Devendra, 7 Nov 2026): Option 1 "Answer Engine, sources as roots" + Option 4's potato chain,
 // premium look (ink + champagne gold + ivory, Instrument Serif + Inter), dark by default with a light theme
@@ -16,8 +16,6 @@ import ThemeFab from "../components/ThemeFab";
 
 export const revalidate = 3600;
 
-const serif = Instrument_Serif({ subsets: ["latin"], weight: "400", style: ["normal", "italic"], display: "swap", variable: "--hp-serif" });
-const sans = Inter({ subsets: ["latin"], weight: ["300", "400", "500", "600"], display: "swap", variable: "--hp-sans" });
 
 export const metadata = {
   title: { absolute: "Potatopedia — Ask Anything About Potatoes: Varieties, Machines, Data" },

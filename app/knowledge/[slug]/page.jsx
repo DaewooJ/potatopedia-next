@@ -143,18 +143,18 @@ export async function generateMetadata({ params }) {
 }
 
 /* ── Shared styles ── */
-const sH2 = { fontSize: 22, fontWeight: 700, paddingLeft: 16, borderLeft: "4px solid #C62828", marginTop: 44, marginBottom: 14, color: "#1A1A1A" };
-const sP = { fontSize: 15, color: "#444", lineHeight: 1.8, marginBottom: 16 };
+const sH2 = { fontSize: 22, fontWeight: 700, paddingLeft: 16, borderLeft: "4px solid var(--gold)", marginTop: 44, marginBottom: 14, color: "var(--ink)" };
+const sP = { fontSize: 15, color: "var(--ink2)", lineHeight: 1.8, marginBottom: 16 };
 const sIntro = { ...sP, fontSize: 16 };
-const sTh = { padding: "10px 12px", textAlign: "left", background: "#C62828", color: "#fff", fontSize: 13, fontWeight: 700 };
-const sTd = { padding: "9px 12px", fontSize: 14, borderBottom: "1px solid #eee" };
-const sSource = { fontSize: 12, color: "#999", marginTop: 8, marginBottom: 24, fontStyle: "italic" };
+const sTh = { padding: "10px 12px", textAlign: "left", background: "var(--accent-bg)", color: "#fff", fontSize: 13, fontWeight: 700 };
+const sTd = { padding: "9px 12px", fontSize: 14, borderBottom: "1px solid var(--line)" };
+const sSource = { fontSize: 12, color: "var(--mute2)", marginTop: 8, marginBottom: 24, fontStyle: "italic" };
 
 /* ── Premium article sub-components ── */
 
 function DefinitiveAnswer({ children }) {
   return (
-    <div data-summary="true" style={{ background: "rgba(198,40,40,0.03)", border: "1px solid rgba(198,40,40,0.12)", borderLeft: "4px solid #C62828", borderRadius: "0 12px 12px 0", padding: "24px 28px", marginBottom: 32, fontSize: 16, color: "#333", lineHeight: 1.8 }}>
+    <div data-summary="true" style={{ background: "rgba(154,114,56,0.03)", border: "1px solid rgba(154,114,56,0.12)", borderLeft: "4px solid var(--gold)", borderRadius: "0 12px 12px 0", padding: "24px 28px", marginBottom: 32, fontSize: 16, color: "var(--ink2)", lineHeight: 1.8 }}>
       {children}
     </div>
   );
@@ -168,7 +168,7 @@ function KeyStatStrip({ stats }) {
         @media (max-width: 768px) { .pp-stat-strip { grid-template-columns: repeat(2,1fr) !important; gap: 20px !important; padding: 24px 20px !important; } }
         @media (max-width: 400px) { .pp-stat-strip { grid-template-columns: 1fr !important; } }
       `}</style>
-      <div className="pp-stat-strip" style={{ background: "#1A1A1A", borderRadius: 12, padding: "28px 24px", marginBottom: 32, gap: 0 }}>
+      <div className="pp-stat-strip" style={{ background: "var(--panel)", borderRadius: 12, padding: "28px 24px", marginBottom: 32, gap: 0 }}>
         {stats.map((s, i) => (
           <div key={i} style={{ textAlign: "center", borderRight: i < stats.length - 1 ? "1px solid rgba(255,255,255,0.1)" : "none", padding: "0 12px" }}>
             <div style={{ fontSize: 32, fontWeight: 800, color: s.accent || "#FFFFFF", letterSpacing: -1, lineHeight: 1 }}>{s.value}</div>
@@ -182,14 +182,14 @@ function KeyStatStrip({ stats }) {
 
 function CollapsibleTOC({ items }) {
   return (
-    <details style={{ background: "#FAFAFA", border: "1px solid #eee", borderRadius: 10, padding: "14px 20px", marginBottom: 40 }}>
-      <summary style={{ cursor: "pointer", listStyle: "none", display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: 13, fontWeight: 600, color: "#555" }}>
+    <details style={{ background: "var(--paper)", border: "1px solid var(--line)", borderRadius: 10, padding: "14px 20px", marginBottom: 40 }}>
+      <summary style={{ cursor: "pointer", listStyle: "none", display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: 13, fontWeight: 600, color: "var(--mute)" }}>
         <span>In this article ({items.length} sections)</span>
-        <span style={{ fontSize: 10, color: "#bbb", transition: "transform 0.2s" }}>{"▾"}</span>
+        <span style={{ fontSize: 10, color: "var(--mute3)", transition: "transform 0.2s" }}>{"▾"}</span>
       </summary>
       <nav style={{ marginTop: 12, display: "flex", flexDirection: "column", gap: 4 }}>
         {items.map((item, i) => (
-          <a key={i} href={"#" + item.id} style={{ fontSize: 13, color: "#555", textDecoration: "none", padding: "6px 0", borderBottom: i < items.length - 1 ? "1px solid rgba(0,0,0,0.04)" : "none" }}>{item.label}</a>
+          <a key={i} href={"#" + item.id} style={{ fontSize: 13, color: "var(--mute)", textDecoration: "none", padding: "6px 0", borderBottom: i < items.length - 1 ? "1px solid rgba(0,0,0,0.04)" : "none" }}>{item.label}</a>
         ))}
       </nav>
     </details>
@@ -209,23 +209,23 @@ function StatCallout({ number, unit, context, source }) {
       `}</style>
       {/* Desktop: split layout with red number box */}
       <div className="pp-stat-callout" style={{ margin: "32px 0" }}>
-        <div style={{ background: "#C62828", borderRadius: 12, padding: "20px 24px", minWidth: 120, textAlign: "center", flexShrink: 0 }}>
+        <div style={{ background: "var(--accent-bg)", borderRadius: 12, padding: "20px 24px", minWidth: 120, textAlign: "center", flexShrink: 0 }}>
           <div style={{ fontSize: 28, fontWeight: 800, color: "#FFFFFF", lineHeight: 1 }}>{number}</div>
           {unit && <div style={{ fontSize: 12, color: "rgba(255,255,255,0.7)", marginTop: 4, textTransform: "uppercase" }}>{unit}</div>}
         </div>
         <div style={{ padding: "8px 0", flex: 1 }}>
-          <div style={{ fontSize: 14, color: "#555", lineHeight: 1.7 }}>{context}</div>
-          {source && <div style={{ fontSize: 11, color: "#aaa", marginTop: 6, fontStyle: "italic" }}>{source}</div>}
+          <div style={{ fontSize: 14, color: "var(--mute)", lineHeight: 1.7 }}>{context}</div>
+          {source && <div style={{ fontSize: 11, color: "var(--mute3)", marginTop: 6, fontStyle: "italic" }}>{source}</div>}
         </div>
       </div>
       {/* Mobile: single cohesive container with red left border */}
-      <div className="pp-stat-callout-mobile" style={{ margin: "28px 0", borderLeft: "4px solid #C62828", borderRadius: "0 10px 10px 0", background: "#F7F7F7", padding: "18px 20px" }}>
+      <div className="pp-stat-callout-mobile" style={{ margin: "28px 0", borderLeft: "4px solid var(--gold)", borderRadius: "0 10px 10px 0", background: "var(--paper)", padding: "18px 20px" }}>
         <div style={{ marginBottom: 6 }}>
-          <span style={{ fontSize: 24, fontWeight: 800, color: "#C62828", lineHeight: 1 }}>{number}</span>
-          {unit && <span style={{ fontSize: 13, fontWeight: 600, color: "#C62828", marginLeft: 4 }}>{unit}</span>}
+          <span style={{ fontSize: 24, fontWeight: 800, color: "var(--gold)", lineHeight: 1 }}>{number}</span>
+          {unit && <span style={{ fontSize: 13, fontWeight: 600, color: "var(--gold)", marginLeft: 4 }}>{unit}</span>}
         </div>
-        <div style={{ fontSize: 14, color: "#555", lineHeight: 1.7 }}>{context}</div>
-        {source && <div style={{ fontSize: 11, color: "#aaa", marginTop: 6, fontStyle: "italic" }}>{source}</div>}
+        <div style={{ fontSize: 14, color: "var(--mute)", lineHeight: 1.7 }}>{context}</div>
+        {source && <div style={{ fontSize: 11, color: "var(--mute3)", marginTop: 6, fontStyle: "italic" }}>{source}</div>}
       </div>
     </>
   );
@@ -233,9 +233,9 @@ function StatCallout({ number, unit, context, source }) {
 
 function SourceBlock({ sources }) {
   return (
-    <div style={{ padding: "16px 20px", background: "#FAFAFA", borderRadius: 10, marginTop: 32, marginBottom: 8 }}>
-      <div style={{ fontSize: 10, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 8 }}>Sources</div>
-      {sources.map((s, i) => <div key={i} style={{ fontSize: 12, color: "#666", lineHeight: 1.6 }}>{s}</div>)}
+    <div style={{ padding: "16px 20px", background: "var(--paper)", borderRadius: 10, marginTop: 32, marginBottom: 8 }}>
+      <div style={{ fontSize: 10, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 8 }}>Sources</div>
+      {sources.map((s, i) => <div key={i} style={{ fontSize: 12, color: "var(--mute)", lineHeight: 1.6 }}>{s}</div>)}
     </div>
   );
 }
@@ -243,15 +243,15 @@ function SourceBlock({ sources }) {
 function FAQSection({ items }) {
   return (
     <section style={{ marginTop: 48 }}>
-      <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Frequently Asked Questions</h2>
+      <h2 style={{ fontSize: 20, fontWeight: 700, color: "var(--ink)", marginBottom: 16 }}>Frequently Asked Questions</h2>
       <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
         {items.map((item, i) => (
-          <details key={i} style={{ padding: "16px 20px", borderRadius: 12, border: "1px solid #f0f0f0", background: "#FAFAFA" }}>
+          <details key={i} style={{ padding: "16px 20px", borderRadius: 12, border: "1px solid var(--line)", background: "var(--paper)" }}>
             <summary style={{ cursor: "pointer", listStyle: "none", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12 }}>
-              <span style={{ fontSize: 14, fontWeight: 600, color: "#1A1A1A", lineHeight: 1.4 }}>{item.q}</span>
-              <span style={{ fontSize: 16, color: "#C62828", flexShrink: 0 }}>+</span>
+              <span style={{ fontSize: 14, fontWeight: 600, color: "var(--ink)", lineHeight: 1.4 }}>{item.q}</span>
+              <span style={{ fontSize: 16, color: "var(--gold)", flexShrink: 0 }}>+</span>
             </summary>
-            <p style={{ fontSize: 13, color: "#555", lineHeight: 1.7, marginTop: 12 }}>{item.a}</p>
+            <p style={{ fontSize: 13, color: "var(--mute)", lineHeight: 1.7, marginTop: 12 }}>{item.a}</p>
           </details>
         ))}
       </div>
@@ -264,16 +264,16 @@ function RelatedBlogPosts({ slugs, title = "Related analysis" }) {
   const posts = slugs.map((s) => BLOG_POSTS_LOCAL[s]).filter(Boolean).slice(0, 3);
   if (posts.length === 0) return null;
   return (
-    <section style={{ margin: "32px 0", padding: "22px 24px", background: "#FAFAFA", border: "1px solid #ececec", borderRadius: 14 }}>
+    <section style={{ margin: "32px 0", padding: "22px 24px", background: "var(--paper)", border: "1px solid var(--line)", borderRadius: 14 }}>
       <div style={{ marginBottom: 14 }}>
-        <div style={{ fontSize: 11, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 1.8, marginBottom: 4 }}>{title}</div>
-        <div style={{ fontSize: 12, color: "#777" }}>Story-format analysis from our blog.</div>
+        <div style={{ fontSize: 11, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.8, marginBottom: 4 }}>{title}</div>
+        <div style={{ fontSize: 12, color: "var(--mute2)" }}>Story-format analysis from our blog.</div>
       </div>
       <div style={{ display: "grid", gridTemplateColumns: posts.length === 1 ? "1fr" : "repeat(auto-fit, minmax(220px, 1fr))", gap: 10 }}>
         {posts.map((p) => (
-          <Link key={p.slug} href={"/blog/" + p.slug} style={{ display: "block", textDecoration: "none", color: "inherit", padding: "12px 14px", background: "#fff", border: "1px solid #ececec", borderRadius: 10 }}>
-            <div style={{ fontSize: 10, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 1.2, marginBottom: 4 }}>{p.category}</div>
-            <div style={{ fontSize: 13, fontWeight: 700, color: "#1A1A1A", lineHeight: 1.35 }}>{p.title}</div>
+          <Link key={p.slug} href={"/blog/" + p.slug} style={{ display: "block", textDecoration: "none", color: "inherit", padding: "12px 14px", background: "var(--card)", border: "1px solid var(--line)", borderRadius: 10 }}>
+            <div style={{ fontSize: 10, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.2, marginBottom: 4 }}>{p.category}</div>
+            <div style={{ fontSize: 13, fontWeight: 700, color: "var(--ink)", lineHeight: 1.35 }}>{p.title}</div>
           </Link>
         ))}
       </div>
@@ -284,15 +284,15 @@ function RelatedBlogPosts({ slugs, title = "Related analysis" }) {
 function VarietySpotlight({ slugs, title }) {
   if (!slugs || slugs.length === 0) return null;
   return (
-    <section style={{ marginTop: 40, padding: "24px 26px", background: "rgba(198,40,40,0.03)", border: "1px solid rgba(198,40,40,0.12)", borderRadius: 14 }}>
-      <div style={{ fontSize: 11, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 12 }}>{title || "Variety detail pages"}</div>
+    <section style={{ marginTop: 40, padding: "24px 26px", background: "rgba(154,114,56,0.03)", border: "1px solid rgba(154,114,56,0.12)", borderRadius: 14 }}>
+      <div style={{ fontSize: 11, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 12 }}>{title || "Variety detail pages"}</div>
       <div className="pp-related-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
         {slugs.map((s) => (
-          <Link key={s} href={`/varieties/${s}`} style={{ display: "block", textDecoration: "none", color: "inherit", padding: "12px 14px", background: "#fff", border: "1px solid #ececec", borderRadius: 10 }}>
-            <div style={{ fontSize: 14, fontWeight: 700, color: "#1A1A1A", marginBottom: 2 }}>
+          <Link key={s} href={`/varieties/${s}`} style={{ display: "block", textDecoration: "none", color: "inherit", padding: "12px 14px", background: "var(--card)", border: "1px solid var(--line)", borderRadius: 10 }}>
+            <div style={{ fontSize: 14, fontWeight: 700, color: "var(--ink)", marginBottom: 2 }}>
               {s.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())}
             </div>
-            <div style={{ fontSize: 11, color: "#999" }}>Origin · traits · uses · related country</div>
+            <div style={{ fontSize: 11, color: "var(--mute2)" }}>Origin · traits · uses · related country</div>
           </Link>
         ))}
       </div>
@@ -303,13 +303,13 @@ function VarietySpotlight({ slugs, title }) {
 function RelatedArticles({ articles }) {
   return (
     <section style={{ marginTop: 48 }}>
-      <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Continue Reading</h2>
+      <h2 style={{ fontSize: 20, fontWeight: 700, color: "var(--ink)", marginBottom: 16 }}>Continue Reading</h2>
       <div className="pp-related-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
         {articles.map((a, i) => (
-          <Link key={i} href={"/knowledge/" + a.slug} style={{ background: "#FAFAFA", border: "1px solid #eee", borderRadius: 12, padding: "18px 20px", textDecoration: "none", color: "inherit", transition: "border-color 0.2s", display: "block" }}>
-            <span style={{ display: "inline-block", fontSize: 10, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 1.2, background: "rgba(198,40,40,0.06)", padding: "2px 8px", borderRadius: 6, marginBottom: 8 }}>{a.tag}</span>
-            <div style={{ fontSize: 14, fontWeight: 600, color: "#1A1A1A", lineHeight: 1.4, marginBottom: 4 }}>{a.title}</div>
-            <div style={{ fontSize: 12, color: "#888", lineHeight: 1.4 }}>{a.desc}</div>
+          <Link key={i} href={"/knowledge/" + a.slug} style={{ background: "var(--paper)", border: "1px solid var(--line)", borderRadius: 12, padding: "18px 20px", textDecoration: "none", color: "inherit", transition: "border-color 0.2s", display: "block" }}>
+            <span style={{ display: "inline-block", fontSize: 10, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.2, background: "rgba(154,114,56,0.06)", padding: "2px 8px", borderRadius: 6, marginBottom: 8 }}>{a.tag}</span>
+            <div style={{ fontSize: 14, fontWeight: 600, color: "var(--ink)", lineHeight: 1.4, marginBottom: 4 }}>{a.title}</div>
+            <div style={{ fontSize: 12, color: "var(--mute2)", lineHeight: 1.4 }}>{a.desc}</div>
           </Link>
         ))}
       </div>
@@ -325,15 +325,15 @@ function HeroBanner({ children }) {
         @media (max-width: 768px) { .pp-hero-banner { padding: 40px 20px 32px !important; } }
       `}</style>
       <div className="pp-hero-banner" style={{
-        background: "#FAFAFA",
+        background: "var(--paper)",
         position: "relative",
         overflow: "hidden",
-        borderBottom: "1px solid #f0f0f0",
+        borderBottom: "1px solid var(--line)",
         marginBottom: 32,
-        backgroundImage: "repeating-linear-gradient(0deg, rgba(198,40,40,0.04) 0px, rgba(198,40,40,0.04) 1px, transparent 1px, transparent 60px), repeating-linear-gradient(90deg, rgba(198,40,40,0.04) 0px, rgba(198,40,40,0.04) 1px, transparent 1px, transparent 60px)",
+        backgroundImage: "repeating-linear-gradient(0deg, rgba(154,114,56,0.04) 0px, rgba(154,114,56,0.04) 1px, transparent 1px, transparent 60px), repeating-linear-gradient(90deg, rgba(154,114,56,0.04) 0px, rgba(154,114,56,0.04) 1px, transparent 1px, transparent 60px)",
       }}>
         {/* Decorative accent line — top right */}
-        <div style={{ position: "absolute", top: 16, right: 24, width: 200, height: 2, background: "linear-gradient(135deg, #C62828, transparent)", borderRadius: 1, zIndex: 0 }} />
+        <div style={{ position: "absolute", top: 16, right: 24, width: 200, height: 2, background: "var(--accent-bg)", borderRadius: 1, zIndex: 0 }} />
         <div style={{ position: "relative", zIndex: 1, maxWidth: 820, margin: "0 auto" }}>
           {children}
         </div>
@@ -345,16 +345,16 @@ function HeroBanner({ children }) {
 function Breadcrumb({ tag }) {
   return (
     <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 24, fontSize: 13 }}>
-      <Link href="/knowledge" style={{ color: "#888", textDecoration: "none" }}>Knowledge Hub</Link>
-      <span style={{ color: "#ccc" }}>/</span>
-      <span style={{ color: "#C62828", fontWeight: 700 }}>{tag}</span>
+      <Link href="/knowledge" style={{ color: "var(--mute2)", textDecoration: "none" }}>Knowledge Hub</Link>
+      <span style={{ color: "var(--mute3)" }}>/</span>
+      <span style={{ color: "var(--gold)", fontWeight: 700 }}>{tag}</span>
     </div>
   );
 }
 
 function TagBadge({ tag }) {
   return (
-    <span style={{ display: "inline-block", fontSize: 10, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 1.5, background: "rgba(198,40,40,0.06)", padding: "4px 12px", borderRadius: 10, marginBottom: 16 }}>
+    <span style={{ display: "inline-block", fontSize: 10, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.5, background: "rgba(154,114,56,0.06)", padding: "4px 12px", borderRadius: 10, marginBottom: 16 }}>
       {tag}
     </span>
   );
@@ -362,10 +362,10 @@ function TagBadge({ tag }) {
 
 function BottomCTA() {
   return (
-    <div style={{ marginTop: 56, padding: "32px 28px", borderRadius: 16, background: "linear-gradient(135deg, rgba(198,40,40,0.06), rgba(198,40,40,0.02))", border: "1px solid rgba(198,40,40,0.12)", textAlign: "center" }}>
-      <div style={{ fontSize: 18, fontWeight: 700, color: "#1A1A1A", marginBottom: 8 }}>Have more questions?</div>
-      <div style={{ fontSize: 14, color: "#666", marginBottom: 16 }}>Ask Potatopedia AI for instant, data-backed answers.</div>
-      <Link href="/ask" style={{ display: "inline-block", padding: "12px 28px", borderRadius: 12, background: "linear-gradient(135deg,#C62828,#E53935)", color: "#fff", fontSize: 14, fontWeight: 700, textDecoration: "none" }}>
+    <div style={{ marginTop: 56, padding: "32px 28px", borderRadius: 16, background: "linear-gradient(135deg, rgba(154,114,56,0.06), rgba(154,114,56,0.02))", border: "1px solid rgba(154,114,56,0.12)", textAlign: "center" }}>
+      <div style={{ fontSize: 18, fontWeight: 700, color: "var(--ink)", marginBottom: 8 }}>Have more questions?</div>
+      <div style={{ fontSize: 14, color: "var(--mute)", marginBottom: 16 }}>Ask Potatopedia AI for instant, data-backed answers.</div>
+      <Link href="/ask" style={{ display: "inline-block", padding: "12px 28px", borderRadius: 12, background: "var(--accent-bg)", color: "#fff", fontSize: 14, fontWeight: 700, textDecoration: "none" }}>
         Ask Potatopedia AI &rarr;
       </Link>
     </div>
@@ -491,13 +491,13 @@ function TopProducingCountries() {
         {/* Header bar */}
         <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 16 }}>
           <TagBadge tag="Production Data" />
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>Updated {UPDATED_SHORT}</span>
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>10 min read</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>Updated {UPDATED_SHORT}</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>10 min read</span>
         </div>
 
-        <h1 style={{ fontSize: 32, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>Top Potato Producing Countries 2025</h1>
+        <h1 style={{ fontSize: 32, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>Top Potato Producing Countries 2025</h1>
       </HeroBanner>
 
       {/* Article body */}
@@ -544,7 +544,7 @@ function TopProducingCountries() {
 
       {/* Section 1 */}
       <h2 id="top-producers" style={sH2}>Which country produces the most potatoes?</h2>
-      <p style={sP}><Link href="/country/china" style={{ color: "#C62828", fontWeight: 600, textDecoration: "none" }}>China</Link> dominates global potato production at 94.87 million tonnes annually, growing approximately 25% of the world&apos;s potatoes on 4.7 million hectares (FAOSTAT 2024). <Link href="/country/india" style={{ color: "#C62828", fontWeight: 600, textDecoration: "none" }}>India</Link> ranks second at 57.05 million tonnes, with Uttar Pradesh alone producing more potatoes than most entire countries. <Link href="/country/ukraine" style={{ color: "#C62828", fontWeight: 600, textDecoration: "none" }}>Ukraine</Link> is third at 21.13 million tonnes, also holding the world&apos;s highest per-capita consumption at 136 kg/year.</p>
+      <p style={sP}><Link href="/country/china" style={{ color: "var(--gold)", fontWeight: 600, textDecoration: "none" }}>China</Link> dominates global potato production at 94.87 million tonnes annually, growing approximately 25% of the world&apos;s potatoes on 4.7 million hectares (FAOSTAT 2024). <Link href="/country/india" style={{ color: "var(--gold)", fontWeight: 600, textDecoration: "none" }}>India</Link> ranks second at 57.05 million tonnes, with Uttar Pradesh alone producing more potatoes than most entire countries. <Link href="/country/ukraine" style={{ color: "var(--gold)", fontWeight: 600, textDecoration: "none" }}>Ukraine</Link> is third at 21.13 million tonnes, also holding the world&apos;s highest per-capita consumption at 136 kg/year.</p>
       <p style={sP}>The complete top 30 rankings below represent nations producing over 600,000 tonnes annually. Together, these 30 countries grow over 90% of the world&apos;s potatoes. Each country name links to its dedicated Potatopedia profile with detailed industry data.</p>
 
       <p style={sP}><strong>Multi-year FAOSTAT time series (2018–2024).</strong> Each row shows annual potato production in million tonnes. The right column shows the 7-year trajectory from 2018 to 2024.</p>
@@ -557,13 +557,13 @@ function TopProducingCountries() {
               const series = PRODUCTION_TIMESERIES[c.slug] || {};
               const trend = trendLabel(c.slug);
               const fmt = (v) => v == null ? "—" : v.toFixed(2);
-              const trendColor = trend?.dir === "rising" ? "#2E7D32" : trend?.dir === "declining" ? "#C62828" : "#888";
+              const trendColor = trend?.dir === "rising" ? "var(--gold)" : trend?.dir === "declining" ? "var(--gold)" : "#888";
               return (
-                <tr key={c.slug} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
-                  <td style={{ ...sTd, padding: "8px 6px", textAlign: "center", fontWeight: 600, color: "#888" }}>{c.rank}</td>
-                  <td style={{ ...sTd, padding: "8px 6px" }}><Link href={"/country/" + c.slug} style={{ color: "#1A1A1A", textDecoration: "none", fontWeight: i < 3 ? 700 : 500 }}>{c.flag} {c.name}</Link></td>
+                <tr key={c.slug} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
+                  <td style={{ ...sTd, padding: "8px 6px", textAlign: "center", fontWeight: 600, color: "var(--mute2)" }}>{c.rank}</td>
+                  <td style={{ ...sTd, padding: "8px 6px" }}><Link href={"/country/" + c.slug} style={{ color: "var(--ink)", textDecoration: "none", fontWeight: i < 3 ? 700 : 500 }}>{c.flag} {c.name}</Link></td>
                   {[2018,2019,2020,2021,2022,2023,2024].map((y) => (
-                    <td key={y} style={{ ...sTd, padding: "8px 6px", textAlign: "right", fontVariantNumeric: "tabular-nums", color: y === 2024 ? "#C62828" : "#444", fontWeight: y === 2024 ? 700 : 400 }}>{fmt(series[y])}</td>
+                    <td key={y} style={{ ...sTd, padding: "8px 6px", textAlign: "right", fontVariantNumeric: "tabular-nums", color: y === 2024 ? "var(--gold)" : "#444", fontWeight: y === 2024 ? 700 : 400 }}>{fmt(series[y])}</td>
                   ))}
                   <td style={{ ...sTd, padding: "8px 6px", textAlign: "right", color: trendColor, fontWeight: 700, fontSize: 12 }}>
                     {trend ? `${trend.sym} ${trend.pct >= 0 ? "+" : ""}${trend.pct.toFixed(0)}%` : "—"}
@@ -577,39 +577,39 @@ function TopProducingCountries() {
       <p style={sSource}>Source: FAOSTAT (UN FAO) — Crops and Livestock Products dataset (Item 116, Potatoes). Production in million tonnes. 2024 figures are most-recently-validated; some reflect preliminary national submissions. The 7-year column shows percentage change 2018→2024.</p>
 
       {/* Long-tail producers (M2 from comprehensive SEO audit): plain-text country list for ranks 31–100 */}
-      <details style={{ marginTop: 20, background: "#FAFAFA", border: "1px solid #ececec", borderRadius: 10, padding: "14px 18px" }}>
-        <summary style={{ cursor: "pointer", listStyle: "none", display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: 13, fontWeight: 700, color: "#1A1A1A" }}>
+      <details style={{ marginTop: 20, background: "var(--paper)", border: "1px solid var(--line)", borderRadius: 10, padding: "14px 18px" }}>
+        <summary style={{ cursor: "pointer", listStyle: "none", display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: 13, fontWeight: 700, color: "var(--ink)" }}>
           <span>Notable producers ranks 31–100 (FAOSTAT 2023)</span>
-          <span style={{ fontSize: 10, color: "#bbb" }}>▾</span>
+          <span style={{ fontSize: 10, color: "var(--mute3)" }}>▾</span>
         </summary>
-        <div style={{ marginTop: 14, display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "6px 18px", fontSize: 13, color: "#333" }}>
+        <div style={{ marginTop: 14, display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "6px 18px", fontSize: 13, color: "var(--ink2)" }}>
           {longTailProducers.map((p) => (
-            <div key={p.rank} style={{ lineHeight: 1.6 }}><span style={{ color: "#999", marginRight: 6 }}>#{p.rank}</span><strong style={{ color: "#1A1A1A" }}>{p.name}</strong> <span style={{ color: "#888" }}>· {p.prod} t</span></div>
+            <div key={p.rank} style={{ lineHeight: 1.6 }}><span style={{ color: "var(--mute2)", marginRight: 6 }}>#{p.rank}</span><strong style={{ color: "var(--ink)" }}>{p.name}</strong> <span style={{ color: "var(--mute2)" }}>· {p.prod} t</span></div>
           ))}
         </div>
-        <p style={{ fontSize: 11, color: "#999", marginTop: 12, fontStyle: "italic" }}>Source: FAOSTAT 2023 production data (UN FAO). Production figures rounded to nearest 10,000 tonnes; some 2022 figures used where 2023 was unavailable. Country profiles for these producers are not yet available — see <a href="/countries" style={{ color: "#C62828", textDecoration: "none" }}>all 31 country profiles</a> for the top tier.</p>
+        <p style={{ fontSize: 11, color: "var(--mute2)", marginTop: 12, fontStyle: "italic" }}>Source: FAOSTAT 2023 production data (UN FAO). Production figures rounded to nearest 10,000 tonnes; some 2022 figures used where 2023 was unavailable. Country profiles for these producers are not yet available — see <a href="/countries" style={{ color: "var(--gold)", textDecoration: "none" }}>all 31 country profiles</a> for the top tier.</p>
       </details>
 
       <StatCallout number="94.4M" unit="tonnes" context="China produces 25% of the world's potatoes on 4.7 million hectares, with yields of 20.1 t/ha." source="FAOSTAT 2023" />
 
       {/* Section 2 */}
       <h2 id="by-continent" style={sH2}>How is global potato production distributed by continent?</h2>
-      <p style={sP}><strong>Asia</strong> leads global potato production at approximately 175.8 million tonnes, accounting for 46% of the world total (FAOSTAT 2024). China (94.87M), India (57.05M), <Link href="/country/bangladesh" style={{ color: "#C62828", textDecoration: "none" }}>Bangladesh</Link> (10.8M), and <Link href="/country/pakistan" style={{ color: "#C62828", textDecoration: "none" }}>Pakistan</Link> (8.43M) are the continent&apos;s major producers.</p>
-      <p style={sP}><strong>Europe</strong> follows at 107.2 million tonnes, led by <Link href="/country/ukraine" style={{ color: "#C62828", textDecoration: "none" }}>Ukraine</Link> (21.13M), <Link href="/country/russia" style={{ color: "#C62828", textDecoration: "none" }}>Russia</Link> (18.45M), <Link href="/country/germany" style={{ color: "#C62828", textDecoration: "none" }}>Germany</Link> (12.70M), and <Link href="/country/france" style={{ color: "#C62828", textDecoration: "none" }}>France</Link> (8.8M). European yields are among the world&apos;s highest, with <Link href="/country/belgium" style={{ color: "#C62828", textDecoration: "none" }}>Belgium</Link> averaging 46.0 t/ha.</p>
-      <p style={sP}><strong>The Americas</strong> contribute 38.5 million tonnes, with the <Link href="/country/united-states" style={{ color: "#C62828", textDecoration: "none" }}>United States</Link> (19.06M), <Link href="/country/peru" style={{ color: "#C62828", textDecoration: "none" }}>Peru</Link> (5.6M), and <Link href="/country/canada" style={{ color: "#C62828", textDecoration: "none" }}>Canada</Link> (5.3M) as the top producers. <strong>Africa and the Middle East</strong> account for 28.9 million tonnes and are growing fastest, with <Link href="/country/egypt" style={{ color: "#C62828", textDecoration: "none" }}>Egypt</Link> (8.08M) and <Link href="/country/algeria" style={{ color: "#C62828", textDecoration: "none" }}>Algeria</Link> (4.60M, FAOSTAT 2024) as the leading African producers.</p>
+      <p style={sP}><strong>Asia</strong> leads global potato production at approximately 175.8 million tonnes, accounting for 46% of the world total (FAOSTAT 2024). China (94.87M), India (57.05M), <Link href="/country/bangladesh" style={{ color: "var(--gold)", textDecoration: "none" }}>Bangladesh</Link> (10.8M), and <Link href="/country/pakistan" style={{ color: "var(--gold)", textDecoration: "none" }}>Pakistan</Link> (8.43M) are the continent&apos;s major producers.</p>
+      <p style={sP}><strong>Europe</strong> follows at 107.2 million tonnes, led by <Link href="/country/ukraine" style={{ color: "var(--gold)", textDecoration: "none" }}>Ukraine</Link> (21.13M), <Link href="/country/russia" style={{ color: "var(--gold)", textDecoration: "none" }}>Russia</Link> (18.45M), <Link href="/country/germany" style={{ color: "var(--gold)", textDecoration: "none" }}>Germany</Link> (12.70M), and <Link href="/country/france" style={{ color: "var(--gold)", textDecoration: "none" }}>France</Link> (8.8M). European yields are among the world&apos;s highest, with <Link href="/country/belgium" style={{ color: "var(--gold)", textDecoration: "none" }}>Belgium</Link> averaging 46.0 t/ha.</p>
+      <p style={sP}><strong>The Americas</strong> contribute 38.5 million tonnes, with the <Link href="/country/united-states" style={{ color: "var(--gold)", textDecoration: "none" }}>United States</Link> (19.06M), <Link href="/country/peru" style={{ color: "var(--gold)", textDecoration: "none" }}>Peru</Link> (5.6M), and <Link href="/country/canada" style={{ color: "var(--gold)", textDecoration: "none" }}>Canada</Link> (5.3M) as the top producers. <strong>Africa and the Middle East</strong> account for 28.9 million tonnes and are growing fastest, with <Link href="/country/egypt" style={{ color: "var(--gold)", textDecoration: "none" }}>Egypt</Link> (8.08M) and <Link href="/country/algeria" style={{ color: "var(--gold)", textDecoration: "none" }}>Algeria</Link> (4.60M, FAOSTAT 2024) as the leading African producers.</p>
 
       <StatCallout number="46%" context="of the world's potatoes are grown in Asia — a share that has increased steadily as developing-country production overtakes Europe." source="FAOSTAT 2023" />
 
       {/* Section 3 */}
       <h2 id="fastest-growing" style={sH2}>Which countries are growing potato production the fastest?</h2>
-      <p style={sP}><Link href="/country/pakistan" style={{ color: "#C62828", textDecoration: "none" }}>Pakistan</Link> stands out with 186% production growth over the past decade, the fastest among the top 20 producers (FAOSTAT). Bangladesh has also expanded rapidly, with potato now a staple alongside rice, feeding 170 million people. In Sub-Saharan Africa, <Link href="/country/kenya" style={{ color: "#C62828", textDecoration: "none" }}>Kenya</Link> and Ethiopia are experiencing double-digit annual production growth as CIP-backed seed programs improve yields from a low base of 8&ndash;15 t/ha.</p>
-      <p style={sP}>Not all trends point upward. <Link href="/country/poland" style={{ color: "#C62828", textDecoration: "none" }}>Poland&apos;s</Link> harvested area shrank from 2.8 million to 188,000 hectares over 20 years as the country shifted from subsistence to commercial agriculture. Japan&apos;s production continues to decline due to an aging farming population and decreasing domestic demand for fresh potatoes. In Europe broadly, total area is contracting while yields rise &mdash; producing similar or higher volumes from less land.</p>
+      <p style={sP}><Link href="/country/pakistan" style={{ color: "var(--gold)", textDecoration: "none" }}>Pakistan</Link> stands out with 186% production growth over the past decade, the fastest among the top 20 producers (FAOSTAT). Bangladesh has also expanded rapidly, with potato now a staple alongside rice, feeding 170 million people. In Sub-Saharan Africa, <Link href="/country/kenya" style={{ color: "var(--gold)", textDecoration: "none" }}>Kenya</Link> and Ethiopia are experiencing double-digit annual production growth as CIP-backed seed programs improve yields from a low base of 8&ndash;15 t/ha.</p>
+      <p style={sP}>Not all trends point upward. <Link href="/country/poland" style={{ color: "var(--gold)", textDecoration: "none" }}>Poland&apos;s</Link> harvested area shrank from 2.8 million to 188,000 hectares over 20 years as the country shifted from subsistence to commercial agriculture. Japan&apos;s production continues to decline due to an aging farming population and decreasing domestic demand for fresh potatoes. In Europe broadly, total area is contracting while yields rise &mdash; producing similar or higher volumes from less land.</p>
 
       {/* Section 4 */}
       <h2 id="decade-trends" style={sH2}>How have global potato production trends changed over the past decade?</h2>
       <p style={sP}>Global potato production reached 383 million tonnes in 2023, up from 376 million tonnes in 2022 (FAOSTAT). More notably, this growth occurred despite a decline in harvested area from 18.1 million to 16.8 million hectares, reflecting significant yield improvements driven by better varieties, precision irrigation, and fertilizer optimization.</p>
       <p style={sP}>The most dramatic structural shift is geographic: developing countries now produce more than half of the world&apos;s potatoes (CIP). In 1990, Europe and North America dominated global production. Today, Asia and Africa are the growth engines. China&apos;s 2014 &ldquo;Potato Staple Food Strategy&rdquo; accelerated investment in mechanization, cold storage, and processing capacity. India&apos;s frozen fry exports surged 77.5% in a single month in 2025, signaling a new phase of Asian potato industrialization.</p>
-      <p style={sP}>In the <Link href="/country/united-states" style={{ color: "#C62828", textDecoration: "none" }}>United States</Link>, 2024 production reached 421 million cwt, down 4% from the prior year, with a total crop value of $4.60 billion (USDA NASS). The US maintains the world&apos;s highest commercial yields at 51.0 t/ha, driven by center-pivot irrigation and precision agriculture in Idaho, Washington, and the Pacific Northwest.</p>
+      <p style={sP}>In the <Link href="/country/united-states" style={{ color: "var(--gold)", textDecoration: "none" }}>United States</Link>, 2024 production reached 421 million cwt, down 4% from the prior year, with a total crop value of $4.60 billion (USDA NASS). The US maintains the world&apos;s highest commercial yields at 51.0 t/ha, driven by center-pivot irrigation and precision agriculture in Idaho, Washington, and the Pacific Northwest.</p>
 
       <StatCallout number="+1.9%" context="global production growth from 2022 to 2023, driven by yield improvements despite declining harvested area." source="FAOSTAT 2023" />
 
@@ -621,13 +621,13 @@ function TopProducingCountries() {
 
       {/* Section 6 */}
       <h2 id="us-rank" style={sH2}>Where does the US rank in global potato production?</h2>
-      <p style={sP}>The <Link href="/country/united-states" style={{ color: "#C62828", fontWeight: 600, textDecoration: "none" }}>United States</Link> ranks <strong>#5 globally</strong> at 18.7 million tonnes (FAOSTAT 2023). Idaho is the dominant state, producing approximately 30% of the national crop, followed by Washington, Wisconsin, Oregon, and North Dakota. US yields average 51.0 t/ha &mdash; the highest among major producers and more than double the global average of 22 t/ha.</p>
-      <p style={sP}>Roughly 69% of the US crop goes to processing (frozen fries, chips, dehydrated products), with Lamb Weston, Simplot, and McCain operating major facilities in the Pacific Northwest. The 2024 crop was valued at $4.60 billion, making potatoes one of America&apos;s most valuable vegetable crops (USDA NASS). For complete US state-by-state data, see our <Link href="/answers/us-potato-production-by-state" style={{ color: "#C62828", textDecoration: "none" }}>US production breakdown</Link>.</p>
+      <p style={sP}>The <Link href="/country/united-states" style={{ color: "var(--gold)", fontWeight: 600, textDecoration: "none" }}>United States</Link> ranks <strong>#5 globally</strong> at 18.7 million tonnes (FAOSTAT 2023). Idaho is the dominant state, producing approximately 30% of the national crop, followed by Washington, Wisconsin, Oregon, and North Dakota. US yields average 51.0 t/ha &mdash; the highest among major producers and more than double the global average of 22 t/ha.</p>
+      <p style={sP}>Roughly 69% of the US crop goes to processing (frozen fries, chips, dehydrated products), with Lamb Weston, Simplot, and McCain operating major facilities in the Pacific Northwest. The 2024 crop was valued at $4.60 billion, making potatoes one of America&apos;s most valuable vegetable crops (USDA NASS). For complete US state-by-state data, see our <Link href="/answers/us-potato-production-by-state" style={{ color: "var(--gold)", textDecoration: "none" }}>US production breakdown</Link>.</p>
 
       {/* Section 7 */}
       <h2 id="consumption-vs-production" style={sH2}>How does per capita consumption differ from production rankings?</h2>
-      <p style={sP}>The biggest producers are not always the biggest consumers per capita. China grows 94.4 million tonnes but consumes only 41 kg per person per year due to its massive population. In contrast, Belarus &mdash; not even in the top 20 producers &mdash; leads global consumption at 181 kg/person/year. <Link href="/country/ukraine" style={{ color: "#C62828", textDecoration: "none" }}>Ukraine</Link> (136 kg) and <Link href="/country/russia" style={{ color: "#C62828", textDecoration: "none" }}>Russia</Link> (111 kg) follow.</p>
-      <p style={sP}><Link href="/country/belgium" style={{ color: "#C62828", textDecoration: "none" }}>Belgium</Link> processes far more potatoes than it grows, importing millions of tonnes from <Link href="/country/france" style={{ color: "#C62828", textDecoration: "none" }}>France</Link> and the <Link href="/country/netherlands" style={{ color: "#C62828", textDecoration: "none" }}>Netherlands</Link> to feed its massive frozen fry export industry ($4.6B annually). The <Link href="/country/netherlands" style={{ color: "#C62828", textDecoration: "none" }}>Netherlands</Link> produces 7.1 million tonnes but exports the majority as seed potatoes and processed products rather than consuming domestically. For the full per-capita rankings, see <Link href="/knowledge/potato-consumption-per-capita" style={{ color: "#C62828", textDecoration: "none" }}>Potato Consumption Per Capita by Country</Link>.</p>
+      <p style={sP}>The biggest producers are not always the biggest consumers per capita. China grows 94.4 million tonnes but consumes only 41 kg per person per year due to its massive population. In contrast, Belarus &mdash; not even in the top 20 producers &mdash; leads global consumption at 181 kg/person/year. <Link href="/country/ukraine" style={{ color: "var(--gold)", textDecoration: "none" }}>Ukraine</Link> (136 kg) and <Link href="/country/russia" style={{ color: "var(--gold)", textDecoration: "none" }}>Russia</Link> (111 kg) follow.</p>
+      <p style={sP}><Link href="/country/belgium" style={{ color: "var(--gold)", textDecoration: "none" }}>Belgium</Link> processes far more potatoes than it grows, importing millions of tonnes from <Link href="/country/france" style={{ color: "var(--gold)", textDecoration: "none" }}>France</Link> and the <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link> to feed its massive frozen fry export industry ($4.6B annually). The <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link> produces 7.1 million tonnes but exports the majority as seed potatoes and processed products rather than consuming domestically. For the full per-capita rankings, see <Link href="/knowledge/potato-consumption-per-capita" style={{ color: "var(--gold)", textDecoration: "none" }}>Potato Consumption Per Capita by Country</Link>.</p>
 
       {/* Sources */}
       <SourceBlock sources={[
@@ -650,14 +650,14 @@ function TopProducingCountries() {
 
       {/* Related Countries */}
       <section style={{ marginTop: 48 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Explore Country Profiles</h2>
+        <h2 style={{ fontSize: 20, fontWeight: 700, color: "var(--ink)", marginBottom: 16 }}>Explore Country Profiles</h2>
         <div style={{ display: "flex", gap: 10, overflowX: "auto", paddingBottom: 8 }}>
           {topCountries.map((c) => (
-            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "white", border: "1px solid #eee", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0, transition: "border-color 0.2s" }}>
+            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "var(--card)", border: "1px solid var(--line)", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0, transition: "border-color 0.2s" }}>
               <span style={{ fontSize: 20 }}>{c.flag}</span>
               <div>
-                <div style={{ fontSize: 13, fontWeight: 600, color: "#1A1A1A", whiteSpace: "nowrap" }}>{c.name}</div>
-                <div style={{ fontSize: 11, color: "#C62828", fontWeight: 600 }}>{c.prod} tonnes</div>
+                <div style={{ fontSize: 13, fontWeight: 600, color: "var(--ink)", whiteSpace: "nowrap" }}>{c.name}</div>
+                <div style={{ fontSize: 11, color: "var(--gold)", fontWeight: 600 }}>{c.prod} tonnes</div>
               </div>
             </Link>
           ))}
@@ -721,12 +721,12 @@ function PotatoNutritionFacts() {
         <Breadcrumb tag="Nutrition" />
         <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 16 }}>
           <TagBadge tag="Nutrition" />
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>Updated {UPDATED_SHORT}</span>
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>9 min read</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>Updated {UPDATED_SHORT}</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>9 min read</span>
         </div>
-        <h1 style={{ fontSize: 32, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>Potato Nutrition Facts and Health Benefits</h1>
+        <h1 style={{ fontSize: 32, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>Potato Nutrition Facts and Health Benefits</h1>
       </HeroBanner>
 
       <div style={{ maxWidth: 820, margin: "0 auto", padding: "0 24px 80px" }}>
@@ -753,7 +753,7 @@ function PotatoNutritionFacts() {
           <thead><tr>{["Nutrient","Amount per Medium Potato","% Daily Value"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {nutrients.map((r, i) => (
-              <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={sTd}>{r[0]}</td><td style={{ ...sTd, fontWeight: i < 5 ? 600 : 400 }}>{r[1]}</td><td style={sTd}>{r[2]}</td>
               </tr>
             ))}
@@ -766,16 +766,16 @@ function PotatoNutritionFacts() {
 
       <h2 id="healthy-unhealthy" style={sH2}>Are potatoes healthy or unhealthy?</h2>
       <p style={sP}>Potatoes are one of the most nutrient-dense foods available. A single medium potato provides more potassium than a banana, 30% of daily vitamin C needs, 25% of vitamin B6, and 17% of daily fiber &mdash; all for just 110 calories (USDA FoodData Central). They are naturally fat-free, cholesterol-free, and gluten-free.</p>
-      <p style={sP}>The confusion around potato health comes from preparation. A baked potato with skin is genuinely a health food. Deep-fried chips loaded with salt, butter-drenched mashed potatoes, and loaded potato skins are not &mdash; but the problem is the added fat, salt, and calories, not the potato itself. Countries with the <Link href="/knowledge/potato-consumption-per-capita" style={{ color: "#C62828", textDecoration: "none" }}>highest potato consumption</Link> (like <Link href="/country/peru" style={{ color: "#C62828", textDecoration: "none" }}>Peru</Link> at 85 kg/capita) do not have unusually high rates of obesity or heart disease.</p>
+      <p style={sP}>The confusion around potato health comes from preparation. A baked potato with skin is genuinely a health food. Deep-fried chips loaded with salt, butter-drenched mashed potatoes, and loaded potato skins are not &mdash; but the problem is the added fat, salt, and calories, not the potato itself. Countries with the <Link href="/knowledge/potato-consumption-per-capita" style={{ color: "var(--gold)", textDecoration: "none" }}>highest potato consumption</Link> (like <Link href="/country/peru" style={{ color: "var(--gold)", textDecoration: "none" }}>Peru</Link> at 85 kg/capita) do not have unusually high rates of obesity or heart disease.</p>
 
       <h2 id="vs-rice-bread" style={sH2}>How do potatoes compare to rice, bread, and pasta?</h2>
-      <p style={sP}>Per 100g of cooked weight, potatoes deliver significantly more micronutrients than <Link href="/answers/potato-vs-rice-nutrition" style={{ color: "#C62828", textDecoration: "none" }}>white rice</Link> or white bread while containing fewer calories. The comparison table below uses USDA data for boiled potato (skin on), cooked white rice, and white bread.</p>
+      <p style={sP}>Per 100g of cooked weight, potatoes deliver significantly more micronutrients than <Link href="/answers/potato-vs-rice-nutrition" style={{ color: "var(--gold)", textDecoration: "none" }}>white rice</Link> or white bread while containing fewer calories. The comparison table below uses USDA data for boiled potato (skin on), cooked white rice, and white bread.</p>
       <div style={{ overflowX: "auto", marginBottom: 8 }}>
         <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 14 }}>
           <thead><tr>{["Nutrient","Potato (boiled)","White Rice","White Bread"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {comparison.map((r, i) => (
-              <tr key={r[0]} style={{ background: i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={r[0]} style={{ background: i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td><td style={sTd}>{r[1]}</td><td style={sTd}>{r[2]}</td><td style={sTd}>{r[3]}</td>
               </tr>
             ))}
@@ -788,8 +788,8 @@ function PotatoNutritionFacts() {
       <StatCallout number="0.77" unit="kcal/g" context="Potatoes have one of the lowest calorie densities of any staple food, making them naturally more filling per calorie than rice (1.30) or bread (2.65)." source="USDA FoodData Central" />
 
       <h2 id="diabetics" style={sH2}>Can diabetics eat potatoes?</h2>
-      <p style={sP}>Yes, with smart preparation. Boiling potatoes (rather than baking or frying) produces the lowest glycemic response. Eating potatoes with protein, healthy fat, and additional fiber slows glucose absorption significantly. Cooling cooked potatoes overnight creates resistant starch that reduces the glycemic response by 20&ndash;40% (Englyst et al., European Journal of Clinical Nutrition). See our <Link href="/answers/can-diabetics-eat-potatoes" style={{ color: "#C62828", textDecoration: "none" }}>detailed guide on potatoes and diabetes</Link>.</p>
-      <p style={sP}>Waxy potato varieties (like <Link href="/answers/types-of-potatoes" style={{ color: "#C62828", textDecoration: "none" }}>Red Pontiac or fingerlings</Link>) generally have a lower GI than starchy varieties like <Link href="/knowledge/potato-varieties-guide" style={{ color: "#C62828", textDecoration: "none" }}>Russet Burbank</Link>. The American Diabetes Association does not prohibit potatoes &mdash; it recommends portion control and pairing with non-starchy vegetables and protein.</p>
+      <p style={sP}>Yes, with smart preparation. Boiling potatoes (rather than baking or frying) produces the lowest glycemic response. Eating potatoes with protein, healthy fat, and additional fiber slows glucose absorption significantly. Cooling cooked potatoes overnight creates resistant starch that reduces the glycemic response by 20&ndash;40% (Englyst et al., European Journal of Clinical Nutrition). See our <Link href="/answers/can-diabetics-eat-potatoes" style={{ color: "var(--gold)", textDecoration: "none" }}>detailed guide on potatoes and diabetes</Link>.</p>
+      <p style={sP}>Waxy potato varieties (like <Link href="/answers/types-of-potatoes" style={{ color: "var(--gold)", textDecoration: "none" }}>Red Pontiac or fingerlings</Link>) generally have a lower GI than starchy varieties like <Link href="/knowledge/potato-varieties-guide" style={{ color: "var(--gold)", textDecoration: "none" }}>Russet Burbank</Link>. The American Diabetes Association does not prohibit potatoes &mdash; it recommends portion control and pairing with non-starchy vegetables and protein.</p>
 
       <h2 id="weight-loss" style={sH2}>Are potatoes good for weight loss?</h2>
       <p style={sP}>Surprisingly, yes. Potatoes rank <strong>#1 on the Satiety Index</strong> &mdash; a landmark 1995 study by Holt et al. (European Journal of Clinical Nutrition) found that boiled potatoes were the most satisfying food tested, scoring 323% compared to white bread at 100%. This means potatoes keep you feeling full longer per calorie than any other common food tested, including brown rice, whole wheat bread, and oatmeal.</p>
@@ -800,11 +800,11 @@ function PotatoNutritionFacts() {
       <h2 id="cooking-methods" style={sH2}>How does cooking method affect potato nutrition?</h2>
       <p style={sP}><strong>Boiling with skin:</strong> Preserves most nutrients. Some vitamin C leaches into water (use the cooking water in soups). Produces the lowest glycemic response. Best method for health-conscious eating.</p>
       <p style={sP}><strong>Baking:</strong> Concentrates nutrients slightly as moisture evaporates. Higher GI than boiling (85+ vs 56&ndash;69) because starches gelatinize more completely. Eating the skin adds fiber, iron, and potassium.</p>
-      <p style={sP}><strong>Frying:</strong> Adds significant calories from oil (a medium baked potato is 110 cal; the same potato fried is 300&ndash;500 cal). Frying above 120&deg;C produces acrylamide, a potentially harmful compound. <Link href="/answers/how-are-french-fries-made" style={{ color: "#C62828", textDecoration: "none" }}>French fries</Link> and <Link href="/answers/which-country-eats-most-potato-chips" style={{ color: "#C62828", textDecoration: "none" }}>chips</Link> are the least healthy preparation.</p>
+      <p style={sP}><strong>Frying:</strong> Adds significant calories from oil (a medium baked potato is 110 cal; the same potato fried is 300&ndash;500 cal). Frying above 120&deg;C produces acrylamide, a potentially harmful compound. <Link href="/answers/how-are-french-fries-made" style={{ color: "var(--gold)", textDecoration: "none" }}>French fries</Link> and <Link href="/answers/which-country-eats-most-potato-chips" style={{ color: "var(--gold)", textDecoration: "none" }}>chips</Link> are the least healthy preparation.</p>
       <p style={sP}><strong>Cooling after cooking:</strong> Creates resistant starch (RS3) as the starch molecules retrograde on cooling. This lowers the effective GI by 20&ndash;40%, reduces caloric availability, and functions as a prebiotic that feeds beneficial gut bacteria. Potato salad is nutritionally superior to hot baked potato for glycemic control.</p>
 
       <h2 id="green-potatoes" style={sH2}>Are green potatoes dangerous?</h2>
-      <p style={sP}>The green color comes from chlorophyll, which is harmless. However, the same light exposure that causes greening also triggers solanine production, a glycoalkaloid that can cause nausea, digestive pain, and headaches at concentrations above 200mg/kg of body weight (FAO). Normal consumption of slightly green potatoes is unlikely to cause problems, but visibly green potatoes should have the green portions cut away before cooking. To prevent greening, store potatoes in a cool, dark place. See our <Link href="/knowledge/potato-storage-cold-chain" style={{ color: "#C62828", textDecoration: "none" }}>storage guide</Link> for best practices.</p>
+      <p style={sP}>The green color comes from chlorophyll, which is harmless. However, the same light exposure that causes greening also triggers solanine production, a glycoalkaloid that can cause nausea, digestive pain, and headaches at concentrations above 200mg/kg of body weight (FAO). Normal consumption of slightly green potatoes is unlikely to cause problems, but visibly green potatoes should have the green portions cut away before cooking. To prevent greening, store potatoes in a cool, dark place. See our <Link href="/knowledge/potato-storage-cold-chain" style={{ color: "var(--gold)", textDecoration: "none" }}>storage guide</Link> for best practices.</p>
 
       <SourceBlock sources={[
         "USDA FoodData Central — Nutritional composition of potato, baked, flesh and skin",
@@ -818,14 +818,14 @@ function PotatoNutritionFacts() {
       <SupportBlock />
       <RelatedArticles articles={relatedArticles} />
       <section style={{ marginTop: 48 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Top Potato Consuming Countries</h2>
+        <h2 style={{ fontSize: 20, fontWeight: 700, color: "var(--ink)", marginBottom: 16 }}>Top Potato Consuming Countries</h2>
         <div style={{ display: "flex", gap: 10, overflowX: "auto", paddingBottom: 8 }}>
           {relatedCountries.map((c) => (
-            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "white", border: "1px solid #eee", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
+            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "var(--card)", border: "1px solid var(--line)", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
               <span style={{ fontSize: 20 }}>{c.flag}</span>
               <div>
-                <div style={{ fontSize: 13, fontWeight: 600, color: "#1A1A1A", whiteSpace: "nowrap" }}>{c.name}</div>
-                <div style={{ fontSize: 11, color: "#C62828", fontWeight: 600 }}>{c.consumption}</div>
+                <div style={{ fontSize: 13, fontWeight: 600, color: "var(--ink)", whiteSpace: "nowrap" }}>{c.name}</div>
+                <div style={{ fontSize: 11, color: "var(--gold)", fontWeight: 600 }}>{c.consumption}</div>
               </div>
             </Link>
           ))}
@@ -885,12 +885,12 @@ function PotatoVarietiesGuide() {
         <Breadcrumb tag="Varieties" />
         <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 16 }}>
           <TagBadge tag="Varieties" />
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>Updated {UPDATED_SHORT}</span>
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>10 min read</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>Updated {UPDATED_SHORT}</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>10 min read</span>
         </div>
-        <h1 style={{ fontSize: 32, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>Potato Varieties Guide: 50+ Types for Cooking, Frying, and Growing</h1>
+        <h1 style={{ fontSize: 32, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>Potato Varieties Guide: 50+ Types for Cooking, Frying, and Growing</h1>
       </HeroBanner>
 
       <div style={{ maxWidth: 820, margin: "0 auto", padding: "0 24px 80px" }}>
@@ -911,9 +911,9 @@ function PotatoVarietiesGuide() {
       <CollapsibleTOC items={tocItems} />
 
       <h2 id="types" style={sH2}>What are the 3 main types of potatoes?</h2>
-      <p style={sP}><strong>Starchy potatoes</strong> (like <Link href="/answers/best-potato-varieties-for-frying" style={{ color: "#C62828", textDecoration: "none" }}>Russet Burbank</Link>) have high starch (20&ndash;22% dry matter) and low moisture, producing a fluffy, dry texture when cooked. They absorb butter and cream well, making them ideal for baking, frying, and mashing. They fall apart when boiled, which is a feature for mash but a bug for salads.</p>
+      <p style={sP}><strong>Starchy potatoes</strong> (like <Link href="/answers/best-potato-varieties-for-frying" style={{ color: "var(--gold)", textDecoration: "none" }}>Russet Burbank</Link>) have high starch (20&ndash;22% dry matter) and low moisture, producing a fluffy, dry texture when cooked. They absorb butter and cream well, making them ideal for baking, frying, and mashing. They fall apart when boiled, which is a feature for mash but a bug for salads.</p>
       <p style={sP}><strong>Waxy potatoes</strong> (like Red Pontiac, fingerlings, and new potatoes) have low starch (16&ndash;18% DM) and high moisture, holding their shape firmly when boiled or roasted. They are the right choice for potato salads, soups, scalloped gratins, and any dish where you want intact pieces.</p>
-      <p style={sP}><strong>All-purpose potatoes</strong> (like <Link href="/answers/types-of-potatoes" style={{ color: "#C62828", textDecoration: "none" }}>Yukon Gold</Link>, Maris Piper) fall in the middle (18&ndash;20% DM). They hold their shape better than starchy types but mash more smoothly than waxy. If you can only buy one potato for multiple dishes, all-purpose is the safe bet.</p>
+      <p style={sP}><strong>All-purpose potatoes</strong> (like <Link href="/answers/types-of-potatoes" style={{ color: "var(--gold)", textDecoration: "none" }}>Yukon Gold</Link>, Maris Piper) fall in the middle (18&ndash;20% DM). They hold their shape better than starchy types but mash more smoothly than waxy. If you can only buy one potato for multiple dishes, all-purpose is the safe bet.</p>
 
       <StatCallout number="4,000+" unit="varieties" context="CIP maintains the world's largest potato genebank in Lima, Peru, preserving varieties from 100+ countries for breeding and food security research." source="CIP, International Potato Center" />
 
@@ -922,21 +922,21 @@ function PotatoVarietiesGuide() {
       <p style={sP}>For <strong>potato chips/crisps</strong>, <strong>Atlantic</strong> is the dominant global chipping variety. <strong>Kennebec</strong> and <strong>Lady Rosetta</strong> are also widely used. Chip varieties need very low reducing sugars (&lt;1.5 mg/g) and round shape for uniform slicing.</p>
 
       <h2 id="best-baking" style={sH2}>What is the best potato for baking?</h2>
-      <p style={sP}><strong>Russet Burbank</strong> is the definitive baking potato: its high starch content (22% DM) creates a fluffy, light interior when baked, and its thick skin holds its shape as a vessel for toppings. In the <Link href="/country/united-kingdom" style={{ color: "#C62828", textDecoration: "none" }}>UK</Link>, <strong>Maris Piper</strong> and <strong>King Edward</strong> are preferred for jacket potatoes. In continental Europe, <strong>Agria</strong> and <strong>Bintje</strong> are popular baking choices. All share the common trait of high dry matter.</p>
+      <p style={sP}><strong>Russet Burbank</strong> is the definitive baking potato: its high starch content (22% DM) creates a fluffy, light interior when baked, and its thick skin holds its shape as a vessel for toppings. In the <Link href="/country/united-kingdom" style={{ color: "var(--gold)", textDecoration: "none" }}>UK</Link>, <strong>Maris Piper</strong> and <strong>King Edward</strong> are preferred for jacket potatoes. In continental Europe, <strong>Agria</strong> and <strong>Bintje</strong> are popular baking choices. All share the common trait of high dry matter.</p>
 
       <h2 id="popular-worldwide" style={sH2}>What are the most popular potato varieties by country?</h2>
       <p style={sP}>There is no single global champion. Popularity is deeply regional, driven by local cuisine, climate, and breeding history:</p>
-      <p style={sP}><strong><Link href="/country/united-states" style={{ color: "#C62828", textDecoration: "none" }}>United States</Link>:</strong> Russet Burbank (~40% of acreage), Atlantic (chipping), Yukon Gold (fresh market). Idaho and Washington dominate production (USDA).</p>
-      <p style={sP}><strong><Link href="/country/united-kingdom" style={{ color: "#C62828", textDecoration: "none" }}>United Kingdom</Link>:</strong> Maris Piper (~16%), King Edward, Rooster. British chip shops and roast dinners define demand (AHDB).</p>
-      <p style={sP}><strong><Link href="/country/india" style={{ color: "#C62828", textDecoration: "none" }}>India</Link>:</strong> Kufri Jyoti, Kufri Pukhraj, Kufri Chandramukhi. CPRI Shimla breeds Kufri varieties for subtropical conditions, feeding over a billion people.</p>
-      <p style={sP}><strong><Link href="/country/netherlands" style={{ color: "#C62828", textDecoration: "none" }}>Netherlands</Link>:</strong> Agria, Innovator, Désirée, Spunta. Dutch breeders (HZPC, Agrico, Meijer) export seed varieties to 80+ countries.</p>
-      <p style={sP}><strong><Link href="/country/peru" style={{ color: "#C62828", textDecoration: "none" }}>Peru</Link>:</strong> Canchan (40% of commercial crop, ~1.4M tonnes/year per CIP), plus 3,000+ native varieties in the Andes.</p>
+      <p style={sP}><strong><Link href="/country/united-states" style={{ color: "var(--gold)", textDecoration: "none" }}>United States</Link>:</strong> Russet Burbank (~40% of acreage), Atlantic (chipping), Yukon Gold (fresh market). Idaho and Washington dominate production (USDA).</p>
+      <p style={sP}><strong><Link href="/country/united-kingdom" style={{ color: "var(--gold)", textDecoration: "none" }}>United Kingdom</Link>:</strong> Maris Piper (~16%), King Edward, Rooster. British chip shops and roast dinners define demand (AHDB).</p>
+      <p style={sP}><strong><Link href="/country/india" style={{ color: "var(--gold)", textDecoration: "none" }}>India</Link>:</strong> Kufri Jyoti, Kufri Pukhraj, Kufri Chandramukhi. CPRI Shimla breeds Kufri varieties for subtropical conditions, feeding over a billion people.</p>
+      <p style={sP}><strong><Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link>:</strong> Agria, Innovator, Désirée, Spunta. Dutch breeders (HZPC, Agrico, Meijer) export seed varieties to 80+ countries.</p>
+      <p style={sP}><strong><Link href="/country/peru" style={{ color: "var(--gold)", textDecoration: "none" }}>Peru</Link>:</strong> Canchan (40% of commercial crop, ~1.4M tonnes/year per CIP), plus 3,000+ native varieties in the Andes.</p>
 
       <StatCallout number="40%" context="Russet Burbank accounts for roughly 40% of all US potato acreage, making it by far the most-planted variety in the world's highest-yielding potato nation." source="USDA" />
 
       <h2 id="origin" style={sH2}>Where did potatoes originate?</h2>
-      <p style={sP}>Potatoes were first domesticated in the Andes Mountains of modern-day <Link href="/country/peru" style={{ color: "#C62828", textDecoration: "none" }}>Peru</Link> and Bolivia around 8,000 BCE (CIP). The Inca Empire cultivated hundreds of varieties at altitudes up to 4,500 meters, developing techniques like freeze-drying (chuño) that are still used today. Spanish conquistadors brought potatoes to Europe in the 1560s, and from there they spread to every inhabited continent.</p>
-      <p style={sP}>Modern genetic analysis shows that most commercial varieties worldwide trace their ancestry to Chilean lowland potatoes (Solanum tuberosum Group Tuberosum) rather than the high-altitude Andean Group Andigena types. The 19th-century European breeding bottleneck &mdash; exacerbated by the Irish Potato Famine (1845&ndash;1852) &mdash; reduced genetic diversity dramatically. Today, CIP&apos;s genebank and the <Link href="/answers/how-many-potato-varieties-exist" style={{ color: "#C62828", textDecoration: "none" }}>4,000+ preserved accessions</Link> are critical insurance against future crop failures.</p>
+      <p style={sP}>Potatoes were first domesticated in the Andes Mountains of modern-day <Link href="/country/peru" style={{ color: "var(--gold)", textDecoration: "none" }}>Peru</Link> and Bolivia around 8,000 BCE (CIP). The Inca Empire cultivated hundreds of varieties at altitudes up to 4,500 meters, developing techniques like freeze-drying (chuño) that are still used today. Spanish conquistadors brought potatoes to Europe in the 1560s, and from there they spread to every inhabited continent.</p>
+      <p style={sP}>Modern genetic analysis shows that most commercial varieties worldwide trace their ancestry to Chilean lowland potatoes (Solanum tuberosum Group Tuberosum) rather than the high-altitude Andean Group Andigena types. The 19th-century European breeding bottleneck &mdash; exacerbated by the Irish Potato Famine (1845&ndash;1852) &mdash; reduced genetic diversity dramatically. Today, CIP&apos;s genebank and the <Link href="/answers/how-many-potato-varieties-exist" style={{ color: "var(--gold)", textDecoration: "none" }}>4,000+ preserved accessions</Link> are critical insurance against future crop failures.</p>
 
       <h2 id="identify" style={sH2}>How do I identify what type of potato I have?</h2>
       <p style={sP}><strong>Visual cues:</strong> Starchy potatoes tend to be oblong with rough, netted skin (think Russet). Waxy types are typically round to oval with smooth, thin skin (Red Pontiac, fingerlings). All-purpose types are in between (Yukon Gold is round-oval with thin gold skin).</p>
@@ -947,16 +947,16 @@ function PotatoVarietiesGuide() {
       <div className="pp-varieties-grid" style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 16, marginBottom: 32 }}>
         <style>{`@media (max-width: 640px) { .pp-varieties-grid { grid-template-columns: 1fr !important; } }`}</style>
         {varieties.map((v) => (
-          <div key={v.name} style={{ background: "#FAFAFA", border: "1px solid #eee", borderRadius: 12, padding: "20px 18px" }}>
+          <div key={v.name} style={{ background: "var(--paper)", border: "1px solid var(--line)", borderRadius: 12, padding: "20px 18px" }}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
-              <div style={{ fontWeight: 700, fontSize: 16, color: "#1A1A1A" }}>{v.name}</div>
-              <span style={{ fontSize: 10, color: "#888" }}>{v.origin}</span>
+              <div style={{ fontWeight: 700, fontSize: 16, color: "var(--ink)" }}>{v.name}</div>
+              <span style={{ fontSize: 10, color: "var(--mute2)" }}>{v.origin}</span>
             </div>
             <div style={{ display: "flex", gap: 6, marginBottom: 8, flexWrap: "wrap" }}>
-              <span style={{ display: "inline-block", fontSize: 10, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 1, background: "rgba(198,40,40,0.06)", padding: "2px 8px", borderRadius: 8 }}>{v.type}</span>
-              <span style={{ fontSize: 10, fontWeight: 600, color: "#555", background: "#f0f0f0", padding: "2px 8px", borderRadius: 8 }}>Best for: {v.best}</span>
+              <span style={{ display: "inline-block", fontSize: 10, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1, background: "rgba(154,114,56,0.06)", padding: "2px 8px", borderRadius: 8 }}>{v.type}</span>
+              <span style={{ fontSize: 10, fontWeight: 600, color: "var(--mute)", background: "var(--paper)", padding: "2px 8px", borderRadius: 8 }}>Best for: {v.best}</span>
             </div>
-            <p style={{ fontSize: 13, color: "#666", lineHeight: 1.6, margin: 0 }}>{v.desc}</p>
+            <p style={{ fontSize: 13, color: "var(--mute)", lineHeight: 1.6, margin: 0 }}>{v.desc}</p>
           </div>
         ))}
       </div>
@@ -976,14 +976,14 @@ function PotatoVarietiesGuide() {
       <SupportBlock />
       <RelatedArticles articles={relatedArticles} />
       <section style={{ marginTop: 48 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Explore Country Profiles</h2>
+        <h2 style={{ fontSize: 20, fontWeight: 700, color: "var(--ink)", marginBottom: 16 }}>Explore Country Profiles</h2>
         <div style={{ display: "flex", gap: 10, overflowX: "auto", paddingBottom: 8 }}>
           {relatedCountries.map((c) => (
-            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "white", border: "1px solid #eee", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
+            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "var(--card)", border: "1px solid var(--line)", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
               <span style={{ fontSize: 20 }}>{c.flag}</span>
               <div>
-                <div style={{ fontSize: 13, fontWeight: 600, color: "#1A1A1A", whiteSpace: "nowrap" }}>{c.name}</div>
-                <div style={{ fontSize: 11, color: "#C62828", fontWeight: 600 }}>{c.prod} tonnes</div>
+                <div style={{ fontSize: 13, fontWeight: 600, color: "var(--ink)", whiteSpace: "nowrap" }}>{c.name}</div>
+                <div style={{ fontSize: 11, color: "var(--gold)", fontWeight: 600 }}>{c.prod} tonnes</div>
               </div>
             </Link>
           ))}
@@ -1037,12 +1037,12 @@ function GlobalPotatoTrade() {
         <Breadcrumb tag="Trade Data" />
         <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 16 }}>
           <TagBadge tag="Trade Data" />
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>Updated {UPDATED_SHORT}</span>
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>10 min read</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>Updated {UPDATED_SHORT}</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>10 min read</span>
         </div>
-        <h1 style={{ fontSize: 32, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>Global Potato Trade Statistics 2025: Exports, Imports, and Market Data</h1>
+        <h1 style={{ fontSize: 32, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>Global Potato Trade Statistics 2025: Exports, Imports, and Market Data</h1>
       </HeroBanner>
 
       <div style={{ maxWidth: 820, margin: "0 auto", padding: "0 24px 80px" }}>
@@ -1057,26 +1057,26 @@ function GlobalPotatoTrade() {
         { value: "$22.8B", label: "total global trade" },
         { value: "$4.8B", label: "Belgium #1 fry exporter" },
         { value: "1.48M t", label: "NL seed exports" },
-        { value: "+5-7%", label: "frozen fry growth/yr", accent: "#4CAF50" },
+        { value: "+5-7%", label: "frozen fry growth/yr", accent: "var(--gold)" },
       ]} />
 
       <CollapsibleTOC items={tocItems} />
 
       <h2 id="total-value" style={sH2}>How much is the global potato trade worth?</h2>
       <p style={sP}>The total value of global potato trade reaches approximately $22.8 billion annually across all product categories (UN Comtrade 2023). This breaks down into: frozen products (primarily french fries) at $16&ndash;18 billion, fresh table potatoes at $3&ndash;4 billion, certified seed potatoes at $1.5&ndash;2 billion, and processed products (chips, starch, dehydrated) making up the remainder. Trade has grown steadily at 4&ndash;6% annually over the past decade, driven by rising demand for convenience foods in developing markets.</p>
-      <p style={sP}>Potato trade represents a remarkably concentrated industry. Just five countries &mdash; <Link href="/country/belgium" style={{ color: "#C62828", textDecoration: "none" }}>Belgium</Link>, <Link href="/country/netherlands" style={{ color: "#C62828", textDecoration: "none" }}>Netherlands</Link>, <Link href="/country/france" style={{ color: "#C62828", textDecoration: "none" }}>France</Link>, <Link href="/country/united-states" style={{ color: "#C62828", textDecoration: "none" }}>United States</Link>, and <Link href="/country/canada" style={{ color: "#C62828", textDecoration: "none" }}>Canada</Link> &mdash; account for over 60% of all potato exports by value. See our <Link href="/answers/global-potato-trade-value" style={{ color: "#C62828", textDecoration: "none" }}>detailed trade analysis</Link> for more.</p>
+      <p style={sP}>Potato trade represents a remarkably concentrated industry. Just five countries &mdash; <Link href="/country/belgium" style={{ color: "var(--gold)", textDecoration: "none" }}>Belgium</Link>, <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link>, <Link href="/country/france" style={{ color: "var(--gold)", textDecoration: "none" }}>France</Link>, <Link href="/country/united-states" style={{ color: "var(--gold)", textDecoration: "none" }}>United States</Link>, and <Link href="/country/canada" style={{ color: "var(--gold)", textDecoration: "none" }}>Canada</Link> &mdash; account for over 60% of all potato exports by value. See our <Link href="/answers/global-potato-trade-value" style={{ color: "var(--gold)", textDecoration: "none" }}>detailed trade analysis</Link> for more.</p>
 
       <StatCallout number="$22.8B" context="The total value of global potato trade annually, growing 4-6% per year as demand for processed potato products rises in Asia, Africa, and the Middle East." source="UN Comtrade 2023, FAOSTAT" />
 
       <h2 id="fry-exporters" style={sH2}>Which country exports the most frozen french fries?</h2>
-      <p style={sP}><Link href="/country/belgium" style={{ color: "#C62828", fontWeight: 600, textDecoration: "none" }}>Belgium</Link> is the undisputed world leader in frozen french fry exports, shipping $4.8 billion worth to over 150 countries &mdash; more than the <Link href="/country/united-states" style={{ color: "#C62828", textDecoration: "none" }}>USA</Link> ($2.1B), <Link href="/country/canada" style={{ color: "#C62828", textDecoration: "none" }}>Canada</Link> ($1.8B), and <Link href="/country/china" style={{ color: "#C62828", textDecoration: "none" }}>China</Link> combined (UN Comtrade 2023). Belgium and the <Link href="/country/netherlands" style={{ color: "#C62828", textDecoration: "none" }}>Netherlands</Link> together form the &ldquo;Fry Belt,&rdquo; accounting for roughly 45% of all frozen fry exports worldwide.</p>
+      <p style={sP}><Link href="/country/belgium" style={{ color: "var(--gold)", fontWeight: 600, textDecoration: "none" }}>Belgium</Link> is the undisputed world leader in frozen french fry exports, shipping $4.8 billion worth to over 150 countries &mdash; more than the <Link href="/country/united-states" style={{ color: "var(--gold)", textDecoration: "none" }}>USA</Link> ($2.1B), <Link href="/country/canada" style={{ color: "var(--gold)", textDecoration: "none" }}>Canada</Link> ($1.8B), and <Link href="/country/china" style={{ color: "var(--gold)", textDecoration: "none" }}>China</Link> combined (UN Comtrade 2023). Belgium and the <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link> together form the &ldquo;Fry Belt,&rdquo; accounting for roughly 45% of all frozen fry exports worldwide.</p>
       <div style={{ overflowX: "auto", marginBottom: 8 }}>
         <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 14 }}>
           <thead><tr>{["Rank","Country","Export Value","Global Share"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {fryExporters.map((r, i) => (
-              <tr key={r[1]} style={{ background: i < 2 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
-                <td style={sTd}>{r[0]}</td><td style={{ ...sTd, fontWeight: i < 2 ? 600 : 400 }}>{r[1]}</td><td style={sTd}>{r[2]}</td><td style={{ ...sTd, color: "#C62828", fontWeight: 600 }}>{r[3]}</td>
+              <tr key={r[1]} style={{ background: i < 2 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
+                <td style={sTd}>{r[0]}</td><td style={{ ...sTd, fontWeight: i < 2 ? 600 : 400 }}>{r[1]}</td><td style={sTd}>{r[2]}</td><td style={{ ...sTd, color: "var(--gold)", fontWeight: 600 }}>{r[3]}</td>
               </tr>
             ))}
           </tbody>
@@ -1087,14 +1087,14 @@ function GlobalPotatoTrade() {
       <StatCallout number="$4.8B" context="Belgium exports more frozen fries than the USA, Canada, and China combined. The 'Fry Belt' (Belgium + Netherlands) controls 45% of global frozen fry trade." source="UN Comtrade 2023" />
 
       <h2 id="fresh-exporters" style={sH2}>Who are the largest fresh potato exporters?</h2>
-      <p style={sP}><Link href="/country/france" style={{ color: "#C62828", fontWeight: 600, textDecoration: "none" }}>France</Link> is the world&apos;s largest exporter of fresh/raw potatoes at $1.21 billion in 2023 (FAOSTAT), supplying Belgium&apos;s massive processing industry and markets across Southern Europe. The Netherlands ranks second, exporting both fresh table potatoes and certified seed. <Link href="/country/egypt" style={{ color: "#C62828", textDecoration: "none" }}>Egypt</Link> is a notable counter-seasonal exporter, shipping fresh potatoes to Europe during winter months when domestic supply is low.</p>
+      <p style={sP}><Link href="/country/france" style={{ color: "var(--gold)", fontWeight: 600, textDecoration: "none" }}>France</Link> is the world&apos;s largest exporter of fresh/raw potatoes at $1.21 billion in 2023 (FAOSTAT), supplying Belgium&apos;s massive processing industry and markets across Southern Europe. The Netherlands ranks second, exporting both fresh table potatoes and certified seed. <Link href="/country/egypt" style={{ color: "var(--gold)", textDecoration: "none" }}>Egypt</Link> is a notable counter-seasonal exporter, shipping fresh potatoes to Europe during winter months when domestic supply is low.</p>
       <div style={{ overflowX: "auto", marginBottom: 8 }}>
         <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 14 }}>
           <thead><tr>{["Rank","Country","Export Value","Category"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {freshExporters.map((r, i) => (
-              <tr key={r[1]} style={{ background: i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
-                <td style={sTd}>{r[0]}</td><td style={{ ...sTd, fontWeight: i < 1 ? 600 : 400 }}>{r[1]}</td><td style={sTd}>{r[2]}</td><td style={{ ...sTd, color: "#888" }}>{r[3]}</td>
+              <tr key={r[1]} style={{ background: i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
+                <td style={sTd}>{r[0]}</td><td style={{ ...sTd, fontWeight: i < 1 ? 600 : 400 }}>{r[1]}</td><td style={sTd}>{r[2]}</td><td style={{ ...sTd, color: "var(--mute2)" }}>{r[3]}</td>
               </tr>
             ))}
           </tbody>
@@ -1122,10 +1122,10 @@ function GlobalPotatoTrade() {
               const t = TRADE_TIMESERIES[slug];
               if (!t) return null;
               return (
-                <tr key={slug} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
-                  <td style={{ ...sTd, padding: "8px 6px", fontWeight: i < 3 ? 700 : 500 }}><Link href={"/country/" + slug} style={{ color: "#1A1A1A", textDecoration: "none" }}>{name}</Link></td>
+                <tr key={slug} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
+                  <td style={{ ...sTd, padding: "8px 6px", fontWeight: i < 3 ? 700 : 500 }}><Link href={"/country/" + slug} style={{ color: "var(--ink)", textDecoration: "none" }}>{name}</Link></td>
                   {[2018,2019,2020,2021,2022,2023,2024].map((y) => (
-                    <td key={y} style={{ ...sTd, padding: "8px 6px", textAlign: "right", fontVariantNumeric: "tabular-nums", color: y === 2024 ? "#C62828" : "#444", fontWeight: y === 2024 ? 700 : 400 }}>{t.export_val[y] != null ? `$${t.export_val[y].toFixed(0)}M` : "—"}</td>
+                    <td key={y} style={{ ...sTd, padding: "8px 6px", textAlign: "right", fontVariantNumeric: "tabular-nums", color: y === 2024 ? "var(--gold)" : "#444", fontWeight: y === 2024 ? 700 : 400 }}>{t.export_val[y] != null ? `$${t.export_val[y].toFixed(0)}M` : "—"}</td>
                   ))}
                 </tr>
               );
@@ -1136,22 +1136,22 @@ function GlobalPotatoTrade() {
       <p style={sSource}>Source: FAOSTAT 2024 (FAO Trade Matrix, CPC code 01510 — fresh potatoes). Values in million USD. Belgium&apos;s fresh-potato exports include significant intra-EU re-trade; France remains the structural #1 fresh-potato exporter.</p>
 
       <h2 id="seed-trade" style={sH2}>Which country dominates the seed potato market?</h2>
-      <p style={sP}>The <Link href="/country/netherlands" style={{ color: "#C62828", fontWeight: 600, textDecoration: "none" }}>Netherlands</Link> supplies approximately 75% of the world&apos;s internationally traded certified seed potatoes &mdash; roughly 1.48 million tonnes exported annually to 80+ countries (NAK, Netherlands General Inspection Service). Dutch breeders like HZPC, Agrico, Meijer, and Europlant develop varieties specifically adapted to diverse climates. Key exported varieties include Agria, Spunta, and Innovator.</p>
-      <p style={sP}>Certified seed from Dutch breeders can improve yields by 30&ndash;50% compared to farm-saved seed (CIP), driving strong demand from developing countries. <Link href="/country/egypt" style={{ color: "#C62828", textDecoration: "none" }}>Egypt</Link>, <Link href="/country/algeria" style={{ color: "#C62828", textDecoration: "none" }}>Algeria</Link>, and <Link href="/country/kenya" style={{ color: "#C62828", textDecoration: "none" }}>Kenya</Link> are among the largest importers of Dutch seed. Scotland and <Link href="/country/france" style={{ color: "#C62828", textDecoration: "none" }}>France</Link> are the next-largest seed exporters globally. See our <Link href="/answers/netherlands-seed-potato-exports" style={{ color: "#C62828", textDecoration: "none" }}>Netherlands seed potato analysis</Link> for more.</p>
+      <p style={sP}>The <Link href="/country/netherlands" style={{ color: "var(--gold)", fontWeight: 600, textDecoration: "none" }}>Netherlands</Link> supplies approximately 75% of the world&apos;s internationally traded certified seed potatoes &mdash; roughly 1.48 million tonnes exported annually to 80+ countries (NAK, Netherlands General Inspection Service). Dutch breeders like HZPC, Agrico, Meijer, and Europlant develop varieties specifically adapted to diverse climates. Key exported varieties include Agria, Spunta, and Innovator.</p>
+      <p style={sP}>Certified seed from Dutch breeders can improve yields by 30&ndash;50% compared to farm-saved seed (CIP), driving strong demand from developing countries. <Link href="/country/egypt" style={{ color: "var(--gold)", textDecoration: "none" }}>Egypt</Link>, <Link href="/country/algeria" style={{ color: "var(--gold)", textDecoration: "none" }}>Algeria</Link>, and <Link href="/country/kenya" style={{ color: "var(--gold)", textDecoration: "none" }}>Kenya</Link> are among the largest importers of Dutch seed. Scotland and <Link href="/country/france" style={{ color: "var(--gold)", textDecoration: "none" }}>France</Link> are the next-largest seed exporters globally. See our <Link href="/answers/netherlands-seed-potato-exports" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands seed potato analysis</Link> for more.</p>
 
       <StatCallout number="75%" context="The Netherlands supplies three-quarters of the world's internationally traded certified seed potatoes, with exports to 80+ countries." source="NAK, Netherlands General Inspection Service" />
 
       <h2 id="importers" style={sH2}>Which countries import the most potatoes?</h2>
       {/* DATA NEEDED: Exact top 10 importing countries by value from UN Comtrade 2023. Using aggregated estimates below. */}
-      <p style={sP}><Link href="/country/belgium" style={{ color: "#C62828", textDecoration: "none" }}>Belgium</Link> is paradoxically both a top exporter and top importer &mdash; it imports millions of tonnes of raw potatoes from <Link href="/country/france" style={{ color: "#C62828", textDecoration: "none" }}>France</Link> and the <Link href="/country/netherlands" style={{ color: "#C62828", textDecoration: "none" }}>Netherlands</Link> for its massive processing industry. Belgium processes far more potatoes than it grows domestically.</p>
-      <p style={sP}>Other major importers include Spain and Italy (fresh potatoes from France/Netherlands), <Link href="/country/germany" style={{ color: "#C62828", textDecoration: "none" }}>Germany</Link> (processing and fresh), <Link href="/country/united-kingdom" style={{ color: "#C62828", textDecoration: "none" }}>United Kingdom</Link> (despite domestic production), <Link href="/country/japan" style={{ color: "#C62828", textDecoration: "none" }}>Japan</Link> (frozen fries from North America), <Link href="/country/brazil" style={{ color: "#C62828", textDecoration: "none" }}>Brazil</Link> (growing frozen fry imports), and Saudi Arabia (fresh and frozen). The Middle East and Southeast Asia are the fastest-growing import regions.</p>
+      <p style={sP}><Link href="/country/belgium" style={{ color: "var(--gold)", textDecoration: "none" }}>Belgium</Link> is paradoxically both a top exporter and top importer &mdash; it imports millions of tonnes of raw potatoes from <Link href="/country/france" style={{ color: "var(--gold)", textDecoration: "none" }}>France</Link> and the <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link> for its massive processing industry. Belgium processes far more potatoes than it grows domestically.</p>
+      <p style={sP}>Other major importers include Spain and Italy (fresh potatoes from France/Netherlands), <Link href="/country/germany" style={{ color: "var(--gold)", textDecoration: "none" }}>Germany</Link> (processing and fresh), <Link href="/country/united-kingdom" style={{ color: "var(--gold)", textDecoration: "none" }}>United Kingdom</Link> (despite domestic production), <Link href="/country/japan" style={{ color: "var(--gold)", textDecoration: "none" }}>Japan</Link> (frozen fries from North America), <Link href="/country/brazil" style={{ color: "var(--gold)", textDecoration: "none" }}>Brazil</Link> (growing frozen fry imports), and Saudi Arabia (fresh and frozen). The Middle East and Southeast Asia are the fastest-growing import regions.</p>
 
       <h2 id="emerging" style={sH2}>Which countries are the fastest-growing potato exporters?</h2>
-      <p style={sP}><Link href="/country/india" style={{ color: "#C62828", textDecoration: "none" }}>India</Link> has seen a staggering 7,502% surge in potato export value over 20 years, driven by investments in frozen fry processing by HyFun Foods and the expansion of cold chain infrastructure. India&apos;s frozen fry exports surged 77.5% in a single month in 2025, signaling rapid industrialization of the sector.</p>
-      <p style={sP}><Link href="/country/egypt" style={{ color: "#C62828", textDecoration: "none" }}>Egypt</Link> has tripled its frozen fry exports over the past decade, leveraging its year-round growing season (4 distinct crop cycles) and proximity to Middle Eastern and European markets. <Link href="/country/china" style={{ color: "#C62828", textDecoration: "none" }}>China</Link> became a net potato exporter in 2022 for the first time, with SnowValley Food leading the frozen product push. <Link href="/country/pakistan" style={{ color: "#C62828", textDecoration: "none" }}>Pakistan</Link> is investing in cold chain and quality standards to convert its 186% production growth into export capability.</p>
+      <p style={sP}><Link href="/country/india" style={{ color: "var(--gold)", textDecoration: "none" }}>India</Link> has seen a staggering 7,502% surge in potato export value over 20 years, driven by investments in frozen fry processing by HyFun Foods and the expansion of cold chain infrastructure. India&apos;s frozen fry exports surged 77.5% in a single month in 2025, signaling rapid industrialization of the sector.</p>
+      <p style={sP}><Link href="/country/egypt" style={{ color: "var(--gold)", textDecoration: "none" }}>Egypt</Link> has tripled its frozen fry exports over the past decade, leveraging its year-round growing season (4 distinct crop cycles) and proximity to Middle Eastern and European markets. <Link href="/country/china" style={{ color: "var(--gold)", textDecoration: "none" }}>China</Link> became a net potato exporter in 2022 for the first time, with SnowValley Food leading the frozen product push. <Link href="/country/pakistan" style={{ color: "var(--gold)", textDecoration: "none" }}>Pakistan</Link> is investing in cold chain and quality standards to convert its 186% production growth into export capability.</p>
 
       <h2 id="barriers" style={sH2}>What are the biggest barriers to potato trade?</h2>
-      <p style={sP}><strong>Phytosanitary barriers</strong> are the single biggest obstacle. Many countries impose strict quarantine rules to prevent spread of potato cyst nematode (Globodera), bacterial wilt (Ralstonia solanacearum), and late blight strains. Australia, Japan, and China have particularly rigorous import inspections. See our <Link href="/knowledge/potato-diseases-pests" style={{ color: "#C62828", textDecoration: "none" }}>diseases and pests guide</Link> for details on these pathogens.</p>
+      <p style={sP}><strong>Phytosanitary barriers</strong> are the single biggest obstacle. Many countries impose strict quarantine rules to prevent spread of potato cyst nematode (Globodera), bacterial wilt (Ralstonia solanacearum), and late blight strains. Australia, Japan, and China have particularly rigorous import inspections. See our <Link href="/knowledge/potato-diseases-pests" style={{ color: "var(--gold)", textDecoration: "none" }}>diseases and pests guide</Link> for details on these pathogens.</p>
       <p style={sP}><strong>Cold chain costs</strong> add 15&ndash;25% to the price of exported potatoes. Fresh potatoes require 2&ndash;4&deg;C refrigerated shipping, and frozen products need &ndash;18&deg;C or below. For developing-country exporters like Kenya and Pakistan, cold chain infrastructure is often the binding constraint on market access.</p>
       <p style={sP}><strong>Trade policy</strong> continues to shape competitive dynamics. The 2022 European heatwave disrupted supply chains and caused price spikes. EU-Mercosur and RCEP trade negotiations could open new market access. Tariffs range from 0% (within the EU) to 30%+ for processed potatoes in some protected markets.</p>
 
@@ -1168,14 +1168,14 @@ function GlobalPotatoTrade() {
       <SupportBlock />
       <RelatedArticles articles={relatedArticles} />
       <section style={{ marginTop: 48 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Major Potato Trading Nations</h2>
+        <h2 style={{ fontSize: 20, fontWeight: 700, color: "var(--ink)", marginBottom: 16 }}>Major Potato Trading Nations</h2>
         <div style={{ display: "flex", gap: 10, overflowX: "auto", paddingBottom: 8 }}>
           {tradeCountries.map((c) => (
-            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "white", border: "1px solid #eee", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
+            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "var(--card)", border: "1px solid var(--line)", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
               <span style={{ fontSize: 20 }}>{c.flag}</span>
               <div>
-                <div style={{ fontSize: 13, fontWeight: 600, color: "#1A1A1A", whiteSpace: "nowrap" }}>{c.name}</div>
-                <div style={{ fontSize: 11, color: "#C62828", fontWeight: 600 }}>{c.prod} tonnes</div>
+                <div style={{ fontSize: 13, fontWeight: 600, color: "var(--ink)", whiteSpace: "nowrap" }}>{c.name}</div>
+                <div style={{ fontSize: 11, color: "var(--gold)", fontWeight: 600 }}>{c.prod} tonnes</div>
               </div>
             </Link>
           ))}
@@ -1231,12 +1231,12 @@ function HowPotatoesAreProcessed() {
         <Breadcrumb tag="Industry" />
         <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 16 }}>
           <TagBadge tag="Industry" />
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>Updated {UPDATED_SHORT}</span>
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>10 min read</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>Updated {UPDATED_SHORT}</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>10 min read</span>
         </div>
-        <h1 style={{ fontSize: 32, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>How Potatoes Are Processed: Fries, Chips, Starch, and More</h1>
+        <h1 style={{ fontSize: 32, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>How Potatoes Are Processed: Fries, Chips, Starch, and More</h1>
       </HeroBanner>
 
       <div style={{ maxWidth: 820, margin: "0 auto", padding: "0 24px 80px" }}>
@@ -1257,22 +1257,22 @@ function HowPotatoesAreProcessed() {
       <CollapsibleTOC items={tocItems} />
 
       <h2 id="frozen-fries" style={sH2}>How are frozen french fries made?</h2>
-      <p style={sP}>The frozen french fry process is a precision-engineered operation that converts a raw potato into a packaged frozen product in approximately 30 minutes. High-starch varieties like Russet Burbank (used by McDonald&apos;s) and <Link href="/knowledge/potato-varieties-guide" style={{ color: "#C62828", textDecoration: "none" }}>Shepody</Link> are preferred for their long shape and 21&ndash;24% dry matter content.</p>
+      <p style={sP}>The frozen french fry process is a precision-engineered operation that converts a raw potato into a packaged frozen product in approximately 30 minutes. High-starch varieties like Russet Burbank (used by McDonald&apos;s) and <Link href="/knowledge/potato-varieties-guide" style={{ color: "var(--gold)", textDecoration: "none" }}>Shepody</Link> are preferred for their long shape and 21&ndash;24% dry matter content.</p>
       <p style={sP}>The process: <strong>washing</strong> in high-volume tumble washers, <strong>steam peeling</strong> at 160&ndash;180&deg;C for 20&ndash;30 seconds, <strong>cutting</strong> into uniform strips using high-pressure water knives (at up to 60 km/h), <strong>blanching</strong> in hot water to remove surface sugars and achieve uniform color, <strong>drying</strong> to remove surface moisture, <strong>par-frying</strong> in oil at 175&ndash;190&deg;C for 45&ndash;90 seconds, <strong>freezing</strong> at &ndash;35&deg;C on an IQF (individually quick-frozen) conveyor, and <strong>packaging</strong> in nitrogen-flushed bags for shelf stability.</p>
-      <p style={sP}>Modern lines process 30&ndash;60 tonnes of raw potatoes per hour. A single plant may consume 200,000&ndash;500,000 tonnes of raw potatoes annually. The <Link href="/country/belgium" style={{ color: "#C62828", textDecoration: "none" }}>Belgian</Link> and <Link href="/country/netherlands" style={{ color: "#C62828", textDecoration: "none" }}>Dutch</Link> &ldquo;Fry Belt&rdquo; contains the world&apos;s highest concentration of these facilities.</p>
+      <p style={sP}>Modern lines process 30&ndash;60 tonnes of raw potatoes per hour. A single plant may consume 200,000&ndash;500,000 tonnes of raw potatoes annually. The <Link href="/country/belgium" style={{ color: "var(--gold)", textDecoration: "none" }}>Belgian</Link> and <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Dutch</Link> &ldquo;Fry Belt&rdquo; contains the world&apos;s highest concentration of these facilities.</p>
 
       <StatCallout number="30 min" context="From raw potato to packaged frozen fry in just 30 minutes on a modern processing line, running at 30-60 tonnes per hour." source="Industry standard" />
 
       <h2 id="chips" style={sH2}>How are potato chips manufactured?</h2>
-      <p style={sP}>The global potato chip market exceeds $35 billion annually (Statista). Chip production requires specific low-sugar varieties like <Link href="/knowledge/potato-varieties-guide" style={{ color: "#C62828", textDecoration: "none" }}>Atlantic</Link> and Lady Rosetta &mdash; high reducing sugars cause dark, bitter chips via the Maillard reaction. PepsiCo&apos;s Frito-Lay division (Lay&apos;s brand, sold in 200+ countries) dominates globally, followed by Kellogg&apos;s/Kellanova (Pringles, ~$3.5B annual sales) and Intersnack (Europe).</p>
+      <p style={sP}>The global potato chip market exceeds $35 billion annually (Statista). Chip production requires specific low-sugar varieties like <Link href="/knowledge/potato-varieties-guide" style={{ color: "var(--gold)", textDecoration: "none" }}>Atlantic</Link> and Lady Rosetta &mdash; high reducing sugars cause dark, bitter chips via the Maillard reaction. PepsiCo&apos;s Frito-Lay division (Lay&apos;s brand, sold in 200+ countries) dominates globally, followed by Kellogg&apos;s/Kellanova (Pringles, ~$3.5B annual sales) and Intersnack (Europe).</p>
       <p style={sP}>The process: potatoes are sliced to 1.2&ndash;1.7mm thickness using high-speed rotary slicers, washed to remove surface starch, fried continuously at 160&ndash;180&deg;C for 2&ndash;3 minutes until moisture content drops below 2%, seasoned with flavor powders on a tumble drum, and packaged in nitrogen-filled bags to prevent oxidation. Kettle-cooked chips use a batch process at lower temperatures for a thicker, crunchier texture.</p>
 
       <h2 id="starch" style={sH2}>What is potato starch used for?</h2>
-      <p style={sP}>Potato starch serves diverse industrial applications beyond food: <strong>food industry</strong> (thickening, binding, texture modification), <strong>paper manufacturing</strong> (surface sizing and coating), <strong>textile industry</strong> (warp sizing), <strong>adhesives</strong>, and increasingly <strong>biodegradable plastics</strong>. <Link href="/country/germany" style={{ color: "#C62828", textDecoration: "none" }}>Germany</Link> leads European starch production. The extraction process yields 15&ndash;20% starch by weight from raw potatoes.</p>
+      <p style={sP}>Potato starch serves diverse industrial applications beyond food: <strong>food industry</strong> (thickening, binding, texture modification), <strong>paper manufacturing</strong> (surface sizing and coating), <strong>textile industry</strong> (warp sizing), <strong>adhesives</strong>, and increasingly <strong>biodegradable plastics</strong>. <Link href="/country/germany" style={{ color: "var(--gold)", textDecoration: "none" }}>Germany</Link> leads European starch production. The extraction process yields 15&ndash;20% starch by weight from raw potatoes.</p>
       <p style={sP}>Potato starch is prized for its large granule size (15&ndash;100 micrometers, vs 5&ndash;25 for corn starch), which gives superior clarity, binding power, and texture in food applications. Modified potato starches are used as fat replacers, emulsion stabilizers, and encapsulation agents in pharmaceuticals. The global potato starch market is valued at approximately $8 billion.</p>
 
       <h2 id="dehydrated" style={sH2}>How are dehydrated potato products made?</h2>
-      <p style={sP}>Dehydrated potato flakes, granules, and flour have a shelf life of 12&ndash;18 months, making them critical for food security, military rations, and food service. The <Link href="/country/united-states" style={{ color: "#C62828", textDecoration: "none" }}>United States</Link> leads global production. Manufacturing involves cooking, mashing, and drum-drying potatoes into thin sheets (0.1&ndash;0.3mm) on heated rotating cylinders. The sheets are then broken into flakes or ground into flour.</p>
+      <p style={sP}>Dehydrated potato flakes, granules, and flour have a shelf life of 12&ndash;18 months, making them critical for food security, military rations, and food service. The <Link href="/country/united-states" style={{ color: "var(--gold)", textDecoration: "none" }}>United States</Link> leads global production. Manufacturing involves cooking, mashing, and drum-drying potatoes into thin sheets (0.1&ndash;0.3mm) on heated rotating cylinders. The sheets are then broken into flakes or ground into flour.</p>
       <p style={sP}>Dehydrated products reconstitute quickly with water and retain most of the nutritional value of fresh potatoes. Instant mashed potatoes, au gratin mixes, and potato soup bases are the primary consumer products. Industrial uses include baby food, snack seasoning bases, and batter coatings.</p>
 
       <h2 id="major-companies" style={sH2}>Who are the largest potato processing companies?</h2>
@@ -1281,8 +1281,8 @@ function HowPotatoesAreProcessed() {
           <thead><tr>{["Company","Country","Revenue","Products","Notes"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {processors.map((r, i) => (
-              <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
-                <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td><td style={sTd}>{r[1]}</td><td style={sTd}>{r[2]}</td><td style={sTd}>{r[3]}</td><td style={{ ...sTd, color: "#888", fontSize: 12 }}>{r[4]}</td>
+              <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
+                <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td><td style={sTd}>{r[1]}</td><td style={sTd}>{r[2]}</td><td style={sTd}>{r[3]}</td><td style={{ ...sTd, color: "var(--mute2)", fontSize: 12 }}>{r[4]}</td>
               </tr>
             ))}
           </tbody>
@@ -1294,11 +1294,11 @@ function HowPotatoesAreProcessed() {
 
       <h2 id="bioplastics" style={sH2}>Can potatoes be used for biodegradable packaging?</h2>
       <p style={sP}>Yes. Potato starch is at the forefront of the biodegradable packaging revolution. Companies are developing compostable bags, food containers, cutlery, and packaging peanuts from potato-based bioplastics. The material decomposes in 3&ndash;6 months in industrial composting facilities, compared to 400+ years for conventional plastic.</p>
-      <p style={sP}>Potato protein, a valuable byproduct of starch extraction, is gaining recognition as a plant-based protein ingredient for food and animal feed. With 8&ndash;10% protein content in potato processing wastewater, recovery represents both an environmental and economic opportunity. Potato-based bioethanol production is expanding in Northern Europe, particularly in <Link href="/country/denmark" style={{ color: "#C62828", textDecoration: "none" }}>Denmark</Link> and <Link href="/country/germany" style={{ color: "#C62828", textDecoration: "none" }}>Germany</Link>, turning processing waste into renewable fuel.</p>
+      <p style={sP}>Potato protein, a valuable byproduct of starch extraction, is gaining recognition as a plant-based protein ingredient for food and animal feed. With 8&ndash;10% protein content in potato processing wastewater, recovery represents both an environmental and economic opportunity. Potato-based bioethanol production is expanding in Northern Europe, particularly in <Link href="/country/denmark" style={{ color: "var(--gold)", textDecoration: "none" }}>Denmark</Link> and <Link href="/country/germany" style={{ color: "var(--gold)", textDecoration: "none" }}>Germany</Link>, turning processing waste into renewable fuel.</p>
 
       <h2 id="market-size" style={sH2}>How big is the global potato processing market?</h2>
       <p style={sP}>The total potato processing market exceeds $80 billion globally and is growing at 4&ndash;6% annually (FAO, industry estimates). The frozen segment alone is worth $40.97 billion, with french fries accounting for roughly 60% of frozen potato products by value. The chip/crisp market adds $35 billion+. Potato starch contributes approximately $8 billion.</p>
-      <p style={sP}>Growth is driven by fast-food expansion in Asia (particularly <Link href="/country/china" style={{ color: "#C62828", textDecoration: "none" }}>China</Link> and <Link href="/country/india" style={{ color: "#C62828", textDecoration: "none" }}>India</Link>), rising convenience-food demand in Africa and the Middle East, and increasing industrial applications for starch. In the <Link href="/country/united-states" style={{ color: "#C62828", textDecoration: "none" }}>US</Link>, 69% of all potatoes go to processors (USDA NASS), and this share is rising in every developed market. For trade data, see <Link href="/knowledge/global-potato-trade" style={{ color: "#C62828", textDecoration: "none" }}>Global Potato Trade Statistics</Link>.</p>
+      <p style={sP}>Growth is driven by fast-food expansion in Asia (particularly <Link href="/country/china" style={{ color: "var(--gold)", textDecoration: "none" }}>China</Link> and <Link href="/country/india" style={{ color: "var(--gold)", textDecoration: "none" }}>India</Link>), rising convenience-food demand in Africa and the Middle East, and increasing industrial applications for starch. In the <Link href="/country/united-states" style={{ color: "var(--gold)", textDecoration: "none" }}>US</Link>, 69% of all potatoes go to processors (USDA NASS), and this share is rising in every developed market. For trade data, see <Link href="/knowledge/global-potato-trade" style={{ color: "var(--gold)", textDecoration: "none" }}>Global Potato Trade Statistics</Link>.</p>
 
       <StatCallout number="69%" context="of all US potatoes go to processors, not to the fresh market. Americans eat more fries and chips than fresh potatoes." source="USDA NASS 2024" />
 
@@ -1315,14 +1315,14 @@ function HowPotatoesAreProcessed() {
       <SupportBlock />
       <RelatedArticles articles={relatedArticles} />
       <section style={{ marginTop: 48 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Major Processing Nations</h2>
+        <h2 style={{ fontSize: 20, fontWeight: 700, color: "var(--ink)", marginBottom: 16 }}>Major Processing Nations</h2>
         <div style={{ display: "flex", gap: 10, overflowX: "auto", paddingBottom: 8 }}>
           {processingCountries.map((c) => (
-            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "white", border: "1px solid #eee", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
+            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "var(--card)", border: "1px solid var(--line)", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
               <span style={{ fontSize: 20 }}>{c.flag}</span>
               <div>
-                <div style={{ fontSize: 13, fontWeight: 600, color: "#1A1A1A", whiteSpace: "nowrap" }}>{c.name}</div>
-                <div style={{ fontSize: 11, color: "#C62828", fontWeight: 600 }}>{c.prod} tonnes</div>
+                <div style={{ fontSize: 13, fontWeight: 600, color: "var(--ink)", whiteSpace: "nowrap" }}>{c.name}</div>
+                <div style={{ fontSize: 11, color: "var(--gold)", fontWeight: 600 }}>{c.prod} tonnes</div>
               </div>
             </Link>
           ))}
@@ -1392,12 +1392,12 @@ function PotatoConsumptionPerCapita() {
         <Breadcrumb tag="Consumption" />
         <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 16 }}>
           <TagBadge tag="Consumption" />
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>Updated {UPDATED_SHORT}</span>
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>10 min read</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>Updated {UPDATED_SHORT}</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>10 min read</span>
         </div>
-        <h1 style={{ fontSize: 32, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>Potato Consumption Per Capita by Country 2025: Rankings and Trends</h1>
+        <h1 style={{ fontSize: 32, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>Potato Consumption Per Capita by Country 2025: Rankings and Trends</h1>
       </HeroBanner>
 
       <div style={{ maxWidth: 820, margin: "0 auto", padding: "0 24px 80px" }}>
@@ -1418,20 +1418,20 @@ function PotatoConsumptionPerCapita() {
       <CollapsibleTOC items={tocItems} />
 
       <h2 id="top-consumers" style={sH2}>Which country eats the most potatoes per capita?</h2>
-      <p style={sP}>Belarus leads at an extraordinary 181 kg per person per year (FAOSTAT). <Link href="/country/ukraine" style={{ color: "#C62828", textDecoration: "none" }}>Ukraine</Link> follows at 136 kg, <Link href="/country/russia" style={{ color: "#C62828", textDecoration: "none" }}>Russia</Link> at 111 kg, and <Link href="/country/poland" style={{ color: "#C62828", textDecoration: "none" }}>Poland</Link> at 96 kg. Eastern Europe dominates because potatoes have been a staple for centuries in these cool-climate nations. The complete top 20 below covers countries consuming over 40 kg per person annually.</p>
+      <p style={sP}>Belarus leads at an extraordinary 181 kg per person per year (FAOSTAT). <Link href="/country/ukraine" style={{ color: "var(--gold)", textDecoration: "none" }}>Ukraine</Link> follows at 136 kg, <Link href="/country/russia" style={{ color: "var(--gold)", textDecoration: "none" }}>Russia</Link> at 111 kg, and <Link href="/country/poland" style={{ color: "var(--gold)", textDecoration: "none" }}>Poland</Link> at 96 kg. Eastern Europe dominates because potatoes have been a staple for centuries in these cool-climate nations. The complete top 20 below covers countries consuming over 40 kg per person annually.</p>
       <div style={{ overflowX: "auto", marginBottom: 8 }}>
         <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 14 }}>
           <thead><tr>{["Rank", "Country", "kg / person / year", "Region"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {rows.map((r, i) => {
               const slug = countrySlugMap[r[2]];
-              const nameCell = slug ? <Link href={"/country/" + slug} style={{ color: "#1A1A1A", textDecoration: "none", fontWeight: i < 3 ? 600 : 400 }}>{r[1]} {r[2]}</Link> : <span>{r[1]} {r[2]}</span>;
+              const nameCell = slug ? <Link href={"/country/" + slug} style={{ color: "var(--ink)", textDecoration: "none", fontWeight: i < 3 ? 600 : 400 }}>{r[1]} {r[2]}</Link> : <span>{r[1]} {r[2]}</span>;
               return (
-                <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                   <td style={sTd}>{r[0]}</td>
                   <td style={sTd}>{nameCell}</td>
-                  <td style={{ ...sTd, fontWeight: 600, color: "#C62828" }}>{r[3]}</td>
-                  <td style={{ ...sTd, color: "#888" }}>{r[4]}</td>
+                  <td style={{ ...sTd, fontWeight: 600, color: "var(--gold)" }}>{r[3]}</td>
+                  <td style={{ ...sTd, color: "var(--mute2)" }}>{r[4]}</td>
                 </tr>
               );
             })}
@@ -1443,28 +1443,28 @@ function PotatoConsumptionPerCapita() {
       <StatCallout number="181 kg" context="A Belarusian eats nearly half a kilogram of potatoes every single day. That is 5.5x the global average and 3.4x the American rate." source="FAOSTAT Food Balance Sheets" />
 
       <h2 id="regional-patterns" style={sH2}>How do consumption patterns differ by region?</h2>
-      <p style={sP}><strong>Europe</strong> is the largest per-capita consumer, averaging approximately 85 kg per person per year. Eastern Europe leads &mdash; Belarus (181), <Link href="/country/ukraine" style={{ color: "#C62828", textDecoration: "none" }}>Ukraine</Link> (136), <Link href="/country/russia" style={{ color: "#C62828", textDecoration: "none" }}>Russia</Link> (111), and <Link href="/country/poland" style={{ color: "#C62828", textDecoration: "none" }}>Poland</Link> (96) all exceed the continental average. Western Europe consumes less: <Link href="/country/united-kingdom" style={{ color: "#C62828", textDecoration: "none" }}>UK</Link> at 84 kg, <Link href="/country/belgium" style={{ color: "#C62828", textDecoration: "none" }}>Belgium</Link> at 80 kg, and <Link href="/country/netherlands" style={{ color: "#C62828", textDecoration: "none" }}>Netherlands</Link> at 78 kg &mdash; but still well above the global average of 33 kg.</p>
-      <p style={sP}><strong>Americas:</strong> <Link href="/country/peru" style={{ color: "#C62828", textDecoration: "none" }}>Peru</Link> stands out at 85 kg, unsurprising given the potato originated in the Andes. The <Link href="/country/united-states" style={{ color: "#C62828", textDecoration: "none" }}>US</Link> and <Link href="/country/canada" style={{ color: "#C62828", textDecoration: "none" }}>Canada</Link> consume 54&ndash;55 kg, with most consumed as processed products. Latin American consumption is lower: <Link href="/country/brazil" style={{ color: "#C62828", textDecoration: "none" }}>Brazil</Link> just 16 kg per capita.</p>
-      <p style={sP}><strong>Asia</strong> has the most varied picture. <Link href="/country/nepal" style={{ color: "#C62828", textDecoration: "none" }}>Nepal</Link> at 62 kg is the highest, followed by <Link href="/country/bangladesh" style={{ color: "#C62828", textDecoration: "none" }}>Bangladesh</Link> (43 kg) and <Link href="/country/china" style={{ color: "#C62828", textDecoration: "none" }}>China</Link> (41 kg). But <Link href="/country/indonesia" style={{ color: "#C62828", textDecoration: "none" }}>Indonesia</Link> and <Link href="/country/south-korea" style={{ color: "#C62828", textDecoration: "none" }}>South Korea</Link> consume under 15 kg. Rice dominance explains the gap.</p>
-      <p style={sP}><strong>Africa:</strong> <Link href="/country/algeria" style={{ color: "#C62828", textDecoration: "none" }}>Algeria</Link> leads at 72 kg per capita. <Link href="/country/kenya" style={{ color: "#C62828", textDecoration: "none" }}>Kenya</Link> (28 kg) and <Link href="/country/south-africa" style={{ color: "#C62828", textDecoration: "none" }}>South Africa</Link> (30 kg) are lower but growing rapidly as urbanization drives demand for convenient potato-based foods.</p>
+      <p style={sP}><strong>Europe</strong> is the largest per-capita consumer, averaging approximately 85 kg per person per year. Eastern Europe leads &mdash; Belarus (181), <Link href="/country/ukraine" style={{ color: "var(--gold)", textDecoration: "none" }}>Ukraine</Link> (136), <Link href="/country/russia" style={{ color: "var(--gold)", textDecoration: "none" }}>Russia</Link> (111), and <Link href="/country/poland" style={{ color: "var(--gold)", textDecoration: "none" }}>Poland</Link> (96) all exceed the continental average. Western Europe consumes less: <Link href="/country/united-kingdom" style={{ color: "var(--gold)", textDecoration: "none" }}>UK</Link> at 84 kg, <Link href="/country/belgium" style={{ color: "var(--gold)", textDecoration: "none" }}>Belgium</Link> at 80 kg, and <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link> at 78 kg &mdash; but still well above the global average of 33 kg.</p>
+      <p style={sP}><strong>Americas:</strong> <Link href="/country/peru" style={{ color: "var(--gold)", textDecoration: "none" }}>Peru</Link> stands out at 85 kg, unsurprising given the potato originated in the Andes. The <Link href="/country/united-states" style={{ color: "var(--gold)", textDecoration: "none" }}>US</Link> and <Link href="/country/canada" style={{ color: "var(--gold)", textDecoration: "none" }}>Canada</Link> consume 54&ndash;55 kg, with most consumed as processed products. Latin American consumption is lower: <Link href="/country/brazil" style={{ color: "var(--gold)", textDecoration: "none" }}>Brazil</Link> just 16 kg per capita.</p>
+      <p style={sP}><strong>Asia</strong> has the most varied picture. <Link href="/country/nepal" style={{ color: "var(--gold)", textDecoration: "none" }}>Nepal</Link> at 62 kg is the highest, followed by <Link href="/country/bangladesh" style={{ color: "var(--gold)", textDecoration: "none" }}>Bangladesh</Link> (43 kg) and <Link href="/country/china" style={{ color: "var(--gold)", textDecoration: "none" }}>China</Link> (41 kg). But <Link href="/country/indonesia" style={{ color: "var(--gold)", textDecoration: "none" }}>Indonesia</Link> and <Link href="/country/south-korea" style={{ color: "var(--gold)", textDecoration: "none" }}>South Korea</Link> consume under 15 kg. Rice dominance explains the gap.</p>
+      <p style={sP}><strong>Africa:</strong> <Link href="/country/algeria" style={{ color: "var(--gold)", textDecoration: "none" }}>Algeria</Link> leads at 72 kg per capita. <Link href="/country/kenya" style={{ color: "var(--gold)", textDecoration: "none" }}>Kenya</Link> (28 kg) and <Link href="/country/south-africa" style={{ color: "var(--gold)", textDecoration: "none" }}>South Africa</Link> (30 kg) are lower but growing rapidly as urbanization drives demand for convenient potato-based foods.</p>
 
       <h2 id="asia-paradox" style={sH2}>Why is potato consumption low in Asia despite high production?</h2>
-      <p style={sP}><Link href="/country/china" style={{ color: "#C62828", textDecoration: "none" }}>China</Link> produces 94.4 million tonnes (world #1) but consumes only 41 kg per person per year because the population is 1.4 billion and rice remains the dominant staple. In many Chinese provinces, potato is classified as a vegetable, served as a side dish rather than a carbohydrate base. China&apos;s 2014 &ldquo;Potato Staple Food Strategy&rdquo; aims to change this by promoting potato-based noodles, steamed buns, and flour products.</p>
-      <p style={sP}><Link href="/country/indonesia" style={{ color: "#C62828", textDecoration: "none" }}>Indonesia</Link> (270 million people) consumes just 3 kg per capita &mdash; potatoes grow only in highland areas of Java and Sumatra, while rice is available everywhere. <Link href="/country/south-korea" style={{ color: "#C62828", textDecoration: "none" }}>South Korea</Link> (15 kg) is similar: rice and kimchi dominate the diet, and potato is mostly consumed as chips and fries rather than a staple. The contrast with <Link href="/country/bangladesh" style={{ color: "#C62828", textDecoration: "none" }}>Bangladesh</Link> (43 kg) is striking &mdash; there, potato has genuinely become a co-staple alongside rice, feeding 170 million people.</p>
+      <p style={sP}><Link href="/country/china" style={{ color: "var(--gold)", textDecoration: "none" }}>China</Link> produces 94.4 million tonnes (world #1) but consumes only 41 kg per person per year because the population is 1.4 billion and rice remains the dominant staple. In many Chinese provinces, potato is classified as a vegetable, served as a side dish rather than a carbohydrate base. China&apos;s 2014 &ldquo;Potato Staple Food Strategy&rdquo; aims to change this by promoting potato-based noodles, steamed buns, and flour products.</p>
+      <p style={sP}><Link href="/country/indonesia" style={{ color: "var(--gold)", textDecoration: "none" }}>Indonesia</Link> (270 million people) consumes just 3 kg per capita &mdash; potatoes grow only in highland areas of Java and Sumatra, while rice is available everywhere. <Link href="/country/south-korea" style={{ color: "var(--gold)", textDecoration: "none" }}>South Korea</Link> (15 kg) is similar: rice and kimchi dominate the diet, and potato is mostly consumed as chips and fries rather than a staple. The contrast with <Link href="/country/bangladesh" style={{ color: "var(--gold)", textDecoration: "none" }}>Bangladesh</Link> (43 kg) is striking &mdash; there, potato has genuinely become a co-staple alongside rice, feeding 170 million people.</p>
 
       <StatCallout number="3 kg" context="Indonesia consumes just 3 kg/person/year despite growing 1.4M tonnes. In rice-dominant Asian diets, potato remains a vegetable, not a staple." source="FAOSTAT Food Balance Sheets" />
 
       <h2 id="vs-production" style={sH2}>How does consumption differ from production rankings?</h2>
-      <p style={sP}>The biggest producers are not the biggest consumers. China grows the most potatoes but ranks just #20 in per-capita consumption. Belarus is not even in the top 20 producers but eats the most. <Link href="/country/belgium" style={{ color: "#C62828", textDecoration: "none" }}>Belgium</Link> processes far more potatoes than it grows, importing millions of tonnes from <Link href="/country/france" style={{ color: "#C62828", textDecoration: "none" }}>France</Link> and the <Link href="/country/netherlands" style={{ color: "#C62828", textDecoration: "none" }}>Netherlands</Link> to feed its $4.8 billion frozen fry export industry.</p>
-      <p style={sP}>The <Link href="/country/netherlands" style={{ color: "#C62828", textDecoration: "none" }}>Netherlands</Link> produces 7.1 million tonnes but consumes only 78 kg per capita across its small population; the rest feeds its world-leading <Link href="/answers/netherlands-seed-potato-exports" style={{ color: "#C62828", textDecoration: "none" }}>seed potato</Link> and processing export industries. <Link href="/country/egypt" style={{ color: "#C62828", textDecoration: "none" }}>Egypt</Link> produces 8.08 million tonnes (FAOSTAT 2024) but consumes 26 kg per capita, exporting over 1 million tonnes annually. For full production rankings, see <Link href="/knowledge/top-potato-producing-countries" style={{ color: "#C62828", textDecoration: "none" }}>Top Producing Countries</Link>.</p>
+      <p style={sP}>The biggest producers are not the biggest consumers. China grows the most potatoes but ranks just #20 in per-capita consumption. Belarus is not even in the top 20 producers but eats the most. <Link href="/country/belgium" style={{ color: "var(--gold)", textDecoration: "none" }}>Belgium</Link> processes far more potatoes than it grows, importing millions of tonnes from <Link href="/country/france" style={{ color: "var(--gold)", textDecoration: "none" }}>France</Link> and the <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link> to feed its $4.8 billion frozen fry export industry.</p>
+      <p style={sP}>The <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link> produces 7.1 million tonnes but consumes only 78 kg per capita across its small population; the rest feeds its world-leading <Link href="/answers/netherlands-seed-potato-exports" style={{ color: "var(--gold)", textDecoration: "none" }}>seed potato</Link> and processing export industries. <Link href="/country/egypt" style={{ color: "var(--gold)", textDecoration: "none" }}>Egypt</Link> produces 8.08 million tonnes (FAOSTAT 2024) but consumes 26 kg per capita, exporting over 1 million tonnes annually. For full production rankings, see <Link href="/knowledge/top-potato-producing-countries" style={{ color: "var(--gold)", textDecoration: "none" }}>Top Producing Countries</Link>.</p>
 
       <h2 id="trends" style={sH2}>Which countries are eating more potatoes?</h2>
-      <p style={sP}>Developing countries in Asia and Africa are the growth story. <Link href="/country/bangladesh" style={{ color: "#C62828", textDecoration: "none" }}>Bangladesh&apos;s</Link> per capita consumption has doubled in 20 years as potato has become a staple alongside rice. <Link href="/country/pakistan" style={{ color: "#C62828", textDecoration: "none" }}>Pakistan&apos;s</Link> consumption is rising in step with its 186% production growth. In Sub-Saharan Africa, urbanization is driving demand for convenient potato products &mdash; chips, fries, and processed snacks.</p>
-      <p style={sP}>In developed countries, the story is more nuanced. Fresh potato consumption is flat or declining &mdash; fewer people peel and boil potatoes at home. But <Link href="/knowledge/how-potatoes-are-processed" style={{ color: "#C62828", textDecoration: "none" }}>processed consumption</Link> (frozen fries, chips, dehydrated products) continues to grow at 3&ndash;5% annually. The net effect: total potato consumption is roughly stable in Europe and North America but shifting from fresh to processed forms.</p>
+      <p style={sP}>Developing countries in Asia and Africa are the growth story. <Link href="/country/bangladesh" style={{ color: "var(--gold)", textDecoration: "none" }}>Bangladesh&apos;s</Link> per capita consumption has doubled in 20 years as potato has become a staple alongside rice. <Link href="/country/pakistan" style={{ color: "var(--gold)", textDecoration: "none" }}>Pakistan&apos;s</Link> consumption is rising in step with its 186% production growth. In Sub-Saharan Africa, urbanization is driving demand for convenient potato products &mdash; chips, fries, and processed snacks.</p>
+      <p style={sP}>In developed countries, the story is more nuanced. Fresh potato consumption is flat or declining &mdash; fewer people peel and boil potatoes at home. But <Link href="/knowledge/how-potatoes-are-processed" style={{ color: "var(--gold)", textDecoration: "none" }}>processed consumption</Link> (frozen fries, chips, dehydrated products) continues to grow at 3&ndash;5% annually. The net effect: total potato consumption is roughly stable in Europe and North America but shifting from fresh to processed forms.</p>
 
       <h2 id="processed-vs-fresh" style={sH2}>What share of potatoes are eaten as processed food?</h2>
-      <p style={sP}>In the <Link href="/country/united-states" style={{ color: "#C62828", textDecoration: "none" }}>United States</Link>, 69% of all potatoes go to processors (USDA NASS) &mdash; Americans eat more fries and chips than fresh potatoes. In Europe, the frozen fry segment grows 5&ndash;7% annually, with <Link href="/country/belgium" style={{ color: "#C62828", textDecoration: "none" }}>Belgium</Link> processing the highest share of any country relative to domestic consumption.</p>
-      <p style={sP}>This shift is now accelerating in Asia. <Link href="/country/china" style={{ color: "#C62828", textDecoration: "none" }}>China&apos;s</Link> frozen fry market has expanded rapidly as McDonald&apos;s, KFC, and local chains grow. <Link href="/country/india" style={{ color: "#C62828", textDecoration: "none" }}>India&apos;s</Link> organized snack market derives nearly 30% from potato chips (Global Potato Summit data). The convergence toward processed forms is a global megatrend that shows no sign of slowing.</p>
+      <p style={sP}>In the <Link href="/country/united-states" style={{ color: "var(--gold)", textDecoration: "none" }}>United States</Link>, 69% of all potatoes go to processors (USDA NASS) &mdash; Americans eat more fries and chips than fresh potatoes. In Europe, the frozen fry segment grows 5&ndash;7% annually, with <Link href="/country/belgium" style={{ color: "var(--gold)", textDecoration: "none" }}>Belgium</Link> processing the highest share of any country relative to domestic consumption.</p>
+      <p style={sP}>This shift is now accelerating in Asia. <Link href="/country/china" style={{ color: "var(--gold)", textDecoration: "none" }}>China&apos;s</Link> frozen fry market has expanded rapidly as McDonald&apos;s, KFC, and local chains grow. <Link href="/country/india" style={{ color: "var(--gold)", textDecoration: "none" }}>India&apos;s</Link> organized snack market derives nearly 30% from potato chips (Global Potato Summit data). The convergence toward processed forms is a global megatrend that shows no sign of slowing.</p>
 
       <StatCallout number="69%" context="of all US potatoes go to processors. Americans eat more fries and chips than fresh potatoes, and this ratio continues to shift." source="USDA NASS 2024" />
 
@@ -1479,14 +1479,14 @@ function PotatoConsumptionPerCapita() {
       <SupportBlock />
       <RelatedArticles articles={relatedArticles} />
       <section style={{ marginTop: 48 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Explore Country Profiles</h2>
+        <h2 style={{ fontSize: 20, fontWeight: 700, color: "var(--ink)", marginBottom: 16 }}>Explore Country Profiles</h2>
         <div style={{ display: "flex", gap: 10, overflowX: "auto", paddingBottom: 8 }}>
           {consumptionCountries.map((c) => (
-            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "white", border: "1px solid #eee", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
+            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "var(--card)", border: "1px solid var(--line)", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
               <span style={{ fontSize: 20 }}>{c.flag}</span>
               <div>
-                <div style={{ fontSize: 13, fontWeight: 600, color: "#1A1A1A", whiteSpace: "nowrap" }}>{c.name}</div>
-                <div style={{ fontSize: 11, color: "#C62828", fontWeight: 600 }}>{c.consumption}</div>
+                <div style={{ fontSize: 13, fontWeight: 600, color: "var(--ink)", whiteSpace: "nowrap" }}>{c.name}</div>
+                <div style={{ fontSize: 11, color: "var(--gold)", fontWeight: 600 }}>{c.consumption}</div>
               </div>
             </Link>
           ))}
@@ -1549,12 +1549,12 @@ function CompleteGrowingGuide() {
         <Breadcrumb tag="Cultivation" />
         <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 16 }}>
           <TagBadge tag="Cultivation" />
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>Updated {UPDATED_SHORT}</span>
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>12 min read</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>Updated {UPDATED_SHORT}</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>12 min read</span>
         </div>
-        <h1 style={{ fontSize: 32, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>How to Grow Potatoes: Complete Guide from Planting to Harvest</h1>
+        <h1 style={{ fontSize: 32, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>How to Grow Potatoes: Complete Guide from Planting to Harvest</h1>
       </HeroBanner>
 
       <div style={{ maxWidth: 820, margin: "0 auto", padding: "0 24px 80px" }}>
@@ -1575,27 +1575,27 @@ function CompleteGrowingGuide() {
       <CollapsibleTOC items={tocItems} />
 
       <h2 id="soil" style={sH2}>What soil do potatoes need?</h2>
-      <p style={sP}>Potatoes perform best in loose, well-drained, slightly acidic soil with a <strong>pH of 5.0–6.5</strong> (FAO). Heavy clay soils cause misshapen tubers and increase disease risk, while sandy soils drain too quickly without amendments. The ideal is a loamy soil rich in organic matter. Before planting, work 5–10 cm of well-rotted compost or aged manure into the top 30 cm of soil (CIP). If your soil is heavy, consider raised beds or <Link href="/answers/how-to-grow-potatoes-in-containers" style={{ color: "#C62828", textDecoration: "none" }}>container growing</Link>.</p>
-      <p style={sP}>Avoid planting potatoes where potatoes, tomatoes, peppers, or eggplant grew in the previous two years. These Solanaceae family crops share diseases, especially <Link href="/answers/what-is-late-blight" style={{ color: "#C62828", textDecoration: "none" }}>late blight</Link> and common scab, and rotation breaks the disease cycle. A 3–4 year rotation is ideal; 7+ years for <Link href="/answers/certified-seed-potatoes" style={{ color: "#C62828", textDecoration: "none" }}>certified seed</Link> production fields.</p>
+      <p style={sP}>Potatoes perform best in loose, well-drained, slightly acidic soil with a <strong>pH of 5.0–6.5</strong> (FAO). Heavy clay soils cause misshapen tubers and increase disease risk, while sandy soils drain too quickly without amendments. The ideal is a loamy soil rich in organic matter. Before planting, work 5–10 cm of well-rotted compost or aged manure into the top 30 cm of soil (CIP). If your soil is heavy, consider raised beds or <Link href="/answers/how-to-grow-potatoes-in-containers" style={{ color: "var(--gold)", textDecoration: "none" }}>container growing</Link>.</p>
+      <p style={sP}>Avoid planting potatoes where potatoes, tomatoes, peppers, or eggplant grew in the previous two years. These Solanaceae family crops share diseases, especially <Link href="/answers/what-is-late-blight" style={{ color: "var(--gold)", textDecoration: "none" }}>late blight</Link> and common scab, and rotation breaks the disease cycle. A 3–4 year rotation is ideal; 7+ years for <Link href="/answers/certified-seed-potatoes" style={{ color: "var(--gold)", textDecoration: "none" }}>certified seed</Link> production fields.</p>
 
       <h2 id="seed-selection" style={sH2}>How do I choose seed potatoes?</h2>
-      <p style={sP}>Always start with <Link href="/answers/certified-seed-potatoes" style={{ color: "#C62828", textDecoration: "none" }}>certified seed potatoes</Link>, not supermarket potatoes. Certified seed is inspected for viruses, bacterial diseases, and trueness to type. Farm-saved or grocery store potatoes can introduce diseases that persist in soil for years. In developing countries, certified seed produces <strong>30–50% higher yields</strong> than farm-saved seed (CIP). See the <Link href="/country/netherlands" style={{ color: "#C62828", textDecoration: "none" }}>Netherlands</Link> profile for information on the world&apos;s largest seed exporters.</p>
-      <p style={sP}><strong>Chitting</strong> (pre-sprouting) seed potatoes 2–4 weeks before planting gives them a head start. Place in a cool (10–15°C), bright location with the eyes facing up. When sprouts are 1–2 cm long, they are ready to plant. For larger seed potatoes (over 60g), cut into pieces with at least 2–3 eyes each and let cut surfaces dry for 1–2 days before planting to prevent rot. See our <Link href="/answers/how-to-save-seed-potatoes" style={{ color: "#C62828", textDecoration: "none" }}>seed saving guide</Link>.</p>
+      <p style={sP}>Always start with <Link href="/answers/certified-seed-potatoes" style={{ color: "var(--gold)", textDecoration: "none" }}>certified seed potatoes</Link>, not supermarket potatoes. Certified seed is inspected for viruses, bacterial diseases, and trueness to type. Farm-saved or grocery store potatoes can introduce diseases that persist in soil for years. In developing countries, certified seed produces <strong>30–50% higher yields</strong> than farm-saved seed (CIP). See the <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link> profile for information on the world&apos;s largest seed exporters.</p>
+      <p style={sP}><strong>Chitting</strong> (pre-sprouting) seed potatoes 2–4 weeks before planting gives them a head start. Place in a cool (10–15°C), bright location with the eyes facing up. When sprouts are 1–2 cm long, they are ready to plant. For larger seed potatoes (over 60g), cut into pieces with at least 2–3 eyes each and let cut surfaces dry for 1–2 days before planting to prevent rot. See our <Link href="/answers/how-to-save-seed-potatoes" style={{ color: "var(--gold)", textDecoration: "none" }}>seed saving guide</Link>.</p>
 
       <StatCallout number="30–50%" context="Certified seed potatoes produce 30–50% higher yields than farm-saved seed in developing countries, making seed quality the single biggest lever for improving production." source="CIP, International Potato Center" />
 
       <h2 id="when-to-plant" style={sH2}>When is the best time to plant potatoes?</h2>
-      <p style={sP}>Planting timing depends on your climate zone. Potatoes need soil temperatures of at least <strong>7–10°C</strong> and cannot tolerate hard frost on emerged foliage (FAO). The table below covers every major growing region. For more detail on specific countries, see our <Link href="/answers/when-to-plant-potatoes" style={{ color: "#C62828", textDecoration: "none" }}>planting timing guide</Link>.</p>
+      <p style={sP}>Planting timing depends on your climate zone. Potatoes need soil temperatures of at least <strong>7–10°C</strong> and cannot tolerate hard frost on emerged foliage (FAO). The table below covers every major growing region. For more detail on specific countries, see our <Link href="/answers/when-to-plant-potatoes" style={{ color: "var(--gold)", textDecoration: "none" }}>planting timing guide</Link>.</p>
       <div style={{ overflowX: "auto", marginBottom: 8 }}>
         <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 14 }}>
           <thead><tr>{["Climate Zone", "Planting Window", "Harvest", "Example Regions"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {plantingTable.map((r, i) => (
-              <tr key={i} style={{ background: i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={i} style={{ background: i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
                 <td style={sTd}>{r[1]}</td>
                 <td style={sTd}>{r[2]}</td>
-                <td style={{ ...sTd, color: "#888", fontSize: 13 }}>{r[3]}</td>
+                <td style={{ ...sTd, color: "var(--mute2)", fontSize: 13 }}>{r[3]}</td>
               </tr>
             ))}
           </tbody>
@@ -1604,26 +1604,26 @@ function CompleteGrowingGuide() {
       <p style={sSource}>Source: FAO, CIP, USDA Extension Services. Dates are approximate; adjust for local frost dates.</p>
 
       <h2 id="planting" style={sH2}>How deep and far apart should I plant potatoes?</h2>
-      <p style={sP}>Plant seed potatoes <strong>10–15 cm deep</strong> with sprouts facing upward. Space them <strong>30 cm apart</strong> within the row, with <strong>75 cm between rows</strong> (USDA Extension). This gives room for hilling and airflow, reducing disease. In <Link href="/answers/how-to-grow-potatoes-in-containers" style={{ color: "#C62828", textDecoration: "none" }}>containers or grow bags</Link>, plant 3–4 seed potatoes per 40–50 litre bag at 10 cm depth, adding compost as shoots emerge. See <Link href="/answers/seed-potatoes-per-grow-bag" style={{ color: "#C62828", textDecoration: "none" }}>our grow bag guide</Link> for specific bag sizes.</p>
+      <p style={sP}>Plant seed potatoes <strong>10–15 cm deep</strong> with sprouts facing upward. Space them <strong>30 cm apart</strong> within the row, with <strong>75 cm between rows</strong> (USDA Extension). This gives room for hilling and airflow, reducing disease. In <Link href="/answers/how-to-grow-potatoes-in-containers" style={{ color: "var(--gold)", textDecoration: "none" }}>containers or grow bags</Link>, plant 3–4 seed potatoes per 40–50 litre bag at 10 cm depth, adding compost as shoots emerge. See <Link href="/answers/seed-potatoes-per-grow-bag" style={{ color: "var(--gold)", textDecoration: "none" }}>our grow bag guide</Link> for specific bag sizes.</p>
       <p style={sP}><strong>Hilling</strong> is essential: as plants reach 15–20 cm, mound soil around the stems, leaving only the top leaves exposed. This encourages more tuber formation along the buried stem and prevents surface tubers from greening (solanine production). Hill 2–3 times during the growing season.</p>
 
       <h2 id="watering" style={sH2}>How much water do potatoes need?</h2>
       <p style={sP}>Potatoes need <strong>500–700mm of total water</strong> over a 120–150 day crop (FAO), or approximately 25–50 mm per week. They produce more food per unit of water than any other major crop &mdash; up to 7 times more efficient than cereals (CIP). The most critical period is during <strong>tuber initiation and bulking</strong> (6–10 weeks after planting). Irregular watering during this window causes growth cracks, hollow heart, and knobby tubers.</p>
-      <p style={sP}>Drip irrigation is ideal: 85–95% water efficiency vs 40–60% for furrow irrigation (FAO). Overhead sprinklers increase foliar disease risk (wet leaves promote <Link href="/answers/what-is-late-blight" style={{ color: "#C62828", textDecoration: "none" }}>late blight</Link>). Reduce watering 10–14 days before harvest to promote skin set.</p>
+      <p style={sP}>Drip irrigation is ideal: 85–95% water efficiency vs 40–60% for furrow irrigation (FAO). Overhead sprinklers increase foliar disease risk (wet leaves promote <Link href="/answers/what-is-late-blight" style={{ color: "var(--gold)", textDecoration: "none" }}>late blight</Link>). Reduce watering 10–14 days before harvest to promote skin set.</p>
 
       <StatCallout number="500–700mm" context="Total water needed over the growing season. Potatoes produce more food per unit of water than any other major crop — up to 7x more efficient than cereals." source="FAO, CIP" />
 
       <h2 id="pests" style={sH2}>What are the most common potato pests and diseases?</h2>
-      <p style={sP}><strong><Link href="/answers/what-is-late-blight" style={{ color: "#C62828", textDecoration: "none" }}>Late blight</Link></strong> (Phytophthora infestans) is the most devastating disease worldwide, causing <strong>$6+ billion/year</strong> in losses globally. The same pathogen caused the Irish Potato Famine. Watch for dark, water-soaked lesions on leaves in cool, wet conditions. Preventive fungicide sprays and resistant <Link href="/knowledge/potato-varieties-guide" style={{ color: "#C62828", textDecoration: "none" }}>varieties</Link> (Sarpo Mira, Defender) are the primary defenses.</p>
+      <p style={sP}><strong><Link href="/answers/what-is-late-blight" style={{ color: "var(--gold)", textDecoration: "none" }}>Late blight</Link></strong> (Phytophthora infestans) is the most devastating disease worldwide, causing <strong>$6+ billion/year</strong> in losses globally. The same pathogen caused the Irish Potato Famine. Watch for dark, water-soaked lesions on leaves in cool, wet conditions. Preventive fungicide sprays and resistant <Link href="/knowledge/potato-varieties-guide" style={{ color: "var(--gold)", textDecoration: "none" }}>varieties</Link> (Sarpo Mira, Defender) are the primary defenses.</p>
       <p style={sP}><strong>Colorado potato beetle</strong> is the #1 insect pest in temperate regions. Hand-pick in small plantings. For larger areas, Bacillus thuringiensis (Bt) sprays are effective against larvae. Crop rotation and removing volunteer potatoes reduce overwintering populations. The beetle has developed resistance to 50+ insecticides, making rotation essential.</p>
       <p style={sP}><strong>Aphids</strong> transmit potato viruses (PVY, PLRV) that reduce yields 20–80%. Use certified virus-free seed, monitor from emergence, and apply insecticidal soap or neem oil early. In commercial production, mineral oil sprays reduce non-persistent virus transmission 40–60%.</p>
-      <p style={sP}><strong>Crop rotation</strong> is the single most effective cultural practice. Never plant Solanaceae (potatoes, tomatoes, peppers, eggplant) in the same ground more than once every 3–4 years. See our <Link href="/knowledge/potato-diseases-pests" style={{ color: "#C62828", textDecoration: "none" }}>complete diseases and pests guide</Link> for full coverage.</p>
+      <p style={sP}><strong>Crop rotation</strong> is the single most effective cultural practice. Never plant Solanaceae (potatoes, tomatoes, peppers, eggplant) in the same ground more than once every 3–4 years. See our <Link href="/knowledge/potato-diseases-pests" style={{ color: "var(--gold)", textDecoration: "none" }}>complete diseases and pests guide</Link> for full coverage.</p>
 
       <StatCallout number="$6B+" context="Late blight alone causes over $6 billion in crop losses annually worldwide — the same Phytophthora infestans that caused the Irish Potato Famine." source="Haverkort et al., peer-reviewed estimate" />
 
       <h2 id="harvest" style={sH2}>How do I know when potatoes are ready to harvest?</h2>
       <p style={sP}>Potatoes are ready when <strong>foliage yellows and dies back</strong>, typically 90–120 days after planting. For new/baby potatoes, harvest 2–3 weeks after flowering. For mature storage potatoes, wait until vines have fully died, then leave tubers in ground for 2 more weeks for <strong>skin set</strong> (the thumb test: rub skin firmly; if it doesn&apos;t peel off, it&apos;s set).</p>
-      <p style={sP}>Harvest on a dry day when soil temperature is above 7°C (below this, tubers bruise easily). Use a garden fork well away from the plant to avoid piercing tubers. Commercial operations use mechanical harvesters processing entire fields in hours. Expect <strong>2–5 kg per plant</strong> in home gardens, or <strong>20–50+ t/ha</strong> commercially. <Link href="/country/united-states" style={{ color: "#C62828", textDecoration: "none" }}>US</Link> yields average 51 t/ha (FAOSTAT).</p>
+      <p style={sP}>Harvest on a dry day when soil temperature is above 7°C (below this, tubers bruise easily). Use a garden fork well away from the plant to avoid piercing tubers. Commercial operations use mechanical harvesters processing entire fields in hours. Expect <strong>2–5 kg per plant</strong> in home gardens, or <strong>20–50+ t/ha</strong> commercially. <Link href="/country/united-states" style={{ color: "var(--gold)", textDecoration: "none" }}>US</Link> yields average 51 t/ha (FAOSTAT).</p>
 
       <h2 id="storage" style={sH2}>How do I store potatoes after harvest?</h2>
       <p style={sP}>After harvest, <strong>cure</strong> potatoes for 10–14 days at 10–15°C with 85–95% humidity (Penn State Extension). Curing heals skin wounds and sets the periderm, dramatically extending storage. Do not wash before storage; brush off soil instead.</p>
@@ -1632,14 +1632,14 @@ function CompleteGrowingGuide() {
           <thead><tr>{["Use", "Temperature", "Humidity", "Duration", "Notes"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {storageTable.map((r, i) => (
-              <tr key={i} style={{ background: i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
-                <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td><td style={sTd}>{r[1]}</td><td style={sTd}>{r[2]}</td><td style={sTd}>{r[3]}</td><td style={{ ...sTd, color: "#888", fontSize: 12 }}>{r[4]}</td>
+              <tr key={i} style={{ background: i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
+                <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td><td style={sTd}>{r[1]}</td><td style={sTd}>{r[2]}</td><td style={sTd}>{r[3]}</td><td style={{ ...sTd, color: "var(--mute2)", fontSize: 12 }}>{r[4]}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
-      <p style={sSource}>Source: FAO, Penn State Extension, CIP. See our <Link href="/knowledge/potato-storage-cold-chain" style={{ color: "#C62828", textDecoration: "none" }}>storage and cold chain guide</Link> for details.</p>
+      <p style={sSource}>Source: FAO, Penn State Extension, CIP. See our <Link href="/knowledge/potato-storage-cold-chain" style={{ color: "var(--gold)", textDecoration: "none" }}>storage and cold chain guide</Link> for details.</p>
 
       <h2 id="mistakes" style={sH2}>What are the most common potato growing mistakes?</h2>
       <div style={{ display: "flex", flexDirection: "column", gap: 10, marginBottom: 24 }}>
@@ -1650,12 +1650,12 @@ function CompleteGrowingGuide() {
           { n: "Ignoring late blight", d: "Blight can destroy an entire crop in days. Monitor weather (cool + wet = high risk) and spray preventively. See our late blight guide." },
           { n: "Skipping curing", d: "Uncured potatoes have fragile skin that bruises and stores poorly. The 10–14 day curing period at 10–15°C is essential for storage." },
         ].map((m, i) => (
-          <div key={i} style={{ padding: "14px 18px", borderRadius: 12, border: "1px solid #eee", background: i % 2 === 0 ? "#FAFAFA" : "white" }}>
+          <div key={i} style={{ padding: "14px 18px", borderRadius: 12, border: "1px solid var(--line)", background: i % 2 === 0 ? "var(--paper)" : "white" }}>
             <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
-              <span style={{ fontSize: 11, fontWeight: 700, color: "#C62828", background: "rgba(198,40,40,0.06)", padding: "2px 8px", borderRadius: 6 }}>#{i + 1}</span>
-              <span style={{ fontSize: 14, fontWeight: 700, color: "#1A1A1A" }}>{m.n}</span>
+              <span style={{ fontSize: 11, fontWeight: 700, color: "var(--gold)", background: "rgba(154,114,56,0.06)", padding: "2px 8px", borderRadius: 6 }}>#{i + 1}</span>
+              <span style={{ fontSize: 14, fontWeight: 700, color: "var(--ink)" }}>{m.n}</span>
             </div>
-            <p style={{ fontSize: 13, color: "#555", lineHeight: 1.6, margin: 0 }}>{m.d}</p>
+            <p style={{ fontSize: 13, color: "var(--mute)", lineHeight: 1.6, margin: 0 }}>{m.d}</p>
           </div>
         ))}
       </div>
@@ -1673,14 +1673,14 @@ function CompleteGrowingGuide() {
       <SupportBlock />
       <RelatedArticles articles={relatedArticles} />
       <section style={{ marginTop: 48 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Explore Growing Regions</h2>
+        <h2 style={{ fontSize: 20, fontWeight: 700, color: "var(--ink)", marginBottom: 16 }}>Explore Growing Regions</h2>
         <div style={{ display: "flex", gap: 10, overflowX: "auto", paddingBottom: 8 }}>
           {growingCountries.map((c) => (
-            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "white", border: "1px solid #eee", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
+            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "var(--card)", border: "1px solid var(--line)", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
               <span style={{ fontSize: 20 }}>{c.flag}</span>
               <div>
-                <div style={{ fontSize: 13, fontWeight: 600, color: "#1A1A1A", whiteSpace: "nowrap" }}>{c.name}</div>
-                <div style={{ fontSize: 11, color: "#C62828", fontWeight: 600 }}>{c.yield}</div>
+                <div style={{ fontSize: 13, fontWeight: 600, color: "var(--ink)", whiteSpace: "nowrap" }}>{c.name}</div>
+                <div style={{ fontSize: 11, color: "var(--gold)", fontWeight: 600 }}>{c.yield}</div>
               </div>
             </Link>
           ))}
@@ -1735,12 +1735,12 @@ function PotatoStorageColdChain() {
         <Breadcrumb tag="Storage" />
         <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 16 }}>
           <TagBadge tag="Storage" />
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>Updated {UPDATED_SHORT}</span>
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>11 min read</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>Updated {UPDATED_SHORT}</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>11 min read</span>
         </div>
-        <h1 style={{ fontSize: 32, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>Potato Cold Storage: Temperatures, Design, and Post-Harvest Losses</h1>
+        <h1 style={{ fontSize: 32, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>Potato Cold Storage: Temperatures, Design, and Post-Harvest Losses</h1>
       </HeroBanner>
 
       <div style={{ maxWidth: 820, margin: "0 auto", padding: "0 24px 80px" }}>
@@ -1763,8 +1763,8 @@ function PotatoStorageColdChain() {
       {/* Section 1 */}
       <h2 id="cold-chain-basics" style={sH2}>What is the cold chain for potatoes?</h2>
       <p style={sP}>The potato cold chain is the temperature-controlled supply chain that moves tubers from farm gate through storage, packhouse, processing, and retail without letting them warm, sprout, or rot. For such a seasonal, bulky crop, cold chain is not a convenience &mdash; it is the infrastructure that converts a three-month harvest into a twelve-month supply. Properly managed, potatoes remain viable 6&ndash;9 months after harvest. Without temperature control, losses accelerate rapidly from sprouting, disease spread, and dehydration.</p>
-      <p style={sP}>The practical cold chain for potatoes has three stages. At the <strong>farm</strong>, newly harvested tubers spend 1&ndash;2 weeks at 12&ndash;18&deg;C to cure (heal harvest wounds and set the skin). They then move into long-term <strong>bulk storage</strong> at the use-case-specific temperature outlined below. Finally, they travel through a refrigerated supply chain to <strong>processors or retailers</strong>, where short-term storage at 7&ndash;10&deg;C balances shelf life against cold-sweetening risk. Countries that dominate potato processing and seed export &mdash; the <Link href="/country/netherlands" style={{ color: "#C62828", textDecoration: "none" }}>Netherlands</Link>, the <Link href="/country/united-states" style={{ color: "#C62828", textDecoration: "none" }}>United States</Link>, Canada, and Belgium &mdash; operate tightly integrated cold chains. Much of South Asia and Sub-Saharan Africa does not. That gap is why global post-harvest losses vary from 5&ndash;10% to 30&ndash;40% depending on where a potato is grown (FAO).</p>
-      <p style={sP}>The rest of this guide walks through the temperatures, durations, and failure modes that define the industry, with inline references to more detailed resources across Potatopedia including our <Link href="/answers/potato-cold-storage-temperature" style={{ color: "#C62828", textDecoration: "none" }}>ideal temperature answer</Link>, <Link href="/blog/potato-cold-storage-guide" style={{ color: "#C62828", textDecoration: "none" }}>cold storage design guide</Link>, and the <Link href="/knowledge/how-potatoes-are-processed" style={{ color: "#C62828", textDecoration: "none" }}>processing industry overview</Link>.</p>
+      <p style={sP}>The practical cold chain for potatoes has three stages. At the <strong>farm</strong>, newly harvested tubers spend 1&ndash;2 weeks at 12&ndash;18&deg;C to cure (heal harvest wounds and set the skin). They then move into long-term <strong>bulk storage</strong> at the use-case-specific temperature outlined below. Finally, they travel through a refrigerated supply chain to <strong>processors or retailers</strong>, where short-term storage at 7&ndash;10&deg;C balances shelf life against cold-sweetening risk. Countries that dominate potato processing and seed export &mdash; the <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link>, the <Link href="/country/united-states" style={{ color: "var(--gold)", textDecoration: "none" }}>United States</Link>, Canada, and Belgium &mdash; operate tightly integrated cold chains. Much of South Asia and Sub-Saharan Africa does not. That gap is why global post-harvest losses vary from 5&ndash;10% to 30&ndash;40% depending on where a potato is grown (FAO).</p>
+      <p style={sP}>The rest of this guide walks through the temperatures, durations, and failure modes that define the industry, with inline references to more detailed resources across Potatopedia including our <Link href="/answers/potato-cold-storage-temperature" style={{ color: "var(--gold)", textDecoration: "none" }}>ideal temperature answer</Link>, <Link href="/blog/potato-cold-storage-guide" style={{ color: "var(--gold)", textDecoration: "none" }}>cold storage design guide</Link>, and the <Link href="/knowledge/how-potatoes-are-processed" style={{ color: "var(--gold)", textDecoration: "none" }}>processing industry overview</Link>.</p>
 
       {/* Section 2 */}
       <h2 id="storage-temps" style={sH2}>What temperature should potatoes be stored at?</h2>
@@ -1774,40 +1774,40 @@ function PotatoStorageColdChain() {
           <thead><tr>{["Use case","Temperature","Humidity","Max storage","Why"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {storageSpecs.map((r, i) => (
-              <tr key={r[0]} style={{ background: i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={r[0]} style={{ background: i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
                 <td style={sTd}>{r[1]}</td>
                 <td style={sTd}>{r[2]}</td>
                 <td style={sTd}>{r[3]}</td>
-                <td style={{ ...sTd, color: "#666" }}>{r[4]}</td>
+                <td style={{ ...sTd, color: "var(--mute)" }}>{r[4]}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
       <p style={sSource}>Source: USDA Cooperative Extension, FAO post-harvest handling guidelines.</p>
-      <p style={sP}>The sharpest practical distinction is between table potatoes and processing potatoes. At temperatures below 6&deg;C, potato starch hydrolyzes to reducing sugars (glucose and fructose) &mdash; a phenomenon called <strong>cold sweetening</strong>. For a boiled or baked potato this is harmless. For a fried one it is disastrous: at fry temperatures, those sugars caramelize via the Maillard reaction, producing dark, bitter fries or chips that processors reject on sight. That is why fry-grade and chip-grade potatoes are held at 8&ndash;12&deg;C, warmer than table potatoes and well above the cold-sweetening threshold. Variety selection matters too &mdash; see our guide to the <Link href="/answers/best-potato-varieties-for-frying" style={{ color: "#C62828", textDecoration: "none" }}>best potato varieties for frying</Link>, which details low-sugar cultivars like Russet Burbank and Shepody that resist cold sweetening best.</p>
+      <p style={sP}>The sharpest practical distinction is between table potatoes and processing potatoes. At temperatures below 6&deg;C, potato starch hydrolyzes to reducing sugars (glucose and fructose) &mdash; a phenomenon called <strong>cold sweetening</strong>. For a boiled or baked potato this is harmless. For a fried one it is disastrous: at fry temperatures, those sugars caramelize via the Maillard reaction, producing dark, bitter fries or chips that processors reject on sight. That is why fry-grade and chip-grade potatoes are held at 8&ndash;12&deg;C, warmer than table potatoes and well above the cold-sweetening threshold. Variety selection matters too &mdash; see our guide to the <Link href="/answers/best-potato-varieties-for-frying" style={{ color: "var(--gold)", textDecoration: "none" }}>best potato varieties for frying</Link>, which details low-sugar cultivars like Russet Burbank and Shepody that resist cold sweetening best.</p>
 
       <StatCallout number="6°C" context="Below this threshold, potato starch converts to reducing sugars. A load held too cold darkens in the fryer and is rejected by processors." source="USDA Extension" />
 
       {/* Section 3 */}
       <h2 id="storage-duration" style={sH2}>How long can potatoes be stored in cold storage?</h2>
-      <p style={sP}>With proper temperature and humidity, potatoes remain viable 6&ndash;9 months after harvest, though the upper bound depends heavily on sprout control. Potato tubers have a natural dormancy period of roughly 2&ndash;3 months after harvest during which they will not sprout regardless of conditions. After that, maintaining marketable quality through the full storage season requires chemical or physical intervention. For the operational detail, see our <Link href="/answers/how-long-potatoes-cold-storage" style={{ color: "#C62828", textDecoration: "none" }}>complete storage duration answer</Link>.</p>
+      <p style={sP}>With proper temperature and humidity, potatoes remain viable 6&ndash;9 months after harvest, though the upper bound depends heavily on sprout control. Potato tubers have a natural dormancy period of roughly 2&ndash;3 months after harvest during which they will not sprout regardless of conditions. After that, maintaining marketable quality through the full storage season requires chemical or physical intervention. For the operational detail, see our <Link href="/answers/how-long-potatoes-cold-storage" style={{ color: "var(--gold)", textDecoration: "none" }}>complete storage duration answer</Link>.</p>
       <p style={sP}>For decades, the industry relied on <strong>chlorpropham (CIPC)</strong> as the dominant sprout inhibitor, applied as a thermal fog inside storage facilities. CIPC was effective, cheap, and near-universal. In 2020, the European Union revoked CIPC approval over residue concerns, forcing a global transition. The leading alternatives today are <strong>1,4-dimethylnaphthalene (1,4-DMN)</strong> &mdash; a naturally occurring compound found in sprouting potatoes themselves &mdash; along with ethylene, spearmint-derived essential oils, and hydrogen peroxide sprays. Each has trade-offs: DMN works at lower residues but costs more; ethylene is reversible but requires precise dose control; essential oils are organic-compatible but less potent at scale.</p>
-      <p style={sP}>Storage duration also varies by variety. Early varieties like Maris Peer are short-dormancy and usually hit their commercial limit at 3&ndash;4 months. Main-crop storage varieties &mdash; Russet Burbank, Maris Piper, King Edward &mdash; can hold 7&ndash;9 months under the right conditions, which is why the UK's commercial main-crop sector and the US Pacific Northwest are structured around them. Containers and packaging matter at smaller scales too; see our guide to <Link href="/answers/potato-storage-containers" style={{ color: "#C62828", textDecoration: "none" }}>the best containers for storing potatoes</Link>. Commercial-scale storage in the <Link href="/country/united-kingdom" style={{ color: "#C62828", textDecoration: "none" }}>United Kingdom</Link> routinely holds main-crop potatoes from October harvest through the following June.</p>
+      <p style={sP}>Storage duration also varies by variety. Early varieties like Maris Peer are short-dormancy and usually hit their commercial limit at 3&ndash;4 months. Main-crop storage varieties &mdash; Russet Burbank, Maris Piper, King Edward &mdash; can hold 7&ndash;9 months under the right conditions, which is why the UK's commercial main-crop sector and the US Pacific Northwest are structured around them. Containers and packaging matter at smaller scales too; see our guide to <Link href="/answers/potato-storage-containers" style={{ color: "var(--gold)", textDecoration: "none" }}>the best containers for storing potatoes</Link>. Commercial-scale storage in the <Link href="/country/united-kingdom" style={{ color: "var(--gold)", textDecoration: "none" }}>United Kingdom</Link> routinely holds main-crop potatoes from October harvest through the following June.</p>
 
       {/* Section 4 */}
       <h2 id="seed-vs-ware" style={sH2}>What is the difference between seed potato and ware potato storage?</h2>
       <p style={sP}>Seed and ware storage look superficially similar &mdash; 2&ndash;4&deg;C, high humidity, controlled ventilation &mdash; but they have opposite goals. <strong>Ware storage</strong> (table and processing potatoes) aims to minimize metabolic activity and suppress sprouting for as long as possible, because any sprouting degrades sellable quality. <strong>Seed storage</strong> preserves eye viability and manages dormancy so that when seed tubers are planted, they emerge uniformly and vigorously. A seed potato that never sprouts is worthless.</p>
       <p style={sP}>The practical difference shows up at the end of the storage season. Seed potatoes intended for spring planting are removed from cold storage 2&ndash;4 weeks before planting and warmed to 10&ndash;15&deg;C to break dormancy and encourage uniform chitting (controlled sprouting). Skipping this warm-up produces patchy emergence in the field and yield losses. Light exposure is also flipped: for ware potatoes, light triggers greening and solanine production and must be excluded. For seed potatoes held in <em>diffused-light storage</em> &mdash; a technique pioneered for smallholder farmers &mdash; moderate indirect light actually suppresses excessive sprouting and keeps tubers planting-ready longer.</p>
-      <p style={sP}>Certification tiers add another layer. The <Link href="/country/netherlands" style={{ color: "#C62828", textDecoration: "none" }}>Netherlands</Link> (via the NAK seed potato inspectorate) is the global leader in certified seed cold chain, exporting to 80+ countries. Scotland's SASA and the UK's AHDB maintain parallel systems. Each tier in the multiplication pipeline &mdash; pre-basic, basic, certified &mdash; has storage protocols that determine whether a shipment meets phytosanitary standards at the destination. For the full certification picture, see our detailed answers on <Link href="/answers/seed-potato-certification" style={{ color: "#C62828", textDecoration: "none" }}>how seed potato certification works</Link> and <Link href="/answers/certified-seed-potatoes" style={{ color: "#C62828", textDecoration: "none" }}>what certified seed potatoes are</Link>.</p>
+      <p style={sP}>Certification tiers add another layer. The <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link> (via the NAK seed potato inspectorate) is the global leader in certified seed cold chain, exporting to 80+ countries. Scotland's SASA and the UK's AHDB maintain parallel systems. Each tier in the multiplication pipeline &mdash; pre-basic, basic, certified &mdash; has storage protocols that determine whether a shipment meets phytosanitary standards at the destination. For the full certification picture, see our detailed answers on <Link href="/answers/seed-potato-certification" style={{ color: "var(--gold)", textDecoration: "none" }}>how seed potato certification works</Link> and <Link href="/answers/certified-seed-potatoes" style={{ color: "var(--gold)", textDecoration: "none" }}>what certified seed potatoes are</Link>.</p>
 
       {/* Section 5 — developing-country framing (per user Q2 confirmed) */}
       <h2 id="developing-world" style={sH2}>How do developing countries handle potato storage without cold chain?</h2>
       <p style={sP}>Industrial cold storage requires grid power, capital ($200&ndash;500 per tonne of capacity to build, per USDA Extension), and a supply chain integrated enough to justify the investment. Across much of South Asia and Sub-Saharan Africa, one or more of those preconditions is missing &mdash; yet these are precisely the regions where potato production is growing fastest. The result is a patchwork of alternative storage technologies adapted to low-resource contexts.</p>
-      <p style={sP}><Link href="/country/india" style={{ color: "#C62828", textDecoration: "none" }}>India</Link> illustrates both sides of the gap. The country operates approximately 8,000 potato-dedicated cold stores with a combined capacity of roughly 40 million tonnes according to CPRI (Central Potato Research Institute) data &mdash; the largest known single-country potato cold storage infrastructure anywhere. But roughly 30&ndash;40% of that capacity is concentrated in Uttar Pradesh alone, creating a two-tier market. UP farmers store through the off-season and sell when prices rise. Farmers in Assam, Jharkhand, and the northeastern states often lack access to any cold storage and are forced to sell immediately at harvest-glut prices. The <Link href="/blog/india-potato-production-by-state" style={{ color: "#C62828", textDecoration: "none" }}>state-by-state breakdown</Link> captures this structural imbalance in detail.</p>
+      <p style={sP}><Link href="/country/india" style={{ color: "var(--gold)", textDecoration: "none" }}>India</Link> illustrates both sides of the gap. The country operates approximately 8,000 potato-dedicated cold stores with a combined capacity of roughly 40 million tonnes according to CPRI (Central Potato Research Institute) data &mdash; the largest known single-country potato cold storage infrastructure anywhere. But roughly 30&ndash;40% of that capacity is concentrated in Uttar Pradesh alone, creating a two-tier market. UP farmers store through the off-season and sell when prices rise. Farmers in Assam, Jharkhand, and the northeastern states often lack access to any cold storage and are forced to sell immediately at harvest-glut prices. The <Link href="/blog/india-potato-production-by-state" style={{ color: "var(--gold)", textDecoration: "none" }}>state-by-state breakdown</Link> captures this structural imbalance in detail.</p>
       <p style={sP}>Where cold storage is unavailable, three low-energy alternatives dominate. <strong>Evaporative cooling structures</strong> &mdash; typically double-walled brick-and-sand chambers saturated with water &mdash; use evaporation to drop internal temperatures 5&ndash;15&deg;C below ambient without any electricity. They work best in dry climates. <strong>Zero-energy cool chambers</strong>, developed and refined by CIP (International Potato Center) for smallholder use, scale the same principle to household and village storage and can hold potatoes workably for 2&ndash;4 months. <strong>Traditional clamps and pits</strong> &mdash; straw-insulated earth pits that exploit ground temperature inertia &mdash; are used across Peru, northern India, and the pre-industrial UK; they store potatoes for 3&ndash;6 months in moderate climates at essentially zero cost.</p>
-      <p style={sP}>These technologies are not a substitute for industrial cold chain &mdash; they are what farmers actually use in <Link href="/country/pakistan" style={{ color: "#C62828", textDecoration: "none" }}>Pakistan</Link>, <Link href="/country/bangladesh" style={{ color: "#C62828", textDecoration: "none" }}>Bangladesh</Link>, <Link href="/country/kenya" style={{ color: "#C62828", textDecoration: "none" }}>Kenya</Link>, and Andean <Link href="/country/peru" style={{ color: "#C62828", textDecoration: "none" }}>Peru</Link> today, and they represent the realistic near-term answer for the hundreds of millions of farmers growing potatoes outside integrated commercial supply chains.</p>
+      <p style={sP}>These technologies are not a substitute for industrial cold chain &mdash; they are what farmers actually use in <Link href="/country/pakistan" style={{ color: "var(--gold)", textDecoration: "none" }}>Pakistan</Link>, <Link href="/country/bangladesh" style={{ color: "var(--gold)", textDecoration: "none" }}>Bangladesh</Link>, <Link href="/country/kenya" style={{ color: "var(--gold)", textDecoration: "none" }}>Kenya</Link>, and Andean <Link href="/country/peru" style={{ color: "var(--gold)", textDecoration: "none" }}>Peru</Link> today, and they represent the realistic near-term answer for the hundreds of millions of farmers growing potatoes outside integrated commercial supply chains.</p>
 
       <StatCallout number="30–40%" context="of India's ~40M-tonne potato cold storage sits in Uttar Pradesh. Farmers outside UP often sell at harvest-depressed prices because no storage is accessible." source="CPRI" />
 
@@ -1816,9 +1816,9 @@ function PotatoStorageColdChain() {
       <p style={sP}>Globally, potato post-harvest losses run 5&ndash;10% in developed-country cold chains and 30&ndash;40% in regions without them (FAO). Those aggregate numbers hide six distinct loss vectors, each with its own mitigation:</p>
       <p style={sP}><strong>1. Temperature variance.</strong> The single largest cause of commercial storage loss. Even brief excursions above target temperature accelerate metabolism and sprouting for the remainder of the season. Uniform air circulation and continuous monitoring are the defense.</p>
       <p style={sP}><strong>2. Greening and solanine.</strong> Light exposure triggers chlorophyll production (visible as greening, which is harmless) and, in parallel, glycoalkaloid solanine production, which is not. Solanine concentrations above 200 mg/kg are unsafe (FAO). Storage must be light-tight for ware potatoes.</p>
-      <p style={sP}><strong>3. Disease spread.</strong> Diseases carried in from the field &mdash; late blight (<em>Phytophthora infestans</em>), bacterial soft rot (<em>Pectobacterium</em>), silver scurf (<em>Helminthosporium solani</em>), Fusarium dry rot &mdash; can devastate an entire storage load if conditions favor spread. For an overview of the major pathogens, see our answer on <Link href="/answers/what-is-late-blight" style={{ color: "#C62828", textDecoration: "none" }}>what late blight is</Link>.</p>
+      <p style={sP}><strong>3. Disease spread.</strong> Diseases carried in from the field &mdash; late blight (<em>Phytophthora infestans</em>), bacterial soft rot (<em>Pectobacterium</em>), silver scurf (<em>Helminthosporium solani</em>), Fusarium dry rot &mdash; can devastate an entire storage load if conditions favor spread. For an overview of the major pathogens, see our answer on <Link href="/answers/what-is-late-blight" style={{ color: "var(--gold)", textDecoration: "none" }}>what late blight is</Link>.</p>
       <p style={sP}><strong>4. Dehydration.</strong> Below 85% relative humidity, tubers lose 2&ndash;10% of their weight per month as water evaporates from the periderm. Humidification systems are the main counter; loss is economic as well as quality-related because potatoes sell by weight.</p>
-      <p style={sP}><strong>5. Ethylene exposure.</strong> Storing potatoes near onions or apples exposes them to ethylene, a ripening hormone that dramatically accelerates sprouting and aging. Store potatoes and onions separately &mdash; a point we expand on in our <Link href="/answers/how-to-store-potatoes-at-home" style={{ color: "#C62828", textDecoration: "none" }}>home storage guide</Link>.</p>
+      <p style={sP}><strong>5. Ethylene exposure.</strong> Storing potatoes near onions or apples exposes them to ethylene, a ripening hormone that dramatically accelerates sprouting and aging. Store potatoes and onions separately &mdash; a point we expand on in our <Link href="/answers/how-to-store-potatoes-at-home" style={{ color: "var(--gold)", textDecoration: "none" }}>home storage guide</Link>.</p>
       <p style={sP}><strong>6. Insect damage.</strong> Tuber moth (<em>Phthorimaea operculella</em>) and wireworm damage primarily affect stored crops in warmer climates where cold storage is intermittent or unavailable &mdash; a compounding factor in the developing-world loss picture described in the previous section.</p>
 
       <StatCallout number="5–10% vs 30–40%" context="Post-harvest loss in modern cold chains versus systems without temperature control. The gap is the largest food-security lever in the global potato sector." source="FAO" />
@@ -1826,8 +1826,8 @@ function PotatoStorageColdChain() {
       {/* Section 7 */}
       <h2 id="country-capacity" style={sH2}>Which countries have the most cold storage capacity?</h2>
       <p style={sP}>Reliable country-by-country totals for potato-dedicated cold storage capacity are surprisingly hard to assemble &mdash; most national statistics aggregate cold storage across all refrigerated commodities rather than singling out potatoes. What is well documented is where the largest infrastructure concentrations are.</p>
-      <p style={sP}><strong><Link href="/country/india" style={{ color: "#C62828", textDecoration: "none" }}>India</Link></strong> operates the largest known single-country potato cold storage system, with approximately 8,000 facilities and 40 million tonnes of combined capacity (CPRI). Uttar Pradesh dominates, with West Bengal, Punjab, and Gujarat as secondary hubs. The <strong><Link href="/country/united-states" style={{ color: "#C62828", textDecoration: "none" }}>United States</Link></strong> concentrates cold storage in the Pacific Northwest (Idaho, Washington, Oregon) and the Great Lakes region (Wisconsin), tightly integrated with the processing operations of Lamb Weston, J.R. Simplot, and McCain's US facilities. The 2024 US crop was valued at $4.60 billion (USDA NASS), virtually all of it passing through some form of controlled storage before processing or fresh-market distribution.</p>
-      <p style={sP}>The <strong><Link href="/country/netherlands" style={{ color: "#C62828", textDecoration: "none" }}>Netherlands</Link></strong> is the global leader in certified seed potato cold storage, with NAK-inspected facilities shipping to 80+ countries &mdash; qualitatively dominant even where tonnage figures are not publicly aggregated. <strong><Link href="/country/china" style={{ color: "#C62828", textDecoration: "none" }}>China</Link></strong> accelerated cold storage investment dramatically after its 2014 "Potato Staple Food Strategy," with state-backed capacity expansion concentrated in Inner Mongolia, Gansu, Sichuan, and Yunnan. <strong><Link href="/country/united-kingdom" style={{ color: "#C62828", textDecoration: "none" }}>The United Kingdom</Link></strong> maintains a commercial main-crop storage tradition that holds potatoes from October through June using varieties bred specifically for long storage. <strong><Link href="/country/germany" style={{ color: "#C62828", textDecoration: "none" }}>Germany</Link></strong>, <strong><Link href="/country/france" style={{ color: "#C62828", textDecoration: "none" }}>France</Link></strong>, and <strong><Link href="/country/canada" style={{ color: "#C62828", textDecoration: "none" }}>Canada</Link></strong> all operate mature cold chains integrated with domestic processing capacity &mdash; Canada's McCain Foods headquarters (New Brunswick) anchors one of the largest cold-chain-integrated frozen fry operations in the world.</p>
+      <p style={sP}><strong><Link href="/country/india" style={{ color: "var(--gold)", textDecoration: "none" }}>India</Link></strong> operates the largest known single-country potato cold storage system, with approximately 8,000 facilities and 40 million tonnes of combined capacity (CPRI). Uttar Pradesh dominates, with West Bengal, Punjab, and Gujarat as secondary hubs. The <strong><Link href="/country/united-states" style={{ color: "var(--gold)", textDecoration: "none" }}>United States</Link></strong> concentrates cold storage in the Pacific Northwest (Idaho, Washington, Oregon) and the Great Lakes region (Wisconsin), tightly integrated with the processing operations of Lamb Weston, J.R. Simplot, and McCain's US facilities. The 2024 US crop was valued at $4.60 billion (USDA NASS), virtually all of it passing through some form of controlled storage before processing or fresh-market distribution.</p>
+      <p style={sP}>The <strong><Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link></strong> is the global leader in certified seed potato cold storage, with NAK-inspected facilities shipping to 80+ countries &mdash; qualitatively dominant even where tonnage figures are not publicly aggregated. <strong><Link href="/country/china" style={{ color: "var(--gold)", textDecoration: "none" }}>China</Link></strong> accelerated cold storage investment dramatically after its 2014 "Potato Staple Food Strategy," with state-backed capacity expansion concentrated in Inner Mongolia, Gansu, Sichuan, and Yunnan. <strong><Link href="/country/united-kingdom" style={{ color: "var(--gold)", textDecoration: "none" }}>The United Kingdom</Link></strong> maintains a commercial main-crop storage tradition that holds potatoes from October through June using varieties bred specifically for long storage. <strong><Link href="/country/germany" style={{ color: "var(--gold)", textDecoration: "none" }}>Germany</Link></strong>, <strong><Link href="/country/france" style={{ color: "var(--gold)", textDecoration: "none" }}>France</Link></strong>, and <strong><Link href="/country/canada" style={{ color: "var(--gold)", textDecoration: "none" }}>Canada</Link></strong> all operate mature cold chains integrated with domestic processing capacity &mdash; Canada's McCain Foods headquarters (New Brunswick) anchors one of the largest cold-chain-integrated frozen fry operations in the world.</p>
 
       <SourceBlock sources={[
         "USDA Cooperative Extension — potato storage temperature, humidity, and ventilation guidelines",
@@ -1848,14 +1848,14 @@ function PotatoStorageColdChain() {
       <RelatedArticles articles={relatedArticles} />
 
       <section style={{ marginTop: 48 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Explore Country Profiles</h2>
+        <h2 style={{ fontSize: 20, fontWeight: 700, color: "var(--ink)", marginBottom: 16 }}>Explore Country Profiles</h2>
         <div style={{ display: "flex", gap: 10, overflowX: "auto", paddingBottom: 8 }}>
           {relatedCountries.map((c) => (
-            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "white", border: "1px solid #eee", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0, transition: "border-color 0.2s" }}>
+            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "var(--card)", border: "1px solid var(--line)", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0, transition: "border-color 0.2s" }}>
               <span style={{ fontSize: 20 }}>{c.flag}</span>
               <div>
-                <div style={{ fontSize: 13, fontWeight: 600, color: "#1A1A1A", whiteSpace: "nowrap" }}>{c.name}</div>
-                <div style={{ fontSize: 11, color: "#C62828", fontWeight: 600 }}>{c.prod} tonnes</div>
+                <div style={{ fontSize: 13, fontWeight: 600, color: "var(--ink)", whiteSpace: "nowrap" }}>{c.name}</div>
+                <div style={{ fontSize: 11, color: "var(--gold)", fontWeight: 600 }}>{c.prod} tonnes</div>
               </div>
             </Link>
           ))}
@@ -1926,12 +1926,12 @@ function McDonaldsPotatoVarieties() {
         <Breadcrumb tag="Processing" />
         <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 16 }}>
           <TagBadge tag="Processing" />
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>Updated {UPDATED_SHORT}</span>
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>8 min read</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>Updated {UPDATED_SHORT}</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>8 min read</span>
         </div>
-        <h1 style={{ fontSize: 32, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>What Potatoes Does McDonald&apos;s Use? The Russet Burbank Story</h1>
+        <h1 style={{ fontSize: 32, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>What Potatoes Does McDonald&apos;s Use? The Russet Burbank Story</h1>
       </HeroBanner>
 
       <div style={{ maxWidth: 820, margin: "0 auto", padding: "0 24px 80px" }}>
@@ -1952,7 +1952,7 @@ function McDonaldsPotatoVarieties() {
       <CollapsibleTOC items={tocItems} />
 
       <h2 id="varieties" style={sH2}>Which potato varieties does McDonald&apos;s use for French fries?</h2>
-      <p style={sP}>McDonald&apos;s uses a small portfolio of high-starch <Link href="/knowledge/potato-varieties-guide" style={{ color: "#C62828", fontWeight: 600, textDecoration: "none" }}>processing potatoes</Link> grown to tightly defined specifications. The dominant variety is <Link href="/knowledge/russet-burbank-history" style={{ color: "#C62828", fontWeight: 600, textDecoration: "none" }}>Russet Burbank</Link>, the long, heavily russeted variety selected by Luther Burbank in 1876 that has anchored the US frozen fry industry for over 60 years. Backup and supplementary varieties include Ranger Russet (released 1991 by the USDA-ARS Tri-State program), Umatilla Russet (1998), Shepody (a Canadian-bred early variety used to start the fry-pack season before main-crop russets are ready), and the newer Tri-State releases Clearwater Russet and Alpine Russet.</p>
+      <p style={sP}>McDonald&apos;s uses a small portfolio of high-starch <Link href="/knowledge/potato-varieties-guide" style={{ color: "var(--gold)", fontWeight: 600, textDecoration: "none" }}>processing potatoes</Link> grown to tightly defined specifications. The dominant variety is <Link href="/knowledge/russet-burbank-history" style={{ color: "var(--gold)", fontWeight: 600, textDecoration: "none" }}>Russet Burbank</Link>, the long, heavily russeted variety selected by Luther Burbank in 1876 that has anchored the US frozen fry industry for over 60 years. Backup and supplementary varieties include Ranger Russet (released 1991 by the USDA-ARS Tri-State program), Umatilla Russet (1998), Shepody (a Canadian-bred early variety used to start the fry-pack season before main-crop russets are ready), and the newer Tri-State releases Clearwater Russet and Alpine Russet.</p>
       <p style={sP}>All of these varieties share the four traits processors need for an acceptable McDonald&apos;s-grade fry: specific gravity above 1.080 (for crispy texture and high fry yield per tonne of raw potatoes), long cylindrical tuber shape (so each potato yields the maximum number of full-length fries), white flesh (for the iconic light-golden color), and low reducing sugars (for color stability during frying). The table below shows the operational specs that processors use to qualify each variety for McDonald&apos;s contracts.</p>
 
       <div style={{ overflowX: "auto", marginBottom: 8 }}>
@@ -1960,13 +1960,13 @@ function McDonaldsPotatoVarieties() {
           <thead><tr>{["Variety","Specific Gravity","Tuber Shape","Fry Color","Season","Origin"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {varietyTable.map((r, i) => (
-              <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={{ ...sTd, fontWeight: i < 3 ? 600 : 400 }}>{r[0]}</td>
-                <td style={{ ...sTd, color: "#C62828", fontWeight: 600 }}>{r[1]}</td>
+                <td style={{ ...sTd, color: "var(--gold)", fontWeight: 600 }}>{r[1]}</td>
                 <td style={sTd}>{r[2]}</td>
                 <td style={sTd}>{r[3]}</td>
                 <td style={sTd}>{r[4]}</td>
-                <td style={{ ...sTd, color: "#888" }}>{r[5]}</td>
+                <td style={{ ...sTd, color: "var(--mute2)" }}>{r[5]}</td>
               </tr>
             ))}
           </tbody>
@@ -1977,14 +1977,14 @@ function McDonaldsPotatoVarieties() {
       <h2 id="why-burbank" style={sH2}>Why does McDonald&apos;s use Russet Burbank potatoes?</h2>
       <p style={sP}>Russet Burbank&apos;s commercial dominance is not the result of superior agronomic traits. The variety is susceptible to most major potato diseases (Verticillium wilt, common scab, PVY, late blight), prone to internal defects (hollow heart, brown center, sugar ends), and notoriously stress-sensitive &mdash; even mild irrigation or temperature fluctuations cause quality problems. The reason it dominates is that <em>processing infrastructure was built around it</em>.</p>
       <p style={sP}>Four properties make Russet Burbank ideal for the McDonald&apos;s fry: <strong>(1) Long cylindrical tubers</strong> (averaging 75&ndash;125 mm) yield the maximum number of long, uniform fry strips per potato, maximizing the premium &ldquo;long fry&rdquo; fraction. <strong>(2) High specific gravity</strong> (1.080&ndash;1.095) means more starch per unit weight, producing crispy exteriors and fluffy interiors and increasing fry yield per tonne by 5&ndash;10% versus lower-SG varieties. <strong>(3) White flesh</strong> produces the iconic light-golden fry color that consumers associate with the McDonald&apos;s brand. <strong>(4) Long dormancy</strong> (120&ndash;150 days under proper storage) allows the supply chain to run from a single autumn harvest through summer, smoothing out the fry-pack calendar.</p>
-      <p style={sP}>The downsides are real. Russet Burbank requires precise irrigation scheduling, split-application nitrogen, and tight harvest-window management. Newer Tri-State varieties such as <Link href="/country/united-states" style={{ color: "#C62828", textDecoration: "none" }}>Clearwater Russet, Alpine Russet, and Galena Russet</Link> outperform Russet Burbank on cold sweetening resistance, internal defect tolerance, and yield. But replacing Russet Burbank means re-tuning billion-dollar processing lines, re-training agronomy teams, and re-qualifying the fry against decades-old McDonald&apos;s specs &mdash; a slow process now underway.</p>
+      <p style={sP}>The downsides are real. Russet Burbank requires precise irrigation scheduling, split-application nitrogen, and tight harvest-window management. Newer Tri-State varieties such as <Link href="/country/united-states" style={{ color: "var(--gold)", textDecoration: "none" }}>Clearwater Russet, Alpine Russet, and Galena Russet</Link> outperform Russet Burbank on cold sweetening resistance, internal defect tolerance, and yield. But replacing Russet Burbank means re-tuning billion-dollar processing lines, re-training agronomy teams, and re-qualifying the fry against decades-old McDonald&apos;s specs &mdash; a slow process now underway.</p>
 
       <StatCallout number="1876" context="Luther Burbank selected the Russet Burbank in Lunenburg, Massachusetts. It has been the dominant American potato variety for over 140 years — the longest commercial run of any major US potato cultivar." source="USDA-ARS, University of Idaho Extension" />
 
       <h2 id="simplot-history" style={sH2}>How did J.R. Simplot create the frozen fry industry?</h2>
-      <p style={sP}>The McDonald&apos;s &ndash; Russet Burbank lock-in is the result of a single supply-chain decision in the mid-1960s. J.R. Simplot, an Idaho farmer-turned-processor who had developed dehydrated potatoes for the US Army during World War II, pioneered commercial frozen French fry production in the 1950s. In 1965, Simplot struck a deal with Ray Kroc of <Link href="/country/united-states" style={{ color: "#C62828", textDecoration: "none" }}>McDonald&apos;s</Link> to supply frozen Russet Burbank fries to the chain&apos;s rapidly expanding restaurant network.</p>
+      <p style={sP}>The McDonald&apos;s &ndash; Russet Burbank lock-in is the result of a single supply-chain decision in the mid-1960s. J.R. Simplot, an Idaho farmer-turned-processor who had developed dehydrated potatoes for the US Army during World War II, pioneered commercial frozen French fry production in the 1950s. In 1965, Simplot struck a deal with Ray Kroc of <Link href="/country/united-states" style={{ color: "var(--gold)", textDecoration: "none" }}>McDonald&apos;s</Link> to supply frozen Russet Burbank fries to the chain&apos;s rapidly expanding restaurant network.</p>
       <p style={sP}>Before the deal, McDonald&apos;s restaurants peeled, cut, and fried fresh potatoes in-store. The 1965 conversion to frozen fries was operationally transformative: it standardized fry quality across thousands of locations, eliminated seasonal supply variability, and lowered labor costs in every restaurant. The decision to standardize on Russet Burbank specs &mdash; long, high-SG, white-fleshed &mdash; locked the entire global fast-food industry into the same potato. Burger King, Wendy&apos;s, KFC, and every other major chain followed McDonald&apos;s lead.</p>
-      <p style={sP}>Today, the J.R. Simplot Company, Lamb Weston (spun off from ConAgra and now the world&apos;s largest frozen potato processor), and McCain Foods (Canadian-headquartered, with major US capacity) together process over 60% of the entire US potato crop. <Link href="/knowledge/how-potatoes-are-processed" style={{ color: "#C62828", textDecoration: "none" }}>Frozen processing alone</Link> consumes approximately 36% of US potato production, with chips and dehydrated products taking another 25%. Idaho, Washington, and Oregon &mdash; the Pacific Northwest russet belt &mdash; supply the bulk of this flow.</p>
+      <p style={sP}>Today, the J.R. Simplot Company, Lamb Weston (spun off from ConAgra and now the world&apos;s largest frozen potato processor), and McCain Foods (Canadian-headquartered, with major US capacity) together process over 60% of the entire US potato crop. <Link href="/knowledge/how-potatoes-are-processed" style={{ color: "var(--gold)", textDecoration: "none" }}>Frozen processing alone</Link> consumes approximately 36% of US potato production, with chips and dehydrated products taking another 25%. Idaho, Washington, and Oregon &mdash; the Pacific Northwest russet belt &mdash; supply the bulk of this flow.</p>
 
       <h2 id="good-fry" style={sH2}>What makes a potato good for French fries?</h2>
       <p style={sP}>A processing-grade potato has to clear six quality thresholds simultaneously. Miss any one, and the resulting fry fails the visual, textural, or flavor specs that fast-food chains enforce. The table below summarizes what each threshold is, what the ideal value looks like, and what goes wrong if the potato falls short.</p>
@@ -1994,9 +1994,9 @@ function McDonaldsPotatoVarieties() {
           <thead><tr>{["Processing Requirement","Ideal Value","What Goes Wrong if Off-Spec"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {processingTable.map((r, i) => (
-              <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
-                <td style={{ ...sTd, color: "#C62828", fontWeight: 600 }}>{r[1]}</td>
+                <td style={{ ...sTd, color: "var(--gold)", fontWeight: 600 }}>{r[1]}</td>
                 <td style={sTd}>{r[2]}</td>
               </tr>
             ))}
@@ -2011,16 +2011,16 @@ function McDonaldsPotatoVarieties() {
       <StatCallout number="69%" context="of all US potatoes go to processors. McDonald's alone consumes an estimated 3.4 billion pounds of potatoes per year, almost entirely as Russet Burbank-class fries." source="USDA NASS 2024" />
 
       <h2 id="where-grown" style={sH2}>Where are McDonald&apos;s potatoes grown?</h2>
-      <p style={sP}>The Pacific Northwest dominates US processing potato production. <Link href="/country/united-states" style={{ color: "#C62828", fontWeight: 600, textDecoration: "none" }}>Idaho</Link> grows approximately 30% of the US crop with yields averaging 430&ndash;450 cwt/acre (~48&ndash;50 t/ha) and the world&apos;s largest concentration of Russet Burbank acreage. Washington state contributes another 23% from the Columbia Basin, with state-level yields exceeding 600 cwt/acre (~67 t/ha) under center-pivot irrigation &mdash; the highest commercial potato yields anywhere on Earth. <Link href="/country/canada" style={{ color: "#C62828", textDecoration: "none" }}>Canada</Link>&apos;s New Brunswick and Manitoba also supply significant fry-grade russets to McDonald&apos;s, particularly through McCain Foods, the world&apos;s largest frozen potato processor.</p>
-      <p style={sP}>Other US production zones include Oregon (Columbia Basin and Klamath Basin), Wisconsin, North Dakota, Colorado&apos;s San Luis Valley, Maine&apos;s Aroostook County, and parts of Michigan. The fresh-market russet from these regions typically goes to retail; processing-grade tubers go to Lamb Weston, Simplot, and McCain. For state-by-state details, see our <Link href="/answers/us-potato-production-by-state" style={{ color: "#C62828", textDecoration: "none" }}>US production breakdown</Link>.</p>
+      <p style={sP}>The Pacific Northwest dominates US processing potato production. <Link href="/country/united-states" style={{ color: "var(--gold)", fontWeight: 600, textDecoration: "none" }}>Idaho</Link> grows approximately 30% of the US crop with yields averaging 430&ndash;450 cwt/acre (~48&ndash;50 t/ha) and the world&apos;s largest concentration of Russet Burbank acreage. Washington state contributes another 23% from the Columbia Basin, with state-level yields exceeding 600 cwt/acre (~67 t/ha) under center-pivot irrigation &mdash; the highest commercial potato yields anywhere on Earth. <Link href="/country/canada" style={{ color: "var(--gold)", textDecoration: "none" }}>Canada</Link>&apos;s New Brunswick and Manitoba also supply significant fry-grade russets to McDonald&apos;s, particularly through McCain Foods, the world&apos;s largest frozen potato processor.</p>
+      <p style={sP}>Other US production zones include Oregon (Columbia Basin and Klamath Basin), Wisconsin, North Dakota, Colorado&apos;s San Luis Valley, Maine&apos;s Aroostook County, and parts of Michigan. The fresh-market russet from these regions typically goes to retail; processing-grade tubers go to Lamb Weston, Simplot, and McCain. For state-by-state details, see our <Link href="/answers/us-potato-production-by-state" style={{ color: "var(--gold)", textDecoration: "none" }}>US production breakdown</Link>.</p>
       <p style={sP}>The <strong>contract farming model</strong> determines what gets planted. Processors sign contracts with growers 6&ndash;12 months before planting, specifying variety, acreage, harvest date, and price. The grower is locked into the processor&apos;s variety choice; the processor is locked into the grower&apos;s land. From field to fry, the cycle runs roughly 6 weeks: harvest in September&ndash;October, cure for 1&ndash;2 weeks at 12&ndash;15&deg;C, transition to long-term cold storage at 7&ndash;10&deg;C, then process in batches over the following 8&ndash;10 months.</p>
 
       <h2 id="industry-impact" style={sH2}>How has the French fry industry changed potato farming?</h2>
-      <p style={sP}>The fast-food fry economy has reshaped American &mdash; and increasingly global &mdash; potato agriculture in three ways. <strong>First</strong>, the share of potatoes flowing to processors has risen from under 30% in 1960 to approximately 69% today (USDA NASS), with frozen processing alone taking over a third of the US crop. Fresh-market potato consumption per capita has been flat or declining for decades; <Link href="/knowledge/potato-consumption-per-capita" style={{ color: "#C62828", textDecoration: "none" }}>processed potato consumption</Link> continues to grow.</p>
+      <p style={sP}>The fast-food fry economy has reshaped American &mdash; and increasingly global &mdash; potato agriculture in three ways. <strong>First</strong>, the share of potatoes flowing to processors has risen from under 30% in 1960 to approximately 69% today (USDA NASS), with frozen processing alone taking over a third of the US crop. Fresh-market potato consumption per capita has been flat or declining for decades; <Link href="/knowledge/potato-consumption-per-capita" style={{ color: "var(--gold)", textDecoration: "none" }}>processed potato consumption</Link> continues to grow.</p>
       <p style={sP}><strong>Second</strong>, variety development has been driven by processor specs rather than consumer preference. The Tri-State Potato Variety Development Program (USDA-ARS Aberdeen + University of Idaho + Oregon State + Washington State) has released over a dozen processing-grade russets since 1991 &mdash; Ranger, Umatilla, Western, Blazer, Premier, Gem, Alpine, Classic, Clearwater, Teton, Mountain Gem, Payette, Galena. Each release targets a slightly different processor pain point: cold sweetening resistance, internal defect tolerance, longer dormancy, PVY resistance.</p>
-      <p style={sP}><strong>Third</strong>, the global frozen fry trade has built powerful national export franchises around the same variety package. <Link href="/country/belgium" style={{ color: "#C62828", fontWeight: 600, textDecoration: "none" }}>Belgium</Link> exports $4.8 billion of frozen fries annually &mdash; more than the US, Canada, and China combined &mdash; using Bintje, Innovator, Agria, and similar high-SG European varieties. The <Link href="/country/netherlands" style={{ color: "#C62828", textDecoration: "none" }}>Netherlands</Link> is the world&apos;s top seed potato exporter, supplying processing-grade seed to 80+ countries. The total global potato processing market is approximately $40&ndash;80 billion across frozen, chips, dehydrated, and starch &mdash; built on the variety architecture McDonald&apos;s set in 1965.</p>
+      <p style={sP}><strong>Third</strong>, the global frozen fry trade has built powerful national export franchises around the same variety package. <Link href="/country/belgium" style={{ color: "var(--gold)", fontWeight: 600, textDecoration: "none" }}>Belgium</Link> exports $4.8 billion of frozen fries annually &mdash; more than the US, Canada, and China combined &mdash; using Bintje, Innovator, Agria, and similar high-SG European varieties. The <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link> is the world&apos;s top seed potato exporter, supplying processing-grade seed to 80+ countries. The total global potato processing market is approximately $40&ndash;80 billion across frozen, chips, dehydrated, and starch &mdash; built on the variety architecture McDonald&apos;s set in 1965.</p>
 
-      <p style={sP}>For deeper context, see <Link href="/knowledge/how-potatoes-are-processed" style={{ color: "#C62828", textDecoration: "none" }}>How Potatoes Are Processed</Link>, our <Link href="/knowledge/global-potato-trade" style={{ color: "#C62828", textDecoration: "none" }}>global trade guide</Link>, and the country profiles for <Link href="/country/united-states" style={{ color: "#C62828", textDecoration: "none" }}>USA</Link>, <Link href="/country/belgium" style={{ color: "#C62828", textDecoration: "none" }}>Belgium</Link>, <Link href="/country/canada" style={{ color: "#C62828", textDecoration: "none" }}>Canada</Link>, <Link href="/country/france" style={{ color: "#C62828", textDecoration: "none" }}>France</Link>, <Link href="/country/germany" style={{ color: "#C62828", textDecoration: "none" }}>Germany</Link>, <Link href="/country/united-kingdom" style={{ color: "#C62828", textDecoration: "none" }}>United Kingdom</Link>, <Link href="/country/china" style={{ color: "#C62828", textDecoration: "none" }}>China</Link>, and the <Link href="/country/netherlands" style={{ color: "#C62828", textDecoration: "none" }}>Netherlands</Link>.</p>
+      <p style={sP}>For deeper context, see <Link href="/knowledge/how-potatoes-are-processed" style={{ color: "var(--gold)", textDecoration: "none" }}>How Potatoes Are Processed</Link>, our <Link href="/knowledge/global-potato-trade" style={{ color: "var(--gold)", textDecoration: "none" }}>global trade guide</Link>, and the country profiles for <Link href="/country/united-states" style={{ color: "var(--gold)", textDecoration: "none" }}>USA</Link>, <Link href="/country/belgium" style={{ color: "var(--gold)", textDecoration: "none" }}>Belgium</Link>, <Link href="/country/canada" style={{ color: "var(--gold)", textDecoration: "none" }}>Canada</Link>, <Link href="/country/france" style={{ color: "var(--gold)", textDecoration: "none" }}>France</Link>, <Link href="/country/germany" style={{ color: "var(--gold)", textDecoration: "none" }}>Germany</Link>, <Link href="/country/united-kingdom" style={{ color: "var(--gold)", textDecoration: "none" }}>United Kingdom</Link>, <Link href="/country/china" style={{ color: "var(--gold)", textDecoration: "none" }}>China</Link>, and the <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link>.</p>
 
       <SourceBlock sources={[
         "USDA-ARS — Small Grains and Potato Germplasm Research Unit (Aberdeen, Idaho); variety descriptions and Tri-State release documentation",
@@ -2036,14 +2036,14 @@ function McDonaldsPotatoVarieties() {
       <SupportBlock />
       <RelatedArticles articles={relatedArticles} />
       <section style={{ marginTop: 48 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Explore Country Profiles</h2>
+        <h2 style={{ fontSize: 20, fontWeight: 700, color: "var(--ink)", marginBottom: 16 }}>Explore Country Profiles</h2>
         <div style={{ display: "flex", gap: 10, overflowX: "auto", paddingBottom: 8 }}>
           {relatedCountries.map((c) => (
-            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "white", border: "1px solid #eee", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
+            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "var(--card)", border: "1px solid var(--line)", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
               <span style={{ fontSize: 20 }}>{c.flag}</span>
               <div>
-                <div style={{ fontSize: 13, fontWeight: 600, color: "#1A1A1A", whiteSpace: "nowrap" }}>{c.name}</div>
-                <div style={{ fontSize: 11, color: "#C62828", fontWeight: 600 }}>{c.prod} tonnes</div>
+                <div style={{ fontSize: 13, fontWeight: 600, color: "var(--ink)", whiteSpace: "nowrap" }}>{c.name}</div>
+                <div style={{ fontSize: 11, color: "var(--gold)", fontWeight: 600 }}>{c.prod} tonnes</div>
               </div>
             </Link>
           ))}
@@ -2129,19 +2129,19 @@ function RussetBurbankHistory() {
         <Breadcrumb tag="Varieties" />
         <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 16 }}>
           <TagBadge tag="Varieties" />
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>Updated {UPDATED_SHORT}</span>
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>10 min read</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>Updated {UPDATED_SHORT}</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>10 min read</span>
         </div>
-        <h1 style={{ fontSize: 32, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>Russet Burbank Potato: History, Characteristics, and Why It Dominates American Agriculture</h1>
+        <h1 style={{ fontSize: 32, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>Russet Burbank Potato: History, Characteristics, and Why It Dominates American Agriculture</h1>
       </HeroBanner>
 
       <div style={{ maxWidth: 820, margin: "0 auto", padding: "0 24px 80px" }}>
 
       <DefinitiveAnswer>
         <p style={{ margin: 0, lineHeight: 1.8 }}>
-          <strong>The Russet Burbank potato was selected by Luther Burbank in 1876 in Lunenburg, Massachusetts</strong> as a seedling of the Early Rose variety. The russet-skinned mutation that became today&apos;s commercial Russet Burbank emerged later as a sport selection. Russet Burbank now accounts for approximately 25&ndash;40% of total US potato planted acreage and 60&ndash;70% of <Link href="/country/united-states" style={{ color: "#C62828", textDecoration: "none" }}>Idaho</Link>&apos;s commercial production, making it the single most important potato variety in American agriculture (USDA ERS, University of Idaho Extension). It is the iconic &ldquo;Idaho potato&rdquo; and the variety behind virtually every McDonald&apos;s French fry produced in the United States.
+          <strong>The Russet Burbank potato was selected by Luther Burbank in 1876 in Lunenburg, Massachusetts</strong> as a seedling of the Early Rose variety. The russet-skinned mutation that became today&apos;s commercial Russet Burbank emerged later as a sport selection. Russet Burbank now accounts for approximately 25&ndash;40% of total US potato planted acreage and 60&ndash;70% of <Link href="/country/united-states" style={{ color: "var(--gold)", textDecoration: "none" }}>Idaho</Link>&apos;s commercial production, making it the single most important potato variety in American agriculture (USDA ERS, University of Idaho Extension). It is the iconic &ldquo;Idaho potato&rdquo; and the variety behind virtually every McDonald&apos;s French fry produced in the United States.
         </p>
       </DefinitiveAnswer>
 
@@ -2170,7 +2170,7 @@ function RussetBurbankHistory() {
           <thead><tr>{["Characteristic","Russet Burbank Detail"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {characteristics.map((r, i) => (
-              <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
                 <td style={sTd}>{r[1]}</td>
               </tr>
@@ -2185,7 +2185,7 @@ function RussetBurbankHistory() {
 
       <h2 id="dominance" style={sH2}>Why has Russet Burbank dominated US farming for 140 years?</h2>
       <p style={sP}>Russet Burbank&apos;s market dominance is anchored by four reinforcing factors. <strong>First</strong>, its tuber shape and processing chemistry are uniquely well-suited to French fries and baked potatoes &mdash; the two highest-value uses in the modern American potato market. The long, cylindrical tuber yields the maximum number of long fry strips; the high SG produces crispy texture; the white flesh delivers the iconic golden fry color.</p>
-      <p style={sP}><strong>Second</strong>, the <Link href="/country/united-states" style={{ color: "#C62828", fontWeight: 600, textDecoration: "none" }}>1965 J.R. Simplot &ndash; McDonald&apos;s contract</Link> standardized the global fast-food fry on Russet Burbank specs. Once McDonald&apos;s locked in, every other major chain followed, and processors built their entire infrastructure around the variety. Replacing Russet Burbank means re-tuning billion-dollar processing lines, re-qualifying the fry against decades-old chain-restaurant specs, and changing variety contracts that have been in continuous renewal since the 1970s. (See our companion article: <Link href="/knowledge/mcdonalds-potato-varieties" style={{ color: "#C62828", textDecoration: "none" }}>What potatoes does McDonald&apos;s use?</Link>)</p>
+      <p style={sP}><strong>Second</strong>, the <Link href="/country/united-states" style={{ color: "var(--gold)", fontWeight: 600, textDecoration: "none" }}>1965 J.R. Simplot &ndash; McDonald&apos;s contract</Link> standardized the global fast-food fry on Russet Burbank specs. Once McDonald&apos;s locked in, every other major chain followed, and processors built their entire infrastructure around the variety. Replacing Russet Burbank means re-tuning billion-dollar processing lines, re-qualifying the fry against decades-old chain-restaurant specs, and changing variety contracts that have been in continuous renewal since the 1970s. (See our companion article: <Link href="/knowledge/mcdonalds-potato-varieties" style={{ color: "var(--gold)", textDecoration: "none" }}>What potatoes does McDonald&apos;s use?</Link>)</p>
       <p style={sP}><strong>Third</strong>, consumer recognition is unmatched. Among American consumers, &ldquo;Idaho potato&rdquo; is functionally synonymous with Russet Burbank. The Idaho Potato Commission&apos;s decades-long marketing investment has reinforced the visual signature: long, brown-russeted, baking-shaped. Retailers stock Russet Burbank as the default russet because consumers reach for it.</p>
       <p style={sP}><strong>Fourth</strong>, long dormancy makes Russet Burbank the <strong>storage workhorse</strong> of the US potato industry. Properly stored at 7&ndash;10&deg;C, Russet Burbank tubers remain marketable for 8&ndash;10 months after harvest &mdash; longer than most modern fresh-market varieties and matched only by the newer Tri-State long-storage releases. This single trait allows the US potato calendar to run from a September&ndash;October harvest through the following August.</p>
 
@@ -2198,7 +2198,7 @@ function RussetBurbankHistory() {
       <p style={sP}><strong>Nitrogen management:</strong> 180&ndash;220 lbs/acre of N split across pre-plant, hilling, and tuber-initiation applications. <strong>Excess nitrogen delays maturity and increases internal defects</strong> &mdash; a critical pitfall. Late-season N also reduces specific gravity, disqualifying the crop for processing. Petiole nitrate testing every 7&ndash;14 days during tuber bulking is standard practice.</p>
       <p style={sP}><strong>Water:</strong> 24&ndash;28 inches of water across the growing season, mostly through center-pivot irrigation in the Pacific Northwest. Russet Burbank is extraordinarily moisture-stress sensitive during tuber bulking (mid-July to late August in Idaho). Even brief stress periods cause hollow heart, brown center, and growth cracks. Soil moisture tension should be held within 25&ndash;65 kPa during this window.</p>
       <p style={sP}><strong>Temperature:</strong> Optimal soil temperature for tuber initiation and bulking is 60&ndash;65&deg;F (15&ndash;18&deg;C). Soil temperatures above 75&deg;F shut down tuber initiation and trigger sugar-end formation. The Pacific Northwest&apos;s long, cool growing season is structurally suited to Russet Burbank in a way most US regions are not.</p>
-      <p style={sP}><strong>Harvest:</strong> 130&ndash;150 days from planting; the variety needs full skin set (typically 2 weeks after vine kill) before harvest to prevent skinning and post-harvest disease. Harvest in tubers above 50&deg;F and below 65&deg;F to minimize bruising and pulp temperature stress. For full agronomic detail, see our <Link href="/knowledge/complete-potato-growing-guide" style={{ color: "#C62828", textDecoration: "none" }}>complete potato growing guide</Link> and the <Link href="/knowledge/potato-storage-cold-chain" style={{ color: "#C62828", textDecoration: "none" }}>cold-storage guide</Link>.</p>
+      <p style={sP}><strong>Harvest:</strong> 130&ndash;150 days from planting; the variety needs full skin set (typically 2 weeks after vine kill) before harvest to prevent skinning and post-harvest disease. Harvest in tubers above 50&deg;F and below 65&deg;F to minimize bruising and pulp temperature stress. For full agronomic detail, see our <Link href="/knowledge/complete-potato-growing-guide" style={{ color: "var(--gold)", textDecoration: "none" }}>complete potato growing guide</Link> and the <Link href="/knowledge/potato-storage-cold-chain" style={{ color: "var(--gold)", textDecoration: "none" }}>cold-storage guide</Link>.</p>
 
       <h2 id="successors" style={sH2}>What potato varieties are replacing Russet Burbank?</h2>
       <p style={sP}>The USDA-ARS Tri-State Potato Variety Development Program (Aberdeen, Idaho + University of Idaho + Oregon State + Washington State) has released over a dozen processing-grade russets since 1991, each targeting specific Russet Burbank weaknesses. The highest-impact successors are summarized below.</p>
@@ -2208,11 +2208,11 @@ function RussetBurbankHistory() {
           <thead><tr>{["Variety","Yield vs Burbank","Processing Quality / Key Trait","Released"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {successors.map((r, i) => (
-              <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
-                <td style={{ ...sTd, color: "#C62828", fontWeight: 600 }}>{r[1]}</td>
+                <td style={{ ...sTd, color: "var(--gold)", fontWeight: 600 }}>{r[1]}</td>
                 <td style={sTd}>{r[2]}</td>
-                <td style={{ ...sTd, color: "#888" }}>{r[3]}</td>
+                <td style={{ ...sTd, color: "var(--mute2)" }}>{r[3]}</td>
               </tr>
             ))}
           </tbody>
@@ -2223,9 +2223,9 @@ function RussetBurbankHistory() {
       <p style={sP}>Replacement is slow because <strong>processing infrastructure is calibrated to Russet Burbank specs</strong>. Lamb Weston, Simplot, and McCain operate billion-dollar plants whose blanching, drying, par-frying, and freezing parameters were dialed in decades ago against Burbank&apos;s starch profile, sugar curve, and tuber size distribution. Switching primary varieties means re-qualifying every fry product against fast-food chain specs, retraining agronomy teams, and absorbing the storage and yield differences across thousands of contract farms. Even so, <strong>Galena Russet</strong> (released 2018) has gained meaningful Idaho acreage in the long-storage segment, and <strong>Clearwater Russet</strong> and <strong>Alpine Russet</strong> are now standard inclusions in late-season processing pools.</p>
 
       <h2 id="blight" style={sH2}>How did the Russet Burbank help save Ireland from famine?</h2>
-      <p style={sP}>The Irish Potato Famine of 1845&ndash;1852 was caused by <Link href="/answers/what-is-late-blight" style={{ color: "#C62828", textDecoration: "none" }}>Phytophthora infestans</Link>, the late blight oomycete. The dominant Irish potato of the time, the <strong>Lumper</strong>, was genetically uniform and deeply susceptible. When late blight arrived in Ireland in 1845, the Lumper crop collapsed across multiple consecutive years. Approximately 1 million people died of starvation and disease; another 1 million emigrated. <Link href="/answers/irish-potato-famine" style={{ color: "#C62828", textDecoration: "none" }}>Irish population</Link> fell by approximately 25%.</p>
+      <p style={sP}>The Irish Potato Famine of 1845&ndash;1852 was caused by <Link href="/answers/what-is-late-blight" style={{ color: "var(--gold)", textDecoration: "none" }}>Phytophthora infestans</Link>, the late blight oomycete. The dominant Irish potato of the time, the <strong>Lumper</strong>, was genetically uniform and deeply susceptible. When late blight arrived in Ireland in 1845, the Lumper crop collapsed across multiple consecutive years. Approximately 1 million people died of starvation and disease; another 1 million emigrated. <Link href="/answers/irish-potato-famine" style={{ color: "var(--gold)", textDecoration: "none" }}>Irish population</Link> fell by approximately 25%.</p>
       <p style={sP}>Luther Burbank&apos;s original 1872&ndash;1876 breeding work was motivated in part by this disaster. He explicitly aimed to develop a more disease-resistant potato. The Burbank seedling he selected showed <strong>moderately better late blight tolerance</strong> than the Early Rose parent and dramatically better than the Irish Lumper. While Russet Burbank is no longer considered late blight resistant by modern standards (current Phytophthora populations attack it readily), in the late 19th century it was a meaningful improvement.</p>
-      <p style={sP}>The deeper legacy is the <strong>genetic-diversity insurance</strong> the famine forced into global agricultural research. The <Link href="/knowledge/potato-diseases-pests" style={{ color: "#C62828", textDecoration: "none" }}>International Potato Center (CIP)</Link> in Lima, <Link href="/country/peru" style={{ color: "#C62828", textDecoration: "none" }}>Peru</Link>, was founded in 1971 partly in response to the lessons of the Irish famine and the broader vulnerability of monoculture potato systems. CIP&apos;s genebank now preserves over 7,000 potato accessions including 4,000+ native Andean varieties and 180+ wild species, providing the genetic raw material for breeding programs in over 100 countries. Modern potato breeding still depends on this collection.</p>
+      <p style={sP}>The deeper legacy is the <strong>genetic-diversity insurance</strong> the famine forced into global agricultural research. The <Link href="/knowledge/potato-diseases-pests" style={{ color: "var(--gold)", textDecoration: "none" }}>International Potato Center (CIP)</Link> in Lima, <Link href="/country/peru" style={{ color: "var(--gold)", textDecoration: "none" }}>Peru</Link>, was founded in 1971 partly in response to the lessons of the Irish famine and the broader vulnerability of monoculture potato systems. CIP&apos;s genebank now preserves over 7,000 potato accessions including 4,000+ native Andean varieties and 180+ wild species, providing the genetic raw material for breeding programs in over 100 countries. Modern potato breeding still depends on this collection.</p>
 
       <h2 id="comparison" style={sH2}>Russet Burbank vs other potato varieties: comparison</h2>
       <p style={sP}>How does Russet Burbank compare to the other major US-grown varieties? The table below summarizes the leading commercial alternatives across the metrics that matter for selection: maturity, skin and flesh, best use, specific gravity, yield, disease resistance, and storage.</p>
@@ -2235,9 +2235,9 @@ function RussetBurbankHistory() {
           <thead><tr>{["Property","Russet Burbank","Yukon Gold","Red Pontiac","Kennebec","Atlantic"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {compareVarieties.map((r, i) => (
-              <tr key={r[0]} style={{ background: i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={r[0]} style={{ background: i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
-                <td style={{ ...sTd, color: "#C62828", fontWeight: 600 }}>{r[1]}</td>
+                <td style={{ ...sTd, color: "var(--gold)", fontWeight: 600 }}>{r[1]}</td>
                 <td style={sTd}>{r[2]}</td>
                 <td style={sTd}>{r[3]}</td>
                 <td style={sTd}>{r[4]}</td>
@@ -2249,8 +2249,8 @@ function RussetBurbankHistory() {
       </div>
       <p style={sSource}>Source: USDA-ARS variety descriptions; USDA-AMS Plant Variety Protection Office; University of Idaho Extension; Cornell, Penn State, NDSU breeding-program documentation.</p>
 
-      <p style={sP}><strong>When to choose Russet Burbank:</strong> baking, French frying, dehydration, large-scale commercial processing where SG and tuber length matter most. <strong>When NOT to choose Russet Burbank:</strong> boiling and salads (the floury texture falls apart &mdash; choose <Link href="/answers/types-of-potatoes" style={{ color: "#C62828", textDecoration: "none" }}>Red Pontiac, Yukon Gold, or fingerlings</Link>); chip processing (Atlantic delivers higher SG and rounder tubers); home gardens (the variety is too stress-sensitive without commercial irrigation and nitrogen management).</p>
-      <p style={sP}>For deeper context on growing, processing, and the global potato variety landscape, see our <Link href="/knowledge/potato-varieties-guide" style={{ color: "#C62828", textDecoration: "none" }}>Potato Varieties Guide</Link>, the <Link href="/knowledge/how-potatoes-are-processed" style={{ color: "#C62828", textDecoration: "none" }}>processing industry guide</Link>, the <Link href="/knowledge/complete-potato-growing-guide" style={{ color: "#C62828", textDecoration: "none" }}>complete growing guide</Link>, and country profiles for the <Link href="/country/united-states" style={{ color: "#C62828", textDecoration: "none" }}>United States</Link>, <Link href="/country/canada" style={{ color: "#C62828", textDecoration: "none" }}>Canada</Link>, <Link href="/country/china" style={{ color: "#C62828", textDecoration: "none" }}>China</Link>, <Link href="/country/india" style={{ color: "#C62828", textDecoration: "none" }}>India</Link>, <Link href="/country/belgium" style={{ color: "#C62828", textDecoration: "none" }}>Belgium</Link>, the <Link href="/country/netherlands" style={{ color: "#C62828", textDecoration: "none" }}>Netherlands</Link>, <Link href="/country/germany" style={{ color: "#C62828", textDecoration: "none" }}>Germany</Link>, and <Link href="/country/france" style={{ color: "#C62828", textDecoration: "none" }}>France</Link>.</p>
+      <p style={sP}><strong>When to choose Russet Burbank:</strong> baking, French frying, dehydration, large-scale commercial processing where SG and tuber length matter most. <strong>When NOT to choose Russet Burbank:</strong> boiling and salads (the floury texture falls apart &mdash; choose <Link href="/answers/types-of-potatoes" style={{ color: "var(--gold)", textDecoration: "none" }}>Red Pontiac, Yukon Gold, or fingerlings</Link>); chip processing (Atlantic delivers higher SG and rounder tubers); home gardens (the variety is too stress-sensitive without commercial irrigation and nitrogen management).</p>
+      <p style={sP}>For deeper context on growing, processing, and the global potato variety landscape, see our <Link href="/knowledge/potato-varieties-guide" style={{ color: "var(--gold)", textDecoration: "none" }}>Potato Varieties Guide</Link>, the <Link href="/knowledge/how-potatoes-are-processed" style={{ color: "var(--gold)", textDecoration: "none" }}>processing industry guide</Link>, the <Link href="/knowledge/complete-potato-growing-guide" style={{ color: "var(--gold)", textDecoration: "none" }}>complete growing guide</Link>, and country profiles for the <Link href="/country/united-states" style={{ color: "var(--gold)", textDecoration: "none" }}>United States</Link>, <Link href="/country/canada" style={{ color: "var(--gold)", textDecoration: "none" }}>Canada</Link>, <Link href="/country/china" style={{ color: "var(--gold)", textDecoration: "none" }}>China</Link>, <Link href="/country/india" style={{ color: "var(--gold)", textDecoration: "none" }}>India</Link>, <Link href="/country/belgium" style={{ color: "var(--gold)", textDecoration: "none" }}>Belgium</Link>, the <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link>, <Link href="/country/germany" style={{ color: "var(--gold)", textDecoration: "none" }}>Germany</Link>, and <Link href="/country/france" style={{ color: "var(--gold)", textDecoration: "none" }}>France</Link>.</p>
 
       <SourceBlock sources={[
         "USDA-ARS — Small Grains and Potato Germplasm Research Unit, Aberdeen ID; Russet Burbank variety records and Tri-State release documentation",
@@ -2267,14 +2267,14 @@ function RussetBurbankHistory() {
       <SupportBlock />
       <RelatedArticles articles={relatedArticles} />
       <section style={{ marginTop: 48 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Explore Country Profiles</h2>
+        <h2 style={{ fontSize: 20, fontWeight: 700, color: "var(--ink)", marginBottom: 16 }}>Explore Country Profiles</h2>
         <div style={{ display: "flex", gap: 10, overflowX: "auto", paddingBottom: 8 }}>
           {relatedCountries.map((c) => (
-            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "white", border: "1px solid #eee", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
+            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "var(--card)", border: "1px solid var(--line)", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
               <span style={{ fontSize: 20 }}>{c.flag}</span>
               <div>
-                <div style={{ fontSize: 13, fontWeight: 600, color: "#1A1A1A", whiteSpace: "nowrap" }}>{c.name}</div>
-                <div style={{ fontSize: 11, color: "#C62828", fontWeight: 600 }}>{c.prod} tonnes</div>
+                <div style={{ fontSize: 13, fontWeight: 600, color: "var(--ink)", whiteSpace: "nowrap" }}>{c.name}</div>
+                <div style={{ fontSize: 11, color: "var(--gold)", fontWeight: 600 }}>{c.prod} tonnes</div>
               </div>
             </Link>
           ))}
@@ -2359,12 +2359,12 @@ function PotatoesAndBloodSugar() {
         <Breadcrumb tag="Nutrition" />
         <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 16 }}>
           <TagBadge tag="Nutrition" />
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>Updated {UPDATED_SHORT}</span>
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>9 min read</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>Updated {UPDATED_SHORT}</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>9 min read</span>
         </div>
-        <h1 style={{ fontSize: 32, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>Do Potatoes Cause Blood Sugar Spikes? Glycemic Index, Resistant Starch, and What Science Says</h1>
+        <h1 style={{ fontSize: 32, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>Do Potatoes Cause Blood Sugar Spikes? Glycemic Index, Resistant Starch, and What Science Says</h1>
       </HeroBanner>
 
       <div style={{ maxWidth: 820, margin: "0 auto", padding: "0 24px 80px" }}>
@@ -2393,12 +2393,12 @@ function PotatoesAndBloodSugar() {
           <thead><tr>{["Potato Type / Method","GI","Classification","GL per Serving","Notes"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {giTable.map((r, i) => (
-              <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={{ ...sTd, fontWeight: i < 3 ? 600 : 400 }}>{r[0]}</td>
-                <td style={{ ...sTd, color: "#C62828", fontWeight: 600 }}>{r[1]}</td>
+                <td style={{ ...sTd, color: "var(--gold)", fontWeight: 600 }}>{r[1]}</td>
                 <td style={sTd}>{r[2]}</td>
                 <td style={sTd}>{r[3]}</td>
-                <td style={{ ...sTd, color: "#888" }}>{r[4]}</td>
+                <td style={{ ...sTd, color: "var(--mute2)" }}>{r[4]}</td>
               </tr>
             ))}
           </tbody>
@@ -2415,9 +2415,9 @@ function PotatoesAndBloodSugar() {
           <thead><tr>{["Method","Effect on GI","Mechanism"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {cookingTable.map((r, i) => (
-              <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
-                <td style={{ ...sTd, color: "#C62828", fontWeight: 600 }}>{r[1]}</td>
+                <td style={{ ...sTd, color: "var(--gold)", fontWeight: 600 }}>{r[1]}</td>
                 <td style={sTd}>{r[2]}</td>
               </tr>
             ))}
@@ -2438,41 +2438,41 @@ function PotatoesAndBloodSugar() {
       <StatCallout number="2.4 g" unit="RS per 100g" context="Cooled potatoes contain 4x more resistant starch than hot potatoes. This RS3 is fermented in the colon to butyrate, a short-chain fatty acid that feeds the gut lining and reduces inflammation." source="Leeman et al. 2005; Phillips et al. 1995" />
 
       <h2 id="varieties" style={sH2}>Which potato varieties have the lowest glycemic index?</h2>
-      <p style={sP}>The amylose-to-amylopectin ratio of a variety&apos;s starch determines digestibility. Higher amylose = more resistant to digestion = lower GI. <strong>Waxy varieties</strong> (Type A in European cooking-type terminology) have higher amylose and lower GI. <strong>Floury varieties</strong> (Type C&ndash;D) have lower amylose and higher GI. The Australian-bred <Link href="/knowledge/potato-varieties-guide" style={{ color: "#C62828", fontWeight: 600, textDecoration: "none" }}>Carisma</Link> was specifically selected for low GI and is one of the only potatoes with a registered low-GI claim.</p>
+      <p style={sP}>The amylose-to-amylopectin ratio of a variety&apos;s starch determines digestibility. Higher amylose = more resistant to digestion = lower GI. <strong>Waxy varieties</strong> (Type A in European cooking-type terminology) have higher amylose and lower GI. <strong>Floury varieties</strong> (Type C&ndash;D) have lower amylose and higher GI. The Australian-bred <Link href="/knowledge/potato-varieties-guide" style={{ color: "var(--gold)", fontWeight: 600, textDecoration: "none" }}>Carisma</Link> was specifically selected for low GI and is one of the only potatoes with a registered low-GI claim.</p>
 
       <div style={{ overflowX: "auto", marginBottom: 8 }}>
         <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 14 }}>
           <thead><tr>{["Variety","Cooking Type","GI (boiled)","Best For"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {varietyTable.map((r, i) => (
-              <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
                 <td style={sTd}>{r[1]}</td>
-                <td style={{ ...sTd, color: "#C62828", fontWeight: 600 }}>{r[2]}</td>
+                <td style={{ ...sTd, color: "var(--gold)", fontWeight: 600 }}>{r[2]}</td>
                 <td style={sTd}>{r[3]}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
-      <p style={sSource}>Source: University of Sydney GI Database; Atkinson et al. (2008); Foster-Powell et al. (2002). Also see our <Link href="/knowledge/russet-burbank-history" style={{ color: "#C62828", textDecoration: "none" }}>Russet Burbank history</Link> for context on the highest-GI commercial variety.</p>
+      <p style={sSource}>Source: University of Sydney GI Database; Atkinson et al. (2008); Foster-Powell et al. (2002). Also see our <Link href="/knowledge/russet-burbank-history" style={{ color: "var(--gold)", textDecoration: "none" }}>Russet Burbank history</Link> for context on the highest-GI commercial variety.</p>
 
       <h2 id="diabetics" style={sH2}>Can diabetics eat potatoes?</h2>
-      <p style={sP}>Yes &mdash; the American Diabetes Association does not prohibit potatoes; it recommends <strong>portion control plus smart preparation</strong>. The standard carbohydrate exchange is 1/2 cup (75 g) of cooked potato, which delivers approximately 15 g carbohydrate. Most adults with type 2 diabetes can include 1&ndash;2 carbohydrate exchanges per meal within their overall plan, especially when paired with non-starchy vegetables and protein. See our <Link href="/answers/can-diabetics-eat-potatoes" style={{ color: "#C62828", textDecoration: "none" }}>detailed diabetic potato guide</Link>.</p>
+      <p style={sP}>Yes &mdash; the American Diabetes Association does not prohibit potatoes; it recommends <strong>portion control plus smart preparation</strong>. The standard carbohydrate exchange is 1/2 cup (75 g) of cooked potato, which delivers approximately 15 g carbohydrate. Most adults with type 2 diabetes can include 1&ndash;2 carbohydrate exchanges per meal within their overall plan, especially when paired with non-starchy vegetables and protein. See our <Link href="/answers/can-diabetics-eat-potatoes" style={{ color: "var(--gold)", textDecoration: "none" }}>detailed diabetic potato guide</Link>.</p>
       <p style={sP}>Five high-impact strategies the ADA and peer-reviewed evidence support: <strong>(1)</strong> Choose waxy varieties (Nicola, Charlotte, Carisma) over floury ones (Russet Burbank, Maris Piper). <strong>(2)</strong> Boil rather than bake. <strong>(3)</strong> Cool cooked potatoes for 24 hours before eating &mdash; the resistant-starch effect compounds with all other strategies. <strong>(4)</strong> Pair with protein, healthy fat, and vinegar or lemon. <strong>(5)</strong> Stick to the 75 g (1/2 cup) carb exchange portion.</p>
-      <p style={sP}>It&apos;s also worth keeping perspective: <strong>glycemic index is not the only thing that matters</strong>. White rice has a GI of 73 and white bread 75 &mdash; both close to a boiled potato. A medium boiled potato has a glycemic load of 12&ndash;14, while a typical white-rice serving has GL ~29. Combined with potato&apos;s 620 mg potassium, 27 mg vitamin C, and 4.7 g fiber per medium tuber (USDA FoodData Central), the nutritional package compares favorably with refined grains. <Link href="/answers/potatoes-and-diabetes" style={{ color: "#C62828", textDecoration: "none" }}>Potato vs rice for blood sugar</Link> is closer than common wisdom suggests.</p>
+      <p style={sP}>It&apos;s also worth keeping perspective: <strong>glycemic index is not the only thing that matters</strong>. White rice has a GI of 73 and white bread 75 &mdash; both close to a boiled potato. A medium boiled potato has a glycemic load of 12&ndash;14, while a typical white-rice serving has GL ~29. Combined with potato&apos;s 620 mg potassium, 27 mg vitamin C, and 4.7 g fiber per medium tuber (USDA FoodData Central), the nutritional package compares favorably with refined grains. <Link href="/answers/potatoes-and-diabetes" style={{ color: "var(--gold)", textDecoration: "none" }}>Potato vs rice for blood sugar</Link> is closer than common wisdom suggests.</p>
 
       <h2 id="healthy" style={sH2}>Are potatoes healthy despite the blood sugar concern?</h2>
       <p style={sP}>For most people, yes. A medium baked potato (150 g, with skin) provides 110 calories, 620 mg of potassium (18% DV &mdash; <em>more than a banana</em>), 27 mg of vitamin C (30% DV), 4.7 g of fiber, 3 g of protein, and 0 g of fat (USDA FoodData Central). Potatoes are naturally gluten-free, cholesterol-free, and rank <strong>#1 on the Satiety Index</strong> &mdash; Holt et al. (1995, European Journal of Clinical Nutrition) found that boiled potatoes scored 323% on satiety, 3.2x more filling than white bread (set at 100%).</p>
       <p style={sP}>High satiety matters more than glycemic index alone for everyday weight and metabolic management. People who feel full eat less; lower total calorie intake reduces blood sugar excursions across the day regardless of what triggered each individual meal. Coloured varieties (Purple Majesty, Adirondack Blue) add anthocyanins with documented anti-inflammatory effects.</p>
-      <p style={sP}>The genuine concern is not the potato itself &mdash; it&apos;s preparation and quantity. A 300 g pile of fries with butter, sour cream, salt, and a beer is a metabolic load problem. A 150 g boiled new potato with vinaigrette and protein is not. <Link href="/knowledge/potato-nutrition-facts" style={{ color: "#C62828", textDecoration: "none" }}>Potato nutrition facts</Link> covers the full nutrient picture in detail.</p>
+      <p style={sP}>The genuine concern is not the potato itself &mdash; it&apos;s preparation and quantity. A 300 g pile of fries with butter, sour cream, salt, and a beer is a metabolic load problem. A 150 g boiled new potato with vinaigrette and protein is not. <Link href="/knowledge/potato-nutrition-facts" style={{ color: "var(--gold)", textDecoration: "none" }}>Potato nutrition facts</Link> covers the full nutrient picture in detail.</p>
 
       <StatCallout number="#1" context="Potatoes rank first on the Satiety Index — 3.2x more filling than white bread per calorie. High satiety reduces total daily calorie intake, which matters more for blood sugar management than the GI of any single meal." source="Holt et al., European Journal of Clinical Nutrition, 1995" />
 
       <h2 id="research" style={sH2}>What does the latest research say?</h2>
       <p style={sP}>The recent evidence base has shifted toward nuance. Earlier work like the Harvard Nurses&apos; Health Study found an association between high baked-potato and French-fry consumption and increased type 2 diabetes risk &mdash; but did not separate cooking method, cooling, or accompaniments. Updated meta-analyses with better stratification have found <strong>moderate consumption (3&ndash;5 servings per week) of boiled or cooled potatoes is not associated with increased T2D risk</strong>, and may even be neutral-to-protective in Nordic populations where boiled potatoes are a traditional staple.</p>
       <p style={sP}>Australian work on the <strong>Carisma low-GI variety</strong> showed a 20% reduction in postprandial glucose excursion versus standard Désirée potato. The Raatz et al. (2016) cooling study replicated the 25&ndash;35% glucose reduction across multiple varieties and cooling regimes. Phillips et al. (1995) confirmed the colonic butyrate benefit. Together, these findings support a clear practical conclusion: cooking method and overall dietary pattern matter more than the question of whether to eat potatoes at all.</p>
-      <p style={sP}>For a concise summary of the diabetic-potato evidence, see our <Link href="/answers/can-diabetics-eat-potatoes" style={{ color: "#C62828", textDecoration: "none" }}>diabetic potato FAQ</Link>, the <Link href="/knowledge/potato-nutrition-facts" style={{ color: "#C62828", textDecoration: "none" }}>nutrition page</Link>, and the country profiles for high-potato-consumption nations like the <Link href="/country/united-states" style={{ color: "#C62828", textDecoration: "none" }}>United States</Link>, <Link href="/country/united-kingdom" style={{ color: "#C62828", textDecoration: "none" }}>United Kingdom</Link>, <Link href="/country/germany" style={{ color: "#C62828", textDecoration: "none" }}>Germany</Link>, <Link href="/country/peru" style={{ color: "#C62828", textDecoration: "none" }}>Peru</Link>, <Link href="/country/india" style={{ color: "#C62828", textDecoration: "none" }}>India</Link>, <Link href="/country/china" style={{ color: "#C62828", textDecoration: "none" }}>China</Link>, <Link href="/country/bangladesh" style={{ color: "#C62828", textDecoration: "none" }}>Bangladesh</Link>, and <Link href="/country/australia" style={{ color: "#C62828", textDecoration: "none" }}>Australia</Link>.</p>
+      <p style={sP}>For a concise summary of the diabetic-potato evidence, see our <Link href="/answers/can-diabetics-eat-potatoes" style={{ color: "var(--gold)", textDecoration: "none" }}>diabetic potato FAQ</Link>, the <Link href="/knowledge/potato-nutrition-facts" style={{ color: "var(--gold)", textDecoration: "none" }}>nutrition page</Link>, and the country profiles for high-potato-consumption nations like the <Link href="/country/united-states" style={{ color: "var(--gold)", textDecoration: "none" }}>United States</Link>, <Link href="/country/united-kingdom" style={{ color: "var(--gold)", textDecoration: "none" }}>United Kingdom</Link>, <Link href="/country/germany" style={{ color: "var(--gold)", textDecoration: "none" }}>Germany</Link>, <Link href="/country/peru" style={{ color: "var(--gold)", textDecoration: "none" }}>Peru</Link>, <Link href="/country/india" style={{ color: "var(--gold)", textDecoration: "none" }}>India</Link>, <Link href="/country/china" style={{ color: "var(--gold)", textDecoration: "none" }}>China</Link>, <Link href="/country/bangladesh" style={{ color: "var(--gold)", textDecoration: "none" }}>Bangladesh</Link>, and <Link href="/country/australia" style={{ color: "var(--gold)", textDecoration: "none" }}>Australia</Link>.</p>
 
       <SourceBlock sources={[
         "Atkinson FS et al. (2008) — International Tables of Glycemic Index and Glycemic Load Values, Diabetes Care",
@@ -2491,14 +2491,14 @@ function PotatoesAndBloodSugar() {
       <SupportBlock />
       <RelatedArticles articles={relatedArticles} />
       <section style={{ marginTop: 48 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Explore Country Profiles</h2>
+        <h2 style={{ fontSize: 20, fontWeight: 700, color: "var(--ink)", marginBottom: 16 }}>Explore Country Profiles</h2>
         <div style={{ display: "flex", gap: 10, overflowX: "auto", paddingBottom: 8 }}>
           {relatedCountries.map((c) => (
-            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "white", border: "1px solid #eee", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
+            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "var(--card)", border: "1px solid var(--line)", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
               <span style={{ fontSize: 20 }}>{c.flag}</span>
               <div>
-                <div style={{ fontSize: 13, fontWeight: 600, color: "#1A1A1A", whiteSpace: "nowrap" }}>{c.name}</div>
-                <div style={{ fontSize: 11, color: "#C62828", fontWeight: 600 }}>{c.consumption}</div>
+                <div style={{ fontSize: 13, fontWeight: 600, color: "var(--ink)", whiteSpace: "nowrap" }}>{c.name}</div>
+                <div style={{ fontSize: 11, color: "var(--gold)", fontWeight: 600 }}>{c.consumption}</div>
               </div>
             </Link>
           ))}
@@ -2563,12 +2563,12 @@ function CommonPotatoGrowingMistakes() {
         <Breadcrumb tag="Cultivation" />
         <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 16 }}>
           <TagBadge tag="Cultivation" />
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>Updated {UPDATED_SHORT}</span>
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>10 min read</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>Updated {UPDATED_SHORT}</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>10 min read</span>
         </div>
-        <h1 style={{ fontSize: 32, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>15 Common Potato Growing Mistakes and How to Avoid Them</h1>
+        <h1 style={{ fontSize: 32, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>15 Common Potato Growing Mistakes and How to Avoid Them</h1>
       </HeroBanner>
 
       <div style={{ maxWidth: 820, margin: "0 auto", padding: "0 24px 80px" }}>
@@ -2592,13 +2592,13 @@ function CommonPotatoGrowingMistakes() {
 
       <p style={sP}><strong>Mistake 1: Planting in cold, wet soil.</strong> Seed pieces rot below 7&ndash;8&deg;C soil temperature; emergence is delayed and uneven, allowing soil pathogens (Fusarium, Rhizoctonia, Pythium) extended access to the seed piece. <em>Fix:</em> measure soil temperature at 10 cm depth before planting; wait until it reaches 10&deg;C (50&deg;F). Use a soil thermometer rather than calendar date &mdash; in temperate climates this is roughly 2&ndash;3 weeks after the last frost. (FAO; University of Idaho Extension; Penn State Extension)</p>
 
-      <p style={sP}><strong>Mistake 2: Using grocery store potatoes as seed.</strong> Grocery potatoes may carry latent viruses (PVY, PLRV) without visible symptoms, are often treated with sprout inhibitors (CIPC, maleic hydrazide) that delay or prevent eye development, and provide no variety guarantee &mdash; the tuber could be a processing-only variety unsuited to your climate. <em>Fix:</em> buy certified seed (Generation 2&ndash;4) from a registered supplier. The certification pyramid runs nuclear &rarr; pre-basic &rarr; basic &rarr; certified &rarr; table; commercial growers buy at the Generation 2&ndash;4 stage. See our <Link href="/knowledge/seed-potato-systems" style={{ color: "#C62828", textDecoration: "none" }}>seed potato systems guide</Link> and <Link href="/answers/certified-seed-potatoes" style={{ color: "#C62828", textDecoration: "none" }}>certified seed FAQ</Link>.</p>
+      <p style={sP}><strong>Mistake 2: Using grocery store potatoes as seed.</strong> Grocery potatoes may carry latent viruses (PVY, PLRV) without visible symptoms, are often treated with sprout inhibitors (CIPC, maleic hydrazide) that delay or prevent eye development, and provide no variety guarantee &mdash; the tuber could be a processing-only variety unsuited to your climate. <em>Fix:</em> buy certified seed (Generation 2&ndash;4) from a registered supplier. The certification pyramid runs nuclear &rarr; pre-basic &rarr; basic &rarr; certified &rarr; table; commercial growers buy at the Generation 2&ndash;4 stage. See our <Link href="/knowledge/seed-potato-systems" style={{ color: "var(--gold)", textDecoration: "none" }}>seed potato systems guide</Link> and <Link href="/answers/certified-seed-potatoes" style={{ color: "var(--gold)", textDecoration: "none" }}>certified seed FAQ</Link>.</p>
 
       <p style={sP}><strong>Mistake 3: Not cutting and curing seed pieces properly.</strong> Cut surfaces are open wounds: <em>Fusarium</em> dry rot, <em>Erwinia / Pectobacterium</em> soft rot, and <em>Helminthosporium</em> silver scurf all enter cut tissue. Cut pieces should be <strong>40&ndash;60 g</strong> with at least 2 eyes each. <em>Fix:</em> cut 2&ndash;3 days before planting and cure at 10&ndash;15&deg;C, 85&ndash;95% humidity, in good ventilation. The cut surface forms suberin within 48&ndash;72 hours, sealing the wound. Or plant whole small tubers (40&ndash;60 g) and skip cutting entirely. (ICAR-CPRI; University of Idaho Extension)</p>
 
       <p style={sP}><strong>Mistake 4: Planting too deep or too shallow.</strong> Deeper than 15 cm: delayed emergence, weak stems, increased Rhizoctonia stem canker. Shallower than 5 cm: developing tubers reach the soil surface, turn green from chlorophyll formation, and produce toxic solanine. <em>Fix:</em> plant 8&ndash;12 cm (3&ndash;5 in) deep on flat ground; deeper in sandy soils that dry quickly, shallower in heavy clay that warms slowly.</p>
 
-      <p style={sP}><strong>Mistake 5: Skipping crop rotation.</strong> Continuous potato cropping builds up <em>Phytophthora infestans</em> (late blight) inoculum, <em>Globodera</em> (potato cyst nematode), <em>Verticillium</em>, <em>Rhizoctonia</em>, and common scab. <em>Fix:</em> minimum 3-year rotation, ideally 4&ndash;5 years. Best rotation partners are cereals (wheat, barley), legumes (beans, peas), and brassicas. <strong>Worst</strong>: following tomatoes, peppers, or eggplant &mdash; the same Solanaceae family share most major pathogens. See our <Link href="/knowledge/potato-diseases-pests" style={{ color: "#C62828", textDecoration: "none" }}>diseases and pests guide</Link>.</p>
+      <p style={sP}><strong>Mistake 5: Skipping crop rotation.</strong> Continuous potato cropping builds up <em>Phytophthora infestans</em> (late blight) inoculum, <em>Globodera</em> (potato cyst nematode), <em>Verticillium</em>, <em>Rhizoctonia</em>, and common scab. <em>Fix:</em> minimum 3-year rotation, ideally 4&ndash;5 years. Best rotation partners are cereals (wheat, barley), legumes (beans, peas), and brassicas. <strong>Worst</strong>: following tomatoes, peppers, or eggplant &mdash; the same Solanaceae family share most major pathogens. See our <Link href="/knowledge/potato-diseases-pests" style={{ color: "var(--gold)", textDecoration: "none" }}>diseases and pests guide</Link>.</p>
 
       <StatCallout number="30–50%" context="FAO estimates that basic planting errors alone — cold-soil planting, uncertified seed, skipped crop rotation — can cut potato yields by a third or more. Soil temperature and certified seed are the two highest-impact factors." source="FAO Land and Water Division; University of Idaho Extension" />
 
@@ -2613,9 +2613,9 @@ function CommonPotatoGrowingMistakes() {
           <thead><tr>{["Nutrient","Rate","When to Apply","What Goes Wrong if Too Much"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {nutrientTable.map((r, i) => (
-              <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
-                <td style={{ ...sTd, color: "#C62828", fontWeight: 600 }}>{r[1]}</td>
+                <td style={{ ...sTd, color: "var(--gold)", fontWeight: 600 }}>{r[1]}</td>
                 <td style={sTd}>{r[2]}</td>
                 <td style={sTd}>{r[3]}</td>
               </tr>
@@ -2633,9 +2633,9 @@ function CommonPotatoGrowingMistakes() {
 
       <h2 id="disease" style={sH2}>Disease and pest mistakes that destroy your crop</h2>
 
-      <p style={sP}><strong>Mistake 10: Not scouting for late blight.</strong> <em>Phytophthora infestans</em> can destroy a field in <strong>7&ndash;10 days</strong> under favorable conditions: cool (10&ndash;20&deg;C), humid (&gt;90% RH), and extended leaf wetness (&gt;10 hours). Late blight costs the global potato industry approximately <strong>$6 billion per year</strong>. <em>Fix:</em> scout weekly during humid periods; use weather-based forecasting (BlightCast, Smith Periods, NegFry); start a preventive fungicide program before canopy closes; rotate FRAC group chemistries to delay resistance. Resistant varieties exist (Sarpo Mira, Carolus, Alouette, CIP-Matilde) but no resistance is durable indefinitely. Full detail in our <Link href="/knowledge/potato-diseases-pests" style={{ color: "#C62828", textDecoration: "none" }}>diseases and pests guide</Link> and <Link href="/answers/what-is-late-blight" style={{ color: "#C62828", textDecoration: "none" }}>late blight FAQ</Link>.</p>
+      <p style={sP}><strong>Mistake 10: Not scouting for late blight.</strong> <em>Phytophthora infestans</em> can destroy a field in <strong>7&ndash;10 days</strong> under favorable conditions: cool (10&ndash;20&deg;C), humid (&gt;90% RH), and extended leaf wetness (&gt;10 hours). Late blight costs the global potato industry approximately <strong>$6 billion per year</strong>. <em>Fix:</em> scout weekly during humid periods; use weather-based forecasting (BlightCast, Smith Periods, NegFry); start a preventive fungicide program before canopy closes; rotate FRAC group chemistries to delay resistance. Resistant varieties exist (Sarpo Mira, Carolus, Alouette, CIP-Matilde) but no resistance is durable indefinitely. Full detail in our <Link href="/knowledge/potato-diseases-pests" style={{ color: "var(--gold)", textDecoration: "none" }}>diseases and pests guide</Link> and <Link href="/answers/what-is-late-blight" style={{ color: "var(--gold)", textDecoration: "none" }}>late blight FAQ</Link>.</p>
 
-      <p style={sP}><strong>Mistake 11: Ignoring aphids as virus vectors.</strong> Aphids transmit PVY and PLRV &mdash; the main causes of seed potato degeneration and the reason certified seed exists. A single infected plant produces infected daughter tubers that carry the virus into next season&apos;s crop. <em>Fix:</em> start with certified virus-tested seed; rogue (remove) any plant with virus symptoms during the season; control aphid populations with mineral oil sprays (50&ndash;70% reduction in transmission) or systemic insecticides; in seed crops, kill vines early before peak aphid flights. <Link href="/knowledge/seed-potato-systems" style={{ color: "#C62828", textDecoration: "none" }}>Seed potato systems</Link> covers the certification framework.</p>
+      <p style={sP}><strong>Mistake 11: Ignoring aphids as virus vectors.</strong> Aphids transmit PVY and PLRV &mdash; the main causes of seed potato degeneration and the reason certified seed exists. A single infected plant produces infected daughter tubers that carry the virus into next season&apos;s crop. <em>Fix:</em> start with certified virus-tested seed; rogue (remove) any plant with virus symptoms during the season; control aphid populations with mineral oil sprays (50&ndash;70% reduction in transmission) or systemic insecticides; in seed crops, kill vines early before peak aphid flights. <Link href="/knowledge/seed-potato-systems" style={{ color: "var(--gold)", textDecoration: "none" }}>Seed potato systems</Link> covers the certification framework.</p>
 
       <p style={sP}><strong>Mistake 12: Not removing volunteer potatoes.</strong> Tubers left in the field from previous seasons (&ldquo;volunteers&rdquo;) are the #1 source of disease carryover. Volunteers harbor late blight, viruses, nematodes, and Erwinia. One volunteer per 10 m&sup2; can re-infest an entire rotation cycle. <em>Fix:</em> harvest thoroughly. Frost kills most volunteers in cold climates; in mild climates, hand-remove or treat with glyphosate during fallow.</p>
 
@@ -2654,9 +2654,9 @@ function CommonPotatoGrowingMistakes() {
           <thead><tr>{["End Use","Storage Temp","Humidity","Why"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {storageTable.map((r, i) => (
-              <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
-                <td style={{ ...sTd, color: "#C62828", fontWeight: 600 }}>{r[1]}</td>
+                <td style={{ ...sTd, color: "var(--gold)", fontWeight: 600 }}>{r[1]}</td>
                 <td style={sTd}>{r[2]}</td>
                 <td style={sTd}>{r[3]}</td>
               </tr>
@@ -2664,9 +2664,9 @@ function CommonPotatoGrowingMistakes() {
           </tbody>
         </table>
       </div>
-      <p style={sSource}>Source: USDA Extension; FAO post-harvest guidelines; <Link href="/knowledge/potato-storage-cold-chain" style={{ color: "#C62828", textDecoration: "none" }}>Potatopedia cold-chain guide</Link>.</p>
+      <p style={sSource}>Source: USDA Extension; FAO post-harvest guidelines; <Link href="/knowledge/potato-storage-cold-chain" style={{ color: "var(--gold)", textDecoration: "none" }}>Potatopedia cold-chain guide</Link>.</p>
 
-      <p style={sP}>Beyond temperature: complete darkness (light triggers greening and solanine); ventilation (avoid CO&#8322; buildup that causes blackheart); routine sorting (one rotting tuber accelerates decay through an entire pile). See our <Link href="/answers/how-long-potatoes-cold-storage" style={{ color: "#C62828", textDecoration: "none" }}>cold-storage duration guide</Link> and <Link href="/answers/how-to-store-potatoes-at-home" style={{ color: "#C62828", textDecoration: "none" }}>home storage guide</Link>.</p>
+      <p style={sP}>Beyond temperature: complete darkness (light triggers greening and solanine); ventilation (avoid CO&#8322; buildup that causes blackheart); routine sorting (one rotting tuber accelerates decay through an entire pile). See our <Link href="/answers/how-long-potatoes-cold-storage" style={{ color: "var(--gold)", textDecoration: "none" }}>cold-storage duration guide</Link> and <Link href="/answers/how-to-store-potatoes-at-home" style={{ color: "var(--gold)", textDecoration: "none" }}>home storage guide</Link>.</p>
 
       <h2 id="plan" style={sH2}>How to plan a mistake-free potato season</h2>
 
@@ -2680,15 +2680,15 @@ function CommonPotatoGrowingMistakes() {
       &bull; <strong>12&ndash;16 weeks:</strong> vine kill / desiccation &rarr; 14-day skin-set wait &rarr; harvest in cool, dry conditions.<br />
       &bull; <strong>Post-harvest:</strong> 1&ndash;2 weeks curing at 12&ndash;15&deg;C / 95% RH &rarr; transition to long-term storage.</p>
 
-      <p style={sP}>Full week-by-week protocol with FAO Kc / Ky values is in our <Link href="/knowledge/complete-potato-growing-guide" style={{ color: "#C62828", textDecoration: "none" }}>Complete Potato Growing Guide</Link>.</p>
+      <p style={sP}>Full week-by-week protocol with FAO Kc / Ky values is in our <Link href="/knowledge/complete-potato-growing-guide" style={{ color: "var(--gold)", textDecoration: "none" }}>Complete Potato Growing Guide</Link>.</p>
 
       <h2 id="commercial-vs-home" style={sH2}>How do these mistakes differ for commercial vs home growers?</h2>
 
       <p style={sP}><strong>Commercial growers</strong>: the highest-impact mistake is inconsistent irrigation. A miscalibrated center-pivot can cost $500+/ha in yield loss across a single tuber-bulking week. Storage management is also make-or-break &mdash; with $10M+ in crop value sitting in a single shed, a 1&deg;C temperature error or a humidity miscalibration can convert weeks of revenue into weeks of disease cleanup. Variety contracting, seed certification compliance, and processor quality specs (specific gravity, bruise-free) matter at scales home gardeners never face.</p>
 
-      <p style={sP}><strong>Home gardeners</strong>: the #1 mistake is using grocery-store potatoes as seed (the resulting plants underperform and may carry hidden virus); the #2 is planting too early when the gardener is impatient and the soil is still cold; the #3 is under-hilling, which produces green, solanine-loaded tubers. Container and grow-bag growers have an additional pitfall: using a container too small &mdash; a 5-gallon (19 L) bucket yields only 1&ndash;2 kg, while a 10&ndash;25 gallon (38&ndash;95 L) bag or grow-tower yields 4&ndash;8 kg. See <Link href="/answers/seed-potatoes-per-grow-bag" style={{ color: "#C62828", textDecoration: "none" }}>seed potatoes per grow bag</Link> and <Link href="/answers/how-to-grow-potatoes-in-containers" style={{ color: "#C62828", textDecoration: "none" }}>container growing</Link>.</p>
+      <p style={sP}><strong>Home gardeners</strong>: the #1 mistake is using grocery-store potatoes as seed (the resulting plants underperform and may carry hidden virus); the #2 is planting too early when the gardener is impatient and the soil is still cold; the #3 is under-hilling, which produces green, solanine-loaded tubers. Container and grow-bag growers have an additional pitfall: using a container too small &mdash; a 5-gallon (19 L) bucket yields only 1&ndash;2 kg, while a 10&ndash;25 gallon (38&ndash;95 L) bag or grow-tower yields 4&ndash;8 kg. See <Link href="/answers/seed-potatoes-per-grow-bag" style={{ color: "var(--gold)", textDecoration: "none" }}>seed potatoes per grow bag</Link> and <Link href="/answers/how-to-grow-potatoes-in-containers" style={{ color: "var(--gold)", textDecoration: "none" }}>container growing</Link>.</p>
 
-      <p style={sP}>For deeper context, see the <Link href="/knowledge/complete-potato-growing-guide" style={{ color: "#C62828", textDecoration: "none" }}>complete growing guide</Link>, the <Link href="/knowledge/potato-diseases-pests" style={{ color: "#C62828", textDecoration: "none" }}>diseases and pests guide</Link>, the <Link href="/knowledge/seed-potato-systems" style={{ color: "#C62828", textDecoration: "none" }}>seed potato systems</Link> overview, and country profiles for major producers including <Link href="/country/india" style={{ color: "#C62828", textDecoration: "none" }}>India</Link>, <Link href="/country/china" style={{ color: "#C62828", textDecoration: "none" }}>China</Link>, the <Link href="/country/united-states" style={{ color: "#C62828", textDecoration: "none" }}>United States</Link>, <Link href="/country/germany" style={{ color: "#C62828", textDecoration: "none" }}>Germany</Link>, the <Link href="/country/netherlands" style={{ color: "#C62828", textDecoration: "none" }}>Netherlands</Link>, <Link href="/country/kenya" style={{ color: "#C62828", textDecoration: "none" }}>Kenya</Link>, <Link href="/country/bangladesh" style={{ color: "#C62828", textDecoration: "none" }}>Bangladesh</Link>, and <Link href="/country/peru" style={{ color: "#C62828", textDecoration: "none" }}>Peru</Link>.</p>
+      <p style={sP}>For deeper context, see the <Link href="/knowledge/complete-potato-growing-guide" style={{ color: "var(--gold)", textDecoration: "none" }}>complete growing guide</Link>, the <Link href="/knowledge/potato-diseases-pests" style={{ color: "var(--gold)", textDecoration: "none" }}>diseases and pests guide</Link>, the <Link href="/knowledge/seed-potato-systems" style={{ color: "var(--gold)", textDecoration: "none" }}>seed potato systems</Link> overview, and country profiles for major producers including <Link href="/country/india" style={{ color: "var(--gold)", textDecoration: "none" }}>India</Link>, <Link href="/country/china" style={{ color: "var(--gold)", textDecoration: "none" }}>China</Link>, the <Link href="/country/united-states" style={{ color: "var(--gold)", textDecoration: "none" }}>United States</Link>, <Link href="/country/germany" style={{ color: "var(--gold)", textDecoration: "none" }}>Germany</Link>, the <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link>, <Link href="/country/kenya" style={{ color: "var(--gold)", textDecoration: "none" }}>Kenya</Link>, <Link href="/country/bangladesh" style={{ color: "var(--gold)", textDecoration: "none" }}>Bangladesh</Link>, and <Link href="/country/peru" style={{ color: "var(--gold)", textDecoration: "none" }}>Peru</Link>.</p>
 
       <SourceBlock sources={[
         "FAO — Land and Water Division, Crop Water Information: Potato (Kc, Ky values; 500–700 mm seasonal water requirement)",
@@ -2704,14 +2704,14 @@ function CommonPotatoGrowingMistakes() {
       <SupportBlock />
       <RelatedArticles articles={relatedArticles} />
       <section style={{ marginTop: 48 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Explore Country Profiles</h2>
+        <h2 style={{ fontSize: 20, fontWeight: 700, color: "var(--ink)", marginBottom: 16 }}>Explore Country Profiles</h2>
         <div style={{ display: "flex", gap: 10, overflowX: "auto", paddingBottom: 8 }}>
           {relatedCountries.map((c) => (
-            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "white", border: "1px solid #eee", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
+            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "var(--card)", border: "1px solid var(--line)", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
               <span style={{ fontSize: 20 }}>{c.flag}</span>
               <div>
-                <div style={{ fontSize: 13, fontWeight: 600, color: "#1A1A1A", whiteSpace: "nowrap" }}>{c.name}</div>
-                <div style={{ fontSize: 11, color: "#C62828", fontWeight: 600 }}>{c.prod} tonnes</div>
+                <div style={{ fontSize: 13, fontWeight: 600, color: "var(--ink)", whiteSpace: "nowrap" }}>{c.name}</div>
+                <div style={{ fontSize: 11, color: "var(--gold)", fontWeight: 600 }}>{c.prod} tonnes</div>
               </div>
             </Link>
           ))}
@@ -2790,19 +2790,19 @@ function GrowingPotatoesInContainers() {
         <Breadcrumb tag="Cultivation" />
         <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 16 }}>
           <TagBadge tag="Cultivation" />
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>Updated {UPDATED_SHORT}</span>
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>8 min read</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>Updated {UPDATED_SHORT}</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>8 min read</span>
         </div>
-        <h1 style={{ fontSize: 32, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>How Many Potatoes Can You Grow in a 5-Gallon Bucket? Container Growing Guide</h1>
+        <h1 style={{ fontSize: 32, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>How Many Potatoes Can You Grow in a 5-Gallon Bucket? Container Growing Guide</h1>
       </HeroBanner>
 
       <div style={{ maxWidth: 820, margin: "0 auto", padding: "0 24px 80px" }}>
 
       <DefinitiveAnswer>
         <p style={{ margin: 0, lineHeight: 1.8 }}>
-          <strong>A standard 5-gallon (19 L) bucket can produce 3&ndash;5 pounds (1.5&ndash;2.5 kg) of potatoes from 2&ndash;3 seed pieces.</strong> For better yields, use a <strong>10-gallon (38 L) container</strong> which produces 5&ndash;10 pounds from 4&ndash;5 seed pieces. Early-maturing compact varieties &mdash; <Link href="/knowledge/potato-varieties-guide" style={{ color: "#C62828", textDecoration: "none" }}>Yukon Gold, Red Norland, Kennebec, Charlotte, Nicola</Link> &mdash; perform best in containers. The four factors that determine success: container depth (minimum 12 inches / 30 cm), drainage, consistent watering, and a quality potting + compost soil mix. Late-maturing field varieties like <Link href="/knowledge/russet-burbank-history" style={{ color: "#C62828", textDecoration: "none" }}>Russet Burbank</Link> are not recommended for containers.
+          <strong>A standard 5-gallon (19 L) bucket can produce 3&ndash;5 pounds (1.5&ndash;2.5 kg) of potatoes from 2&ndash;3 seed pieces.</strong> For better yields, use a <strong>10-gallon (38 L) container</strong> which produces 5&ndash;10 pounds from 4&ndash;5 seed pieces. Early-maturing compact varieties &mdash; <Link href="/knowledge/potato-varieties-guide" style={{ color: "var(--gold)", textDecoration: "none" }}>Yukon Gold, Red Norland, Kennebec, Charlotte, Nicola</Link> &mdash; perform best in containers. The four factors that determine success: container depth (minimum 12 inches / 30 cm), drainage, consistent watering, and a quality potting + compost soil mix. Late-maturing field varieties like <Link href="/knowledge/russet-burbank-history" style={{ color: "var(--gold)", textDecoration: "none" }}>Russet Burbank</Link> are not recommended for containers.
         </p>
       </DefinitiveAnswer>
 
@@ -2816,7 +2816,7 @@ function GrowingPotatoesInContainers() {
       <CollapsibleTOC items={tocItems} />
 
       <h2 id="yield" style={sH2}>How many potatoes will a 5-gallon bucket produce?</h2>
-      <p style={sP}>Container yield depends on three things: container volume, variety, and growing care. A typical 5-gallon (19 L) bucket planted with 2&ndash;3 seed pieces produces <strong>3&ndash;5 pounds (1.5&ndash;2.5 kg)</strong> of harvested potatoes &mdash; a 5:1 to 8:1 weight return on the seed planted. That sounds modest because it is: container yields run 30&ndash;50% lower per plant than in-ground production, where commercial fields in the <Link href="/country/united-states" style={{ color: "#C62828", textDecoration: "none" }}>United States</Link> average around 51 t/ha at the world&apos;s highest commercial yields.</p>
+      <p style={sP}>Container yield depends on three things: container volume, variety, and growing care. A typical 5-gallon (19 L) bucket planted with 2&ndash;3 seed pieces produces <strong>3&ndash;5 pounds (1.5&ndash;2.5 kg)</strong> of harvested potatoes &mdash; a 5:1 to 8:1 weight return on the seed planted. That sounds modest because it is: container yields run 30&ndash;50% lower per plant than in-ground production, where commercial fields in the <Link href="/country/united-states" style={{ color: "var(--gold)", textDecoration: "none" }}>United States</Link> average around 51 t/ha at the world&apos;s highest commercial yields.</p>
       <p style={sP}>The good news: scaling container size produces near-linear yield increases up to about 20 gallons. The table below shows what to expect from each common container size.</p>
 
       <div style={{ overflowX: "auto", marginBottom: 8 }}>
@@ -2824,10 +2824,10 @@ function GrowingPotatoesInContainers() {
           <thead><tr>{["Container Size","Seed Pieces","Expected Yield","Best For"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {sizeTable.map((r, i) => (
-              <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
                 <td style={sTd}>{r[1]}</td>
-                <td style={{ ...sTd, color: "#C62828", fontWeight: 600 }}>{r[2]}</td>
+                <td style={{ ...sTd, color: "var(--gold)", fontWeight: 600 }}>{r[2]}</td>
                 <td style={sTd}>{r[3]}</td>
               </tr>
             ))}
@@ -2848,11 +2848,11 @@ function GrowingPotatoesInContainers() {
           <thead><tr>{["Variety","Maturity","Skin / Flesh","Container Suitability","Notes"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {varietyTable.map((r, i) => (
-              <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
                 <td style={sTd}>{r[1]}</td>
                 <td style={sTd}>{r[2]}</td>
-                <td style={{ ...sTd, color: "#C62828", fontWeight: 600 }}>{r[3]}</td>
+                <td style={{ ...sTd, color: "var(--gold)", fontWeight: 600 }}>{r[3]}</td>
                 <td style={sTd}>{r[4]}</td>
               </tr>
             ))}
@@ -2861,7 +2861,7 @@ function GrowingPotatoesInContainers() {
       </div>
       <p style={sSource}>Source: University of Idaho Extension specialty potato production publications; CIP variety database; Cornell University Adirondack series documentation.</p>
 
-      <p style={sP}><strong>Avoid in containers:</strong> Russet Burbank (140&ndash;150 day maturity, sprawling indeterminate growth, very stress-sensitive — see our <Link href="/knowledge/russet-burbank-history" style={{ color: "#C62828", textDecoration: "none" }}>Russet Burbank deep-dive</Link>); Atlantic and other large processing varieties; Idaho-grown commercial main-crop selections. These were bred for irrigated, fully-fertilized field production, not 5-gallon buckets.</p>
+      <p style={sP}><strong>Avoid in containers:</strong> Russet Burbank (140&ndash;150 day maturity, sprawling indeterminate growth, very stress-sensitive — see our <Link href="/knowledge/russet-burbank-history" style={{ color: "var(--gold)", textDecoration: "none" }}>Russet Burbank deep-dive</Link>); Atlantic and other large processing varieties; Idaho-grown commercial main-crop selections. These were bred for irrigated, fully-fertilized field production, not 5-gallon buckets.</p>
 
       <h2 id="steps" style={sH2}>Step-by-step: growing potatoes in a 5-gallon bucket</h2>
       <p style={sP}><strong>Step 1 &mdash; Prepare the container.</strong> Drill 4&ndash;6 drainage holes (12&ndash;15 mm diameter) in the bottom of the bucket. Set on bricks or gravel for airflow and drainage. Avoid black buckets in direct sun &mdash; they cook the soil; light-colored or fabric containers regulate temperature better.</p>
@@ -2869,7 +2869,7 @@ function GrowingPotatoesInContainers() {
       <p style={sP}><strong>Step 3 &mdash; Plant the seed pieces.</strong> Fill 4 inches (10 cm) of soil mix in the bottom of the bucket. Place 2&ndash;3 certified seed pieces (40&ndash;60 g each, 2+ eyes per piece) eyes-up. Cover with another 4 inches of soil mix. Don&apos;t fill the bucket completely yet &mdash; you&apos;ll add soil during hilling.</p>
       <p style={sP}><strong>Step 4 &mdash; Water thoroughly.</strong> Moisten the entire soil column. From here on, keep the soil consistently moist but not waterlogged. Containers dry out faster than ground beds; check daily in summer heat.</p>
       <p style={sP}><strong>Step 5 &mdash; Hill / add soil as plants grow.</strong> When sprouts reach 6 inches (15 cm), add another 4 inches of soil mix, leaving the top 2&ndash;3 inches of foliage exposed. Repeat every 2&ndash;3 weeks until the bucket is filled to within 2 inches of the rim. Hilling supports the stem, expands the rooting zone, and most importantly keeps developing tubers buried in the dark to prevent green / solanine-laden tubers.</p>
-      <p style={sP}><strong>Step 6 &mdash; Feed regularly.</strong> Use a low-nitrogen liquid fertilizer (5-10-10 or similar) every 2&ndash;3 weeks after emergence. Excess nitrogen produces lush foliage and few tubers &mdash; the same mistake as in-ground growing. See our <Link href="/knowledge/common-potato-growing-mistakes" style={{ color: "#C62828", textDecoration: "none" }}>common growing mistakes guide</Link>, mistake #7.</p>
+      <p style={sP}><strong>Step 6 &mdash; Feed regularly.</strong> Use a low-nitrogen liquid fertilizer (5-10-10 or similar) every 2&ndash;3 weeks after emergence. Excess nitrogen produces lush foliage and few tubers &mdash; the same mistake as in-ground growing. See our <Link href="/knowledge/common-potato-growing-mistakes" style={{ color: "var(--gold)", textDecoration: "none" }}>common growing mistakes guide</Link>, mistake #7.</p>
       <p style={sP}><strong>Step 7 &mdash; Water consistently.</strong> Containers in summer can need daily watering. Wet&ndash;dry&ndash;wet cycles during tuber bulking cause growth cracks, hollow heart, and knobby tubers &mdash; the same defects that plague stressed field potatoes. Mulch the soil surface to slow evaporation.</p>
       <p style={sP}><strong>Step 8 &mdash; Harvest.</strong> When foliage yellows and dies back (70&ndash;120 days depending on variety), stop watering for 1&ndash;2 weeks to let skins set, then dump the container onto a tarp and collect tubers. For a continuous &ldquo;new potato&rdquo; harvest, reach into the soil 7&ndash;8 weeks after planting and pull out small tender tubers without disturbing the rest.</p>
 
@@ -2897,10 +2897,10 @@ function GrowingPotatoesInContainers() {
           <thead><tr>{["Method","Cost","Yield","Ease","Portability","Best For"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {methodTable.map((r, i) => (
-              <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
                 <td style={sTd}>{r[1]}</td>
-                <td style={{ ...sTd, color: "#C62828", fontWeight: 600 }}>{r[2]}</td>
+                <td style={{ ...sTd, color: "var(--gold)", fontWeight: 600 }}>{r[2]}</td>
                 <td style={sTd}>{r[3]}</td>
                 <td style={sTd}>{r[4]}</td>
                 <td style={sTd}>{r[5]}</td>
@@ -2919,9 +2919,9 @@ function GrowingPotatoesInContainers() {
       <p style={sP}><strong>Northern Hemisphere temperate zones</strong> (US Midwest, UK, Northern Europe, Canada): plant March&ndash;April, harvest June&ndash;July for early varieties (Red Norland, Yukon Gold), August&ndash;September for medium varieties (Kennebec, Charlotte). A second autumn crop is possible in mild zones (USDA 8+, Mediterranean) by planting in August for November&ndash;December harvest.</p>
       <p style={sP}><strong>The new-potato harvest:</strong> 7&ndash;8 weeks after planting, gently reach into the soil and pull out a few small tender tubers without disturbing the rest of the plant. The plant continues producing for the remaining season. This is the unique advantage of container growing &mdash; you can &ldquo;forage&rdquo; new potatoes weekly through the summer.</p>
       <p style={sP}><strong>Full harvest:</strong> wait for foliage to yellow and die back completely. Stop watering 1&ndash;2 weeks before harvest to let skins set (immature skin peels off, opening tubers to storage disease). Dump the container onto a tarp, collect tubers, and let them cure in a cool dry spot for 1&ndash;2 weeks before storage.</p>
-      <p style={sP}><strong>Don&apos;t reuse the spent soil for potatoes or other Solanaceae.</strong> Compost it for next year&apos;s beans, lettuce, or herbs. Disease and nematode pressure builds quickly in re-used potato soil. For full storage guidance, see our <Link href="/knowledge/potato-storage-cold-chain" style={{ color: "#C62828", textDecoration: "none" }}>cold-storage guide</Link> and <Link href="/answers/how-to-store-potatoes-at-home" style={{ color: "#C62828", textDecoration: "none" }}>home storage tips</Link>.</p>
+      <p style={sP}><strong>Don&apos;t reuse the spent soil for potatoes or other Solanaceae.</strong> Compost it for next year&apos;s beans, lettuce, or herbs. Disease and nematode pressure builds quickly in re-used potato soil. For full storage guidance, see our <Link href="/knowledge/potato-storage-cold-chain" style={{ color: "var(--gold)", textDecoration: "none" }}>cold-storage guide</Link> and <Link href="/answers/how-to-store-potatoes-at-home" style={{ color: "var(--gold)", textDecoration: "none" }}>home storage tips</Link>.</p>
 
-      <p style={sP}>For deeper context, see our <Link href="/knowledge/complete-potato-growing-guide" style={{ color: "#C62828", textDecoration: "none" }}>complete potato growing guide</Link>, the <Link href="/knowledge/common-potato-growing-mistakes" style={{ color: "#C62828", textDecoration: "none" }}>15 common growing mistakes</Link>, and country profiles for major small-grower cultures including the <Link href="/country/united-states" style={{ color: "#C62828", textDecoration: "none" }}>United States</Link>, <Link href="/country/united-kingdom" style={{ color: "#C62828", textDecoration: "none" }}>United Kingdom</Link>, <Link href="/country/canada" style={{ color: "#C62828", textDecoration: "none" }}>Canada</Link>, <Link href="/country/germany" style={{ color: "#C62828", textDecoration: "none" }}>Germany</Link>, <Link href="/country/australia" style={{ color: "#C62828", textDecoration: "none" }}>Australia</Link>, <Link href="/country/india" style={{ color: "#C62828", textDecoration: "none" }}>India</Link>, the <Link href="/country/netherlands" style={{ color: "#C62828", textDecoration: "none" }}>Netherlands</Link>, and <Link href="/country/france" style={{ color: "#C62828", textDecoration: "none" }}>France</Link>.</p>
+      <p style={sP}>For deeper context, see our <Link href="/knowledge/complete-potato-growing-guide" style={{ color: "var(--gold)", textDecoration: "none" }}>complete potato growing guide</Link>, the <Link href="/knowledge/common-potato-growing-mistakes" style={{ color: "var(--gold)", textDecoration: "none" }}>15 common growing mistakes</Link>, and country profiles for major small-grower cultures including the <Link href="/country/united-states" style={{ color: "var(--gold)", textDecoration: "none" }}>United States</Link>, <Link href="/country/united-kingdom" style={{ color: "var(--gold)", textDecoration: "none" }}>United Kingdom</Link>, <Link href="/country/canada" style={{ color: "var(--gold)", textDecoration: "none" }}>Canada</Link>, <Link href="/country/germany" style={{ color: "var(--gold)", textDecoration: "none" }}>Germany</Link>, <Link href="/country/australia" style={{ color: "var(--gold)", textDecoration: "none" }}>Australia</Link>, <Link href="/country/india" style={{ color: "var(--gold)", textDecoration: "none" }}>India</Link>, the <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link>, and <Link href="/country/france" style={{ color: "var(--gold)", textDecoration: "none" }}>France</Link>.</p>
 
       <SourceBlock sources={[
         "University of Idaho Extension — Small-scale and home garden potato production",
@@ -2935,14 +2935,14 @@ function GrowingPotatoesInContainers() {
       <SupportBlock />
       <RelatedArticles articles={relatedArticles} />
       <section style={{ marginTop: 48 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Explore Country Profiles</h2>
+        <h2 style={{ fontSize: 20, fontWeight: 700, color: "var(--ink)", marginBottom: 16 }}>Explore Country Profiles</h2>
         <div style={{ display: "flex", gap: 10, overflowX: "auto", paddingBottom: 8 }}>
           {relatedCountries.map((c) => (
-            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "white", border: "1px solid #eee", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
+            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "var(--card)", border: "1px solid var(--line)", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
               <span style={{ fontSize: 20 }}>{c.flag}</span>
               <div>
-                <div style={{ fontSize: 13, fontWeight: 600, color: "#1A1A1A", whiteSpace: "nowrap" }}>{c.name}</div>
-                <div style={{ fontSize: 11, color: "#C62828", fontWeight: 600 }}>{c.prod} tonnes</div>
+                <div style={{ fontSize: 13, fontWeight: 600, color: "var(--ink)", whiteSpace: "nowrap" }}>{c.name}</div>
+                <div style={{ fontSize: 11, color: "var(--gold)", fontWeight: 600 }}>{c.prod} tonnes</div>
               </div>
             </Link>
           ))}
@@ -3038,19 +3038,19 @@ function KufriPotatoVarietiesIndia() {
         <Breadcrumb tag="Varieties" />
         <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 16 }}>
           <TagBadge tag="Varieties" />
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>Updated {UPDATED_SHORT}</span>
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>10 min read</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>Updated {UPDATED_SHORT}</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>10 min read</span>
         </div>
-        <h1 style={{ fontSize: 32, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>Kufri Potato Varieties: India&apos;s Complete Guide to ICAR-CPRI Bred Potatoes</h1>
+        <h1 style={{ fontSize: 32, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>Kufri Potato Varieties: India&apos;s Complete Guide to ICAR-CPRI Bred Potatoes</h1>
       </HeroBanner>
 
       <div style={{ maxWidth: 820, margin: "0 auto", padding: "0 24px 80px" }}>
 
       <DefinitiveAnswer>
         <p style={{ margin: 0, lineHeight: 1.8 }}>
-          <strong>Kufri potato varieties are cultivars developed by ICAR-Central Potato Research Institute (CPRI) in Shimla, Himachal Pradesh</strong> &mdash; <Link href="/country/india" style={{ color: "#C62828", textDecoration: "none" }}>India</Link>&apos;s premier potato breeding institution since 1949. Named after the hill town of Kufri near Shimla, these varieties have been released since the 1960s, with 75+ varieties covering table, processing, and specialty purposes. CPRI-bred varieties now occupy <strong>94%+ of India&apos;s total potato area</strong>. Kufri Jyoti (1968) remains India&apos;s most widely grown variety; Kufri Pukhraj (~40 t/ha) is the highest-yielding early variety; the Kufri Chipsona series (1998&ndash;2018) revolutionized India&apos;s chip-processing industry; and 2024&ndash;2025 releases yield up to 37&ndash;40 t/ha &mdash; a 60&ndash;70% jump over Jyoti.
+          <strong>Kufri potato varieties are cultivars developed by ICAR-Central Potato Research Institute (CPRI) in Shimla, Himachal Pradesh</strong> &mdash; <Link href="/country/india" style={{ color: "var(--gold)", textDecoration: "none" }}>India</Link>&apos;s premier potato breeding institution since 1949. Named after the hill town of Kufri near Shimla, these varieties have been released since the 1960s, with 75+ varieties covering table, processing, and specialty purposes. CPRI-bred varieties now occupy <strong>94%+ of India&apos;s total potato area</strong>. Kufri Jyoti (1968) remains India&apos;s most widely grown variety; Kufri Pukhraj (~40 t/ha) is the highest-yielding early variety; the Kufri Chipsona series (1998&ndash;2018) revolutionized India&apos;s chip-processing industry; and 2024&ndash;2025 releases yield up to 37&ndash;40 t/ha &mdash; a 60&ndash;70% jump over Jyoti.
         </p>
       </DefinitiveAnswer>
 
@@ -3064,7 +3064,7 @@ function KufriPotatoVarietiesIndia() {
       <CollapsibleTOC items={tocItems} />
 
       <h2 id="what" style={sH2}>What does &ldquo;Kufri&rdquo; mean in potato varieties?</h2>
-      <p style={sP}><strong>Kufri</strong> is a hill town at 2,622 m near Shimla, <Link href="/country/india" style={{ color: "#C62828", textDecoration: "none" }}>India</Link>. The ICAR-CPRI (Indian Council of Agricultural Research &mdash; Central Potato Research Institute) main research station and its high-altitude seed multiplication facility are located there, and every variety the institute releases carries the &ldquo;Kufri&rdquo; prefix as a brand. The naming convention is similar to how international varieties carry institutional codes &mdash; <Link href="/knowledge/russet-burbank-history" style={{ color: "#C62828", textDecoration: "none" }}>Russet Burbank</Link> from the USA, CIP clones from Peru, BARI Alu from Bangladesh, NAK seed-stock from the Netherlands.</p>
+      <p style={sP}><strong>Kufri</strong> is a hill town at 2,622 m near Shimla, <Link href="/country/india" style={{ color: "var(--gold)", textDecoration: "none" }}>India</Link>. The ICAR-CPRI (Indian Council of Agricultural Research &mdash; Central Potato Research Institute) main research station and its high-altitude seed multiplication facility are located there, and every variety the institute releases carries the &ldquo;Kufri&rdquo; prefix as a brand. The naming convention is similar to how international varieties carry institutional codes &mdash; <Link href="/knowledge/russet-burbank-history" style={{ color: "var(--gold)", textDecoration: "none" }}>Russet Burbank</Link> from the USA, CIP clones from Peru, BARI Alu from Bangladesh, NAK seed-stock from the Netherlands.</p>
       <p style={sP}>CPRI was established in <strong>1949 at Patna</strong> in Bihar and moved to <strong>Shimla in 1956</strong>. It now operates <strong>seven regional research stations</strong> across India: Kufri-Fagu (Himachal Pradesh, hills), Modipuram (Uttar Pradesh, plains), Jalandhar (Punjab, plains), Gwalior (Madhya Pradesh, central plains), Patna (Bihar, eastern plains), Shillong (Meghalaya, north-east hills), and Ooty (Tamil Nadu, southern hills). The All India Coordinated Research Project on Potato (AICRP) coordinates 25 testing centers across the country.</p>
       <p style={sP}>India&apos;s diversity drives this network: potatoes grow from sea level on the Tamil Nadu coast to 4,000 m altitude in Ladakh; from short-day winter cropping in the northern plains (rabi season, October&ndash;March) to summer cropping in the Himalayan hills (kharif season, April&ndash;September). No single variety can handle this range &mdash; CPRI&apos;s portfolio is built to match each agro-climatic zone with appropriate genetics.</p>
 
@@ -3076,14 +3076,14 @@ function KufriPotatoVarietiesIndia() {
           <thead><tr>{["Variety","Year","Maturity","Yield","Skin / Flesh","Best States","Notes"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {tableVarieties.map((r, i) => (
-              <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
                 <td style={sTd}>{r[1]}</td>
                 <td style={sTd}>{r[2]}</td>
-                <td style={{ ...sTd, color: "#C62828", fontWeight: 600 }}>{r[3]}</td>
+                <td style={{ ...sTd, color: "var(--gold)", fontWeight: 600 }}>{r[3]}</td>
                 <td style={sTd}>{r[4]}</td>
                 <td style={sTd}>{r[5]}</td>
-                <td style={{ ...sTd, color: "#888" }}>{r[6]}</td>
+                <td style={{ ...sTd, color: "var(--mute2)" }}>{r[6]}</td>
               </tr>
             ))}
           </tbody>
@@ -3104,14 +3104,14 @@ function KufriPotatoVarietiesIndia() {
           <thead><tr>{["Variety","Year","Maturity","Yield","Dry Matter","Reducing Sugars","Notes"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {processingVarieties.map((r, i) => (
-              <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
                 <td style={sTd}>{r[1]}</td>
                 <td style={sTd}>{r[2]}</td>
-                <td style={{ ...sTd, color: "#C62828", fontWeight: 600 }}>{r[3]}</td>
+                <td style={{ ...sTd, color: "var(--gold)", fontWeight: 600 }}>{r[3]}</td>
                 <td style={sTd}>{r[4]}</td>
                 <td style={sTd}>{r[5]}</td>
-                <td style={{ ...sTd, color: "#888" }}>{r[6]}</td>
+                <td style={{ ...sTd, color: "var(--mute2)" }}>{r[6]}</td>
               </tr>
             ))}
           </tbody>
@@ -3119,7 +3119,7 @@ function KufriPotatoVarietiesIndia() {
       </div>
       <p style={sSource}>Source: ICAR-CPRI variety catalogue; Kumar D (2011), Indian Journal of Biochemistry and Biophysics; PIB Government of India.</p>
 
-      <p style={sP}><strong>Kufri Chipsona 3</strong> is now the most widely used Indian chip variety. PepsiCo India formally approved it for Lay&apos;s production after confirming chip quality equivalent to Atlantic. Critically, Chipsona 3 maintains reducing sugars below 0.25% even after 90 days of cold storage at 2&ndash;4&deg;C &mdash; essential for Indian cold storage networks that operate at higher temperatures than US storage. <strong>Kufri Frysona</strong> (2014) was India&apos;s first variety bred specifically for French fries: elongated tuber with length-to-width ratio &gt;1.6, dry matter 21&ndash;23%, and reducing sugars below 100 mg/100g after reconditioning. This was strategically important because India was importing over 100,000 tonnes of frozen French fries annually by 2020. For comparison with the US frozen fry industry, see our <Link href="/knowledge/mcdonalds-potato-varieties" style={{ color: "#C62828", textDecoration: "none" }}>McDonald&apos;s potato varieties</Link> deep-dive.</p>
+      <p style={sP}><strong>Kufri Chipsona 3</strong> is now the most widely used Indian chip variety. PepsiCo India formally approved it for Lay&apos;s production after confirming chip quality equivalent to Atlantic. Critically, Chipsona 3 maintains reducing sugars below 0.25% even after 90 days of cold storage at 2&ndash;4&deg;C &mdash; essential for Indian cold storage networks that operate at higher temperatures than US storage. <strong>Kufri Frysona</strong> (2014) was India&apos;s first variety bred specifically for French fries: elongated tuber with length-to-width ratio &gt;1.6, dry matter 21&ndash;23%, and reducing sugars below 100 mg/100g after reconditioning. This was strategically important because India was importing over 100,000 tonnes of frozen French fries annually by 2020. For comparison with the US frozen fry industry, see our <Link href="/knowledge/mcdonalds-potato-varieties" style={{ color: "var(--gold)", textDecoration: "none" }}>McDonald&apos;s potato varieties</Link> deep-dive.</p>
 
       <StatCallout number="Zero to self-reliant" context="India went from no indigenous chip-processing variety in 1997 to a full domestic portfolio: Chipsona 1, 3, 5, plus Frysona for fries and Chipbharat 1/2 (2025). Before Kufri Chipsona's 1998 release, India relied 100% on imported Atlantic seed." source="ICAR-CPRI; PepsiCo India procurement records" />
 
@@ -3131,11 +3131,11 @@ function KufriPotatoVarietiesIndia() {
           <thead><tr>{["Variety","Year","Type","Yield","Key Feature"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {newVarieties.map((r, i) => (
-              <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
                 <td style={sTd}>{r[1]}</td>
                 <td style={sTd}>{r[2]}</td>
-                <td style={{ ...sTd, color: "#C62828", fontWeight: 600 }}>{r[3]}</td>
+                <td style={{ ...sTd, color: "var(--gold)", fontWeight: 600 }}>{r[3]}</td>
                 <td style={sTd}>{r[4]}</td>
               </tr>
             ))}
@@ -3161,9 +3161,9 @@ function KufriPotatoVarietiesIndia() {
           <thead><tr>{["State / Region","Recommended Varieties","Season","Key Consideration"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {stateTable.map((r, i) => (
-              <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
-                <td style={{ ...sTd, color: "#C62828", fontWeight: 600 }}>{r[1]}</td>
+                <td style={{ ...sTd, color: "var(--gold)", fontWeight: 600 }}>{r[1]}</td>
                 <td style={sTd}>{r[2]}</td>
                 <td style={sTd}>{r[3]}</td>
               </tr>
@@ -3173,13 +3173,13 @@ function KufriPotatoVarietiesIndia() {
       </div>
       <p style={sSource}>Source: ICAR-CPRI state-wise variety recommendations; NHRDF; AICRP on Potato regional trial data.</p>
 
-      <p style={sP}>Uttar Pradesh produces roughly 30% of India&apos;s national potato crop and is the most important state by output; West Bengal is the most important by per-capita consumption. Punjab and Haryana drive the seed-multiplication chain through cold-storage networks. Gujarat dominates the export and processing supply chain, with major Frito-Lay and ITC processing plants. Each state&apos;s variety mix reflects these different commercial roles. See our <Link href="/country/india" style={{ color: "#C62828", textDecoration: "none" }}>India country profile</Link> for complete production data.</p>
+      <p style={sP}>Uttar Pradesh produces roughly 30% of India&apos;s national potato crop and is the most important state by output; West Bengal is the most important by per-capita consumption. Punjab and Haryana drive the seed-multiplication chain through cold-storage networks. Gujarat dominates the export and processing supply chain, with major Frito-Lay and ITC processing plants. Each state&apos;s variety mix reflects these different commercial roles. See our <Link href="/country/india" style={{ color: "var(--gold)", textDecoration: "none" }}>India country profile</Link> for complete production data.</p>
 
       <h2 id="seed-system" style={sH2}>India&apos;s potato seed system and how CPRI distributes varieties</h2>
       <p style={sP}>The Indian seed potato production chain follows a four-tier hierarchy: <strong>Breeder seed</strong> (produced by CPRI, the original source); <strong>Foundation seed</strong> (multiplied by state agricultural farms); <strong>Certified seed</strong> (multiplied by registered seed growers under inspection); and <strong>Truthfully Labeled (TL) seed</strong> (a less rigorous label permitting commercial sale). Generally, only <strong>10&ndash;15% of Indian potato acreage</strong> uses certified or higher-grade seed; the rest is farmer-saved &mdash; a major cause of yield gap versus genetic potential.</p>
       <p style={sP}>To address this seed bottleneck, CPRI pioneered <strong>aeroponic minituber production</strong> for India: tissue-culture plantlets are grown in soil-less aeroponic systems where roots are fed nutrient mist, producing 5&ndash;10x more minitubers per source plantlet than conventional in-soil multiplication. CPRI then transfers minitubers to field-multiplication contracts with state agencies. The aeroponic system is identical in principle to the technology developed by CIP in Peru and now used across 10 countries on four continents.</p>
       <p style={sP}><strong>Where to buy:</strong> CPRI regional stations (Kufri-Fagu, Modipuram, Jalandhar, Gwalior, Patna, Shillong, Ooty); state agricultural universities (G.B. Pant University, Punjab Agricultural University, etc.); the National Horticultural Research and Development Foundation (NHRDF); state seed corporations; and registered private seed growers. Seed-village programs provide local quality seed in major potato-growing districts. Always insist on tested certified material &mdash; the yield gap from saved seed is typically 25&ndash;40% versus certified.</p>
-      <p style={sP}>For broader context, see our <Link href="/knowledge/seed-potato-systems" style={{ color: "#C62828", textDecoration: "none" }}>seed potato systems</Link> guide, the <Link href="/knowledge/complete-potato-growing-guide" style={{ color: "#C62828", textDecoration: "none" }}>complete growing guide</Link>, and country profiles for the major South Asian potato producers <Link href="/country/india" style={{ color: "#C62828", textDecoration: "none" }}>India</Link>, <Link href="/country/bangladesh" style={{ color: "#C62828", textDecoration: "none" }}>Bangladesh</Link>, <Link href="/country/nepal" style={{ color: "#C62828", textDecoration: "none" }}>Nepal</Link>, <Link href="/country/pakistan" style={{ color: "#C62828", textDecoration: "none" }}>Pakistan</Link>, plus comparison with <Link href="/country/china" style={{ color: "#C62828", textDecoration: "none" }}>China</Link>, the <Link href="/country/netherlands" style={{ color: "#C62828", textDecoration: "none" }}>Netherlands</Link>, the <Link href="/country/united-states" style={{ color: "#C62828", textDecoration: "none" }}>United States</Link>, and <Link href="/country/germany" style={{ color: "#C62828", textDecoration: "none" }}>Germany</Link>.</p>
+      <p style={sP}>For broader context, see our <Link href="/knowledge/seed-potato-systems" style={{ color: "var(--gold)", textDecoration: "none" }}>seed potato systems</Link> guide, the <Link href="/knowledge/complete-potato-growing-guide" style={{ color: "var(--gold)", textDecoration: "none" }}>complete growing guide</Link>, and country profiles for the major South Asian potato producers <Link href="/country/india" style={{ color: "var(--gold)", textDecoration: "none" }}>India</Link>, <Link href="/country/bangladesh" style={{ color: "var(--gold)", textDecoration: "none" }}>Bangladesh</Link>, <Link href="/country/nepal" style={{ color: "var(--gold)", textDecoration: "none" }}>Nepal</Link>, <Link href="/country/pakistan" style={{ color: "var(--gold)", textDecoration: "none" }}>Pakistan</Link>, plus comparison with <Link href="/country/china" style={{ color: "var(--gold)", textDecoration: "none" }}>China</Link>, the <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link>, the <Link href="/country/united-states" style={{ color: "var(--gold)", textDecoration: "none" }}>United States</Link>, and <Link href="/country/germany" style={{ color: "var(--gold)", textDecoration: "none" }}>Germany</Link>.</p>
 
       <SourceBlock sources={[
         "ICAR-CPRI (Central Potato Research Institute, Shimla) — Variety catalogue, technical bulletins, AICRP on Potato annual reports",
@@ -3196,14 +3196,14 @@ function KufriPotatoVarietiesIndia() {
       <SupportBlock />
       <RelatedArticles articles={relatedArticles} />
       <section style={{ marginTop: 48 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Explore Country Profiles</h2>
+        <h2 style={{ fontSize: 20, fontWeight: 700, color: "var(--ink)", marginBottom: 16 }}>Explore Country Profiles</h2>
         <div style={{ display: "flex", gap: 10, overflowX: "auto", paddingBottom: 8 }}>
           {relatedCountries.map((c) => (
-            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "white", border: "1px solid #eee", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
+            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "var(--card)", border: "1px solid var(--line)", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
               <span style={{ fontSize: 20 }}>{c.flag}</span>
               <div>
-                <div style={{ fontSize: 13, fontWeight: 600, color: "#1A1A1A", whiteSpace: "nowrap" }}>{c.name}</div>
-                <div style={{ fontSize: 11, color: "#C62828", fontWeight: 600 }}>{c.prod} tonnes</div>
+                <div style={{ fontSize: 13, fontWeight: 600, color: "var(--ink)", whiteSpace: "nowrap" }}>{c.name}</div>
+                <div style={{ fontSize: 11, color: "var(--gold)", fontWeight: 600 }}>{c.prod} tonnes</div>
               </div>
             </Link>
           ))}
@@ -3270,19 +3270,19 @@ function WhyPotatoesIllegalInFrance() {
         <Breadcrumb tag="History" />
         <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 16 }}>
           <TagBadge tag="History" />
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>Updated {UPDATED_SHORT}</span>
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>9 min read</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>Updated {UPDATED_SHORT}</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>9 min read</span>
         </div>
-        <h1 style={{ fontSize: 32, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>Why Were Potatoes Illegal in France? The Bizarre History of Europe&apos;s Most Important Crop</h1>
+        <h1 style={{ fontSize: 32, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>Why Were Potatoes Illegal in France? The Bizarre History of Europe&apos;s Most Important Crop</h1>
       </HeroBanner>
 
       <div style={{ maxWidth: 820, margin: "0 auto", padding: "0 24px 80px" }}>
 
       <DefinitiveAnswer>
         <p style={{ margin: 0, lineHeight: 1.8 }}>
-          <strong>Potatoes were never formally banned by a French parliamentary edict &mdash; that&apos;s a popular misconception.</strong> What actually happened: in 1748 the Paris Faculty of Medicine declared potatoes responsible for <em>leprosy</em>, which combined with religious suspicion to create widespread cultural rejection across <Link href="/country/france" style={{ color: "#C62828", textDecoration: "none" }}>France</Link>. The Faculty reversed its position in 1772 after Antoine-Augustin Parmentier &mdash; a pharmacist who had survived Prussian captivity on potatoes &mdash; lobbied successfully. Parmentier then used reverse psychology, planting potatoes under royal guard so Parisians would assume they were valuable and steal them. Today France produces over 8 million tonnes annually (FAOSTAT 2023).
+          <strong>Potatoes were never formally banned by a French parliamentary edict &mdash; that&apos;s a popular misconception.</strong> What actually happened: in 1748 the Paris Faculty of Medicine declared potatoes responsible for <em>leprosy</em>, which combined with religious suspicion to create widespread cultural rejection across <Link href="/country/france" style={{ color: "var(--gold)", textDecoration: "none" }}>France</Link>. The Faculty reversed its position in 1772 after Antoine-Augustin Parmentier &mdash; a pharmacist who had survived Prussian captivity on potatoes &mdash; lobbied successfully. Parmentier then used reverse psychology, planting potatoes under royal guard so Parisians would assume they were valuable and steal them. Today France produces over 8 million tonnes annually (FAOSTAT 2023).
         </p>
       </DefinitiveAnswer>
 
@@ -3298,10 +3298,10 @@ function WhyPotatoesIllegalInFrance() {
       <h2 id="ban" style={sH2}>Were potatoes really banned in France?</h2>
       <p style={sP}>The short, accurate answer: <strong>not by a parliamentary law, but by something almost as effective &mdash; an authoritative medical declaration that the public believed and acted on for nearly 25 years.</strong> In 1748, the Paris Faculty of Medicine (Faculté de M&eacute;decine de Paris) issued a declaration that potatoes were responsible for leprosy. Doctors, priests, and almanacs spread the warning. Farmers refused to plant them, markets refused to sell them, and households refused to cook them. The effect was indistinguishable from a legal ban &mdash; potatoes essentially disappeared from French agriculture for a generation.</p>
       <p style={sP}>Several reinforcing factors supported the rejection. <strong>Botanical confusion:</strong> potatoes belong to the Solanaceae (nightshade) family, the same family as the genuinely toxic deadly nightshade (<em>Atropa belladonna</em>) and the hallucinogenic mandrake. <strong>Religious suspicion:</strong> potatoes are not mentioned in the Bible, grew underground (associated in some folk traditions with the underworld), and reproduce vegetatively rather than from seed (which seemed unnatural). <strong>A real toxicology problem:</strong> green or sprouted potatoes contain solanine, a glycoalkaloid that can cause genuine nausea, vomiting, and skin issues. To eighteenth-century observers without modern toxicology, the symptoms of solanine poisoning could plausibly look like leprosy.</p>
-      <p style={sP}>France was not alone. Most of Europe rejected potatoes as human food for 150&ndash;200 years after Spanish conquistadors first brought them back from Peru. <Link href="/country/germany" style={{ color: "#C62828", textDecoration: "none" }}>Germany</Link>, <Link href="/country/russia" style={{ color: "#C62828", textDecoration: "none" }}>Russia</Link>, and the <Link href="/country/united-kingdom" style={{ color: "#C62828", textDecoration: "none" }}>United Kingdom</Link> all went through their own multi-decade rejection cycles before potatoes became staples. The full timeline is below.</p>
+      <p style={sP}>France was not alone. Most of Europe rejected potatoes as human food for 150&ndash;200 years after Spanish conquistadors first brought them back from Peru. <Link href="/country/germany" style={{ color: "var(--gold)", textDecoration: "none" }}>Germany</Link>, <Link href="/country/russia" style={{ color: "var(--gold)", textDecoration: "none" }}>Russia</Link>, and the <Link href="/country/united-kingdom" style={{ color: "var(--gold)", textDecoration: "none" }}>United Kingdom</Link> all went through their own multi-decade rejection cycles before potatoes became staples. The full timeline is below.</p>
 
       <h2 id="europe" style={sH2}>How did potatoes arrive in Europe?</h2>
-      <p style={sP}>Potatoes were first cultivated in the high Andes of <Link href="/country/peru" style={{ color: "#C62828", fontWeight: 600, textDecoration: "none" }}>Peru</Link> and Bolivia approximately 8,000 years ago &mdash; one of the longest continuous domestications of any major food crop. The Inca Empire and its predecessors developed thousands of native varieties adapted to specific micro-environments along the Andean altitudinal gradient, from sea level to over 4,000 meters. Today the International Potato Center (CIP) in Lima preserves more than 4,350 accessions in its genebank, including over 3,000 native Andean varieties and 180+ wild species.</p>
+      <p style={sP}>Potatoes were first cultivated in the high Andes of <Link href="/country/peru" style={{ color: "var(--gold)", fontWeight: 600, textDecoration: "none" }}>Peru</Link> and Bolivia approximately 8,000 years ago &mdash; one of the longest continuous domestications of any major food crop. The Inca Empire and its predecessors developed thousands of native varieties adapted to specific micro-environments along the Andean altitudinal gradient, from sea level to over 4,000 meters. Today the International Potato Center (CIP) in Lima preserves more than 4,350 accessions in its genebank, including over 3,000 native Andean varieties and 180+ wild species.</p>
       <p style={sP}>Spanish conquistadors first encountered potatoes during the 1532 conquest of the Inca Empire and brought them to Europe over the following decades. The full timeline of potato adoption across Europe and the world is below.</p>
 
       <div style={{ overflowX: "auto", marginBottom: 8 }}>
@@ -3309,9 +3309,9 @@ function WhyPotatoesIllegalInFrance() {
           <thead><tr>{["Year","Country / Event","What Happened"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {timelineRows.map((r, i) => (
-              <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
-                <td style={{ ...sTd, color: "#C62828", fontWeight: 600 }}>{r[1]}</td>
+                <td style={{ ...sTd, color: "var(--gold)", fontWeight: 600 }}>{r[1]}</td>
                 <td style={sTd}>{r[2]}</td>
               </tr>
             ))}
@@ -3342,15 +3342,15 @@ function WhyPotatoesIllegalInFrance() {
 
       <h2 id="famine" style={sH2}>The Irish Potato Famine: when dependence went wrong</h2>
       <p style={sP}>By the 1840s, the Irish population of approximately 8 million depended heavily on a single potato variety, the <strong>Irish Lumper</strong> &mdash; high-yielding, calorie-dense, and almost universally planted by Irish peasants on the small holdings that British landlordism had created. Potato dependence had reached approximately 10 lbs per person per day in the poorest counties. There was no genetic diversity in the crop. The Lumper was a clone, replicated vegetatively from generation to generation.</p>
-      <p style={sP}>In 1845, <em>Phytophthora infestans</em> &mdash; the late blight oomycete &mdash; arrived in <Link href="/country/ireland" style={{ color: "#C62828", textDecoration: "none" }}>Ireland</Link>, likely transported on cargo ships from Mexico via North America. Ireland&apos;s genetically uniform Lumper crop had no resistance. The 1845 harvest collapsed. So did 1846. So did 1848. By 1852, approximately <strong>1 million Irish were dead and another 1 million had emigrated</strong> &mdash; mostly to <Link href="/country/united-states" style={{ color: "#C62828", textDecoration: "none" }}>the United States</Link>. The Irish population fell by about 25% in seven years.</p>
-      <p style={sP}>The famine&apos;s lesson reshaped global agricultural thinking: <strong>genetic uniformity in a staple crop is an existential vulnerability</strong>. The modern emphasis on genetic diversity in potato breeding, the founding of CIP in Lima in 1971, and the ongoing maintenance of the world&apos;s 4,350+ accession potato genebank are all direct downstream consequences of the Irish disaster. Late blight remains the most expensive potato disease today &mdash; approximately $6 billion per year in global losses &mdash; and the breeding pipelines at CIP, USDA-ARS, and the European Tri-State programs all explicitly target durable late blight resistance. See our <Link href="/knowledge/potato-diseases-pests" style={{ color: "#C62828", textDecoration: "none" }}>diseases and pests guide</Link> and the <Link href="/answers/what-is-late-blight" style={{ color: "#C62828", textDecoration: "none" }}>late blight FAQ</Link>.</p>
+      <p style={sP}>In 1845, <em>Phytophthora infestans</em> &mdash; the late blight oomycete &mdash; arrived in <Link href="/country/ireland" style={{ color: "var(--gold)", textDecoration: "none" }}>Ireland</Link>, likely transported on cargo ships from Mexico via North America. Ireland&apos;s genetically uniform Lumper crop had no resistance. The 1845 harvest collapsed. So did 1846. So did 1848. By 1852, approximately <strong>1 million Irish were dead and another 1 million had emigrated</strong> &mdash; mostly to <Link href="/country/united-states" style={{ color: "var(--gold)", textDecoration: "none" }}>the United States</Link>. The Irish population fell by about 25% in seven years.</p>
+      <p style={sP}>The famine&apos;s lesson reshaped global agricultural thinking: <strong>genetic uniformity in a staple crop is an existential vulnerability</strong>. The modern emphasis on genetic diversity in potato breeding, the founding of CIP in Lima in 1971, and the ongoing maintenance of the world&apos;s 4,350+ accession potato genebank are all direct downstream consequences of the Irish disaster. Late blight remains the most expensive potato disease today &mdash; approximately $6 billion per year in global losses &mdash; and the breeding pipelines at CIP, USDA-ARS, and the European Tri-State programs all explicitly target durable late blight resistance. See our <Link href="/knowledge/potato-diseases-pests" style={{ color: "var(--gold)", textDecoration: "none" }}>diseases and pests guide</Link> and the <Link href="/answers/what-is-late-blight" style={{ color: "var(--gold)", textDecoration: "none" }}>late blight FAQ</Link>.</p>
 
       <StatCallout number="1 variety → 1M dead" context="Ireland's dependence on a single genetically uniform potato variety (the Irish Lumper) led directly to the Great Famine of 1845-1852. This catastrophe drove the modern potato breeding emphasis on genetic diversity, including CIP's founding in 1971." source="CIP historical archives; Reader 'Potato: A History of the Propitious Esculent' (2008)" />
 
       <h2 id="today" style={sH2}>From rejected crop to global staple: potatoes today</h2>
-      <p style={sP}>Today the potato is the world&apos;s <strong>fourth most important food crop</strong> after rice, wheat, and maize. Global production reached 383 million tonnes in 2024 (FAOSTAT), grown across 160+ countries on every inhabited continent. <Link href="/country/china" style={{ color: "#C62828", fontWeight: 600, textDecoration: "none" }}>China</Link> leads at 94.87 million tonnes, <Link href="/country/india" style={{ color: "#C62828", textDecoration: "none" }}>India</Link> follows at 57.05 million tonnes, and <Link href="/country/ukraine" style={{ color: "#C62828", textDecoration: "none" }}>Ukraine</Link> ranks third at 21.13 million tonnes. France &mdash; the country that rejected potatoes in 1748 &mdash; today produces over 8 million tonnes annually and is one of the largest seed potato exporters in Europe.</p>
+      <p style={sP}>Today the potato is the world&apos;s <strong>fourth most important food crop</strong> after rice, wheat, and maize. Global production reached 383 million tonnes in 2024 (FAOSTAT), grown across 160+ countries on every inhabited continent. <Link href="/country/china" style={{ color: "var(--gold)", fontWeight: 600, textDecoration: "none" }}>China</Link> leads at 94.87 million tonnes, <Link href="/country/india" style={{ color: "var(--gold)", textDecoration: "none" }}>India</Link> follows at 57.05 million tonnes, and <Link href="/country/ukraine" style={{ color: "var(--gold)", textDecoration: "none" }}>Ukraine</Link> ranks third at 21.13 million tonnes. France &mdash; the country that rejected potatoes in 1748 &mdash; today produces over 8 million tonnes annually and is one of the largest seed potato exporters in Europe.</p>
       <p style={sP}>The historical irony runs deep. France&apos;s <strong>pommes frites</strong> (French fries), <strong>gratin dauphinois</strong>, <strong>pommes pur&eacute;e</strong> (the Joel Robuchon technique), <strong>pommes boulang&egrave;re</strong>, and <strong>aligot</strong> are now defining dishes of European cuisine. Two hundred fifty years after the Paris Faculty of Medicine declared potatoes a cause of leprosy, France hosts some of the world&apos;s most celebrated potato preparations. Belgium &mdash; Parmentier&apos;s neighbour &mdash; is the world&apos;s #1 frozen French fry exporter at $4.8 billion annually. The transformation from cultural rejection to culinary identity is total.</p>
-      <p style={sP}>For deeper context, see our <Link href="/knowledge/top-potato-producing-countries" style={{ color: "#C62828", textDecoration: "none" }}>top producing countries</Link> guide, the <Link href="/knowledge/potato-consumption-per-capita" style={{ color: "#C62828", textDecoration: "none" }}>per-capita consumption rankings</Link>, the <Link href="/knowledge/potato-varieties-guide" style={{ color: "#C62828", textDecoration: "none" }}>varieties guide</Link>, and country profiles for <Link href="/country/france" style={{ color: "#C62828", textDecoration: "none" }}>France</Link>, <Link href="/country/peru" style={{ color: "#C62828", textDecoration: "none" }}>Peru</Link>, <Link href="/country/germany" style={{ color: "#C62828", textDecoration: "none" }}>Germany</Link>, <Link href="/country/russia" style={{ color: "#C62828", textDecoration: "none" }}>Russia</Link>, <Link href="/country/belgium" style={{ color: "#C62828", textDecoration: "none" }}>Belgium</Link>, the <Link href="/country/united-kingdom" style={{ color: "#C62828", textDecoration: "none" }}>United Kingdom</Link>, the <Link href="/country/netherlands" style={{ color: "#C62828", textDecoration: "none" }}>Netherlands</Link>, and the <Link href="/country/united-states" style={{ color: "#C62828", textDecoration: "none" }}>United States</Link>.</p>
+      <p style={sP}>For deeper context, see our <Link href="/knowledge/top-potato-producing-countries" style={{ color: "var(--gold)", textDecoration: "none" }}>top producing countries</Link> guide, the <Link href="/knowledge/potato-consumption-per-capita" style={{ color: "var(--gold)", textDecoration: "none" }}>per-capita consumption rankings</Link>, the <Link href="/knowledge/potato-varieties-guide" style={{ color: "var(--gold)", textDecoration: "none" }}>varieties guide</Link>, and country profiles for <Link href="/country/france" style={{ color: "var(--gold)", textDecoration: "none" }}>France</Link>, <Link href="/country/peru" style={{ color: "var(--gold)", textDecoration: "none" }}>Peru</Link>, <Link href="/country/germany" style={{ color: "var(--gold)", textDecoration: "none" }}>Germany</Link>, <Link href="/country/russia" style={{ color: "var(--gold)", textDecoration: "none" }}>Russia</Link>, <Link href="/country/belgium" style={{ color: "var(--gold)", textDecoration: "none" }}>Belgium</Link>, the <Link href="/country/united-kingdom" style={{ color: "var(--gold)", textDecoration: "none" }}>United Kingdom</Link>, the <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link>, and the <Link href="/country/united-states" style={{ color: "var(--gold)", textDecoration: "none" }}>United States</Link>.</p>
 
       <SourceBlock sources={[
         "FAOSTAT 2023 — Global production data (383 million tonnes total)",
@@ -3366,14 +3366,14 @@ function WhyPotatoesIllegalInFrance() {
       <SupportBlock />
       <RelatedArticles articles={relatedArticles} />
       <section style={{ marginTop: 48 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Explore Country Profiles</h2>
+        <h2 style={{ fontSize: 20, fontWeight: 700, color: "var(--ink)", marginBottom: 16 }}>Explore Country Profiles</h2>
         <div style={{ display: "flex", gap: 10, overflowX: "auto", paddingBottom: 8 }}>
           {relatedCountries.map((c) => (
-            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "white", border: "1px solid #eee", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
+            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "var(--card)", border: "1px solid var(--line)", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
               <span style={{ fontSize: 20 }}>{c.flag}</span>
               <div>
-                <div style={{ fontSize: 13, fontWeight: 600, color: "#1A1A1A", whiteSpace: "nowrap" }}>{c.name}</div>
-                <div style={{ fontSize: 11, color: "#C62828", fontWeight: 600 }}>{c.prod} tonnes</div>
+                <div style={{ fontSize: 13, fontWeight: 600, color: "var(--ink)", whiteSpace: "nowrap" }}>{c.name}</div>
+                <div style={{ fontSize: 11, color: "var(--gold)", fontWeight: 600 }}>{c.prod} tonnes</div>
               </div>
             </Link>
           ))}
@@ -3479,12 +3479,12 @@ function PotatoYieldCalculator() {
         <Breadcrumb tag="Cultivation" />
         <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 16 }}>
           <TagBadge tag="Cultivation" />
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>Updated {UPDATED_SHORT}</span>
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>9 min read</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>Updated {UPDATED_SHORT}</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>9 min read</span>
         </div>
-        <h1 style={{ fontSize: 32, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>Potato Yield Per Acre: How to Calculate, Global Averages, and How to Maximize Your Harvest</h1>
+        <h1 style={{ fontSize: 32, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>Potato Yield Per Acre: How to Calculate, Global Averages, and How to Maximize Your Harvest</h1>
       </HeroBanner>
 
       <div style={{ maxWidth: 820, margin: "0 auto", padding: "0 24px 80px" }}>
@@ -3520,11 +3520,11 @@ function PotatoYieldCalculator() {
           <thead><tr>{["Spacing","Plant Population","@ 3 lbs/plant","@ 5 lbs/plant","Use Case"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {spacingTable.map((r, i) => (
-              <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
                 <td style={sTd}>{r[1]}</td>
-                <td style={{ ...sTd, color: "#C62828", fontWeight: 600 }}>{r[2]}</td>
-                <td style={{ ...sTd, color: "#C62828", fontWeight: 600 }}>{r[3]}</td>
+                <td style={{ ...sTd, color: "var(--gold)", fontWeight: 600 }}>{r[2]}</td>
+                <td style={{ ...sTd, color: "var(--gold)", fontWeight: 600 }}>{r[3]}</td>
                 <td style={sTd}>{r[4]}</td>
               </tr>
             ))}
@@ -3543,9 +3543,9 @@ function PotatoYieldCalculator() {
           <thead><tr>{["Country / Region","Yield (t/ha)","Yield (cwt/acre)","Notes"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {countryYieldTable.map((r, i) => (
-              <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
-                <td style={{ ...sTd, color: "#C62828", fontWeight: 600 }}>{r[1]}</td>
+                <td style={{ ...sTd, color: "var(--gold)", fontWeight: 600 }}>{r[1]}</td>
                 <td style={sTd}>{r[2]}</td>
                 <td style={sTd}>{r[3]}</td>
               </tr>
@@ -3553,7 +3553,7 @@ function PotatoYieldCalculator() {
           </tbody>
         </table>
       </div>
-      <p style={sSource}>Source: FAOSTAT 2023; USDA NASS 2024 (US 471 cwt/acre = 51.4 t/ha); CIP yield-gap analysis. Country profiles: <Link href="/country/united-states" style={{ color: "#C62828", textDecoration: "none" }}>USA</Link>, <Link href="/country/netherlands" style={{ color: "#C62828", textDecoration: "none" }}>Netherlands</Link>, <Link href="/country/belgium" style={{ color: "#C62828", textDecoration: "none" }}>Belgium</Link>, <Link href="/country/france" style={{ color: "#C62828", textDecoration: "none" }}>France</Link>, <Link href="/country/germany" style={{ color: "#C62828", textDecoration: "none" }}>Germany</Link>, <Link href="/country/united-kingdom" style={{ color: "#C62828", textDecoration: "none" }}>UK</Link>, <Link href="/country/canada" style={{ color: "#C62828", textDecoration: "none" }}>Canada</Link>, <Link href="/country/india" style={{ color: "#C62828", textDecoration: "none" }}>India</Link>, <Link href="/country/russia" style={{ color: "#C62828", textDecoration: "none" }}>Russia</Link>, <Link href="/country/china" style={{ color: "#C62828", textDecoration: "none" }}>China</Link>, <Link href="/country/kenya" style={{ color: "#C62828", textDecoration: "none" }}>Kenya</Link>.</p>
+      <p style={sSource}>Source: FAOSTAT 2023; USDA NASS 2024 (US 471 cwt/acre = 51.4 t/ha); CIP yield-gap analysis. Country profiles: <Link href="/country/united-states" style={{ color: "var(--gold)", textDecoration: "none" }}>USA</Link>, <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link>, <Link href="/country/belgium" style={{ color: "var(--gold)", textDecoration: "none" }}>Belgium</Link>, <Link href="/country/france" style={{ color: "var(--gold)", textDecoration: "none" }}>France</Link>, <Link href="/country/germany" style={{ color: "var(--gold)", textDecoration: "none" }}>Germany</Link>, <Link href="/country/united-kingdom" style={{ color: "var(--gold)", textDecoration: "none" }}>UK</Link>, <Link href="/country/canada" style={{ color: "var(--gold)", textDecoration: "none" }}>Canada</Link>, <Link href="/country/india" style={{ color: "var(--gold)", textDecoration: "none" }}>India</Link>, <Link href="/country/russia" style={{ color: "var(--gold)", textDecoration: "none" }}>Russia</Link>, <Link href="/country/china" style={{ color: "var(--gold)", textDecoration: "none" }}>China</Link>, <Link href="/country/kenya" style={{ color: "var(--gold)", textDecoration: "none" }}>Kenya</Link>.</p>
 
       <StatCallout number="4–6×" context="The yield gap between the world's best (USA at 51.4 t/ha) and the world's lowest (Sub-Saharan Africa at 8–15 t/ha) represents the biggest opportunity in global potato food security. Closing even half this gap would feed 100+ million additional people without using any new land." source="FAOSTAT 2023; CIP yield-gap analysis" />
 
@@ -3565,11 +3565,11 @@ function PotatoYieldCalculator() {
           <thead><tr>{["Factor","Low-Yield Scenario","High-Yield Scenario","Yield Impact"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {factorTable.map((r, i) => (
-              <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
                 <td style={sTd}>{r[1]}</td>
                 <td style={sTd}>{r[2]}</td>
-                <td style={{ ...sTd, color: "#C62828", fontWeight: 600 }}>{r[3]}</td>
+                <td style={{ ...sTd, color: "var(--gold)", fontWeight: 600 }}>{r[3]}</td>
               </tr>
             ))}
           </tbody>
@@ -3577,7 +3577,7 @@ function PotatoYieldCalculator() {
       </div>
       <p style={sSource}>Source: FAO Land and Water Division (Kc, Ky values); University of Idaho Extension; CIP yield-gap analysis.</p>
 
-      <p style={sP}>The single most important factor on this list is <strong>water consistency during tuber bulking</strong>. FAO&apos;s yield-response factor Ky for potato during the bulking stage is approximately 1.1, meaning every 10% water deficit during this 6&ndash;8 week window costs 11% of final yield. No other input has a yield response factor that severe. See our <Link href="/knowledge/common-potato-growing-mistakes" style={{ color: "#C62828", textDecoration: "none" }}>common growing mistakes</Link> guide for the operational details.</p>
+      <p style={sP}>The single most important factor on this list is <strong>water consistency during tuber bulking</strong>. FAO&apos;s yield-response factor Ky for potato during the bulking stage is approximately 1.1, meaning every 10% water deficit during this 6&ndash;8 week window costs 11% of final yield. No other input has a yield response factor that severe. See our <Link href="/knowledge/common-potato-growing-mistakes" style={{ color: "var(--gold)", textDecoration: "none" }}>common growing mistakes</Link> guide for the operational details.</p>
 
       <StatCallout number="Ky = 1.1" context="FAO's yield response factor during tuber bulking. Every 10% water deficit during the critical 6–8 week bulking window causes 11% yield loss. No other single management factor has this leverage." source="FAO Land and Water Division — Crop Water Information: Potato" />
 
@@ -3589,18 +3589,18 @@ function PotatoYieldCalculator() {
           <thead><tr>{["Variety","Origin","Maturity","Yield (t/ha)","Use / Notes"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {varietyYieldTable.map((r, i) => (
-              <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
                 <td style={sTd}>{r[1]}</td>
                 <td style={sTd}>{r[2]}</td>
-                <td style={{ ...sTd, color: "#C62828", fontWeight: 600 }}>{r[3]}</td>
+                <td style={{ ...sTd, color: "var(--gold)", fontWeight: 600 }}>{r[3]}</td>
                 <td style={sTd}>{r[4]}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
-      <p style={sSource}>Source: USDA-ARS variety descriptions; ICAR-CPRI variety catalogue; CIP variety database; <Link href="/knowledge/russet-burbank-history" style={{ color: "#C62828", textDecoration: "none" }}>Russet Burbank profile</Link>; <Link href="/knowledge/kufri-potato-varieties-india" style={{ color: "#C62828", textDecoration: "none" }}>Kufri varieties</Link>.</p>
+      <p style={sSource}>Source: USDA-ARS variety descriptions; ICAR-CPRI variety catalogue; CIP variety database; <Link href="/knowledge/russet-burbank-history" style={{ color: "var(--gold)", textDecoration: "none" }}>Russet Burbank profile</Link>; <Link href="/knowledge/kufri-potato-varieties-india" style={{ color: "var(--gold)", textDecoration: "none" }}>Kufri varieties</Link>.</p>
 
       <p style={sP}><strong>Highest yielding does not mean most profitable.</strong> Atlantic yields 25&ndash;35 t/ha &mdash; far below Russet Burbank or Innovator &mdash; but commands a substantial premium for chip processing because of its very high specific gravity (1.087&ndash;1.090) and round tuber shape. Variety choice should match the target market, not just chase yield.</p>
 
@@ -3608,10 +3608,10 @@ function PotatoYieldCalculator() {
       <p style={sP}>The 4&ndash;6&times; yield gap between the US (51.4 t/ha) and Sub-Saharan Africa (8&ndash;15 t/ha) decomposes into roughly six factor categories:</p>
       <p style={sP}><strong>Seed quality.</strong> Developed countries use 100% certified virus-tested seed; in much of Africa and Asia only 5&ndash;15% of farmers use certified material. The yield penalty from farmer-saved seed (which accumulates virus across generations) is 20&ndash;30% per cycle, compounding rapidly. This is the single highest-leverage gap to close.</p>
       <p style={sP}><strong>Irrigation.</strong> US Pacific Northwest fields use precision center-pivot irrigation matched to crop water needs by GPS-zoned soil sensors. Most developing-country potato production is rainfed, with no recourse during dry weeks during tuber bulking.</p>
-      <p style={sP}><strong>Mechanization.</strong> A single US farmer typically manages 500+ acres with GPS-guided planters, sprayers, and harvesters. Smallholder farmers in <Link href="/country/kenya" style={{ color: "#C62828", textDecoration: "none" }}>Kenya</Link>, <Link href="/country/india" style={{ color: "#C62828", textDecoration: "none" }}>India</Link>, and across Sub-Saharan Africa typically manage 0.5&ndash;2 acres by hand.</p>
+      <p style={sP}><strong>Mechanization.</strong> A single US farmer typically manages 500+ acres with GPS-guided planters, sprayers, and harvesters. Smallholder farmers in <Link href="/country/kenya" style={{ color: "var(--gold)", textDecoration: "none" }}>Kenya</Link>, <Link href="/country/india" style={{ color: "var(--gold)", textDecoration: "none" }}>India</Link>, and across Sub-Saharan Africa typically manage 0.5&ndash;2 acres by hand.</p>
       <p style={sP}><strong>Crop protection.</strong> Developed countries spray fungicide preventively 10&ndash;15 times per season against late blight. Smallholders may apply 0&ndash;3 sprays per season &mdash; insufficient under disease pressure.</p>
       <p style={sP}><strong>Growing season length.</strong> Idaho typically has 140+ frost-free days. India&apos;s rabi-season potato window is approximately 90 frost-free days. Less time = less tuber bulking = lower yield ceiling.</p>
-      <p style={sP}><strong>Soil fertility and pH.</strong> Developed countries soil-test annually and apply nutrients precisely. Smallholders often under-apply phosphorus and potassium. CIP&apos;s mission &mdash; closing this gap through improved varieties, clean seed systems, and better agronomy &mdash; has produced documented yield gains of 50% (Qingshu 9 in <Link href="/country/china" style={{ color: "#C62828", textDecoration: "none" }}>China</Link>) and 40% (Kufri Pukhraj over Kufri Jyoti in <Link href="/country/india" style={{ color: "#C62828", textDecoration: "none" }}>India</Link>).</p>
+      <p style={sP}><strong>Soil fertility and pH.</strong> Developed countries soil-test annually and apply nutrients precisely. Smallholders often under-apply phosphorus and potassium. CIP&apos;s mission &mdash; closing this gap through improved varieties, clean seed systems, and better agronomy &mdash; has produced documented yield gains of 50% (Qingshu 9 in <Link href="/country/china" style={{ color: "var(--gold)", textDecoration: "none" }}>China</Link>) and 40% (Kufri Pukhraj over Kufri Jyoti in <Link href="/country/india" style={{ color: "var(--gold)", textDecoration: "none" }}>India</Link>).</p>
 
       <StatCallout number="20–30%" context="The yield advantage of certified seed over farmer-saved seed. In Sub-Saharan Africa, where only ~5% of farmers use certified seed, this single change could transform national production. It is the highest-leverage intervention in global potato food security." source="CIP yield-gap analysis; FAO seed system reviews" />
 
@@ -3620,10 +3620,10 @@ function PotatoYieldCalculator() {
       <p style={sP}><strong>Optimize plant population.</strong> 44,000&ndash;55,000 plants/ha for ware production; 60,000&ndash;85,000 for seed-potato production. Higher density gives smaller tubers (good for seed); lower density gives bigger tubers (good for fresh / chip).</p>
       <p style={sP}><strong>Irrigate consistently during bulking.</strong> The 6&ndash;8 week window from approximately 60 to 100 days after planting determines 75% of final yield. Wet&ndash;dry cycles are the leading cause of growth cracks, hollow heart, and knobby tubers.</p>
       <p style={sP}><strong>Split nitrogen applications.</strong> 60% pre-plant + 40% at first hilling. Never apply N after tuber initiation &mdash; late N delays maturity, drops specific gravity, and produces lush vines with small tubers.</p>
-      <p style={sP}><strong>Scout for late blight weekly.</strong> Use weather-based forecasting (BlightCast, Smith Periods, NegFry) to time preventive sprays. One missed spray during a wet week can cost 50%+ yield. See our <Link href="/knowledge/potato-diseases-pests" style={{ color: "#C62828", textDecoration: "none" }}>diseases guide</Link>.</p>
+      <p style={sP}><strong>Scout for late blight weekly.</strong> Use weather-based forecasting (BlightCast, Smith Periods, NegFry) to time preventive sprays. One missed spray during a wet week can cost 50%+ yield. See our <Link href="/knowledge/potato-diseases-pests" style={{ color: "var(--gold)", textDecoration: "none" }}>diseases guide</Link>.</p>
       <p style={sP}><strong>Time your harvest.</strong> Allow 10&ndash;14 days for skin set after vine kill before lifting. Immature skin peels off, opening tubers to storage disease and water loss.</p>
       <p style={sP}><strong>Don&apos;t skimp on potassium.</strong> K is the tuber-size driver. 180&ndash;250 kg K&#8322;O per hectare is standard; deficiency reduces tuber size, specific gravity, and storage quality.</p>
-      <p style={sP}><strong>Commercial yield targets:</strong> Fresh market 35&ndash;45 t/ha (good), 45&ndash;55 t/ha (excellent). Processing French fries 40&ndash;50 t/ha (good), 50&ndash;60 t/ha (excellent). Seed production 25&ndash;35 t/ha at higher density. See our <Link href="/knowledge/complete-potato-growing-guide" style={{ color: "#C62828", textDecoration: "none" }}>complete growing guide</Link>.</p>
+      <p style={sP}><strong>Commercial yield targets:</strong> Fresh market 35&ndash;45 t/ha (good), 45&ndash;55 t/ha (excellent). Processing French fries 40&ndash;50 t/ha (good), 50&ndash;60 t/ha (excellent). Seed production 25&ndash;35 t/ha at higher density. See our <Link href="/knowledge/complete-potato-growing-guide" style={{ color: "var(--gold)", textDecoration: "none" }}>complete growing guide</Link>.</p>
 
       <h2 id="units" style={sH2}>Unit conversion reference: cwt, tonnes, bushels, and bags</h2>
       <p style={sP}>Potato yield is reported in different units across countries, which makes international comparison confusing. The US uses hundredweight per acre (cwt/acre); FAOSTAT and most international sources use tonnes per hectare (t/ha); India and East Africa use 50&ndash;100 lb bags. The full conversion table:</p>
@@ -3633,9 +3633,9 @@ function PotatoYieldCalculator() {
           <thead><tr>{["Unit","Equals","Used In"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {unitTable.map((r, i) => (
-              <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
-                <td style={{ ...sTd, color: "#C62828", fontWeight: 600 }}>{r[1]}</td>
+                <td style={{ ...sTd, color: "var(--gold)", fontWeight: 600 }}>{r[1]}</td>
                 <td style={sTd}>{r[2]}</td>
               </tr>
             ))}
@@ -3651,7 +3651,7 @@ function PotatoYieldCalculator() {
       &bull; 50 t/ha = 446 cwt/acre.<br />
       &bull; The US national average of 471 cwt/acre = 52.8 t/ha (slightly above the FAOSTAT-reported 51.4 t/ha because USDA NASS uses a different production-weighted methodology).</p>
 
-      <p style={sP}>For deeper context, see our <Link href="/knowledge/top-potato-producing-countries" style={{ color: "#C62828", textDecoration: "none" }}>top producing countries</Link>, the <Link href="/knowledge/potato-varieties-guide" style={{ color: "#C62828", textDecoration: "none" }}>varieties guide</Link>, and country profiles for the highest-yielding potato nations: the <Link href="/country/united-states" style={{ color: "#C62828", textDecoration: "none" }}>United States</Link>, the <Link href="/country/netherlands" style={{ color: "#C62828", textDecoration: "none" }}>Netherlands</Link>, <Link href="/country/belgium" style={{ color: "#C62828", textDecoration: "none" }}>Belgium</Link>, <Link href="/country/germany" style={{ color: "#C62828", textDecoration: "none" }}>Germany</Link>, plus high-volume producers <Link href="/country/china" style={{ color: "#C62828", textDecoration: "none" }}>China</Link>, <Link href="/country/india" style={{ color: "#C62828", textDecoration: "none" }}>India</Link>, <Link href="/country/peru" style={{ color: "#C62828", textDecoration: "none" }}>Peru</Link>, and yield-gap focus countries like <Link href="/country/kenya" style={{ color: "#C62828", textDecoration: "none" }}>Kenya</Link>.</p>
+      <p style={sP}>For deeper context, see our <Link href="/knowledge/top-potato-producing-countries" style={{ color: "var(--gold)", textDecoration: "none" }}>top producing countries</Link>, the <Link href="/knowledge/potato-varieties-guide" style={{ color: "var(--gold)", textDecoration: "none" }}>varieties guide</Link>, and country profiles for the highest-yielding potato nations: the <Link href="/country/united-states" style={{ color: "var(--gold)", textDecoration: "none" }}>United States</Link>, the <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link>, <Link href="/country/belgium" style={{ color: "var(--gold)", textDecoration: "none" }}>Belgium</Link>, <Link href="/country/germany" style={{ color: "var(--gold)", textDecoration: "none" }}>Germany</Link>, plus high-volume producers <Link href="/country/china" style={{ color: "var(--gold)", textDecoration: "none" }}>China</Link>, <Link href="/country/india" style={{ color: "var(--gold)", textDecoration: "none" }}>India</Link>, <Link href="/country/peru" style={{ color: "var(--gold)", textDecoration: "none" }}>Peru</Link>, and yield-gap focus countries like <Link href="/country/kenya" style={{ color: "var(--gold)", textDecoration: "none" }}>Kenya</Link>.</p>
 
       <SourceBlock sources={[
         "FAOSTAT 2023 — Global yield data by country (USA 51.4 t/ha; global average 22.8 t/ha)",
@@ -3667,14 +3667,14 @@ function PotatoYieldCalculator() {
       <SupportBlock />
       <RelatedArticles articles={relatedArticles} />
       <section style={{ marginTop: 48 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Explore Country Profiles</h2>
+        <h2 style={{ fontSize: 20, fontWeight: 700, color: "var(--ink)", marginBottom: 16 }}>Explore Country Profiles</h2>
         <div style={{ display: "flex", gap: 10, overflowX: "auto", paddingBottom: 8 }}>
           {relatedCountries.map((c) => (
-            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "white", border: "1px solid #eee", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
+            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "var(--card)", border: "1px solid var(--line)", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
               <span style={{ fontSize: 20 }}>{c.flag}</span>
               <div>
-                <div style={{ fontSize: 13, fontWeight: 600, color: "#1A1A1A", whiteSpace: "nowrap" }}>{c.name}</div>
-                <div style={{ fontSize: 11, color: "#C62828", fontWeight: 600 }}>{c.yield}</div>
+                <div style={{ fontSize: 13, fontWeight: 600, color: "var(--ink)", whiteSpace: "nowrap" }}>{c.name}</div>
+                <div style={{ fontSize: 11, color: "var(--gold)", fontWeight: 600 }}>{c.yield}</div>
               </div>
             </Link>
           ))}
@@ -3742,12 +3742,12 @@ function DiabeticsAndFrenchFries() {
         <Breadcrumb tag="Nutrition" />
         <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 16 }}>
           <TagBadge tag="Nutrition" />
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>Updated {UPDATED_SHORT}</span>
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>8 min read</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>Updated {UPDATED_SHORT}</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>8 min read</span>
         </div>
-        <h1 style={{ fontSize: 32, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>Can Diabetics Eat French Fries? Glycemic Impact, Portion Control, and Healthier Alternatives</h1>
+        <h1 style={{ fontSize: 32, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>Can Diabetics Eat French Fries? Glycemic Impact, Portion Control, and Healthier Alternatives</h1>
       </HeroBanner>
 
       <div style={{ maxWidth: 820, margin: "0 auto", padding: "0 24px 80px" }}>
@@ -3776,9 +3776,9 @@ function DiabeticsAndFrenchFries() {
           <thead><tr>{["Preparation","GI","GL (typical serving)","Serving size","Total carbs"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {giTable.map((r, i) => (
-              <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
-                <td style={{ ...sTd, color: "#C62828", fontWeight: 600 }}>{r[1]}</td>
+                <td style={{ ...sTd, color: "var(--gold)", fontWeight: 600 }}>{r[1]}</td>
                 <td style={sTd}>{r[2]}</td>
                 <td style={sTd}>{r[3]}</td>
                 <td style={sTd}>{r[4]}</td>
@@ -3787,7 +3787,7 @@ function DiabeticsAndFrenchFries() {
           </tbody>
         </table>
       </div>
-      <p style={sSource}>Source: Atkinson FS et al. (2008), Diabetes Care; Foster-Powell K et al. (2002), American Journal of Clinical Nutrition; Leeman et al. (2005), European Journal of Clinical Nutrition. See also our <Link href="/knowledge/potatoes-and-blood-sugar" style={{ color: "#C62828", textDecoration: "none" }}>blood sugar deep-dive</Link>.</p>
+      <p style={sSource}>Source: Atkinson FS et al. (2008), Diabetes Care; Foster-Powell K et al. (2002), American Journal of Clinical Nutrition; Leeman et al. (2005), European Journal of Clinical Nutrition. See also our <Link href="/knowledge/potatoes-and-blood-sugar" style={{ color: "var(--gold)", textDecoration: "none" }}>blood sugar deep-dive</Link>.</p>
 
       <p style={sP}><strong>The GL math matters here.</strong> A small fast-food serving (75 g of fries, ~20 g carbs &times; GI 70 / 100) has a glycemic load of ~14 &mdash; firmly in the moderate range. A large serving (200 g, ~52 g carbs) has a glycemic load of ~36 &mdash; well into the &ldquo;high&rdquo; zone where blood sugar excursions matter clinically. The same food, the same GI &mdash; but different metabolic impact entirely depending on portion.</p>
 
@@ -3805,7 +3805,7 @@ function DiabeticsAndFrenchFries() {
       &bull; <strong>Pair with protein and non-starchy vegetables.</strong> A meal of fries + grilled chicken + a large salad has dramatically different blood sugar impact than fries + soda + dessert.<br />
       &bull; <strong>Choose baked or air-fried over deep-fried when possible.</strong> Lower calorie, less saturated fat exposure.<br />
       &bull; <strong>Monitor your individual response.</strong> Continuous glucose monitor data can show how <em>you</em> respond to fries vs other potato preparations.</p>
-      <p style={sP}>For the broader picture on diabetes and potatoes, see our <Link href="/answers/can-diabetics-eat-potatoes" style={{ color: "#C62828", textDecoration: "none" }}>diabetic potato FAQ</Link> and <Link href="/knowledge/potatoes-and-blood-sugar" style={{ color: "#C62828", textDecoration: "none" }}>blood sugar science guide</Link>.</p>
+      <p style={sP}>For the broader picture on diabetes and potatoes, see our <Link href="/answers/can-diabetics-eat-potatoes" style={{ color: "var(--gold)", textDecoration: "none" }}>diabetic potato FAQ</Link> and <Link href="/knowledge/potatoes-and-blood-sugar" style={{ color: "var(--gold)", textDecoration: "none" }}>blood sugar science guide</Link>.</p>
 
       <h2 id="cooking" style={sH2}>How does cooking method change the health impact?</h2>
       <p style={sP}>The cooking method is more important than the variety or the potato itself. Here is the practical comparison across the four most common fry preparations.</p>
@@ -3815,9 +3815,9 @@ function DiabeticsAndFrenchFries() {
           <thead><tr>{["Method","Calories / 100 g","Fat","GI","Acrylamide risk","Best for diabetics?"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {cookingTable.map((r, i) => (
-              <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
-                <td style={{ ...sTd, color: "#C62828", fontWeight: 600 }}>{r[1]}</td>
+                <td style={{ ...sTd, color: "var(--gold)", fontWeight: 600 }}>{r[1]}</td>
                 <td style={sTd}>{r[2]}</td>
                 <td style={sTd}>{r[3]}</td>
                 <td style={sTd}>{r[4]}</td>
@@ -3837,7 +3837,7 @@ function DiabeticsAndFrenchFries() {
       <h2 id="acrylamide" style={sH2}>Acrylamide in french fries: should diabetics worry?</h2>
       <p style={sP}>Acrylamide is a chemical compound that forms when starchy foods are cooked above 120&deg;C via the <strong>Maillard reaction</strong> between asparagine (an amino acid in the potato) and reducing sugars like glucose and fructose (Mottram et al., 2002, Nature). It is found in highest concentration in potato chips (200&ndash;3,000 &micro;g/kg), then French fries (100&ndash;1,500 &micro;g/kg), then roasted potatoes; boiled potatoes contain none.</p>
       <p style={sP}>The International Agency for Research on Cancer (IARC) classifies acrylamide as <em>&ldquo;probably carcinogenic to humans&rdquo;</em> (Group 2A) based on animal studies. <strong>Important nuance:</strong> large prospective human cohort studies, including Pelucchi et al. (2015, Annals of Oncology), have found <strong>no significant association between dietary acrylamide intake and human cancer risk</strong>. This is one of those situations where the regulatory classification is precautionary while the human epidemiological evidence is reassuring.</p>
-      <p style={sP}><strong>EU Regulation 2017/2158</strong> sets non-binding benchmark levels (which trigger investigation, not legal limits) of 500 &micro;g/kg for ready-to-eat French fries and 750 &micro;g/kg for potato crisps. Compliance requires processors to: select low-asparagine, low-reducing-sugar varieties (Innovator, Ranger Russet); store potatoes above 6&deg;C to prevent cold sweetening; mandatory blanching for frozen fries (reduces precursors by 30&ndash;60%); cap frying temperatures at 175&deg;C maximum. See our <Link href="/knowledge/mcdonalds-potato-varieties" style={{ color: "#C62828", textDecoration: "none" }}>McDonald&apos;s varieties</Link> for context on processor variety selection.</p>
+      <p style={sP}><strong>EU Regulation 2017/2158</strong> sets non-binding benchmark levels (which trigger investigation, not legal limits) of 500 &micro;g/kg for ready-to-eat French fries and 750 &micro;g/kg for potato crisps. Compliance requires processors to: select low-asparagine, low-reducing-sugar varieties (Innovator, Ranger Russet); store potatoes above 6&deg;C to prevent cold sweetening; mandatory blanching for frozen fries (reduces precursors by 30&ndash;60%); cap frying temperatures at 175&deg;C maximum. See our <Link href="/knowledge/mcdonalds-potato-varieties" style={{ color: "var(--gold)", textDecoration: "none" }}>McDonald&apos;s varieties</Link> for context on processor variety selection.</p>
       <p style={sP}><strong>Practical advice for diabetics</strong> (and everyone): choose golden fries over dark-brown ones; avoid burnt edges; don&apos;t order extra-crispy varieties at fast-food chains; and remember that the calorie and sodium content of fries is a more immediate concern than acrylamide for most consumers.</p>
 
       <h2 id="alternatives" style={sH2}>Healthier alternatives to traditional french fries</h2>
@@ -3849,9 +3849,9 @@ function DiabeticsAndFrenchFries() {
       <p style={sP}><strong>Portion-control hacks:</strong> order a small fries and share; take half home; the &ldquo;50/50 plate&rdquo; (half non-starchy vegetables, then add fries as the starch quarter); pre-portion home-cooked fries before sitting down to eat.</p>
 
       <h2 id="global" style={sH2}>French fry consumption around the world</h2>
-      <p style={sP}><Link href="/country/belgium" style={{ color: "#C62828", fontWeight: 600, textDecoration: "none" }}>Belgium</Link> is the world&apos;s #1 frozen fry exporter at $4.8 billion annually and home to the <em>frietje</em> (twice-fried in beef tallow, served with mayonnaise) &mdash; arguably the original French fry, despite the name. Belgian per-capita fry consumption is the highest in the world. The <Link href="/country/netherlands" style={{ color: "#C62828", textDecoration: "none" }}>Netherlands</Link> shares the same <em>patat</em> culture, with fry stands (frietkraam) common in every town.</p>
-      <p style={sP}>The <Link href="/country/united-states" style={{ color: "#C62828", textDecoration: "none" }}>United States</Link> consumes approximately 30 lbs (13.6 kg) of frozen fries per person per year. McDonald&apos;s alone uses an estimated 3.4 billion pounds of potatoes annually, almost entirely as Russet Burbank-class fries from <Link href="/knowledge/russet-burbank-history" style={{ color: "#C62828", textDecoration: "none" }}>Idaho-grown</Link> processors (Lamb Weston, J.R. Simplot, McCain). The global frozen fry market is approximately $40.97 billion and growing 4.5% annually, driven by fast-food expansion in Asia.</p>
-      <p style={sP}>For a deeper dive on which countries eat the most snack-format fried potato, see our <Link href="/answers/which-country-eats-most-potato-chips" style={{ color: "#C62828", textDecoration: "none" }}>chips consumption FAQ</Link>, the <Link href="/knowledge/unhealthiest-potato-chips" style={{ color: "#C62828", textDecoration: "none" }}>unhealthiest potato chips</Link> guide, and country profiles for major fry-eating cultures: <Link href="/country/belgium" style={{ color: "#C62828", textDecoration: "none" }}>Belgium</Link>, the <Link href="/country/netherlands" style={{ color: "#C62828", textDecoration: "none" }}>Netherlands</Link>, the <Link href="/country/united-states" style={{ color: "#C62828", textDecoration: "none" }}>United States</Link>, <Link href="/country/canada" style={{ color: "#C62828", textDecoration: "none" }}>Canada</Link>, <Link href="/country/france" style={{ color: "#C62828", textDecoration: "none" }}>France</Link>, the <Link href="/country/united-kingdom" style={{ color: "#C62828", textDecoration: "none" }}>United Kingdom</Link>, <Link href="/country/germany" style={{ color: "#C62828", textDecoration: "none" }}>Germany</Link>, and <Link href="/country/australia" style={{ color: "#C62828", textDecoration: "none" }}>Australia</Link>.</p>
+      <p style={sP}><Link href="/country/belgium" style={{ color: "var(--gold)", fontWeight: 600, textDecoration: "none" }}>Belgium</Link> is the world&apos;s #1 frozen fry exporter at $4.8 billion annually and home to the <em>frietje</em> (twice-fried in beef tallow, served with mayonnaise) &mdash; arguably the original French fry, despite the name. Belgian per-capita fry consumption is the highest in the world. The <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link> shares the same <em>patat</em> culture, with fry stands (frietkraam) common in every town.</p>
+      <p style={sP}>The <Link href="/country/united-states" style={{ color: "var(--gold)", textDecoration: "none" }}>United States</Link> consumes approximately 30 lbs (13.6 kg) of frozen fries per person per year. McDonald&apos;s alone uses an estimated 3.4 billion pounds of potatoes annually, almost entirely as Russet Burbank-class fries from <Link href="/knowledge/russet-burbank-history" style={{ color: "var(--gold)", textDecoration: "none" }}>Idaho-grown</Link> processors (Lamb Weston, J.R. Simplot, McCain). The global frozen fry market is approximately $40.97 billion and growing 4.5% annually, driven by fast-food expansion in Asia.</p>
+      <p style={sP}>For a deeper dive on which countries eat the most snack-format fried potato, see our <Link href="/answers/which-country-eats-most-potato-chips" style={{ color: "var(--gold)", textDecoration: "none" }}>chips consumption FAQ</Link>, the <Link href="/knowledge/unhealthiest-potato-chips" style={{ color: "var(--gold)", textDecoration: "none" }}>unhealthiest potato chips</Link> guide, and country profiles for major fry-eating cultures: <Link href="/country/belgium" style={{ color: "var(--gold)", textDecoration: "none" }}>Belgium</Link>, the <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link>, the <Link href="/country/united-states" style={{ color: "var(--gold)", textDecoration: "none" }}>United States</Link>, <Link href="/country/canada" style={{ color: "var(--gold)", textDecoration: "none" }}>Canada</Link>, <Link href="/country/france" style={{ color: "var(--gold)", textDecoration: "none" }}>France</Link>, the <Link href="/country/united-kingdom" style={{ color: "var(--gold)", textDecoration: "none" }}>United Kingdom</Link>, <Link href="/country/germany" style={{ color: "var(--gold)", textDecoration: "none" }}>Germany</Link>, and <Link href="/country/australia" style={{ color: "var(--gold)", textDecoration: "none" }}>Australia</Link>.</p>
 
       <SourceBlock sources={[
         "Atkinson FS et al. (2008) — International Tables of Glycemic Index and Glycemic Load Values, Diabetes Care",
@@ -3869,14 +3869,14 @@ function DiabeticsAndFrenchFries() {
       <SupportBlock />
       <RelatedArticles articles={relatedArticles} />
       <section style={{ marginTop: 48 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Explore Country Profiles</h2>
+        <h2 style={{ fontSize: 20, fontWeight: 700, color: "var(--ink)", marginBottom: 16 }}>Explore Country Profiles</h2>
         <div style={{ display: "flex", gap: 10, overflowX: "auto", paddingBottom: 8 }}>
           {relatedCountries.map((c) => (
-            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "white", border: "1px solid #eee", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
+            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "var(--card)", border: "1px solid var(--line)", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
               <span style={{ fontSize: 20 }}>{c.flag}</span>
               <div>
-                <div style={{ fontSize: 13, fontWeight: 600, color: "#1A1A1A", whiteSpace: "nowrap" }}>{c.name}</div>
-                <div style={{ fontSize: 11, color: "#C62828", fontWeight: 600 }}>{c.consumption}</div>
+                <div style={{ fontSize: 13, fontWeight: 600, color: "var(--ink)", whiteSpace: "nowrap" }}>{c.name}</div>
+                <div style={{ fontSize: 11, color: "var(--gold)", fontWeight: 600 }}>{c.consumption}</div>
               </div>
             </Link>
           ))}
@@ -3947,12 +3947,12 @@ function UnhealthiestPotatoChips() {
         <Breadcrumb tag="Nutrition" />
         <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 16 }}>
           <TagBadge tag="Nutrition" />
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>Updated {UPDATED_SHORT}</span>
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>8 min read</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>Updated {UPDATED_SHORT}</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>8 min read</span>
         </div>
-        <h1 style={{ fontSize: 32, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>What Is the Unhealthiest Potato Chip? Nutrition, Acrylamide, and How Chips Compare to Other Potato Products</h1>
+        <h1 style={{ fontSize: 32, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>What Is the Unhealthiest Potato Chip? Nutrition, Acrylamide, and How Chips Compare to Other Potato Products</h1>
       </HeroBanner>
 
       <div style={{ maxWidth: 820, margin: "0 auto", padding: "0 24px 80px" }}>
@@ -3980,9 +3980,9 @@ function UnhealthiestPotatoChips() {
           <thead><tr>{["Product","Cal/100g","Fat","Sodium","Fiber","Vit C","GI"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {productTable.map((r, i) => (
-              <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
-                <td style={{ ...sTd, color: "#C62828", fontWeight: 600 }}>{r[1]}</td>
+                <td style={{ ...sTd, color: "var(--gold)", fontWeight: 600 }}>{r[1]}</td>
                 <td style={sTd}>{r[2]}</td>
                 <td style={sTd}>{r[3]}</td>
                 <td style={sTd}>{r[4]}</td>
@@ -3993,9 +3993,9 @@ function UnhealthiestPotatoChips() {
           </tbody>
         </table>
       </div>
-      <p style={sSource}>Source: USDA FoodData Central; Atkinson et al. (2008), Diabetes Care for GI values. See also our <Link href="/knowledge/potato-nutrition-facts" style={{ color: "#C62828", textDecoration: "none" }}>full potato nutrition guide</Link>.</p>
+      <p style={sSource}>Source: USDA FoodData Central; Atkinson et al. (2008), Diabetes Care for GI values. See also our <Link href="/knowledge/potato-nutrition-facts" style={{ color: "var(--gold)", textDecoration: "none" }}>full potato nutrition guide</Link>.</p>
 
-      <p style={sP}><strong>The counterintuitive result:</strong> the &ldquo;unhealthiest&rdquo; potato product (chips) actually has the <em>lowest</em> glycemic index (51&ndash;60), because the high fat content slows glucose absorption. This is the same reason <Link href="/knowledge/diabetics-and-french-fries" style={{ color: "#C62828", textDecoration: "none" }}>French fries</Link> rank lower on GI than baked potato. <strong>But GI is not the whole story</strong> &mdash; the calorie density, sodium load, and acrylamide content are what actually make chips a problematic food in dietary patterns.</p>
+      <p style={sP}><strong>The counterintuitive result:</strong> the &ldquo;unhealthiest&rdquo; potato product (chips) actually has the <em>lowest</em> glycemic index (51&ndash;60), because the high fat content slows glucose absorption. This is the same reason <Link href="/knowledge/diabetics-and-french-fries" style={{ color: "var(--gold)", textDecoration: "none" }}>French fries</Link> rank lower on GI than baked potato. <strong>But GI is not the whole story</strong> &mdash; the calorie density, sodium load, and acrylamide content are what actually make chips a problematic food in dietary patterns.</p>
 
       <StatCallout number="536 vs 87 cal/100g" context="Potato chips have 6x more calories than a boiled potato. The same vegetable, transformed entirely by processing. A 150 g bag consumed in one sitting delivers 804 calories — nearly half of an adult's daily energy requirement." source="USDA FoodData Central" />
 
@@ -4033,9 +4033,9 @@ function UnhealthiestPotatoChips() {
           <thead><tr>{["Country","Per Capita / Year","Market Size","Notable Brands / Culture"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {consumptionTable.map((r, i) => (
-              <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
-                <td style={{ ...sTd, color: "#C62828", fontWeight: 600 }}>{r[1]}</td>
+                <td style={{ ...sTd, color: "var(--gold)", fontWeight: 600 }}>{r[1]}</td>
                 <td style={sTd}>{r[2]}</td>
                 <td style={sTd}>{r[3]}</td>
               </tr>
@@ -4043,9 +4043,9 @@ function UnhealthiestPotatoChips() {
           </tbody>
         </table>
       </div>
-      <p style={sSource}>Source: Global Potato Summit 2026 market data; Euromonitor / Statista snack-segment estimates; FAOSTAT consumption data. Country profiles: <Link href="/country/united-states" style={{ color: "#C62828", textDecoration: "none" }}>USA</Link>, <Link href="/country/united-kingdom" style={{ color: "#C62828", textDecoration: "none" }}>UK</Link>, <Link href="/country/australia" style={{ color: "#C62828", textDecoration: "none" }}>Australia</Link>, <Link href="/country/netherlands" style={{ color: "#C62828", textDecoration: "none" }}>Netherlands</Link>, <Link href="/country/germany" style={{ color: "#C62828", textDecoration: "none" }}>Germany</Link>, <Link href="/country/japan" style={{ color: "#C62828", textDecoration: "none" }}>Japan</Link>, <Link href="/country/india" style={{ color: "#C62828", textDecoration: "none" }}>India</Link>, <Link href="/country/china" style={{ color: "#C62828", textDecoration: "none" }}>China</Link>.</p>
+      <p style={sSource}>Source: Global Potato Summit 2026 market data; Euromonitor / Statista snack-segment estimates; FAOSTAT consumption data. Country profiles: <Link href="/country/united-states" style={{ color: "var(--gold)", textDecoration: "none" }}>USA</Link>, <Link href="/country/united-kingdom" style={{ color: "var(--gold)", textDecoration: "none" }}>UK</Link>, <Link href="/country/australia" style={{ color: "var(--gold)", textDecoration: "none" }}>Australia</Link>, <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link>, <Link href="/country/germany" style={{ color: "var(--gold)", textDecoration: "none" }}>Germany</Link>, <Link href="/country/japan" style={{ color: "var(--gold)", textDecoration: "none" }}>Japan</Link>, <Link href="/country/india" style={{ color: "var(--gold)", textDecoration: "none" }}>India</Link>, <Link href="/country/china" style={{ color: "var(--gold)", textDecoration: "none" }}>China</Link>.</p>
 
-      <p style={sP}>The <strong>global potato chip market</strong> is approximately $40 billion and growing 4&ndash;5% annually. The fastest-growing region is Asia-Pacific, with India and China posting double-digit annual growth. The dominant processing varieties globally are Atlantic (#1 worldwide), Hermes, Saturna, and Lady Rosetta. India&apos;s Kufri Chipsona series has progressively replaced Atlantic in domestic Indian production &mdash; see our <Link href="/knowledge/kufri-potato-varieties-india" style={{ color: "#C62828", textDecoration: "none" }}>Kufri varieties guide</Link>. For broader context, see <Link href="/answers/which-country-eats-most-potato-chips" style={{ color: "#C62828", textDecoration: "none" }}>which country eats most potato chips</Link>.</p>
+      <p style={sP}>The <strong>global potato chip market</strong> is approximately $40 billion and growing 4&ndash;5% annually. The fastest-growing region is Asia-Pacific, with India and China posting double-digit annual growth. The dominant processing varieties globally are Atlantic (#1 worldwide), Hermes, Saturna, and Lady Rosetta. India&apos;s Kufri Chipsona series has progressively replaced Atlantic in domestic Indian production &mdash; see our <Link href="/knowledge/kufri-potato-varieties-india" style={{ color: "var(--gold)", textDecoration: "none" }}>Kufri varieties guide</Link>. For broader context, see <Link href="/answers/which-country-eats-most-potato-chips" style={{ color: "var(--gold)", textDecoration: "none" }}>which country eats most potato chips</Link>.</p>
 
       <StatCallout number="$40 billion" context="The global potato chip market, built on a vegetable that costs farmers $150–250 per tonne. A $4 retail bag of chips contains roughly $0.25 worth of raw potato — a 15-20x markup from farm to shelf." source="Global Potato Summit 2026; FAOSTAT producer prices" />
 
@@ -4053,17 +4053,17 @@ function UnhealthiestPotatoChips() {
       <p style={sP}><strong>Variety selection.</strong> Atlantic, Hermes, Saturna, and Lady Rosetta dominate global chip processing &mdash; chosen for round shape (uniform slices), high specific gravity 1.085+ (low oil absorption, crisp texture), and very low reducing sugars (<em>&lt;</em>1.5 mg/g for golden chips, not dark).</p>
       <p style={sP}><strong>Storage.</strong> 7&ndash;10&deg;C with 90&ndash;95% humidity. Below 6&deg;C triggers <em>cold sweetening</em> &mdash; starch hydrolyzes to glucose and fructose, which produces dark chips and elevated acrylamide. Above 12&deg;C drives sprouting and weight loss.</p>
       <p style={sP}><strong>Processing line.</strong> Wash &rarr; steam-peel &rarr; slice (1.2&ndash;1.7 mm) &rarr; rinse to remove surface starch &rarr; fry at 160&ndash;180&deg;C for 2&ndash;3 minutes &rarr; centrifuge or blot to remove surface oil &rarr; tumble in rotating drums with salt or seasoning &rarr; quality control (optical sorters reject dark / defective chips, key acrylamide control point) &rarr; package in nitrogen-flushed bags (the &ldquo;air&rdquo; in chip bags is nitrogen, which prevents oil oxidation and keeps chips crisp during shelf life).</p>
-      <p style={sP}><strong>Scale.</strong> A large chip factory processes 300,000&ndash;400,000 tonnes of raw potatoes per year &mdash; equivalent to the entire annual production of a small country. <Link href="/knowledge/how-potatoes-are-processed" style={{ color: "#C62828", textDecoration: "none" }}>How Potatoes Are Processed</Link> covers the full processing-industry picture.</p>
+      <p style={sP}><strong>Scale.</strong> A large chip factory processes 300,000&ndash;400,000 tonnes of raw potatoes per year &mdash; equivalent to the entire annual production of a small country. <Link href="/knowledge/how-potatoes-are-processed" style={{ color: "var(--gold)", textDecoration: "none" }}>How Potatoes Are Processed</Link> covers the full processing-industry picture.</p>
 
       <h2 id="economics" style={sH2}>The economics of the potato chip industry</h2>
       <p style={sP}>The chip industry runs on a striking value-add multiplier. A potato farmer growing chip-grade Atlantic receives roughly $150&ndash;250 per tonne. By the time it reaches the consumer in a $4 retail bag, the same potato has been transformed into a product worth approximately $30 per kilogram &mdash; a 15&ndash;20&times; markup from farm gate to shelf. Most of that value-add covers oil, salt, packaging, advertising, distribution, and retail margin &mdash; the actual potato content of a $4 chip bag is roughly $0.25.</p>
       <p style={sP}><strong>Major players</strong> in the global chip industry: PepsiCo (Lay&apos;s, Walkers, Doritos), Kellogg&apos;s (Pringles, now Kellanova spin-off), Lorenz Snack-World, Calbee (Japan), and ITC (India, Bingo brand). Contract farming dominates the supply chain &mdash; chip companies specify variety, storage temperature, and reducing-sugar limits 6&ndash;12 months before harvest. Rejection rates at processor intake are 10&ndash;20% &mdash; deliveries that fail sugar tests, size grading, or visual defect inspection are diverted to fresh market or animal feed.</p>
-      <p style={sP}>India&apos;s chip industry is the most dynamic globally &mdash; growing 15&ndash;20% annually, with the <Link href="/knowledge/kufri-potato-varieties-india" style={{ color: "#C62828", textDecoration: "none" }}>Kufri Chipsona series</Link> (1, 3, 5) and 2025&apos;s Kufri Chipbharat 1/2 progressively displacing imported Atlantic in commercial chip processing.</p>
+      <p style={sP}>India&apos;s chip industry is the most dynamic globally &mdash; growing 15&ndash;20% annually, with the <Link href="/knowledge/kufri-potato-varieties-india" style={{ color: "var(--gold)", textDecoration: "none" }}>Kufri Chipsona series</Link> (1, 3, 5) and 2025&apos;s Kufri Chipbharat 1/2 progressively displacing imported Atlantic in commercial chip processing.</p>
 
       <h2 id="should-stop" style={sH2}>Should you stop eating potato chips?</h2>
       <p style={sP}><strong>Evidence-based perspective:</strong> chips are an ultra-processed food, but occasional consumption is not a health crisis. The Harvard Nurses&apos; Health Study found potato chips associated with more weight gain per serving than any other food &mdash; but this is observational data without separation of frequency, portion size, or accompanying diet. The dose makes the poison: 28 g occasionally is not equivalent to 150 g daily.</p>
       <p style={sP}><strong>What the research consistently shows:</strong> The potato itself is a nutritious vegetable &mdash; rich in potassium, vitamin C, B6, and fiber. The <em>processing</em> (slicing, frying at 160&ndash;180&deg;C, salting, flavoring) is what creates the nutritional concern. Chips are nutritionally similar to many crackers, pretzels, and corn-based snacks. The acrylamide concern, while real, has not been clearly linked to human cancer risk in large prospective cohort studies (Pelucchi et al., 2015, Annals of Oncology).</p>
-      <p style={sP}><strong>If you eat chips:</strong> choose baked or lightly salted; pre-portion into a small bowl; pair with protein (hummus dip, Greek yogurt dip, sliced cheese); enjoy without guilt in moderation. The relationship with food matters as much as the food itself &mdash; chronic stress about &ldquo;forbidden foods&rdquo; produces worse dietary outcomes than occasional moderate consumption with awareness. See our <Link href="/knowledge/potato-nutrition-facts" style={{ color: "#C62828", textDecoration: "none" }}>nutrition guide</Link>, <Link href="/knowledge/potatoes-and-blood-sugar" style={{ color: "#C62828", textDecoration: "none" }}>blood sugar science</Link>, and <Link href="/knowledge/diabetics-and-french-fries" style={{ color: "#C62828", textDecoration: "none" }}>diabetic fry guide</Link>.</p>
+      <p style={sP}><strong>If you eat chips:</strong> choose baked or lightly salted; pre-portion into a small bowl; pair with protein (hummus dip, Greek yogurt dip, sliced cheese); enjoy without guilt in moderation. The relationship with food matters as much as the food itself &mdash; chronic stress about &ldquo;forbidden foods&rdquo; produces worse dietary outcomes than occasional moderate consumption with awareness. See our <Link href="/knowledge/potato-nutrition-facts" style={{ color: "var(--gold)", textDecoration: "none" }}>nutrition guide</Link>, <Link href="/knowledge/potatoes-and-blood-sugar" style={{ color: "var(--gold)", textDecoration: "none" }}>blood sugar science</Link>, and <Link href="/knowledge/diabetics-and-french-fries" style={{ color: "var(--gold)", textDecoration: "none" }}>diabetic fry guide</Link>.</p>
 
       <SourceBlock sources={[
         "USDA FoodData Central — Nutritional composition of potato chips, French fries, boiled and baked potato",
@@ -4080,14 +4080,14 @@ function UnhealthiestPotatoChips() {
       <SupportBlock />
       <RelatedArticles articles={relatedArticles} />
       <section style={{ marginTop: 48 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Explore Country Profiles</h2>
+        <h2 style={{ fontSize: 20, fontWeight: 700, color: "var(--ink)", marginBottom: 16 }}>Explore Country Profiles</h2>
         <div style={{ display: "flex", gap: 10, overflowX: "auto", paddingBottom: 8 }}>
           {relatedCountries.map((c) => (
-            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "white", border: "1px solid #eee", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
+            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "var(--card)", border: "1px solid var(--line)", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
               <span style={{ fontSize: 20 }}>{c.flag}</span>
               <div>
-                <div style={{ fontSize: 13, fontWeight: 600, color: "#1A1A1A", whiteSpace: "nowrap" }}>{c.name}</div>
-                <div style={{ fontSize: 11, color: "#C62828", fontWeight: 600 }}>{c.consumption}</div>
+                <div style={{ fontSize: 13, fontWeight: 600, color: "var(--ink)", whiteSpace: "nowrap" }}>{c.name}</div>
+                <div style={{ fontSize: 11, color: "var(--gold)", fontWeight: 600 }}>{c.consumption}</div>
               </div>
             </Link>
           ))}
@@ -4175,12 +4175,12 @@ function PotatoesAndHeartHealth() {
         <Breadcrumb tag="Nutrition" />
         <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 16 }}>
           <TagBadge tag="Nutrition" />
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>Updated {UPDATED_SHORT}</span>
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>9 min read</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>Updated {UPDATED_SHORT}</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>9 min read</span>
         </div>
-        <h1 style={{ fontSize: 32, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>Are Potatoes Good for Your Heart? Potassium, Blood Pressure, and What Science Actually Says</h1>
+        <h1 style={{ fontSize: 32, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>Are Potatoes Good for Your Heart? Potassium, Blood Pressure, and What Science Actually Says</h1>
       </HeroBanner>
 
       <div style={{ maxWidth: 820, margin: "0 auto", padding: "0 24px 80px" }}>
@@ -4200,7 +4200,7 @@ function PotatoesAndHeartHealth() {
 
       <CollapsibleTOC items={tocItems} />
 
-      <div style={{ background: "#FFF8E1", border: "1px solid #FFE082", borderLeft: "3px solid #FFB300", borderRadius: "0 8px 8px 0", padding: "12px 16px", margin: "0 0 28px", fontSize: 13, color: "#5D4037", lineHeight: 1.6 }}>
+      <div style={{ background: "#FFF8E1", border: "1px solid #FFE082", borderLeft: "3px solid #FFB300", borderRadius: "0 8px 8px 0", padding: "12px 16px", margin: "0 0 28px", fontSize: 13, color: "var(--mute)", lineHeight: 1.6 }}>
         <strong>Disclaimer:</strong> This article is for informational purposes only and does not substitute personalised medical advice. If you have hypertension, kidney disease, diabetes, or established cardiovascular disease, discuss potato intake with your doctor or registered dietitian &mdash; particularly regarding potassium intake on chronic kidney disease, where potassium restriction may be required.
       </div>
 
@@ -4213,11 +4213,11 @@ function PotatoesAndHeartHealth() {
           <thead><tr>{["Nutrient","Per Medium Potato","% Daily Value","Cardiovascular Relevance"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {nutrientTable.map((r, i) => (
-              <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
-                <td style={{ ...sTd, color: "#C62828", fontWeight: 600 }}>{r[1]}</td>
+                <td style={{ ...sTd, color: "var(--gold)", fontWeight: 600 }}>{r[1]}</td>
                 <td style={sTd}>{r[2]}</td>
-                <td style={{ ...sTd, fontSize: 13, color: "#555" }}>{r[3]}</td>
+                <td style={{ ...sTd, fontSize: 13, color: "var(--mute)" }}>{r[3]}</td>
               </tr>
             ))}
           </tbody>
@@ -4236,7 +4236,7 @@ function PotatoesAndHeartHealth() {
       &bull; <strong>Eat the skin.</strong> Skin contains the bulk of dietary fiber (4.7 g per medium potato vs 2.5 g without) plus additional potassium and B-vitamins.<br />
       &bull; <strong>Mind the additions.</strong> Butter, cream, cheese, sour cream, bacon bits, and salt rapidly transform the macro profile. A loaded baked potato can deliver more sodium than three slices of bacon.<br />
       &bull; <strong>Pair with non-starchy vegetables.</strong> The DASH-style plate keeps potato to ~1/4 of the meal and fills the remainder with leafy greens, lean protein, and additional vegetables.</p>
-      <p style={sP}><strong>One caveat — chronic kidney disease.</strong> Patients with stage 3+ CKD often need to <em>restrict</em> dietary potassium, since impaired renal clearance can produce hyperkalaemia. In that context, potato consumption (especially boiled-and-drained potato, which leaches some potassium into water) may need to be limited under nephrology supervision. See our <Link href="/knowledge/potato-nutrition-facts" style={{ color: "#C62828", textDecoration: "none" }}>full nutrition guide</Link> for context.</p>
+      <p style={sP}><strong>One caveat — chronic kidney disease.</strong> Patients with stage 3+ CKD often need to <em>restrict</em> dietary potassium, since impaired renal clearance can produce hyperkalaemia. In that context, potato consumption (especially boiled-and-drained potato, which leaches some potassium into water) may need to be limited under nephrology supervision. See our <Link href="/knowledge/potato-nutrition-facts" style={{ color: "var(--gold)", textDecoration: "none" }}>full nutrition guide</Link> for context.</p>
 
       <h2 id="cardiologist-warnings" style={sH2}>What three foods do cardiologists actually warn against?</h2>
       <p style={sP}>The popular phrasing &ldquo;three foods cardiologists say not to eat&rdquo; circulates on social media but rarely lands on potatoes. The American Heart Association&apos;s 2021 dietary guidance update (Lichtenstein et al., <em>Circulation</em>, 2021) and the consistent themes in cardiology nutrition guidelines actually flag:</p>
@@ -4261,9 +4261,9 @@ function PotatoesAndHeartHealth() {
           <thead><tr>{["Food","Potassium per Serving","% WHO Daily Target (4,700 mg)"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {potassiumTable.map((r, i) => (
-              <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={{ ...sTd, fontWeight: i < 3 ? 600 : 400 }}>{r[0]}</td>
-                <td style={{ ...sTd, color: "#C62828", fontWeight: 600 }}>{r[1]}</td>
+                <td style={{ ...sTd, color: "var(--gold)", fontWeight: 600 }}>{r[1]}</td>
                 <td style={sTd}>{r[2]}</td>
               </tr>
             ))}
@@ -4288,7 +4288,7 @@ function PotatoesAndHeartHealth() {
       &bull; <strong>Vitamin A.</strong> Insufficient retinol or beta-carotene; supplementation or another food source needed.<br />
       &bull; <strong>Essential fatty acids.</strong> Omega-3 and omega-6 must come from elsewhere (oil, fish, nuts).<br />
       &bull; <strong>Adequate iron and bioavailable zinc</strong> in challenging quantities.</p>
-      <p style={sP}>The honest summary: a healthy adult could probably live on potatoes plus a small amount of dairy, fish oil, and a generic multivitamin for years &mdash; longer than on any other staple monodiet. But pure potato-only is not sustainable indefinitely, and Andrew Taylor himself ended his year-long experiment, not because potatoes failed, but because of dietary tedium and social factors. See our <Link href="/knowledge/potato-history-origin" style={{ color: "#C62828", textDecoration: "none" }}>history of the potato</Link> and the <Link href="/answers/irish-potato-famine" style={{ color: "#C62828", textDecoration: "none" }}>Irish famine FAQ</Link> for the historical context.</p>
+      <p style={sP}>The honest summary: a healthy adult could probably live on potatoes plus a small amount of dairy, fish oil, and a generic multivitamin for years &mdash; longer than on any other staple monodiet. But pure potato-only is not sustainable indefinitely, and Andrew Taylor himself ended his year-long experiment, not because potatoes failed, but because of dietary tedium and social factors. See our <Link href="/knowledge/potato-history-origin" style={{ color: "var(--gold)", textDecoration: "none" }}>history of the potato</Link> and the <Link href="/answers/irish-potato-famine" style={{ color: "var(--gold)", textDecoration: "none" }}>Irish famine FAQ</Link> for the historical context.</p>
 
       <StatCallout number="1 year" context="Australian Andrew Taylor lived on a near-exclusive potato diet for a full year in 2016 ('Spud Fit'), losing ~50 kg with normal clinical values throughout — the most-documented modern example of long-term potato-monodiet survival." source="Public records of the 'Spud Fit' Australia Year of the Potato project, 2016" />
 
@@ -4305,13 +4305,13 @@ function PotatoesAndHeartHealth() {
           <thead><tr>{["Preparation","Cal/100g","Fat","Sodium","Potassium Retained","Heart-Health Rating"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {preparationTable.map((r, i) => (
-              <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
-                <td style={{ ...sTd, color: "#C62828", fontWeight: 600 }}>{r[1]}</td>
+                <td style={{ ...sTd, color: "var(--gold)", fontWeight: 600 }}>{r[1]}</td>
                 <td style={sTd}>{r[2]}</td>
                 <td style={sTd}>{r[3]}</td>
                 <td style={sTd}>{r[4]}</td>
-                <td style={{ ...sTd, fontSize: 12, color: "#555" }}>{r[5]}</td>
+                <td style={{ ...sTd, fontSize: 12, color: "var(--mute)" }}>{r[5]}</td>
               </tr>
             ))}
           </tbody>
@@ -4319,9 +4319,9 @@ function PotatoesAndHeartHealth() {
       </div>
       <p style={sSource}>Source: USDA FoodData Central; AHA preparation-focused dietary guidance.</p>
 
-      <p style={sP}>The hierarchy is consistent: <strong>boiled or steamed plain (best) &gt; baked plain &gt; oven-roasted with olive oil &gt; mashed with butter/milk &gt; deep-fried &gt; chips and loaded preparations (limit)</strong>. Boiling slightly reduces potassium because some leaches into the cooking water (preserve it by using small water volume or pressure-cooking). Baked retains the most. Cooling cooked potatoes generates resistant starch (RS3) which adds prebiotic + glycemic benefit &mdash; see our <Link href="/knowledge/potatoes-and-blood-sugar" style={{ color: "#C62828", textDecoration: "none" }}>blood sugar deep-dive</Link>.</p>
+      <p style={sP}>The hierarchy is consistent: <strong>boiled or steamed plain (best) &gt; baked plain &gt; oven-roasted with olive oil &gt; mashed with butter/milk &gt; deep-fried &gt; chips and loaded preparations (limit)</strong>. Boiling slightly reduces potassium because some leaches into the cooking water (preserve it by using small water volume or pressure-cooking). Baked retains the most. Cooling cooked potatoes generates resistant starch (RS3) which adds prebiotic + glycemic benefit &mdash; see our <Link href="/knowledge/potatoes-and-blood-sugar" style={{ color: "var(--gold)", textDecoration: "none" }}>blood sugar deep-dive</Link>.</p>
 
-      <p style={sP}>For more on preparation choices in specific health contexts: <Link href="/knowledge/diabetics-and-french-fries" style={{ color: "#C62828", textDecoration: "none" }}>Can Diabetics Eat French Fries?</Link>, <Link href="/knowledge/unhealthiest-potato-chips" style={{ color: "#C62828", textDecoration: "none" }}>What Is the Unhealthiest Potato Chip?</Link>, and the <Link href="/knowledge/potatoes-and-blood-sugar" style={{ color: "#C62828", textDecoration: "none" }}>full glycemic index guide</Link>. For the broader nutritional profile see <Link href="/knowledge/potato-nutrition-facts" style={{ color: "#C62828", textDecoration: "none" }}>Potato Nutrition Facts</Link>. Country profiles for potato-heavy cuisines: <Link href="/country/united-states" style={{ color: "#C62828", textDecoration: "none" }}>USA</Link>, <Link href="/country/united-kingdom" style={{ color: "#C62828", textDecoration: "none" }}>UK</Link>, <Link href="/country/germany" style={{ color: "#C62828", textDecoration: "none" }}>Germany</Link>, <Link href="/country/peru" style={{ color: "#C62828", textDecoration: "none" }}>Peru</Link>, <Link href="/country/india" style={{ color: "#C62828", textDecoration: "none" }}>India</Link>, <Link href="/country/china" style={{ color: "#C62828", textDecoration: "none" }}>China</Link>, <Link href="/country/france" style={{ color: "#C62828", textDecoration: "none" }}>France</Link>, <Link href="/country/japan" style={{ color: "#C62828", textDecoration: "none" }}>Japan</Link>.</p>
+      <p style={sP}>For more on preparation choices in specific health contexts: <Link href="/knowledge/diabetics-and-french-fries" style={{ color: "var(--gold)", textDecoration: "none" }}>Can Diabetics Eat French Fries?</Link>, <Link href="/knowledge/unhealthiest-potato-chips" style={{ color: "var(--gold)", textDecoration: "none" }}>What Is the Unhealthiest Potato Chip?</Link>, and the <Link href="/knowledge/potatoes-and-blood-sugar" style={{ color: "var(--gold)", textDecoration: "none" }}>full glycemic index guide</Link>. For the broader nutritional profile see <Link href="/knowledge/potato-nutrition-facts" style={{ color: "var(--gold)", textDecoration: "none" }}>Potato Nutrition Facts</Link>. Country profiles for potato-heavy cuisines: <Link href="/country/united-states" style={{ color: "var(--gold)", textDecoration: "none" }}>USA</Link>, <Link href="/country/united-kingdom" style={{ color: "var(--gold)", textDecoration: "none" }}>UK</Link>, <Link href="/country/germany" style={{ color: "var(--gold)", textDecoration: "none" }}>Germany</Link>, <Link href="/country/peru" style={{ color: "var(--gold)", textDecoration: "none" }}>Peru</Link>, <Link href="/country/india" style={{ color: "var(--gold)", textDecoration: "none" }}>India</Link>, <Link href="/country/china" style={{ color: "var(--gold)", textDecoration: "none" }}>China</Link>, <Link href="/country/france" style={{ color: "var(--gold)", textDecoration: "none" }}>France</Link>, <Link href="/country/japan" style={{ color: "var(--gold)", textDecoration: "none" }}>Japan</Link>.</p>
 
       <SourceBlock sources={[
         "Schwingshackl L et al. (2019) — Potato consumption and risk of cardiovascular disease: meta-analysis of prospective cohort studies, American Journal of Clinical Nutrition (PMID: 31136658)",
@@ -4340,14 +4340,14 @@ function PotatoesAndHeartHealth() {
       <SupportBlock />
       <RelatedArticles articles={relatedArticles} />
       <section style={{ marginTop: 48 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Explore Country Profiles</h2>
+        <h2 style={{ fontSize: 20, fontWeight: 700, color: "var(--ink)", marginBottom: 16 }}>Explore Country Profiles</h2>
         <div style={{ display: "flex", gap: 10, overflowX: "auto", paddingBottom: 8 }}>
           {relatedCountries.map((c) => (
-            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "white", border: "1px solid #eee", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
+            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "var(--card)", border: "1px solid var(--line)", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
               <span style={{ fontSize: 20 }}>{c.flag}</span>
               <div>
-                <div style={{ fontSize: 13, fontWeight: 600, color: "#1A1A1A", whiteSpace: "nowrap" }}>{c.name}</div>
-                <div style={{ fontSize: 11, color: "#C62828", fontWeight: 600 }}>{c.consumption}</div>
+                <div style={{ fontSize: 13, fontWeight: 600, color: "var(--ink)", whiteSpace: "nowrap" }}>{c.name}</div>
+                <div style={{ fontSize: 11, color: "var(--gold)", fontWeight: 600 }}>{c.consumption}</div>
               </div>
             </Link>
           ))}
@@ -4427,12 +4427,12 @@ function PotatoStorageShelfLife() {
         <Breadcrumb tag="Storage" />
         <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 16 }}>
           <TagBadge tag="Storage" />
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>Updated {UPDATED_SHORT}</span>
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>8 min read</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>Updated {UPDATED_SHORT}</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>8 min read</span>
         </div>
-        <h1 style={{ fontSize: 32, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>How Long Do Potatoes Last? Complete Storage Guide by Temperature and Method</h1>
+        <h1 style={{ fontSize: 32, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>How Long Do Potatoes Last? Complete Storage Guide by Temperature and Method</h1>
       </HeroBanner>
 
       <div style={{ maxWidth: 820, margin: "0 auto", padding: "0 24px 80px" }}>
@@ -4470,11 +4470,11 @@ function PotatoStorageShelfLife() {
           <thead><tr>{["Location","Temperature","Shelf life","Notes"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {shelfLifeTable.map((r, i) => (
-              <tr key={r[0]} style={{ background: i < 4 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={r[0]} style={{ background: i < 4 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
-                <td style={{ ...sTd, color: "#C62828", fontWeight: 600 }}>{r[1]}</td>
+                <td style={{ ...sTd, color: "var(--gold)", fontWeight: 600 }}>{r[1]}</td>
                 <td style={sTd}>{r[2]}</td>
-                <td style={{ ...sTd, fontSize: 12, color: "#555" }}>{r[3]}</td>
+                <td style={{ ...sTd, fontSize: 12, color: "var(--mute)" }}>{r[3]}</td>
               </tr>
             ))}
           </tbody>
@@ -4489,10 +4489,10 @@ function PotatoStorageShelfLife() {
           <thead><tr>{["Sign","Action","Why"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {spoilageTable.map((r, i) => (
-              <tr key={r[0]} style={{ background: i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={r[0]} style={{ background: i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
-                <td style={{ ...sTd, color: "#C62828", fontWeight: 600 }}>{r[1]}</td>
-                <td style={{ ...sTd, fontSize: 13, color: "#555" }}>{r[2]}</td>
+                <td style={{ ...sTd, color: "var(--gold)", fontWeight: 600 }}>{r[1]}</td>
+                <td style={{ ...sTd, fontSize: 13, color: "var(--mute)" }}>{r[2]}</td>
               </tr>
             ))}
           </tbody>
@@ -4512,11 +4512,11 @@ function PotatoStorageShelfLife() {
           <thead><tr>{["End use","Optimal temperature","Why this temperature","Risk if wrong"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {tempEndUseTable.map((r, i) => (
-              <tr key={r[0]} style={{ background: i < 2 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={r[0]} style={{ background: i < 2 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
-                <td style={{ ...sTd, color: "#C62828", fontWeight: 600 }}>{r[1]}</td>
+                <td style={{ ...sTd, color: "var(--gold)", fontWeight: 600 }}>{r[1]}</td>
                 <td style={{ ...sTd, fontSize: 13 }}>{r[2]}</td>
-                <td style={{ ...sTd, fontSize: 12, color: "#555" }}>{r[3]}</td>
+                <td style={{ ...sTd, fontSize: 12, color: "var(--mute)" }}>{r[3]}</td>
               </tr>
             ))}
           </tbody>
@@ -4524,7 +4524,7 @@ function PotatoStorageShelfLife() {
       </div>
       <p style={sSource}>Sources: USDA Agricultural Handbook 66; University of Idaho potato processing research; CIP storage trials.</p>
 
-      <p style={sP}>Commercial processors monitoring fry quality target reducing sugars <strong>below 1.5 mg/g for chips and 2.5 mg/g for fries</strong>. McDonald&apos;s suppliers like J.R. Simplot maintain Russet Burbank stock at 45&ndash;50&deg;F precisely to keep these numbers in spec &mdash; see our <Link href="/knowledge/mcdonalds-potato-varieties" style={{ color: "#C62828", textDecoration: "none" }}>McDonald&apos;s potatoes deep-dive</Link> for the full supply-chain context.</p>
+      <p style={sP}>Commercial processors monitoring fry quality target reducing sugars <strong>below 1.5 mg/g for chips and 2.5 mg/g for fries</strong>. McDonald&apos;s suppliers like J.R. Simplot maintain Russet Burbank stock at 45&ndash;50&deg;F precisely to keep these numbers in spec &mdash; see our <Link href="/knowledge/mcdonalds-potato-varieties" style={{ color: "var(--gold)", textDecoration: "none" }}>McDonald&apos;s potatoes deep-dive</Link> for the full supply-chain context.</p>
 
       <h2 id="green-potatoes" style={sH2}>Why do potatoes turn green? (Solanine and chlorophyll)</h2>
       <p style={sP}>Two things happen <em>simultaneously</em> when a potato is exposed to light: chlorophyll synthesis (the visible green) and glycoalkaloid synthesis (the invisible toxin). The green colour is harmless on its own, but it serves as a reliable indicator that solanine and chaconine levels have risen alongside it. <strong>If you see green, assume elevated solanine.</strong></p>
@@ -4562,7 +4562,7 @@ function PotatoStorageShelfLife() {
       <p style={sP}>Boiling and steaming don&apos;t reach Maillard temperatures, so cold-stored potatoes still cook fine in those methods. But for high-heat cooking, the rule is firm: <strong>don&apos;t refrigerate raw potatoes you plan to fry, roast, or bake</strong>.</p>
       <p style={sP}><strong>Reconditioning &mdash; the partial reversal trick:</strong> Warming cold-stored potatoes at 60&ndash;70&deg;F (15&ndash;21&deg;C) for 2&ndash;3 weeks reduces the accumulated sugars as respiration burns through them. USDA notes the reversal is <em>partial</em>, not complete &mdash; severely cold-stored potatoes never fully recover their pre-storage frying quality. Commercial processors avoid the problem entirely by storing at 45&ndash;50&deg;F from day one.</p>
 
-      <p style={sP}>For storage during cultivation and harvest timing, see our <Link href="/knowledge/when-to-harvest-potatoes" style={{ color: "#C62828", textDecoration: "none" }}>harvest guide</Link>. For the cooking-quality consequences see <Link href="/knowledge/unhealthiest-potato-chips" style={{ color: "#C62828", textDecoration: "none" }}>What is the unhealthiest potato chip?</Link> and <Link href="/knowledge/diabetics-and-french-fries" style={{ color: "#C62828", textDecoration: "none" }}>Can diabetics eat french fries?</Link>. The full glycemic-index context is in <Link href="/knowledge/potatoes-and-blood-sugar" style={{ color: "#C62828", textDecoration: "none" }}>Potatoes and blood sugar</Link>. Country profiles for the world&apos;s biggest cold-storage industries: <Link href="/country/united-states" style={{ color: "#C62828", textDecoration: "none" }}>USA</Link>, <Link href="/country/netherlands" style={{ color: "#C62828", textDecoration: "none" }}>Netherlands</Link>, <Link href="/country/united-kingdom" style={{ color: "#C62828", textDecoration: "none" }}>UK</Link>, <Link href="/country/india" style={{ color: "#C62828", textDecoration: "none" }}>India</Link>. See also our cold-storage answer page: <Link href="/answers/how-long-potatoes-cold-storage" style={{ color: "#C62828", textDecoration: "none" }}>How long do potatoes last in cold storage?</Link></p>
+      <p style={sP}>For storage during cultivation and harvest timing, see our <Link href="/knowledge/when-to-harvest-potatoes" style={{ color: "var(--gold)", textDecoration: "none" }}>harvest guide</Link>. For the cooking-quality consequences see <Link href="/knowledge/unhealthiest-potato-chips" style={{ color: "var(--gold)", textDecoration: "none" }}>What is the unhealthiest potato chip?</Link> and <Link href="/knowledge/diabetics-and-french-fries" style={{ color: "var(--gold)", textDecoration: "none" }}>Can diabetics eat french fries?</Link>. The full glycemic-index context is in <Link href="/knowledge/potatoes-and-blood-sugar" style={{ color: "var(--gold)", textDecoration: "none" }}>Potatoes and blood sugar</Link>. Country profiles for the world&apos;s biggest cold-storage industries: <Link href="/country/united-states" style={{ color: "var(--gold)", textDecoration: "none" }}>USA</Link>, <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link>, <Link href="/country/united-kingdom" style={{ color: "var(--gold)", textDecoration: "none" }}>UK</Link>, <Link href="/country/india" style={{ color: "var(--gold)", textDecoration: "none" }}>India</Link>. See also our cold-storage answer page: <Link href="/answers/how-long-potatoes-cold-storage" style={{ color: "var(--gold)", textDecoration: "none" }}>How long do potatoes last in cold storage?</Link></p>
 
       <SourceBlock sources={[
         "USDA Agricultural Handbook 66 — The Commercial Storage of Fruits, Vegetables, and Florist and Nursery Stocks",
@@ -4581,14 +4581,14 @@ function PotatoStorageShelfLife() {
       <SupportBlock />
       <RelatedArticles articles={relatedArticles} />
       <section style={{ marginTop: 48 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Explore Country Profiles</h2>
+        <h2 style={{ fontSize: 20, fontWeight: 700, color: "var(--ink)", marginBottom: 16 }}>Explore Country Profiles</h2>
         <div style={{ display: "flex", gap: 10, overflowX: "auto", paddingBottom: 8 }}>
           {relatedCountries.map((c) => (
-            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "white", border: "1px solid #eee", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
+            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "var(--card)", border: "1px solid var(--line)", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
               <span style={{ fontSize: 20 }}>{c.flag}</span>
               <div>
-                <div style={{ fontSize: 13, fontWeight: 600, color: "#1A1A1A", whiteSpace: "nowrap" }}>{c.name}</div>
-                <div style={{ fontSize: 11, color: "#C62828", fontWeight: 600 }}>{c.consumption}</div>
+                <div style={{ fontSize: 13, fontWeight: 600, color: "var(--ink)", whiteSpace: "nowrap" }}>{c.name}</div>
+                <div style={{ fontSize: 11, color: "var(--gold)", fontWeight: 600 }}>{c.consumption}</div>
               </div>
             </Link>
           ))}
@@ -4666,12 +4666,12 @@ function WhenToHarvestPotatoes() {
         <Breadcrumb tag="Cultivation" />
         <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 16 }}>
           <TagBadge tag="Cultivation" />
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>Updated {UPDATED_SHORT}</span>
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>8 min read</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>Updated {UPDATED_SHORT}</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>8 min read</span>
         </div>
-        <h1 style={{ fontSize: 32, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>When Are Potatoes Ready to Harvest? 7 Signs, Timing by Variety, and Post-Harvest Handling</h1>
+        <h1 style={{ fontSize: 32, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>When Are Potatoes Ready to Harvest? 7 Signs, Timing by Variety, and Post-Harvest Handling</h1>
       </HeroBanner>
 
       <div style={{ maxWidth: 820, margin: "0 auto", padding: "0 24px 80px" }}>
@@ -4699,10 +4699,10 @@ function WhenToHarvestPotatoes() {
           <thead><tr>{["Indicator","How to check","What it means"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {indicatorTable.map((r, i) => (
-              <tr key={r[0]} style={{ background: i < 4 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={r[0]} style={{ background: i < 4 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
-                <td style={{ ...sTd, color: "#C62828", fontWeight: 600 }}>{r[1]}</td>
-                <td style={{ ...sTd, fontSize: 13, color: "#555" }}>{r[2]}</td>
+                <td style={{ ...sTd, color: "var(--gold)", fontWeight: 600 }}>{r[1]}</td>
+                <td style={{ ...sTd, fontSize: 13, color: "var(--mute)" }}>{r[2]}</td>
               </tr>
             ))}
           </tbody>
@@ -4723,10 +4723,10 @@ function WhenToHarvestPotatoes() {
           <thead><tr>{["Risk","Symptom","Consequence"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {lateRiskTable.map((r, i) => (
-              <tr key={r[0]} style={{ background: i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={r[0]} style={{ background: i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
-                <td style={{ ...sTd, color: "#C62828", fontWeight: 600 }}>{r[1]}</td>
-                <td style={{ ...sTd, fontSize: 13, color: "#555" }}>{r[2]}</td>
+                <td style={{ ...sTd, color: "var(--gold)", fontWeight: 600 }}>{r[1]}</td>
+                <td style={{ ...sTd, fontSize: 13, color: "var(--mute)" }}>{r[2]}</td>
               </tr>
             ))}
           </tbody>
@@ -4754,11 +4754,11 @@ function WhenToHarvestPotatoes() {
           <thead><tr>{["Class","Days to maturity","Harvest window","Examples"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {varietyTable.map((r, i) => (
-              <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
-                <td style={{ ...sTd, color: "#C62828", fontWeight: 600 }}>{r[1]}</td>
+                <td style={{ ...sTd, color: "var(--gold)", fontWeight: 600 }}>{r[1]}</td>
                 <td style={sTd}>{r[2]}</td>
-                <td style={{ ...sTd, fontSize: 12, color: "#555" }}>{r[3]}</td>
+                <td style={{ ...sTd, fontSize: 12, color: "var(--mute)" }}>{r[3]}</td>
               </tr>
             ))}
           </tbody>
@@ -4771,7 +4771,7 @@ function WhenToHarvestPotatoes() {
       &bull; <strong>Soil temperature:</strong> Below 7&deg;C / 45&deg;F, tuberisation slows dramatically.<br />
       &bull; <strong>Water stress:</strong> Drought during bulking accelerates senescence (and reduces yield).<br />
       &bull; <strong>Nitrogen status:</strong> Excess late-season N delays senescence and harvest readiness.</p>
-      <p style={sP}>For India-specific Kufri varieties (Pukhraj, Jyoti, Chipsona), see our <Link href="/knowledge/kufri-potato-varieties-india" style={{ color: "#C62828", textDecoration: "none" }}>CPRI variety guide</Link>. For US Russet Burbank specifically, the <Link href="/knowledge/russet-burbank-history" style={{ color: "#C62828", textDecoration: "none" }}>Russet Burbank history article</Link> covers its 130&ndash;150 day maturity in detail.</p>
+      <p style={sP}>For India-specific Kufri varieties (Pukhraj, Jyoti, Chipsona), see our <Link href="/knowledge/kufri-potato-varieties-india" style={{ color: "var(--gold)", textDecoration: "none" }}>CPRI variety guide</Link>. For US Russet Burbank specifically, the <Link href="/knowledge/russet-burbank-history" style={{ color: "var(--gold)", textDecoration: "none" }}>Russet Burbank history article</Link> covers its 130&ndash;150 day maturity in detail.</p>
 
       <h2 id="technique" style={sH2}>How to harvest without damaging tubers</h2>
       <p style={sP}>Mechanical damage at harvest is the #1 cause of storage rot in commercial potato systems. CIP and FAO research note that smallholder potato systems with poor harvest mechanisation lose <strong>up to 40% of tubers</strong> to mechanical damage that becomes infection sites in storage. Modern commercial harvesters (Grimme, AVR, Dewulf) are engineered specifically around minimising drop heights and bruising.</p>
@@ -4793,7 +4793,7 @@ function WhenToHarvestPotatoes() {
       <p style={sP}><strong>5. Storage management.</strong> Maintain 90&ndash;95% humidity, 0.1&ndash;0.2 m/s air movement, &lt;0.5% CO&#8322;. Inspect monthly; remove any deteriorating tubers. CIPC sprout-suppressant treatments at 6&ndash;8 week intervals (where permitted).</p>
       <p style={sP}><strong>To wash or not to wash?</strong> The agricultural-industry consensus is clear: <strong>do not wash storage potatoes</strong>. Water enters wounds and dramatically accelerates soft rot. Washing is acceptable only for (a) potatoes about to be cooked within a week, or (b) commercial fresh-market lines with surface drying immediately after washing. The default is dry-brushing only.</p>
 
-      <p style={sP}>For the storage half of the chain (shelf life by temperature, why never to refrigerate raw potatoes, the green/solanine question), see our companion article <Link href="/knowledge/potato-storage-shelf-life" style={{ color: "#C62828", textDecoration: "none" }}>How long do potatoes last? Complete storage guide</Link>. For yield expectations from your harvest, see the <Link href="/knowledge/potato-yield-calculator" style={{ color: "#C62828", textDecoration: "none" }}>potato yield calculator</Link>. For agronomic mistakes that show up at harvest, see <Link href="/knowledge/common-potato-growing-mistakes" style={{ color: "#C62828", textDecoration: "none" }}>15 common potato growing mistakes</Link> and the <Link href="/knowledge/complete-potato-growing-guide" style={{ color: "#C62828", textDecoration: "none" }}>complete potato growing guide</Link>. Country profiles: <Link href="/country/united-states" style={{ color: "#C62828", textDecoration: "none" }}>USA</Link>, <Link href="/country/united-kingdom" style={{ color: "#C62828", textDecoration: "none" }}>UK</Link>, <Link href="/country/india" style={{ color: "#C62828", textDecoration: "none" }}>India</Link>, <Link href="/country/peru" style={{ color: "#C62828", textDecoration: "none" }}>Peru</Link>, <Link href="/country/netherlands" style={{ color: "#C62828", textDecoration: "none" }}>Netherlands</Link>.</p>
+      <p style={sP}>For the storage half of the chain (shelf life by temperature, why never to refrigerate raw potatoes, the green/solanine question), see our companion article <Link href="/knowledge/potato-storage-shelf-life" style={{ color: "var(--gold)", textDecoration: "none" }}>How long do potatoes last? Complete storage guide</Link>. For yield expectations from your harvest, see the <Link href="/knowledge/potato-yield-calculator" style={{ color: "var(--gold)", textDecoration: "none" }}>potato yield calculator</Link>. For agronomic mistakes that show up at harvest, see <Link href="/knowledge/common-potato-growing-mistakes" style={{ color: "var(--gold)", textDecoration: "none" }}>15 common potato growing mistakes</Link> and the <Link href="/knowledge/complete-potato-growing-guide" style={{ color: "var(--gold)", textDecoration: "none" }}>complete potato growing guide</Link>. Country profiles: <Link href="/country/united-states" style={{ color: "var(--gold)", textDecoration: "none" }}>USA</Link>, <Link href="/country/united-kingdom" style={{ color: "var(--gold)", textDecoration: "none" }}>UK</Link>, <Link href="/country/india" style={{ color: "var(--gold)", textDecoration: "none" }}>India</Link>, <Link href="/country/peru" style={{ color: "var(--gold)", textDecoration: "none" }}>Peru</Link>, <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link>.</p>
 
       <SourceBlock sources={[
         "FAO / INPhO — Post-harvest Compendium for Potato",
@@ -4812,14 +4812,14 @@ function WhenToHarvestPotatoes() {
       <SupportBlock />
       <RelatedArticles articles={relatedArticles} />
       <section style={{ marginTop: 48 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Explore Country Profiles</h2>
+        <h2 style={{ fontSize: 20, fontWeight: 700, color: "var(--ink)", marginBottom: 16 }}>Explore Country Profiles</h2>
         <div style={{ display: "flex", gap: 10, overflowX: "auto", paddingBottom: 8 }}>
           {relatedCountries.map((c) => (
-            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "white", border: "1px solid #eee", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
+            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "var(--card)", border: "1px solid var(--line)", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
               <span style={{ fontSize: 20 }}>{c.flag}</span>
               <div>
-                <div style={{ fontSize: 13, fontWeight: 600, color: "#1A1A1A", whiteSpace: "nowrap" }}>{c.name}</div>
-                <div style={{ fontSize: 11, color: "#C62828", fontWeight: 600 }}>{c.consumption}</div>
+                <div style={{ fontSize: 13, fontWeight: 600, color: "var(--ink)", whiteSpace: "nowrap" }}>{c.name}</div>
+                <div style={{ fontSize: 11, color: "var(--gold)", fontWeight: 600 }}>{c.consumption}</div>
               </div>
             </Link>
           ))}
@@ -4891,12 +4891,12 @@ function IsPotatoABadCarb() {
         <Breadcrumb tag="Nutrition" />
         <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 16 }}>
           <TagBadge tag="Nutrition" />
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>Updated {UPDATED_SHORT}</span>
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>6 min read</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>Updated {UPDATED_SHORT}</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>6 min read</span>
         </div>
-        <h1 style={{ fontSize: 32, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>Is Potato a Bad Carb? Complex Carbs, Resistant Starch, and How Potatoes Compare</h1>
+        <h1 style={{ fontSize: 32, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>Is Potato a Bad Carb? Complex Carbs, Resistant Starch, and How Potatoes Compare</h1>
       </HeroBanner>
 
       <div style={{ maxWidth: 820, margin: "0 auto", padding: "0 24px 80px" }}>
@@ -4918,12 +4918,12 @@ function IsPotatoABadCarb() {
 
       <h2 id="label" style={sH2}>Why are potatoes labeled &ldquo;bad carbs&rdquo;?</h2>
       <p style={sP}>The &ldquo;bad carb&rdquo; framing for potatoes traces to two influences. First, the original glycemic-index research (Jenkins 1981, Foster-Powell &amp; Brand-Miller subsequent work) measured a few specific potato preparations &mdash; particularly large plain baked Russets &mdash; and reported high values (GI 85&ndash;111 in University of Sydney testing). These figures got published, picked up in popular nutrition writing, and became the canonical &ldquo;potato GI.&rdquo; Second, the rise of low-carb diets (Atkins, then keto) treated all starchy foods as functionally equivalent &mdash; lumping potatoes with white bread and white rice into a single &ldquo;avoid&rdquo; category.</p>
-      <p style={sP}>Both framings miss the actual nutritional and metabolic profile. The same vegetable, prepared differently, produces glycemic responses spanning roughly GI 53 (Carisma boiled and cooled) to GI 111 (large plain baked Russet). That&apos;s a 2&times; range across preparations of one ingredient &mdash; bigger than the difference between most foods on the GI scale. See our <Link href="/knowledge/potatoes-and-blood-sugar" style={{ color: "#C62828", textDecoration: "none" }}>full glycemic deep-dive</Link> for the cooking-method science.</p>
+      <p style={sP}>Both framings miss the actual nutritional and metabolic profile. The same vegetable, prepared differently, produces glycemic responses spanning roughly GI 53 (Carisma boiled and cooled) to GI 111 (large plain baked Russet). That&apos;s a 2&times; range across preparations of one ingredient &mdash; bigger than the difference between most foods on the GI scale. See our <Link href="/knowledge/potatoes-and-blood-sugar" style={{ color: "var(--gold)", textDecoration: "none" }}>full glycemic deep-dive</Link> for the cooking-method science.</p>
 
       <h2 id="carb-types" style={sH2}>What kind of carbohydrate is in a potato?</h2>
       <p style={sP}>Per 100 g raw potato (USDA FoodData Central), 17 g is carbohydrate &mdash; the majority of which is starch:</p>
       <p style={sP}>&bull; <strong>Starch (~15&ndash;17 g):</strong> Approximately 75% amylopectin (branched, faster digestion) and 25% amylose (linear, slower digestion). Variety-dependent.<br />
-      &bull; <strong>Sugars (~0.8 g):</strong> Glucose, fructose, sucrose &mdash; tiny quantities in fresh potato. Increases under cold storage (cold-induced sweetening) &mdash; see our <Link href="/knowledge/potato-storage-shelf-life" style={{ color: "#C62828", textDecoration: "none" }}>storage guide</Link>.<br />
+      &bull; <strong>Sugars (~0.8 g):</strong> Glucose, fructose, sucrose &mdash; tiny quantities in fresh potato. Increases under cold storage (cold-induced sweetening) &mdash; see our <Link href="/knowledge/potato-storage-shelf-life" style={{ color: "var(--gold)", textDecoration: "none" }}>storage guide</Link>.<br />
       &bull; <strong>Dietary fibre (1.5&ndash;2.4 g, skin on):</strong> Concentrated in the skin. Removing the skin removes 50% of the fibre.<br />
       &bull; <strong>Resistant starch (2&ndash;6%):</strong> RS2 in raw potato (47&ndash;57% of total starch is resistant per Englyst et al. 1992, <em>EJCN</em>); converted to RS3 in cooled cooked potato. RS functions metabolically like fibre, not sugar.</p>
       <p style={sP}>The phrase &ldquo;complex carbohydrate&rdquo; (vs simple sugar) is technically correct for potato starch &mdash; long polymer chains that take time to break down enzymatically. But complexity alone isn&apos;t protective; rapid gelatinisation in baked Russet makes it digest faster than its molecular structure would suggest. The metabolically meaningful picture is starch + fibre + resistant starch together &mdash; and that picture is much more favourable than the &ldquo;bad carb&rdquo; label allows.</p>
@@ -4936,9 +4936,9 @@ function IsPotatoABadCarb() {
           <thead><tr>{["Food","Cal","Carbs","Fibre","GI","GI band","GL","K+","Vit C"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {carbCompareTable.map((r, i) => (
-              <tr key={r[0]} style={{ background: i < 3 || i === 9 ? "rgba(198,40,40,0.04)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={r[0]} style={{ background: i < 3 || i === 9 ? "rgba(154,114,56,0.04)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
-                <td style={{ ...sTd, color: "#C62828", fontWeight: 600 }}>{r[1]}</td>
+                <td style={{ ...sTd, color: "var(--gold)", fontWeight: 600 }}>{r[1]}</td>
                 <td style={sTd}>{r[2]}</td>
                 <td style={sTd}>{r[3]}</td>
                 <td style={sTd}>{r[4]}</td>
@@ -4972,7 +4972,7 @@ function IsPotatoABadCarb() {
       &bull; <strong>Fibre + resistant starch:</strong> Slows gastric emptying.<br />
       &bull; <strong>Protein quality:</strong> Despite low total protein (2&ndash;3 g per medium potato), the amino-acid profile is unusually complete &mdash; biological value of ~90&ndash;100, comparable to egg.<br />
       &bull; <strong>Texture:</strong> Slow-eating texture &mdash; potatoes are physically chewy compared to bread or rice.</p>
-      <p style={sP}>For weight management, a high-satiety food is metabolically valuable: people eat less for the same hunger satisfaction. Several intervention studies (including Andrew Taylor&apos;s &ldquo;Spud Fit&rdquo; year &mdash; see our <Link href="/knowledge/potatoes-and-heart-health" style={{ color: "#C62828", textDecoration: "none" }}>heart health article</Link>) have used potato-rich diets specifically for weight loss with documented success.</p>
+      <p style={sP}>For weight management, a high-satiety food is metabolically valuable: people eat less for the same hunger satisfaction. Several intervention studies (including Andrew Taylor&apos;s &ldquo;Spud Fit&rdquo; year &mdash; see our <Link href="/knowledge/potatoes-and-heart-health" style={{ color: "var(--gold)", textDecoration: "none" }}>heart health article</Link>) have used potato-rich diets specifically for weight loss with documented success.</p>
 
       <h2 id="smart-prep" style={sH2}>Smart preparation strategies</h2>
       <p style={sP}>If you want the metabolic benefits of potato without the &ldquo;baked Russet&rdquo; GI penalty:</p>
@@ -4982,10 +4982,10 @@ function IsPotatoABadCarb() {
           <thead><tr>{["Preparation","Glycemic effect","Why"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {prepGiTable.map((r, i) => (
-              <tr key={r[0]} style={{ background: i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={r[0]} style={{ background: i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
-                <td style={{ ...sTd, color: "#C62828", fontWeight: 600 }}>{r[1]}</td>
-                <td style={{ ...sTd, fontSize: 13, color: "#555" }}>{r[2]}</td>
+                <td style={{ ...sTd, color: "var(--gold)", fontWeight: 600 }}>{r[1]}</td>
+                <td style={{ ...sTd, fontSize: 13, color: "var(--mute)" }}>{r[2]}</td>
               </tr>
             ))}
           </tbody>
@@ -5000,7 +5000,7 @@ function IsPotatoABadCarb() {
       &bull; <strong>Pair with fat, protein, or vinegar.</strong> Each blunts glycemic response 20&ndash;40%.<br />
       &bull; <strong>Cool overnight, reheat tomorrow.</strong> Free metabolic upgrade via RS3.</p>
 
-      <p style={sP}>For the full glycemic and metabolic context, see our <Link href="/knowledge/potatoes-and-blood-sugar" style={{ color: "#C62828", textDecoration: "none" }}>blood sugar guide</Link>, <Link href="/knowledge/diabetics-and-french-fries" style={{ color: "#C62828", textDecoration: "none" }}>fries and diabetics</Link>, <Link href="/knowledge/unhealthiest-potato-chips" style={{ color: "#C62828", textDecoration: "none" }}>unhealthiest chip</Link>, <Link href="/knowledge/potato-nutrition-facts" style={{ color: "#C62828", textDecoration: "none" }}>nutrition facts</Link>, and our heart-health and kidney-health articles. Country profiles for potato-heavy cuisines: <Link href="/country/united-states" style={{ color: "#C62828", textDecoration: "none" }}>USA</Link>, <Link href="/country/peru" style={{ color: "#C62828", textDecoration: "none" }}>Peru</Link>, <Link href="/country/united-kingdom" style={{ color: "#C62828", textDecoration: "none" }}>UK</Link>, <Link href="/country/india" style={{ color: "#C62828", textDecoration: "none" }}>India</Link>.</p>
+      <p style={sP}>For the full glycemic and metabolic context, see our <Link href="/knowledge/potatoes-and-blood-sugar" style={{ color: "var(--gold)", textDecoration: "none" }}>blood sugar guide</Link>, <Link href="/knowledge/diabetics-and-french-fries" style={{ color: "var(--gold)", textDecoration: "none" }}>fries and diabetics</Link>, <Link href="/knowledge/unhealthiest-potato-chips" style={{ color: "var(--gold)", textDecoration: "none" }}>unhealthiest chip</Link>, <Link href="/knowledge/potato-nutrition-facts" style={{ color: "var(--gold)", textDecoration: "none" }}>nutrition facts</Link>, and our heart-health and kidney-health articles. Country profiles for potato-heavy cuisines: <Link href="/country/united-states" style={{ color: "var(--gold)", textDecoration: "none" }}>USA</Link>, <Link href="/country/peru" style={{ color: "var(--gold)", textDecoration: "none" }}>Peru</Link>, <Link href="/country/united-kingdom" style={{ color: "var(--gold)", textDecoration: "none" }}>UK</Link>, <Link href="/country/india" style={{ color: "var(--gold)", textDecoration: "none" }}>India</Link>.</p>
 
       <SourceBlock sources={[
         "Englyst HN, Kingman SM, Cummings JH (1992) — Classification and measurement of nutritionally important starch fractions, European Journal of Clinical Nutrition",
@@ -5019,14 +5019,14 @@ function IsPotatoABadCarb() {
       <SupportBlock />
       <RelatedArticles articles={relatedArticles} />
       <section style={{ marginTop: 48 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Explore Country Profiles</h2>
+        <h2 style={{ fontSize: 20, fontWeight: 700, color: "var(--ink)", marginBottom: 16 }}>Explore Country Profiles</h2>
         <div style={{ display: "flex", gap: 10, overflowX: "auto", paddingBottom: 8 }}>
           {relatedCountries.map((c) => (
-            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "white", border: "1px solid #eee", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
+            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "var(--card)", border: "1px solid var(--line)", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
               <span style={{ fontSize: 20 }}>{c.flag}</span>
               <div>
-                <div style={{ fontSize: 13, fontWeight: 600, color: "#1A1A1A", whiteSpace: "nowrap" }}>{c.name}</div>
-                <div style={{ fontSize: 11, color: "#C62828", fontWeight: 600 }}>{c.consumption}</div>
+                <div style={{ fontSize: 13, fontWeight: 600, color: "var(--ink)", whiteSpace: "nowrap" }}>{c.name}</div>
+                <div style={{ fontSize: 11, color: "var(--gold)", fontWeight: 600 }}>{c.consumption}</div>
               </div>
             </Link>
           ))}
@@ -5094,12 +5094,12 @@ function PotatoesAndKidneyHealth() {
         <Breadcrumb tag="Nutrition" />
         <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 16 }}>
           <TagBadge tag="Nutrition" />
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>Updated {UPDATED_SHORT}</span>
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>6 min read</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>Updated {UPDATED_SHORT}</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>6 min read</span>
         </div>
-        <h1 style={{ fontSize: 32, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>Potatoes and Kidney Health: Potassium, Renal Diets, and What Nephrologists Recommend</h1>
+        <h1 style={{ fontSize: 32, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>Potatoes and Kidney Health: Potassium, Renal Diets, and What Nephrologists Recommend</h1>
       </HeroBanner>
 
       <div style={{ maxWidth: 820, margin: "0 auto", padding: "0 24px 80px" }}>
@@ -5119,7 +5119,7 @@ function PotatoesAndKidneyHealth() {
 
       <CollapsibleTOC items={tocItems} />
 
-      <div style={{ background: "#FFF8E1", border: "1px solid #FFE082", borderLeft: "3px solid #FFB300", borderRadius: "0 8px 8px 0", padding: "12px 16px", margin: "0 0 28px", fontSize: 13, color: "#5D4037", lineHeight: 1.6 }}>
+      <div style={{ background: "#FFF8E1", border: "1px solid #FFE082", borderLeft: "3px solid #FFB300", borderRadius: "0 8px 8px 0", padding: "12px 16px", margin: "0 0 28px", fontSize: 13, color: "var(--mute)", lineHeight: 1.6 }}>
         <strong>Medical disclaimer:</strong> This article is informational and does not substitute personalised medical advice. Renal-diet potassium targets are individual to each patient&apos;s CKD stage, dialysis status, residual kidney function, current labs (serum potassium, eGFR, BUN), other medications (ACE inhibitors, diuretics), and dietary context. Always consult your nephrologist or registered renal dietitian before making dietary changes. Hyperkalaemia is a medical emergency.
       </div>
 
@@ -5161,11 +5161,11 @@ function PotatoesAndKidneyHealth() {
           <thead><tr>{["Preparation","K per 100g","Reduction","Notes"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {prepKReductionTable.map((r, i) => (
-              <tr key={r[0]} style={{ background: i >= 6 ? "rgba(76,175,80,0.06)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={r[0]} style={{ background: i >= 6 ? "rgba(154,114,56,0.06)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
-                <td style={{ ...sTd, color: "#C62828", fontWeight: 600 }}>{r[1]}</td>
+                <td style={{ ...sTd, color: "var(--gold)", fontWeight: 600 }}>{r[1]}</td>
                 <td style={sTd}>{r[2]}</td>
-                <td style={{ ...sTd, fontSize: 12, color: "#555" }}>{r[3]}</td>
+                <td style={{ ...sTd, fontSize: 12, color: "var(--mute)" }}>{r[3]}</td>
               </tr>
             ))}
           </tbody>
@@ -5180,10 +5180,10 @@ function PotatoesAndKidneyHealth() {
           <thead><tr>{["CKD stage","Potassium guidance","Practical implication for potatoes"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {ckdStageTable.map((r, i) => (
-              <tr key={r[0]} style={{ background: i >= 3 ? "rgba(198,40,40,0.04)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={r[0]} style={{ background: i >= 3 ? "rgba(154,114,56,0.04)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
-                <td style={{ ...sTd, color: "#C62828", fontWeight: 600 }}>{r[1]}</td>
-                <td style={{ ...sTd, fontSize: 13, color: "#555" }}>{r[2]}</td>
+                <td style={{ ...sTd, color: "var(--gold)", fontWeight: 600 }}>{r[1]}</td>
+                <td style={{ ...sTd, fontSize: 13, color: "var(--mute)" }}>{r[2]}</td>
               </tr>
             ))}
           </tbody>
@@ -5203,7 +5203,7 @@ function PotatoesAndKidneyHealth() {
       &bull; <strong>French fries (restaurant):</strong> No leaching; high salt; high potassium.<br />
       &bull; <strong>Sweet potato fries:</strong> Slightly higher potassium than regular potato fries.<br />
       &bull; <strong>Salt substitutes:</strong> Many use potassium chloride &mdash; can be lethal in advanced CKD.</p>
-      <p style={sP}>For complementary nutrition context, see our <Link href="/knowledge/potatoes-and-heart-health" style={{ color: "#C62828", textDecoration: "none" }}>heart health article</Link> (potassium and BP), <Link href="/knowledge/potato-nutrition-facts" style={{ color: "#C62828", textDecoration: "none" }}>full nutrition profile</Link>, <Link href="/knowledge/potatoes-and-blood-sugar" style={{ color: "#C62828", textDecoration: "none" }}>blood sugar guide</Link>, and <Link href="/knowledge/is-potato-a-bad-carb" style={{ color: "#C62828", textDecoration: "none" }}>are potatoes bad carbs?</Link>. Country profiles: <Link href="/country/united-states" style={{ color: "#C62828", textDecoration: "none" }}>USA</Link>, <Link href="/country/united-kingdom" style={{ color: "#C62828", textDecoration: "none" }}>UK</Link>, <Link href="/country/india" style={{ color: "#C62828", textDecoration: "none" }}>India</Link>.</p>
+      <p style={sP}>For complementary nutrition context, see our <Link href="/knowledge/potatoes-and-heart-health" style={{ color: "var(--gold)", textDecoration: "none" }}>heart health article</Link> (potassium and BP), <Link href="/knowledge/potato-nutrition-facts" style={{ color: "var(--gold)", textDecoration: "none" }}>full nutrition profile</Link>, <Link href="/knowledge/potatoes-and-blood-sugar" style={{ color: "var(--gold)", textDecoration: "none" }}>blood sugar guide</Link>, and <Link href="/knowledge/is-potato-a-bad-carb" style={{ color: "var(--gold)", textDecoration: "none" }}>are potatoes bad carbs?</Link>. Country profiles: <Link href="/country/united-states" style={{ color: "var(--gold)", textDecoration: "none" }}>USA</Link>, <Link href="/country/united-kingdom" style={{ color: "var(--gold)", textDecoration: "none" }}>UK</Link>, <Link href="/country/india" style={{ color: "var(--gold)", textDecoration: "none" }}>India</Link>.</p>
 
       <SourceBlock sources={[
         "Bethke PC, Jansky SH (2008) — The effects of boiling and leaching on the content of potassium and other minerals in potatoes, American Journal of Potato Research",
@@ -5222,14 +5222,14 @@ function PotatoesAndKidneyHealth() {
       <SupportBlock />
       <RelatedArticles articles={relatedArticles} />
       <section style={{ marginTop: 48 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Explore Country Profiles</h2>
+        <h2 style={{ fontSize: 20, fontWeight: 700, color: "var(--ink)", marginBottom: 16 }}>Explore Country Profiles</h2>
         <div style={{ display: "flex", gap: 10, overflowX: "auto", paddingBottom: 8 }}>
           {relatedCountries.map((c) => (
-            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "white", border: "1px solid #eee", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
+            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "var(--card)", border: "1px solid var(--line)", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
               <span style={{ fontSize: 20 }}>{c.flag}</span>
               <div>
-                <div style={{ fontSize: 13, fontWeight: 600, color: "#1A1A1A", whiteSpace: "nowrap" }}>{c.name}</div>
-                <div style={{ fontSize: 11, color: "#C62828", fontWeight: 600 }}>{c.consumption}</div>
+                <div style={{ fontSize: 13, fontWeight: 600, color: "var(--ink)", whiteSpace: "nowrap" }}>{c.name}</div>
+                <div style={{ fontSize: 11, color: "var(--gold)", fontWeight: 600 }}>{c.consumption}</div>
               </div>
             </Link>
           ))}
@@ -5295,12 +5295,12 @@ function LargestPotatoFarmsUS() {
         <Breadcrumb tag="Industry" />
         <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 16 }}>
           <TagBadge tag="Industry" />
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>Updated {UPDATED_SHORT}</span>
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>6 min read</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>Updated {UPDATED_SHORT}</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>6 min read</span>
         </div>
-        <h1 style={{ fontSize: 32, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>Largest Potato Farms in the United States: Top Operations, Acreage, and the Consolidation Trend</h1>
+        <h1 style={{ fontSize: 32, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>Largest Potato Farms in the United States: Top Operations, Acreage, and the Consolidation Trend</h1>
       </HeroBanner>
 
       <div style={{ maxWidth: 820, margin: "0 auto", padding: "0 24px 80px" }}>
@@ -5331,12 +5331,12 @@ function LargestPotatoFarmsUS() {
           <thead><tr>{["Operation","HQ","States","Approx. potato acreage","Notes"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {farmTable.map((r, i) => (
-              <tr key={r[0]} style={{ background: i === 0 ? "rgba(198,40,40,0.06)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={r[0]} style={{ background: i === 0 ? "rgba(154,114,56,0.06)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
                 <td style={sTd}>{r[1]}</td>
                 <td style={{ ...sTd, fontSize: 12 }}>{r[2]}</td>
-                <td style={{ ...sTd, color: "#C62828", fontWeight: 600 }}>{r[3]}</td>
-                <td style={{ ...sTd, fontSize: 12, color: "#555" }}>{r[4]}</td>
+                <td style={{ ...sTd, color: "var(--gold)", fontWeight: 600 }}>{r[3]}</td>
+                <td style={{ ...sTd, fontSize: 12, color: "var(--mute)" }}>{r[4]}</td>
               </tr>
             ))}
           </tbody>
@@ -5354,11 +5354,11 @@ function LargestPotatoFarmsUS() {
           <thead><tr>{["Era","Average farm size","Industry structure","Source"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {farmSizeTable.map((r, i) => (
-              <tr key={r[0]} style={{ background: i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={r[0]} style={{ background: i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
-                <td style={{ ...sTd, color: "#C62828", fontWeight: 600 }}>{r[1]}</td>
+                <td style={{ ...sTd, color: "var(--gold)", fontWeight: 600 }}>{r[1]}</td>
                 <td style={{ ...sTd, fontSize: 13 }}>{r[2]}</td>
-                <td style={{ ...sTd, fontSize: 11, color: "#999" }}>{r[3]}</td>
+                <td style={{ ...sTd, fontSize: 11, color: "var(--mute2)" }}>{r[3]}</td>
               </tr>
             ))}
           </tbody>
@@ -5377,7 +5377,7 @@ function LargestPotatoFarmsUS() {
       &bull; <strong>Quality specs:</strong> Specific gravity (1.085&ndash;1.100 for fries), reducing sugar limits (&lt;1.5 mg/g chips, &lt;2.5 mg/g fries), defect tolerances, size profile.<br />
       &bull; <strong>Planting and delivery schedule:</strong> Often staggered to give the processor a continuous supply.<br />
       &bull; <strong>Price:</strong> Either a fixed-price contract or a base-plus-bonus structure tied to quality grade.</p>
-      <p style={sP}>The grower bears the agronomic risk (drought, disease, frost) while the processor guarantees a market. This model is the backbone of US frozen fry production for chains like McDonald&apos;s, Burger King, Wendy&apos;s, and Chick-fil-A &mdash; see our <Link href="/knowledge/mcdonalds-potato-varieties" style={{ color: "#C62828", textDecoration: "none" }}>McDonald&apos;s potatoes</Link> and <Link href="/knowledge/how-potatoes-are-processed" style={{ color: "#C62828", textDecoration: "none" }}>processing industry</Link> articles.</p>
+      <p style={sP}>The grower bears the agronomic risk (drought, disease, frost) while the processor guarantees a market. This model is the backbone of US frozen fry production for chains like McDonald&apos;s, Burger King, Wendy&apos;s, and Chick-fil-A &mdash; see our <Link href="/knowledge/mcdonalds-potato-varieties" style={{ color: "var(--gold)", textDecoration: "none" }}>McDonald&apos;s potatoes</Link> and <Link href="/knowledge/how-potatoes-are-processed" style={{ color: "var(--gold)", textDecoration: "none" }}>processing industry</Link> articles.</p>
 
       <h2 id="global-comparison" style={sH2}>How US farm size compares globally</h2>
       <p style={sP}>The US has among the largest potato farms in the world by average size. Per FAO and country-specific extension data:</p>
@@ -5389,15 +5389,15 @@ function LargestPotatoFarmsUS() {
       &bull; <strong>Netherlands:</strong> ~62 acres (~25 ha) &mdash; intensive, very high yield<br />
       &bull; <strong>India:</strong> &lt;1 acre per smallholder common &mdash; fragmented<br />
       &bull; <strong>China:</strong> &lt;0.5 acre per household typical &mdash; even more fragmented than India</p>
-      <p style={sP}>The US scale reflects abundant land, irrigation infrastructure (especially in Idaho&apos;s Snake River Plain and Washington&apos;s Columbia Basin), processor-driven contract economics, and 50+ years of consolidation. Dutch farms operate at much smaller acreage but produce world-leading per-hectare yields (50+ t/ha) through precision agronomy &mdash; a different scaling strategy. See our <Link href="/country/netherlands" style={{ color: "#C62828", textDecoration: "none" }}>Netherlands country profile</Link> and <Link href="/country/india" style={{ color: "#C62828", textDecoration: "none" }}>India country profile</Link> for the contrasting models.</p>
+      <p style={sP}>The US scale reflects abundant land, irrigation infrastructure (especially in Idaho&apos;s Snake River Plain and Washington&apos;s Columbia Basin), processor-driven contract economics, and 50+ years of consolidation. Dutch farms operate at much smaller acreage but produce world-leading per-hectare yields (50+ t/ha) through precision agronomy &mdash; a different scaling strategy. See our <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands country profile</Link> and <Link href="/country/india" style={{ color: "var(--gold)", textDecoration: "none" }}>India country profile</Link> for the contrasting models.</p>
 
       <h2 id="future" style={sH2}>What this means for US potato supply</h2>
       <p style={sP}>The combination of consolidation + processor contracts produces a US potato supply that is highly efficient, highly mechanised, and highly concentrated geographically (Idaho + Washington = 53% of national production). Vulnerabilities:</p>
       <p style={sP}>&bull; <strong>Geographic concentration risk:</strong> A drought, disease outbreak, or wildfire in Idaho or Washington has outsized national impact.<br />
-      &bull; <strong>Variety concentration risk:</strong> ~70% of US frozen fries derive from a single variety (Russet Burbank), itself bred in 1872. A new disease specific to this variety would be catastrophic. See our <Link href="/knowledge/russet-burbank-history" style={{ color: "#C62828", textDecoration: "none" }}>Russet Burbank history</Link>.<br />
+      &bull; <strong>Variety concentration risk:</strong> ~70% of US frozen fries derive from a single variety (Russet Burbank), itself bred in 1872. A new disease specific to this variety would be catastrophic. See our <Link href="/knowledge/russet-burbank-history" style={{ color: "var(--gold)", textDecoration: "none" }}>Russet Burbank history</Link>.<br />
       &bull; <strong>Climate change:</strong> Heat stress and water scarcity threaten current production zones. Heat-tolerant varieties under development (CSS Farms, Idaho research stations).</p>
 
-      <p style={sP}>For the broader US potato landscape, see our <Link href="/country/united-states" style={{ color: "#C62828", textDecoration: "none" }}>United States country profile</Link>, the <Link href="/knowledge/how-potatoes-are-processed" style={{ color: "#C62828", textDecoration: "none" }}>processing industry guide</Link>, and the <Link href="/blog/us-potato-production-by-state" style={{ color: "#C62828", textDecoration: "none" }}>state-by-state production breakdown</Link>. International comparison: <Link href="/country/netherlands" style={{ color: "#C62828", textDecoration: "none" }}>Netherlands</Link>, <Link href="/country/india" style={{ color: "#C62828", textDecoration: "none" }}>India</Link>, <Link href="/country/china" style={{ color: "#C62828", textDecoration: "none" }}>China</Link>, <Link href="/country/germany" style={{ color: "#C62828", textDecoration: "none" }}>Germany</Link>.</p>
+      <p style={sP}>For the broader US potato landscape, see our <Link href="/country/united-states" style={{ color: "var(--gold)", textDecoration: "none" }}>United States country profile</Link>, the <Link href="/knowledge/how-potatoes-are-processed" style={{ color: "var(--gold)", textDecoration: "none" }}>processing industry guide</Link>, and the <Link href="/blog/us-potato-production-by-state" style={{ color: "var(--gold)", textDecoration: "none" }}>state-by-state production breakdown</Link>. International comparison: <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link>, <Link href="/country/india" style={{ color: "var(--gold)", textDecoration: "none" }}>India</Link>, <Link href="/country/china" style={{ color: "var(--gold)", textDecoration: "none" }}>China</Link>, <Link href="/country/germany" style={{ color: "var(--gold)", textDecoration: "none" }}>Germany</Link>.</p>
 
       <SourceBlock sources={[
         "USDA National Agricultural Statistics Service (NASS) — 2022 Census of Agriculture (published 2024)",
@@ -5417,14 +5417,14 @@ function LargestPotatoFarmsUS() {
       <SupportBlock />
       <RelatedArticles articles={relatedArticles} />
       <section style={{ marginTop: 48 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Explore Country Profiles</h2>
+        <h2 style={{ fontSize: 20, fontWeight: 700, color: "var(--ink)", marginBottom: 16 }}>Explore Country Profiles</h2>
         <div style={{ display: "flex", gap: 10, overflowX: "auto", paddingBottom: 8 }}>
           {relatedCountries.map((c) => (
-            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "white", border: "1px solid #eee", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
+            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "var(--card)", border: "1px solid var(--line)", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
               <span style={{ fontSize: 20 }}>{c.flag}</span>
               <div>
-                <div style={{ fontSize: 13, fontWeight: 600, color: "#1A1A1A", whiteSpace: "nowrap" }}>{c.name}</div>
-                <div style={{ fontSize: 11, color: "#C62828", fontWeight: 600 }}>{c.consumption}</div>
+                <div style={{ fontSize: 13, fontWeight: 600, color: "var(--ink)", whiteSpace: "nowrap" }}>{c.name}</div>
+                <div style={{ fontSize: 11, color: "var(--gold)", fontWeight: 600 }}>{c.consumption}</div>
               </div>
             </Link>
           ))}
@@ -5483,12 +5483,12 @@ function PotatoExpo2026() {
         <Breadcrumb tag="Events" />
         <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 16 }}>
           <TagBadge tag="Events" />
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>Updated {UPDATED_SHORT}</span>
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>5 min read</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>Updated {UPDATED_SHORT}</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>5 min read</span>
         </div>
-        <h1 style={{ fontSize: 32, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>2026 Potato Expo: Location, Dates, and What to Expect at the NPC&apos;s Annual Event</h1>
+        <h1 style={{ fontSize: 32, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>2026 Potato Expo: Location, Dates, and What to Expect at the NPC&apos;s Annual Event</h1>
       </HeroBanner>
 
       <div style={{ maxWidth: 820, margin: "0 auto", padding: "0 24px 80px" }}>
@@ -5524,7 +5524,7 @@ function PotatoExpo2026() {
 
       <h2 id="who-attends" style={sH2}>Who attends and what&apos;s the agenda?</h2>
       <p style={sP}><strong>Attendee profile</strong> (typical Expo year, ~2,000 attendees):</p>
-      <p style={sP}>&bull; <strong>Growers and farm operations</strong> &mdash; from small family farms to multi-state operations like R.D. Offutt, Wada Farms, Sterman Masser. See our <Link href="/knowledge/largest-potato-farms-us" style={{ color: "#C62828", textDecoration: "none" }}>largest US potato farms article</Link>.<br />
+      <p style={sP}>&bull; <strong>Growers and farm operations</strong> &mdash; from small family farms to multi-state operations like R.D. Offutt, Wada Farms, Sterman Masser. See our <Link href="/knowledge/largest-potato-farms-us" style={{ color: "var(--gold)", textDecoration: "none" }}>largest US potato farms article</Link>.<br />
       &bull; <strong>Processors</strong> &mdash; Lamb Weston, McCain Foods, J.R. Simplot, Cavendish, Frito-Lay, Idahoan Foods, Cavendish &mdash; both as exhibitors and buyers.<br />
       &bull; <strong>Equipment manufacturers</strong> &mdash; Grimme, AVR, Dewulf, John Deere, Spudnik, Mayo, Tomra (sorting), Storage Control Systems.<br />
       &bull; <strong>Seed companies</strong> &mdash; multiple US seed-potato producers from Maine, Colorado, Idaho, Wisconsin, Michigan.<br />
@@ -5554,12 +5554,12 @@ function PotatoExpo2026() {
           <thead><tr>{["Event","Frequency","Location / 2026 details","Scale","Focus"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {eventTable.map((r, i) => (
-              <tr key={r[0]} style={{ background: i < 2 ? "rgba(198,40,40,0.04)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={r[0]} style={{ background: i < 2 ? "rgba(154,114,56,0.04)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
                 <td style={sTd}>{r[1]}</td>
                 <td style={{ ...sTd, fontSize: 12 }}>{r[2]}</td>
                 <td style={{ ...sTd, fontSize: 12 }}>{r[3]}</td>
-                <td style={{ ...sTd, fontSize: 12, color: "#555" }}>{r[4]}</td>
+                <td style={{ ...sTd, fontSize: 12, color: "var(--mute)" }}>{r[4]}</td>
               </tr>
             ))}
           </tbody>
@@ -5567,7 +5567,7 @@ function PotatoExpo2026() {
       </div>
       <p style={sSource}>Sources: National Potato Council (npcspud.com); World Potato Congress Inc. (potatocongress.org); EAPR (eapr.net); Potato Europe; Interpom Kortrijk; APPC; CPRI India.</p>
 
-      <p style={sP}>For background on the global industry the events serve, see our <Link href="/knowledge/global-potato-trade" style={{ color: "#C62828", textDecoration: "none" }}>global potato trade article</Link>, <Link href="/knowledge/top-potato-producing-countries" style={{ color: "#C62828", textDecoration: "none" }}>top producing countries</Link>, <Link href="/knowledge/largest-potato-farms-us" style={{ color: "#C62828", textDecoration: "none" }}>largest US farms</Link>, and <Link href="/knowledge/how-potatoes-are-processed" style={{ color: "#C62828", textDecoration: "none" }}>processing industry guide</Link>. Country profiles for Expo / WPC host nations: <Link href="/country/united-states" style={{ color: "#C62828", textDecoration: "none" }}>USA</Link>, <Link href="/country/netherlands" style={{ color: "#C62828", textDecoration: "none" }}>Netherlands</Link>, <Link href="/country/belgium" style={{ color: "#C62828", textDecoration: "none" }}>Belgium</Link>, <Link href="/country/india" style={{ color: "#C62828", textDecoration: "none" }}>India</Link>, <Link href="/country/peru" style={{ color: "#C62828", textDecoration: "none" }}>Peru</Link>.</p>
+      <p style={sP}>For background on the global industry the events serve, see our <Link href="/knowledge/global-potato-trade" style={{ color: "var(--gold)", textDecoration: "none" }}>global potato trade article</Link>, <Link href="/knowledge/top-potato-producing-countries" style={{ color: "var(--gold)", textDecoration: "none" }}>top producing countries</Link>, <Link href="/knowledge/largest-potato-farms-us" style={{ color: "var(--gold)", textDecoration: "none" }}>largest US farms</Link>, and <Link href="/knowledge/how-potatoes-are-processed" style={{ color: "var(--gold)", textDecoration: "none" }}>processing industry guide</Link>. Country profiles for Expo / WPC host nations: <Link href="/country/united-states" style={{ color: "var(--gold)", textDecoration: "none" }}>USA</Link>, <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link>, <Link href="/country/belgium" style={{ color: "var(--gold)", textDecoration: "none" }}>Belgium</Link>, <Link href="/country/india" style={{ color: "var(--gold)", textDecoration: "none" }}>India</Link>, <Link href="/country/peru" style={{ color: "var(--gold)", textDecoration: "none" }}>Peru</Link>.</p>
 
       <SourceBlock sources={[
         "National Potato Council (NPC) — official site npcspud.com; Potato Expo program archives",
@@ -5588,14 +5588,14 @@ function PotatoExpo2026() {
       <SupportBlock />
       <RelatedArticles articles={relatedArticles} />
       <section style={{ marginTop: 48 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Explore Country Profiles</h2>
+        <h2 style={{ fontSize: 20, fontWeight: 700, color: "var(--ink)", marginBottom: 16 }}>Explore Country Profiles</h2>
         <div style={{ display: "flex", gap: 10, overflowX: "auto", paddingBottom: 8 }}>
           {relatedCountries.map((c) => (
-            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "white", border: "1px solid #eee", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
+            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "var(--card)", border: "1px solid var(--line)", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
               <span style={{ fontSize: 20 }}>{c.flag}</span>
               <div>
-                <div style={{ fontSize: 13, fontWeight: 600, color: "#1A1A1A", whiteSpace: "nowrap" }}>{c.name}</div>
-                <div style={{ fontSize: 11, color: "#C62828", fontWeight: 600 }}>{c.consumption}</div>
+                <div style={{ fontSize: 13, fontWeight: 600, color: "var(--ink)", whiteSpace: "nowrap" }}>{c.name}</div>
+                <div style={{ fontSize: 11, color: "var(--gold)", fontWeight: 600 }}>{c.consumption}</div>
               </div>
             </Link>
           ))}
@@ -5663,12 +5663,12 @@ function PotatoDiseasesPests() {
         <Breadcrumb tag="Diseases" />
         <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 16 }}>
           <TagBadge tag="Diseases" />
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>Updated {UPDATED_SHORT}</span>
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>12 min read</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>Updated {UPDATED_SHORT}</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>12 min read</span>
         </div>
-        <h1 style={{ fontSize: 32, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>Potato Diseases &amp; Pests: Late Blight, Viruses, and the Monoculture Risk</h1>
+        <h1 style={{ fontSize: 32, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>Potato Diseases &amp; Pests: Late Blight, Viruses, and the Monoculture Risk</h1>
       </HeroBanner>
 
       <div style={{ maxWidth: 820, margin: "0 auto", padding: "0 24px 80px" }}>
@@ -5689,21 +5689,21 @@ function PotatoDiseasesPests() {
       <CollapsibleTOC items={tocItems} />
 
       <h2 id="most-destructive" style={sH2}>What is the most destructive potato disease worldwide?</h2>
-      <p style={sP}>Late blight, caused by the oomycete <em>Phytophthora infestans</em>, is the most economically destructive potato disease on earth. CIP (the International Potato Center, headquartered in Lima) estimates the disease causes approximately $6.7 billion in annual global losses through reduced yields, fungicide costs, and storage rot. The same pathogen triggered the 1845&ndash;1852 Irish Potato Famine, which killed roughly 1 million people in <Link href="/country/ireland" style={{ color: "#C62828", textDecoration: "none" }}>Ireland</Link> and forced another 1 million to emigrate &mdash; one of the most destructive single events in agricultural history. Our explainer on <Link href="/answers/what-is-late-blight" style={{ color: "#C62828", textDecoration: "none" }}>what late blight is</Link> covers the biology in more depth, while our <Link href="/answers/irish-potato-famine" style={{ color: "#C62828", textDecoration: "none" }}>Irish Potato Famine answer</Link> traces its historical impact.</p>
-      <p style={sP}><em>P. infestans</em> is not a true fungus &mdash; it is an oomycete or "water mold," more closely related to brown algae than to mushrooms. This biological distinction matters operationally: many fungicides do not work against oomycetes, requiring specialized chemistries (mancozeb, mandipropamid, fluazinam, oxathiapiprolin). New genetic lineages of the pathogen, including the aggressive 13_A2 strain that swept Europe in the early 2000s, repeatedly defeat fungicide chemistries and resistant cultivars, requiring continuous breeding and chemistry refresh. The pathogen originated in central <Link href="/country/mexico" style={{ color: "#C62828", textDecoration: "none" }}>Mexico</Link> &mdash; the same region where wild relatives of cultivated potato (<em>Solanum</em> spp.) co-evolved &mdash; and was distributed worldwide via 19th-century seed potato shipments.</p>
-      <p style={sP}>Late blight is not the only globally significant disease. Bacterial wilt (<em>Ralstonia solanacearum</em>) causes catastrophic losses in tropical and sub-tropical regions including <Link href="/country/kenya" style={{ color: "#C62828", textDecoration: "none" }}>Kenya</Link>, Ethiopia, and parts of South-East Asia. Soft rot (<em>Pectobacterium</em> and <em>Dickeya</em>) affects post-harvest <Link href="/knowledge/potato-storage-cold-chain" style={{ color: "#C62828", textDecoration: "none" }}>cold-chain storage</Link> worldwide. Common scab degrades market quality without dramatic yield loss. The full disease landscape is summarized below.</p>
+      <p style={sP}>Late blight, caused by the oomycete <em>Phytophthora infestans</em>, is the most economically destructive potato disease on earth. CIP (the International Potato Center, headquartered in Lima) estimates the disease causes approximately $6.7 billion in annual global losses through reduced yields, fungicide costs, and storage rot. The same pathogen triggered the 1845&ndash;1852 Irish Potato Famine, which killed roughly 1 million people in <Link href="/country/ireland" style={{ color: "var(--gold)", textDecoration: "none" }}>Ireland</Link> and forced another 1 million to emigrate &mdash; one of the most destructive single events in agricultural history. Our explainer on <Link href="/answers/what-is-late-blight" style={{ color: "var(--gold)", textDecoration: "none" }}>what late blight is</Link> covers the biology in more depth, while our <Link href="/answers/irish-potato-famine" style={{ color: "var(--gold)", textDecoration: "none" }}>Irish Potato Famine answer</Link> traces its historical impact.</p>
+      <p style={sP}><em>P. infestans</em> is not a true fungus &mdash; it is an oomycete or "water mold," more closely related to brown algae than to mushrooms. This biological distinction matters operationally: many fungicides do not work against oomycetes, requiring specialized chemistries (mancozeb, mandipropamid, fluazinam, oxathiapiprolin). New genetic lineages of the pathogen, including the aggressive 13_A2 strain that swept Europe in the early 2000s, repeatedly defeat fungicide chemistries and resistant cultivars, requiring continuous breeding and chemistry refresh. The pathogen originated in central <Link href="/country/mexico" style={{ color: "var(--gold)", textDecoration: "none" }}>Mexico</Link> &mdash; the same region where wild relatives of cultivated potato (<em>Solanum</em> spp.) co-evolved &mdash; and was distributed worldwide via 19th-century seed potato shipments.</p>
+      <p style={sP}>Late blight is not the only globally significant disease. Bacterial wilt (<em>Ralstonia solanacearum</em>) causes catastrophic losses in tropical and sub-tropical regions including <Link href="/country/kenya" style={{ color: "var(--gold)", textDecoration: "none" }}>Kenya</Link>, Ethiopia, and parts of South-East Asia. Soft rot (<em>Pectobacterium</em> and <em>Dickeya</em>) affects post-harvest <Link href="/knowledge/potato-storage-cold-chain" style={{ color: "var(--gold)", textDecoration: "none" }}>cold-chain storage</Link> worldwide. Common scab degrades market quality without dramatic yield loss. The full disease landscape is summarized below.</p>
 
       <div style={{ overflowX: "auto", marginBottom: 8 }}>
         <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 14 }}>
           <thead><tr>{["Disease","Pathogen","Symptoms","Loss potential","Primary control"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {diseases.map((r, i) => (
-              <tr key={r[0]} style={{ background: i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={r[0]} style={{ background: i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
-                <td style={{ ...sTd, fontStyle: "italic", color: "#555" }}>{r[1]}</td>
+                <td style={{ ...sTd, fontStyle: "italic", color: "var(--mute)" }}>{r[1]}</td>
                 <td style={sTd}>{r[2]}</td>
                 <td style={sTd}>{r[3]}</td>
-                <td style={{ ...sTd, color: "#666" }}>{r[4]}</td>
+                <td style={{ ...sTd, color: "var(--mute)" }}>{r[4]}</td>
               </tr>
             ))}
           </tbody>
@@ -5714,14 +5714,14 @@ function PotatoDiseasesPests() {
       <StatCallout number="$6.7B" context="annual global losses to late blight, the single most economically destructive potato pathogen worldwide." source="CIP" />
 
       <h2 id="late-blight-symptoms" style={sH2}>What are the symptoms of late blight in potatoes?</h2>
-      <p style={sP}>Foliar symptoms of late blight begin as small, water-soaked, pale-green lesions on lower leaves &mdash; typically along leaf margins and tips where water accumulates. Within 24&ndash;48 hours of infection, lesions expand into irregular brown patches with a faint chlorotic halo. In humid conditions a fine white sporulation ring appears on the underside of affected leaves. Stems develop dark brown lesions that girdle and kill foliage rapidly. Under ideal conditions (cool, wet, 10&ndash;20&deg;C, prolonged leaf wetness) an entire field can collapse within 7&ndash;10 days of first symptoms. The aggressive nature of this disease is why <Link href="/country/united-kingdom" style={{ color: "#C62828", textDecoration: "none" }}>UK</Link>, <Link href="/country/netherlands" style={{ color: "#C62828", textDecoration: "none" }}>Dutch</Link>, and Belgian growers run 12&ndash;20 protectant fungicide applications per season under the EuroBlight monitoring programme.</p>
-      <p style={sP}>Tuber infection occurs via two routes: zoospores washing down from foliar lesions during rain, and direct contact with infected debris during harvest. Infected tubers develop dry, granular, reddish-brown rot extending from the surface inward through the cortex. Secondary bacterial soft-rot organisms typically follow, producing a wet, foul-smelling collapse during storage. A single infected tuber dropped into a 5,000-tonne bulk store can seed losses across the entire load &mdash; one reason the cold chain protocols described in our <Link href="/answers/potato-cold-storage-temperature" style={{ color: "#C62828", textDecoration: "none" }}>cold storage answer</Link> emphasize tuber inspection at the loading face.</p>
-      <p style={sP}>Diagnostic confirmation matters because early-stage symptoms can be confused with early blight (<em>Alternaria solani</em>), magnesium deficiency, or chemical burn. Cooperative extension services in the <Link href="/country/united-states" style={{ color: "#C62828", textDecoration: "none" }}>United States</Link>, EuroBlight in Europe, and CPRI in <Link href="/country/india" style={{ color: "#C62828", textDecoration: "none" }}>India</Link> all maintain DSS (decision support system) tools that combine weather forecasts, sporulation predictions, and field reports to time fungicide sprays and minimize unnecessary applications.</p>
+      <p style={sP}>Foliar symptoms of late blight begin as small, water-soaked, pale-green lesions on lower leaves &mdash; typically along leaf margins and tips where water accumulates. Within 24&ndash;48 hours of infection, lesions expand into irregular brown patches with a faint chlorotic halo. In humid conditions a fine white sporulation ring appears on the underside of affected leaves. Stems develop dark brown lesions that girdle and kill foliage rapidly. Under ideal conditions (cool, wet, 10&ndash;20&deg;C, prolonged leaf wetness) an entire field can collapse within 7&ndash;10 days of first symptoms. The aggressive nature of this disease is why <Link href="/country/united-kingdom" style={{ color: "var(--gold)", textDecoration: "none" }}>UK</Link>, <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Dutch</Link>, and Belgian growers run 12&ndash;20 protectant fungicide applications per season under the EuroBlight monitoring programme.</p>
+      <p style={sP}>Tuber infection occurs via two routes: zoospores washing down from foliar lesions during rain, and direct contact with infected debris during harvest. Infected tubers develop dry, granular, reddish-brown rot extending from the surface inward through the cortex. Secondary bacterial soft-rot organisms typically follow, producing a wet, foul-smelling collapse during storage. A single infected tuber dropped into a 5,000-tonne bulk store can seed losses across the entire load &mdash; one reason the cold chain protocols described in our <Link href="/answers/potato-cold-storage-temperature" style={{ color: "var(--gold)", textDecoration: "none" }}>cold storage answer</Link> emphasize tuber inspection at the loading face.</p>
+      <p style={sP}>Diagnostic confirmation matters because early-stage symptoms can be confused with early blight (<em>Alternaria solani</em>), magnesium deficiency, or chemical burn. Cooperative extension services in the <Link href="/country/united-states" style={{ color: "var(--gold)", textDecoration: "none" }}>United States</Link>, EuroBlight in Europe, and CPRI in <Link href="/country/india" style={{ color: "var(--gold)", textDecoration: "none" }}>India</Link> all maintain DSS (decision support system) tools that combine weather forecasts, sporulation predictions, and field reports to time fungicide sprays and minimize unnecessary applications.</p>
 
       <h2 id="viruses" style={sH2}>Which viruses affect potato crops most?</h2>
-      <p style={sP}>More than 30 viruses are known to infect cultivated potato (CIP), but four account for the bulk of commercial losses: potato virus Y (PVY), potato leafroll virus (PLRV), potato virus X (PVX), and potato spindle tuber viroid (PSTVd). All except PSTVd are aphid-transmitted, which is why aphid management is central to seed potato production globally. Virus titre accumulates with each generation of vegetative propagation, which is the underlying logic of the certified seed multiplication system &mdash; explored in detail in our <Link href="/knowledge/seed-potato-systems" style={{ color: "#C62828", textDecoration: "none" }}>seed potato systems guide</Link>.</p>
+      <p style={sP}>More than 30 viruses are known to infect cultivated potato (CIP), but four account for the bulk of commercial losses: potato virus Y (PVY), potato leafroll virus (PLRV), potato virus X (PVX), and potato spindle tuber viroid (PSTVd). All except PSTVd are aphid-transmitted, which is why aphid management is central to seed potato production globally. Virus titre accumulates with each generation of vegetative propagation, which is the underlying logic of the certified seed multiplication system &mdash; explored in detail in our <Link href="/knowledge/seed-potato-systems" style={{ color: "var(--gold)", textDecoration: "none" }}>seed potato systems guide</Link>.</p>
       <p style={sP}><strong>PVY</strong> is the most economically damaging virus globally, causing 5&ndash;80% yield loss depending on variety, strain, and time of infection (CIP). The PVY-N tuber necrotic strain produces severe ring necrosis (PTNRD) that disqualifies tubers from fresh and processing markets. <strong>PLRV</strong> causes characteristic upward leaf rolling and stunting, with 20&ndash;50% yield loss in susceptible varieties. <strong>PVX</strong> often produces no visible symptoms but reduces yield 10&ndash;15% and amplifies losses when co-infecting with PVY. <strong>PSTVd</strong> is a regulated quarantine pathogen in the EU and US, requiring laboratory testing of seed lots.</p>
-      <p style={sP}>Virus management depends on three pillars: (1) starting with virus-tested seed (Generation 1&ndash;3 of the certified multiplication chain), (2) suppressing aphid populations through systemic insecticides and mineral oil sprays during the critical late-summer migration period, and (3) growing resistant cultivars where available. The Indian processing industry now relies heavily on CPRI-bred PVY-resistant lines including <Link href="/varieties/kufri-jyoti" style={{ color: "#C62828", textDecoration: "none" }}>Kufri Jyoti</Link> and Kufri Pukhraj, while the US fresh-market sector uses PVY-tolerant varieties alongside aphid management. In the <Link href="/country/netherlands" style={{ color: "#C62828", textDecoration: "none" }}>Netherlands</Link>, the NAK seed inspectorate enforces strict virus tolerances by certification class &mdash; details in our <Link href="/answers/seed-potato-certification" style={{ color: "#C62828", textDecoration: "none" }}>seed certification answer</Link>.</p>
+      <p style={sP}>Virus management depends on three pillars: (1) starting with virus-tested seed (Generation 1&ndash;3 of the certified multiplication chain), (2) suppressing aphid populations through systemic insecticides and mineral oil sprays during the critical late-summer migration period, and (3) growing resistant cultivars where available. The Indian processing industry now relies heavily on CPRI-bred PVY-resistant lines including <Link href="/varieties/kufri-jyoti" style={{ color: "var(--gold)", textDecoration: "none" }}>Kufri Jyoti</Link> and Kufri Pukhraj, while the US fresh-market sector uses PVY-tolerant varieties alongside aphid management. In the <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link>, the NAK seed inspectorate enforces strict virus tolerances by certification class &mdash; details in our <Link href="/answers/seed-potato-certification" style={{ color: "var(--gold)", textDecoration: "none" }}>seed certification answer</Link>.</p>
 
       <StatCallout number="1M+" context="deaths in Ireland from late blight crop failures during the 1845–52 famine — the most catastrophic single agricultural disease event in modern history." source="Historical estimates; CIP" />
 
@@ -5733,36 +5733,36 @@ function PotatoDiseasesPests() {
           <thead><tr>{["Pest","Region","Damage","Primary control"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {pests.map((r, i) => (
-              <tr key={r[0]} style={{ background: i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={r[0]} style={{ background: i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
                 <td style={sTd}>{r[1]}</td>
                 <td style={sTd}>{r[2]}</td>
-                <td style={{ ...sTd, color: "#666" }}>{r[3]}</td>
+                <td style={{ ...sTd, color: "var(--mute)" }}>{r[3]}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
       <p style={sSource}>Source: CIP Pest and Disease Compendium; USDA APHIS; FAO Integrated Pest Management Sourcebook.</p>
-      <p style={sP}>The <strong>Colorado potato beetle</strong> (<em>Leptinotarsa decemlineata</em>) is the iconic potato defoliator. Native to the <Link href="/country/mexico" style={{ color: "#C62828", textDecoration: "none" }}>Mexico</Link>&ndash;US borderlands, it spread across North America in the 1850s as commercial potato cultivation expanded, then crossed the Atlantic during World War II. It is now established across Europe and central Asia, and is a quarantine concern in <Link href="/country/united-kingdom" style={{ color: "#C62828", textDecoration: "none" }}>Britain</Link> where it has not yet established. The beetle is famously plastic in evolving insecticide resistance &mdash; documented resistance to over 50 chemistries in the past 70 years (USDA-ARS).</p>
-      <p style={sP}><strong>Potato cyst nematode</strong> (PCN) is the most heavily regulated potato pest. The two species <em>Globodera rostochiensis</em> (golden) and <em>G. pallida</em> (pale) form persistent cysts containing eggs that remain viable in soil for 20+ years. PCN is quarantined under USDA APHIS, EU Plant Health Regulation 2016/2031, and Indian Plant Quarantine Order. A single farm-level detection typically triggers movement restrictions and mandatory rotation with resistant cultivars. Originally Andean &mdash; the species evolved alongside cultivated potato in <Link href="/country/peru" style={{ color: "#C62828", textDecoration: "none" }}>Peru</Link> and <Link href="/country/colombia" style={{ color: "#C62828", textDecoration: "none" }}>Colombia</Link> &mdash; PCN spread to Europe in the 19th century via seed shipments and now affects most major producing regions.</p>
+      <p style={sP}>The <strong>Colorado potato beetle</strong> (<em>Leptinotarsa decemlineata</em>) is the iconic potato defoliator. Native to the <Link href="/country/mexico" style={{ color: "var(--gold)", textDecoration: "none" }}>Mexico</Link>&ndash;US borderlands, it spread across North America in the 1850s as commercial potato cultivation expanded, then crossed the Atlantic during World War II. It is now established across Europe and central Asia, and is a quarantine concern in <Link href="/country/united-kingdom" style={{ color: "var(--gold)", textDecoration: "none" }}>Britain</Link> where it has not yet established. The beetle is famously plastic in evolving insecticide resistance &mdash; documented resistance to over 50 chemistries in the past 70 years (USDA-ARS).</p>
+      <p style={sP}><strong>Potato cyst nematode</strong> (PCN) is the most heavily regulated potato pest. The two species <em>Globodera rostochiensis</em> (golden) and <em>G. pallida</em> (pale) form persistent cysts containing eggs that remain viable in soil for 20+ years. PCN is quarantined under USDA APHIS, EU Plant Health Regulation 2016/2031, and Indian Plant Quarantine Order. A single farm-level detection typically triggers movement restrictions and mandatory rotation with resistant cultivars. Originally Andean &mdash; the species evolved alongside cultivated potato in <Link href="/country/peru" style={{ color: "var(--gold)", textDecoration: "none" }}>Peru</Link> and <Link href="/country/colombia" style={{ color: "var(--gold)", textDecoration: "none" }}>Colombia</Link> &mdash; PCN spread to Europe in the 19th century via seed shipments and now affects most major producing regions.</p>
 
       <h2 id="ipm" style={sH2}>How does integrated pest management work for potato?</h2>
-      <p style={sP}>Integrated pest management (IPM) for potato combines five interlocking practices: (1) <strong>certified seed</strong> to enter the season virus- and disease-free; (2) <strong>crop rotation</strong> away from solanaceous crops (3&ndash;4 years minimum, 6+ years on PCN-affected ground); (3) <strong>resistant cultivar selection</strong> matched to local pathogen pressure; (4) <strong>scouting and threshold-based spraying</strong> rather than calendar-based; and (5) <strong>post-harvest sanitation</strong> &mdash; volunteer plant removal, cull pile destruction, and storage hygiene. The <Link href="/knowledge/common-potato-growing-mistakes" style={{ color: "#C62828", textDecoration: "none" }}>common growing mistakes guide</Link> covers the field-management end of these practices in detail.</p>
+      <p style={sP}>Integrated pest management (IPM) for potato combines five interlocking practices: (1) <strong>certified seed</strong> to enter the season virus- and disease-free; (2) <strong>crop rotation</strong> away from solanaceous crops (3&ndash;4 years minimum, 6+ years on PCN-affected ground); (3) <strong>resistant cultivar selection</strong> matched to local pathogen pressure; (4) <strong>scouting and threshold-based spraying</strong> rather than calendar-based; and (5) <strong>post-harvest sanitation</strong> &mdash; volunteer plant removal, cull pile destruction, and storage hygiene. The <Link href="/knowledge/common-potato-growing-mistakes" style={{ color: "var(--gold)", textDecoration: "none" }}>common growing mistakes guide</Link> covers the field-management end of these practices in detail.</p>
       <p style={sP}>Decision support systems are now standard in commercial production. EuroBlight (Europe), USABlight (United States), and DSS-CPRI (India) deliver field-specific late blight risk forecasts based on temperature, leaf wetness, and reported sporulation, allowing growers to spray exactly when the pathogen is moving rather than on a fixed calendar. Adoption can cut fungicide applications by 20&ndash;40% without yield penalty. Aphid suction traps (Rothamsted Insect Survey in the UK; Northeast Aphid Suction Trap Network in the US) provide PVY infection-pressure forecasts for seed potato production zones.</p>
-      <p style={sP}>Biological control is gaining traction, particularly in <Link href="/country/germany" style={{ color: "#C62828", textDecoration: "none" }}>European</Link> organic systems and in CIP&apos;s smallholder programmes in East Africa. <em>Bacillus subtilis</em> formulations help suppress soil-borne diseases; <em>Beauveria bassiana</em> infects Colorado potato beetle larvae; and predator releases (<em>Hippodamia</em> and <em>Coleomegilla</em> ladybeetles) can suppress aphid populations in non-spray windows. Regulatory phase-outs of older chemistries &mdash; including chlorpropham (CIPC, banned in EU 2020 for sprout suppression), neonicotinoids (restricted in EU outdoor uses since 2018), and mancozeb (EU non-renewal completed) &mdash; are accelerating the shift to biologicals and resistant varieties.</p>
+      <p style={sP}>Biological control is gaining traction, particularly in <Link href="/country/germany" style={{ color: "var(--gold)", textDecoration: "none" }}>European</Link> organic systems and in CIP&apos;s smallholder programmes in East Africa. <em>Bacillus subtilis</em> formulations help suppress soil-borne diseases; <em>Beauveria bassiana</em> infects Colorado potato beetle larvae; and predator releases (<em>Hippodamia</em> and <em>Coleomegilla</em> ladybeetles) can suppress aphid populations in non-spray windows. Regulatory phase-outs of older chemistries &mdash; including chlorpropham (CIPC, banned in EU 2020 for sprout suppression), neonicotinoids (restricted in EU outdoor uses since 2018), and mancozeb (EU non-renewal completed) &mdash; are accelerating the shift to biologicals and resistant varieties.</p>
 
       <StatCallout number="94%+" context="of India's potato area is now planted to CPRI-bred cultivars, most carrying late-blight and PVY resistance from CPRI's 75+ year breeding programme." source="ICAR-CPRI" />
 
       <h2 id="monoculture" style={sH2}>Why is monoculture a disease risk for potatoes?</h2>
-      <p style={sP}>Potato is propagated vegetatively &mdash; each commercial tuber is a clone of its parent. This means that within a single cultivar, every plant has identical resistance genes. When a virulent new pathogen arrives, it sweeps through uniformly susceptible fields without genetic friction. The 1845 Irish disaster is the canonical example: roughly 90% of <Link href="/country/ireland" style={{ color: "#C62828", textDecoration: "none" }}>Irish</Link> potato area was a single variety (Lumper), so when <em>P. infestans</em> arrived from the Americas there was no genetic diversity to slow its spread.</p>
-      <p style={sP}>The same vulnerability persists today in modernized form. <Link href="/knowledge/russet-burbank-history" style={{ color: "#C62828", textDecoration: "none" }}>Russet Burbank</Link> occupies an estimated 60&ndash;70% of <Link href="/country/united-states" style={{ color: "#C62828", textDecoration: "none" }}>Idaho</Link>&apos;s commercial acreage. <Link href="/varieties/maris-piper" style={{ color: "#C62828", textDecoration: "none" }}>Maris Piper</Link> dominates the UK fresh and processing market. <Link href="/country/india" style={{ color: "#C62828", textDecoration: "none" }}>India</Link>&apos;s commercial production is concentrated in fewer than ten Kufri varieties out of CPRI&apos;s 75+ released cultivars. A novel pathogen capable of breaking the dominant resistance genes in any of these varieties would have catastrophic regional consequences.</p>
-      <p style={sP}>The structural answer is genetic diversity in the field and in the genebank. CIP maintains the world&apos;s largest potato genetic resource &mdash; over 4,350 accessions including more than 3,000 native Andean varieties and 180+ wild <em>Solanum</em> species &mdash; preserved at the Lima genebank and in cryopreservation. CPRI in <Link href="/country/india" style={{ color: "#C62828", textDecoration: "none" }}>India</Link>, NIVAP in the <Link href="/country/netherlands" style={{ color: "#C62828", textDecoration: "none" }}>Netherlands</Link>, and the US Potato Genebank in Wisconsin all maintain working collections drawn on by breeders. The <Link href="/knowledge/potato-diversity-origins-peru" style={{ color: "#C62828", textDecoration: "none" }}>4,000-variety Andean origin</Link> is not a curiosity &mdash; it is the genetic raw material that defends every commercial cultivar against the next pathogen.</p>
+      <p style={sP}>Potato is propagated vegetatively &mdash; each commercial tuber is a clone of its parent. This means that within a single cultivar, every plant has identical resistance genes. When a virulent new pathogen arrives, it sweeps through uniformly susceptible fields without genetic friction. The 1845 Irish disaster is the canonical example: roughly 90% of <Link href="/country/ireland" style={{ color: "var(--gold)", textDecoration: "none" }}>Irish</Link> potato area was a single variety (Lumper), so when <em>P. infestans</em> arrived from the Americas there was no genetic diversity to slow its spread.</p>
+      <p style={sP}>The same vulnerability persists today in modernized form. <Link href="/knowledge/russet-burbank-history" style={{ color: "var(--gold)", textDecoration: "none" }}>Russet Burbank</Link> occupies an estimated 60&ndash;70% of <Link href="/country/united-states" style={{ color: "var(--gold)", textDecoration: "none" }}>Idaho</Link>&apos;s commercial acreage. <Link href="/varieties/maris-piper" style={{ color: "var(--gold)", textDecoration: "none" }}>Maris Piper</Link> dominates the UK fresh and processing market. <Link href="/country/india" style={{ color: "var(--gold)", textDecoration: "none" }}>India</Link>&apos;s commercial production is concentrated in fewer than ten Kufri varieties out of CPRI&apos;s 75+ released cultivars. A novel pathogen capable of breaking the dominant resistance genes in any of these varieties would have catastrophic regional consequences.</p>
+      <p style={sP}>The structural answer is genetic diversity in the field and in the genebank. CIP maintains the world&apos;s largest potato genetic resource &mdash; over 4,350 accessions including more than 3,000 native Andean varieties and 180+ wild <em>Solanum</em> species &mdash; preserved at the Lima genebank and in cryopreservation. CPRI in <Link href="/country/india" style={{ color: "var(--gold)", textDecoration: "none" }}>India</Link>, NIVAP in the <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link>, and the US Potato Genebank in Wisconsin all maintain working collections drawn on by breeders. The <Link href="/knowledge/potato-diversity-origins-peru" style={{ color: "var(--gold)", textDecoration: "none" }}>4,000-variety Andean origin</Link> is not a curiosity &mdash; it is the genetic raw material that defends every commercial cultivar against the next pathogen.</p>
 
       <h2 id="country-pressure" style={sH2}>Which countries have the heaviest disease pressure?</h2>
-      <p style={sP}>Disease pressure is driven by climate, rotation intensity, and seed quality. The <strong>Andean highlands</strong> (<Link href="/country/peru" style={{ color: "#C62828", textDecoration: "none" }}>Peru</Link>, <Link href="/country/colombia" style={{ color: "#C62828", textDecoration: "none" }}>Colombia</Link>, Ecuador, Bolivia) have the longest disease coevolution history with potato &mdash; <em>P. infestans</em>, PCN, and most major potato pathogens originated in this region. Smallholder Andean systems still rely heavily on traditional native variety mixtures that provide built-in disease buffer, though commercial production faces high spray costs.</p>
-      <p style={sP}>The <strong>tropical East Africa highlands</strong> face severe bacterial wilt pressure. <Link href="/country/kenya" style={{ color: "#C62828", textDecoration: "none" }}>Kenya</Link> and Ethiopia commonly lose 30&ndash;90% of crops in affected fields, made worse by the 10&ndash;15% certified seed adoption rate that propagates infected seed across smallholder networks. CIP&apos;s <Link href="/blog/kenya-potato-boom-wpc-2026" style={{ color: "#C62828", textDecoration: "none" }}>East Africa programme</Link> has been pushing certified seed multiplication and clean-seed projects since the 2010s, with CGIAR-backed seed companies emerging in Kenya.</p>
-      <p style={sP}><strong>Northern Europe</strong> (<Link href="/country/netherlands" style={{ color: "#C62828", textDecoration: "none" }}>NL</Link>, <Link href="/country/belgium" style={{ color: "#C62828", textDecoration: "none" }}>BE</Link>, <Link href="/country/germany" style={{ color: "#C62828", textDecoration: "none" }}>DE</Link>, <Link href="/country/france" style={{ color: "#C62828", textDecoration: "none" }}>FR</Link>, <Link href="/country/united-kingdom" style={{ color: "#C62828", textDecoration: "none" }}>UK</Link>) faces the most aggressive late blight pressure in commercial production, requiring 12&ndash;20 fungicide applications per season under EuroBlight protocols. The <strong>US Pacific Northwest</strong> (<Link href="/country/united-states" style={{ color: "#C62828", textDecoration: "none" }}>Idaho, Washington, Oregon</Link>) faces pressure from PVY and PCN; PCN was first detected in Idaho in 2006 and triggered ongoing federal-state quarantine programmes. <strong>India</strong> manages late blight, PVY, and increasingly Brown Rot (<em>Ralstonia</em>) under CPRI-led variety deployment and the <Link href="/knowledge/kufri-potato-varieties-india" style={{ color: "#C62828", textDecoration: "none" }}>Kufri variety pipeline</Link>.</p>
+      <p style={sP}>Disease pressure is driven by climate, rotation intensity, and seed quality. The <strong>Andean highlands</strong> (<Link href="/country/peru" style={{ color: "var(--gold)", textDecoration: "none" }}>Peru</Link>, <Link href="/country/colombia" style={{ color: "var(--gold)", textDecoration: "none" }}>Colombia</Link>, Ecuador, Bolivia) have the longest disease coevolution history with potato &mdash; <em>P. infestans</em>, PCN, and most major potato pathogens originated in this region. Smallholder Andean systems still rely heavily on traditional native variety mixtures that provide built-in disease buffer, though commercial production faces high spray costs.</p>
+      <p style={sP}>The <strong>tropical East Africa highlands</strong> face severe bacterial wilt pressure. <Link href="/country/kenya" style={{ color: "var(--gold)", textDecoration: "none" }}>Kenya</Link> and Ethiopia commonly lose 30&ndash;90% of crops in affected fields, made worse by the 10&ndash;15% certified seed adoption rate that propagates infected seed across smallholder networks. CIP&apos;s <Link href="/blog/kenya-potato-boom-wpc-2026" style={{ color: "var(--gold)", textDecoration: "none" }}>East Africa programme</Link> has been pushing certified seed multiplication and clean-seed projects since the 2010s, with CGIAR-backed seed companies emerging in Kenya.</p>
+      <p style={sP}><strong>Northern Europe</strong> (<Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>NL</Link>, <Link href="/country/belgium" style={{ color: "var(--gold)", textDecoration: "none" }}>BE</Link>, <Link href="/country/germany" style={{ color: "var(--gold)", textDecoration: "none" }}>DE</Link>, <Link href="/country/france" style={{ color: "var(--gold)", textDecoration: "none" }}>FR</Link>, <Link href="/country/united-kingdom" style={{ color: "var(--gold)", textDecoration: "none" }}>UK</Link>) faces the most aggressive late blight pressure in commercial production, requiring 12&ndash;20 fungicide applications per season under EuroBlight protocols. The <strong>US Pacific Northwest</strong> (<Link href="/country/united-states" style={{ color: "var(--gold)", textDecoration: "none" }}>Idaho, Washington, Oregon</Link>) faces pressure from PVY and PCN; PCN was first detected in Idaho in 2006 and triggered ongoing federal-state quarantine programmes. <strong>India</strong> manages late blight, PVY, and increasingly Brown Rot (<em>Ralstonia</em>) under CPRI-led variety deployment and the <Link href="/knowledge/kufri-potato-varieties-india" style={{ color: "var(--gold)", textDecoration: "none" }}>Kufri variety pipeline</Link>.</p>
 
       <SourceBlock sources={[
         "CIP (International Potato Center) — Pest and Disease Compendium; global late blight loss estimates",
@@ -5783,14 +5783,14 @@ function PotatoDiseasesPests() {
       <RelatedArticles articles={relatedArticles} />
 
       <section style={{ marginTop: 48 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Explore Country Profiles</h2>
+        <h2 style={{ fontSize: 20, fontWeight: 700, color: "var(--ink)", marginBottom: 16 }}>Explore Country Profiles</h2>
         <div style={{ display: "flex", gap: 10, overflowX: "auto", paddingBottom: 8 }}>
           {relatedCountries.map((c) => (
-            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "white", border: "1px solid #eee", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
+            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "var(--card)", border: "1px solid var(--line)", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
               <span style={{ fontSize: 20 }}>{c.flag}</span>
               <div>
-                <div style={{ fontSize: 13, fontWeight: 600, color: "#1A1A1A", whiteSpace: "nowrap" }}>{c.name}</div>
-                <div style={{ fontSize: 11, color: "#C62828", fontWeight: 600 }}>{c.prod} tonnes</div>
+                <div style={{ fontSize: 13, fontWeight: 600, color: "var(--ink)", whiteSpace: "nowrap" }}>{c.name}</div>
+                <div style={{ fontSize: 11, color: "var(--gold)", fontWeight: 600 }}>{c.prod} tonnes</div>
               </div>
             </Link>
           ))}
@@ -5859,12 +5859,12 @@ function SeedPotatoSystems() {
         <Breadcrumb tag="Agronomy" />
         <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 16 }}>
           <TagBadge tag="Agronomy" />
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>Updated {UPDATED_SHORT}</span>
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>11 min read</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>Updated {UPDATED_SHORT}</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>11 min read</span>
         </div>
-        <h1 style={{ fontSize: 32, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>Seed Potato Systems: Certification, Multiplication, and the Global Trade</h1>
+        <h1 style={{ fontSize: 32, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>Seed Potato Systems: Certification, Multiplication, and the Global Trade</h1>
       </HeroBanner>
 
       <div style={{ maxWidth: 820, margin: "0 auto", padding: "0 24px 80px" }}>
@@ -5885,9 +5885,9 @@ function SeedPotatoSystems() {
       <CollapsibleTOC items={tocItems} />
 
       <h2 id="what-is-cert" style={sH2}>What is seed potato certification?</h2>
-      <p style={sP}>Seed potato certification is a regulated multiplication system that delivers tubers verified to meet defined standards for genetic purity, disease and pest freedom, and physical quality. Because potato is propagated vegetatively, every tuber is a clone of its parent, so any virus or bacterial infection in the parent passes to the entire next-generation crop. Without certification, virus titres accumulate generation by generation until yield collapses by 30&ndash;50% within a few cycles. Certification breaks the cycle by anchoring the multiplication chain to disease-tested in vitro material and policing each subsequent step. For an entry-level overview see our <Link href="/answers/seed-potato-certification" style={{ color: "#C62828", textDecoration: "none" }}>seed certification answer</Link> and <Link href="/answers/certified-seed-potatoes" style={{ color: "#C62828", textDecoration: "none" }}>what certified seed potatoes are</Link>.</p>
-      <p style={sP}>Each national authority enforces a certification scheme defining tier names, virus tolerances, field-inspection counts, and post-harvest tuber-inspection samples. The <Link href="/country/netherlands" style={{ color: "#C62828", textDecoration: "none" }}>Netherlands</Link> NAK system is the de facto global gold standard, with three to five field inspections per season and specified tolerances for PVY, PLRV, blackleg, common scab, and physical defects by class. Other major systems &mdash; SASA in Scotland, GNIS-SOC in <Link href="/country/france" style={{ color: "#C62828", textDecoration: "none" }}>France</Link>, USDA in the <Link href="/country/united-states" style={{ color: "#C62828", textDecoration: "none" }}>United States</Link>, CFIA in <Link href="/country/canada" style={{ color: "#C62828", textDecoration: "none" }}>Canada</Link>, and CPRI in <Link href="/country/india" style={{ color: "#C62828", textDecoration: "none" }}>India</Link> &mdash; broadly mirror the NAK structure with national variations. The OECD Seed Schemes framework provides a degree of international harmonization that allows certified-class seed to move across borders with consistent labeling.</p>
-      <p style={sP}>The economic logic is straightforward. Certified seed costs 50&ndash;150% more per tonne than farm-saved or table-grade seed, but typically delivers 20&ndash;40% higher ware-potato yields with substantially better tuber quality. For commercial ware production at any scale, certified seed pays for itself within a single season. The tension is most acute for smallholders in <Link href="/country/india" style={{ color: "#C62828", textDecoration: "none" }}>India</Link>, <Link href="/country/bangladesh" style={{ color: "#C62828", textDecoration: "none" }}>Bangladesh</Link>, <Link href="/country/kenya" style={{ color: "#C62828", textDecoration: "none" }}>Kenya</Link>, and parts of Sub-Saharan Africa, where the cash outlay for certified seed is the single largest preplant input cost.</p>
+      <p style={sP}>Seed potato certification is a regulated multiplication system that delivers tubers verified to meet defined standards for genetic purity, disease and pest freedom, and physical quality. Because potato is propagated vegetatively, every tuber is a clone of its parent, so any virus or bacterial infection in the parent passes to the entire next-generation crop. Without certification, virus titres accumulate generation by generation until yield collapses by 30&ndash;50% within a few cycles. Certification breaks the cycle by anchoring the multiplication chain to disease-tested in vitro material and policing each subsequent step. For an entry-level overview see our <Link href="/answers/seed-potato-certification" style={{ color: "var(--gold)", textDecoration: "none" }}>seed certification answer</Link> and <Link href="/answers/certified-seed-potatoes" style={{ color: "var(--gold)", textDecoration: "none" }}>what certified seed potatoes are</Link>.</p>
+      <p style={sP}>Each national authority enforces a certification scheme defining tier names, virus tolerances, field-inspection counts, and post-harvest tuber-inspection samples. The <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link> NAK system is the de facto global gold standard, with three to five field inspections per season and specified tolerances for PVY, PLRV, blackleg, common scab, and physical defects by class. Other major systems &mdash; SASA in Scotland, GNIS-SOC in <Link href="/country/france" style={{ color: "var(--gold)", textDecoration: "none" }}>France</Link>, USDA in the <Link href="/country/united-states" style={{ color: "var(--gold)", textDecoration: "none" }}>United States</Link>, CFIA in <Link href="/country/canada" style={{ color: "var(--gold)", textDecoration: "none" }}>Canada</Link>, and CPRI in <Link href="/country/india" style={{ color: "var(--gold)", textDecoration: "none" }}>India</Link> &mdash; broadly mirror the NAK structure with national variations. The OECD Seed Schemes framework provides a degree of international harmonization that allows certified-class seed to move across borders with consistent labeling.</p>
+      <p style={sP}>The economic logic is straightforward. Certified seed costs 50&ndash;150% more per tonne than farm-saved or table-grade seed, but typically delivers 20&ndash;40% higher ware-potato yields with substantially better tuber quality. For commercial ware production at any scale, certified seed pays for itself within a single season. The tension is most acute for smallholders in <Link href="/country/india" style={{ color: "var(--gold)", textDecoration: "none" }}>India</Link>, <Link href="/country/bangladesh" style={{ color: "var(--gold)", textDecoration: "none" }}>Bangladesh</Link>, <Link href="/country/kenya" style={{ color: "var(--gold)", textDecoration: "none" }}>Kenya</Link>, and parts of Sub-Saharan Africa, where the cash outlay for certified seed is the single largest preplant input cost.</p>
 
       <h2 id="multiplication" style={sH2}>How does seed potato multiplication work?</h2>
       <p style={sP}>The multiplication chain begins with disease-tested mother plants in tissue culture &mdash; typically maintained at the breeder, a national research institute, or a CIP-affiliated laboratory. Plantlets are propagated to produce minitubers (small tubers grown in protected screenhouses or aeroponic chambers). These minitubers are the pre-basic (G0) starting material for field multiplication. Each subsequent year of field multiplication adds a generation number; the table below shows the typical tier structure used in most national systems.</p>
@@ -5897,45 +5897,45 @@ function SeedPotatoSystems() {
           <thead><tr>{["Class","Description","Virus tolerance","Typical use"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {certificationTiers.map((r, i) => (
-              <tr key={r[0]} style={{ background: i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={r[0]} style={{ background: i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
                 <td style={sTd}>{r[1]}</td>
                 <td style={sTd}>{r[2]}</td>
-                <td style={{ ...sTd, color: "#666" }}>{r[3]}</td>
+                <td style={{ ...sTd, color: "var(--mute)" }}>{r[3]}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
       <p style={sSource}>Source: NAK Netherlands Seed Potato Inspection Service; OECD Seed Scheme for Potato Seed; ICAR-CPRI; USDA AMS Potato Seed Inspection.</p>
-      <p style={sP}>Aeroponic minituber production has revolutionized the front end of the multiplication chain. Plantlets grow with bare roots suspended in air with nutrient mist applied periodically; a single plant can yield 50&ndash;100 minitubers vs. 5&ndash;10 in conventional pot culture. CIP&apos;s Lima research station and dozens of national programmes (notably Kenya&apos;s KEPHIS through the Wageningen-CIP partnership) operate aeroponic facilities. The practical effect is that a national system can compress 1&ndash;2 years from the multiplication pipeline, getting cleaner seed to ware growers faster. For the planting-density practicalities downstream, see our <Link href="/answers/seed-potato-yield-calculator" style={{ color: "#C62828", textDecoration: "none" }}>seed potato yield calculator</Link>.</p>
+      <p style={sP}>Aeroponic minituber production has revolutionized the front end of the multiplication chain. Plantlets grow with bare roots suspended in air with nutrient mist applied periodically; a single plant can yield 50&ndash;100 minitubers vs. 5&ndash;10 in conventional pot culture. CIP&apos;s Lima research station and dozens of national programmes (notably Kenya&apos;s KEPHIS through the Wageningen-CIP partnership) operate aeroponic facilities. The practical effect is that a national system can compress 1&ndash;2 years from the multiplication pipeline, getting cleaner seed to ware growers faster. For the planting-density practicalities downstream, see our <Link href="/answers/seed-potato-yield-calculator" style={{ color: "var(--gold)", textDecoration: "none" }}>seed potato yield calculator</Link>.</p>
 
       <StatCallout number="1.48M t" context="of certified seed exported annually by the Netherlands — about 75% of all internationally traded seed potato." source="NAK; UN Comtrade" />
 
       <h2 id="top-exporter" style={sH2}>Which country exports the most seed potatoes?</h2>
-      <p style={sP}>The <Link href="/country/netherlands" style={{ color: "#C62828", textDecoration: "none" }}>Netherlands</Link> is the dominant global seed potato exporter, with approximately 1.48 million tonnes shipped annually to 80+ countries (NAK). Two-thirds of all globally registered potato cultivars were bred in the Netherlands by HZPC, Agrico, Meijer, Stet Holland, and a handful of other breeders. The combination of centuries-deep breeding, the world&apos;s most rigorous certification system, dense Rotterdam logistics, and ideal cool-maritime growing conditions for seed multiplication is hard to replicate. Our dedicated <Link href="/answers/netherlands-seed-potato-exports" style={{ color: "#C62828", textDecoration: "none" }}>Dutch seed exports answer</Link> covers the financial structure of this trade, and the <Link href="/blog/dutch-seed-potato-empire" style={{ color: "#C62828", textDecoration: "none" }}>Dutch seed potato empire blog</Link> traces the historical buildout.</p>
+      <p style={sP}>The <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link> is the dominant global seed potato exporter, with approximately 1.48 million tonnes shipped annually to 80+ countries (NAK). Two-thirds of all globally registered potato cultivars were bred in the Netherlands by HZPC, Agrico, Meijer, Stet Holland, and a handful of other breeders. The combination of centuries-deep breeding, the world&apos;s most rigorous certification system, dense Rotterdam logistics, and ideal cool-maritime growing conditions for seed multiplication is hard to replicate. Our dedicated <Link href="/answers/netherlands-seed-potato-exports" style={{ color: "var(--gold)", textDecoration: "none" }}>Dutch seed exports answer</Link> covers the financial structure of this trade, and the <Link href="/blog/dutch-seed-potato-empire" style={{ color: "var(--gold)", textDecoration: "none" }}>Dutch seed potato empire blog</Link> traces the historical buildout.</p>
 
       <div style={{ overflowX: "auto", marginBottom: 8 }}>
         <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 14 }}>
           <thead><tr>{["Country","Annual exports (t)","Lead inspectorate","Top destinations"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {topExporters.map((r, i) => (
-              <tr key={r[0]} style={{ background: i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={r[0]} style={{ background: i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
                 <td style={sTd}>{r[1]}</td>
                 <td style={sTd}>{r[2]}</td>
-                <td style={{ ...sTd, color: "#666" }}>{r[3]}</td>
+                <td style={{ ...sTd, color: "var(--mute)" }}>{r[3]}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
       <p style={sSource}>Source: UN Comtrade HS 0701.10; national seed authority annual reports; FAOSTAT.</p>
-      <p style={sP}>Outside the Dutch dominance, four secondary exporters matter: <Link href="/country/france" style={{ color: "#C62828", textDecoration: "none" }}>France</Link> (a major supplier to North Africa under the GNIS/SOC system), <Link href="/country/germany" style={{ color: "#C62828", textDecoration: "none" }}>Germany</Link>, the <Link href="/country/united-kingdom" style={{ color: "#C62828", textDecoration: "none" }}>UK</Link> (Scotland in particular &mdash; SASA-certified seed historically supplied much of the Mediterranean region, though Brexit has reorganized the trade), and <Link href="/country/canada" style={{ color: "#C62828", textDecoration: "none" }}>Canada</Link> (CFIA-certified seed for the US fresh market and Latin America). <Link href="/country/denmark" style={{ color: "#C62828", textDecoration: "none" }}>Denmark</Link> ships substantial volumes within the EU. National importers include Egypt, Algeria, Morocco, Bangladesh, Saudi Arabia, Iran, and Pakistan.</p>
+      <p style={sP}>Outside the Dutch dominance, four secondary exporters matter: <Link href="/country/france" style={{ color: "var(--gold)", textDecoration: "none" }}>France</Link> (a major supplier to North Africa under the GNIS/SOC system), <Link href="/country/germany" style={{ color: "var(--gold)", textDecoration: "none" }}>Germany</Link>, the <Link href="/country/united-kingdom" style={{ color: "var(--gold)", textDecoration: "none" }}>UK</Link> (Scotland in particular &mdash; SASA-certified seed historically supplied much of the Mediterranean region, though Brexit has reorganized the trade), and <Link href="/country/canada" style={{ color: "var(--gold)", textDecoration: "none" }}>Canada</Link> (CFIA-certified seed for the US fresh market and Latin America). <Link href="/country/denmark" style={{ color: "var(--gold)", textDecoration: "none" }}>Denmark</Link> ships substantial volumes within the EU. National importers include Egypt, Algeria, Morocco, Bangladesh, Saudi Arabia, Iran, and Pakistan.</p>
 
       <h2 id="seed-vs-ware" style={sH2}>What is the difference between seed and ware potato?</h2>
       <p style={sP}>Seed and ware potatoes look superficially similar but serve different purposes and grow under different protocols. <strong>Ware potatoes</strong> are grown for fresh-market, processing, or food use; their value is determined by yield per hectare, tuber size profile, and cooking/processing quality. <strong>Seed potatoes</strong> are grown for use as planting material; their value is determined by virus loading, eye viability, generation number, and freedom from regulated pests. Seed potatoes are typically harvested earlier than full maturity to keep them in a desired size range (35&ndash;55 mm for many destinations) and are roguued (visibly diseased plants pulled out) more aggressively in season.</p>
-      <p style={sP}>Storage protocols also differ. Seed storage at 2&ndash;4&deg;C with high humidity preserves dormancy through winter; tubers are then warmed to 10&ndash;15&deg;C two to four weeks before planting to break dormancy and encourage uniform chitting (controlled sprouting). Ware potato storage temperatures depend on end use &mdash; 2&ndash;4&deg;C for table, 8&ndash;12&deg;C for processing &mdash; details in our <Link href="/knowledge/potato-storage-cold-chain" style={{ color: "#C62828", textDecoration: "none" }}>cold chain article</Link> and the <Link href="/answers/how-to-save-seed-potatoes" style={{ color: "#C62828", textDecoration: "none" }}>save seed potatoes answer</Link>. Sprout suppressants used on ware (CIPC historically; 1,4-DMN, ethylene, and spearmint oil now) are <em>not</em> applied to seed because they would kill eye viability.</p>
+      <p style={sP}>Storage protocols also differ. Seed storage at 2&ndash;4&deg;C with high humidity preserves dormancy through winter; tubers are then warmed to 10&ndash;15&deg;C two to four weeks before planting to break dormancy and encourage uniform chitting (controlled sprouting). Ware potato storage temperatures depend on end use &mdash; 2&ndash;4&deg;C for table, 8&ndash;12&deg;C for processing &mdash; details in our <Link href="/knowledge/potato-storage-cold-chain" style={{ color: "var(--gold)", textDecoration: "none" }}>cold chain article</Link> and the <Link href="/answers/how-to-save-seed-potatoes" style={{ color: "var(--gold)", textDecoration: "none" }}>save seed potatoes answer</Link>. Sprout suppressants used on ware (CIPC historically; 1,4-DMN, ethylene, and spearmint oil now) are <em>not</em> applied to seed because they would kill eye viability.</p>
 
       <h2 id="national-systems" style={sH2}>What are the major seed certification systems globally?</h2>
       <p style={sP}>Six certification systems set the tone for international seed potato quality:</p>
@@ -5944,18 +5944,18 @@ function SeedPotatoSystems() {
       <p style={sP}><strong>USDA Seed Potato Certification (United States)</strong> &mdash; State-level certification programmes coordinated nationally, with major schemes in Maine, Idaho, Wisconsin, North Dakota, Minnesota, Montana, Colorado, and Washington. USDA APHIS handles regulatory pest oversight (PCN, ring rot quarantines).</p>
       <p style={sP}><strong>CFIA (Canada)</strong> &mdash; Canadian Food Inspection Agency. CFIA-certified seed from Prince Edward Island, New Brunswick, Manitoba, and Alberta supplies the US fresh-market sector and Latin American buyers. Strict quarantine protocols around PCN and ring rot are central to the CFIA scheme.</p>
       <p style={sP}><strong>GNIS-SOC (France)</strong> &mdash; Groupement National Interprofessionnel des Semences. France is the major EU exporter to North Africa, with the SOC certification authority enforcing standards adapted from EU Marketing Directive 2002/56/EC.</p>
-      <p style={sP}><strong>ICAR-CPRI (India)</strong> &mdash; Central Potato Research Institute, Shimla. CPRI-released cultivars now occupy 94%+ of Indian potato area, but only 10&ndash;15% of Indian growers use formally certified seed. Most Indian production runs on "table seed" &mdash; ware potato saved for planting, with no virus testing. Closing this seed-quality gap is the single largest yield improvement opportunity in <Link href="/country/india" style={{ color: "#C62828", textDecoration: "none" }}>India</Link> and the focus of CPRI&apos;s aeroponic minituber programme.</p>
+      <p style={sP}><strong>ICAR-CPRI (India)</strong> &mdash; Central Potato Research Institute, Shimla. CPRI-released cultivars now occupy 94%+ of Indian potato area, but only 10&ndash;15% of Indian growers use formally certified seed. Most Indian production runs on "table seed" &mdash; ware potato saved for planting, with no virus testing. Closing this seed-quality gap is the single largest yield improvement opportunity in <Link href="/country/india" style={{ color: "var(--gold)", textDecoration: "none" }}>India</Link> and the focus of CPRI&apos;s aeroponic minituber programme.</p>
 
       <h2 id="tps" style={sH2}>What are true potato seeds (TPS)?</h2>
-      <p style={sP}>True potato seed (TPS) is the actual botanical seed produced inside potato berries (the small green fruit), as opposed to the seed-tubers used in conventional propagation. TPS produces genetically variable progeny because it is sexual rather than vegetative reproduction. The primary appeal is logistical: 100 grams of TPS replaces approximately 2,000 kg of seed tubers per hectare &mdash; a 20,000-fold reduction in mass that solves the seed-supply bottleneck for smallholder agriculture in regions where seed tuber multiplication is undeveloped. CIP and Indian programmes have used TPS for production in <Link href="/country/bangladesh" style={{ color: "#C62828", textDecoration: "none" }}>Bangladesh</Link>, Vietnam, parts of <Link href="/country/china" style={{ color: "#C62828", textDecoration: "none" }}>China</Link>, and selected regions of South Asia. Our dedicated <Link href="/answers/true-potato-seeds" style={{ color: "#C62828", textDecoration: "none" }}>TPS answer</Link> covers the practical mechanics.</p>
-      <p style={sP}>The trade-off is genetic uniformity. Vegetatively-propagated seed tubers produce uniform clones; TPS-derived plants vary in tuber size, skin colour, maturity, and processing quality. This is acceptable for subsistence and household production but problematic for commercial fresh-market or processing channels that depend on tight specifications. Recent breeding work at <Link href="/country/netherlands" style={{ color: "#C62828", textDecoration: "none" }}>Dutch</Link> firms (notably Solynta) has produced inbred-line F1 hybrid TPS varieties that deliver near-uniform progeny, potentially extending TPS into commercial production. Field trials are underway in multiple geographies.</p>
+      <p style={sP}>True potato seed (TPS) is the actual botanical seed produced inside potato berries (the small green fruit), as opposed to the seed-tubers used in conventional propagation. TPS produces genetically variable progeny because it is sexual rather than vegetative reproduction. The primary appeal is logistical: 100 grams of TPS replaces approximately 2,000 kg of seed tubers per hectare &mdash; a 20,000-fold reduction in mass that solves the seed-supply bottleneck for smallholder agriculture in regions where seed tuber multiplication is undeveloped. CIP and Indian programmes have used TPS for production in <Link href="/country/bangladesh" style={{ color: "var(--gold)", textDecoration: "none" }}>Bangladesh</Link>, Vietnam, parts of <Link href="/country/china" style={{ color: "var(--gold)", textDecoration: "none" }}>China</Link>, and selected regions of South Asia. Our dedicated <Link href="/answers/true-potato-seeds" style={{ color: "var(--gold)", textDecoration: "none" }}>TPS answer</Link> covers the practical mechanics.</p>
+      <p style={sP}>The trade-off is genetic uniformity. Vegetatively-propagated seed tubers produce uniform clones; TPS-derived plants vary in tuber size, skin colour, maturity, and processing quality. This is acceptable for subsistence and household production but problematic for commercial fresh-market or processing channels that depend on tight specifications. Recent breeding work at <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Dutch</Link> firms (notably Solynta) has produced inbred-line F1 hybrid TPS varieties that deliver near-uniform progeny, potentially extending TPS into commercial production. Field trials are underway in multiple geographies.</p>
 
       <StatCallout number="10–15%" context="share of Indian farmers using formally certified seed potatoes — the single largest yield improvement opportunity in Indian potato production." source="ICAR-CPRI" />
 
       <h2 id="developing-bottleneck" style={sH2}>Why is seed quality a bottleneck in developing countries?</h2>
-      <p style={sP}>Across most of South Asia, Sub-Saharan Africa, and parts of Latin America, seed quality is the single largest yield constraint in potato production. <Link href="/country/kenya" style={{ color: "#C62828", textDecoration: "none" }}>Kenyan</Link> smallholders average 7&ndash;14 tonnes/hectare against a CIP-projected potential of 30&ndash;40 tonnes; the gap is largely closable through certified seed and basic agronomy. <Link href="/country/india" style={{ color: "#C62828", textDecoration: "none" }}>Indian</Link> ware-potato yields average 22&ndash;28 t/ha vs. NL/UK/US yields of 40&ndash;55 t/ha, with seed quality a major contributor to the gap.</p>
+      <p style={sP}>Across most of South Asia, Sub-Saharan Africa, and parts of Latin America, seed quality is the single largest yield constraint in potato production. <Link href="/country/kenya" style={{ color: "var(--gold)", textDecoration: "none" }}>Kenyan</Link> smallholders average 7&ndash;14 tonnes/hectare against a CIP-projected potential of 30&ndash;40 tonnes; the gap is largely closable through certified seed and basic agronomy. <Link href="/country/india" style={{ color: "var(--gold)", textDecoration: "none" }}>Indian</Link> ware-potato yields average 22&ndash;28 t/ha vs. NL/UK/US yields of 40&ndash;55 t/ha, with seed quality a major contributor to the gap.</p>
       <p style={sP}>Three interlocking constraints explain the persistence of low certified-seed adoption: (1) <strong>upfront cost</strong> &mdash; certified seed is the largest preplant input expense for smallholders; (2) <strong>local availability</strong> &mdash; certified seed multiplication infrastructure is concentrated in a few national systems and rarely reaches village-level distribution; and (3) <strong>knowledge</strong> &mdash; many growers do not see the visible quality difference until they grow side-by-side trials. CIP&apos;s smallholder seed-system programmes attempt all three through aeroponic minituber multiplication at sub-national hubs, microfinance for seed purchase, and demonstration trial networks.</p>
-      <p style={sP}>The most effective interventions blend the formal certified system with informal seed networks. CIP&apos;s "decentralized seed multiplication" model trains farmer cooperatives to multiply CIP-supplied G2 minitubers up to G3&ndash;G4 levels for sale to neighbouring growers, dramatically extending the reach of the formal system. Similar models operate in <Link href="/country/bangladesh" style={{ color: "#C62828", textDecoration: "none" }}>Bangladesh</Link>, Ethiopia, and Peru. The structural fix is gradual but cumulative: each generation that growers move closer to certified seed multiplies yield gains across the smallholder base.</p>
+      <p style={sP}>The most effective interventions blend the formal certified system with informal seed networks. CIP&apos;s "decentralized seed multiplication" model trains farmer cooperatives to multiply CIP-supplied G2 minitubers up to G3&ndash;G4 levels for sale to neighbouring growers, dramatically extending the reach of the formal system. Similar models operate in <Link href="/country/bangladesh" style={{ color: "var(--gold)", textDecoration: "none" }}>Bangladesh</Link>, Ethiopia, and Peru. The structural fix is gradual but cumulative: each generation that growers move closer to certified seed multiplies yield gains across the smallholder base.</p>
 
       <SourceBlock sources={[
         "NAK (Nederlandse Algemene Keuringsdienst) — Netherlands Seed Potato Inspection Service annual reports",
@@ -5977,14 +5977,14 @@ function SeedPotatoSystems() {
       <RelatedArticles articles={relatedArticles} />
 
       <section style={{ marginTop: 48 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Explore Country Profiles</h2>
+        <h2 style={{ fontSize: 20, fontWeight: 700, color: "var(--ink)", marginBottom: 16 }}>Explore Country Profiles</h2>
         <div style={{ display: "flex", gap: 10, overflowX: "auto", paddingBottom: 8 }}>
           {relatedCountries.map((c) => (
-            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "white", border: "1px solid #eee", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
+            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "var(--card)", border: "1px solid var(--line)", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
               <span style={{ fontSize: 20 }}>{c.flag}</span>
               <div>
-                <div style={{ fontSize: 13, fontWeight: 600, color: "#1A1A1A", whiteSpace: "nowrap" }}>{c.name}</div>
-                <div style={{ fontSize: 11, color: "#C62828", fontWeight: 600 }}>{c.prod} tonnes</div>
+                <div style={{ fontSize: 13, fontWeight: 600, color: "var(--ink)", whiteSpace: "nowrap" }}>{c.name}</div>
+                <div style={{ fontSize: 11, color: "var(--gold)", fontWeight: 600 }}>{c.prod} tonnes</div>
               </div>
             </Link>
           ))}
@@ -6045,12 +6045,12 @@ function ClimateChangePotatoes() {
         <Breadcrumb tag="Climate" />
         <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 16 }}>
           <TagBadge tag="Climate" />
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>Updated {UPDATED_SHORT}</span>
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>12 min read</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>Updated {UPDATED_SHORT}</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>12 min read</span>
         </div>
-        <h1 style={{ fontSize: 32, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>Climate Change &amp; Potatoes: Heat Stress, Water Scarcity, and Adaptation</h1>
+        <h1 style={{ fontSize: 32, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>Climate Change &amp; Potatoes: Heat Stress, Water Scarcity, and Adaptation</h1>
       </HeroBanner>
 
       <div style={{ maxWidth: 820, margin: "0 auto", padding: "0 24px 80px" }}>
@@ -6071,13 +6071,13 @@ function ClimateChangePotatoes() {
       <CollapsibleTOC items={tocItems} />
 
       <h2 id="how-affects" style={sH2}>How does climate change affect potato production?</h2>
-      <p style={sP}>Climate change affects potato production through four primary channels: (1) <strong>direct heat stress</strong> on tuberization, (2) <strong>changes in precipitation</strong> patterns and irrigation availability, (3) <strong>shifting pest and disease ranges</strong>, and (4) <strong>extreme weather events</strong> &mdash; heat waves, hailstorms, untimely rain at harvest. Hijmans (2003, <em>American Journal of Potato Research</em>) modelled global yield decline of 18&ndash;32% by 2055 without adaptation, with the steepest impacts concentrated in already-warm production regions of South Asia and North Africa. For an entry overview see our <Link href="/answers/potato-climate-change" style={{ color: "#C62828", textDecoration: "none" }}>climate change answer</Link>.</p>
+      <p style={sP}>Climate change affects potato production through four primary channels: (1) <strong>direct heat stress</strong> on tuberization, (2) <strong>changes in precipitation</strong> patterns and irrigation availability, (3) <strong>shifting pest and disease ranges</strong>, and (4) <strong>extreme weather events</strong> &mdash; heat waves, hailstorms, untimely rain at harvest. Hijmans (2003, <em>American Journal of Potato Research</em>) modelled global yield decline of 18&ndash;32% by 2055 without adaptation, with the steepest impacts concentrated in already-warm production regions of South Asia and North Africa. For an entry overview see our <Link href="/answers/potato-climate-change" style={{ color: "var(--gold)", textDecoration: "none" }}>climate change answer</Link>.</p>
       <p style={sP}>The temperature sensitivity is biological, not statistical. Tuberization in cultivated potato is regulated by a photoperiod-temperature interaction: short days promote tuberization, but high night temperatures inhibit it. Above 25&deg;C, tuber initiation slows; above 28&deg;C day / 20&deg;C night, it stops entirely (CIP; Levy & Veilleux 2007 <em>Potato Research</em>). The crop also responds poorly to heat-stress events during tuber bulking &mdash; even brief excursions cause hollow heart, growth cracks, and sugar end disorders that reduce processing-grade tuber quality even when total yield is maintained.</p>
-      <p style={sP}>The CO&#8322; fertilization effect partially offsets heat impacts. As a C3 plant, potato yields rise 10&ndash;25% under elevated CO&#8322; (Haverkort &amp; Verhagen 2008 <em>Potato Research</em>). However, this benefit is largely cancelled by water and temperature stress in tropical and subtropical regions. The net effect is likely strongly negative in hot lowlands, mildly positive in cool maritime regions like the <Link href="/country/netherlands" style={{ color: "#C62828", textDecoration: "none" }}>Netherlands</Link> and <Link href="/country/united-kingdom" style={{ color: "#C62828", textDecoration: "none" }}>UK</Link>, and ambiguous in mid-latitude continental zones.</p>
+      <p style={sP}>The CO&#8322; fertilization effect partially offsets heat impacts. As a C3 plant, potato yields rise 10&ndash;25% under elevated CO&#8322; (Haverkort &amp; Verhagen 2008 <em>Potato Research</em>). However, this benefit is largely cancelled by water and temperature stress in tropical and subtropical regions. The net effect is likely strongly negative in hot lowlands, mildly positive in cool maritime regions like the <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link> and <Link href="/country/united-kingdom" style={{ color: "var(--gold)", textDecoration: "none" }}>UK</Link>, and ambiguous in mid-latitude continental zones.</p>
 
       <h2 id="optimal-temp" style={sH2}>What is the optimal temperature for growing potatoes?</h2>
-      <p style={sP}>Potato is a cool-season crop. The optimal range for vegetative growth is 18&ndash;22&deg;C; for tuberization the optimum is 15&ndash;20&deg;C with a critical role for night temperatures (FAO; CIP). Tuber bulking efficiency drops linearly above 21&deg;C night temperature. Soil temperature also matters: planting into cold wet soils below 7&ndash;8&deg;C causes seed-piece rot; warm sandy soils above 30&deg;C inhibit emergence and root growth. The full agronomic context is covered in our <Link href="/knowledge/complete-potato-growing-guide" style={{ color: "#C62828", textDecoration: "none" }}>complete potato growing guide</Link>.</p>
-      <p style={sP}>This temperature sensitivity is why potato production geography is structured by latitude and altitude rather than simple climatology. <Link href="/country/peru" style={{ color: "#C62828", textDecoration: "none" }}>Peru</Link>&apos;s native varieties grow at 3,500&ndash;4,200 m altitude in the Andes &mdash; the cool diurnal temperature regime perfectly suits potato. <Link href="/country/india" style={{ color: "#C62828", textDecoration: "none" }}>India</Link>&apos;s commercial production runs in the cool winter season (October&ndash;March) in the Indo-Gangetic plain. <Link href="/country/kenya" style={{ color: "#C62828", textDecoration: "none" }}>Kenya</Link>, <Link href="/country/colombia" style={{ color: "#C62828", textDecoration: "none" }}>Colombia</Link>, <Link href="/country/indonesia" style={{ color: "#C62828", textDecoration: "none" }}>Indonesia</Link>, and Ecuador all run commercial production above 1,500&ndash;2,000 m altitude.</p>
+      <p style={sP}>Potato is a cool-season crop. The optimal range for vegetative growth is 18&ndash;22&deg;C; for tuberization the optimum is 15&ndash;20&deg;C with a critical role for night temperatures (FAO; CIP). Tuber bulking efficiency drops linearly above 21&deg;C night temperature. Soil temperature also matters: planting into cold wet soils below 7&ndash;8&deg;C causes seed-piece rot; warm sandy soils above 30&deg;C inhibit emergence and root growth. The full agronomic context is covered in our <Link href="/knowledge/complete-potato-growing-guide" style={{ color: "var(--gold)", textDecoration: "none" }}>complete potato growing guide</Link>.</p>
+      <p style={sP}>This temperature sensitivity is why potato production geography is structured by latitude and altitude rather than simple climatology. <Link href="/country/peru" style={{ color: "var(--gold)", textDecoration: "none" }}>Peru</Link>&apos;s native varieties grow at 3,500&ndash;4,200 m altitude in the Andes &mdash; the cool diurnal temperature regime perfectly suits potato. <Link href="/country/india" style={{ color: "var(--gold)", textDecoration: "none" }}>India</Link>&apos;s commercial production runs in the cool winter season (October&ndash;March) in the Indo-Gangetic plain. <Link href="/country/kenya" style={{ color: "var(--gold)", textDecoration: "none" }}>Kenya</Link>, <Link href="/country/colombia" style={{ color: "var(--gold)", textDecoration: "none" }}>Colombia</Link>, <Link href="/country/indonesia" style={{ color: "var(--gold)", textDecoration: "none" }}>Indonesia</Link>, and Ecuador all run commercial production above 1,500&ndash;2,000 m altitude.</p>
 
       <StatCallout number="25°C" context="threshold above which tuberization in cultivated potato slows; above 28°C day / 20°C night, tuber initiation stops entirely." source="CIP; Levy & Veilleux 2007" />
 
@@ -6089,38 +6089,38 @@ function ClimateChangePotatoes() {
           <thead><tr>{["Region","Current yield","Projected 2055 change","Primary risk"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {regional.map((r, i) => (
-              <tr key={r[0]} style={{ background: i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={r[0]} style={{ background: i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
                 <td style={sTd}>{r[1]}</td>
                 <td style={sTd}>{r[2]}</td>
-                <td style={{ ...sTd, color: "#666" }}>{r[3]}</td>
+                <td style={{ ...sTd, color: "var(--mute)" }}>{r[3]}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
       <p style={sSource}>Source: CIP Climate Change Assessment; CGIAR Climate Change, Agriculture and Food Security (CCAFS); Hijmans 2003; FAO regional outlooks.</p>
-      <p style={sP}><Link href="/country/india" style={{ color: "#C62828", textDecoration: "none" }}>India</Link>, <Link href="/country/bangladesh" style={{ color: "#C62828", textDecoration: "none" }}>Bangladesh</Link>, and <Link href="/country/pakistan" style={{ color: "#C62828", textDecoration: "none" }}>Pakistan</Link> face the steepest projected declines because the rabi-season cool window is shortening from both ends &mdash; later autumn cooling and earlier spring warming compress the planting-to-harvest window. <Link href="/country/egypt" style={{ color: "#C62828", textDecoration: "none" }}>Egypt</Link>&apos;s 365-day potato production system, which depends on careful sequencing of cool-season windows in the Nile Delta, faces particular pressure. <Link href="/country/kenya" style={{ color: "#C62828", textDecoration: "none" }}>Kenya</Link> and Ethiopia must contend with both heat stress and the spread of bacterial wilt under warming conditions. The <Link href="/blog/climate-change-rewriting-potato-map" style={{ color: "#C62828", textDecoration: "none" }}>climate-rewriting-the-potato-map blog</Link> traces these shifts in narrative form.</p>
+      <p style={sP}><Link href="/country/india" style={{ color: "var(--gold)", textDecoration: "none" }}>India</Link>, <Link href="/country/bangladesh" style={{ color: "var(--gold)", textDecoration: "none" }}>Bangladesh</Link>, and <Link href="/country/pakistan" style={{ color: "var(--gold)", textDecoration: "none" }}>Pakistan</Link> face the steepest projected declines because the rabi-season cool window is shortening from both ends &mdash; later autumn cooling and earlier spring warming compress the planting-to-harvest window. <Link href="/country/egypt" style={{ color: "var(--gold)", textDecoration: "none" }}>Egypt</Link>&apos;s 365-day potato production system, which depends on careful sequencing of cool-season windows in the Nile Delta, faces particular pressure. <Link href="/country/kenya" style={{ color: "var(--gold)", textDecoration: "none" }}>Kenya</Link> and Ethiopia must contend with both heat stress and the spread of bacterial wilt under warming conditions. The <Link href="/blog/climate-change-rewriting-potato-map" style={{ color: "var(--gold)", textDecoration: "none" }}>climate-rewriting-the-potato-map blog</Link> traces these shifts in narrative form.</p>
 
       <h2 id="heat-tolerant" style={sH2}>What heat-tolerant potato varieties exist?</h2>
-      <p style={sP}>CIP has released over 10 LBHT (Late Blight + Heat Tolerant) clones bred specifically for tropical lowland and South Asian conditions, including CIP-Matilde, CIP-Wanjiku, and CIP-Bertita. These cultivars combine durable late-blight resistance with the ability to tuberize at 25&ndash;28&deg;C night temperatures &mdash; conditions where most commercial varieties fail entirely. Field testing has been conducted across <Link href="/country/bangladesh" style={{ color: "#C62828", textDecoration: "none" }}>Bangladesh</Link>, <Link href="/country/indonesia" style={{ color: "#C62828", textDecoration: "none" }}>Indonesia</Link>, Vietnam, Kenya, Uganda, and Mozambique, with commercial release variant in each country.</p>
-      <p style={sP}>CPRI (India) maintains its own heat-tolerant breeding programme matched to Indian conditions: Kufri Surya, Kufri Khyati, and several recent (2020s) releases target the rabi season in the Indo-Gangetic plain. Dutch breeders (HZPC, Agrico, Meijer) screen for drought tolerance and disease resistance under Mediterranean-style heat and water-stress trial sites in southern <Link href="/country/france" style={{ color: "#C62828", textDecoration: "none" }}>France</Link>, <Link href="/country/germany" style={{ color: "#C62828", textDecoration: "none" }}>Germany</Link>, and Eastern Europe. Andean native varieties &mdash; preserved in CIP&apos;s 4,350+ accession Lima genebank &mdash; provide a deep gene pool for breeders, including diploid clones with documented resistance to heat shock and drought stress documented in the <Link href="/knowledge/potato-diversity-origins-peru" style={{ color: "#C62828", textDecoration: "none" }}>4,000-variety Andean origin</Link>.</p>
+      <p style={sP}>CIP has released over 10 LBHT (Late Blight + Heat Tolerant) clones bred specifically for tropical lowland and South Asian conditions, including CIP-Matilde, CIP-Wanjiku, and CIP-Bertita. These cultivars combine durable late-blight resistance with the ability to tuberize at 25&ndash;28&deg;C night temperatures &mdash; conditions where most commercial varieties fail entirely. Field testing has been conducted across <Link href="/country/bangladesh" style={{ color: "var(--gold)", textDecoration: "none" }}>Bangladesh</Link>, <Link href="/country/indonesia" style={{ color: "var(--gold)", textDecoration: "none" }}>Indonesia</Link>, Vietnam, Kenya, Uganda, and Mozambique, with commercial release variant in each country.</p>
+      <p style={sP}>CPRI (India) maintains its own heat-tolerant breeding programme matched to Indian conditions: Kufri Surya, Kufri Khyati, and several recent (2020s) releases target the rabi season in the Indo-Gangetic plain. Dutch breeders (HZPC, Agrico, Meijer) screen for drought tolerance and disease resistance under Mediterranean-style heat and water-stress trial sites in southern <Link href="/country/france" style={{ color: "var(--gold)", textDecoration: "none" }}>France</Link>, <Link href="/country/germany" style={{ color: "var(--gold)", textDecoration: "none" }}>Germany</Link>, and Eastern Europe. Andean native varieties &mdash; preserved in CIP&apos;s 4,350+ accession Lima genebank &mdash; provide a deep gene pool for breeders, including diploid clones with documented resistance to heat shock and drought stress documented in the <Link href="/knowledge/potato-diversity-origins-peru" style={{ color: "var(--gold)", textDecoration: "none" }}>4,000-variety Andean origin</Link>.</p>
 
       <h2 id="water" style={sH2}>How much water does potato production require?</h2>
-      <p style={sP}>Potato requires 500&ndash;700 mm of water per growing season for full yield potential, depending on variety and climate (FAO). This translates to approximately 250&ndash;500 litres per kg of harvested potato &mdash; substantially less than rice (1,500&ndash;2,500 L/kg) or wheat (1,300&ndash;1,800 L/kg) or beef (15,000+ L/kg). Our dedicated <Link href="/answers/potato-water-footprint" style={{ color: "#C62828", textDecoration: "none" }}>potato water footprint answer</Link> covers the per-calorie comparison in detail.</p>
-      <p style={sP}>The crop is sensitive to water timing as well as quantity. The critical 6&ndash;8 week tuber bulking period accounts for ~75% of final yield response; deficit irrigation during this window causes irreversible yield loss. Irregular irrigation produces hollow heart and growth cracks. Modern commercial production in <Link href="/country/united-states" style={{ color: "#C62828", textDecoration: "none" }}>Idaho, Washington, and Oregon</Link> relies on center-pivot irrigation with weekly application rates of 25&ndash;35 mm. <Link href="/country/india" style={{ color: "#C62828", textDecoration: "none" }}>Indian</Link> production depends heavily on tube-well groundwater in Punjab and parts of Uttar Pradesh; declining water tables are an emerging structural constraint.</p>
+      <p style={sP}>Potato requires 500&ndash;700 mm of water per growing season for full yield potential, depending on variety and climate (FAO). This translates to approximately 250&ndash;500 litres per kg of harvested potato &mdash; substantially less than rice (1,500&ndash;2,500 L/kg) or wheat (1,300&ndash;1,800 L/kg) or beef (15,000+ L/kg). Our dedicated <Link href="/answers/potato-water-footprint" style={{ color: "var(--gold)", textDecoration: "none" }}>potato water footprint answer</Link> covers the per-calorie comparison in detail.</p>
+      <p style={sP}>The crop is sensitive to water timing as well as quantity. The critical 6&ndash;8 week tuber bulking period accounts for ~75% of final yield response; deficit irrigation during this window causes irreversible yield loss. Irregular irrigation produces hollow heart and growth cracks. Modern commercial production in <Link href="/country/united-states" style={{ color: "var(--gold)", textDecoration: "none" }}>Idaho, Washington, and Oregon</Link> relies on center-pivot irrigation with weekly application rates of 25&ndash;35 mm. <Link href="/country/india" style={{ color: "var(--gold)", textDecoration: "none" }}>Indian</Link> production depends heavily on tube-well groundwater in Punjab and parts of Uttar Pradesh; declining water tables are an emerging structural constraint.</p>
 
       <StatCallout number="500–700" unit="mm" context="seasonal water requirement for full potato yield potential — about 250–500 L per kg harvested, far less than rice or wheat per kg of food." source="FAO" />
 
       <h2 id="carbon" style={sH2}>What is the carbon footprint of a potato?</h2>
       <p style={sP}>Fresh potato at farm gate carries a carbon footprint of approximately 0.18&ndash;0.25 kg CO&#8322;-eq per kg (Carbon Trust; FAO LEAP Partnership). Per calorie, this is roughly half the footprint of rice and one-tenth that of beef. The footprint is dominated by synthetic nitrogen fertilizer (~40&ndash;50% of total), diesel for field operations and irrigation pumping (~20&ndash;30%), and embedded emissions in seed potato, plant protection products, and packaging.</p>
-      <p style={sP}>Processing materially raises the footprint. A 1 kg bag of frozen french fries carries roughly 0.6&ndash;0.9 kg CO&#8322;-eq depending on the energy mix of the processing facility &mdash; the par-fry, freeze, and frozen-distribution steps are energy-intensive (see our <Link href="/knowledge/how-potatoes-are-processed" style={{ color: "#C62828", textDecoration: "none" }}>processing article</Link>). Potato chips/crisps carry similar or higher footprints because of the additional vegetable-oil embedded emissions and high frying-oil energy intensity. Dehydrated potato products (flakes, granules) carry footprints of 1.0&ndash;1.6 kg CO&#8322;-eq/kg because of the high water-removal energy load.</p>
+      <p style={sP}>Processing materially raises the footprint. A 1 kg bag of frozen french fries carries roughly 0.6&ndash;0.9 kg CO&#8322;-eq depending on the energy mix of the processing facility &mdash; the par-fry, freeze, and frozen-distribution steps are energy-intensive (see our <Link href="/knowledge/how-potatoes-are-processed" style={{ color: "var(--gold)", textDecoration: "none" }}>processing article</Link>). Potato chips/crisps carry similar or higher footprints because of the additional vegetable-oil embedded emissions and high frying-oil energy intensity. Dehydrated potato products (flakes, granules) carry footprints of 1.0&ndash;1.6 kg CO&#8322;-eq/kg because of the high water-removal energy load.</p>
       <p style={sP}>Compared to other staple food crops on a per-calorie basis, potato comes out favourably: pulses, root vegetables, and potato are typically the lowest-footprint calorie sources after wild-caught seafood. The structural advantages are high yield per hectare (40&ndash;55 t/ha in modern systems), efficient nitrogen use, and water efficiency.</p>
 
       <h2 id="adaptation" style={sH2}>How are farmers adapting?</h2>
-      <p style={sP}>Adaptation runs along five tracks: variety selection, planting-date adjustment, altitudinal/latitudinal migration, irrigation efficiency, and infrastructure investment. <strong>Variety selection</strong> is the most direct response &mdash; growers are switching to CIP, CPRI, and Dutch-bred heat- and drought-tolerant cultivars where supply chains permit. <strong>Planting dates</strong> are shifting earlier in subtropical regions to escape spring heat; in <Link href="/country/india" style={{ color: "#C62828", textDecoration: "none" }}>India</Link>&apos;s Indo-Gangetic plain, planting has moved 1&ndash;2 weeks earlier across the past decade.</p>
-      <p style={sP}><strong>Altitudinal migration</strong> is happening in the Andes and East African highlands as smallholders move plots to higher elevations where temperatures remain in the optimal range. The <strong>Northern frontier</strong> &mdash; Scotland, Scandinavia, northern Russia, northern <Link href="/country/china" style={{ color: "#C62828", textDecoration: "none" }}>China</Link> &mdash; is seeing extended growing seasons that allow expanded production. <strong>Irrigation efficiency</strong> upgrades, particularly drip irrigation in water-stressed regions, are extending yield potential under reduced water budgets. <strong>Infrastructure investment</strong> in modern <Link href="/knowledge/potato-storage-cold-chain" style={{ color: "#C62828", textDecoration: "none" }}>cold storage</Link> and processing capacity reduces post-harvest losses, partially offsetting field-yield declines on a system basis.</p>
-      <p style={sP}>Policy support varies widely. The <Link href="/country/european-union" style={{ color: "#C62828", textDecoration: "none" }}>EU</Link> CAP includes climate-conditional payments via the Eco-schemes mechanism. The <Link href="/country/united-states" style={{ color: "#C62828", textDecoration: "none" }}>US</Link> Federal Crop Insurance scheme spreads weather risk across growers. <Link href="/country/india" style={{ color: "#C62828", textDecoration: "none" }}>India</Link>&apos;s PMFBY crop insurance includes potato in selected state-season notifications. CIP, CPRI, and CGIAR run extension programmes pairing breeders with farmer cooperatives in vulnerable regions to translate variety-development progress into ware-grower adoption.</p>
+      <p style={sP}>Adaptation runs along five tracks: variety selection, planting-date adjustment, altitudinal/latitudinal migration, irrigation efficiency, and infrastructure investment. <strong>Variety selection</strong> is the most direct response &mdash; growers are switching to CIP, CPRI, and Dutch-bred heat- and drought-tolerant cultivars where supply chains permit. <strong>Planting dates</strong> are shifting earlier in subtropical regions to escape spring heat; in <Link href="/country/india" style={{ color: "var(--gold)", textDecoration: "none" }}>India</Link>&apos;s Indo-Gangetic plain, planting has moved 1&ndash;2 weeks earlier across the past decade.</p>
+      <p style={sP}><strong>Altitudinal migration</strong> is happening in the Andes and East African highlands as smallholders move plots to higher elevations where temperatures remain in the optimal range. The <strong>Northern frontier</strong> &mdash; Scotland, Scandinavia, northern Russia, northern <Link href="/country/china" style={{ color: "var(--gold)", textDecoration: "none" }}>China</Link> &mdash; is seeing extended growing seasons that allow expanded production. <strong>Irrigation efficiency</strong> upgrades, particularly drip irrigation in water-stressed regions, are extending yield potential under reduced water budgets. <strong>Infrastructure investment</strong> in modern <Link href="/knowledge/potato-storage-cold-chain" style={{ color: "var(--gold)", textDecoration: "none" }}>cold storage</Link> and processing capacity reduces post-harvest losses, partially offsetting field-yield declines on a system basis.</p>
+      <p style={sP}>Policy support varies widely. The <Link href="/country/european-union" style={{ color: "var(--gold)", textDecoration: "none" }}>EU</Link> CAP includes climate-conditional payments via the Eco-schemes mechanism. The <Link href="/country/united-states" style={{ color: "var(--gold)", textDecoration: "none" }}>US</Link> Federal Crop Insurance scheme spreads weather risk across growers. <Link href="/country/india" style={{ color: "var(--gold)", textDecoration: "none" }}>India</Link>&apos;s PMFBY crop insurance includes potato in selected state-season notifications. CIP, CPRI, and CGIAR run extension programmes pairing breeders with farmer cooperatives in vulnerable regions to translate variety-development progress into ware-grower adoption.</p>
 
       <SourceBlock sources={[
         "CIP (International Potato Center) — Climate Change Assessment for Potato; LBHT breeding programme",
@@ -6141,14 +6141,14 @@ function ClimateChangePotatoes() {
       <RelatedArticles articles={relatedArticles} />
 
       <section style={{ marginTop: 48 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Explore Country Profiles</h2>
+        <h2 style={{ fontSize: 20, fontWeight: 700, color: "var(--ink)", marginBottom: 16 }}>Explore Country Profiles</h2>
         <div style={{ display: "flex", gap: 10, overflowX: "auto", paddingBottom: 8 }}>
           {relatedCountries.map((c) => (
-            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "white", border: "1px solid #eee", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
+            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "var(--card)", border: "1px solid var(--line)", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
               <span style={{ fontSize: 20 }}>{c.flag}</span>
               <div>
-                <div style={{ fontSize: 13, fontWeight: 600, color: "#1A1A1A", whiteSpace: "nowrap" }}>{c.name}</div>
-                <div style={{ fontSize: 11, color: "#C62828", fontWeight: 600 }}>{c.prod} tonnes</div>
+                <div style={{ fontSize: 13, fontWeight: 600, color: "var(--ink)", whiteSpace: "nowrap" }}>{c.name}</div>
+                <div style={{ fontSize: 11, color: "var(--gold)", fontWeight: 600 }}>{c.prod} tonnes</div>
               </div>
             </Link>
           ))}
@@ -6216,12 +6216,12 @@ function PotatoProcessingIndustry() {
         <Breadcrumb tag="Industry" />
         <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 16 }}>
           <TagBadge tag="Industry" />
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>Updated {UPDATED_SHORT}</span>
-          <span style={{ fontSize: 12, color: "#999" }}>&middot;</span>
-          <span style={{ fontSize: 12, color: "#999" }}>11 min read</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>Updated {UPDATED_SHORT}</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>11 min read</span>
         </div>
-        <h1 style={{ fontSize: 32, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>Global Potato Processing Industry: $80B Market, Leading Companies, and Growth Outlook</h1>
+        <h1 style={{ fontSize: 32, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>Global Potato Processing Industry: $80B Market, Leading Companies, and Growth Outlook</h1>
       </HeroBanner>
 
       <div style={{ maxWidth: 820, margin: "0 auto", padding: "0 24px 80px" }}>
@@ -6242,8 +6242,8 @@ function PotatoProcessingIndustry() {
       <CollapsibleTOC items={tocItems} />
 
       <h2 id="industry-size" style={sH2}>How big is the potato processing industry?</h2>
-      <p style={sP}>The global potato processing industry generates over $80 billion in annual revenue when its four primary segments &mdash; frozen french fries (~$40.97B), potato chips/crisps (~$35B), dehydrated potato products (~$5B), and potato starch (~$8B) &mdash; are summed (UN Comtrade; Eurostat PRODCOM; company-disclosed segment revenues). Together these absorb 30&ndash;35% of global potato output of roughly 383 million tonnes (FAOSTAT 2023), or approximately 110&ndash;140 million tonnes of raw potato input each year. Our companion article on the actual <Link href="/knowledge/how-potatoes-are-processed" style={{ color: "#C62828", textDecoration: "none" }}>manufacturing flow</Link> covers the production process; this article focuses on the industry economics and structure. For the entry-level overview see our <Link href="/answers/potato-processing-market-size" style={{ color: "#C62828", textDecoration: "none" }}>processing market size answer</Link>.</p>
-      <p style={sP}>Processing intensity varies dramatically by region. The <Link href="/country/united-states" style={{ color: "#C62828", textDecoration: "none" }}>United States</Link> processes approximately 69% of its crop (USDA NASS), the <Link href="/country/netherlands" style={{ color: "#C62828", textDecoration: "none" }}>Netherlands</Link> over 70%, <Link href="/country/belgium" style={{ color: "#C62828", textDecoration: "none" }}>Belgium</Link> over 75%. By contrast, <Link href="/country/china" style={{ color: "#C62828", textDecoration: "none" }}>China</Link> processes less than 10% of its 94.4-million-tonne crop, and <Link href="/country/india" style={{ color: "#C62828", textDecoration: "none" }}>India</Link>&apos;s processing share remains in the high single digits despite rapid recent growth. This regional asymmetry shapes both global trade flows and where processing capex is being deployed.</p>
+      <p style={sP}>The global potato processing industry generates over $80 billion in annual revenue when its four primary segments &mdash; frozen french fries (~$40.97B), potato chips/crisps (~$35B), dehydrated potato products (~$5B), and potato starch (~$8B) &mdash; are summed (UN Comtrade; Eurostat PRODCOM; company-disclosed segment revenues). Together these absorb 30&ndash;35% of global potato output of roughly 383 million tonnes (FAOSTAT 2023), or approximately 110&ndash;140 million tonnes of raw potato input each year. Our companion article on the actual <Link href="/knowledge/how-potatoes-are-processed" style={{ color: "var(--gold)", textDecoration: "none" }}>manufacturing flow</Link> covers the production process; this article focuses on the industry economics and structure. For the entry-level overview see our <Link href="/answers/potato-processing-market-size" style={{ color: "var(--gold)", textDecoration: "none" }}>processing market size answer</Link>.</p>
+      <p style={sP}>Processing intensity varies dramatically by region. The <Link href="/country/united-states" style={{ color: "var(--gold)", textDecoration: "none" }}>United States</Link> processes approximately 69% of its crop (USDA NASS), the <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link> over 70%, <Link href="/country/belgium" style={{ color: "var(--gold)", textDecoration: "none" }}>Belgium</Link> over 75%. By contrast, <Link href="/country/china" style={{ color: "var(--gold)", textDecoration: "none" }}>China</Link> processes less than 10% of its 94.4-million-tonne crop, and <Link href="/country/india" style={{ color: "var(--gold)", textDecoration: "none" }}>India</Link>&apos;s processing share remains in the high single digits despite rapid recent growth. This regional asymmetry shapes both global trade flows and where processing capex is being deployed.</p>
       <p style={sP}>The industry has consolidated heavily over the past three decades. The top four frozen french fry processors &mdash; McCain Foods, Lamb Weston, J.R. Simplot, and Aviko &mdash; collectively hold approximately 50% of global frozen capacity. Margins reflect oligopolistic stability rather than commodity volatility: industry-leading frozen processors have historically delivered 12&ndash;18% EBITDA margins through the cycle, with peaks above 20% in tight-supply years.</p>
 
       <h2 id="categories" style={sH2}>What are the main processed potato product categories?</h2>
@@ -6254,11 +6254,11 @@ function PotatoProcessingIndustry() {
           <thead><tr>{["Category","Conversion (raw/finished)","Indicative cost/kg","EBITDA band"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {segments.map((r, i) => (
-              <tr key={r[0]} style={{ background: i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={r[0]} style={{ background: i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
                 <td style={sTd}>{r[1]}</td>
                 <td style={sTd}>{r[2]}</td>
-                <td style={{ ...sTd, color: "#666" }}>{r[3]}</td>
+                <td style={{ ...sTd, color: "var(--mute)" }}>{r[3]}</td>
               </tr>
             ))}
           </tbody>
@@ -6277,39 +6277,39 @@ function PotatoProcessingIndustry() {
           <thead><tr>{["Company","HQ","Primary segments","Revenue","Footprint"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
           <tbody>
             {processors.map((r, i) => (
-              <tr key={r[0]} style={{ background: i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+              <tr key={r[0]} style={{ background: i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                 <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
                 <td style={sTd}>{r[1]}</td>
                 <td style={sTd}>{r[2]}</td>
                 <td style={sTd}>{r[3]}</td>
-                <td style={{ ...sTd, color: "#666" }}>{r[4]}</td>
+                <td style={{ ...sTd, color: "var(--mute)" }}>{r[4]}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
       <p style={sSource}>Source: Lamb Weston 10-K (most recent FY); McCain Foods sustainability and operations disclosures; AVEBE annual report; PepsiCo segment reporting; J.R. Simplot company communications.</p>
-      <p style={sP}><strong>McCain Foods</strong> (privately held, Florenceville-Bristol, New Brunswick, <Link href="/country/canada" style={{ color: "#C62828", textDecoration: "none" }}>Canada</Link>) is the world&apos;s largest frozen french fry processor by volume, with 50+ plants globally and an estimated $11&ndash;12 billion in revenue. Founded in 1957, McCain processes approximately 1 in every 4 french fries eaten worldwide. <strong>Lamb Weston</strong> (NYSE: LW, Eagle, Idaho) is the largest publicly listed pure frozen-fry processor at $6&ndash;7 billion in FY revenue, with 26 plants in 9 countries. <strong>J.R. Simplot</strong> (private, Boise, Idaho) is the original 1965 McDonald&apos;s supplier and a top-three frozen-fry player with significant fresh and dehydrated operations. See our <Link href="/knowledge/mcdonalds-potato-varieties" style={{ color: "#C62828", textDecoration: "none" }}>McDonald&apos;s suppliers article</Link> for the contract-grower economics behind these companies.</p>
-      <p style={sP}><strong>PepsiCo Frito-Lay</strong> dominates the global potato chip market with brands including Lay&apos;s, Walkers (UK), Ruffles, and others &mdash; segment revenue of approximately $25 billion globally. <strong>Aviko</strong> (cooperative-owned by Royal Cosun, <Link href="/country/netherlands" style={{ color: "#C62828", textDecoration: "none" }}>Netherlands</Link>) is the European number two in frozen with approximately &euro;1.5&ndash;2 billion in revenue. <strong>AVEBE</strong> (cooperative, Veendam, Netherlands) is the world&apos;s largest potato starch producer at &euro;700&ndash;900 million in revenue.</p>
+      <p style={sP}><strong>McCain Foods</strong> (privately held, Florenceville-Bristol, New Brunswick, <Link href="/country/canada" style={{ color: "var(--gold)", textDecoration: "none" }}>Canada</Link>) is the world&apos;s largest frozen french fry processor by volume, with 50+ plants globally and an estimated $11&ndash;12 billion in revenue. Founded in 1957, McCain processes approximately 1 in every 4 french fries eaten worldwide. <strong>Lamb Weston</strong> (NYSE: LW, Eagle, Idaho) is the largest publicly listed pure frozen-fry processor at $6&ndash;7 billion in FY revenue, with 26 plants in 9 countries. <strong>J.R. Simplot</strong> (private, Boise, Idaho) is the original 1965 McDonald&apos;s supplier and a top-three frozen-fry player with significant fresh and dehydrated operations. See our <Link href="/knowledge/mcdonalds-potato-varieties" style={{ color: "var(--gold)", textDecoration: "none" }}>McDonald&apos;s suppliers article</Link> for the contract-grower economics behind these companies.</p>
+      <p style={sP}><strong>PepsiCo Frito-Lay</strong> dominates the global potato chip market with brands including Lay&apos;s, Walkers (UK), Ruffles, and others &mdash; segment revenue of approximately $25 billion globally. <strong>Aviko</strong> (cooperative-owned by Royal Cosun, <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link>) is the European number two in frozen with approximately &euro;1.5&ndash;2 billion in revenue. <strong>AVEBE</strong> (cooperative, Veendam, Netherlands) is the world&apos;s largest potato starch producer at &euro;700&ndash;900 million in revenue.</p>
 
       <h2 id="frozen-fries" style={sH2}>How is the frozen french fry market structured?</h2>
-      <p style={sP}>Global frozen french fry production is approximately 22&ndash;26 million tonnes of finished product annually, requiring 50&ndash;60 million tonnes of raw potato input. The market is structured around four-deep oligopolistic consolidation (McCain, Lamb Weston, Simplot, Aviko collectively ~50% of global capacity) and tight contract-grower relationships. Roughly 70&ndash;85% of <Link href="/country/united-states" style={{ color: "#C62828", textDecoration: "none" }}>US</Link> and Northwest European processing potato supply moves under multi-year grower contracts that specify variety (predominantly <Link href="/varieties/russet-burbank" style={{ color: "#C62828", textDecoration: "none" }}>Russet Burbank</Link>, <Link href="/varieties/shepody" style={{ color: "#C62828", textDecoration: "none" }}>Shepody</Link>, Innovator, and similar high-specific-gravity cultivars), quality grids (specific gravity, sugar content, defect tolerance), and base prices.</p>
-      <p style={sP}>The frozen french fry trade is one of the most globalized in agriculture. <Link href="/country/belgium" style={{ color: "#C62828", textDecoration: "none" }}>Belgium</Link> is the world&apos;s largest exporter of frozen fries at approximately $4.6&ndash;4.8 billion annually &mdash; more than the US, Canada, and China combined &mdash; importing raw potato from <Link href="/country/france" style={{ color: "#C62828", textDecoration: "none" }}>France</Link> and the <Link href="/country/netherlands" style={{ color: "#C62828", textDecoration: "none" }}>Netherlands</Link> and re-exporting frozen product worldwide. The <Link href="/blog/belgium-worlds-fry-capital" style={{ color: "#C62828", textDecoration: "none" }}>Belgium fry capital story</Link> covers this concentration in narrative form. <Link href="/country/argentina" style={{ color: "#C62828", textDecoration: "none" }}>Argentina</Link> has emerged as a major frozen-fry export base supplying South America and parts of Europe under McCain&apos;s flagship Argentine plant.</p>
+      <p style={sP}>Global frozen french fry production is approximately 22&ndash;26 million tonnes of finished product annually, requiring 50&ndash;60 million tonnes of raw potato input. The market is structured around four-deep oligopolistic consolidation (McCain, Lamb Weston, Simplot, Aviko collectively ~50% of global capacity) and tight contract-grower relationships. Roughly 70&ndash;85% of <Link href="/country/united-states" style={{ color: "var(--gold)", textDecoration: "none" }}>US</Link> and Northwest European processing potato supply moves under multi-year grower contracts that specify variety (predominantly <Link href="/varieties/russet-burbank" style={{ color: "var(--gold)", textDecoration: "none" }}>Russet Burbank</Link>, <Link href="/varieties/shepody" style={{ color: "var(--gold)", textDecoration: "none" }}>Shepody</Link>, Innovator, and similar high-specific-gravity cultivars), quality grids (specific gravity, sugar content, defect tolerance), and base prices.</p>
+      <p style={sP}>The frozen french fry trade is one of the most globalized in agriculture. <Link href="/country/belgium" style={{ color: "var(--gold)", textDecoration: "none" }}>Belgium</Link> is the world&apos;s largest exporter of frozen fries at approximately $4.6&ndash;4.8 billion annually &mdash; more than the US, Canada, and China combined &mdash; importing raw potato from <Link href="/country/france" style={{ color: "var(--gold)", textDecoration: "none" }}>France</Link> and the <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link> and re-exporting frozen product worldwide. The <Link href="/blog/belgium-worlds-fry-capital" style={{ color: "var(--gold)", textDecoration: "none" }}>Belgium fry capital story</Link> covers this concentration in narrative form. <Link href="/country/argentina" style={{ color: "var(--gold)", textDecoration: "none" }}>Argentina</Link> has emerged as a major frozen-fry export base supplying South America and parts of Europe under McCain&apos;s flagship Argentine plant.</p>
 
       <h2 id="chips" style={sH2}>How big is the potato chip industry?</h2>
-      <p style={sP}>Global potato chip production is approximately 6&ndash;8 million tonnes of finished product annually, requiring 18&ndash;24 million tonnes of raw potato input. The category is dominated by branding rather than commodity scale &mdash; a kilogram of potato chips retails at $8&ndash;25 globally, while a kilogram of fresh potato sells at $0.30&ndash;1.20 in most markets. PepsiCo&apos;s Frito-Lay segment leads with $25 billion in global revenue. Calbee (Tokyo: 2229) leads <Link href="/country/japan" style={{ color: "#C62828", textDecoration: "none" }}>Japan</Link>; ITC Limited and PepsiCo India dominate <Link href="/country/india" style={{ color: "#C62828", textDecoration: "none" }}>India</Link>. The <Link href="/knowledge/unhealthiest-potato-chips" style={{ color: "#C62828", textDecoration: "none" }}>chip nutrition article</Link> covers the consumer-facing dimension; the <Link href="/answers/which-country-eats-most-potato-chips" style={{ color: "#C62828", textDecoration: "none" }}>chip consumption answer</Link> covers per-capita consumption.</p>
-      <p style={sP}>Chip processors source distinctly from frozen-fry processors. Chipping varieties (Atlantic, Snowden, Lady Rosetta, Hermes, and Indian Kufri Chipsona series) emphasize round shape, white flesh, low reducing sugars, and bruise resistance. Cold-storage temperatures for chip stock are kept above 7&ndash;10&deg;C to suppress reducing-sugar accumulation that would produce dark, bitter chips &mdash; a constraint covered in the <Link href="/knowledge/potato-storage-cold-chain" style={{ color: "#C62828", textDecoration: "none" }}>cold storage article</Link>.</p>
+      <p style={sP}>Global potato chip production is approximately 6&ndash;8 million tonnes of finished product annually, requiring 18&ndash;24 million tonnes of raw potato input. The category is dominated by branding rather than commodity scale &mdash; a kilogram of potato chips retails at $8&ndash;25 globally, while a kilogram of fresh potato sells at $0.30&ndash;1.20 in most markets. PepsiCo&apos;s Frito-Lay segment leads with $25 billion in global revenue. Calbee (Tokyo: 2229) leads <Link href="/country/japan" style={{ color: "var(--gold)", textDecoration: "none" }}>Japan</Link>; ITC Limited and PepsiCo India dominate <Link href="/country/india" style={{ color: "var(--gold)", textDecoration: "none" }}>India</Link>. The <Link href="/knowledge/unhealthiest-potato-chips" style={{ color: "var(--gold)", textDecoration: "none" }}>chip nutrition article</Link> covers the consumer-facing dimension; the <Link href="/answers/which-country-eats-most-potato-chips" style={{ color: "var(--gold)", textDecoration: "none" }}>chip consumption answer</Link> covers per-capita consumption.</p>
+      <p style={sP}>Chip processors source distinctly from frozen-fry processors. Chipping varieties (Atlantic, Snowden, Lady Rosetta, Hermes, and Indian Kufri Chipsona series) emphasize round shape, white flesh, low reducing sugars, and bruise resistance. Cold-storage temperatures for chip stock are kept above 7&ndash;10&deg;C to suppress reducing-sugar accumulation that would produce dark, bitter chips &mdash; a constraint covered in the <Link href="/knowledge/potato-storage-cold-chain" style={{ color: "var(--gold)", textDecoration: "none" }}>cold storage article</Link>.</p>
 
       <StatCallout number="$25B" context="global PepsiCo Frito-Lay segment revenue — the largest single potato processor by revenue, anchored by the Lay's and Walkers chip brands across 60+ countries." source="PepsiCo segment reporting" />
 
       <h2 id="starch" style={sH2}>What is potato starch used for industrially?</h2>
-      <p style={sP}>Global potato starch production is approximately 3&ndash;4 million tonnes annually, requiring 20&ndash;25 million tonnes of starch-grade potato input. Native potato starch (HS 1108.13) is used in food (thickeners, binders, gluten-free baking), paper and pulp manufacturing (sizing, surface coating), textile industry (warp sizing), adhesives, and increasingly in biodegradable plastics and pharmaceuticals. Modified starches &mdash; cationic, oxidised, esterified, hydroxypropylated &mdash; deliver specialty performance and command 30&ndash;100% price premiums over native starch. Our <Link href="/answers/potato-starch-uses" style={{ color: "#C62828", textDecoration: "none" }}>potato starch uses answer</Link> goes deeper on application categories.</p>
-      <p style={sP}>The market is concentrated in northern Europe. <strong>AVEBE</strong> (Netherlands cooperative) is the global leader. <strong>Emsland Group</strong> (<Link href="/country/germany" style={{ color: "#C62828", textDecoration: "none" }}>Germany</Link>) is the European number two. <strong>KMC Kartoffelmelcentralen</strong> (<Link href="/country/denmark" style={{ color: "#C62828", textDecoration: "none" }}>Denmark</Link>) anchors Danish starch production. <strong>Roquette</strong> (<Link href="/country/france" style={{ color: "#C62828", textDecoration: "none" }}>France</Link>) is a major specialty starch player across multiple feedstocks. Together these companies process the majority of EU starch potato output, paid to growers on a starch-content basis (typically &euro;60&ndash;95 per tonne for 17&ndash;20% starch).</p>
+      <p style={sP}>Global potato starch production is approximately 3&ndash;4 million tonnes annually, requiring 20&ndash;25 million tonnes of starch-grade potato input. Native potato starch (HS 1108.13) is used in food (thickeners, binders, gluten-free baking), paper and pulp manufacturing (sizing, surface coating), textile industry (warp sizing), adhesives, and increasingly in biodegradable plastics and pharmaceuticals. Modified starches &mdash; cationic, oxidised, esterified, hydroxypropylated &mdash; deliver specialty performance and command 30&ndash;100% price premiums over native starch. Our <Link href="/answers/potato-starch-uses" style={{ color: "var(--gold)", textDecoration: "none" }}>potato starch uses answer</Link> goes deeper on application categories.</p>
+      <p style={sP}>The market is concentrated in northern Europe. <strong>AVEBE</strong> (Netherlands cooperative) is the global leader. <strong>Emsland Group</strong> (<Link href="/country/germany" style={{ color: "var(--gold)", textDecoration: "none" }}>Germany</Link>) is the European number two. <strong>KMC Kartoffelmelcentralen</strong> (<Link href="/country/denmark" style={{ color: "var(--gold)", textDecoration: "none" }}>Denmark</Link>) anchors Danish starch production. <strong>Roquette</strong> (<Link href="/country/france" style={{ color: "var(--gold)", textDecoration: "none" }}>France</Link>) is a major specialty starch player across multiple feedstocks. Together these companies process the majority of EU starch potato output, paid to growers on a starch-content basis (typically &euro;60&ndash;95 per tonne for 17&ndash;20% starch).</p>
 
       <h2 id="growth-markets" style={sH2}>Where is processing capacity growing fastest?</h2>
-      <p style={sP}>Three regional growth stories are reshaping the global processing map: (1) <Link href="/country/india" style={{ color: "#C62828", textDecoration: "none" }}>India</Link>, with frozen french fry capacity now estimated at 250,000&ndash;350,000 tonnes/year of finished output across HyFun Foods, McCain India (Mehsana, Gujarat), Iscon Balaji Foods, and emerging entrants; (2) <Link href="/country/china" style={{ color: "#C62828", textDecoration: "none" }}>China</Link>, where the post-2014 "Potato Staple Food Strategy" has accelerated processor investment in chips, frozen, and dehydrated products; and (3) <Link href="/country/argentina" style={{ color: "#C62828", textDecoration: "none" }}>Argentina</Link>, which has emerged as a major frozen-fry export base supplying South America and parts of Europe through a McCain-anchored plant ecosystem.</p>
+      <p style={sP}>Three regional growth stories are reshaping the global processing map: (1) <Link href="/country/india" style={{ color: "var(--gold)", textDecoration: "none" }}>India</Link>, with frozen french fry capacity now estimated at 250,000&ndash;350,000 tonnes/year of finished output across HyFun Foods, McCain India (Mehsana, Gujarat), Iscon Balaji Foods, and emerging entrants; (2) <Link href="/country/china" style={{ color: "var(--gold)", textDecoration: "none" }}>China</Link>, where the post-2014 "Potato Staple Food Strategy" has accelerated processor investment in chips, frozen, and dehydrated products; and (3) <Link href="/country/argentina" style={{ color: "var(--gold)", textDecoration: "none" }}>Argentina</Link>, which has emerged as a major frozen-fry export base supplying South America and parts of Europe through a McCain-anchored plant ecosystem.</p>
       <p style={sP}>Indian processing growth is anchored by quick-service restaurant expansion and rising frozen-product retail penetration. Frozen french fry exports from India surged 77.5% year-over-year in early 2025, reflecting both domestic capacity coming online and improving variety supply (Kufri Chipsona series, FryFlap-grade lines). Capex per finished tonne of frozen capacity in India runs $700&ndash;1,200 vs. $1,500&ndash;2,250 in established Northwest European or US locations &mdash; a structural cost advantage that is supporting export competitiveness.</p>
-      <p style={sP}>Chinese capacity growth focuses on chips and dehydrated products serving the domestic snack and foodservice market. Calbee operates in China alongside domestic players. Argentine frozen capacity has scaled rapidly under McCain&apos;s Argentine subsidiary, supplying Brazil, Chile, and even back to Europe in some seasons. <Link href="/country/egypt" style={{ color: "#C62828", textDecoration: "none" }}>Egypt</Link> is positioning as a chip and frozen processor for the GCC and North African markets, leveraging year-round potato production capacity. The <Link href="/blog/global-potato-market-2024" style={{ color: "#C62828", textDecoration: "none" }}>global market analysis</Link> covers these emerging dynamics.</p>
+      <p style={sP}>Chinese capacity growth focuses on chips and dehydrated products serving the domestic snack and foodservice market. Calbee operates in China alongside domestic players. Argentine frozen capacity has scaled rapidly under McCain&apos;s Argentine subsidiary, supplying Brazil, Chile, and even back to Europe in some seasons. <Link href="/country/egypt" style={{ color: "var(--gold)", textDecoration: "none" }}>Egypt</Link> is positioning as a chip and frozen processor for the GCC and North African markets, leveraging year-round potato production capacity. The <Link href="/blog/global-potato-market-2024" style={{ color: "var(--gold)", textDecoration: "none" }}>global market analysis</Link> covers these emerging dynamics.</p>
 
       <SourceBlock sources={[
         "Lamb Weston Holdings — Annual Report (Form 10-K); SEC filings",
@@ -6331,14 +6331,14 @@ function PotatoProcessingIndustry() {
       <RelatedArticles articles={relatedArticles} />
 
       <section style={{ marginTop: 48 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Explore Country Profiles</h2>
+        <h2 style={{ fontSize: 20, fontWeight: 700, color: "var(--ink)", marginBottom: 16 }}>Explore Country Profiles</h2>
         <div style={{ display: "flex", gap: 10, overflowX: "auto", paddingBottom: 8 }}>
           {relatedCountries.map((c) => (
-            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "white", border: "1px solid #eee", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
+            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "var(--card)", border: "1px solid var(--line)", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
               <span style={{ fontSize: 20 }}>{c.flag}</span>
               <div>
-                <div style={{ fontSize: 13, fontWeight: 600, color: "#1A1A1A", whiteSpace: "nowrap" }}>{c.name}</div>
-                <div style={{ fontSize: 11, color: "#C62828", fontWeight: 600 }}>{c.prod} tonnes</div>
+                <div style={{ fontSize: 13, fontWeight: 600, color: "var(--ink)", whiteSpace: "nowrap" }}>{c.name}</div>
+                <div style={{ fontSize: 11, color: "var(--gold)", fontWeight: 600 }}>{c.prod} tonnes</div>
               </div>
             </Link>
           ))}

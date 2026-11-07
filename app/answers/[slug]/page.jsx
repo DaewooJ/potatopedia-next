@@ -190,7 +190,7 @@ export default async function AnswerPage({ params }) {
           href="/answers"
           style={{
             display: "inline-flex", alignItems: "center", gap: 6,
-            fontSize: 13, fontWeight: 600, color: "#C62828",
+            fontSize: 13, fontWeight: 600, color: "var(--gold)",
             textDecoration: "none", marginBottom: 28,
           }}
         >
@@ -201,16 +201,16 @@ export default async function AnswerPage({ params }) {
         <div style={{ marginBottom: 12, display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
           <span style={{
             display: "inline-block", fontSize: 10, fontWeight: 700,
-            color: "#C62828", textTransform: "uppercase", letterSpacing: 1.5,
-            background: "rgba(198,40,40,0.06)", padding: "4px 12px",
+            color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.5,
+            background: "rgba(154,114,56,0.06)", padding: "4px 12px",
             borderRadius: 6,
           }}>{pa.category}</span>
-          <span style={{ fontSize: 12, color: "#999" }}>Updated {UPDATED_SHORT}</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>Updated {UPDATED_SHORT}</span>
         </div>
 
         {/* Question heading */}
         <h1 style={{
-          fontSize: 28, fontWeight: 800, color: "#1A1A1A",
+          fontSize: 28, fontWeight: 800, color: "var(--ink)",
           letterSpacing: -0.8, lineHeight: 1.3, marginBottom: 28,
           maxWidth: 720,
         }}>{pa.question}</h1>
@@ -225,8 +225,8 @@ export default async function AnswerPage({ params }) {
 
         {/* Follow-up Q&A widget — client-side, doesn't block primary content */}
         {b && (
-          <div style={{ marginTop: 36, paddingTop: 24, borderTop: "1px solid #ececec" }}>
-            <h2 style={{ fontSize: 16, fontWeight: 700, color: "#1A1A1A", margin: "0 0 14px" }}>Ask a follow-up question</h2>
+          <div style={{ marginTop: 36, paddingTop: 24, borderTop: "1px solid var(--line)" }}>
+            <h2 style={{ fontSize: 16, fontWeight: 700, color: "var(--ink)", margin: "0 0 14px" }}>Ask a follow-up question</h2>
             <AnswerAI slug={slug} question={pa.question} prebakedAnswer={b.answer} skipInitialFetch={true} />
           </div>
         )}
@@ -237,12 +237,12 @@ export default async function AnswerPage({ params }) {
         maxWidth: 820, margin: "0 auto", padding: "56px 24px 80px",
       }}>
         <h2 style={{
-          fontSize: 20, fontWeight: 700, color: "#1A1A1A",
+          fontSize: 20, fontWeight: 700, color: "var(--ink)",
           marginBottom: 20, display: "flex", alignItems: "center", gap: 10,
         }}>
           <span style={{
             width: 4, height: 24, borderRadius: 2,
-            background: "linear-gradient(180deg,#C62828,#E53935)",
+            background: "var(--accent-bg)",
             display: "inline-block",
           }} />
           More Popular Questions
@@ -257,18 +257,18 @@ export default async function AnswerPage({ params }) {
               className="pp-country-card"
               style={{
                 display: "block", padding: "18px 20px", borderRadius: 14,
-                border: "1px solid rgba(0,0,0,0.06)", background: "#fff",
+                border: "1px solid var(--line)", background: "var(--card)",
                 textDecoration: "none",
               }}
             >
               <span style={{
                 display: "inline-block", fontSize: 9, fontWeight: 700,
-                color: "#C62828", textTransform: "uppercase", letterSpacing: 1.2,
-                background: "rgba(198,40,40,0.06)", padding: "2px 8px",
+                color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.2,
+                background: "rgba(154,114,56,0.06)", padding: "2px 8px",
                 borderRadius: 5, marginBottom: 8,
               }}>{rpa.category}</span>
               <h3 style={{
-                fontSize: 13, fontWeight: 600, color: "#1A1A1A",
+                fontSize: 13, fontWeight: 600, color: "var(--ink)",
                 lineHeight: 1.5, margin: 0,
               }}>{rpa.question}</h3>
             </Link>

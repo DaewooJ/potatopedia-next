@@ -34,19 +34,19 @@ export default function CountriesPage() {
     })),
   };
   return (
-    <div style={{ minHeight: "100vh", background: "#fff" }}>
+    <div style={{ minHeight: "100vh", background: "var(--card)" }}>
       <style>{ppCSS}</style>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }} />
 
       {/* Hero */}
-      <section style={{ paddingTop: 52, paddingBottom: 40, textAlign: "center", background: "linear-gradient(180deg,rgba(198,40,40,0.03) 0%,#fff 100%)" }}>
+      <section style={{ paddingTop: 52, paddingBottom: 40, textAlign: "center", background: "linear-gradient(180deg,rgba(154,114,56,0.03) 0%,#fff 100%)" }}>
         <div style={{ maxWidth: 700, margin: "0 auto", padding: "0 24px" }}>
-          <span style={{ display: "inline-block", fontSize: 11, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 2.5, background: "rgba(198,40,40,0.06)", padding: "6px 16px", borderRadius: 20, marginBottom: 16 }}>Country Profiles</span>
-          <h1 style={{ fontSize: 40, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1.5, marginBottom: 12, lineHeight: 1.15 }}>
+          <span style={{ display: "inline-block", fontSize: 11, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 2.5, background: "rgba(154,114,56,0.06)", padding: "6px 16px", borderRadius: 20, marginBottom: 16 }}>Country Profiles</span>
+          <h1 style={{ fontSize: 40, fontWeight: 800, color: "var(--ink)", letterSpacing: -1.5, marginBottom: 12, lineHeight: 1.15 }}>
             Potato Production<br />
-            <span style={{ background: "linear-gradient(135deg,#C62828,#E53935)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Around the World</span>
+            <span style={{ background: "var(--accent-bg)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Around the World</span>
           </h1>
-          <p style={{ fontSize: 16, color: "#666", lineHeight: 1.6 }}>Production data, yields, and industry highlights for {COUNTRIES.length} major potato nations. All data from FAOSTAT 2024.</p>
+          <p style={{ fontSize: 16, color: "var(--mute)", lineHeight: 1.6 }}>Production data, yields, and industry highlights for {COUNTRIES.length} major potato nations. All data from FAOSTAT 2024.</p>
         </div>
       </section>
 

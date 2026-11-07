@@ -103,7 +103,7 @@ export default function AnswerAI({ slug, question, prebakedAnswer, skipInitialFe
       {!skipInitialFetch && (
       <div style={{
         padding: "28px", borderRadius: 16,
-        border: "1px solid rgba(0,0,0,0.05)", background: "#FAFAFA",
+        border: "1px solid var(--line)", background: "var(--paper)",
         marginBottom: 32,
       }}>
         {loading && <EngagingLoader title={question} />}
@@ -123,12 +123,12 @@ export default function AnswerAI({ slug, question, prebakedAnswer, skipInitialFe
                     }}
                     style={{
                       padding: "8px 14px", borderRadius: 20,
-                      border: "1px solid #e0e0e0", background: "white",
-                      fontSize: 12, color: "#555", cursor: "pointer",
-                      fontFamily: "Poppins, sans-serif", lineHeight: 1.3,
+                      border: "1px solid var(--line)", background: "var(--card)",
+                      fontSize: 12, color: "var(--mute)", cursor: "pointer",
+                      fontFamily: "inherit", lineHeight: 1.3,
                       transition: "all 0.2s",
                     }}
-                    onMouseEnter={(e) => { e.target.style.background = "#C62828"; e.target.style.color = "white"; e.target.style.borderColor = "#C62828"; }}
+                    onMouseEnter={(e) => { e.target.style.background = "var(--gold)"; e.target.style.color = "white"; e.target.style.borderColor = "var(--gold)"; }}
                     onMouseLeave={(e) => { e.target.style.background = "white"; e.target.style.color = "#555"; e.target.style.borderColor = "#e0e0e0"; }}
                   >{rq}</button>
                 ))}
@@ -137,7 +137,7 @@ export default function AnswerAI({ slug, question, prebakedAnswer, skipInitialFe
           </>
         )}
         {!loading && !answer && (
-          <div style={{ color: "#888", fontSize: 14, padding: "12px 0" }}>
+          <div style={{ color: "var(--mute2)", fontSize: 14, padding: "12px 0" }}>
             Answer could not be loaded. The backend may be starting up &mdash; try refreshing in a moment.
           </div>
         )}
@@ -148,13 +148,13 @@ export default function AnswerAI({ slug, question, prebakedAnswer, skipInitialFe
       <div ref={followUpRef} style={{ marginBottom: 32 }}>
         {!skipInitialFetch && (
         <h2 style={{
-          fontSize: 18, fontWeight: 700, color: "#1A1A1A",
-          marginBottom: 14, fontFamily: "Poppins, sans-serif",
+          fontSize: 18, fontWeight: 700, color: "var(--ink)",
+          marginBottom: 14, fontFamily: "inherit",
         }}>Ask a Follow-up</h2>
         )}
         <div className="pp-search-wrap pp-search-bar" style={{
-          display: "flex", background: "#fff", borderRadius: 16,
-          border: "2px solid #eee", padding: 6,
+          display: "flex", background: "var(--card)", borderRadius: 16,
+          border: "2px solid var(--line)", padding: 6,
           boxShadow: "0 4px 24px rgba(0,0,0,0.04)",
           transition: "all 0.3s",
         }}>
@@ -170,8 +170,8 @@ export default function AnswerAI({ slug, question, prebakedAnswer, skipInitialFe
               disabled={followUpLoading}
               style={{
                 flex: 1, border: "none", outline: "none",
-                fontSize: 14, fontFamily: "Poppins, sans-serif",
-                padding: "12px 0", background: "transparent", color: "#333",
+                fontSize: 14, fontFamily: "inherit",
+                padding: "12px 0", background: "transparent", color: "var(--ink2)",
               }}
             />
           </div>
@@ -181,9 +181,9 @@ export default function AnswerAI({ slug, question, prebakedAnswer, skipInitialFe
             disabled={!askInput.trim() || followUpLoading}
             style={{
               padding: "12px 28px", borderRadius: "0 10px 10px 0",
-              border: "none", background: "linear-gradient(135deg,#C62828,#E53935)",
+              border: "none", background: "var(--accent-bg)",
               color: "white", fontSize: 14, fontWeight: 600,
-              cursor: "pointer", fontFamily: "Poppins, sans-serif",
+              cursor: "pointer", fontFamily: "inherit",
               whiteSpace: "nowrap",
               opacity: (!askInput.trim() || followUpLoading) ? 0.3 : 1,
             }}
@@ -199,7 +199,7 @@ export default function AnswerAI({ slug, question, prebakedAnswer, skipInitialFe
         {followUp && (
           <div style={{
             marginTop: 20, padding: "24px", borderRadius: 16,
-            border: "1px solid rgba(0,0,0,0.05)", background: "#FAFAFA",
+            border: "1px solid var(--line)", background: "var(--paper)",
             animation: "ppFadeUp 0.4s ease-out both",
           }}>
             <AnswerBlock data={followUp} />
@@ -215,11 +215,11 @@ export default function AnswerAI({ slug, question, prebakedAnswer, skipInitialFe
                     }}
                     style={{
                       padding: "7px 12px", borderRadius: 20,
-                      border: "1px solid #e0e0e0", background: "white",
-                      fontSize: 11, color: "#555", cursor: "pointer",
-                      fontFamily: "Poppins, sans-serif", transition: "all 0.2s",
+                      border: "1px solid var(--line)", background: "var(--card)",
+                      fontSize: 11, color: "var(--mute)", cursor: "pointer",
+                      fontFamily: "inherit", transition: "all 0.2s",
                     }}
-                    onMouseEnter={(e) => { e.target.style.background = "#C62828"; e.target.style.color = "white"; }}
+                    onMouseEnter={(e) => { e.target.style.background = "var(--gold)"; e.target.style.color = "white"; }}
                     onMouseLeave={(e) => { e.target.style.background = "white"; e.target.style.color = "#555"; }}
                   >{rq}</button>
                 ))}

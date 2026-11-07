@@ -72,16 +72,16 @@ export default function KnowledgeHubPage() {
       <div style={{ minHeight: "calc(100vh - 68px)", padding: "60px 24px 0" }}>
         {/* Hero */}
         <div style={{ textAlign: "center", marginBottom: 40 }}>
-          <span style={{ display: "inline-block", fontSize: 11, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 2.5, background: "rgba(198,40,40,0.06)", padding: "6px 16px", borderRadius: 20, marginBottom: 20 }}>
+          <span style={{ display: "inline-block", fontSize: 11, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 2.5, background: "rgba(154,114,56,0.06)", padding: "6px 16px", borderRadius: 20, marginBottom: 20 }}>
             Knowledge Hub
           </span>
-          <h1 style={{ fontSize: 36, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1.2, marginBottom: 16 }}>
+          <h1 style={{ fontSize: 36, fontWeight: 800, color: "var(--ink)", letterSpacing: -1.2, marginBottom: 16 }}>
             Potato Intelligence,{" "}
-            <span style={{ background: "linear-gradient(135deg,#C62828,#E53935)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+            <span style={{ background: "var(--accent-bg)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
               Backed by Data
             </span>
           </h1>
-          <p style={{ fontSize: 16, color: "#666", maxWidth: 520, margin: "0 auto", lineHeight: 1.6 }}>
+          <p style={{ fontSize: 16, color: "var(--mute)", maxWidth: 520, margin: "0 auto", lineHeight: 1.6 }}>
             In-depth guides on every aspect of the global potato industry &mdash; production data, nutrition science, trade flows, and processing technology.
           </p>
         </div>

@@ -22,14 +22,14 @@ export default function AboutStats() {
   ];
 
   return (
-    <section style={{ borderTop: "1px solid #f0f0f0", borderBottom: "1px solid #f0f0f0", background: "#FAFAFA" }}>
+    <section style={{ borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)", background: "var(--paper)" }}>
       <div style={{ maxWidth: 1000, margin: "0 auto", padding: "40px 48px" }}>
         <div className="pp-about-stats" style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 24 }}>
           {items.map((s, i) => (
             <div key={i} style={{ textAlign: "center" }}>
               <div style={{ fontSize: 26, marginBottom: 4 }}>{s.ic}</div>
-              <div style={{ fontSize: 30, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, lineHeight: 1 }}>{s.v}</div>
-              <div style={{ fontSize: 11, color: "#999", fontWeight: 500, marginTop: 4, textTransform: "uppercase", letterSpacing: 1 }}>{s.l}</div>
+              <div style={{ fontSize: 30, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1 }}>{s.v}</div>
+              <div style={{ fontSize: 11, color: "var(--mute2)", fontWeight: 500, marginTop: 4, textTransform: "uppercase", letterSpacing: 1 }}>{s.l}</div>
             </div>
           ))}
         </div>

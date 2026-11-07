@@ -15,7 +15,7 @@ function parseContent(text) {
       elements.push(
         <ul key={`ul-${elements.length}`} style={{ paddingLeft: 24, marginBottom: 16 }}>
           {listItems.map((item, i) => (
-            <li key={i} style={{ fontSize: 15, color: "#444", lineHeight: 1.8, marginBottom: 6 }}>{renderBold(item)}</li>
+            <li key={i} style={{ fontSize: 15, color: "var(--ink2)", lineHeight: 1.8, marginBottom: 6 }}>{renderBold(item)}</li>
           ))}
         </ul>
       );
@@ -42,7 +42,7 @@ function parseContent(text) {
       flushList();
       const heading = line.replace(/^\*\*/, "").replace(/\*\*$/, "");
       elements.push(
-        <h2 key={`h2-${i}`} style={{ fontSize: 22, fontWeight: 700, paddingLeft: 16, borderLeft: "4px solid #C62828", marginTop: 44, marginBottom: 14, color: "#1A1A1A" }}>
+        <h2 key={`h2-${i}`} style={{ fontSize: 22, fontWeight: 700, paddingLeft: 16, borderLeft: "4px solid var(--gold)", marginTop: 44, marginBottom: 14, color: "var(--ink)" }}>
           {heading}
         </h2>
       );
@@ -58,7 +58,7 @@ function parseContent(text) {
     // regular paragraph
     flushList();
     elements.push(
-      <p key={`p-${i}`} style={{ fontSize: 15, color: "#444", lineHeight: 1.8, marginBottom: 16 }}>
+      <p key={`p-${i}`} style={{ fontSize: 15, color: "var(--ink2)", lineHeight: 1.8, marginBottom: 16 }}>
         {renderBold(line)}
       </p>
     );
@@ -111,39 +111,39 @@ export default function KnowledgeAI({ slug, title, tag }) {
     <article style={{ maxWidth: 820, margin: "0 auto", padding: "48px 24px 80px" }}>
       {/* Breadcrumb */}
       <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 24, fontSize: 13 }}>
-        <Link href="/knowledge" style={{ color: "#888", textDecoration: "none" }}>Knowledge Hub</Link>
-        <span style={{ color: "#ccc" }}>/</span>
-        <span style={{ color: "#C62828", fontWeight: 700 }}>{tag || "Knowledge"}</span>
+        <Link href="/knowledge" style={{ color: "var(--mute2)", textDecoration: "none" }}>Knowledge Hub</Link>
+        <span style={{ color: "var(--mute3)" }}>/</span>
+        <span style={{ color: "var(--gold)", fontWeight: 700 }}>{tag || "Knowledge"}</span>
       </div>
 
       {/* Badges */}
       <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 16, flexWrap: "wrap" }}>
         {tag && (
-          <span style={{ display: "inline-block", fontSize: 10, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 1.5, background: "rgba(198,40,40,0.06)", padding: "4px 12px", borderRadius: 10 }}>
+          <span style={{ display: "inline-block", fontSize: 10, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.5, background: "rgba(154,114,56,0.06)", padding: "4px 12px", borderRadius: 10 }}>
             {tag}
           </span>
         )}
-        <span style={{ fontSize: 10, fontWeight: 600, color: "#888", background: "#f5f5f5", padding: "4px 10px", borderRadius: 10 }}>
+        <span style={{ fontSize: 10, fontWeight: 600, color: "var(--mute2)", background: "var(--paper)", padding: "4px 10px", borderRadius: 10 }}>
           Updated {UPDATED_SHORT}
         </span>
-        <span style={{ fontSize: 10, fontWeight: 600, color: "#2E7D32", background: "rgba(46,125,50,0.06)", padding: "4px 10px", borderRadius: 10 }}>
+        <span style={{ fontSize: 10, fontWeight: 600, color: "var(--gold)", background: "rgba(154,114,56,0.06)", padding: "4px 10px", borderRadius: 10 }}>
           AI-Generated from Verified Sources
         </span>
       </div>
 
-      <h1 style={{ fontSize: 32, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, marginBottom: 24 }}>
+      <h1 style={{ fontSize: 32, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, marginBottom: 24 }}>
         {title || slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())}
       </h1>
 
       {loading && <EngagingLoader title={title} />}
-      {error && <p style={{ color: "#C62828", fontSize: 15 }}>{error}</p>}
+      {error && <p style={{ color: "var(--gold)", fontSize: 15 }}>{error}</p>}
       {content && parseContent(content)}
 
       {content && (
-        <div style={{ marginTop: 56, padding: "32px 28px", borderRadius: 16, background: "linear-gradient(135deg, rgba(198,40,40,0.06), rgba(198,40,40,0.02))", border: "1px solid rgba(198,40,40,0.12)", textAlign: "center" }}>
-          <div style={{ fontSize: 18, fontWeight: 700, color: "#1A1A1A", marginBottom: 8 }}>Have more questions?</div>
-          <div style={{ fontSize: 14, color: "#666", marginBottom: 16 }}>Ask Potatopedia AI for instant, data-backed answers.</div>
-          <Link href="/ask" style={{ display: "inline-block", padding: "12px 28px", borderRadius: 12, background: "linear-gradient(135deg,#C62828,#E53935)", color: "#fff", fontSize: 14, fontWeight: 700, textDecoration: "none" }}>
+        <div style={{ marginTop: 56, padding: "32px 28px", borderRadius: 16, background: "linear-gradient(135deg, rgba(154,114,56,0.06), rgba(154,114,56,0.02))", border: "1px solid rgba(154,114,56,0.12)", textAlign: "center" }}>
+          <div style={{ fontSize: 18, fontWeight: 700, color: "var(--ink)", marginBottom: 8 }}>Have more questions?</div>
+          <div style={{ fontSize: 14, color: "var(--mute)", marginBottom: 16 }}>Ask Potatopedia AI for instant, data-backed answers.</div>
+          <Link href="/ask" style={{ display: "inline-block", padding: "12px 28px", borderRadius: 12, background: "var(--accent-bg)", color: "#fff", fontSize: 14, fontWeight: 700, textDecoration: "none" }}>
             Ask Potatopedia AI &rarr;
           </Link>
         </div>

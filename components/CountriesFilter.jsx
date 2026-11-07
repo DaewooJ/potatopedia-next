@@ -22,8 +22,8 @@ export default function CountriesFilter() {
             onClick={() => setRegion(r)}
             style={{
               padding: "8px 20px", borderRadius: 20, border: "1px solid",
-              borderColor: region === r ? "#C62828" : "#e0e0e0",
-              background: region === r ? "#C62828" : "white",
+              borderColor: region === r ? "var(--gold)" : "#e0e0e0",
+              background: region === r ? "var(--gold)" : "white",
               color: region === r ? "white" : "#666",
               fontSize: 13, fontWeight: 600, cursor: "pointer", fontFamily: "inherit",
             }}
@@ -39,17 +39,17 @@ export default function CountriesFilter() {
             href={"/country/" + c.slug}
             className="pp-country-card"
             style={{
-              background: "white", borderRadius: 16, padding: "26px 20px",
-              textAlign: "center", border: "1px solid #eee",
+              background: "var(--card)", borderRadius: 16, padding: "26px 20px",
+              textAlign: "center", border: "1px solid var(--line)",
               textDecoration: "none", color: "inherit",
             }}
           >
             <div style={{ fontSize: 38, marginBottom: 8 }}>{c.flag}</div>
-            <div style={{ fontSize: 15, fontWeight: 600, color: "#1A1A1A", marginBottom: 5 }}>{c.name}</div>
-            <div style={{ fontSize: 26, color: "#C62828", fontWeight: 800, lineHeight: 1 }}>{c.prod}</div>
-            <div style={{ fontSize: 11, color: "#aaa", fontWeight: 400, marginBottom: 7 }}>tonnes produced</div>
-            <div style={{ display: "inline-block", fontSize: 11, color: "#C62828", fontWeight: 600, background: "rgba(198,40,40,0.06)", borderRadius: 20, padding: "4px 12px" }}>#{c.rank} Global</div>
-            <div style={{ fontSize: 10, color: "#bbb", marginTop: 6 }}>Updated {UPDATED_SHORT}</div>
+            <div style={{ fontSize: 15, fontWeight: 600, color: "var(--ink)", marginBottom: 5 }}>{c.name}</div>
+            <div style={{ fontSize: 26, color: "var(--gold)", fontWeight: 800, lineHeight: 1 }}>{c.prod}</div>
+            <div style={{ fontSize: 11, color: "var(--mute3)", fontWeight: 400, marginBottom: 7 }}>tonnes produced</div>
+            <div style={{ display: "inline-block", fontSize: 11, color: "var(--gold)", fontWeight: 600, background: "rgba(154,114,56,0.06)", borderRadius: 20, padding: "4px 12px" }}>#{c.rank} Global</div>
+            <div style={{ fontSize: 10, color: "var(--mute3)", marginTop: 6 }}>Updated {UPDATED_SHORT}</div>
           </Link>
         ))}
       </div>

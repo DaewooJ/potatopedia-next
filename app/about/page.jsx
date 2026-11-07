@@ -37,9 +37,9 @@ const sources = [
 ];
 
 function tagColor(tag) {
-  if (tag === "Primary") return { bg: "rgba(198,40,40,0.08)", color: "#C62828" };
+  if (tag === "Primary") return { bg: "rgba(154,114,56,0.08)", color: "var(--gold)" };
   if (tag === "Trade") return { bg: "rgba(21,101,192,0.08)", color: "#1565C0" };
-  if (tag === "Research") return { bg: "rgba(46,125,50,0.08)", color: "#2E7D32" };
+  if (tag === "Research") return { bg: "rgba(154,114,56,0.08)", color: "var(--gold)" };
   if (tag === "Regional") return { bg: "rgba(239,108,0,0.08)", color: "#EF6C00" };
   return { bg: "rgba(69,90,100,0.08)", color: "#455A64" };
 }
@@ -91,15 +91,15 @@ export default function AboutPage() {
       {/* Hero */}
       <section style={{ paddingTop: 72, paddingBottom: 40, textAlign: "center" }}>
         <div style={{ maxWidth: 700, margin: "0 auto", padding: "0 24px" }}>
-          <span style={{ display: "inline-block", fontSize: 11, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 2.5, background: "rgba(198,40,40,0.06)", padding: "6px 16px", borderRadius: 20, marginBottom: 20 }}>About Potatopedia</span>
-          <h1 style={{ fontSize: 42, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1.5, lineHeight: 1.1, marginBottom: 16 }}>
+          <span style={{ display: "inline-block", fontSize: 11, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 2.5, background: "rgba(154,114,56,0.06)", padding: "6px 16px", borderRadius: 20, marginBottom: 20 }}>About Potatopedia</span>
+          <h1 style={{ fontSize: 42, fontWeight: 800, color: "var(--ink)", letterSpacing: -1.5, lineHeight: 1.1, marginBottom: 16 }}>
             The World&apos;s AI-Powered<br />
-            <span style={{ background: "linear-gradient(135deg,#C62828,#E53935)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Potato Knowledge Base</span>
+            <span style={{ background: "var(--accent-bg)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Potato Knowledge Base</span>
           </h1>
-          <p style={{ fontSize: 16, color: "#666", lineHeight: 1.7, maxWidth: 580, margin: "0 auto 12px" }}>
+          <p style={{ fontSize: 16, color: "var(--mute)", lineHeight: 1.7, maxWidth: 580, margin: "0 auto 12px" }}>
             Powered by AI with human-curated data from FAOSTAT, USDA, CIP, ICAR-CPRI, and official government agencies — the verified, citable source of truth for the global potato industry. Free, with no paywalls.
           </p>
-          <p style={{ fontSize: 12, color: "#999", margin: 0 }}>Last reviewed {UPDATED_SHORT} · Reviewed by Potatopedia editorial team</p>
+          <p style={{ fontSize: 12, color: "var(--mute2)", margin: 0 }}>Last reviewed {UPDATED_SHORT} · Reviewed by Potatopedia editorial team</p>
         </div>
       </section>
 
@@ -108,31 +108,31 @@ export default function AboutPage() {
 
       {/* Mission */}
       <section style={{ maxWidth: 760, margin: "0 auto", padding: "64px 24px", textAlign: "center" }}>
-        <span style={{ display: "inline-block", fontSize: 11, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 2.5, marginBottom: 12 }}>Our Mission</span>
-        <h2 style={{ fontSize: 30, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, lineHeight: 1.2, marginBottom: 20 }}>
+        <span style={{ display: "inline-block", fontSize: 11, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 2.5, marginBottom: 12 }}>Our Mission</span>
+        <h2 style={{ fontSize: 30, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1.2, marginBottom: 20 }}>
           Potato Intelligence, Verified and Citable
         </h2>
-        <p style={{ fontSize: 15, color: "#555", lineHeight: 1.7, maxWidth: 640, margin: "0 auto" }}>
+        <p style={{ fontSize: 15, color: "var(--mute)", lineHeight: 1.7, maxWidth: 640, margin: "0 auto" }}>
           Potato data is scattered across UN agencies, national research institutes, breeder datasheets, and trade associations — finding a reliable answer usually means hours of searching PDFs and statistical portals, with no guarantee it's citable. Potatopedia changes that: we aggregate, verify, and organise data from 277 authoritative sources, then make it instantly searchable with AI, with citations on every answer. Built for growers, traders, researchers, policymakers, and anyone who needs an answer they can stand behind — completely free, no paywalls, no ads.
         </p>
       </section>
 
       {/* Data Sources */}
-      <section style={{ background: "#FAFAFA", borderTop: "1px solid #f0f0f0", borderBottom: "1px solid #f0f0f0" }}>
+      <section style={{ background: "var(--paper)", borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)" }}>
         <div style={{ maxWidth: 1000, margin: "0 auto", padding: "64px 24px", textAlign: "center" }}>
-          <span style={{ display: "inline-block", fontSize: 11, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 2.5, marginBottom: 12 }}>277 Authoritative Sources</span>
-          <h2 style={{ fontSize: 30, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, marginBottom: 14 }}>Where Our Data Comes From</h2>
-          <p style={{ fontSize: 14, color: "#666", lineHeight: 1.7, maxWidth: 620, margin: "0 auto 36px" }}>
+          <span style={{ display: "inline-block", fontSize: 11, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 2.5, marginBottom: 12 }}>277 Authoritative Sources</span>
+          <h2 style={{ fontSize: 30, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, marginBottom: 14 }}>Where Our Data Comes From</h2>
+          <p style={{ fontSize: 14, color: "var(--mute)", lineHeight: 1.7, maxWidth: 620, margin: "0 auto 36px" }}>
             Primary sources only. Nine representative source families below; the full back-end indexes 277 unique upstream sources.
           </p>
           <div className="pp-about-3col" style={{ display: "grid", gap: 16 }}>
             {sources.map((s, i) => {
               const tc = tagColor(s.tag);
               return (
-                <div key={i} style={{ padding: 20, borderRadius: 12, border: "1px solid #f0f0f0", background: "#fff", textAlign: "left" }}>
-                  <div style={{ fontSize: 15, fontWeight: 700, color: "#1A1A1A", marginBottom: 2 }}>{s.name}</div>
-                  <div style={{ fontSize: 11, color: "#999", marginBottom: 8 }}>{s.org}</div>
-                  <div style={{ fontSize: 13, color: "#666", lineHeight: 1.5, marginBottom: 12 }}>{s.desc}</div>
+                <div key={i} style={{ padding: 20, borderRadius: 12, border: "1px solid var(--line)", background: "var(--card)", textAlign: "left" }}>
+                  <div style={{ fontSize: 15, fontWeight: 700, color: "var(--ink)", marginBottom: 2 }}>{s.name}</div>
+                  <div style={{ fontSize: 11, color: "var(--mute2)", marginBottom: 8 }}>{s.org}</div>
+                  <div style={{ fontSize: 13, color: "var(--mute)", lineHeight: 1.5, marginBottom: 12 }}>{s.desc}</div>
                   <span style={{ display: "inline-block", fontSize: 10, fontWeight: 600, padding: "3px 10px", borderRadius: 10, background: tc.bg, color: tc.color, textTransform: "uppercase", letterSpacing: 0.5 }}>{s.tag}</span>
                 </div>
               );
@@ -140,9 +140,9 @@ export default function AboutPage() {
           </div>
 
           {/* Verification standard */}
-          <div style={{ marginTop: 36, padding: "20px 24px", borderRadius: 12, border: "1px solid rgba(198,40,40,0.15)", background: "rgba(198,40,40,0.03)", textAlign: "left" }}>
-            <div style={{ fontSize: 12, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 8 }}>Our verification standard</div>
-            <p style={{ fontSize: 13, color: "#555", lineHeight: 1.7, margin: 0 }}>
+          <div style={{ marginTop: 36, padding: "20px 24px", borderRadius: 12, border: "1px solid rgba(154,114,56,0.15)", background: "rgba(154,114,56,0.03)", textAlign: "left" }}>
+            <div style={{ fontSize: 12, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 8 }}>Our verification standard</div>
+            <p style={{ fontSize: 13, color: "var(--mute)", lineHeight: 1.7, margin: 0 }}>
               Every data point must trace back to original methodology, primary research, or an official statistical agency. We exclude crowd-sourced encyclopaedias, news aggregators, scraped commercial databases, third-party data resellers, and content farms &mdash; any source where the underlying methodology can&apos;t be inspected. If we can&apos;t cite where a number came from and how it was measured, it doesn&apos;t enter our knowledge base.
             </p>
           </div>
@@ -151,39 +151,39 @@ export default function AboutPage() {
 
       {/* FAQ */}
       <section style={{ maxWidth: 1000, margin: "0 auto", padding: "64px 24px", textAlign: "center" }}>
-        <span style={{ display: "inline-block", fontSize: 11, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 2.5, marginBottom: 12 }}>FAQ</span>
-        <h2 style={{ fontSize: 30, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, marginBottom: 40 }}>Frequently Asked Questions</h2>
+        <span style={{ display: "inline-block", fontSize: 11, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 2.5, marginBottom: 12 }}>FAQ</span>
+        <h2 style={{ fontSize: 30, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, marginBottom: 40 }}>Frequently Asked Questions</h2>
         <div className="pp-about-faq-grid" style={{ display: "grid", gap: 16, textAlign: "left" }}>
           {faqs.map((f, i) => (
-            <details key={i} style={{ padding: 20, borderRadius: 12, border: "1px solid #f0f0f0", background: "#fff" }}>
-              <summary style={{ fontSize: 15, fontWeight: 700, color: "#1A1A1A", cursor: "pointer", listStyle: "none" }}>
+            <details key={i} style={{ padding: 20, borderRadius: 12, border: "1px solid var(--line)", background: "var(--card)" }}>
+              <summary style={{ fontSize: 15, fontWeight: 700, color: "var(--ink)", cursor: "pointer", listStyle: "none" }}>
                 {f.q}
               </summary>
-              <p style={{ fontSize: 14, color: "#666", lineHeight: 1.7, marginTop: 12 }}>{f.a}</p>
+              <p style={{ fontSize: 14, color: "var(--mute)", lineHeight: 1.7, marginTop: 12 }}>{f.a}</p>
             </details>
           ))}
         </div>
       </section>
 
       {/* Contact / Contribute CTA */}
-      <section style={{ background: "#FAFAFA", borderTop: "1px solid #f0f0f0", padding: "64px 24px", textAlign: "center" }}>
-        <h2 style={{ fontSize: 28, fontWeight: 800, color: "#1A1A1A", letterSpacing: -0.8, marginBottom: 12 }}>Get in Touch</h2>
-        <p style={{ fontSize: 15, color: "#666", lineHeight: 1.7, maxWidth: 520, margin: "0 auto 28px" }}>
+      <section style={{ background: "var(--paper)", borderTop: "1px solid var(--line)", padding: "64px 24px", textAlign: "center" }}>
+        <h2 style={{ fontSize: 28, fontWeight: 800, color: "var(--ink)", letterSpacing: -0.8, marginBottom: 12 }}>Get in Touch</h2>
+        <p style={{ fontSize: 15, color: "var(--mute)", lineHeight: 1.7, maxWidth: 520, margin: "0 auto 28px" }}>
           Researchers, breeders, agricultural extension specialists, and industry professionals: we welcome data contributions, partnership inquiries, and corrections.
         </p>
         <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap", marginBottom: 28 }}>
-          <a href="mailto:hello@potatopedia.com" style={{ display: "inline-block", padding: "12px 28px", borderRadius: 12, background: "#C62828", color: "#fff", fontSize: 14, fontWeight: 700, textDecoration: "none" }}>
+          <a href="mailto:hello@potatopedia.com" style={{ display: "inline-block", padding: "12px 28px", borderRadius: 12, background: "var(--accent-bg)", color: "#fff", fontSize: 14, fontWeight: 700, textDecoration: "none" }}>
             hello@potatopedia.com
           </a>
-          <a href="/ask" style={{ display: "inline-block", padding: "12px 28px", borderRadius: 12, background: "#fff", color: "#1A1A1A", fontSize: 14, fontWeight: 700, textDecoration: "none", border: "1px solid #ddd" }}>
+          <a href="/ask" style={{ display: "inline-block", padding: "12px 28px", borderRadius: 12, background: "var(--card)", color: "var(--ink)", fontSize: 14, fontWeight: 700, textDecoration: "none", border: "1px solid var(--line)" }}>
             Ask the AI &rarr;
           </a>
-          <a href="https://www.linkedin.com/company/potatopedia" target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", padding: "12px 28px", borderRadius: 12, background: "#fff", color: "#1A1A1A", fontSize: 14, fontWeight: 700, textDecoration: "none", border: "1px solid #ddd" }}>
+          <a href="https://www.linkedin.com/company/potatopedia" target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", padding: "12px 28px", borderRadius: 12, background: "var(--card)", color: "var(--ink)", fontSize: 14, fontWeight: 700, textDecoration: "none", border: "1px solid var(--line)" }}>
             LinkedIn &rarr;
           </a>
         </div>
-        <div style={{ fontSize: 13, color: "#999", lineHeight: 1.7 }}>
-          Sister site for Indian-market potato intelligence: <a href="https://www.indianpotato.com" target="_blank" rel="noopener noreferrer" style={{ color: "#C62828", textDecoration: "none", fontWeight: 600 }}>indianpotato.com</a>
+        <div style={{ fontSize: 13, color: "var(--mute2)", lineHeight: 1.7 }}>
+          Sister site for Indian-market potato intelligence: <a href="https://www.indianpotato.com" target="_blank" rel="noopener noreferrer" style={{ color: "var(--gold)", textDecoration: "none", fontWeight: 600 }}>indianpotato.com</a>
         </div>
       </section>
     </>

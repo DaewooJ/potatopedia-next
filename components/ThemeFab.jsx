@@ -3,33 +3,36 @@
 import { useEffect, useRef, useState } from "react";
 import { flushSync } from "react-dom";
 
-// Floating light/dark switch for the homepage: "ripple reveal" (Devendra's pick, 7 Nov 2026, option 8).
+// Floating light/dark switch: "ripple reveal" (Devendra's pick, 7 Nov 2026, option 8).
 // The new theme spreads in a circle from the button across the page (View Transitions API); browsers without it,
-// and visitors who prefer reduced motion, switch instantly. Sets data-theme on .hp and remembers the choice.
-export default function ThemeFab() {
-  const [theme, setTheme] = useState("dark");
+// and visitors who prefer reduced motion, switch instantly. Sets data-theme on `target` and remembers the choice.
+// Homepage: target ".hp", dark by default, key "pp-theme". Reading pages: target "html", light by default,
+// with their own key "pp-read-theme" so the dark homepage never turns the reading pages dark unasked.
+export default function ThemeFab({ target = ".hp", defaultTheme = "dark", storageKey = "pp-theme" }) {
+  const [theme, setTheme] = useState(defaultTheme);
   const btn = useRef(null);
+  const el = () => (target === "html" ? document.documentElement : document.querySelector(target));
 
   useEffect(() => {
     let saved = null;
     try {
-      saved = new URLSearchParams(window.location.search).get("theme") || localStorage.getItem("pp-theme");
+      saved = new URLSearchParams(window.location.search).get("theme") || localStorage.getItem(storageKey);
     } catch {}
     if (saved === "light" || saved === "dark") setTheme(saved);
-  }, []);
+  }, [storageKey]);
 
   useEffect(() => {
-    document.querySelector(".hp")?.setAttribute("data-theme", theme);
-  }, [theme]);
+    el()?.setAttribute("data-theme", theme);
+  }, [theme]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const flip = () => {
     const next = theme === "dark" ? "light" : "dark";
     const apply = () => {
-      document.querySelector(".hp")?.setAttribute("data-theme", next);
+      el()?.setAttribute("data-theme", next);
       flushSync(() => setTheme(next));
     };
     try {
-      localStorage.setItem("pp-theme", next);
+      localStorage.setItem(storageKey, next);
     } catch {}
 
     const reduced = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;

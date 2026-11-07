@@ -119,16 +119,16 @@ export async function generateMetadata({ params }) {
 }
 
 /* ── Shared styles ── */
-const sH2 = { fontSize: 22, fontWeight: 700, paddingLeft: 16, borderLeft: "4px solid #C62828", marginTop: 0, marginBottom: 14, color: "#1A1A1A" };
-const sP = { fontSize: 15, color: "#444", lineHeight: 1.8, marginBottom: 16 };
-const sIntro = { fontSize: 16, color: "#1A1A1A", lineHeight: 1.8, marginBottom: 16, fontWeight: 500 };
-const sTh = { padding: "10px 12px", textAlign: "left", background: "#C62828", color: "#fff", fontSize: 13, fontWeight: 700 };
-const sTd = { padding: "9px 12px", fontSize: 14, borderBottom: "1px solid #eee" };
-const sSource = { fontSize: 12, color: "#999", marginTop: 8, marginBottom: 0, fontStyle: "italic" };
-const cardWrap = { background: "#fff", border: "1px solid #ececec", borderRadius: 14, padding: "28px 28px 24px", marginBottom: 20 };
+const sH2 = { fontSize: 22, fontWeight: 700, paddingLeft: 16, borderLeft: "4px solid var(--gold)", marginTop: 0, marginBottom: 14, color: "var(--ink)" };
+const sP = { fontSize: 15, color: "var(--ink2)", lineHeight: 1.8, marginBottom: 16 };
+const sIntro = { fontSize: 16, color: "var(--ink)", lineHeight: 1.8, marginBottom: 16, fontWeight: 500 };
+const sTh = { padding: "10px 12px", textAlign: "left", background: "var(--accent-bg)", color: "#fff", fontSize: 13, fontWeight: 700 };
+const sTd = { padding: "9px 12px", fontSize: 14, borderBottom: "1px solid var(--line)" };
+const sSource = { fontSize: 12, color: "var(--mute2)", marginTop: 8, marginBottom: 0, fontStyle: "italic" };
+const cardWrap = { background: "var(--card)", border: "1px solid var(--line)", borderRadius: 14, padding: "28px 28px 24px", marginBottom: 20 };
 
-const linkRed = { color: "#C62828", textDecoration: "none", fontWeight: 600 };
-const linkPlain = { color: "#C62828", textDecoration: "none" };
+const linkRed = { color: "var(--gold)", textDecoration: "none", fontWeight: 600 };
+const linkPlain = { color: "var(--gold)", textDecoration: "none" };
 
 /* ── Shared sub-components ── */
 
@@ -136,8 +136,8 @@ function HeroBanner({ children }) {
   return (
     <>
       <style>{`.pp-hero-banner{padding:56px 24px 40px}@media(max-width:768px){.pp-hero-banner{padding:40px 20px 32px!important}}`}</style>
-      <div className="pp-hero-banner" style={{ background: "#FAFAFA", position: "relative", overflow: "hidden", borderBottom: "1px solid #f0f0f0", marginBottom: 32, backgroundImage: "repeating-linear-gradient(0deg, rgba(198,40,40,0.04) 0, rgba(198,40,40,0.04) 1px, transparent 1px, transparent 60px), repeating-linear-gradient(90deg, rgba(198,40,40,0.04) 0, rgba(198,40,40,0.04) 1px, transparent 1px, transparent 60px)" }}>
-        <div style={{ position: "absolute", top: 16, right: 24, width: 200, height: 2, background: "linear-gradient(135deg,#C62828,transparent)", borderRadius: 1, zIndex: 0 }} />
+      <div className="pp-hero-banner" style={{ background: "var(--paper)", position: "relative", overflow: "hidden", borderBottom: "1px solid var(--line)", marginBottom: 32, backgroundImage: "repeating-linear-gradient(0deg, rgba(154,114,56,0.04) 0, rgba(154,114,56,0.04) 1px, transparent 1px, transparent 60px), repeating-linear-gradient(90deg, rgba(154,114,56,0.04) 0, rgba(154,114,56,0.04) 1px, transparent 1px, transparent 60px)" }}>
+        <div style={{ position: "absolute", top: 16, right: 24, width: 200, height: 2, background: "var(--accent-bg)", borderRadius: 1, zIndex: 0 }} />
         <div style={{ position: "relative", zIndex: 1, maxWidth: 880, margin: "0 auto" }}>{children}</div>
       </div>
     </>
@@ -147,24 +147,24 @@ function HeroBanner({ children }) {
 function Breadcrumb({ stateName }) {
   return (
     <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 24, fontSize: 13, flexWrap: "wrap" }}>
-      <Link href="/" style={{ color: "#888", textDecoration: "none" }}>Home</Link>
-      <span style={{ color: "#ccc" }}>/</span>
-      <Link href="/countries" style={{ color: "#888", textDecoration: "none" }}>Countries</Link>
-      <span style={{ color: "#ccc" }}>/</span>
-      <Link href="/country/india" style={{ color: "#888", textDecoration: "none" }}>India</Link>
-      <span style={{ color: "#ccc" }}>/</span>
-      <span style={{ color: "#C62828", fontWeight: 700 }}>{stateName}</span>
+      <Link href="/" style={{ color: "var(--mute2)", textDecoration: "none" }}>Home</Link>
+      <span style={{ color: "var(--mute3)" }}>/</span>
+      <Link href="/countries" style={{ color: "var(--mute2)", textDecoration: "none" }}>Countries</Link>
+      <span style={{ color: "var(--mute3)" }}>/</span>
+      <Link href="/country/india" style={{ color: "var(--mute2)", textDecoration: "none" }}>India</Link>
+      <span style={{ color: "var(--mute3)" }}>/</span>
+      <span style={{ color: "var(--gold)", fontWeight: 700 }}>{stateName}</span>
     </div>
   );
 }
 
 function TagBadge({ tag }) {
-  return <span style={{ display: "inline-block", fontSize: 10, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 1.5, background: "rgba(198,40,40,0.06)", padding: "4px 12px", borderRadius: 10, marginBottom: 16 }}>{tag}</span>;
+  return <span style={{ display: "inline-block", fontSize: 10, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.5, background: "rgba(154,114,56,0.06)", padding: "4px 12px", borderRadius: 10, marginBottom: 16 }}>{tag}</span>;
 }
 
 function DefinitiveAnswer({ children }) {
   return (
-    <div data-summary="true" style={{ background: "rgba(198,40,40,0.03)", border: "1px solid rgba(198,40,40,0.12)", borderLeft: "4px solid #C62828", borderRadius: "0 12px 12px 0", padding: "24px 28px", marginBottom: 24, fontSize: 16, color: "#333", lineHeight: 1.8 }}>
+    <div data-summary="true" style={{ background: "rgba(154,114,56,0.03)", border: "1px solid rgba(154,114,56,0.12)", borderLeft: "4px solid var(--gold)", borderRadius: "0 12px 12px 0", padding: "24px 28px", marginBottom: 24, fontSize: 16, color: "var(--ink2)", lineHeight: 1.8 }}>
       {children}
     </div>
   );
@@ -174,7 +174,7 @@ function KeyStatStrip({ stats }) {
   return (
     <>
       <style>{`.pp-state-stats{display:grid;grid-template-columns:repeat(${stats.length},1fr)}@media(max-width:768px){.pp-state-stats{grid-template-columns:repeat(2,1fr)!important;gap:20px!important;padding:24px 20px!important}}@media(max-width:400px){.pp-state-stats{grid-template-columns:1fr!important}}`}</style>
-      <div className="pp-state-stats" style={{ background: "#1A1A1A", borderRadius: 12, padding: "28px 24px", marginBottom: 24, gap: 0 }}>
+      <div className="pp-state-stats" style={{ background: "var(--panel)", borderRadius: 12, padding: "28px 24px", marginBottom: 24, gap: 0 }}>
         {stats.map((s, i) => (
           <div key={i} style={{ textAlign: "center", borderRight: i < stats.length - 1 ? "1px solid rgba(255,255,255,0.1)" : "none", padding: "0 12px" }}>
             <div style={{ fontSize: 28, fontWeight: 800, color: s.accent || "#fff", letterSpacing: -1, lineHeight: 1 }}>{s.value}</div>
@@ -188,11 +188,11 @@ function KeyStatStrip({ stats }) {
 
 function QuickFactsBox({ items }) {
   return (
-    <div data-quick-facts="true" style={{ background: "#FAFAFA", border: "1px solid #ececec", borderRadius: 10, padding: "16px 20px", marginBottom: 20 }}>
-      <div style={{ fontSize: 10, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 10 }}>Quick Facts</div>
-      <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6px 18px", fontSize: 13, color: "#333" }}>
+    <div data-quick-facts="true" style={{ background: "var(--paper)", border: "1px solid var(--line)", borderRadius: 10, padding: "16px 20px", marginBottom: 20 }}>
+      <div style={{ fontSize: 10, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 10 }}>Quick Facts</div>
+      <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6px 18px", fontSize: 13, color: "var(--ink2)" }}>
         {items.map((it, i) => (
-          <li key={i} style={{ lineHeight: 1.5 }}><strong style={{ color: "#1A1A1A" }}>{it.label}:</strong> {it.value}</li>
+          <li key={i} style={{ lineHeight: 1.5 }}><strong style={{ color: "var(--ink)" }}>{it.label}:</strong> {it.value}</li>
         ))}
       </ul>
     </div>
@@ -204,22 +204,22 @@ function StatCallout({ number, unit, context, source }) {
     <>
       <style>{`.pp-cb{display:flex;gap:20px;align-items:flex-start}.pp-cbm{display:none}@media(max-width:640px){.pp-cb{display:none!important}.pp-cbm{display:block!important}}`}</style>
       <div className="pp-cb" style={{ margin: "24px 0" }}>
-        <div style={{ background: "#C62828", borderRadius: 12, padding: "20px 24px", minWidth: 120, textAlign: "center", flexShrink: 0 }}>
+        <div style={{ background: "var(--accent-bg)", borderRadius: 12, padding: "20px 24px", minWidth: 120, textAlign: "center", flexShrink: 0 }}>
           <div style={{ fontSize: 26, fontWeight: 800, color: "#fff", lineHeight: 1 }}>{number}</div>
           {unit && <div style={{ fontSize: 11, color: "rgba(255,255,255,0.7)", marginTop: 4, textTransform: "uppercase" }}>{unit}</div>}
         </div>
         <div style={{ padding: "8px 0", flex: 1 }}>
-          <div style={{ fontSize: 14, color: "#555", lineHeight: 1.7 }}>{context}</div>
-          {source && <div style={{ fontSize: 11, color: "#aaa", marginTop: 6, fontStyle: "italic" }}>{source}</div>}
+          <div style={{ fontSize: 14, color: "var(--mute)", lineHeight: 1.7 }}>{context}</div>
+          {source && <div style={{ fontSize: 11, color: "var(--mute3)", marginTop: 6, fontStyle: "italic" }}>{source}</div>}
         </div>
       </div>
-      <div className="pp-cbm" style={{ margin: "24px 0", borderLeft: "4px solid #C62828", borderRadius: "0 10px 10px 0", background: "#F7F7F7", padding: "18px 20px" }}>
+      <div className="pp-cbm" style={{ margin: "24px 0", borderLeft: "4px solid var(--gold)", borderRadius: "0 10px 10px 0", background: "var(--paper)", padding: "18px 20px" }}>
         <div style={{ marginBottom: 6 }}>
-          <span style={{ fontSize: 22, fontWeight: 800, color: "#C62828", lineHeight: 1 }}>{number}</span>
-          {unit && <span style={{ fontSize: 13, fontWeight: 600, color: "#C62828", marginLeft: 4 }}>{unit}</span>}
+          <span style={{ fontSize: 22, fontWeight: 800, color: "var(--gold)", lineHeight: 1 }}>{number}</span>
+          {unit && <span style={{ fontSize: 13, fontWeight: 600, color: "var(--gold)", marginLeft: 4 }}>{unit}</span>}
         </div>
-        <div style={{ fontSize: 14, color: "#555", lineHeight: 1.7 }}>{context}</div>
-        {source && <div style={{ fontSize: 11, color: "#aaa", marginTop: 6, fontStyle: "italic" }}>{source}</div>}
+        <div style={{ fontSize: 14, color: "var(--mute)", lineHeight: 1.7 }}>{context}</div>
+        {source && <div style={{ fontSize: 11, color: "var(--mute3)", marginTop: 6, fontStyle: "italic" }}>{source}</div>}
       </div>
     </>
   );
@@ -227,9 +227,9 @@ function StatCallout({ number, unit, context, source }) {
 
 function SourceBlock({ sources }) {
   return (
-    <div style={{ padding: "16px 20px", background: "#FAFAFA", borderRadius: 10, marginTop: 32, marginBottom: 8 }}>
-      <div style={{ fontSize: 10, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 8 }}>Sources</div>
-      {sources.map((s, i) => <div key={i} style={{ fontSize: 12, color: "#666", lineHeight: 1.6 }}>{s}</div>)}
+    <div style={{ padding: "16px 20px", background: "var(--paper)", borderRadius: 10, marginTop: 32, marginBottom: 8 }}>
+      <div style={{ fontSize: 10, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 8 }}>Sources</div>
+      {sources.map((s, i) => <div key={i} style={{ fontSize: 12, color: "var(--mute)", lineHeight: 1.6 }}>{s}</div>)}
     </div>
   );
 }
@@ -237,15 +237,15 @@ function SourceBlock({ sources }) {
 function FAQSection({ items }) {
   return (
     <section style={{ marginTop: 32 }}>
-      <h2 style={{ fontSize: 22, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Frequently Asked Questions</h2>
+      <h2 style={{ fontSize: 22, fontWeight: 700, color: "var(--ink)", marginBottom: 16 }}>Frequently Asked Questions</h2>
       <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
         {items.map((item, i) => (
-          <details key={i} style={{ padding: "16px 20px", borderRadius: 12, border: "1px solid #f0f0f0", background: "#FAFAFA" }}>
+          <details key={i} style={{ padding: "16px 20px", borderRadius: 12, border: "1px solid var(--line)", background: "var(--paper)" }}>
             <summary style={{ cursor: "pointer", listStyle: "none", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12 }}>
-              <span style={{ fontSize: 14, fontWeight: 600, color: "#1A1A1A", lineHeight: 1.4 }}>{item.q}</span>
-              <span style={{ fontSize: 16, color: "#C62828", flexShrink: 0 }}>+</span>
+              <span style={{ fontSize: 14, fontWeight: 600, color: "var(--ink)", lineHeight: 1.4 }}>{item.q}</span>
+              <span style={{ fontSize: 16, color: "var(--gold)", flexShrink: 0 }}>+</span>
             </summary>
-            <p style={{ fontSize: 13, color: "#555", lineHeight: 1.7, marginTop: 12 }}>{item.a}</p>
+            <p style={{ fontSize: 13, color: "var(--mute)", lineHeight: 1.7, marginTop: 12 }}>{item.a}</p>
           </details>
         ))}
       </div>
@@ -257,13 +257,13 @@ function RelatedStates({ currentSlug }) {
   const others = INDIA_STATES.filter((s) => s.slug !== currentSlug);
   return (
     <section style={{ marginTop: 40 }}>
-      <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Other top potato states in India</h2>
+      <h2 style={{ fontSize: 20, fontWeight: 700, color: "var(--ink)", marginBottom: 16 }}>Other top potato states in India</h2>
       <div className="pp-related-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px,1fr))", gap: 12 }}>
         {others.map((s) => (
-          <Link key={s.slug} href={`/country/india/${s.slug}`} style={{ background: "#FAFAFA", border: "1px solid #eee", borderRadius: 12, padding: "16px 18px", textDecoration: "none", color: "inherit", display: "block" }}>
-            <div style={{ fontSize: 10, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 1.2, marginBottom: 4 }}>#{s.rank} · {s.share} of India</div>
-            <div style={{ fontSize: 15, fontWeight: 700, color: "#1A1A1A", marginBottom: 4 }}>{s.name}</div>
-            <div style={{ fontSize: 12, color: "#666" }}>{s.prod} t · top district {s.topDistrict}</div>
+          <Link key={s.slug} href={`/country/india/${s.slug}`} style={{ background: "var(--paper)", border: "1px solid var(--line)", borderRadius: 12, padding: "16px 18px", textDecoration: "none", color: "inherit", display: "block" }}>
+            <div style={{ fontSize: 10, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.2, marginBottom: 4 }}>#{s.rank} · {s.share} of India</div>
+            <div style={{ fontSize: 15, fontWeight: 700, color: "var(--ink)", marginBottom: 4 }}>{s.name}</div>
+            <div style={{ fontSize: 12, color: "var(--mute)" }}>{s.prod} t · top district {s.topDistrict}</div>
           </Link>
         ))}
       </div>
@@ -274,13 +274,13 @@ function RelatedStates({ currentSlug }) {
 function ContinueReading({ articles }) {
   return (
     <section style={{ marginTop: 40 }}>
-      <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginBottom: 16 }}>Continue Reading</h2>
+      <h2 style={{ fontSize: 20, fontWeight: 700, color: "var(--ink)", marginBottom: 16 }}>Continue Reading</h2>
       <div className="pp-related-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
         {articles.map((a, i) => (
-          <Link key={i} href={a.href} style={{ background: "#FAFAFA", border: "1px solid #eee", borderRadius: 12, padding: "16px 18px", textDecoration: "none", color: "inherit", display: "block" }}>
-            <span style={{ display: "inline-block", fontSize: 10, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 1.2, background: "rgba(198,40,40,0.06)", padding: "2px 8px", borderRadius: 6, marginBottom: 8 }}>{a.tag}</span>
-            <div style={{ fontSize: 14, fontWeight: 600, color: "#1A1A1A", lineHeight: 1.4, marginBottom: 4 }}>{a.title}</div>
-            <div style={{ fontSize: 12, color: "#888", lineHeight: 1.4 }}>{a.desc}</div>
+          <Link key={i} href={a.href} style={{ background: "var(--paper)", border: "1px solid var(--line)", borderRadius: 12, padding: "16px 18px", textDecoration: "none", color: "inherit", display: "block" }}>
+            <span style={{ display: "inline-block", fontSize: 10, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.2, background: "rgba(154,114,56,0.06)", padding: "2px 8px", borderRadius: 6, marginBottom: 8 }}>{a.tag}</span>
+            <div style={{ fontSize: 14, fontWeight: 600, color: "var(--ink)", lineHeight: 1.4, marginBottom: 4 }}>{a.title}</div>
+            <div style={{ fontSize: 12, color: "var(--mute2)", lineHeight: 1.4 }}>{a.desc}</div>
           </Link>
         ))}
       </div>
@@ -370,16 +370,16 @@ function FurtherReading() {
     },
   ];
   return (
-    <section style={{ marginTop: 40, padding: "24px 26px", background: "#FAFAFA", border: "1px solid #ececec", borderRadius: 14 }}>
-      <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginTop: 0, marginBottom: 8 }}>Further reading</h2>
-      <p style={{ fontSize: 13, color: "#666", lineHeight: 1.6, marginBottom: 18 }}>Explore Potatopedia&apos;s deeper references on Indian and global potato production, varieties, processing, storage, and trade.</p>
+    <section style={{ marginTop: 40, padding: "24px 26px", background: "var(--paper)", border: "1px solid var(--line)", borderRadius: 14 }}>
+      <h2 style={{ fontSize: 20, fontWeight: 700, color: "var(--ink)", marginTop: 0, marginBottom: 8 }}>Further reading</h2>
+      <p style={{ fontSize: 13, color: "var(--mute)", lineHeight: 1.6, marginBottom: 18 }}>Explore Potatopedia&apos;s deeper references on Indian and global potato production, varieties, processing, storage, and trade.</p>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px,1fr))", gap: 18 }}>
         {groups.map((g) => (
           <div key={g.title}>
-            <div style={{ fontSize: 11, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 1.3, marginBottom: 8 }}>{g.title}</div>
+            <div style={{ fontSize: 11, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.3, marginBottom: 8 }}>{g.title}</div>
             <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: 4 }}>
               {g.items.map((it) => (
-                <li key={it.href}><Link href={it.href} style={{ fontSize: 13, color: "#444", textDecoration: "none", lineHeight: 1.5 }}>{it.label} →</Link></li>
+                <li key={it.href}><Link href={it.href} style={{ fontSize: 13, color: "var(--ink2)", textDecoration: "none", lineHeight: 1.5 }}>{it.label} →</Link></li>
               ))}
             </ul>
           </div>
@@ -391,10 +391,10 @@ function FurtherReading() {
 
 function BottomCTA() {
   return (
-    <div style={{ marginTop: 48, padding: "28px 28px", borderRadius: 16, background: "linear-gradient(135deg, rgba(198,40,40,0.06), rgba(198,40,40,0.02))", border: "1px solid rgba(198,40,40,0.12)", textAlign: "center" }}>
-      <div style={{ fontSize: 18, fontWeight: 700, color: "#1A1A1A", marginBottom: 8 }}>Have a question about Indian potato production?</div>
-      <div style={{ fontSize: 14, color: "#666", marginBottom: 16 }}>Ask Potatopedia AI for instant, data-backed answers drawn from FAOSTAT, ICAR-CPRI, DAFW, and other authoritative sources.</div>
-      <Link href="/ask" style={{ display: "inline-block", padding: "12px 28px", borderRadius: 12, background: "linear-gradient(135deg,#C62828,#E53935)", color: "#fff", fontSize: 14, fontWeight: 700, textDecoration: "none" }}>Ask Potatopedia AI →</Link>
+    <div style={{ marginTop: 48, padding: "28px 28px", borderRadius: 16, background: "linear-gradient(135deg, rgba(154,114,56,0.06), rgba(154,114,56,0.02))", border: "1px solid rgba(154,114,56,0.12)", textAlign: "center" }}>
+      <div style={{ fontSize: 18, fontWeight: 700, color: "var(--ink)", marginBottom: 8 }}>Have a question about Indian potato production?</div>
+      <div style={{ fontSize: 14, color: "var(--mute)", marginBottom: 16 }}>Ask Potatopedia AI for instant, data-backed answers drawn from FAOSTAT, ICAR-CPRI, DAFW, and other authoritative sources.</div>
+      <Link href="/ask" style={{ display: "inline-block", padding: "12px 28px", borderRadius: 12, background: "var(--accent-bg)", color: "#fff", fontSize: 14, fontWeight: 700, textDecoration: "none" }}>Ask Potatopedia AI →</Link>
     </div>
   );
 }
@@ -508,12 +508,12 @@ function UttarPradeshState() {
           <Breadcrumb stateName="Uttar Pradesh" />
           <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 16 }}>
             <TagBadge tag="India · Uttar Pradesh" />
-            <span style={{ fontSize: 12, color: "#999" }}>·</span>
-            <span style={{ fontSize: 12, color: "#999" }}>Updated {UPDATED_SHORT}</span>
-            <span style={{ fontSize: 12, color: "#999" }}>·</span>
-            <span style={{ fontSize: 12, color: "#999" }}>15 min read</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>·</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>Updated {UPDATED_SHORT}</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>·</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>15 min read</span>
           </div>
-          <h1 style={{ fontSize: 32, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>{STATE_META["uttar-pradesh"].h1}</h1>
+          <h1 style={{ fontSize: 32, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>{STATE_META["uttar-pradesh"].h1}</h1>
         </HeroBanner>
 
         <div style={{ maxWidth: 880, margin: "0 auto", padding: "0 24px 80px" }}>
@@ -562,11 +562,11 @@ function UttarPradeshState() {
                 <thead><tr>{["District", "Production", "Notes", "Top varieties"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
                 <tbody>
                   {districts.map((r, i) => (
-                    <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                    <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                       <td style={{ ...sTd, fontWeight: i < 3 ? 700 : 600 }}>{r[0]}</td>
                       <td style={sTd} data-stat-type="production">{r[1]}</td>
-                      <td style={{ ...sTd, color: "#666" }}>{r[2]}</td>
-                      <td style={{ ...sTd, color: "#555" }}>{r[3]}</td>
+                      <td style={{ ...sTd, color: "var(--mute)" }}>{r[2]}</td>
+                      <td style={{ ...sTd, color: "var(--mute)" }}>{r[3]}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -602,7 +602,7 @@ function UttarPradeshState() {
                 <thead><tr>{["Variety", "Released", "Adoption in UP", "End use", "Maturity (days)"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
                 <tbody>
                   {varieties.map((r, i) => (
-                    <tr key={r[0]} style={{ background: i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                    <tr key={r[0]} style={{ background: i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                       <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
                       <td style={sTd}>{r[1]}</td>
                       <td style={sTd}>{r[2]}</td>
@@ -782,12 +782,12 @@ function WestBengalState() {
           <Breadcrumb stateName="West Bengal" />
           <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 16 }}>
             <TagBadge tag="India · West Bengal" />
-            <span style={{ fontSize: 12, color: "#999" }}>·</span>
-            <span style={{ fontSize: 12, color: "#999" }}>Updated {UPDATED_SHORT}</span>
-            <span style={{ fontSize: 12, color: "#999" }}>·</span>
-            <span style={{ fontSize: 12, color: "#999" }}>14 min read</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>·</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>Updated {UPDATED_SHORT}</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>·</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>14 min read</span>
           </div>
-          <h1 style={{ fontSize: 32, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>{STATE_META["west-bengal"].h1}</h1>
+          <h1 style={{ fontSize: 32, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>{STATE_META["west-bengal"].h1}</h1>
         </HeroBanner>
 
         <div style={{ maxWidth: 880, margin: "0 auto", padding: "0 24px 80px" }}>
@@ -836,11 +836,11 @@ function WestBengalState() {
                 <thead><tr>{["District", "State share", "Notes", "Top varieties"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
                 <tbody>
                   {districts.map((r, i) => (
-                    <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                    <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                       <td style={{ ...sTd, fontWeight: i < 3 ? 700 : 600 }}>{r[0]}</td>
                       <td style={sTd} data-stat-type="district-share">{r[1]}</td>
-                      <td style={{ ...sTd, color: "#666" }}>{r[2]}</td>
-                      <td style={{ ...sTd, color: "#555" }}>{r[3]}</td>
+                      <td style={{ ...sTd, color: "var(--mute)" }}>{r[2]}</td>
+                      <td style={{ ...sTd, color: "var(--mute)" }}>{r[3]}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -869,7 +869,7 @@ function WestBengalState() {
                 <thead><tr>{["Variety", "Released", "Adoption in WB", "End use", "Maturity (days)"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
                 <tbody>
                   {varieties.map((r, i) => (
-                    <tr key={r[0]} style={{ background: i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                    <tr key={r[0]} style={{ background: i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                       <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
                       <td style={sTd}>{r[1]}</td>
                       <td style={sTd}>{r[2]}</td>
@@ -1048,12 +1048,12 @@ function BiharState() {
           <Breadcrumb stateName="Bihar" />
           <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 16 }}>
             <TagBadge tag="India · Bihar" />
-            <span style={{ fontSize: 12, color: "#999" }}>·</span>
-            <span style={{ fontSize: 12, color: "#999" }}>Updated {UPDATED_SHORT}</span>
-            <span style={{ fontSize: 12, color: "#999" }}>·</span>
-            <span style={{ fontSize: 12, color: "#999" }}>14 min read</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>·</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>Updated {UPDATED_SHORT}</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>·</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>14 min read</span>
           </div>
-          <h1 style={{ fontSize: 32, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>{STATE_META["bihar"].h1}</h1>
+          <h1 style={{ fontSize: 32, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>{STATE_META["bihar"].h1}</h1>
         </HeroBanner>
 
         <div style={{ maxWidth: 880, margin: "0 auto", padding: "0 24px 80px" }}>
@@ -1102,11 +1102,11 @@ function BiharState() {
                 <thead><tr>{["District", "Rank", "Notes", "Top varieties"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
                 <tbody>
                   {districts.map((r, i) => (
-                    <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                    <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                       <td style={{ ...sTd, fontWeight: i < 3 ? 700 : 600 }}>{r[0]}</td>
                       <td style={sTd}>{r[1]}</td>
-                      <td style={{ ...sTd, color: "#666" }}>{r[2]}</td>
-                      <td style={{ ...sTd, color: "#555" }}>{r[3]}</td>
+                      <td style={{ ...sTd, color: "var(--mute)" }}>{r[2]}</td>
+                      <td style={{ ...sTd, color: "var(--mute)" }}>{r[3]}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -1135,7 +1135,7 @@ function BiharState() {
                 <thead><tr>{["Variety", "Released", "Adoption in Bihar", "End use", "Maturity (days)"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
                 <tbody>
                   {varieties.map((r, i) => (
-                    <tr key={r[0]} style={{ background: i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                    <tr key={r[0]} style={{ background: i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                       <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
                       <td style={sTd}>{r[1]}</td>
                       <td style={sTd}>{r[2]}</td>
@@ -1326,12 +1326,12 @@ function GujaratState() {
           <Breadcrumb stateName="Gujarat" />
           <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 16 }}>
             <TagBadge tag="India · Gujarat" />
-            <span style={{ fontSize: 12, color: "#999" }}>·</span>
-            <span style={{ fontSize: 12, color: "#999" }}>Updated {UPDATED_SHORT}</span>
-            <span style={{ fontSize: 12, color: "#999" }}>·</span>
-            <span style={{ fontSize: 12, color: "#999" }}>15 min read</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>·</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>Updated {UPDATED_SHORT}</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>·</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>15 min read</span>
           </div>
-          <h1 style={{ fontSize: 32, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>{STATE_META["gujarat"].h1}</h1>
+          <h1 style={{ fontSize: 32, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>{STATE_META["gujarat"].h1}</h1>
         </HeroBanner>
 
         <div style={{ maxWidth: 880, margin: "0 auto", padding: "0 24px 80px" }}>
@@ -1380,11 +1380,11 @@ function GujaratState() {
                 <thead><tr>{["District", "Production / Yield", "Notes", "Top varieties"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
                 <tbody>
                   {districts.map((r, i) => (
-                    <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                    <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                       <td style={{ ...sTd, fontWeight: i < 3 ? 700 : 600 }}>{r[0]}</td>
                       <td style={sTd} data-stat-type="production-yield">{r[1]}</td>
-                      <td style={{ ...sTd, color: "#666" }}>{r[2]}</td>
-                      <td style={{ ...sTd, color: "#555" }}>{r[3]}</td>
+                      <td style={{ ...sTd, color: "var(--mute)" }}>{r[2]}</td>
+                      <td style={{ ...sTd, color: "var(--mute)" }}>{r[3]}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -1413,7 +1413,7 @@ function GujaratState() {
                 <thead><tr>{["Variety", "Origin / Released", "Adoption in Gujarat", "End use", "Maturity (days)"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
                 <tbody>
                   {varieties.map((r, i) => (
-                    <tr key={r[0]} style={{ background: i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                    <tr key={r[0]} style={{ background: i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                       <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
                       <td style={sTd}>{r[1]}</td>
                       <td style={sTd}>{r[2]}</td>
@@ -1462,11 +1462,11 @@ function GujaratState() {
                 <thead><tr>{["Processor", "Plant location", "Capacity / scope", "End markets"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
                 <tbody>
                   {processors.map((r, i) => (
-                    <tr key={r[0]} style={{ background: i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                    <tr key={r[0]} style={{ background: i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                       <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
                       <td style={sTd}>{r[1]}</td>
                       <td style={sTd}>{r[2]}</td>
-                      <td style={{ ...sTd, color: "#666" }}>{r[3]}</td>
+                      <td style={{ ...sTd, color: "var(--mute)" }}>{r[3]}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -1616,12 +1616,12 @@ function MadhyaPradeshState() {
           <Breadcrumb stateName="Madhya Pradesh" />
           <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 16 }}>
             <TagBadge tag="India · Madhya Pradesh" />
-            <span style={{ fontSize: 12, color: "#999" }}>·</span>
-            <span style={{ fontSize: 12, color: "#999" }}>Updated {UPDATED_SHORT}</span>
-            <span style={{ fontSize: 12, color: "#999" }}>·</span>
-            <span style={{ fontSize: 12, color: "#999" }}>14 min read</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>·</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>Updated {UPDATED_SHORT}</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>·</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>14 min read</span>
           </div>
-          <h1 style={{ fontSize: 32, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>{STATE_META["madhya-pradesh"].h1}</h1>
+          <h1 style={{ fontSize: 32, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>{STATE_META["madhya-pradesh"].h1}</h1>
         </HeroBanner>
 
         <div style={{ maxWidth: 880, margin: "0 auto", padding: "0 24px 80px" }}>
@@ -1661,7 +1661,7 @@ function MadhyaPradeshState() {
                     ["2022-23", "172.21", "3,954.91", "22.97"],
                     ["2023-24", "155.56", "3,949.00", "25.39"],
                   ].map((r, i) => (
-                    <tr key={r[0]} style={{ background: i === 4 ? "rgba(198,40,40,0.05)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                    <tr key={r[0]} style={{ background: i === 4 ? "rgba(154,114,56,0.05)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                       <td style={{ ...sTd, fontWeight: i === 4 ? 700 : 600 }}>{r[0]}</td>
                       <td style={sTd}>{r[1]}</td>
                       <td style={sTd}>{r[2]}</td>
@@ -1685,12 +1685,12 @@ function MadhyaPradeshState() {
                 <thead><tr>{["District", "Area (ha)", "Production (tonnes)", "Productivity (t/ha)", "Notes"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
                 <tbody>
                   {districts.map((r, i) => (
-                    <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                    <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                       <td style={{ ...sTd, fontWeight: i < 3 ? 700 : 600 }}>{r[0]}</td>
                       <td style={sTd}>{r[1]}</td>
                       <td style={sTd}>{r[2]}</td>
                       <td style={sTd}>{r[3]}</td>
-                      <td style={{ ...sTd, color: "#555" }}>{r[4]}</td>
+                      <td style={{ ...sTd, color: "var(--mute)" }}>{r[4]}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -1711,12 +1711,12 @@ function MadhyaPradeshState() {
                 <thead><tr>{["Variety", "End use", "Yield potential (t/ha)", "Maturity (days)", "Recommendation notes"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
                 <tbody>
                   {varieties.map((r, i) => (
-                    <tr key={r[0]} style={{ background: i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                    <tr key={r[0]} style={{ background: i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                       <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
                       <td style={sTd}>{r[1]}</td>
                       <td style={sTd}>{r[2]}</td>
                       <td style={sTd}>{r[3]}</td>
-                      <td style={{ ...sTd, color: "#555" }}>{r[4]}</td>
+                      <td style={{ ...sTd, color: "var(--mute)" }}>{r[4]}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -1855,12 +1855,12 @@ function JharkhandState() {
           <Breadcrumb stateName="Jharkhand" />
           <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 16 }}>
             <TagBadge tag="India · Jharkhand" />
-            <span style={{ fontSize: 12, color: "#999" }}>·</span>
-            <span style={{ fontSize: 12, color: "#999" }}>Updated {UPDATED_SHORT}</span>
-            <span style={{ fontSize: 12, color: "#999" }}>·</span>
-            <span style={{ fontSize: 12, color: "#999" }}>12 min read</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>·</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>Updated {UPDATED_SHORT}</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>·</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>12 min read</span>
           </div>
-          <h1 style={{ fontSize: 32, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>{STATE_META["jharkhand"].h1}</h1>
+          <h1 style={{ fontSize: 32, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>{STATE_META["jharkhand"].h1}</h1>
         </HeroBanner>
 
         <div style={{ maxWidth: 880, margin: "0 auto", padding: "0 24px 80px" }}>
@@ -1901,7 +1901,7 @@ function JharkhandState() {
                     ["2022-23", "50.73", "757.31", "14.93"],
                     ["2023-24", "51.28", "766.82", "14.95"],
                   ].map((r, i) => (
-                    <tr key={r[0]} style={{ background: i === 4 ? "rgba(198,40,40,0.05)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                    <tr key={r[0]} style={{ background: i === 4 ? "rgba(154,114,56,0.05)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                       <td style={{ ...sTd, fontWeight: i === 4 ? 700 : 600 }}>{r[0]}</td>
                       <td style={sTd}>{r[1]}</td>
                       <td style={sTd}>{r[2]}</td>
@@ -1925,12 +1925,12 @@ function JharkhandState() {
                 <thead><tr>{["District", "Area (ha)", "Production (tonnes)", "Productivity (t/ha)", "Notes"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
                 <tbody>
                   {districts.map((r, i) => (
-                    <tr key={r[0]} style={{ background: i < 3 ? "rgba(198,40,40,0.03)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                    <tr key={r[0]} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                       <td style={{ ...sTd, fontWeight: i < 3 ? 700 : 600 }}>{r[0]}</td>
                       <td style={sTd}>{r[1]}</td>
                       <td style={sTd}>{r[2]}</td>
                       <td style={sTd}>{r[3]}</td>
-                      <td style={{ ...sTd, color: "#555" }}>{r[4]}</td>
+                      <td style={{ ...sTd, color: "var(--mute)" }}>{r[4]}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -1951,12 +1951,12 @@ function JharkhandState() {
                 <thead><tr>{["Variety", "End use", "Yield potential (t/ha)", "Maturity (days)", "Recommendation notes"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
                 <tbody>
                   {varieties.map((r, i) => (
-                    <tr key={r[0]} style={{ background: i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                    <tr key={r[0]} style={{ background: i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                       <td style={{ ...sTd, fontWeight: 600 }}>{r[0]}</td>
                       <td style={sTd}>{r[1]}</td>
                       <td style={sTd}>{r[2]}</td>
                       <td style={sTd}>{r[3]}</td>
-                      <td style={{ ...sTd, color: "#555" }}>{r[4]}</td>
+                      <td style={{ ...sTd, color: "var(--mute)" }}>{r[4]}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -2072,12 +2072,12 @@ function MaharashtraState() {
           <Breadcrumb stateName="Maharashtra" />
           <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 16 }}>
             <TagBadge tag="India · Maharashtra" />
-            <span style={{ fontSize: 12, color: "#999" }}>·</span>
-            <span style={{ fontSize: 12, color: "#999" }}>Updated {UPDATED_SHORT}</span>
-            <span style={{ fontSize: 12, color: "#999" }}>·</span>
-            <span style={{ fontSize: 12, color: "#999" }}>10 min read</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>·</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>Updated {UPDATED_SHORT}</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>·</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>10 min read</span>
           </div>
-          <h1 style={{ fontSize: 32, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>{STATE_META["maharashtra"].h1}</h1>
+          <h1 style={{ fontSize: 32, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>{STATE_META["maharashtra"].h1}</h1>
         </HeroBanner>
 
         <div style={{ maxWidth: 880, margin: "0 auto", padding: "0 24px 80px" }}>
@@ -2118,7 +2118,7 @@ function MaharashtraState() {
                     ["2022-23", "15.45", "278.91", "18.06"],
                     ["2023-24", "14.45", "386.69", "26.77"],
                   ].map((r, i) => (
-                    <tr key={r[0]} style={{ background: i === 4 ? "rgba(198,40,40,0.05)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                    <tr key={r[0]} style={{ background: i === 4 ? "rgba(154,114,56,0.05)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                       <td style={{ ...sTd, fontWeight: i === 4 ? 700 : 600 }}>{r[0]}</td>
                       <td style={sTd}>{r[1]}</td>
                       <td style={sTd}>{r[2]}</td>
@@ -2152,12 +2152,12 @@ function MaharashtraState() {
                 <thead><tr>{["Variety", "End use", "Yield potential (t/ha)", "Maturity (days)", "Recommendation notes"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
                 <tbody>
                   {varieties.map((r, i) => (
-                    <tr key={r[0]} style={{ background: i === 0 ? "rgba(198,40,40,0.05)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                    <tr key={r[0]} style={{ background: i === 0 ? "rgba(154,114,56,0.05)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                       <td style={{ ...sTd, fontWeight: i === 0 ? 700 : 600 }}>{r[0]}</td>
                       <td style={sTd}>{r[1]}</td>
                       <td style={sTd}>{r[2]}</td>
                       <td style={sTd}>{r[3]}</td>
-                      <td style={{ ...sTd, color: "#555" }}>{r[4]}</td>
+                      <td style={{ ...sTd, color: "var(--mute)" }}>{r[4]}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -2242,12 +2242,12 @@ function AndhraPradeshState() {
           <Breadcrumb stateName="Andhra Pradesh" />
           <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 16 }}>
             <TagBadge tag="India · Andhra Pradesh" />
-            <span style={{ fontSize: 12, color: "#999" }}>·</span>
-            <span style={{ fontSize: 12, color: "#999" }}>Updated {UPDATED_SHORT}</span>
-            <span style={{ fontSize: 12, color: "#999" }}>·</span>
-            <span style={{ fontSize: 12, color: "#999" }}>8 min read</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>·</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>Updated {UPDATED_SHORT}</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>·</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>8 min read</span>
           </div>
-          <h1 style={{ fontSize: 32, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>{STATE_META["andhra-pradesh"].h1}</h1>
+          <h1 style={{ fontSize: 32, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>{STATE_META["andhra-pradesh"].h1}</h1>
         </HeroBanner>
 
         <div style={{ maxWidth: 880, margin: "0 auto", padding: "0 24px 80px" }}>
@@ -2288,7 +2288,7 @@ function AndhraPradeshState() {
                     ["2022-23", "0.44", "13.14", "30.00"],
                     ["2023-24", "0.59", "17.76", "30.00"],
                   ].map((r, i) => (
-                    <tr key={r[0]} style={{ background: i === 4 ? "rgba(198,40,40,0.05)" : i === 2 ? "rgba(198,40,40,0.08)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                    <tr key={r[0]} style={{ background: i === 4 ? "rgba(154,114,56,0.05)" : i === 2 ? "rgba(154,114,56,0.08)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                       <td style={{ ...sTd, fontWeight: (i === 4 || i === 2) ? 700 : 600 }}>{r[0]}</td>
                       <td style={sTd}>{r[1]}</td>
                       <td style={sTd}>{r[2]}</td>
@@ -2397,12 +2397,12 @@ function AssamState() {
           <Breadcrumb stateName="Assam" />
           <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 16 }}>
             <TagBadge tag="India · Assam" />
-            <span style={{ fontSize: 12, color: "#999" }}>·</span>
-            <span style={{ fontSize: 12, color: "#999" }}>Updated {UPDATED_SHORT}</span>
-            <span style={{ fontSize: 12, color: "#999" }}>·</span>
-            <span style={{ fontSize: 12, color: "#999" }}>11 min read</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>·</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>Updated {UPDATED_SHORT}</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>·</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>11 min read</span>
           </div>
-          <h1 style={{ fontSize: 32, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>{STATE_META["assam"].h1}</h1>
+          <h1 style={{ fontSize: 32, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>{STATE_META["assam"].h1}</h1>
         </HeroBanner>
 
         <div style={{ maxWidth: 880, margin: "0 auto", padding: "0 24px 80px" }}>
@@ -2443,7 +2443,7 @@ function AssamState() {
                     ["2022-23", "103.64", "773.37", "7.46"],
                     ["2023-24", "106.47", "911.33", "8.56"],
                   ].map((r, i) => (
-                    <tr key={r[0]} style={{ background: i === 4 ? "rgba(198,40,40,0.05)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                    <tr key={r[0]} style={{ background: i === 4 ? "rgba(154,114,56,0.05)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                       <td style={{ ...sTd, fontWeight: i === 4 ? 700 : 600 }}>{r[0]}</td>
                       <td style={sTd}>{r[1]}</td>
                       <td style={sTd}>{r[2]}</td>
@@ -2562,12 +2562,12 @@ function TripuraState() {
           <Breadcrumb stateName="Tripura" />
           <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 16 }}>
             <TagBadge tag="India · Tripura" />
-            <span style={{ fontSize: 12, color: "#999" }}>·</span>
-            <span style={{ fontSize: 12, color: "#999" }}>Updated {UPDATED_SHORT}</span>
-            <span style={{ fontSize: 12, color: "#999" }}>·</span>
-            <span style={{ fontSize: 12, color: "#999" }}>6 min read</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>·</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>Updated {UPDATED_SHORT}</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>·</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>6 min read</span>
           </div>
-          <h1 style={{ fontSize: 32, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>{STATE_META["tripura"].h1}</h1>
+          <h1 style={{ fontSize: 32, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>{STATE_META["tripura"].h1}</h1>
         </HeroBanner>
 
         <div style={{ maxWidth: 880, margin: "0 auto", padding: "0 24px 80px" }}>
@@ -2607,7 +2607,7 @@ function TripuraState() {
                     ["2022-23", "7.58", "141.30", "18.63"],
                     ["2023-24", "7.62", "146.05", "19.16"],
                   ].map((r, i) => (
-                    <tr key={r[0]} style={{ background: i === 4 ? "rgba(198,40,40,0.05)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                    <tr key={r[0]} style={{ background: i === 4 ? "rgba(154,114,56,0.05)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                       <td style={{ ...sTd, fontWeight: i === 4 ? 700 : 600 }}>{r[0]}</td>
                       <td style={sTd}>{r[1]}</td>
                       <td style={sTd}>{r[2]}</td>
@@ -2712,12 +2712,12 @@ function MeghalayaState() {
           <Breadcrumb stateName="Meghalaya" />
           <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 16 }}>
             <TagBadge tag="India · Meghalaya" />
-            <span style={{ fontSize: 12, color: "#999" }}>·</span>
-            <span style={{ fontSize: 12, color: "#999" }}>Updated {UPDATED_SHORT}</span>
-            <span style={{ fontSize: 12, color: "#999" }}>·</span>
-            <span style={{ fontSize: 12, color: "#999" }}>7 min read</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>·</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>Updated {UPDATED_SHORT}</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>·</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>7 min read</span>
           </div>
-          <h1 style={{ fontSize: 32, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>{STATE_META["meghalaya"].h1}</h1>
+          <h1 style={{ fontSize: 32, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>{STATE_META["meghalaya"].h1}</h1>
         </HeroBanner>
 
         <div style={{ maxWidth: 880, margin: "0 auto", padding: "0 24px 80px" }}>
@@ -2758,7 +2758,7 @@ function MeghalayaState() {
                     ["2022-23", "19.54", "196.23", "10.04"],
                     ["2023-24", "19.54", "196.25", "10.04"],
                   ].map((r, i) => (
-                    <tr key={i+r[0]} style={{ background: i === 4 ? "rgba(198,40,40,0.05)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                    <tr key={i+r[0]} style={{ background: i === 4 ? "rgba(154,114,56,0.05)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                       <td style={{ ...sTd, fontWeight: i === 4 ? 700 : 600 }}>{r[0]}</td>
                       <td style={sTd}>{r[1]}</td>
                       <td style={sTd}>{r[2]}</td>
@@ -2867,12 +2867,12 @@ function NagalandState() {
           <Breadcrumb stateName="Nagaland" />
           <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 16 }}>
             <TagBadge tag="India · Nagaland" />
-            <span style={{ fontSize: 12, color: "#999" }}>·</span>
-            <span style={{ fontSize: 12, color: "#999" }}>Updated {UPDATED_SHORT}</span>
-            <span style={{ fontSize: 12, color: "#999" }}>·</span>
-            <span style={{ fontSize: 12, color: "#999" }}>5 min read</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>·</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>Updated {UPDATED_SHORT}</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>·</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>5 min read</span>
           </div>
-          <h1 style={{ fontSize: 32, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>{STATE_META["nagaland"].h1}</h1>
+          <h1 style={{ fontSize: 32, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>{STATE_META["nagaland"].h1}</h1>
         </HeroBanner>
 
         <div style={{ maxWidth: 880, margin: "0 auto", padding: "0 24px 80px" }}>
@@ -2912,7 +2912,7 @@ function NagalandState() {
                     ["2022-23", "4.44", "55.91", "12.60"],
                     ["2023-24", "4.44", "55.12", "12.41"],
                   ].map((r, i) => (
-                    <tr key={i+r[0]} style={{ background: i === 4 ? "rgba(198,40,40,0.05)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                    <tr key={i+r[0]} style={{ background: i === 4 ? "rgba(154,114,56,0.05)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                       <td style={{ ...sTd, fontWeight: i === 4 ? 700 : 600 }}>{r[0]}</td>
                       <td style={sTd}>{r[1]}</td>
                       <td style={sTd}>{r[2]}</td>
@@ -3015,12 +3015,12 @@ function ManipurState() {
           <Breadcrumb stateName="Manipur" />
           <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 16 }}>
             <TagBadge tag="India · Manipur" />
-            <span style={{ fontSize: 12, color: "#999" }}>·</span>
-            <span style={{ fontSize: 12, color: "#999" }}>Updated {UPDATED_SHORT}</span>
-            <span style={{ fontSize: 12, color: "#999" }}>·</span>
-            <span style={{ fontSize: 12, color: "#999" }}>6 min read</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>·</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>Updated {UPDATED_SHORT}</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>·</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>6 min read</span>
           </div>
-          <h1 style={{ fontSize: 32, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>{STATE_META["manipur"].h1}</h1>
+          <h1 style={{ fontSize: 32, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>{STATE_META["manipur"].h1}</h1>
         </HeroBanner>
 
         <div style={{ maxWidth: 880, margin: "0 auto", padding: "0 24px 80px" }}>
@@ -3060,7 +3060,7 @@ function ManipurState() {
                     ["2022-23", "1.59", "11.25", "7.06"],
                     ["2023-24", "1.16", "14.63", "12.61"],
                   ].map((r, i) => (
-                    <tr key={i+r[0]} style={{ background: i === 4 ? "rgba(198,40,40,0.05)" : (i === 1 || i === 2) ? "rgba(198,40,40,0.08)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                    <tr key={i+r[0]} style={{ background: i === 4 ? "rgba(154,114,56,0.05)" : (i === 1 || i === 2) ? "rgba(154,114,56,0.08)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                       <td style={{ ...sTd, fontWeight: (i === 4 || i === 1 || i === 2) ? 700 : 600 }}>{r[0]}</td>
                       <td style={sTd}>{r[1]}</td>
                       <td style={sTd}>{r[2]}</td>
@@ -3171,12 +3171,12 @@ function ArunachalPradeshState() {
           <Breadcrumb stateName="Arunachal Pradesh" />
           <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 16 }}>
             <TagBadge tag="India · Arunachal Pradesh" />
-            <span style={{ fontSize: 12, color: "#999" }}>·</span>
-            <span style={{ fontSize: 12, color: "#999" }}>Updated {UPDATED_SHORT}</span>
-            <span style={{ fontSize: 12, color: "#999" }}>·</span>
-            <span style={{ fontSize: 12, color: "#999" }}>6 min read</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>·</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>Updated {UPDATED_SHORT}</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>·</span>
+            <span style={{ fontSize: 12, color: "var(--mute2)" }}>6 min read</span>
           </div>
-          <h1 style={{ fontSize: 32, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>{STATE_META["arunachal-pradesh"].h1}</h1>
+          <h1 style={{ fontSize: 32, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>{STATE_META["arunachal-pradesh"].h1}</h1>
         </HeroBanner>
 
         <div style={{ maxWidth: 880, margin: "0 auto", padding: "0 24px 80px" }}>
@@ -3216,7 +3216,7 @@ function ArunachalPradeshState() {
                     ["2022-23", "0.02", "0.44", "21.75"],
                     ["2023-24", "0.45", "6.07", "13.36"],
                   ].map((r, i) => (
-                    <tr key={i+r[0]} style={{ background: i === 4 ? "rgba(198,40,40,0.05)" : i < 4 ? "rgba(198,40,40,0.08)" : i % 2 === 0 ? "#fff" : "#FAFAFA" }}>
+                    <tr key={i+r[0]} style={{ background: i === 4 ? "rgba(154,114,56,0.05)" : i < 4 ? "rgba(154,114,56,0.08)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                       <td style={{ ...sTd, fontWeight: 700 }}>{r[0]}</td>
                       <td style={sTd}>{r[1]}</td>
                       <td style={sTd}>{r[2]}</td>

@@ -45,16 +45,16 @@ export default function VarietyGrid({ varieties }) {
             {...useFlags(v)}
             style={{
               display: "block", textDecoration: "none", color: "inherit",
-              background: "#fff", border: "1px solid #ececec", borderRadius: 12, padding: "16px 18px",
+              background: "var(--card)", border: "1px solid var(--line)", borderRadius: 12, padding: "16px 18px",
               transition: "transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease",
             }}
           >
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: 8, marginBottom: 6 }}>
-              <div style={{ fontSize: 15, fontWeight: 700, color: "#1A1A1A", letterSpacing: -0.2 }}>{v.name}</div>
-              {v.year && <div style={{ fontSize: 11, color: "#999", flexShrink: 0 }}>{v.year}</div>}
+              <div style={{ fontSize: 15, fontWeight: 700, color: "var(--ink)", letterSpacing: -0.2 }}>{v.name}</div>
+              {v.year && <div style={{ fontSize: 11, color: "var(--mute2)", flexShrink: 0 }}>{v.year}</div>}
             </div>
-            <div style={{ fontSize: 12, color: "#888", marginBottom: 8 }}>{v.origin} · {v.region}</div>
-            <div style={{ fontSize: 13, color: "#555", lineHeight: 1.55, marginBottom: 10 }}>{v.trait}</div>
+            <div style={{ fontSize: 12, color: "var(--mute2)", marginBottom: 8 }}>{v.origin} · {v.region}</div>
+            <div style={{ fontSize: 13, color: "var(--mute)", lineHeight: 1.55, marginBottom: 10 }}>{v.trait}</div>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 4, alignItems: "center" }}>
               {tc && (
                 <span style={{
@@ -76,7 +76,7 @@ export default function VarietyGrid({ varieties }) {
         .pp-variety-card:hover {
           transform: translateY(-2px);
           box-shadow: 0 8px 22px rgba(0,0,0,0.05);
-          border-color: rgba(198,40,40,0.25) !important;
+          border-color: rgba(154,114,56,0.25) !important;
         }
         .pp-variety-card[data-hidden="1"] { display: none !important; }
         @media (max-width: 768px) {

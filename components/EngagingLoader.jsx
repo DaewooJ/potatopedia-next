@@ -20,13 +20,13 @@ export default function EngagingLoader({ title }) {
       <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 20 }}>
         <div style={{
           width: 36, height: 36, borderRadius: 10,
-          background: "linear-gradient(135deg,#C62828,#E53935)",
+          background: "var(--accent-bg)",
           color: "white", fontSize: 16, fontWeight: 800,
           display: "flex", alignItems: "center", justifyContent: "center",
         }}>P</div>
         <div>
-          <div style={{ fontSize: 13, fontWeight: 600, color: "#C62828" }}>{phases[phase]}</div>
-          <div style={{ fontSize: 11, color: "#bbb", marginTop: 2 }}>From 165+ verified sources</div>
+          <div style={{ fontSize: 13, fontWeight: 600, color: "var(--gold)" }}>{phases[phase]}</div>
+          <div style={{ fontSize: 11, color: "var(--mute3)", marginTop: 2 }}>From 165+ verified sources</div>
         </div>
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>

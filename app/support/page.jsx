@@ -16,18 +16,18 @@ const goesTo = [
 
 export default function SupportPage() {
   return (
-    <div style={{ minHeight: "100vh", background: "#FFFFFF", color: "#1A1A1A" }}>
+    <div style={{ minHeight: "100vh", background: "var(--card)", color: "var(--ink)" }}>
       <style>{ppCSS}</style>
 
       {/* Hero */}
       <section style={{ paddingTop: 64, paddingBottom: 8, textAlign: "center" }}>
         <div style={{ maxWidth: 620, margin: "0 auto", padding: "0 24px" }}>
-          <span style={{ display: "inline-block", fontSize: 11, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 2.5, background: "rgba(198,40,40,0.06)", padding: "6px 16px", borderRadius: 20, marginBottom: 18 }}>Support Potatopedia</span>
-          <h1 style={{ fontSize: 38, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1.3, lineHeight: 1.15, marginBottom: 14 }}>
+          <span style={{ display: "inline-block", fontSize: 11, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 2.5, background: "rgba(154,114,56,0.06)", padding: "6px 16px", borderRadius: 20, marginBottom: 18 }}>Support Potatopedia</span>
+          <h1 style={{ fontSize: 38, fontWeight: 800, color: "var(--ink)", letterSpacing: -1.3, lineHeight: 1.15, marginBottom: 14 }}>
             Help keep it{" "}
-            <span style={{ background: "linear-gradient(135deg,#C62828,#8E0000)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>completely free.</span>
+            <span style={{ background: "var(--accent-bg)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>completely free.</span>
           </h1>
-          <p style={{ fontSize: 15.5, color: "#555", lineHeight: 1.7, maxWidth: 540, margin: "0 auto" }}>
+          <p style={{ fontSize: 15.5, color: "var(--mute)", lineHeight: 1.7, maxWidth: 540, margin: "0 auto" }}>
             Potatopedia is independent — built one verified data point at a time, free to use, no paywall, no ads. If a page here saved you time, a small contribution keeps it online and growing.
           </p>
         </div>
@@ -37,12 +37,12 @@ export default function SupportPage() {
       <section style={{ padding: "32px 24px 8px" }}>
         <div style={{
           maxWidth: 520, margin: "0 auto", textAlign: "center",
-          background: "linear-gradient(135deg,rgba(198,40,40,0.04),rgba(198,40,40,0.01))",
-          border: "1.5px solid rgba(198,40,40,0.18)", borderRadius: 20,
-          padding: "36px 32px", boxShadow: "0 20px 50px rgba(198,40,40,0.08)",
+          background: "linear-gradient(135deg,rgba(154,114,56,0.04),rgba(154,114,56,0.01))",
+          border: "1.5px solid rgba(154,114,56,0.18)", borderRadius: 20,
+          padding: "36px 32px", boxShadow: "0 20px 50px rgba(154,114,56,0.08)",
         }}>
-          <h2 style={{ fontSize: 22, fontWeight: 800, color: "#1A1A1A", marginBottom: 8 }}>Back Potatopedia</h2>
-          <p style={{ fontSize: 13.5, color: "#666", marginBottom: 22 }}>
+          <h2 style={{ fontSize: 22, fontWeight: 800, color: "var(--ink)", marginBottom: 8 }}>Back Potatopedia</h2>
+          <p style={{ fontSize: 13.5, color: "var(--mute)", marginBottom: 22 }}>
             Choose an amount, or enter your own — secured by Razorpay.
           </p>
           <SupportButton />
@@ -54,10 +54,10 @@ export default function SupportPage() {
         <div style={{ maxWidth: 720, margin: "0 auto" }}>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 14 }} className="pp-support-grid">
             {goesTo.map((g) => (
-              <div key={g.title} style={{ background: "#FAFAFA", border: "1px solid #f0f0f0", borderRadius: 12, padding: "18px 16px", textAlign: "center" }}>
+              <div key={g.title} style={{ background: "var(--paper)", border: "1px solid var(--line)", borderRadius: 12, padding: "18px 16px", textAlign: "center" }}>
                 <div style={{ fontSize: 22, marginBottom: 8 }}>{g.icon}</div>
-                <div style={{ fontSize: 13.5, fontWeight: 700, color: "#1A1A1A", marginBottom: 4 }}>{g.title}</div>
-                <div style={{ fontSize: 12, color: "#888", lineHeight: 1.5 }}>{g.desc}</div>
+                <div style={{ fontSize: 13.5, fontWeight: 700, color: "var(--ink)", marginBottom: 4 }}>{g.title}</div>
+                <div style={{ fontSize: 12, color: "var(--mute2)", lineHeight: 1.5 }}>{g.desc}</div>
               </div>
             ))}
           </div>
@@ -65,11 +65,11 @@ export default function SupportPage() {
       </section>
 
       {/* Footer note */}
-      <section style={{ background: "#FAFAFA", borderTop: "1px solid #f0f0f0", padding: "28px 24px 56px" }}>
-        <div style={{ maxWidth: 620, margin: "0 auto", textAlign: "center", fontSize: 12.5, color: "#999", lineHeight: 1.8 }}>
+      <section style={{ background: "var(--paper)", borderTop: "1px solid var(--line)", padding: "28px 24px 56px" }}>
+        <div style={{ maxWidth: 620, margin: "0 auto", textAlign: "center", fontSize: 12.5, color: "var(--mute2)", lineHeight: 1.8 }}>
           Can&apos;t contribute financially? Sharing a page, citing it in your work, or sending corrections helps just as much.
           <br />
-          Potatopedia is operated by INDPOTATO PRIVATE LIMITED, India. Contributions are voluntary support for an independent platform and are not tax-deductible donations; international cards are charged in USD and settled in INR. Questions? <Link href="/contact" style={{ color: "#C62828", textDecoration: "none", fontWeight: 600 }}>Contact us</Link>.
+          Potatopedia is operated by INDPOTATO PRIVATE LIMITED, India. Contributions are voluntary support for an independent platform and are not tax-deductible donations; international cards are charged in USD and settled in INR. Questions? <Link href="/contact" style={{ color: "var(--gold)", textDecoration: "none", fontWeight: 600 }}>Contact us</Link>.
         </div>
       </section>
 
