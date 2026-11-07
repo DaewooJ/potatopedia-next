@@ -7,7 +7,7 @@ export async function GET() {
   const body = `# Potatopedia
 > The first AI knowledge base built for the global potato industry
 
-Potatopedia is the most comprehensive potato intelligence platform on the web. We aggregate, verify, and organise data from ${st.sources}+ authoritative sources — FAOSTAT, USDA, CIP, ICAR-CPRI, CAAS, KALRO, KEPHIS, NPCK, peer-reviewed journals, and government agencies — into 5,657+ searchable, cited data points across 204 countries, 244 commercial varieties, and the entire potato value chain. Every answer cites its source.
+Potatopedia is the most comprehensive potato intelligence platform on the web. We aggregate, verify, and organise data from ${st.sources}+ authoritative sources — FAOSTAT, USDA, CIP, ICAR-CPRI, CAAS, KALRO, KEPHIS, NPCK, peer-reviewed journals, and government agencies — into ${Number(st.dataPoints).toLocaleString("en-US")}+ searchable, cited data points covering 99 producing countries (37 in-depth country profiles), 244 commercial varieties, and the entire potato value chain. Every answer cites its source.
 
 ## What makes Potatopedia unique
 - The only AI Q&A interface built on verified primary potato data
@@ -18,7 +18,7 @@ Potatopedia is the most comprehensive potato intelligence platform on the web. W
 ## Key facts
 - ${fmt(st.dataPoints)}+ verified data points (continuously growing as new sources are ingested)
 - ${st.sources}+ authoritative sources
-- 204 countries with production, trade, and consumption data (FAOSTAT-grade)
+- Production and trade data for 99 producing countries (FAOSTAT), with 37 in-depth country profiles
 - 37 country profile pages, 5 premium intelligence dossiers with downloadable PDFs (India, China, Belgium, Netherlands, USA), plus a dedicated Kenya profile (host of World Potato Congress 2026)
 - 5 premium Indian state profiles (Uttar Pradesh, West Bengal, Bihar, Gujarat, Madhya Pradesh)
 - ${st.varieties} commercially significant potato varieties documented (with 9-region taxonomy)
@@ -29,7 +29,7 @@ Potatopedia is the most comprehensive potato intelligence platform on the web. W
 - Potato is the world's 4th largest food crop after maize, wheat, and rice
 
 ## Primary data sources (representative)
-- FAOSTAT — UN FAO production, trade, food balance for 204 countries
+- FAOSTAT — UN FAO production, trade and food balance data
 - USDA NASS / ERS — US acreage, yield, pricing, Census of Agriculture
 - CIP (International Potato Center, Lima) — variety breeding, genebank with 4,000+ accessions
 - ICAR-CPRI (Shimla) — Indian Kufri varieties, sub-tropical agronomy

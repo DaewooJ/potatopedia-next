@@ -16,16 +16,17 @@ const poppins = Poppins({
 
 export const metadata = {
   title: {
-    default: "Potatopedia — AI-Powered Potato Knowledge Base",
+    default: "Potatopedia — The Potato Reference, Sourced",
     template: "%s — Potatopedia",
   },
   description:
-    "The world's most comprehensive potato knowledge base. Production data, trade flows, varieties, and research across 204 countries. Powered by verified data from FAOSTAT, USDA, and CIP.",
+    "Ask anything about potatoes and get the sourced answer: production, prices, trade, varieties, diseases and the companies behind the industry, from FAOSTAT, USDA, CIP and ICAR-CPRI.",
   metadataBase: new URL("https://www.potatopedia.com"),
   icons: {
-    icon: "/favicon.ico",
+    icon: [{ url: "/favicon.ico", sizes: "any" }, { url: "/icon-192.png", type: "image/png", sizes: "192x192" }],
     apple: "/apple-touch-icon.png",
   },
+  manifest: "/manifest.webmanifest",
   openGraph: {
     type: "website",
     siteName: "Potatopedia",
@@ -42,6 +43,10 @@ export const metadata = {
 export const viewport = {
   width: "device-width",
   initialScale: 1,
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#FBF8F2" },
+    { media: "(prefers-color-scheme: dark)", color: "#16140F" },
+  ],
 };
 
 export default function RootLayout({ children }) {
