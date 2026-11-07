@@ -192,13 +192,20 @@ export async function GET() {
   const { VARIETIES } = await import("../../lib/varieties-data");
   const VARIETY_SLUGS = VARIETIES.map((v) => v.slug);
   const { PROBLEMS } = await import("../../lib/market");
+  // Blog posts and answers come from the data itself (7 Nov 2026): the hard-coded list had only 28 of 67 posts.
+  const { BLOG_POSTS } = await import("../../lib/data");
+  const baked = (await import("../../lib/answers-baked.json")).default;
+  const bakedList = Array.isArray(baked) ? baked : Object.values(baked).filter((a) => a && typeof a === "object" && a.slug);
+  const day = (d) => { const t = Date.parse(d || ""); return Number.isNaN(t) ? null : new Date(t).toISOString().slice(0, 10); };
+  const answerLastmod = Object.fromEntries(bakedList.map((a) => [a.slug, day(a.baked_at)]));
+  const answerSlugs = [...new Set([...ANSWER_SLUGS, ...bakedList.map((a) => a.slug)])];
 
   const dynamicPages = [
     ...COUNTRIES.map((s) => ({ loc: `/country/${s}`, priority: "0.8", changefreq: "weekly" })),
     ...INDIA_STATE_SLUGS.map((s) => ({ loc: `/country/india/${s}`, priority: "0.85", changefreq: "weekly" })),
-    ...BLOG_SLUGS.map((s) => ({ loc: `/blog/${s}`, priority: "0.7", changefreq: "monthly" })),
+    ...BLOG_POSTS.map((b) => ({ loc: `/blog/${b.slug}`, priority: "0.7", changefreq: "monthly", lastmod: day(b.updated || b.date) })),
     ...KNOWLEDGE_SLUGS.map((s) => ({ loc: `/knowledge/${s}`, priority: "0.8", changefreq: "monthly" })),
-    ...ANSWER_SLUGS.map((s) => ({ loc: `/answers/${s}`, priority: "0.7", changefreq: "weekly" })),
+    ...answerSlugs.map((s) => ({ loc: `/answers/${s}`, priority: "0.7", changefreq: "weekly", lastmod: answerLastmod[s] })),
     ...VARIETY_SLUGS.map((s) => ({ loc: `/varieties/${s}`, priority: "0.6", changefreq: "monthly" })),
     ...PROBLEMS.map((p) => ({ loc: `/market/${p.slug}`, priority: "0.75", changefreq: "weekly" })),
     ...PROBLEMS.map((p) => ({ loc: `/machines/${p.machineSlug}`, priority: "0.75", changefreq: "weekly" })),
@@ -212,7 +219,7 @@ ${allPages
   .map(
     (p) => `  <url>
     <loc>${BASE}${p.loc}</loc>
-    <lastmod>${today}</lastmod>
+    <lastmod>${p.lastmod || today}</lastmod>
     <changefreq>${p.changefreq}</changefreq>
     <priority>${p.priority}</priority>
   </url>`
