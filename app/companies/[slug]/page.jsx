@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import LeadForm from "../../../components/LeadForm";
 import {
-  getCompany, listCompanies, isFeatured, isVerified, websiteHost, fmtDate, flag, DIRECTORY_PUBLIC, KINDS, SEGMENTS, SITE,
+  getCompany, getHeldCompany, listCompanies, isFeatured, isVerified, websiteHost, fmtDate, flag, DIRECTORY_PUBLIC, KINDS, SEGMENTS, SITE,
   commonName, headline, descriptor, profileTitle, outboundUrl, outHref, guidesFor, similarCompanies, countrySlug, KIND_PATH, inCountry, landingPages,
 } from "../../../lib/directory";
 import { VARIETIES } from "../../../lib/varieties-data";
@@ -100,7 +100,16 @@ const has = (a) => Array.isArray(a) && a.length > 0;
 export default async function CompanyPage({ params }) {
   const { slug } = await params;
   const c = await getCompany(slug);
-  if (!c) notFound();
+  if (!c) {
+    // Held by the per-country cap: send people (and crawlers, 308) to the country page, or /companies if none exists.
+    const held = await getHeldCompany(slug).catch(() => null);
+    if (held) {
+      let all = [];
+      try { all = await listCompanies(); } catch {}
+      permanentRedirect(landingPages(all).countries.includes(held.country) ? `/companies/country/${countrySlug(held.country)}` : "/companies");
+    }
+    notFound();
+  }
   const p = c.profile || {};
   const kind = KINDS[c.kind] || { label: "Company", plural: "Companies" };
   const featured = isFeatured(c);

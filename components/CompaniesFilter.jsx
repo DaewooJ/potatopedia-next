@@ -38,7 +38,7 @@ export default function CompaniesFilter({ companies }) {
 
   return (
     <section className="ix-sec" aria-labelledby="co-list-h" style={{ paddingTop: 8 }}>
-      <h2 id="co-list-h" className="pp-sr">All companies, A to Z</h2>
+      <h2 id="co-list-h" className="pp-sr">All companies, mixed by country</h2>
       <div className="co-bar">
         <div className="co-tabs" role="group" aria-label="Company type">
           <button type="button" aria-pressed={kind === "all"} onClick={() => setKind("all")}>All <span>{companies.length}</span></button>
@@ -69,7 +69,7 @@ export default function CompaniesFilter({ companies }) {
       </div>
 
       <p className="co-count" aria-live="polite">
-        {shown.length === companies.length ? `${companies.length} companies, A to Z` : `${shown.length} of ${companies.length} companies`}
+        {shown.length === companies.length ? `${companies.length} companies, countries mixed` : `${shown.length} of ${companies.length} companies`}
       </p>
 
       {shown.length ? (

@@ -29,7 +29,7 @@ export async function generateMetadata({ params }) {
   const h = SEGMENT_H1[segment];
   return landingMeta({
     title: `${h.replace(/\b(\w)/g, (m) => m.toUpperCase()).replace(/\bAnd\b/g, "and")} (${d.items.length} Listed) | Potatopedia`,
-    description: `${d.items.length} makers of ${SEGMENTS[segment].toLowerCase()} machines for potatoes, A to Z, each profile compiled from the company's own website with machines, sites, contact details and sources.`,
+    description: `${d.items.length} makers of ${SEGMENTS[segment].toLowerCase()} machines for potatoes, mixed across countries, each profile compiled from the company's own website with machines, sites, contact details and sources.`,
     path: `/companies/machinery/${segment}`,
   });
 }
@@ -41,7 +41,7 @@ export default async function Page({ params }) {
   const countries = [...new Set(d.items.map((c) => c.country))];
   const pages = d.items.reduce((a, c) => a + c.sources, 0);
   const guides = (SEGMENT_GUIDE[segment] || []).map(byMachine).filter(Boolean);
-  const intro = `${plural(d.items.length, "maker", "makers")} of ${SEGMENTS[segment].toLowerCase()} machines for potatoes, in ${countries.length === 1 ? inCountry(countries[0]) : plural(countries.length, "country", "countries")}. Each profile is compiled from the company's own website and cites its pages (${pages} in all). Listed A to Z, with no ranking or paid order.`;
+  const intro = `${plural(d.items.length, "maker", "makers")} of ${SEGMENTS[segment].toLowerCase()} machines for potatoes, in ${countries.length === 1 ? inCountry(countries[0]) : plural(countries.length, "country", "countries")}. Each profile is compiled from the company's own website and cites its pages (${pages} in all). Countries are mixed round-robin, with no ranking or paid order.`;
   return (
     <>
       <CompanyLanding

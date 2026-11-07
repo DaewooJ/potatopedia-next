@@ -10,7 +10,7 @@
 //   node scripts/directory-import.mjs                    # dry run: extract drafts, run the gate, print the report
 //   node scripts/directory-import.mjs --apply            # write the passing profiles and publish them
 //   options: --slug <slug> (one company) · --refresh (also re-check already published rows; never unpublishes)
-//            --re-extract (rebuild drafts) · --no-extract (only use drafts already on disk) · --jobs 4
+//            --cap-only (only run the per-country cap; add --apply to write) · --re-extract (rebuild drafts) · --no-extract (only use drafts already on disk) · --jobs 4
 //
 // Extraction: the long data file is condensed into the profile fields by `claude -p` (Opus) with the prompt in
 // scripts/directory-import.prompt.md, using only facts in the file. Drafts are kept in data/directory/drafts/<slug>.json
@@ -22,6 +22,7 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync, statSync } from "no
 import { spawn, spawnSync } from "node:child_process";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { COUNTRY_CAP_PER_KIND, HELD_MARK, RELEASED_MARK, isHeld, decideCap, completeness } from "../lib/directory-cap.mjs";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(HERE, "..");
@@ -206,6 +207,44 @@ async function pool(items, n, fn) {
   return out;
 }
 
+// ── per-country cap (lib/directory-cap.mjs; docs/directory.md) ────────────────────────────────────────────────────
+// At most COUNTRY_CAP_PER_KIND published companies per country per kind. Over the cap: published = false + a log line
+// "held: country cap (Country, kind)", profile kept. Held rows come back (log "released: country cap") when the cap
+// allows. Order of keeping: completeness score, then oldest found_at, then slug. Never by size or fame. No deletes.
+// `pending` = rows that pass the gate in this run but are not written yet (dry-run preview).
+async function enforceCap(sql, apply, pending = []) {
+  const rows = await sql`select id, slug, country, kind, profile, found_at, published, log, featured, verified from pp_companies
+    where profile is not null and status = 'ingested' and (published = true or log like ${"%" + HELD_MARK + "%"})`;
+  const bySlug = new Map(rows.map((r) => [r.slug, r]));
+  for (const r of pending) bySlug.set(r.row.slug, { ...r.row, profile: r.profile, found_at: r.row.found_at, published: true, log: r.row.log });
+  const elig = [...bySlug.values()].filter((r) => r.published || isHeld(r.log));
+  const { keep, hold } = decideCap(elig, COUNTRY_CAP_PER_KIND);
+  const toHold = hold.filter((x) => x.row.published);
+  const toRelease = elig.filter((r) => !r.published && isHeld(r.log) && keep.has(r.slug));
+  const tally = {};
+  for (const r of elig) {
+    const k = `${r.country} | ${r.kind}`;
+    tally[k] ||= { now: 0, after: 0 };
+    if (r.published) tally[k].now++;
+    if (keep.has(r.slug) || !r.country) tally[k].after++;
+  }
+  console.log(`\nCountry cap: ${COUNTRY_CAP_PER_KIND} per country per kind${apply ? "" : " (preview)"}`);
+  console.log("  country | kind                       published now -> after cap");
+  for (const k of Object.keys(tally).sort()) console.log(`  ${k.padEnd(34)} ${String(tally[k].now).padStart(3)} -> ${String(tally[k].after).padStart(3)}`);
+  console.log(`  to hold: ${toHold.length}   to release: ${toRelease.length}`);
+  for (const x of toHold) console.log(`    hold ${x.row.country} / ${x.row.kind} / ${x.row.slug} (score ${x.score}, found ${new Date(x.row.found_at).toISOString().slice(0, 10)})${x.row.featured || x.row.verified ? "  [PAID: featured/verified]" : ""}`);
+  for (const r of toRelease) console.log(`    release ${r.country} / ${r.kind} / ${r.slug}`);
+  if (!apply) return;
+  for (const x of toHold) {
+    await sql`update pp_companies set published = false, updated_at = now(),
+      log = coalesce(log, '') || ${`\n${HELD_MARK} (${x.row.country}, ${x.row.kind})`} where id = ${x.row.id} and published = true`;
+  }
+  for (const r of toRelease) {
+    await sql`update pp_companies set published = true, updated_at = now(),
+      log = coalesce(log, '') || ${`\n${RELEASED_MARK} (${r.country}, ${r.kind})`} where id = ${r.id} and published = false`;
+  }
+}
+
 // ── main ────────────────────────────────────────────────────────────────────────────────────────────────────────
 async function main() {
   loadEnv();
@@ -216,7 +255,8 @@ async function main() {
     if (r.status !== 0) console.error("rsync failed; using the files already on disk");
   }
   const sql = neon(process.env.DATABASE_URL);
-  const rows = await sql`select id, slug, name, kind, domain, home_url, country, segments, file, published, profile
+  if (flag("--cap-only")) { await enforceCap(sql, APPLY); if (!APPLY) console.log("\nDry run: nothing written. Add --apply."); return; }
+  const rows = await sql`select id, slug, name, kind, domain, home_url, country, segments, file, published, profile, found_at, log
     from pp_companies where status = 'ingested' and file is not null
     ${flag("--refresh") ? sql`` : sql`and published = false`} ${ONE ? sql`and slug = ${ONE}` : sql``} order by kind, slug`;
   console.log(`${rows.length} ingested row(s) to check${APPLY ? "" : " (dry run)"}`);
@@ -253,12 +293,13 @@ async function main() {
     failed: failed.map((r) => ({ slug: r.row.slug, reasons: r.fail })),
   }, null, 1) + "\n");
 
-  if (!APPLY) { console.log("\nDry run: nothing written. Re-run with --apply to publish the passing rows."); return; }
+  if (!APPLY) { await enforceCap(sql, false, pass); console.log("\nDry run: nothing written. Re-run with --apply to publish the passing rows."); return; }
   for (const r of pass) {
     await sql`update pp_companies set profile = ${JSON.stringify(r.profile)}::jsonb, published = true, reviewed_at = now(), updated_at = now()
       where id = ${r.row.id} and status = 'ingested'`;
   }
   console.log(`\nPublished ${pass.length} profile(s).`);
+  await enforceCap(sql, true);
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) main().catch((e) => { console.error(e); process.exit(1); });

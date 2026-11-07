@@ -126,7 +126,7 @@ export default async function CompaniesPage() {
           </div>
           <div>
             <h3>Neutral by rule</h3>
-            <p>Listings are in A to Z order and written in plain terms, without ranking or praise. Paid listings are labelled Featured and never change a fact.</p>
+            <p>Listings are mixed across countries, with a cap per country and type, and written in plain terms, without ranking or praise. Paid listings are labelled Featured and never change a fact.</p>
           </div>
           <div>
             <h3>For companies</h3>

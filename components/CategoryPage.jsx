@@ -28,10 +28,12 @@ export default async function CategoryPage({ cat }) {
   const pages = items.reduce((a, c) => a + c.sources, 0);
   const { countries: landing } = landingPages(all);
   const top = countries.map((c) => [c, items.filter((x) => x.country === c).length]).sort((a, b) => b[1] - a[1]);
+  // Section order is alphabetical by country (neutral), never by how many companies a country has.
+  const alpha = [...top].sort((a, b) => a[0].localeCompare(b[0]));
   const intro = `${plural(items.length, KINDS[def.kind].label.toLowerCase(), KINDS[def.kind].plural.toLowerCase())} listed in ${plural(countries.length, "country", "countries")}`
-    + ` (${top.slice(0, 3).map(([c, n]) => `${n} in ${inCountry(c)}`).join(", ")}): ${def.lede}. Each profile is compiled from the company's own website; together they cite ${pages} official pages. Listed A to Z, with no ranking.`;
+    + ` (${top.slice(0, 3).map(([c, n]) => `${n} in ${inCountry(c)}`).join(", ")}): ${def.lede}. Each profile is compiled from the company's own website; together they cite ${pages} official pages. Countries in alphabetical order, companies A to Z, with no ranking.`;
   const groups = top.length > 1
-    ? top.map(([c]) => ({
+    ? alpha.map(([c]) => ({
         key: countrySlug(c),
         h2: `${KINDS[def.kind].plural} in ${inCountry(c)}`,
         items: items.filter((x) => x.country === c),
