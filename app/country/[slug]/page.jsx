@@ -10,6 +10,7 @@ import { getVarietiesByCountrySlug } from "../../../lib/varieties-data";
 import RelatedBlogPosts from "../../../components/RelatedBlogPosts";
 import CountryProfilePremium, { TrajectoryTable } from "../../../components/CountryProfilePremium";
 import { applyOgOverride } from "../../../lib/og-overrides";
+import { INDIA_POTATO } from "../../../lib/facts";
 import CountryDossier from "../../../components/CountryDossier";
 
 const COUNTRY_TO_BLOGS = {
@@ -101,9 +102,9 @@ export async function generateMetadata({ params }) {
   };
 
   if (slug === "india") {
-    const desc = "India is the world's #2 potato producer at 60.14M tonnes (FAOSTAT 2023). UP leads at 33.5%. Kufri varieties, processing, 39.42M-t cold storage.";
+    const desc = `India is the world's #2 potato producer at ${INDIA_POTATO.value}M tonnes (${INDIA_POTATO.year}, ${INDIA_POTATO.label}). Uttar Pradesh leads. Kufri varieties, processing, 39.42M-t cold storage.`;
     return applyOgOverride({
-      title: "India Potato Industry: #2 Producer at 60M Tonnes",
+      title: `India Potato Industry: #2 Producer at ${INDIA_POTATO.value}M Tonnes`,
       description: trim(desc),
       alternates: { canonical: "https://www.potatopedia.com/country/india" },
       openGraph: { title: "India Potato Industry — Potatopedia", description: trim(desc), type: "article", images: ["/og-image.png"] },
@@ -337,7 +338,7 @@ function StandardCountryPage({ c, slug }) {
 
 function IndiaProfilePage({ c }) {
   const stats = [
-    { value: "60.14 M t", label: "Annual Production", sub: "FAOSTAT 2023" },
+    { value: `${INDIA_POTATO.value} M t`, label: "Annual Production", sub: `${INDIA_POTATO.year}, ${INDIA_POTATO.label}` },
     { value: "2.33 M ha", label: "Harvested Area", sub: "DA&FW 2023-24" },
     { value: "25.8 t/ha", label: "Average Yield", sub: "above world avg (22.8)" },
     { value: "#2", label: "Global Rank", sub: "after China (94.4 M t)" },
@@ -482,7 +483,7 @@ function IndiaProfilePage({ c }) {
       {
         "@type": "Article",
         headline: "India Potato Industry Profile — Production, Varieties, Trade & Processing",
-        description: "Comprehensive country profile of India's potato industry. World's #2 producer at 60.14 M tonnes (FAOSTAT 2023). Uttar Pradesh leads at 33.5%. Complete data on Kufri varieties, frozen-fry exports (+30.9% in 2024), processing industry, agro-climatic zones, cold storage (39.42 M t capacity), seed system, and policy.",
+        description: "Comprehensive country profile of India's potato industry. World's #2 producer at 58.1 M tonnes (2024-25, 3rd Advance Estimate, Ministry of Agriculture & Farmers Welfare). Uttar Pradesh is the largest state. Complete data on Kufri varieties, frozen-fry exports (+30.9% in 2024), processing industry, agro-climatic zones, cold storage (39.42 M t capacity), seed system, and policy.",
         datePublished: "2026-04-27",
         dateModified: "2026-04-27",
         author: [POTATOPEDIA_EDITORIAL, { "@id": "https://www.potatopedia.com/#publisher" }],
@@ -584,7 +585,7 @@ function IndiaProfilePage({ c }) {
                 </div>
                 <h2 style={{ fontSize: 44, fontWeight: 800, color: "var(--ink)", margin: 0, letterSpacing: -1.5, lineHeight: 1.1 }}>{c.name}</h2>
                 <p className="pp-india-tagline" style={{ fontSize: 16, color: "var(--ink2)", margin: "10px 0 0", lineHeight: 1.5, maxWidth: 600 }}>
-                  World&apos;s <strong>#2 potato producer</strong> at <strong style={{ color: "var(--gold)" }}>60.14 M tonnes</strong>. Uttar Pradesh leads at 33.5% of national output. Frozen French fry exports up <strong>30.9% in 2024</strong>.
+                  World&apos;s <strong>#2 potato producer</strong> at <strong style={{ color: "var(--gold)" }}>{INDIA_POTATO.value} M tonnes</strong> ({INDIA_POTATO.year}, {INDIA_POTATO.label}). Uttar Pradesh is the largest state, about a third of national output. Frozen French fry exports up <strong>30.9% in 2024</strong>.
                 </p>
               </div>
             </div>
@@ -671,7 +672,7 @@ function IndiaProfilePage({ c }) {
       <section className="pp-vital-stats" style={{ background: "var(--panel)", padding: "40px 0", color: "#fff" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <div data-summary="true" className="pp-vital-stats-summary" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", borderLeft: "3px solid var(--gold)", borderRadius: "0 8px 8px 0", padding: "16px 20px", marginBottom: 28, fontSize: 14, lineHeight: 1.7, color: "#E5E5E5" }}>
-            <strong style={{ color: "#fff" }}>India produced 60.14 million tonnes of potatoes in 2023</strong> (FAOSTAT) on 2.33 million hectares, ranking <strong>#2 globally</strong> after China. National yield of 25.8 t/ha is above the world average of 22.8 t/ha. <strong>Uttar Pradesh accounts for 33.46%</strong> of national output (20.13 M t). <strong>85% of India&apos;s crop is grown during the rabi (winter) season.</strong> Processing share is just 7&ndash;8% of total production but frozen French fry exports grew <strong>30.9% in 2024</strong> to 268,342 tonnes &mdash; the 8th-largest exporter globally. India operates the world&apos;s 2nd-largest cold storage network at 39.42 M tonnes capacity. Only 15% of seed used is certified.
+            <strong style={{ color: "#fff" }}>India produced {INDIA_POTATO.value} million tonnes of potatoes in {INDIA_POTATO.year}</strong> ({INDIA_POTATO.label}, {INDIA_POTATO.publisher}), ranking <strong>#2 globally</strong> after China. FAOSTAT 2023 puts the area at 2.33 million hectares and national yield at 25.8 t/ha, above the world average of 22.8 t/ha. <strong>Uttar Pradesh is the largest state</strong> at 20.13 M t in 2023-24, about a third of national output. <strong>85% of India&apos;s crop is grown during the rabi (winter) season.</strong> Processing share is just 7&ndash;8% of total production but frozen French fry exports grew <strong>30.9% in 2024</strong> to 268,342 tonnes &mdash; the 8th-largest exporter globally. India operates the world&apos;s 2nd-largest cold storage network at 39.42 M tonnes capacity. Only 15% of seed used is certified.
           </div>
           <div className="pp-vital-stats-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16 }}>
             {stats.map((s, i) => (
@@ -1039,7 +1040,7 @@ function IndiaProfilePage({ c }) {
               <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
                 {[
                   { slug: "kufri-potato-varieties-india", title: "Kufri Potato Varieties: India's Complete Guide", desc: "75+ varieties from CPRI Shimla — Jyoti, Pukhraj, Chipsona, Frysona, Tejas." },
-                  { slug: "top-potato-producing-countries", title: "Top Potato Producing Countries 2025", desc: "FAOSTAT rankings — China #1, India #2 at 60.14M tonnes." },
+                  { slug: "top-potato-producing-countries", title: "Top Potato Producing Countries 2025", desc: "FAOSTAT rankings — China #1, India #2 at 58.1M tonnes (2024-25, 3rd Advance Estimate)." },
                   { slug: "how-potatoes-are-processed", title: "How Potatoes Are Processed: Farm to Fry", desc: "Frozen fries, chips, starch — the global $40-80B processing industry." },
                   { slug: "seed-potato-systems", title: "Seed Potato Systems: Certification, Trade & Multiplication", desc: "How certified seed is produced and why 85% of Indian seed isn't certified." },
                   { slug: "potato-storage-cold-chain", title: "Potato Cold Storage: Temperatures, Design, Post-Harvest Losses", desc: "How India's 39M-tonne cold network compares globally." },
@@ -1654,7 +1655,7 @@ function ChinaProfilePage({ c }) {
               <h3 style={{ fontSize: 14, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 14 }}>Related Knowledge</h3>
               <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
                 {[
-                  { slug: "top-potato-producing-countries", title: "Top Potato Producing Countries 2025", desc: "China #1 at 94.4 M tonnes, India #2 at 60.14 M tonnes." },
+                  { slug: "top-potato-producing-countries", title: "Top Potato Producing Countries 2025", desc: "China #1 at 94.4 M tonnes, India #2 at 58.1 M tonnes (2024-25, 3rd Advance Estimate)." },
                   { slug: "how-potatoes-are-processed", title: "How Potatoes Are Processed: Farm to Fry", desc: "Frozen fries, chips, starch — the global $40-80B processing industry." },
                   { slug: "mcdonalds-potato-varieties", title: "What Potatoes Does McDonald's Use?", desc: "The Russet Burbank story behind the global frozen fry industry." },
                   { slug: "global-potato-trade", title: "Global Potato Trade Statistics", desc: "$22.8B trade — Belgium leads frozen fries; China rising fast." },
@@ -2073,7 +2074,7 @@ function BelgiumProfilePage({ c }) {
       <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--paper)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Consumption &amp; Frites Culture</h2>
-          <p style={proseP}>Belgium consumes <strong>~80&ndash;90.8 kg of potatoes per person per year</strong> (FAOSTAT 2023; Belgapom) &mdash; among the highest per-capita rates in Europe. Most of that consumption flows through the country&apos;s defining food tradition: <strong>frites</strong>, served from approximately <strong>5,000 frituren / fritkoten</strong> (fry stands) operating across the country. <strong>Belgian frites culture has been recognised by UNESCO for its candidacy on the Representative List of the Intangible Cultural Heritage of Humanity</strong>, formalising what Belgians have long claimed: that frites are not fast food in Belgium, they are a national institution.</p>
+          <p style={proseP}>Belgium consumes <strong>about 90.8 kg of potatoes per person per year</strong> (FAOSTAT 2023 food supply) &mdash; among the highest per-capita rates in Europe. Most of that consumption flows through the country&apos;s defining food tradition: <strong>frites</strong>, served from approximately <strong>5,000 frituren / fritkoten</strong> (fry stands) operating across the country. <strong>Belgian frites culture has been recognised by UNESCO for its candidacy on the Representative List of the Intangible Cultural Heritage of Humanity</strong>, formalising what Belgians have long claimed: that frites are not fast food in Belgium, they are a national institution.</p>
           <p style={proseP}>The traditional Belgian frite is defined by a precise <strong>double-fry technique</strong>: first fry at 130&ndash;140&deg;C (cooks the interior), cool and rest, then second fry at 170&ndash;180&deg;C (creates the crispy exterior). Authentic preparation historically uses <strong>beef tallow</strong> (rather than vegetable oil) and is served in paper cones with mayonnaise &mdash; not ketchup &mdash; alongside dozens of regional sauce variations. The <strong>Belgian National Frite Day</strong> celebrates this culinary identity each year.</p>
           <p style={proseP}>The economic effect is substantial: domestic consumption pulls roughly <strong>20% of the 2.8 M tonnes</strong> of frozen fries Belgian processors output annually, with the remaining 80% feeding the world&apos;s #1 frozen-fry export trade.</p>
           <p style={sourceLine}>Source: FAOSTAT 2023 per-capita consumption data; UNESCO Intangible Cultural Heritage candidacy documentation; Belgian Federal Government cultural-affairs records; Belgapom industry data.</p>
@@ -3243,7 +3244,7 @@ function UnitedStatesProfilePage({ c }) {
       <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--card)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Consumption &amp; American Cuisine</h2>
-          <p style={proseP}>Americans consume approximately <strong>120 lbs (54 kg) of potatoes per person per year</strong> &mdash; comparable to <Link href="/country/canada" style={{ color: "var(--gold)", textDecoration: "none" }}>Canada</Link> (55 kg) but well below <Link href="/country/belgium" style={{ color: "var(--gold)", textDecoration: "none" }}>Belgium</Link> (80 kg) or the <Link href="/country/united-kingdom" style={{ color: "var(--gold)", textDecoration: "none" }}>UK</Link> (84 kg). What sets US consumption apart is the form: <strong>71% of US potatoes are processed</strong> &mdash; the highest processing share of any major producer. The fast-food fry industry plus retail frozen-product growth has progressively replaced fresh-potato cooking at home.</p>
+          <p style={proseP}>Americans consume approximately <strong>120 lbs (54 kg) of potatoes per person per year</strong> &mdash; comparable to <Link href="/country/canada" style={{ color: "var(--gold)", textDecoration: "none" }}>Canada</Link> (55 kg) but well below <Link href="/country/belgium" style={{ color: "var(--gold)", textDecoration: "none" }}>Belgium</Link> (90.8 kg, FAOSTAT 2023) or the <Link href="/country/united-kingdom" style={{ color: "var(--gold)", textDecoration: "none" }}>UK</Link> (84 kg). What sets US consumption apart is the form: <strong>71% of US potatoes are processed</strong> &mdash; the highest processing share of any major producer. The fast-food fry industry plus retail frozen-product growth has progressively replaced fresh-potato cooking at home.</p>
           <div style={{ overflowX: "auto", marginTop: 12 }}>
             <table style={{ width: "100%", borderCollapse: "collapse" }}>
               <thead><tr>{["Use Category", "Share of US Crop", "Notes"].map((h) => <th key={h} style={tableTH}>{h}</th>)}</tr></thead>
@@ -3488,7 +3489,7 @@ function KenyaProfilePage({ c }) {
   ];
 
   const faqItems = [
-    { q: "How much potato does Kenya produce per year?", a: "Kenya produces approximately 2.31 million tonnes of potatoes annually from 239,325 hectares (FAOSTAT 2024), with a yield of 9.65 t/ha — well below the 30–40 t/ha potential under optimal management. Production has fluctuated through the past decade as harvested area expanded from a 2014 low of 115,604 ha. Kenya is East Africa's largest potato producer and Africa's #2 after Egypt." },
+    { q: "How much potato does Kenya produce per year?", a: "Kenya produces approximately 2.31 million tonnes of potatoes annually from 239,325 hectares (FAOSTAT 2024), with a yield of 9.65 t/ha — well below the 30–40 t/ha potential under optimal management. Production has fluctuated through the past decade as harvested area expanded from a 2014 low of 115,604 ha. Kenya is East Africa's largest potato producer." },
     { q: "Which county is the largest potato producer in Kenya?", a: "Nyandarua County dominates Kenya's potato production with approximately 35% of national output, earning it the nickname \"potato basket\" (County Government of Nyandarua CIDP 2023-2027; KEPHIS 2023). The county centres on Ol Kalou and encompasses the Kinangop plateau and Aberdare mountain slopes, where deep volcanic soils and reliable bimodal rainfall create ideal growing conditions. Nakuru, Meru, Bomet, and Bungoma round out the top counties." },
     { q: "What is the most popular potato variety in Kenya?", a: "Shangi is the dominant potato variety in Kenya, accounting for 50–70% of all potatoes grown in the country. The early-maturing variety (90–110 days) originated as an informal CIP-related introduction that spread through farmer-to-farmer seed exchange before being retroactively recognized by KEPHIS. Farmers favor Shangi for its short dormancy enabling year-round planting and strong urban-market acceptance for fresh consumption and chip-frying." },
     { q: "Why is Kenya's potato yield so low?", a: "Kenya's 9.65 t/ha state-average yield (FAOSTAT 2024) reflects a severe seed crisis — 95–98% of seed planted is informal (farmer-saved or market-obtained), frequently carrying bacterial wilt, PVY, and PLRV that progressively reduce yields over generations (NPCK 2023). Only 2–5% of seed is formally certified, creating a gap of 100,000+ tonnes per year between formal supply and farmer demand. Under optimal management, Kenya's potato can deliver 30–40 t/ha." },
@@ -3519,7 +3520,7 @@ function KenyaProfilePage({ c }) {
       "@type": "Article",
       "@id": pageUrl + "#article",
       headline: "Kenya Potato Industry: East Africa's Largest Producer & Host of World Potato Congress 2026",
-      description: "Kenya produces 2.31M tonnes of potatoes — Africa's #2 after Egypt. Nyandarua leads at ~35% state share. Hosts WPC 13 in Naivasha, October 26–30, 2026.",
+      description: "Kenya produces 2.31M tonnes of potatoes — East Africa's #1. Nyandarua leads at ~35% state share. Hosts WPC 13 in Naivasha, October 26–30, 2026.",
       datePublished: "2026-05-08",
       dateModified: "2026-05-08",
       author: [POTATOPEDIA_EDITORIAL, { "@id": "https://www.potatopedia.com/#publisher" }],
@@ -3610,7 +3611,7 @@ function KenyaProfilePage({ c }) {
           {/* Definitive Answer */}
           <div data-summary="true" style={{ background: "rgba(154,114,56,0.03)", border: "1px solid rgba(154,114,56,0.12)", borderLeft: "4px solid var(--gold)", borderRadius: "0 12px 12px 0", padding: "22px 28px", marginBottom: 22, fontSize: 16, color: "var(--ink2)", lineHeight: 1.75 }}>
             <p style={{ margin: 0 }}>
-              <strong>Kenya is East Africa&apos;s largest potato producer and Africa&apos;s #2 producer overall, with 2.31 million tonnes from 239,325 hectares (FAOSTAT 2024).</strong> Nyandarua County alone delivers ~35% of national output, anchoring Kenya&apos;s &quot;potato basket&quot; on the Aberdare slopes and Kinangop plateau. The Shangi variety dominates 50–70% of cultivated area. State-average yield of 9.65 t/ha is well below the country&apos;s 30–40 t/ha potential — driven by a severe seed crisis where only 2–5% of seed planted is formally certified. Naivasha hosts the 13th World Potato Congress in October 2026.
+              <strong>Kenya is East Africa&apos;s largest potato producer, with 2.31 million tonnes from 239,325 hectares (FAOSTAT 2024).</strong> Nyandarua County alone delivers ~35% of national output, anchoring Kenya&apos;s &quot;potato basket&quot; on the Aberdare slopes and Kinangop plateau. The Shangi variety dominates 50–70% of cultivated area. State-average yield of 9.65 t/ha is well below the country&apos;s 30–40 t/ha potential — driven by a severe seed crisis where only 2–5% of seed planted is formally certified. Naivasha hosts the 13th World Potato Congress in October 2026.
             </p>
           </div>
 
@@ -3655,7 +3656,7 @@ function KenyaProfilePage({ c }) {
           {/* Card 1 */}
           <section id="industry-size" data-card="overview" style={cardWrap}>
             <h2 style={sH2}>How big is Kenya&apos;s potato industry?</h2>
-            <p style={sIntro}>Kenya produces approximately 2.31 million tonnes of potatoes annually from 239,325 hectares — making it East Africa&apos;s largest potato producer and Africa&apos;s #2 producer after Egypt&apos;s 8.08 million tonnes (FAOSTAT 2024). State-average yield of 9.65 t/ha is well below the country&apos;s 30–40 t/ha potential.</p>
+            <p style={sIntro}>Kenya produces approximately 2.31 million tonnes of potatoes annually from 239,325 hectares — making it East Africa&apos;s largest potato producer (Egypt, Algeria and South Africa produce more; FAOSTAT 2024). State-average yield of 9.65 t/ha is well below the country&apos;s 30–40 t/ha potential.</p>
             <QuickFacts items={[
               { label: "Production (2024)", value: "2.31M tonnes" },
               { label: "Cultivated area (2024)", value: "225,948 hectares" },
@@ -3663,7 +3664,7 @@ function KenyaProfilePage({ c }) {
               { label: "Yield potential", value: "30–40 t/ha (CIP/KALRO)" },
             ]} />
             <TrajectoryTable slug="kenya" />
-            <p style={sP}>Kenya ranks #1 in East Africa and #2 in Africa overall, behind <Link href="/country/egypt" style={linkRed}>Egypt</Link> (6.3M tonnes) and ahead of <Link href="/country/algeria" style={linkRed}>Algeria</Link> (4.60M tonnes, 2024) and <Link href="/country/south-africa" style={linkRed}>South Africa</Link> (2.6M tonnes). The country supports an estimated 800,000 smallholder potato households, with potato serving as a key food-security and cash crop in the Central Highlands and Rift Valley regions. Per-capita consumption sits at approximately 28 kg/year.</p>
+            <p style={sP}>Kenya ranks #1 in East Africa. Several African producers are larger, including <Link href="/country/egypt" style={linkRed}>Egypt</Link> (8.08M tonnes), <Link href="/country/algeria" style={linkRed}>Algeria</Link> (4.60M tonnes, 2024) and <Link href="/country/south-africa" style={linkRed}>South Africa</Link> (2.6M tonnes). The country supports an estimated 800,000 smallholder potato households, with potato serving as a key food-security and cash crop in the Central Highlands and Rift Valley regions. Per-capita consumption sits at approximately 28 kg/year.</p>
             <p style={sP}>Production has fluctuated significantly across the past decade. Harvested area expanded from a 2014 low of 115,604 hectares to peaks above 230,000 hectares in recent years, driven primarily by expansion onto marginal land rather than yield improvements. Yields have declined from over 20 t/ha in earlier decades to today&apos;s 9.65 t/ha — a structural concern that reflects the seed-quality crisis explored later in this article. For broader African context see our <Link href="/answers/largest-potato-producer-india" style={linkRed}>India producer answer</Link> and the <Link href="/knowledge/top-potato-producing-countries" style={linkRed}>top potato producing countries</Link> reference.</p>
             <p style={sSource}>Source: FAOSTAT 2024; KALRO Tigoni Research Centre; CIP East Africa programmes; National Potato Council of Kenya (NPCK).</p>
           </section>
@@ -4450,13 +4451,13 @@ function AlgeriaProfilePage({ c }) {
     articlePublishedISO: "2026-05-08", articleModifiedISO: "2026-05-08", indiaContext: false,
     quickFacts: [
       { label: "Production (2024)", value: "4.60M tonnes (FAOSTAT)" },
-      { label: "Africa rank", value: "#2 (after Egypt 6.30M)" },
+      { label: "Africa rank", value: "#2 (after Egypt 8.08M)" },
       { label: "Area (2024)", value: "135,414 hectares" },
       { label: "Yield (2024)", value: "33.9 t/ha" },
       { label: "Top region", value: "El Oued (Saharan); coastal Mascara/Aïn Defla" },
       { label: "Consumption", value: "~60 kg/capita/year" },
     ],
-    definitiveAnswer: '<strong>Algeria produced 4.60 million tonnes of potatoes in 2024 (FAOSTAT) — making it Africa\'s second-largest producer after Egypt (6.30M).</strong> Algeria is the only major <strong>Saharan-desert potato producer</strong> in the world, anchored by El Oued province\'s center-pivot irrigation system tapping the Continental Intercalaire fossil aquifer. Coastal Mediterranean production (Mascara, Aïn Defla, Mostaganem) provides early-season supply; the Saharan El Oued system enables off-season winter cropping. Yield averages 33.9 t/ha (FAOSTAT 2024). Algeria is essentially self-sufficient in potatoes and a net regional exporter.',
+    definitiveAnswer: '<strong>Algeria produced 4.60 million tonnes of potatoes in 2024 (FAOSTAT) — making it Africa\'s second-largest producer after Egypt (8.08M).</strong> Algeria is the only major <strong>Saharan-desert potato producer</strong> in the world, anchored by El Oued province\'s center-pivot irrigation system tapping the Continental Intercalaire fossil aquifer. Coastal Mediterranean production (Mascara, Aïn Defla, Mostaganem) provides early-season supply; the Saharan El Oued system enables off-season winter cropping. Yield averages 33.9 t/ha (FAOSTAT 2024). Algeria is essentially self-sufficient in potatoes and a net regional exporter.',
     keyStats: [
       { value: "4.60M t", label: "2024 production" },
       { value: "Africa #2", label: "After Egypt" },
@@ -4488,7 +4489,7 @@ function AlgeriaProfilePage({ c }) {
         ],
         body: [
           'Algeria has emerged as one of Africa\'s most successful potato-sector stories of the past two decades. From less than 1.5 million tonnes in the early 2000s, production has more than tripled, with the dramatic uptick driven by Saharan center-pivot irrigation development in El Oued province alongside continued coastal Mediterranean production. Production peaked at ~5.0M tonnes in 2019 and has held in the 4.3–4.7M range across 2020–2024 (FAOSTAT). Algeria is essentially self-sufficient in potatoes and exports modestly to Tunisia, Mauritania, and the broader Maghreb region (FAOSTAT 2024; Algerian Ministry of Agriculture).',
-          'On a regional basis, Algeria is firmly Africa\'s #2 potato producer behind <Link href="/country/egypt" style="color: var(--gold);text-decoration:none;font-weight:600">Egypt</Link> (6.30M tonnes). Algeria significantly outproduces all other African nations including <Link href="/country/kenya" style="color: var(--gold);text-decoration:none;font-weight:600">Kenya</Link>, South Africa, Morocco, and Malawi.',
+          'On a regional basis, Algeria is firmly Africa\'s #2 potato producer behind <Link href="/country/egypt" style="color: var(--gold);text-decoration:none;font-weight:600">Egypt</Link> (8.08M tonnes). Algeria significantly outproduces all other African nations including <Link href="/country/kenya" style="color: var(--gold);text-decoration:none;font-weight:600">Kenya</Link>, South Africa, Morocco, and Malawi.',
         ],
         source: "Source: FAOSTAT 2024; Algerian Ministry of Agriculture and Rural Development (MADR); FAO Algeria Country Office.",
       },
@@ -4626,7 +4627,7 @@ function AlgeriaProfilePage({ c }) {
     ],
     faqItems: [
       { q: "How much potato does Algeria produce per year?", a: "Algeria produced 4.60 million tonnes of potatoes in 2024 (FAOSTAT) on approximately 135,000 hectares — making Algeria Africa's second-largest producer after Egypt and the largest potato producer in the Maghreb region." },
-      { q: "Is Algeria the largest potato producer in Africa?", a: "No — Algeria ranks #2 in Africa with 4.60M tonnes (2024), behind Egypt's 6.30M tonnes (FAOSTAT 2024). Algeria significantly outproduces all other African nations including Kenya, South Africa, Morocco, and Malawi." },
+      { q: "Is Algeria the largest potato producer in Africa?", a: "No — Algeria ranks #2 in Africa with 4.60M tonnes (2024), behind Egypt's 8.08M tonnes (FAOSTAT 2024). Algeria significantly outproduces all other African nations including Kenya, South Africa, Morocco, and Malawi." },
       { q: "Where is potato grown in the Sahara desert?", a: "Algeria's El Oued province in the eastern Algerian Sahara hosts the world's most significant Saharan-desert potato production system. Hundreds of center-pivot irrigation circles tap the Continental Intercalaire fossil aquifer for off-season winter cropping (October–February)." },
       { q: "Why does Algeria grow potatoes in the desert?", a: "Saharan winter (December–February) provides cool-temperature conditions within potato's tuberization optimum (15–20°C); fossil-aquifer water from the Continental Intercalaire eliminates the rainfall constraint; sandy desert soils drain well and produce visually clean tubers; the off-season harvest commands premium prices when Mediterranean coastal production is dormant." },
       { q: "What variety of potato is grown in Algeria?", a: "Spunta (Dutch-bred) is Algeria's dominant variety, valued for its elongated yellow-flesh shape that matches consumer preference. Other significant varieties include Bartina, Désirée, Kondor, Diamant, and Atlas — most originating from Dutch and French breeding programmes." },
@@ -4635,7 +4636,7 @@ function AlgeriaProfilePage({ c }) {
       { q: "What is the yield in Algeria?", a: "Algerian potato yield averages 30.9 tonnes per hectare (FAOSTAT 2023) — competitive with global benchmarks. El Oued Saharan center-pivot yields are typically 30–40 t/ha thanks to controlled irrigation, well-drained sandy soils, and low pest/disease pressure under desert conditions." },
     ],
     regionalContext: [
-      { slug: "egypt", note: "Africa #1 (6.30M)" },
+      { slug: "egypt", note: "Africa #1 (8.08M)" },
       { slug: "kenya", note: "East Africa peer" },
       { slug: "south-africa", note: "Southern Africa peer" },
       { slug: "turkey", note: "Mediterranean / ME #1 (6.90M)" },
@@ -7411,23 +7412,23 @@ function PolandProfilePage({ c }) {
 function MexicoProfilePage({ c }) {
   const data = {
     slug: "mexico", name: "Mexico", flag: c.flag, region: c.region,
-    h1: "Mexico Potato Industry: Where PepsiCo/Sabritas Shapes What Farmers Grow (1.9M Tonnes)",
+    h1: "Mexico Potato Industry: Where PepsiCo/Sabritas Shapes What Farmers Grow (2.12M Tonnes, 2024)",
     tagLabel: "Mexico · Americas",
     readMin: 13,
     accentLabel: "One company — PepsiCo's Sabritas — is the single largest private buyer of potatoes in Mexico, contracting 15,000–20,000 hectares and dictating varietal choice, quality standards, and agronomic practice across the industry. Meanwhile, Mexico's Toluca Valley is part of the actual center of genetic diversity for late blight, the disease that caused the Irish Potato Famine.",
     wikidata: "https://www.wikidata.org/wiki/Q96",
     articlePublishedISO: "2026-07-16", articleModifiedISO: "2026-07-16", indiaContext: false,
     quickFacts: [
-      { label: "Production (2023, FAOSTAT)", value: "~1.9M tonnes" },
+      { label: "Production (2024, FAOSTAT)", value: "2.12M tonnes" },
       { label: "Irrigated share", value: "85–90% (highly irrigation-dependent)" },
       { label: "Top state", value: "Sinaloa (~35% of national output)" },
       { label: "Sabritas chip market share", value: "70%+" },
       { label: "Sabritas contract farming", value: "15,000–20,000 ha/year" },
       { label: "Frozen fry imports", value: "150,000–200,000 tonnes/year" },
     ],
-    definitiveAnswer: "<strong>Mexico produced approximately 1.9 million tonnes of potatoes in 2023</strong> on roughly 65,000 hectares at a yield of 29.2 t/ha (FAOSTAT) &mdash; a yield above the world average, reflecting Mexico's heavy reliance on irrigation: an estimated <strong>85&ndash;90% of Mexican potato production is irrigated</strong>, making it one of the most irrigation-dependent major producers anywhere. Production concentrates in <strong>Sinaloa (~35% of national output)</strong> and neighboring Sonora, both winter-cycle desert-valley operations, plus highland spring-summer production in Nuevo León, Chihuahua, and Puebla. The single defining feature of Mexico's potato economy is <strong>PepsiCo's Sabritas division</strong> &mdash; holding over 70% of the Mexican chip market and contracting <strong>15,000&ndash;20,000 hectares annually</strong>, making it the largest private-sector potato buyer in the country and a direct shaper of which varieties get planted. Mexico is also scientifically significant: the <strong>Toluca Valley is part of the actual center of genetic diversity for Phytophthora infestans</strong>, the late blight pathogen behind the Irish Potato Famine.",
+    definitiveAnswer: "<strong>Mexico produced 2.12 million tonnes of potatoes in 2024</strong> on roughly 65,000 hectares at a yield of 29.2 t/ha (FAOSTAT) &mdash; a yield above the world average, reflecting Mexico's heavy reliance on irrigation: an estimated <strong>85&ndash;90% of Mexican potato production is irrigated</strong>, making it one of the most irrigation-dependent major producers anywhere. Production concentrates in <strong>Sinaloa (~35% of national output)</strong> and neighboring Sonora, both winter-cycle desert-valley operations, plus highland spring-summer production in Nuevo León, Chihuahua, and Puebla. The single defining feature of Mexico's potato economy is <strong>PepsiCo's Sabritas division</strong> &mdash; holding over 70% of the Mexican chip market and contracting <strong>15,000&ndash;20,000 hectares annually</strong>, making it the largest private-sector potato buyer in the country and a direct shaper of which varieties get planted. Mexico is also scientifically significant: the <strong>Toluca Valley is part of the actual center of genetic diversity for Phytophthora infestans</strong>, the late blight pathogen behind the Irish Potato Famine.",
     keyStats: [
-      { value: "1.9M t", label: "2023 production" },
+      { value: "2.12M t", label: "2024 production" },
       { value: "85–90%", label: "Share irrigated" },
       { value: "70%+", label: "Sabritas chip market share" },
       { value: "35%", label: "Sinaloa's share of output" },
@@ -7445,9 +7446,9 @@ function MexicoProfilePage({ c }) {
     cards: [
       { id: "industry-size", dataCard: "overview",
         h2: "How big is Mexico's potato industry?",
-        lead: "Mexico is <strong>Central America's largest potato producer</strong>, producing approximately <strong>1.9 million tonnes</strong> from about 65,000 hectares at a yield of 29.2 t/ha (FAOSTAT 2023) &mdash; a yield above the world average, driven by irrigated production.",
+        lead: "Mexico is <strong>Central America's largest potato producer</strong>, producing <strong>2.12 million tonnes</strong> in 2024 (FAOSTAT) &mdash; a yield above the world average, driven by irrigated production.",
         quickFacts: [
-          { label: "Production (2023)", value: "~1.9M tonnes" },
+          { label: "Production (2024)", value: "2.12M tonnes" },
           { label: "Area", value: "~65,000 hectares" },
           { label: "Yield", value: "29.2 t/ha" },
           { label: "Irrigated share", value: "85–90%" },

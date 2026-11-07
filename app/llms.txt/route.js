@@ -77,7 +77,7 @@ Potatopedia is the most comprehensive potato intelligence platform on the web. W
 - [Belgium](https://www.potatopedia.com/country/belgium) — World's #1 frozen french fry exporter ($4.6B annually, 26.8% global trade)
 
 ## Also featured (dedicated profile, no PDF)
-- [Kenya](https://www.potatopedia.com/country/kenya) — East Africa's largest potato producer (#2 in Africa). Host of the 13th World Potato Congress (Naivasha, Oct 26–30, 2026).
+- [Kenya](https://www.potatopedia.com/country/kenya) — East Africa's largest potato producer. Host of the 13th World Potato Congress (Naivasha, Oct 26–30, 2026).
 
 ## Methodology and verification
 Every data point traces to original methodology, primary research, or an official statistical agency. We exclude crowd-sourced encyclopaedias, news aggregators, scraped commercial databases, third-party data resellers, and content farms. The AI Q&A returns citations on every answer.
