@@ -2248,7 +2248,7 @@ function PotatoesAndBloodSugar() {
   ];
 
   const varietyTable = [
-    ["Nicola", "Waxy (Type A)", "56–62", "Salads, boiling — lowest hot-eaten GI"],
+    ["Nicola", "Waxy (Type A)", "59–69 (by study)", "Salads, boiling"],
     ["Charlotte", "Waxy (Type A)", "58–65", "Salads, gentle boiling"],
     ["Carisma", "Low-GI bred", "53", "Specifically registered as low-GI"],
     ["Kipfler / fingerling", "Waxy", "60–68", "Roasting, salads"],

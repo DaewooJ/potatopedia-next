@@ -2847,7 +2847,7 @@ function UnitedStatesProfilePage({ c }) {
     { value: "18.94 M t", label: "Annual Production", sub: "USDA NASS 2025 (417.6 M cwt)" },
     { value: "365,500 ha", label: "Harvested Area", sub: "903,200 acres (2025)" },
     { value: "51.8 t/ha", label: "Average Yield", sub: "462 cwt/acre — world's highest" },
-    { value: "#5", label: "Global Production Rank", sub: "after CN, IN, UA, RU" },
+    { value: "#4", label: "Global Production Rank", sub: "after CN, IN, UA (FAOSTAT 2024)" },
     { value: "$4.51 B", label: "Value of Production", sub: "USDA NASS 2025" },
     { value: "$2.3 B", label: "Total Export Value", sub: "Jul 2023–Jun 2024 record", positive: true },
     { value: "69–71%", label: "Processed Share of Crop", sub: "269 M cwt processed (2024)" },
@@ -3383,7 +3383,7 @@ function UnitedStatesProfilePage({ c }) {
                   { slug: "mcdonalds-potato-varieties", title: "What Potatoes Does McDonald's Use?", desc: "The Russet Burbank story behind the 1965 J.R. Simplot deal." },
                   { slug: "how-potatoes-are-processed", title: "How Potatoes Are Processed: Farm to Fry", desc: "Frozen fries, chips, dehydrated — Lamb Weston, Simplot, McCain." },
                   { slug: "potato-yield-calculator", title: "Potato Yield Per Acre — Global Averages", desc: "USA at 462 cwt/acre (2025) — world's highest commercial potato yield." },
-                  { slug: "top-potato-producing-countries", title: "Top Potato Producing Countries 2025", desc: "FAOSTAT rankings: USA #5 by production, #1 by yield." },
+                  { slug: "top-potato-producing-countries", title: "Top Potato Producing Countries 2025", desc: "FAOSTAT 2024 rankings: USA #4 by production, among the highest yields." },
                   { slug: "global-potato-trade", title: "Global Potato Trade Statistics", desc: "$22.8B trade — USA at $2.3B record exports (frozen-fry-led)." },
                 ].map((a) => (
                   <Link key={a.slug} href={"/knowledge/" + a.slug} style={{ background: "var(--card)", border: "1px solid var(--line)", borderRadius: 10, padding: "12px 16px", textDecoration: "none", color: "inherit", transition: "border-color 0.15s" }}>
