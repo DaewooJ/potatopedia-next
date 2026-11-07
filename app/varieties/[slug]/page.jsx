@@ -18,7 +18,7 @@ import { applyOgOverride } from "../../../lib/og-overrides";
 import TRAITS from "../../../lib/variety-traits.json";
 
 // ── Official-datasheet traits (lib/variety-traits.json): breeder / registry values, kept as published. ──
-const cleanLabel = (s) => String(s || "").replace(/\(.*?\)/g, "").replace(/^\d+(\.\d+)?\s+/, "").replace(/\s*\/\s*[\d.]+.*$/, "").replace(/\s+/g, " ").replace(/[.;,\s]+$/, "").trim().toLowerCase();
+const cleanLabel = (s) => String(s || "").replace(/\(.*?\)/g, "").replace(/^\d+(\.\d+)?\s+/, "").replace(/\s*\/\s*([\d.]+|[A-Z]{1,3})(\s.*)?$/, "").replace(/\s+/g, " ").replace(/[.;,\s]+$/, "").trim().toLowerCase();
 const shortText = (s, n) => { const t = String(s || "").split(/\s[—–]\s|;|\.\s/)[0].trim(); return t.length > n ? "" : t; };
 function keyFacts(t) {
   if (!t) return [];
