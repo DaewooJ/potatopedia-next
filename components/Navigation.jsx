@@ -11,6 +11,8 @@ const LINKS = [
   { href: "/countries", label: "Countries", match: ["/countries", "/country"] },
   { href: "/knowledge", label: "Knowledge", match: ["/knowledge"] },
   { href: "/answers", label: "Answers", match: ["/answers"] },
+  { href: "/market", label: "Market", match: ["/market"] },
+  { href: "/machines", label: "Machines", match: ["/machines"] },
   { href: "/blog", label: "Blog", match: ["/blog"] },
 ];
 

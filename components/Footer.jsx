@@ -18,6 +18,8 @@ export default function Footer() {
             <Link href="/countries">Countries</Link>
             <Link href="/knowledge">Knowledge</Link>
             <Link href="/answers">Answers</Link>
+            <Link href="/market">Market</Link>
+            <Link href="/machines">Machines</Link>
             <Link href="/blog">Blog</Link>
           </nav>
           <nav className="pf-col" aria-label="Company">

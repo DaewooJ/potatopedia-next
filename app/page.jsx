@@ -120,6 +120,8 @@ export default async function HomePage() {
             <Link href="/countries">Countries</Link>
             <Link href="/knowledge">Knowledge</Link>
             <Link href="/answers">Answers</Link>
+            <Link href="/market">Market</Link>
+            <Link href="/machines">Machines</Link>
             <Link href="/blog">Blog</Link>
           </nav>
           <a href="#companies" className="hp-adv">Advertise</a>
@@ -132,6 +134,8 @@ export default async function HomePage() {
               <Link href="/countries">Countries</Link>
               <Link href="/knowledge">Knowledge</Link>
               <Link href="/answers">Answers</Link>
+              <Link href="/market">Market</Link>
+              <Link href="/machines">Machines</Link>
               <Link href="/blog">Blog</Link>
               <a href="#companies">Advertise</a>
             </div>
