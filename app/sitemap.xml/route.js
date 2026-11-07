@@ -13,7 +13,7 @@ const COUNTRIES = [
   "france", "netherlands", "poland", "egypt", "pakistan", "turkey", "peru", "belgium",
   "united-kingdom", "canada", "japan", "brazil", "iran", "algeria", "colombia",
   "australia", "nepal", "kenya", "south-africa", "indonesia", "mexico", "denmark", "south-korea",
-  "uzbekistan",
+  "uzbekistan", "argentina", "belarus", "spain", "morocco", "ethiopia", "uganda",
 ];
 
 const BLOG_SLUGS = [
@@ -186,6 +186,10 @@ export async function GET() {
     { loc: "/advertise", priority: "0.5", changefreq: "monthly" },
     { loc: "/market", priority: "0.8", changefreq: "weekly" },
     { loc: "/machines", priority: "0.8", changefreq: "weekly" },
+    // Reference pages added 7 Nov 2026
+    ...["/prices", "/prices/india", "/prices/europe", "/prices/usa", "/prices/futures"].map((loc) => ({ loc, priority: "0.8", changefreq: "monthly" })),
+    ...["/diseases", "/diseases/late-blight", "/diseases/blackleg-soft-rot", "/diseases/bacterial-wilt-brown-rot", "/diseases/potato-cyst-nematode", "/diseases/common-scab", "/diseases/pvy-viruses"].map((loc) => ({ loc, priority: "0.8", changefreq: "monthly" })),
+    { loc: "/events", priority: "0.7", changefreq: "weekly" },
   ];
 
   // Lazy import varieties data to avoid loading on every sitemap render hop
