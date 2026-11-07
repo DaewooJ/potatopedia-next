@@ -5,8 +5,8 @@ import { COUNTRIES, BLOG_POSTS } from "../../lib/data";
 import ANSWERS from "../../lib/answers-baked.json";
 import LeadForm from "../../components/LeadForm";
 
-// /advertise — the brand door (replaces /support, 7 Nov 2026). Real audience facts only; rates in the media kit
-// until Devendra confirms the rate card. Every placement is labelled; paid content never changes a fact.
+// /advertise — the brand door (replaces /support, 7 Nov 2026). Real audience facts only. Rate card in US$ only
+// (Devendra approved the USD card 7 Nov 2026; never show INR here). Every placement is labelled; paid content never changes a fact.
 
 export const revalidate = 3600;
 
@@ -29,14 +29,14 @@ async function getStats() {
 }
 
 const PRODUCTS = [
-  { n: "01", name: "Featured maker", who: "Machinery makers", what: "Your company in a labelled slot at the stage of the potato chain you serve (seed, field, harvest, storage, processing, market), first in line for the quote requests from that stage." },
-  { n: "02", name: "Pay per qualified enquiry", who: "Machinery makers", what: "Receive \"Get 3 quotes\" requests that match your machines and markets. Machine, capacity, country and timeline come with every request." },
-  { n: "03", name: "Breeder variety set", who: "Seed breeders and seed houses", what: "Your varieties' dossiers carry your labelled breeder card and a seed-request button. The traits and facts on the page never change." },
-  { n: "04", name: "Own a question", who: "Any potato company", what: "One labelled card under the neutral, sourced answer to a question your buyers ask, on the answer page and in the answer engine." },
-  { n: "05", name: "Publish with us", who: "Any potato company", what: "A partner article, clearly marked \"Published with us\", shared in the newsletter. Partner content is never mixed into the neutral knowledge base." },
-  { n: "06", name: "Newsletter and daily presenter", who: "Any potato company", what: "\"Presented by\" on The Potato Week and on the homepage for the days you choose." },
-  { n: "07", name: "AI visibility report", who: "Any potato company", what: "How often ChatGPT, Perplexity, Gemini and Potatopedia name your brand against rivals for the questions your buyers ask." },
-  { n: "08", name: "Country market report", who: "Traders, investors, makers", what: "A sourced report on one country or segment: production, trade partners, processors, storage and prices." },
+  { n: "01", price: "$2,000", unit: "per year, per stage", name: "Featured maker", who: "Machinery makers", what: "Your company in a labelled slot at the stage of the potato chain you serve (seed, field, harvest, storage, processing, market), first in line for the quote requests from that stage." },
+  { n: "02", price: "$20", unit: "per qualified enquiry", name: "Pay per qualified enquiry", who: "Machinery makers", what: "Receive \"Get 3 quotes\" requests that match your machines and markets. Machine, capacity, country and timeline come with every request." },
+  { n: "03", price: "$2,500", unit: "per year", name: "Breeder variety set", who: "Seed breeders and seed houses", what: "Your varieties' dossiers carry your labelled breeder card and a seed-request button. The traits and facts on the page never change." },
+  { n: "04", price: "$400", unit: "per question, per year", name: "Own a question", who: "Any potato company", what: "One labelled card under the neutral, sourced answer to a question your buyers ask, on the answer page and in the answer engine." },
+  { n: "05", price: "$250", unit: "per article", name: "Publish with us", who: "Any potato company", what: "A partner article, clearly marked \"Published with us\", shared in the newsletter. Partner content is never mixed into the neutral knowledge base." },
+  { n: "06", price: "$100", unit: "per day", name: "Newsletter and daily presenter", who: "Any potato company", what: "\"Presented by\" on The Potato Week and on the homepage for the days you choose." },
+  { n: "07", price: "$500", unit: "per report", name: "AI visibility report", who: "Any potato company", what: "How often ChatGPT, Perplexity, Gemini and Potatopedia name your brand against rivals for the questions your buyers ask." },
+  { n: "08", price: "$500", unit: "per report", name: "Country market report", who: "Traders, investors, makers", what: "A sourced report on one country or segment: production, trade partners, processors, storage and prices." },
 ];
 
 const RULES = [
@@ -68,7 +68,7 @@ export default async function AdvertisePage() {
           <p className="ad-lede">Growers, processors, traders and researchers come to Potatopedia for neutral, sourced answers about potatoes. Makers, breeders and suppliers reach them through placements that are always labelled.</p>
           <div className="ad-ctas">
             <a href="#book" className="ad-btn">Book a 15-minute call</a>
-            <a href="#book" className="ad-btn ad-btn-ghost">Get the media kit and rates</a>
+            <a href="/potatopedia-media-kit.pdf" className="ad-btn ad-btn-ghost">Download the media kit (PDF)</a>
           </div>
         </div>
       </section>
@@ -87,7 +87,8 @@ export default async function AdvertisePage() {
 
       <section className="ad-sec">
         <div className="ad-wrap">
-          <h2 className="ad-h2">Placements</h2>
+          <h2 className="ad-h2">Placements and rates</h2>
+          <p className="ad-rate-note">Prices in US dollars. Every placement is labelled; nothing is sold that changes a fact.</p>
           <div className="ad-grid">
             {PRODUCTS.map((p) => (
               <article key={p.n} className="ad-card">
@@ -95,6 +96,7 @@ export default async function AdvertisePage() {
                 <h3 className="ad-card-t">{p.name}</h3>
                 <p className="ad-who">{p.who}</p>
                 <p className="ad-what">{p.what}</p>
+                <p className="ad-price"><span className="ad-price-n">{p.price}</span> <span className="ad-price-u">{p.unit}</span></p>
               </article>
             ))}
           </div>
@@ -116,7 +118,7 @@ export default async function AdvertisePage() {
         <div className="ad-wrap ad-split">
           <div>
             <h2 className="ad-h2" style={{ color: "#F4F1EC" }}>Book a 15-minute call</h2>
-            <p className="ad-book-s">Tell us who you want to reach. We send the media kit and rates and reply within one working day.</p>
+            <p className="ad-book-s">Tell us who you want to reach. We reply within one working day.</p>
             <p className="ad-book-s">Prefer email? <a href="mailto:hi@potatopedia.com">hi@potatopedia.com</a></p>
           </div>
           <div className="ad-form">
@@ -165,6 +167,10 @@ const CSS = `
 .ad-card-t { margin: 8px 0 4px; font-family: var(--hp-serif), Georgia, serif; font-weight: 400; font-size: 28px; line-height: 1.1; }
 .ad-who { margin: 0 0 10px; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
 .ad-what { margin: 0; font-size: 15px; line-height: 1.6; color: var(--mute); }
+.ad-price { margin: 16px 0 0; padding-top: 14px; border-top: 1px solid var(--line); }
+.ad-price-n { font-family: var(--hp-serif), Georgia, serif; font-size: 30px; color: var(--ink); }
+.ad-price-u { font-size: 13px; color: var(--mute); }
+.ad-rate-note { margin: -14px 0 24px; font-size: 14px; color: var(--mute); }
 .ad-rules { background:#F2EADC; }
 .ad-split { display: flex; gap: 56px; align-items: flex-start; }
 .ad-split > * { flex: 1; min-width: 0; }
