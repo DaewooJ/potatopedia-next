@@ -132,7 +132,7 @@ function Sprout() {
 function EmailAnswer({ q, id, onClose }) {
   const [state, setState] = useState("idle"); // idle | sending | done | error
   const [err, setErr] = useState("");
-  const fid = `ad-em-${id}`;
+  const fid = `rd-em-${id}`;
 
   async function submit(e) {
     e.preventDefault();
@@ -156,23 +156,23 @@ function EmailAnswer({ q, id, onClose }) {
 
   if (state === "done") {
     return (
-      <div className="ad-mail" role="status">
-        <p className="ad-mail-t">Check your inbox to confirm.</p>
-        <p className="ad-mail-s">We sent you a link to this answer. One click in that mail confirms The Potato Week, our weekly digest; ignore it and nothing more is sent.</p>
+      <div className="rd-mail" role="status">
+        <p className="rd-mail-t">Check your inbox to confirm.</p>
+        <p className="rd-mail-s">We sent you a link to this answer. One click in that mail confirms The Potato Week, our weekly digest; ignore it and nothing more is sent.</p>
       </div>
     );
   }
   return (
-    <form className="ad-mail" onSubmit={submit} noValidate>
-      <p className="ad-mail-t">Email me this answer</p>
-      <p className="ad-mail-s">We mail you a link to this answer and ask once if you want The Potato Week, one useful digest a week. Free; unsubscribe any time.</p>
-      <div className="ad-mail-row">
+    <form className="rd-mail" onSubmit={submit} noValidate>
+      <p className="rd-mail-t">Email me this answer</p>
+      <p className="rd-mail-s">We mail you a link to this answer and ask once if you want The Potato Week, one useful digest a week. Free; unsubscribe any time.</p>
+      <div className="rd-mail-row">
         <label htmlFor={fid} className="pp-sr">Your email</label>
-        <input id={fid} name="email" type="email" required autoComplete="email" placeholder="you@company.com" className="ad-mail-in" />
-        <button type="submit" className="ad-mail-btn" disabled={state === "sending"}>{state === "sending" ? "Sending…" : "Send"}</button>
+        <input id={fid} name="email" type="email" required autoComplete="email" placeholder="you@company.com" className="rd-mail-in" />
+        <button type="submit" className="rd-mail-btn" disabled={state === "sending"}>{state === "sending" ? "Sending…" : "Send"}</button>
       </div>
-      {err && <p className="ad-mail-err" role="alert">{err}</p>}
-      <button type="button" className="ad-mail-x" onClick={onClose}>Close</button>
+      {err && <p className="rd-mail-err" role="alert">{err}</p>}
+      <button type="button" className="rd-mail-x" onClick={onClose}>Close</button>
     </form>
   );
 }
@@ -194,20 +194,20 @@ function Actions({ turn }) {
   const correction = `/for-companies?page=${encodeURIComponent(`/ask?q=${turn.q}`)}#correct`;
   return (
     <>
-      <div className="ad-acts" role="group" aria-label="Answer actions">
-        <button type="button" className="ad-act" onClick={() => copy(plain, "copy")}>
+      <div className="rd-acts" role="group" aria-label="Answer actions">
+        <button type="button" className="rd-act" onClick={() => copy(plain, "copy")}>
           <Icon name={flash === "copy" ? "check" : "copy"} />
           <span>{flash === "copy" ? "Copied" : "Copy"}</span>
         </button>
-        <button type="button" className={`ad-act${mail ? " is-on" : ""}`} aria-expanded={mail} onClick={() => setMail((v) => !v)}>
+        <button type="button" className={`rd-act${mail ? " is-on" : ""}`} aria-expanded={mail} onClick={() => setMail((v) => !v)}>
           <Icon name="mail" />
           <span>Email me this</span>
         </button>
-        <button type="button" className="ad-act" onClick={() => copy(askUrl(turn.q), "share")}>
+        <button type="button" className="rd-act" onClick={() => copy(askUrl(turn.q), "share")}>
           <Icon name={flash === "share" ? "check" : "link"} />
           <span>{flash === "share" ? "Link copied" : "Share link"}</span>
         </button>
-        <a className="ad-act" href={correction}>
+        <a className="rd-act" href={correction}>
           <Icon name="flag" />
           <span>Suggest a correction</span>
         </a>
@@ -225,21 +225,21 @@ function Turn({ turn, onAsk, last }) {
   const related = (turn.related || []).filter((r) => r && r.length <= 90).slice(0, 4);
   const done = !turn.streaming && !turn.error && turn.text;
   return (
-    <article className="ad-turn" id={`t-${turn.id}`} aria-labelledby={`tq-${turn.id}`}>
-      <div className="ad-kick">
+    <article className="rd-turn" id={`t-${turn.id}`} aria-labelledby={`tq-${turn.id}`}>
+      <div className="rd-kick">
         <Sprout />
         <span>{turn.streaming ? "Searching the sources…" : turn.error ? "Not answered" : `Answer${cards.length ? ` · ${cards.length} source${cards.length === 1 ? "" : "s"}` : ""}`}</span>
       </div>
-      <h2 className="ad-q" id={`tq-${turn.id}`}>{turn.q}</h2>
-      {turn.rewritten && turn.rewritten !== turn.q && <p className="ad-rw">Searched as: {turn.rewritten}</p>}
+      <h2 className="rd-q" id={`tq-${turn.id}`}>{turn.q}</h2>
+      {turn.rewritten && turn.rewritten !== turn.q && <p className="rd-rw">Searched as: {turn.rewritten}</p>}
 
-      <div className="ad-a" aria-live={last ? "polite" : "off"} aria-busy={turn.streaming ? "true" : "false"}>
+      <div className="rd-a" aria-live={last ? "polite" : "off"} aria-busy={turn.streaming ? "true" : "false"}>
         {turn.streaming && !turn.text ? (
-          <div className="ad-wait">
+          <div className="rd-wait">
             <p>Reading the sources…</p>
-            <span className="ad-shim" style={{ width: "92%" }} />
-            <span className="ad-shim" style={{ width: "78%" }} />
-            <span className="ad-shim" style={{ width: "84%" }} />
+            <span className="rd-shim" style={{ width: "92%" }} />
+            <span className="rd-shim" style={{ width: "78%" }} />
+            <span className="rd-shim" style={{ width: "84%" }} />
           </div>
         ) : (
           <Rich text={turn.text} />
@@ -247,42 +247,42 @@ function Turn({ turn, onAsk, last }) {
       </div>
 
       {t && (
-        <p className={`ad-trust tone-${t.tone}`}>
-          <span className="ad-trust-l">{t.label}</span>
+        <p className={`rd-trust tone-${t.tone}`}>
+          <span className="rd-trust-l">{t.label}</span>
           {t.detail && <span> · {t.detail}</span>}
-          {t.note && <span className="ad-trust-n">Note: {t.note}.</span>}
+          {t.note && <span className="rd-trust-n">Note: {t.note}.</span>}
         </p>
       )}
 
       {done && shown.length > 0 && (
-        <div className="ad-src-wrap">
-          <svg className="ad-roots" viewBox="0 0 916 120" preserveAspectRatio="none" aria-hidden="true">
+        <div className="rd-src-wrap">
+          <svg className="rd-roots" viewBox="0 0 916 120" preserveAspectRatio="none" aria-hidden="true">
             <defs>
               <linearGradient id={`adg${turn.id}`} x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0" style={{ stopColor: "var(--gold)", stopOpacity: 0.9 }} />
                 <stop offset="1" style={{ stopColor: "var(--gold)", stopOpacity: 0.25 }} />
               </linearGradient>
             </defs>
-            <path className="ad-root" d="M458 0 C458 44 190 52 152 118" stroke={`url(#adg${turn.id})`} strokeWidth="1.5" fill="none" vectorEffect="non-scaling-stroke" />
-            <path className="ad-root" d="M458 0 L458 118" stroke={`url(#adg${turn.id})`} strokeWidth="1.5" fill="none" vectorEffect="non-scaling-stroke" />
-            <path className="ad-root" d="M458 0 C458 44 726 52 764 118" stroke={`url(#adg${turn.id})`} strokeWidth="1.5" fill="none" vectorEffect="non-scaling-stroke" />
+            <path className="rd-root" d="M458 0 C458 44 190 52 152 118" stroke={`url(#adg${turn.id})`} strokeWidth="1.5" fill="none" vectorEffect="non-scaling-stroke" />
+            <path className="rd-root" d="M458 0 L458 118" stroke={`url(#adg${turn.id})`} strokeWidth="1.5" fill="none" vectorEffect="non-scaling-stroke" />
+            <path className="rd-root" d="M458 0 C458 44 726 52 764 118" stroke={`url(#adg${turn.id})`} strokeWidth="1.5" fill="none" vectorEffect="non-scaling-stroke" />
           </svg>
-          <div className="ad-srcs">
+          <div className="rd-srcs">
             {shown.map((c, i) => (
-              <div key={i} className="ad-src">
-                <p className="ad-src-k">Source {i + 1}</p>
-                <p className="ad-src-n">{c.name}</p>
-                <p className="ad-src-m">{c.meta}</p>
+              <div key={i} className="rd-src">
+                <p className="rd-src-k">Source {i + 1}</p>
+                <p className="rd-src-n">{c.name}</p>
+                <p className="rd-src-m">{c.meta}</p>
               </div>
             ))}
-            <a href="/advertise" className="ad-src ad-spon">
-              <p className="ad-src-k ad-spon-k">Own this question · available</p>
-              <p className="ad-src-n">Your company here</p>
-              <p className="ad-src-m">One labelled card under answers like this one. See the rate card →</p>
+            <a href="/advertise" className="rd-src rd-spon">
+              <p className="rd-src-k rd-spon-k">Own this question · available</p>
+              <p className="rd-src-n">Your company here</p>
+              <p className="rd-src-m">One labelled card under answers like this one. See the rate card →</p>
             </a>
           </div>
           {cards.length > 2 && (
-            <details className="ad-all">
+            <details className="rd-all">
               <summary>All {cards.length} sources</summary>
               <ol>
                 {cards.map((c, i) => (
@@ -297,11 +297,11 @@ function Turn({ turn, onAsk, last }) {
       {done && <Actions turn={turn} />}
 
       {done && related.length > 0 && (
-        <div className="ad-rel">
-          <p className="ad-rel-k">Ask next</p>
-          <div className="ad-chips">
+        <div className="rd-rel">
+          <p className="rd-rel-k">Ask next</p>
+          <div className="rd-chips">
             {related.map((r) => (
-              <button key={r} type="button" className="ad-chip" onClick={() => onAsk(r, "related_question")}>{r}</button>
+              <button key={r} type="button" className="rd-chip" onClick={() => onAsk(r, "related_question")}>{r}</button>
             ))}
           </div>
         </div>
@@ -324,7 +324,7 @@ function ThemeToggle() {
     setDark(!dark);
   };
   return (
-    <button type="button" className="ad-ibtn" onClick={flip} aria-label={dark ? "Switch to light theme" : "Switch to dark theme"} title={dark ? "Light theme" : "Dark theme"}>
+    <button type="button" className="rd-ibtn" onClick={flip} aria-label={dark ? "Switch to light theme" : "Switch to dark theme"} title={dark ? "Light theme" : "Dark theme"}>
       <Icon name={dark ? "sun" : "moon"} />
     </button>
   );
@@ -440,18 +440,18 @@ function Desk() {
   const earlier = recent.filter((q) => !turns.some((t) => t.q === q)).slice(0, 8);
 
   return (
-    <div className="ad">
+    <div className="rd">
       <style>{CSS}</style>
 
-      <aside className="ad-side" aria-label="Your questions">
-        <button type="button" className="ad-new" onClick={reset} disabled={busy}>
+      <aside className="rd-side" aria-label="Your questions">
+        <button type="button" className="rd-new" onClick={reset} disabled={busy}>
           <Icon name="plus" size={16} />
           <span>New conversation</span>
         </button>
         {turns.length > 0 && (
-          <div className="ad-side-g">
-            <p className="ad-side-k">This conversation</p>
-            <ol className="ad-side-l">
+          <div className="rd-side-g">
+            <p className="rd-side-k">This conversation</p>
+            <ol className="rd-side-l">
               {turns.map((t) => (
                 <li key={t.id}>
                   <a href={`#t-${t.id}`}>{t.q}</a>
@@ -461,9 +461,9 @@ function Desk() {
           </div>
         )}
         {earlier.length > 0 && (
-          <div className="ad-side-g">
-            <p className="ad-side-k">Earlier on this device</p>
-            <ul className="ad-side-l">
+          <div className="rd-side-g">
+            <p className="rd-side-k">Earlier on this device</p>
+            <ul className="rd-side-l">
               {earlier.map((q) => (
                 <li key={q}>
                   <button type="button" onClick={() => ask(q, "recent_question")} disabled={busy}>{q}</button>
@@ -472,7 +472,7 @@ function Desk() {
             </ul>
             <button
               type="button"
-              className="ad-side-clear"
+              className="rd-side-clear"
               onClick={() => {
                 setRecent([]);
                 writeRecent([]);
@@ -482,22 +482,22 @@ function Desk() {
             </button>
           </div>
         )}
-        <p className="ad-side-foot">Your questions are kept in this browser only.</p>
+        <p className="rd-side-foot">Your questions are kept in this browser only.</p>
       </aside>
 
-      <div className="ad-main">
-        <div className="ad-bar">
-          <p className="ad-bar-k">Research desk</p>
-          <div className="ad-bar-r">
-            <label htmlFor="ad-country" className="pp-sr">Focus on a country</label>
-            <select id="ad-country" className="ad-sel" value={country} onChange={(e) => setCountry(e.target.value)}>
+      <div className="rd-main">
+        <div className="rd-bar">
+          <p className="rd-bar-k">Research desk</p>
+          <div className="rd-bar-r">
+            <label htmlFor="rd-country" className="pp-sr">Focus on a country</label>
+            <select id="rd-country" className="rd-sel" value={country} onChange={(e) => setCountry(e.target.value)}>
               <option value="">All countries</option>
               {COUNTRIES.map((c) => (
                 <option key={c.name} value={c.name}>{c.name}</option>
               ))}
             </select>
             {!empty && (
-              <button type="button" className="ad-ibtn ad-new-m" onClick={reset} disabled={busy} aria-label="New conversation" title="New conversation">
+              <button type="button" className="rd-ibtn rd-new-m" onClick={reset} disabled={busy} aria-label="New conversation" title="New conversation">
                 <Icon name="plus" />
               </button>
             )}
@@ -505,18 +505,18 @@ function Desk() {
           </div>
         </div>
 
-        <div className="ad-feed">
+        <div className="rd-feed">
           {empty ? (
-            <section className="ad-empty" aria-labelledby="ad-h">
-              <p className="ad-eyebrow">Potatopedia · Ask</p>
-              <h1 id="ad-h" className="ad-h1">Ask the potato <em>reference</em></h1>
-              <p className="ad-dek">
+            <section className="rd-empty" aria-labelledby="rd-h">
+              <p className="rd-eyebrow">Potatopedia · Ask</p>
+              <h1 id="rd-h" className="rd-h1">Ask the potato <em>reference</em></h1>
+              <p className="rd-dek">
                 Production, trade, prices, varieties, seed and processing, worldwide. Every answer is drawn from official and
                 peer-reviewed sources (FAOSTAT, USDA, CIP, UN Comtrade, ICAR-CPRI, Europatat) and shows them.
               </p>
-              <div className="ad-roles">
-                <p className="ad-roles-k" id="ad-roles-k">Start with a question for your work</p>
-                <div className="ad-tabs" role="tablist" aria-labelledby="ad-roles-k">
+              <div className="rd-roles">
+                <p className="rd-roles-k" id="rd-roles-k">Start with a question for your work</p>
+                <div className="rd-tabs" role="tablist" aria-labelledby="rd-roles-k">
                   {ROLES.map((r) => (
                     <button
                       key={r.id}
@@ -524,9 +524,9 @@ function Desk() {
                       role="tab"
                       id={`tab-${r.id}`}
                       aria-selected={role === r.id}
-                      aria-controls="ad-tabpanel"
+                      aria-controls="rd-tabpanel"
                       tabIndex={role === r.id ? 0 : -1}
-                      className={`ad-tab${role === r.id ? " is-on" : ""}`}
+                      className={`rd-tab${role === r.id ? " is-on" : ""}`}
                       onClick={() => setRole(r.id)}
                       onKeyDown={(e) => {
                         if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
@@ -540,11 +540,11 @@ function Desk() {
                     </button>
                   ))}
                 </div>
-                <div className="ad-sugg" role="tabpanel" id="ad-tabpanel" aria-labelledby={`tab-${active.id}`}>
+                <div className="rd-sugg" role="tabpanel" id="rd-tabpanel" aria-labelledby={`tab-${active.id}`}>
                   {active.qs.map((q) => (
-                    <button key={q} type="button" className="ad-sq" onClick={() => ask(q, "suggested_prompt")}>
+                    <button key={q} type="button" className="rd-sq" onClick={() => ask(q, "suggested_prompt")}>
                       <span>{q}</span>
-                      <span className="ad-sq-a" aria-hidden="true">→</span>
+                      <span className="rd-sq-a" aria-hidden="true">→</span>
                     </button>
                   ))}
                 </div>
@@ -556,31 +556,31 @@ function Desk() {
         </div>
 
         <form
-          className="ad-comp"
+          className="rd-comp"
           onSubmit={(e) => {
             e.preventDefault();
             ask();
           }}
         >
-          <div className="ad-box">
-            <label htmlFor="ad-ta" className="pp-sr">{empty ? "Ask a question about potatoes" : "Ask a follow-up question"}</label>
+          <div className="rd-box">
+            <label htmlFor="rd-ta" className="pp-sr">{empty ? "Ask a question about potatoes" : "Ask a follow-up question"}</label>
             <textarea
-              id="ad-ta"
+              id="rd-ta"
               ref={taRef}
               rows={1}
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={onKey}
               placeholder={empty ? "Ask a question about potatoes…" : "Ask a follow-up…"}
-              className="ad-ta"
+              className="rd-ta"
               autoComplete="off"
               enterKeyHint="send"
             />
-            <button type="submit" className="ad-send" disabled={!input.trim() || busy} aria-label={busy ? "Answering…" : "Ask"}>
+            <button type="submit" className="rd-send" disabled={!input.trim() || busy} aria-label={busy ? "Answering…" : "Ask"}>
               <Icon name="send" size={20} />
             </button>
           </div>
-          <p className="ad-note">Answers come from official sources; check before acting.<span className="ad-note-k"> Enter to send, Shift+Enter for a new line.</span></p>
+          <p className="rd-note">Answers come from official sources; check before acting.<span className="rd-note-k"> Enter to send, Shift+Enter for a new line.</span></p>
         </form>
       </div>
     </div>
@@ -596,151 +596,151 @@ export default function AskClient() {
 }
 
 const CSS = `
-.ad { max-width: 1240px; margin: 0 auto; padding: 0 16px; display: grid; grid-template-columns: minmax(0, 1fr); }
-.ad-main { width: 100%; max-width: 760px; margin: 0 auto; min-height: calc(100vh - 73px); min-height: calc(100dvh - 73px); display: flex; flex-direction: column; }
-.ad-side { display: none; }
+.rd { max-width: 1240px; margin: 0 auto; padding: 0 16px; display: grid; grid-template-columns: minmax(0, 1fr); }
+.rd-main { width: 100%; max-width: 760px; margin: 0 auto; min-height: calc(100vh - 73px); min-height: calc(100dvh - 73px); display: flex; flex-direction: column; }
+.rd-side { display: none; }
 @media (min-width: 1100px) {
-  .ad { grid-template-columns: 240px minmax(0, 1fr); gap: 56px; padding: 0 32px; }
-  .ad-side { display: block; position: sticky; top: 73px; align-self: start; max-height: calc(100vh - 73px); overflow-y: auto; padding: 28px 4px 28px 0; }
-  .ad-new-m { display: none !important; }
+  .rd { grid-template-columns: 240px minmax(0, 1fr); gap: 56px; padding: 0 32px; }
+  .rd-side { display: block; position: sticky; top: 73px; align-self: start; max-height: calc(100vh - 73px); overflow-y: auto; padding: 28px 4px 28px 0; }
+  .rd-new-m { display: none !important; }
 }
-.ad-new { width: 100%; display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--line2); background: var(--card); color: var(--ink); font: inherit; font-size: 14px; cursor: pointer; transition: border-color .2s; }
-.ad-new:hover:not(:disabled) { border-color: var(--gold); }
-.ad-new:disabled { opacity: .5; cursor: default; }
-.ad-side-g { margin-top: 28px; }
-.ad-side-k { margin: 0 0 10px; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--mute3); }
-.ad-side-l { margin: 0; padding: 0; list-style: none; display: grid; gap: 2px; }
-.ad-side-l a, .ad-side-l button { display: block; width: 100%; text-align: left; padding: 9px 12px; border: 0; border-left: 2px solid var(--line); border-radius: 0 10px 10px 0; background: none; font: inherit; font-size: 13.5px; line-height: 1.4; color: var(--mute); text-decoration: none; cursor: pointer; }
-.ad-side-l a:hover, .ad-side-l button:hover:not(:disabled) { color: var(--ink); border-left-color: var(--gold); background: var(--gold-soft); }
-.ad-side-clear { margin-top: 8px; font: inherit; font-size: 12.5px; color: var(--mute3); background: none; border: 0; padding: 6px 0; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
-.ad-side-foot { margin: 28px 0 0; font-size: 12px; color: var(--mute3); line-height: 1.5; }
+.rd-new { width: 100%; display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--line2); background: var(--card); color: var(--ink); font: inherit; font-size: 14px; cursor: pointer; transition: border-color .2s; }
+.rd-new:hover:not(:disabled) { border-color: var(--gold); }
+.rd-new:disabled { opacity: .5; cursor: default; }
+.rd-side-g { margin-top: 28px; }
+.rd-side-k { margin: 0 0 10px; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--mute3); }
+.rd-side-l { margin: 0; padding: 0; list-style: none; display: grid; gap: 2px; }
+.rd-side-l a, .rd-side-l button { display: block; width: 100%; text-align: left; padding: 9px 12px; border: 0; border-left: 2px solid var(--line); border-radius: 0 10px 10px 0; background: none; font: inherit; font-size: 13.5px; line-height: 1.4; color: var(--mute); text-decoration: none; cursor: pointer; }
+.rd-side-l a:hover, .rd-side-l button:hover:not(:disabled) { color: var(--ink); border-left-color: var(--gold); background: var(--gold-soft); }
+.rd-side-clear { margin-top: 8px; font: inherit; font-size: 12.5px; color: var(--mute3); background: none; border: 0; padding: 6px 0; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+.rd-side-foot { margin: 28px 0 0; font-size: 12px; color: var(--mute3); line-height: 1.5; }
 
-.ad-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 18px 0 0; }
-.ad-bar-k { margin: 0; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--mute3); white-space: nowrap; }
-.ad-bar-r { display: flex; align-items: center; gap: 8px; }
-.ad-sel { height: 44px; max-width: 170px; padding: 0 12px; border-radius: 999px; border: 1px solid var(--line2); background: var(--card); color: var(--ink2); font: inherit; font-size: 13.5px; cursor: pointer; }
-.ad-ibtn { width: 44px; height: 44px; flex: none; display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; border: 1px solid var(--line2); background: var(--card); color: var(--ink2); cursor: pointer; transition: border-color .2s; }
-.ad-ibtn:hover:not(:disabled) { border-color: var(--gold); }
-.ad-ibtn:disabled { opacity: .5; }
+.rd-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 18px 0 0; }
+.rd-bar-k { margin: 0; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--mute3); white-space: nowrap; }
+.rd-bar-r { display: flex; align-items: center; gap: 8px; }
+.rd-sel { height: 44px; max-width: 170px; padding: 0 12px; border-radius: 999px; border: 1px solid var(--line2); background: var(--card); color: var(--ink2); font: inherit; font-size: 13.5px; cursor: pointer; }
+.rd-ibtn { width: 44px; height: 44px; flex: none; display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; border: 1px solid var(--line2); background: var(--card); color: var(--ink2); cursor: pointer; transition: border-color .2s; }
+.rd-ibtn:hover:not(:disabled) { border-color: var(--gold); }
+.rd-ibtn:disabled { opacity: .5; }
 
-.ad-feed { flex: 1; padding: 8px 0 24px; }
-.ad-empty { padding: 56px 0 24px; text-align: center; animation: ppRise .8s ease-out both; }
-.ad-eyebrow { margin: 0 0 18px; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); }
-.ad-h1 { margin: 0; font-family: var(--hp-serif), Georgia, serif !important; font-weight: 400 !important; font-size: clamp(40px, 6vw, 64px); line-height: 1.04; letter-spacing: -.015em; color: var(--ink); }
-.ad-h1 em { font-style: italic; color: var(--gold); }
-.ad-dek { margin: 20px auto 0; max-width: 580px; font-size: 17px; line-height: 1.65; color: var(--mute); font-weight: 300; }
-.ad-roles { margin: 48px auto 0; text-align: left; }
-.ad-roles-k { margin: 0 0 14px; text-align: center; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--mute3); }
-.ad-tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
-.ad-tab { min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid var(--line2); background: transparent; color: var(--mute); font: inherit; font-size: 14px; cursor: pointer; transition: all .2s; }
-.ad-tab:hover { color: var(--ink); border-color: var(--gold); }
-.ad-tab.is-on { background: var(--ink); color: var(--bg); border-color: var(--ink); }
-.ad-tab:focus-visible, .ad-sq:focus-visible, .ad-act:focus-visible, .ad-chip:focus-visible, .ad-send:focus-visible, .ad-ibtn:focus-visible, .ad-new:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
-.ad-sugg { margin-top: 20px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-.ad-sq { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; text-align: left; min-height: 72px; padding: 16px 18px; border-radius: 16px; border: 1px solid var(--line); background: var(--card); color: var(--ink2); font: inherit; font-size: 15px; line-height: 1.45; cursor: pointer; transition: border-color .2s, transform .2s; animation: ppFade .5s ease-out both; }
-.ad-sq:hover { border-color: var(--gold); transform: translateY(-1px); }
-.ad-sq-a { color: var(--gold); transition: transform .2s; }
-.ad-sq:hover .ad-sq-a { transform: translateX(3px); }
+.rd-feed { flex: 1; padding: 8px 0 24px; }
+.rd-empty { padding: 56px 0 24px; text-align: center; animation: ppRise .8s ease-out both; }
+.rd-eyebrow { margin: 0 0 18px; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); }
+.rd-h1 { margin: 0; font-family: var(--hp-serif), Georgia, serif !important; font-weight: 400 !important; font-size: clamp(40px, 6vw, 64px); line-height: 1.04; letter-spacing: -.015em; color: var(--ink); }
+.rd-h1 em { font-style: italic; color: var(--gold); }
+.rd-dek { margin: 20px auto 0; max-width: 580px; font-size: 17px; line-height: 1.65; color: var(--mute); font-weight: 300; }
+.rd-roles { margin: 48px auto 0; text-align: left; }
+.rd-roles-k { margin: 0 0 14px; text-align: center; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--mute3); }
+.rd-tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.rd-tab { min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid var(--line2); background: transparent; color: var(--mute); font: inherit; font-size: 14px; cursor: pointer; transition: all .2s; }
+.rd-tab:hover { color: var(--ink); border-color: var(--gold); }
+.rd-tab.is-on { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.rd-tab:focus-visible, .rd-sq:focus-visible, .rd-act:focus-visible, .rd-chip:focus-visible, .rd-send:focus-visible, .rd-ibtn:focus-visible, .rd-new:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.rd-sugg { margin-top: 20px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.rd-sq { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; text-align: left; min-height: 72px; padding: 16px 18px; border-radius: 16px; border: 1px solid var(--line); background: var(--card); color: var(--ink2); font: inherit; font-size: 15px; line-height: 1.45; cursor: pointer; transition: border-color .2s, transform .2s; animation: ppFade .5s ease-out both; }
+.rd-sq:hover { border-color: var(--gold); transform: translateY(-1px); }
+.rd-sq-a { color: var(--gold); transition: transform .2s; }
+.rd-sq:hover .rd-sq-a { transform: translateX(3px); }
 
-.ad-turn { padding: 40px 0 36px; border-bottom: 1px solid var(--line); scroll-margin-top: 88px; animation: ppRise .6s ease-out both; }
-.ad-turn:last-child { border-bottom: 0; }
-.ad-kick { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; font-size: 11.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--mute2); }
-.ad-q { margin: 0; font-family: var(--hp-serif), Georgia, serif !important; font-weight: 400 !important; font-size: clamp(28px, 3.6vw, 38px); line-height: 1.12; color: var(--ink); overflow-wrap: anywhere; }
-.ad-rw { margin: 10px 0 0; font-size: 13px; color: var(--mute3); font-style: italic; }
-.ad-a { margin-top: 20px; font-size: 17.5px; line-height: 1.72; color: var(--ink2); font-weight: 300; overflow-wrap: anywhere; }
-.ad-a strong { color: var(--ink); font-weight: 500; }
-.ad-a .ar-p { margin: 0 0 12px; } .ad-a .ar-p:last-child { margin-bottom: 0; }
-.ad-a .ar-block + .ar-block { margin-top: 14px; }
-.ad-a .ar-ul { margin: 6px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; }
-.ad-a .ar-ul li { position: relative; padding-left: 22px; }
-.ad-a .ar-ul li::before { content: ""; position: absolute; left: 5px; top: .72em; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
-.ad-wait p { margin: 0 0 14px; color: var(--mute2); }
-.ad-shim { display: block; height: 13px; margin-bottom: 11px; border-radius: 7px; background: linear-gradient(90deg, var(--line) 25%, var(--paper) 50%, var(--line) 75%); background-size: 800px 100%; animation: ppShimmer 1.5s ease-in-out infinite; }
-.ad-trust { margin: 22px 0 0; font-size: 13.5px; line-height: 1.6; color: var(--mute2); }
-.ad-trust-l { display: inline-block; padding: 2px 10px; border-radius: 999px; font-weight: 500; font-size: 12.5px; background: var(--gold-soft); color: var(--gold); border: 1px solid var(--gold-line); }
-.ad-trust.tone-mid .ad-trust-l { color: var(--mute); background: transparent; border-color: var(--line2); }
-.ad-trust.tone-low .ad-trust-l { color: var(--mute3); background: transparent; border-color: var(--dash); border-style: dashed; }
-.ad-trust-n { display: block; margin-top: 4px; font-size: 12.5px; color: var(--mute3); }
+.rd-turn { padding: 40px 0 36px; border-bottom: 1px solid var(--line); scroll-margin-top: 88px; animation: ppRise .6s ease-out both; }
+.rd-turn:last-child { border-bottom: 0; }
+.rd-kick { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; font-size: 11.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--mute2); }
+.rd-q { margin: 0; font-family: var(--hp-serif), Georgia, serif !important; font-weight: 400 !important; font-size: clamp(28px, 3.6vw, 38px); line-height: 1.12; color: var(--ink); overflow-wrap: anywhere; }
+.rd-rw { margin: 10px 0 0; font-size: 13px; color: var(--mute3); font-style: italic; }
+.rd-a { margin-top: 20px; font-size: 17.5px; line-height: 1.72; color: var(--ink2); font-weight: 300; overflow-wrap: anywhere; }
+.rd-a strong { color: var(--ink); font-weight: 500; }
+.rd-a .ar-p { margin: 0 0 12px; } .rd-a .ar-p:last-child { margin-bottom: 0; }
+.rd-a .ar-block + .ar-block { margin-top: 14px; }
+.rd-a .ar-ul { margin: 6px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+.rd-a .ar-ul li { position: relative; padding-left: 22px; }
+.rd-a .ar-ul li::before { content: ""; position: absolute; left: 5px; top: .72em; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+.rd-wait p { margin: 0 0 14px; color: var(--mute2); }
+.rd-shim { display: block; height: 13px; margin-bottom: 11px; border-radius: 7px; background: linear-gradient(90deg, var(--line) 25%, var(--paper) 50%, var(--line) 75%); background-size: 800px 100%; animation: ppShimmer 1.5s ease-in-out infinite; }
+.rd-trust { margin: 22px 0 0; font-size: 13.5px; line-height: 1.6; color: var(--mute2); }
+.rd-trust-l { display: inline-block; padding: 2px 10px; border-radius: 999px; font-weight: 500; font-size: 12.5px; background: var(--gold-soft); color: var(--gold); border: 1px solid var(--gold-line); }
+.rd-trust.tone-mid .rd-trust-l { color: var(--mute); background: transparent; border-color: var(--line2); }
+.rd-trust.tone-low .rd-trust-l { color: var(--mute3); background: transparent; border-color: var(--dash); border-style: dashed; }
+.rd-trust-n { display: block; margin-top: 4px; font-size: 12.5px; color: var(--mute3); }
 
-.ad-src-wrap { margin-top: 8px; }
-.ad-roots { display: block; width: 100%; height: 84px; }
-.ad-root { stroke-dasharray: 520; animation: adGrow 2s cubic-bezier(.3,.6,.2,1) .2s both; }
+.rd-src-wrap { margin-top: 8px; }
+.rd-roots { display: block; width: 100%; height: 84px; }
+.rd-root { stroke-dasharray: 520; animation: adGrow 2s cubic-bezier(.3,.6,.2,1) .2s both; }
 @keyframes adGrow { from { stroke-dashoffset: 520 } to { stroke-dashoffset: 0 } }
-.ad-srcs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
-.ad-src { display: block; border-radius: 16px; padding: 16px 18px; background: var(--card); border: 1px solid var(--line); text-decoration: none; color: var(--ink); animation: ppFade 1.2s ease-out .6s both; }
-.ad-src p { margin: 0; }
-.ad-src-k { font-size: 10.5px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px !important; }
-.ad-src-n { font-family: var(--hp-serif), Georgia, serif; font-size: 22px; line-height: 1.15; color: var(--ink); }
-.ad-src-m { font-size: 12.5px; line-height: 1.45; color: var(--mute2); margin-top: 4px !important; }
-.ad-spon { background: transparent; border-style: dashed; border-color: var(--dash); transition: border-color .2s; }
-.ad-spon:hover { border-color: var(--gold); }
-.ad-spon-k { color: var(--mute3) !important; }
-.ad-spon .ad-src-n { color: var(--ink2); }
-.ad-all { margin-top: 14px; font-size: 13px; color: var(--mute2); }
-.ad-all summary { cursor: pointer; color: var(--gold); min-height: 32px; display: inline-flex; align-items: center; }
-.ad-all ol { margin: 8px 0 0; padding-left: 20px; line-height: 1.7; }
-.ad-all strong { color: var(--ink2); font-weight: 500; }
+.rd-srcs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.rd-src { display: block; border-radius: 16px; padding: 16px 18px; background: var(--card); border: 1px solid var(--line); text-decoration: none; color: var(--ink); animation: ppFade 1.2s ease-out .6s both; }
+.rd-src p { margin: 0; }
+.rd-src-k { font-size: 10.5px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px !important; }
+.rd-src-n { font-family: var(--hp-serif), Georgia, serif; font-size: 22px; line-height: 1.15; color: var(--ink); }
+.rd-src-m { font-size: 12.5px; line-height: 1.45; color: var(--mute2); margin-top: 4px !important; }
+.rd-spon { background: transparent; border-style: dashed; border-color: var(--dash); transition: border-color .2s; }
+.rd-spon:hover { border-color: var(--gold); }
+.rd-spon-k { color: var(--mute3) !important; }
+.rd-spon .rd-src-n { color: var(--ink2); }
+.rd-all { margin-top: 14px; font-size: 13px; color: var(--mute2); }
+.rd-all summary { cursor: pointer; color: var(--gold); min-height: 32px; display: inline-flex; align-items: center; }
+.rd-all ol { margin: 8px 0 0; padding-left: 20px; line-height: 1.7; }
+.rd-all strong { color: var(--ink2); font-weight: 500; }
 
-.ad-acts { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 8px; }
-.ad-act { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--line2); background: transparent; color: var(--mute); font: inherit; font-size: 13.5px; text-decoration: none; cursor: pointer; transition: color .2s, border-color .2s; }
-.ad-act:hover, .ad-act.is-on { color: var(--ink); border-color: var(--gold); }
-.ad-mail { margin-top: 14px; padding: 18px 20px; border-radius: 16px; border: 1px solid var(--line); background: var(--paper); animation: ppRise .4s ease-out both; }
-.ad-mail-t { margin: 0; font-family: var(--hp-serif), Georgia, serif; font-size: 22px; color: var(--ink); }
-.ad-mail-s { margin: 6px 0 0; font-size: 13.5px; line-height: 1.55; color: var(--mute); max-width: 560px; }
-.ad-mail-row { margin-top: 14px; display: flex; gap: 8px; }
-.ad-mail-in { flex: 1; min-width: 0; height: 48px; padding: 0 14px; border-radius: 12px; border: 1px solid var(--line2); background: var(--card); color: var(--ink); font: inherit; font-size: 16px; }
-.ad-mail-in:focus { outline: none; border-color: var(--gold); }
-.ad-mail-btn { height: 48px; padding: 0 22px; border: 0; border-radius: 12px; background: #C62828; color: #fff; font: inherit; font-weight: 500; font-size: 15px; cursor: pointer; }
-.ad-mail-btn:hover:not(:disabled) { background: #A61F1F; }
-.ad-mail-btn:disabled { opacity: .6; }
-.ad-mail-err { margin: 10px 0 0; font-size: 13.5px; color: #C62828; }
-.ad-mail-x { margin-top: 8px; font: inherit; font-size: 13px; color: var(--mute2); background: none; border: 0; padding: 6px 0; min-height: 32px; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+.rd-acts { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 8px; }
+.rd-act { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--line2); background: transparent; color: var(--mute); font: inherit; font-size: 13.5px; text-decoration: none; cursor: pointer; transition: color .2s, border-color .2s; }
+.rd-act:hover, .rd-act.is-on { color: var(--ink); border-color: var(--gold); }
+.rd-mail { margin-top: 14px; padding: 18px 20px; border-radius: 16px; border: 1px solid var(--line); background: var(--paper); animation: ppRise .4s ease-out both; }
+.rd-mail-t { margin: 0; font-family: var(--hp-serif), Georgia, serif; font-size: 22px; color: var(--ink); }
+.rd-mail-s { margin: 6px 0 0; font-size: 13.5px; line-height: 1.55; color: var(--mute); max-width: 560px; }
+.rd-mail-row { margin-top: 14px; display: flex; gap: 8px; }
+.rd-mail-in { flex: 1; min-width: 0; height: 48px; padding: 0 14px; border-radius: 12px; border: 1px solid var(--line2); background: var(--card); color: var(--ink); font: inherit; font-size: 16px; }
+.rd-mail-in:focus { outline: none; border-color: var(--gold); }
+.rd-mail-btn { height: 48px; padding: 0 22px; border: 0; border-radius: 12px; background: #C62828; color: #fff; font: inherit; font-weight: 500; font-size: 15px; cursor: pointer; }
+.rd-mail-btn:hover:not(:disabled) { background: #A61F1F; }
+.rd-mail-btn:disabled { opacity: .6; }
+.rd-mail-err { margin: 10px 0 0; font-size: 13.5px; color: #C62828; }
+.rd-mail-x { margin-top: 8px; font: inherit; font-size: 13px; color: var(--mute2); background: none; border: 0; padding: 6px 0; min-height: 32px; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
 
-.ad-rel { margin-top: 26px; }
-.ad-rel-k { margin: 0 0 10px; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--mute3); }
-.ad-chips { display: flex; flex-wrap: wrap; gap: 8px; }
-.ad-chip { min-height: 44px; padding: 8px 16px; border-radius: 999px; border: 1px solid var(--line2); background: var(--card); color: var(--ink2); font: inherit; font-size: 14px; line-height: 1.35; text-align: left; cursor: pointer; transition: border-color .2s; }
-.ad-chip:hover { border-color: var(--gold); }
+.rd-rel { margin-top: 26px; }
+.rd-rel-k { margin: 0 0 10px; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--mute3); }
+.rd-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.rd-chip { min-height: 44px; padding: 8px 16px; border-radius: 999px; border: 1px solid var(--line2); background: var(--card); color: var(--ink2); font: inherit; font-size: 14px; line-height: 1.35; text-align: left; cursor: pointer; transition: border-color .2s; }
+.rd-chip:hover { border-color: var(--gold); }
 
-.ad-comp { position: sticky; bottom: 0; z-index: 20; padding: 18px 0 calc(12px + env(safe-area-inset-bottom)); background: linear-gradient(to bottom, transparent 0, var(--bg) 22px); }
-.ad-box { display: flex; align-items: flex-end; gap: 8px; padding: 8px 8px 8px 18px; border-radius: 20px; border: 1px solid var(--line2); background: var(--card); box-shadow: var(--shadow); transition: border-color .2s; }
-.ad-box:focus-within { border-color: var(--gold); }
-.ad-ta { flex: 1; min-width: 0; resize: none; border: 0; outline: 0; background: transparent; color: var(--ink); font: inherit; font-size: 16px; line-height: 1.5; padding: 11px 0; max-height: 168px; }
-.ad-ta::placeholder { color: var(--mute3); }
-.ad-send { width: 48px; height: 48px; flex: none; border: 0; border-radius: 14px; background: #C62828; color: #fff; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; transition: background .2s, opacity .2s; }
-.ad-send:hover:not(:disabled) { background: #A61F1F; }
-.ad-send:disabled { opacity: .35; cursor: default; }
-.ad-note { margin: 8px 4px 0; font-size: 12px; line-height: 1.45; color: var(--mute3); text-align: center; }
+.rd-comp { position: sticky; bottom: 0; z-index: 20; padding: 18px 0 calc(12px + env(safe-area-inset-bottom)); background: linear-gradient(to bottom, transparent 0, var(--bg) 22px); }
+.rd-box { display: flex; align-items: flex-end; gap: 8px; padding: 8px 8px 8px 18px; border-radius: 20px; border: 1px solid var(--line2); background: var(--card); box-shadow: var(--shadow); transition: border-color .2s; }
+.rd-box:focus-within { border-color: var(--gold); }
+.rd-ta { flex: 1; min-width: 0; resize: none; border: 0; outline: 0; background: transparent; color: var(--ink); font: inherit; font-size: 16px; line-height: 1.5; padding: 11px 0; max-height: 168px; }
+.rd-ta::placeholder { color: var(--mute3); }
+.rd-send { width: 48px; height: 48px; flex: none; border: 0; border-radius: 14px; background: #C62828; color: #fff; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; transition: background .2s, opacity .2s; }
+.rd-send:hover:not(:disabled) { background: #A61F1F; }
+.rd-send:disabled { opacity: .35; cursor: default; }
+.rd-note { margin: 8px 4px 0; font-size: 12px; line-height: 1.45; color: var(--mute3); text-align: center; }
 
 @media (max-width: 768px) {
-  .ad-empty { padding: 32px 0 12px; }
-  .ad-dek { font-size: 16px; }
-  .ad-roles { margin-top: 32px; }
-  .ad-tabs { justify-content: flex-start; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin: 0 -16px; padding: 0 16px 4px; }
-  .ad-tabs::-webkit-scrollbar { display: none; }
-  .ad-tab { flex: none; }
-  .ad-roles-k { text-align: left; }
-  .ad-sugg { grid-template-columns: 1fr; gap: 10px; }
-  .ad-sq { min-height: 60px; padding: 14px 16px; }
-  .ad-turn { padding: 28px 0; }
-  .ad-a { font-size: 16.5px; }
-  .ad-roots { height: 56px; }
-  .ad-srcs { grid-template-columns: 1fr 1fr; gap: 10px; }
-  .ad-spon { grid-column: 1 / -1; }
-  .ad-src { padding: 14px; } .ad-src-n { font-size: 19px; }
-  .ad-act { padding: 0 14px; }
-  .ad-note { font-size: 11.5px; }
-  .ad-note-k { display: none; }
-  .ad-sel { max-width: 140px; }
+  .rd-empty { padding: 32px 0 12px; }
+  .rd-dek { font-size: 16px; }
+  .rd-roles { margin-top: 32px; }
+  .rd-tabs { justify-content: flex-start; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin: 0 -16px; padding: 0 16px 4px; }
+  .rd-tabs::-webkit-scrollbar { display: none; }
+  .rd-tab { flex: none; }
+  .rd-roles-k { text-align: left; }
+  .rd-sugg { grid-template-columns: 1fr; gap: 10px; }
+  .rd-sq { min-height: 60px; padding: 14px 16px; }
+  .rd-turn { padding: 28px 0; }
+  .rd-a { font-size: 16.5px; }
+  .rd-roots { height: 56px; }
+  .rd-srcs { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .rd-spon { grid-column: 1 / -1; }
+  .rd-src { padding: 14px; } .rd-src-n { font-size: 19px; }
+  .rd-act { padding: 0 14px; }
+  .rd-note { font-size: 11.5px; }
+  .rd-note-k { display: none; }
+  .rd-sel { max-width: 140px; }
 }
 @media (max-width: 440px) {
-  .ad-bar-k { overflow: hidden; text-overflow: ellipsis; min-width: 0; font-size: 10px; letter-spacing: .14em; }
-  .ad-bar-r { gap: 6px; }
-  .ad-sel { max-width: 124px; padding: 0 8px; }
-  .ad-mail-row { flex-direction: column; }
-  .ad-mail-btn { width: 100%; }
+  .rd-bar-k { overflow: hidden; text-overflow: ellipsis; min-width: 0; font-size: 10px; letter-spacing: .14em; }
+  .rd-bar-r { gap: 6px; }
+  .rd-sel { max-width: 124px; padding: 0 8px; }
+  .rd-mail-row { flex-direction: column; }
+  .rd-mail-btn { width: 100%; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .ad-empty, .ad-turn, .ad-sq, .ad-src, .ad-root, .ad-mail, .ad-shim { animation: none !important; }
+  .rd-empty, .rd-turn, .rd-sq, .rd-src, .rd-root, .rd-mail, .rd-shim { animation: none !important; }
 }
 `;
