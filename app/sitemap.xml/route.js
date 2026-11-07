@@ -184,6 +184,7 @@ export async function GET() {
     { loc: "/disclaimer", priority: "0.3", changefreq: "yearly" },
     { loc: "/contact", priority: "0.4", changefreq: "yearly" },
     { loc: "/advertise", priority: "0.5", changefreq: "monthly" },
+    { loc: "/for-companies", priority: "0.6", changefreq: "monthly" },
     { loc: "/market", priority: "0.8", changefreq: "weekly" },
     { loc: "/machines", priority: "0.8", changefreq: "weekly" },
     // Reference pages added 7 Nov 2026

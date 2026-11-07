@@ -1,6 +1,6 @@
 import { neon } from "@neondatabase/serverless";
 import { SESv2Client, SendEmailCommand } from "@aws-sdk/client-sesv2";
-import { LEAD_TYPES, LEAD_DETAILS, REPORT_ROLES, emailType } from "@/lib/leads";
+import { LEAD_TYPES, LEAD_DETAILS, REPORT_ROLES, emailType, validateExtra } from "@/lib/leads";
 import { signReportToken } from "@/lib/report-token";
 import { COUNTRIES } from "@/lib/data";
 
@@ -95,6 +95,12 @@ export async function POST(req) {
     const v = body[k];
     if (typeof v === "string" && v.trim()) details[k] = v.trim().slice(0, 300);
   }
+  if (type === "datasheet_submission") {
+    const rc = body.rights_confirmed;
+    details.rights_confirmed = rc === true || rc === "on" || rc === "yes" ? "yes" : "";
+  }
+  const extraErr = validateExtra(type, row, details);
+  if (extraErr) return Response.json({ error: extraErr }, { status: 400 });
   let reportSlug = null;
   if (type === "report_download") {
     if (process.env.REPORT_GATE_LIVE !== "true" || !process.env.REPORT_LINK_SECRET) {
@@ -153,7 +159,8 @@ export async function POST(req) {
         );
         await sql`update leads set mail_message_id = ${mid} where ref = ${ref}`;
       }
-      const lines = { Type: LEAD_TYPES[type], ...row, ...details };
+      const NICE = { wrong: "What is wrong", correct_fact: "Correct fact", source_url: "Official source", varieties: "Varieties", link: "Datasheets / photos link", rights_confirmed: "Rights confirmed (photos credited)", website: "Website", kind: "Company type", role: "Role", page_url: "Page", request: "Request", company_slug: "Listing slug" };
+      const lines = Object.fromEntries(Object.entries({ Type: LEAD_TYPES[type], ...row, ...details }).map(([k, v]) => [NICE[k] || k, v]));
       const html = `<h2>${esc(LEAD_TYPES[type])} · ${esc(row.country || "country not given")}</h2><table>${Object.entries(lines)
         .map(([k, v]) => `<tr><td><b>${esc(k)}</b></td><td>${esc(v)}</td></tr>`)
         .join("")}</table><p>Ref ${ref}</p>`;
