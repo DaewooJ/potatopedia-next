@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { trustLine, TONE } from "../lib/trust";
 import { formatAnswer } from "../lib/format";
 
 export default function AnswerBlock({ data }) {
@@ -10,6 +11,7 @@ export default function AnswerBlock({ data }) {
   if (!data || !data.answer) return null;
 
   const { cleaned, sources: inlineSources } = formatAnswer(data.answer);
+  const trust = trustLine(data);
   const srcYears = (data.sources || []).map((s) => s.data_year).filter(Boolean);
   const yearRange = srcYears.length > 0 ? Math.min(...srcYears) + "\u2013" + Math.max(...srcYears) : "";
 
@@ -34,22 +36,11 @@ export default function AnswerBlock({ data }) {
         ))}
       </div>
 
-      {/* Data freshness */}
-      {data.confidence && data.data_freshness && (
-        <p style={{ margin: "14px 0 0", fontSize: 12, color: "var(--mute2)", fontStyle: "italic" }}>
-          Based on data from {data.data_freshness.earliest_year}&ndash;{data.data_freshness.latest_year}
-        </p>
-      )}
-
       {/* Confidence badge + copy */}
-      {data.confidence && (
+      {trust && (
         <div style={{ marginTop: 14, display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
-          <span style={{
-            fontSize: 11, fontWeight: 600,
-            color: data.confidence === "high" ? "var(--gold)" : data.confidence === "medium" ? "var(--mute)" : "var(--gold)",
-            background: data.confidence === "high" ? "rgba(154,114,56,0.08)" : data.confidence === "medium" ? "rgba(154,114,56,0.08)" : "rgba(154,114,56,0.08)",
-            padding: "3px 10px", borderRadius: 8,
-          }}>{data.confidence} confidence</span>
+          {trust && <span style={{ fontSize: 11, fontWeight: 600, color: TONE[trust.tone].color, background: TONE[trust.tone].bg, padding: "3px 10px", borderRadius: 8 }}>{trust.label}</span>}
+          {trust?.detail && <span style={{ fontSize: 12, color: "var(--mute2)" }}>{trust.detail}{trust.note ? ` (${trust.note})` : ""}</span>}
           <button
             onClick={doCopy}
             style={{

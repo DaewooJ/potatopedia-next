@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, Suspense } from "react";
+import { trustLine, TONE } from "../../lib/trust";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { fetchStream, buildHistory } from "../../lib/api";
@@ -200,9 +201,6 @@ function AskChat() {
                               })}
                             </p>
                           ))}
-                          {!m.streaming && m.data_freshness && (
-                            <p style={{ margin: "14px 0 0", fontSize: 12, color: "#999", fontStyle: "italic" }}>Based on data from {m.data_freshness.earliest_year}&ndash;{m.data_freshness.latest_year}</p>
-                          )}
                           {!m.streaming && m.sources && m.sources.length > 0 && (() => {
                             const srcYears = m.sources.map((s) => s.data_year).filter(Boolean);
                             const yearRange = srcYears.length > 0 ? `${Math.min(...srcYears)}\u2013${Math.max(...srcYears)}` : "";
@@ -242,9 +240,10 @@ function AskChat() {
                     {/* Confidence + copy + save */}
                     {!m.streaming && (
                       <div style={{ marginTop: 8, display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", maxWidth: "100%" }}>
-                        {m.confidence && (
-                          <span style={{ fontSize: 11, fontWeight: 600, color: m.confidence === "high" ? "#2D6A30" : m.confidence === "medium" ? "#B8860B" : "#C62828", background: m.confidence === "high" ? "rgba(45,106,48,0.08)" : m.confidence === "medium" ? "rgba(184,134,11,0.08)" : "rgba(198,40,40,0.08)", padding: "3px 10px", borderRadius: 8 }}>{m.confidence} confidence</span>
-                        )}
+                        {(() => { const t = trustLine({ confidence: m.confidence, sources: m.sources, data_freshness: m.data_freshness }); return t && (<>
+                          <span style={{ fontSize: 11, fontWeight: 600, color: TONE[t.tone].color, background: TONE[t.tone].bg, padding: "3px 10px", borderRadius: 8 }}>{t.label}</span>
+                          {t.detail && <span style={{ fontSize: 12, color: "#888" }}>{t.detail}{t.note ? ` (${t.note})` : ""}</span>}
+                        </>); })()}
                         <button onClick={() => { navigator.clipboard.writeText(m.text); const btn = document.getElementById("cp-" + i); if (btn) { btn.textContent = "\u2705 Copied!"; setTimeout(() => { btn.textContent = "\uD83D\uDCCB Copy"; }, 2000); } }} id={"cp-" + i} style={{ fontSize: 11, fontWeight: 500, color: "#888", background: "none", border: "1px solid #e8e8e8", borderRadius: 8, padding: "3px 10px", cursor: "pointer", fontFamily: "inherit", transition: "all 0.2s" }}>{"\uD83D\uDCCB"} Copy</button>
                         <button onClick={() => { const q = messages[i - 1]?.text || ""; const bm = { id: Date.now(), question: q, answer: m.text, savedAt: new Date().toISOString() }; const existing = JSON.parse(localStorage.getItem("pp_bookmarks") || "[]"); localStorage.setItem("pp_bookmarks", JSON.stringify([bm, ...existing])); const btn = document.getElementById("bm-" + i); if (btn) { btn.textContent = "\u2705 Saved!"; setTimeout(() => { btn.textContent = "\uD83D\uDD16 Save"; }, 2000); } }} id={"bm-" + i} style={{ fontSize: 11, fontWeight: 500, color: "#888", background: "none", border: "1px solid #e8e8e8", borderRadius: 8, padding: "3px 10px", cursor: "pointer", fontFamily: "inherit", transition: "all 0.2s" }}>{"\uD83D\uDD16"} Save</button>
                       </div>

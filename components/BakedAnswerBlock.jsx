@@ -7,6 +7,8 @@
 // sources section with gold roots growing into the source cards.
 
 import { formatAnswer } from "../lib/format";
+import { trustLine, TONE } from "../lib/trust";
+import { sourceLabel, cleanExcerpt } from "../lib/sources";
 
 const ROOTS = {
   1: ["M340 0 L340 68"],
@@ -24,6 +26,7 @@ export default function BakedAnswerBlock({ data }) {
     : "";
   const sources = data.sources || [];
   const top = sources.slice(0, 3);
+  const trust = trustLine(data);
   const lines = cleaned.split("\n").filter((l) => l.trim());
 
   return (
@@ -40,18 +43,13 @@ export default function BakedAnswerBlock({ data }) {
         ))}
       </div>
 
-      {(data.data_freshness?.earliest_year && data.data_freshness?.latest_year) || data.confidence ? (
-        <p style={{ margin: "4px 0 0", fontSize: 13, color: "var(--mute2)" }}>
-          {data.data_freshness?.earliest_year && data.data_freshness?.latest_year && (
-            <>Based on data from {data.data_freshness.earliest_year}&ndash;{data.data_freshness.latest_year}</>
-          )}
-          {data.confidence && (
-            <span style={{ marginLeft: data.data_freshness?.earliest_year ? 14 : 0, color: "var(--gold)", border: "1px solid var(--gold-line)", borderRadius: 999, padding: "3px 10px", fontSize: 11.5, letterSpacing: ".06em" }}>
-              {data.confidence} confidence
-            </span>
-          )}
+      {trust && (
+        <p style={{ margin: "6px 0 0", fontSize: 13, color: "var(--mute2)", display: "flex", gap: 10, alignItems: "center", flexWrap: "wrap" }}>
+          <span style={{ color: TONE[trust.tone].color, background: TONE[trust.tone].bg, borderRadius: 999, padding: "3px 10px", fontSize: 11.5, fontWeight: 600 }}>{trust.label}</span>
+          {trust.detail && <span>{trust.detail}</span>}
+          {trust.note && <span style={{ fontStyle: "italic" }}>({trust.note})</span>}
         </p>
-      ) : null}
+      )}
 
       {top.length > 0 && (
         <section className="src" id="sources" aria-labelledby="sources-h">
@@ -64,8 +62,8 @@ export default function BakedAnswerBlock({ data }) {
           <div className="src-grid" style={top.length < 3 ? { gridTemplateColumns: `repeat(${top.length}, minmax(0, 1fr))` } : undefined}>
             {top.map((s, si) => (
               <div key={si} className="src-card">
-                <p className="src-n">{s.title || s.source}</p>
-                <p className="src-m">{[s.data_year, s.title && s.source && s.source !== s.title ? s.source : null].filter(Boolean).join(" · ")}</p>
+                <p className="src-n">{sourceLabel(s).name}</p>
+                <p className="src-m">{sourceLabel(s).meta}</p>
               </div>
             ))}
           </div>
@@ -74,9 +72,9 @@ export default function BakedAnswerBlock({ data }) {
             <ol className="src-list">
               {sources.map((s, si) => (
                 <li key={si}>
-                  <span style={{ color: "var(--ink2)" }}>{s.title || s.source}</span>
-                  {s.data_year ? ` (${s.data_year})` : ""}
-                  {s.relevant_excerpt && <span style={{ display: "block" }}>{s.relevant_excerpt}</span>}
+                  <span style={{ color: "var(--ink2)" }}>{sourceLabel(s).name}</span>
+                  {` · ${sourceLabel(s).meta}`}
+                  {cleanExcerpt(s.relevant_excerpt) && <span style={{ display: "block" }}>{cleanExcerpt(s.relevant_excerpt)}</span>}
                 </li>
               ))}
             </ol>
