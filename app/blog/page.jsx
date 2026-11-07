@@ -7,13 +7,13 @@ import LeadForm from "../../components/LeadForm";
 export const metadata = {
   title: "Potatopedia Blog — Global Industry Stories, Analysis & Trends",
   description:
-    "Story-driven analysis of the global potato industry — from Belgium's $4.6B fry empire to Pakistan's 186% production surge to Egypt's 4-season desert farming. Backed by FAOSTAT, UN Comtrade, USDA, and 277 verified sources.",
+    "Story-driven analysis of the global potato industry — from Belgium's $4.6B fry empire to Pakistan's 186% production surge to Egypt's 4-season desert farming. Backed by FAOSTAT, UN Comtrade, USDA and other official sources.",
   alternates: { canonical: "https://www.potatopedia.com/blog" },
   openGraph: {
     type: "website",
     url: "https://www.potatopedia.com/blog",
     title: "Potatopedia Blog — Global Industry Stories, Analysis & Trends",
-    description: "Story-driven analysis of the global potato industry, with verified data from 277 authoritative sources covering 204 countries.",
+    description: "Story-driven analysis of the global potato industry, with data from FAOSTAT, USDA, CIP and other official sources.",
     images: ["/og-image.png"],
   },
 };
