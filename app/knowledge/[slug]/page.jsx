@@ -1914,7 +1914,7 @@ function McDonaldsPotatoVarieties() {
   const relatedArticles = [
     { slug: "how-potatoes-are-processed", tag: "Industry", title: "How Potatoes Are Processed", desc: "Frozen fries, chips, starch, dehydrated products and the $80B+ processing industry." },
     { slug: "russet-burbank-history", tag: "Varieties", title: "Russet Burbank: 140 Years of Dominance", desc: "Luther Burbank's 1876 selection that became the most important variety in US agriculture." },
-    { slug: "top-potato-producing-countries", tag: "Production", title: "Top Producing Countries 2025", desc: "FAOSTAT rankings: China leads at 94.4M tonnes, US ranks #5 at 18.7M." },
+    { slug: "top-potato-producing-countries", tag: "Production", title: "Top Producing Countries 2025", desc: "FAOSTAT 2024 rankings: China leads at 94.9M tonnes; the US ranks #4 at 19.1M." },
     { slug: "global-potato-trade", tag: "Trade", title: "Global Potato Trade Statistics", desc: "Belgium leads frozen fry exports at $4.8B; the $22.8B global trade." },
   ];
 
@@ -3465,7 +3465,7 @@ function PotatoYieldCalculator() {
   ];
 
   const relatedArticles = [
-    { slug: "top-potato-producing-countries", tag: "Production", title: "Top Producing Countries 2025", desc: "FAOSTAT rankings: China leads at 94.4M tonnes; US ranks #5 at 18.7M." },
+    { slug: "top-potato-producing-countries", tag: "Production", title: "Top Producing Countries 2025", desc: "FAOSTAT 2024 rankings: China leads at 94.9M tonnes; the US ranks #4 at 19.1M." },
     { slug: "complete-potato-growing-guide", tag: "Cultivation", title: "Complete Potato Growing Guide", desc: "Full FAO/USDA Extension protocol from soil prep to harvest." },
     { slug: "common-potato-growing-mistakes", tag: "Cultivation", title: "15 Common Growing Mistakes", desc: "Errors that cost 30–50% of yield, and the fixes that prevent them." },
     { slug: "russet-burbank-history", tag: "Varieties", title: "Russet Burbank History", desc: "The 1876 selection that anchors the highest-yielding US potato system." },

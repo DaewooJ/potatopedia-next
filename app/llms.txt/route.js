@@ -72,8 +72,8 @@ Potatopedia is the most comprehensive potato intelligence platform on the web. W
 ## Featured premium country dossiers (with PDF exports)
 - [India](https://www.potatopedia.com/country/india) — 60.14 M tonnes, 75+ Kufri varieties, ICAR-CPRI breeding pipeline. State-level deep dives for Uttar Pradesh, West Bengal, Bihar, Gujarat, Madhya Pradesh.
 - [China](https://www.potatopedia.com/country/china) — World's #1 producer at 94.4 M tonnes
-- [United States](https://www.potatopedia.com/country/united-states) — 19.96 M t · $5.0B value · Idaho 30%, Washington 23% · McDonald's / Lamb Weston supply chain
-- [Netherlands](https://www.potatopedia.com/country/netherlands) — World's #1 seed potato exporter, highest yields per hectare
+- [United States](https://www.potatopedia.com/country/united-states) — 19.06 M t (FAOSTAT 2024) · Idaho about 30% of output · major frozen-fry processing base
+- [Netherlands](https://www.potatopedia.com/country/netherlands) — World's #1 seed potato exporter
 - [Belgium](https://www.potatopedia.com/country/belgium) — World's #1 frozen french fry exporter ($4.6B annually, 26.8% global trade)
 
 ## Also featured (dedicated profile, no PDF)

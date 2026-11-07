@@ -16,7 +16,7 @@ const FEATURED_COMPARISONS = [
   {
     label: "World's 3 most iconic fry varieties",
     ids: ["russet-burbank", "bintje", "maris-piper"],
-    blurb: "Idaho's McDonald's variety vs Belgium's fry king vs the UK chip-shop standard.",
+    blurb: "Idaho's fry variety vs Belgium's fry king vs the UK chip-shop standard.",
   },
   {
     label: "Yellow-flesh waxy salad classics",

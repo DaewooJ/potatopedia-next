@@ -14,7 +14,7 @@ export const metadata = {
     type: "website",
     url: "https://www.potatopedia.com/varieties",
     title: "Potato Varieties Database — 244 Cultivars",
-    description: "Origin, traits, and best uses for the world's commercially significant potato varieties — from Andean landraces to McDonald's Russet Burbank, Bangladeshi BARI, Kenyan Shangi, Brazilian BRS Ana, and Chinese Zhongshu.",
+    description: "Origin, traits, and best uses for the world's commercially significant potato varieties — from Andean landraces to North America's Russet Burbank, Bangladeshi BARI, Kenyan Shangi, Brazilian BRS Ana, and Chinese Zhongshu.",
     images: ["/og-image.png"],
   },
 };
@@ -73,7 +73,7 @@ export default function VarietiesPage() {
           <span style={{ display: "inline-block", fontSize: 11, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 2.5, background: "rgba(198,40,40,0.06)", padding: "6px 16px", borderRadius: 20, marginBottom: 18 }}>Varieties database</span>
           <h1 style={{ fontSize: 40, fontWeight: 800, color: "#1A1A1A", lineHeight: 1.15, letterSpacing: -1.4, marginBottom: 14 }}>
             Potato Varieties,<br />
-            <span style={{ background: "linear-gradient(135deg,#C62828,#8E0000)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>From the Andes to McDonald&apos;s.</span>
+            <span style={{ background: "linear-gradient(135deg,#C62828,#8E0000)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>From the Andes to every fry line.</span>
           </h1>
           <p style={{ fontSize: 16, color: "#555", lineHeight: 1.65, maxWidth: 700, margin: "0 auto" }}>
             {total} commercially significant cultivars across 9 regions — origin, traits, and best uses for each, verified against CIP, FAOSTAT, ICAR-CPRI, and breeder release archives.
@@ -142,7 +142,7 @@ export default function VarietiesPage() {
             <Link href="/knowledge/russet-burbank-history" style={{ background: "#fff", border: "1px solid #ececec", borderRadius: 12, padding: "18px 20px", textDecoration: "none", color: "inherit", display: "block" }}>
               <div style={{ fontSize: 11, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 1.2, marginBottom: 6 }}>North America</div>
               <div style={{ fontSize: 15, fontWeight: 700, color: "#1A1A1A", marginBottom: 4 }}>Russet Burbank</div>
-              <div style={{ fontSize: 13, color: "#666", lineHeight: 1.5 }}>The 1872 variety behind McDonald&apos;s fries, J.R. Simplot, and the $4.6B US frozen-fry industry.</div>
+              <div style={{ fontSize: 13, color: "#666", lineHeight: 1.5 }}>The 1872 variety behind North America&apos;s frozen-fry industry.</div>
             </Link>
             <Link href="/knowledge/kufri-potato-varieties-india" style={{ background: "#fff", border: "1px solid #ececec", borderRadius: 12, padding: "18px 20px", textDecoration: "none", color: "inherit", display: "block" }}>
               <div style={{ fontSize: 11, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 1.2, marginBottom: 6 }}>South Asia</div>

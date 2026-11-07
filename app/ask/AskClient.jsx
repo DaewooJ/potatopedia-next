@@ -165,7 +165,7 @@ function AskChat() {
             <div style={{ textAlign: "center", paddingTop: 80 }}>
               <div style={{ width: 56, height: 56, borderRadius: 16, background: "linear-gradient(135deg,#C62828,#E53935)", color: "white", fontSize: 28, display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 16px" }}>P</div>
               <h2 style={{ fontSize: 24, fontWeight: 700, color: "#1A1A1A", marginBottom: 6 }}>Ask Potatopedia</h2>
-              <p style={{ fontSize: 14, color: "#888", marginBottom: 32 }}>AI-powered answers from 3,600+ verified data points</p>
+              <p style={{ fontSize: 14, color: "#888", marginBottom: 32 }}>Answers grown from 6,000+ verified data points</p>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 8, justifyContent: "center", maxWidth: 560, margin: "0 auto" }}>
                 {SUGGESTED.map((q, i) => (
                   <button key={i} onClick={() => doSend(q, "suggested_prompt")} style={{ padding: "10px 16px", borderRadius: 12, border: "1px solid #e8e8e8", background: "white", fontSize: 13, color: "#555", cursor: "pointer", fontFamily: "inherit", textAlign: "left", lineHeight: 1.4, transition: "all 0.2s", boxShadow: "0 1px 3px rgba(0,0,0,0.03)" }}>{q}</button>
