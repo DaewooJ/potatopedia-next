@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Potatopedia media kit</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+@page { size: A4; margin: 0; }
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Inter, sans-serif; color: #16140F; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.page { width: 210mm; height: 297mm; padding: 18mm 16mm; position: relative; page-break-after: always; overflow: hidden; background: #FBF8F2; }
+.dark { background: #0A0A0D; color: #F4F1EC; }
+.serif { font-family: 'Instrument Serif', serif; font-weight: 400; }
+.eyebrow { font-size: 9pt; letter-spacing: .22em; text-transform: uppercase; color: #9A7238; margin: 0 0 6mm; }
+.dark .eyebrow { color: #E2C08D; }
+h1 { font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 54pt; line-height: .98; margin: 0; letter-spacing: -.01em; }
+h1 em, h2 em { color: #E2C08D; }
+h2 { font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 30pt; line-height: 1.05; margin: 0 0 6mm; }
+p { font-size: 10.5pt; line-height: 1.6; margin: 0 0 4mm; }
+.lede { font-size: 12.5pt; color: #B7B2AA; font-weight: 300; max-width: 150mm; }
+.glow { position: absolute; left: 50%; top: -90mm; width: 260mm; height: 180mm; transform: translateX(-50%); background: radial-gradient(closest-side, rgba(214,168,91,.26), transparent 70%); }
+.facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6mm 8mm; margin-top: 14mm; border-top: 1px solid rgba(255,255,255,.15); padding-top: 8mm; }
+.fact-n { font-family: 'Instrument Serif', serif; font-size: 30pt; display: block; }
+.fact-l { font-size: 8pt; letter-spacing: .14em; text-transform: uppercase; color: #8E8A83; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+.card.wide { grid-column: 1 / -1; }
+.card { background: #FFFFFF; border: 1px solid #E6DCCB; border-radius: 4mm; padding: 4mm 5mm; }
+.card .n { font-family: 'Instrument Serif', serif; color: #B79A6B; font-size: 12pt; }
+.card .t { font-family: 'Instrument Serif', serif; font-size: 15.5pt; margin: .5mm 0 1mm; }
+.card .who { font-size: 7.5pt; letter-spacing: .14em; text-transform: uppercase; color: #9A7238; margin: 0 0 2mm; }
+.card .what { font-size: 8.6pt; line-height: 1.45; color: #5E584D; margin: 0 0 2.5mm; }
+.card .price { border-top: 1px solid #E6DCCB; padding-top: 2.5mm; margin: 0; }
+.card .price b { font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 16.5pt; }
+.card .price span { font-size: 8.5pt; color: #5E584D; }
+ul.rules { list-style: none; padding: 0; margin: 0; }
+ul.rules li { border-top: 1px solid #DCD0BB; padding: 3.5mm 0; font-size: 11pt; }
+.foot { position: absolute; left: 16mm; right: 16mm; bottom: 12mm; display: flex; justify-content: space-between; font-size: 8pt; color: #8E8A83; }
+.dark .foot { color: #8E8A83; }
+.contact { font-size: 13pt; line-height: 1.8; }
+.contact a { color: #E2C08D; text-decoration: none; }
+</style>
+</head>
+<body>
+
+<section class="page dark">
+  <div class="glow"></div>
+  <div style="position: relative;">
+    <p class="serif" style="font-size: 20pt; margin: 0 0 40mm;">Potatopedia</p>
+    <p class="eyebrow">Media kit · 2026</p>
+    <h1>Be the name inside <em>the answer.</em></h1>
+    <p class="lede" style="margin-top: 8mm;">Potatopedia is the neutral global reference on potatoes. Growers, processors, traders and researchers ask it questions and get answers grown from FAOSTAT, USDA, CIP, UN Comtrade, CPRI, Europatat and peer-reviewed research. Makers, breeders and suppliers reach them through placements that are always labelled.</p>
+    <div class="facts">
+      <div><span class="fact-n">{{data_points}}</span><span class="fact-l">data points in the answer engine</span></div>
+      <div><span class="fact-n">{{sources}}</span><span class="fact-l">sources</span></div>
+      <div><span class="fact-n">{{varieties}}</span><span class="fact-l">varieties, {{traits}} with datasheet traits</span></div>
+      <div><span class="fact-n">{{countries}}</span><span class="fact-l">country profiles</span></div>
+      <div><span class="fact-n">{{answers}}</span><span class="fact-l">published answers</span></div>
+      <div><span class="fact-n">{{stories}}</span><span class="fact-l">stories</span></div>
+    </div>
+    <p style="font-size: 8.5pt; color: #8E8A83; margin-top: 6mm;">Figures as of {{as_of}}. Visits, countries and newsletter size are shared on request with their dates.</p>
+  </div>
+  <div class="foot"><span>www.potatopedia.com</span><span>hi@potatopedia.com</span></div>
+</section>
+
+<section class="page">
+  <p class="eyebrow">Placements and rates · US dollars</p>
+  <h2>Seven ways to reach the potato industry</h2>
+  <div class="grid">
+    <div class="card"><span class="n">01</span><div class="t">Featured maker</div><p class="who">Machinery makers</p><p class="what">A labelled slot at your stage of the potato chain (seed, field, harvest, storage, processing, market) on the matching market and machine pages.</p><p class="price"><b>$2,000</b> <span>per year, per stage</span></p></div>
+    <div class="card"><span class="n">02</span><div class="t">Breeder variety set</div><p class="who">Seed breeders and seed houses</p><p class="what">Your varieties' pages carry your labelled breeder card and a link to your seed contacts. Facts never change.</p><p class="price"><b>$2,500</b> <span>per year</span></p></div>
+    <div class="card"><span class="n">03</span><div class="t">Own a question</div><p class="who">Any potato company</p><p class="what">One labelled card under the neutral, sourced answer to a question your buyers ask.</p><p class="price"><b>$400</b> <span>per question, per year</span></p></div>
+    <div class="card"><span class="n">04</span><div class="t">Publish with us</div><p class="who">Any potato company</p><p class="what">A partner article marked "Published with us", shared in the newsletter. Never mixed into the neutral knowledge base.</p><p class="price"><b>$250</b> <span>per article</span></p></div>
+    <div class="card"><span class="n">05</span><div class="t">Daily presenter and newsletter</div><p class="who">Any potato company</p><p class="what">"Presented by" on the homepage and The Potato Week for the days you choose.</p><p class="price"><b>$100</b> <span>per day</span></p></div>
+    <div class="card"><span class="n">06</span><div class="t">AI visibility report</div><p class="who">Any potato company</p><p class="what">How often ChatGPT, Perplexity, Gemini and Potatopedia name your brand against rivals for your buyers' questions.</p><p class="price"><b>$500</b> <span>per report</span></p></div>
+    <div class="card wide"><span class="n">07</span><div class="t">Country market report</div><p class="who">Traders, investors, makers</p><p class="what">A sourced report on one country or segment: production, trade partners, processors, storage and prices.</p><p class="price"><b>$500</b> <span>per report</span></p></div>
+  </div>
+  <div class="foot"><span>Potatopedia media kit · rates in US$</span><span>2</span></div>
+</section>
+
+<section class="page dark">
+  <div class="glow" style="top: auto; bottom: -100mm;"></div>
+  <div style="position: relative;">
+    <p class="eyebrow">The rules we keep</p>
+    <h2 style="font-size: 36pt;">Trust is the product.</h2>
+    <ul class="rules" style="max-width: 160mm;">
+      <li style="border-color: rgba(255,255,255,.14);">The neutral, sourced answer always comes first.</li>
+      <li style="border-color: rgba(255,255,255,.14);">Every paid item is labelled Sponsored or Published with us.</li>
+      <li style="border-color: rgba(255,255,255,.14);">Paid content never changes a fact, and sponsors never edit the neutral pages.</li>
+      <li style="border-color: rgba(255,255,255,.14);">Sources: FAOSTAT, USDA, CIP, UN Comtrade, CPRI, Europatat and established peer-reviewed journals only.</li>
+    </ul>
+    <p class="eyebrow" style="margin-top: 24mm;">Talk to us</p>
+    <h2 style="font-size: 34pt;">Book a 15-minute call</h2>
+    <p class="contact">www.potatopedia.com/advertise<br><a href="mailto:hi@potatopedia.com">hi@potatopedia.com</a><br>We reply within one working day.</p>
+  </div>
+  <div class="foot"><span>www.potatopedia.com</span><span>3</span></div>
+</section>
+</body>
+</html>
