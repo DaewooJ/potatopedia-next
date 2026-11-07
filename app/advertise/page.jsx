@@ -29,14 +29,13 @@ async function getStats() {
 }
 
 const PRODUCTS = [
-  { n: "01", price: "$2,000", unit: "per year, per stage", name: "Featured maker", who: "Machinery makers", what: "Your company in a labelled slot at the stage of the potato chain you serve (seed, field, harvest, storage, processing, market), first in line for the quote requests from that stage." },
-  { n: "02", price: "$20", unit: "per qualified enquiry", name: "Pay per qualified enquiry", who: "Machinery makers", what: "Receive \"Get 3 quotes\" requests that match your machines and markets. Machine, capacity, country and timeline come with every request." },
-  { n: "03", price: "$2,500", unit: "per year", name: "Breeder variety set", who: "Seed breeders and seed houses", what: "Your varieties' dossiers carry your labelled breeder card and a seed-request button. The traits and facts on the page never change." },
-  { n: "04", price: "$400", unit: "per question, per year", name: "Own a question", who: "Any potato company", what: "One labelled card under the neutral, sourced answer to a question your buyers ask, on the answer page and in the answer engine." },
-  { n: "05", price: "$250", unit: "per article", name: "Publish with us", who: "Any potato company", what: "A partner article, clearly marked \"Published with us\", shared in the newsletter. Partner content is never mixed into the neutral knowledge base." },
-  { n: "06", price: "$100", unit: "per day", name: "Newsletter and daily presenter", who: "Any potato company", what: "\"Presented by\" on The Potato Week and on the homepage for the days you choose." },
-  { n: "07", price: "$500", unit: "per report", name: "AI visibility report", who: "Any potato company", what: "How often ChatGPT, Perplexity, Gemini and Potatopedia name your brand against rivals for the questions your buyers ask." },
-  { n: "08", price: "$500", unit: "per report", name: "Country market report", who: "Traders, investors, makers", what: "A sourced report on one country or segment: production, trade partners, processors, storage and prices." },
+  { n: "01", price: "$2,000", unit: "per year, per stage", name: "Featured maker", who: "Machinery makers", what: "Your company in a labelled slot at the stage of the potato chain you serve (seed, field, harvest, storage, processing, market), with the quote requests from that stage." },
+  { n: "02", price: "$2,500", unit: "per year", name: "Breeder variety set", who: "Seed breeders and seed houses", what: "Your varieties' dossiers carry your labelled breeder card and a seed-request button. The traits and facts on the page never change." },
+  { n: "03", price: "$400", unit: "per question, per year", name: "Own a question", who: "Any potato company", what: "One labelled card under the neutral, sourced answer to a question your buyers ask, on the answer page and in the answer engine." },
+  { n: "04", price: "$250", unit: "per article", name: "Publish with us", who: "Any potato company", what: "A partner article, clearly marked \"Published with us\", shared in the newsletter. Partner content is never mixed into the neutral knowledge base." },
+  { n: "05", price: "$100", unit: "per day", name: "Newsletter and daily presenter", who: "Any potato company", what: "\"Presented by\" on The Potato Week and on the homepage for the days you choose." },
+  { n: "06", price: "$500", unit: "per report", name: "AI visibility report", who: "Any potato company", what: "How often ChatGPT, Perplexity, Gemini and Potatopedia name your brand against rivals for the questions your buyers ask." },
+  { n: "07", price: "$500", unit: "per report", name: "Country market report", who: "Traders, investors, makers", what: "A sourced report on one country or segment: production, trade partners, processors, storage and prices." },
 ];
 
 const RULES = [
