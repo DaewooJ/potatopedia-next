@@ -15,7 +15,6 @@ Every photo on the Potatopedia blog is a real photograph, not AI-generated, take
 | kenya-potato-boom-wpc-2026 | public/blog/kenya-potato-boom-wpc-2026.jpg | Steve Mwongera | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Potato_farming.jpg |
 | bangladesh-8th-producer-nobody-knows | public/blog/bangladesh-8th-producer-nobody-knows.jpg | কুউ পুলক | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Potato_field_bd.jpg |
 | andean-potato-origin-story | public/blog/andean-potato-origin-story.jpg | Thayne Tuason | CC BY 4.0 | https://commons.wikimedia.org/wiki/File:Mercado_Modelo_de_Huancayo_Peru-_Solanum_tuberosum_varieties_VI.jpg |
-| mexico-potato-paradox | public/blog/mexico-potato-paradox.jpg | cz354x | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Potato_fields_-_panoramio.jpg |
 | nyandarua-kenya-potato-basket | public/blog/nyandarua-kenya-potato-basket.jpg | Kamau Sammy | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Potatoes_farming_near_the_mountain_ranges_of_Nyandarua_County.jpg |
 | brazil-potato-paradox-mccain-investment | public/blog/brazil-potato-paradox-mccain-investment.jpg | Tiago Firmino Boaven… | CC BY 3.0 | https://commons.wikimedia.org/wiki/File:Batata_irrigada_sob_Piv%C3%B4_central_em_Luzi%C3%A2nia_GO._-_panoramio.jpg |
 | germicopa-french-potato-breeder | public/blog/germicopa-french-potato-breeder.jpg | INRA DIST from France | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Pommes_de_terre_(CHARLOTTE)-cliche_Jean_Weber_(23594803261).jpg |
@@ -40,7 +39,6 @@ Every photo on the Potatopedia blog is a real photograph, not AI-generated, take
 | blockchain-traceability-potato-supply-chain | public/blog/blockchain-traceability-potato-supply-chain.jpg | Mat Fascione | CC BY-SA 2.0 | https://commons.wikimedia.org/wiki/File:Stacks_of_potato_crates_along_Fengate_Road_-_geograph.org.uk_-_4136106.jpg |
 | plant-breeders-rights-upov-potato | public/blog/plant-breeders-rights-upov-potato.jpg | Christoph Gämperli | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Blaue_St._Galler_potato_flower.JPG |
 | dutch-seed-potato-empire | public/blog/dutch-seed-potato-empire.jpg | Dominicus Johannes Bergsma | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Aardappelveld_onder_aan_de_dijk_(binnendijks)._Locatie,_Noarderleech_01.jpg |
-| egypt-desert-potato-pivot-irrigation | public/blog/egypt-desert-potato-pivot-irrigation.jpg | Earth Science and Remote Sensing Unit, Lyndon B. Johnson Space Center | Public domain | https://commons.wikimedia.org/wiki/File:ISS049-E-33726_-_View_of_Egypt.jpg |
 | heirloom-heritage-potato-preservation | public/blog/heirloom-heritage-potato-preservation.jpg | Avodrocc | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Papas_de_colores_de_Chiloe.jpg |
 | indonesia-potato-import-dependency | public/blog/indonesia-potato-import-dependency.jpg | Midori | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Dieng_Potatoes.jpg |
 | potatoes-and-diabetes | public/blog/potatoes-and-diabetes.jpg | Daderot | CC0 | https://commons.wikimedia.org/wiki/File:Potatoes,_boiled,_with_olive_oil,_garlic,_salt_-_Massachusetts.jpg |
