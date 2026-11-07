@@ -1,9 +1,13 @@
 import { neon } from "@neondatabase/serverless";
 import { verifyReportToken } from "@/lib/report-token";
+import { get } from "@vercel/blob";
 import { COUNTRIES } from "@/lib/data";
+import REPORTS from "@/lib/reports-manifest.json";
 
 // Mailed link lands here: verify the signed token, stamp leads.confirmed_at (address proven by delivery),
-// then send the reader to the country page with ?print=1, which opens the save-as-PDF dialog.
+// then stream the designed PDF from the PRIVATE Vercel Blob store (reports/<slug>-<edition>.pdf, see
+// docs/report-gate.md). Countries without a PDF (or if the blob read fails) fall back to the country page
+// with ?print=1, which opens the save-as-PDF dialog.
 export const runtime = "nodejs";
 
 function page(msg, status) {
@@ -29,6 +33,26 @@ export async function GET(req, { params }) {
   } catch (e) {
     console.error("report_confirm_failed", e?.message);
     return page("Something went wrong. Please try the link again in a minute.", 500);
+  }
+  const r = REPORTS[t.slug];
+  if (r && process.env.BLOB_READ_WRITE_TOKEN) {
+    try {
+      const blob = await get(r.file, { access: "private" });
+      if (blob?.statusCode === 200 && blob.stream) {
+        const fname = `Potatopedia-${r.name.replace(/[^A-Za-z0-9]+/g, "-")}-Potato-Report-${r.edition}.pdf`;
+        return new Response(blob.stream, {
+          headers: {
+            "content-type": "application/pdf",
+            "content-disposition": `attachment; filename="${fname}"`,
+            ...(blob.blob?.size ? { "content-length": String(blob.blob.size) } : {}),
+            "cache-control": "private, no-store",
+            "x-robots-tag": "noindex",
+          },
+        });
+      }
+    } catch (e) {
+      console.error("report_blob_failed", t.slug, e?.message);
+    }
   }
   return Response.redirect(new URL(`/country/${t.slug}?print=1`, req.url), 302);
 }

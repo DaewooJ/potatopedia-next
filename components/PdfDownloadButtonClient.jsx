@@ -3,6 +3,7 @@
 import { useEffect, useId, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { REPORT_ROLES } from "@/lib/leads";
+import REPORTS from "@/lib/reports-manifest.json";
 
 // Country report button. Ungated: opens the browser print dialog (save as PDF), as before.
 // Gated (REPORT_GATE_LIVE): opens a form; the report link is emailed to verify the address.
@@ -23,6 +24,9 @@ export default function PdfDownloadButtonClient({ size = "md", placement = "bann
   const dialogRef = useRef(null);
 
   const slug = (pathname || "").split("/").filter(Boolean)[1] || "";
+  // A designed PDF exists for this country (lib/reports-manifest.json, written by scripts/reports/build-country-report.mjs).
+  const report = gated ? REPORTS[slug] : null;
+  const label = report ? `Download the ${report.name} report (PDF, ${report.pages} pages)` : "Download PDF Report";
 
   function print() {
     if (busy) return;
@@ -104,14 +108,14 @@ export default function PdfDownloadButtonClient({ size = "md", placement = "bann
           <path d="M8 1.5v8.5M8 10l3-3M8 10l-3-3" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
           <path d="M2.5 11.5v1A1.5 1.5 0 0 0 4 14h8a1.5 1.5 0 0 0 1.5-1.5v-1" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
         </svg>
-        <span>{busy ? "Preparing PDF…" : "Download PDF Report"}</span>
+        <span>{busy ? "Preparing PDF…" : label}</span>
       </button>
 
       {gated && open && (
         <div className="pp-no-print" onClick={(e) => e.target === e.currentTarget && setOpen(false)} style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,.5)", zIndex: 1000, display: "grid", placeItems: "center", padding: 16, overflowY: "auto" }}>
           <div ref={dialogRef} role="dialog" aria-modal="true" aria-labelledby={`${uid}-t`} style={{ background: "var(--card, #fff)", color: "var(--ink)", borderRadius: 14, padding: 22, width: "100%", maxWidth: 460, maxHeight: "92vh", overflowY: "auto", textAlign: "left", whiteSpace: "normal" }}>
             <div style={{ display: "flex", justifyContent: "space-between", gap: 12, alignItems: "flex-start" }}>
-              <h2 id={`${uid}-t`} style={{ margin: 0, fontSize: 21, fontWeight: 700 }}>Get the country report (PDF)</h2>
+              <h2 id={`${uid}-t`} style={{ margin: 0, fontSize: 21, fontWeight: 700 }}>{report ? `Get the ${report.name} report (PDF, ${report.pages} pages)` : "Get the country report (PDF)"}</h2>
               <button type="button" onClick={() => setOpen(false)} aria-label="Close" style={{ background: "none", border: "none", fontSize: 24, lineHeight: 1, cursor: "pointer", color: "var(--mute)" }}>×</button>
             </div>
             {state === "done" ? (
