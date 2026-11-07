@@ -1,6 +1,8 @@
 import { neon } from "@neondatabase/serverless";
 import { SESv2Client, SendEmailCommand } from "@aws-sdk/client-sesv2";
-import { LEAD_TYPES, LEAD_DETAILS } from "@/lib/leads";
+import { LEAD_TYPES, LEAD_DETAILS, REPORT_ROLES, emailType } from "@/lib/leads";
+import { signReportToken } from "@/lib/report-token";
+import { COUNTRIES } from "@/lib/data";
 
 // Every Potatopedia lead: (1) saved to Neon `leads` first so nothing is lost if mail fails,
 // (2) mailed by Amazon SES to LEAD_TO (hi@potatopedia.com), (3) answered with a ref PP-<ddmmyy>-<4>.
@@ -93,6 +95,23 @@ export async function POST(req) {
     const v = body[k];
     if (typeof v === "string" && v.trim()) details[k] = v.trim().slice(0, 300);
   }
+  let reportSlug = null;
+  if (type === "report_download") {
+    if (process.env.REPORT_GATE_LIVE !== "true" || !process.env.REPORT_LINK_SECRET) {
+      return Response.json({ error: "Report downloads are not open yet." }, { status: 503 });
+    }
+    reportSlug = COUNTRIES.find((c) => c.slug === details.report)?.slug;
+    if (!reportSlug) return Response.json({ error: "Unknown report." }, { status: 400 });
+    if (!row.company) return Response.json({ error: "Please give your company." }, { status: 400 });
+    if (!row.country) return Response.json({ error: "Please give your country." }, { status: 400 });
+    if (!REPORT_ROLES.includes(details.role)) return Response.json({ error: "Please choose your role." }, { status: 400 });
+    if (body.privacy_ok !== true && body.privacy_ok !== "on") {
+      return Response.json({ error: "Please agree to the privacy policy." }, { status: 400 });
+    }
+    details.company = row.company;
+    details.consent_partners = body.consent_partners === true || body.consent_partners === "on";
+    details.email_type = emailType(row.email);
+  }
   const utm = Object.fromEntries(UTM.map((k) => [k, typeof body[k] === "string" ? body[k].slice(0, 200) : null]));
   const ref = makeRef();
   const token = type === "newsletter" ? rand(24) : null;
@@ -110,6 +129,7 @@ export async function POST(req) {
     return Response.json({ error: "Could not save your request. Please try again." }, { status: 500 });
   }
 
+  let mailOk = true;
   // Mail after the row is safe. A mail failure is logged, never shown as a failed submit.
   try {
     let messageId = null;
@@ -124,6 +144,15 @@ export async function POST(req) {
         `${saved}<p>Please confirm you want The Potato Week from Potatopedia, one useful digest a week.</p><p><a href="${link}">Yes, subscribe me</a></p><p>If you did not ask for this, ignore this mail.</p>`,
       );
     } else {
+      if (type === "report_download") {
+        const link = `https://www.potatopedia.com/api/report/${signReportToken({ ref, slug: reportSlug })}`;
+        const mid = await send(
+          row.email,
+          "Your Potatopedia country report",
+          `<p>Hello ${esc(row.name)},</p><p>Thank you for your interest. Open your report here (valid for 7 days):</p><p><a href="${link}">Get the ${esc(reportSlug)} country report</a></p><p>The link opens the country page ready to save as PDF. If you did not ask for this, ignore this mail.</p><p>Potatopedia</p>`,
+        );
+        await sql`update leads set mail_message_id = ${mid} where ref = ${ref}`;
+      }
       const lines = { Type: LEAD_TYPES[type], ...row, ...details };
       const html = `<h2>${esc(LEAD_TYPES[type])} · ${esc(row.country || "country not given")}</h2><table>${Object.entries(lines)
         .map(([k, v]) => `<tr><td><b>${esc(k)}</b></td><td>${esc(v)}</td></tr>`)
@@ -137,8 +166,9 @@ export async function POST(req) {
     }
     if (messageId) await sql`update leads set mail_message_id = ${messageId} where ref = ${ref}`;
   } catch (e) {
+    mailOk = false;
     console.error("lead_mail_failed", ref, e?.message);
   }
 
-  return Response.json({ ref });
+  return Response.json(type === "report_download" ? { ref, sent: mailOk } : { ref });
 }
