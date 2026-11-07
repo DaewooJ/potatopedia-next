@@ -541,7 +541,7 @@ function UttarPradeshState() {
           {/* Card 1 */}
           <section id="production-overview" data-card="overview" style={cardWrap}>
             <h2 id="how-much" style={sH2}>How much potato does Uttar Pradesh produce?</h2>
-            <p style={sIntro}>Uttar Pradesh produced 20.126 million tonnes of potatoes in 2023-24 — 33.46% of India's national output of 60.14 million tonnes — making it the country's largest potato-producing state by a substantial margin (DAFW; ICAR-CPRI).</p>
+            <p style={sIntro}>Uttar Pradesh produced 20.126 million tonnes of potatoes in 2023-24 — about a third of India's national output (58.1 million tonnes in 2024-25, 3rd Advance Estimate) — making it the country's largest potato-producing state by a substantial margin (DAFW; ICAR-CPRI).</p>
             <QuickFactsBox items={[
               { label: "Production (2023-24)", value: "20.126M tonnes" },
               { label: "Cultivated area", value: "600,000+ hectares" },
