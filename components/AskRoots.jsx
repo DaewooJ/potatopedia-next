@@ -9,7 +9,7 @@ import { sourceLabel } from "../lib/sources";
 // streams in place and grows fresh "roots" into its source cards. Other sections can ask through
 // window.dispatchEvent(new CustomEvent("pp-ask", { detail: "question" })).
 
-function clean(md) {
+export function clean(md) {
   return String(md || "")
     .replace(/^#+\s.*$/gm, "")
     .replace(/\[(.*?)\]\(.*?\)/g, "$1")
@@ -24,7 +24,7 @@ function inline(text) {
   );
 }
 
-function Rich({ text }) {
+export function Rich({ text }) {
   const blocks = clean(text).split(/\n\s*\n/).filter(Boolean);
   return blocks.map((b, i) => {
     const lines = b.split("\n").map((l) => l.trim()).filter(Boolean);
