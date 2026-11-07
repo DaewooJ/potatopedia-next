@@ -183,11 +183,15 @@ export async function GET() {
     { loc: "/shipping-policy", priority: "0.3", changefreq: "yearly" },
     { loc: "/disclaimer", priority: "0.3", changefreq: "yearly" },
     { loc: "/contact", priority: "0.4", changefreq: "yearly" },
+    { loc: "/advertise", priority: "0.5", changefreq: "monthly" },
+    { loc: "/market", priority: "0.8", changefreq: "weekly" },
+    { loc: "/machines", priority: "0.8", changefreq: "weekly" },
   ];
 
   // Lazy import varieties data to avoid loading on every sitemap render hop
   const { VARIETIES } = await import("../../lib/varieties-data");
   const VARIETY_SLUGS = VARIETIES.map((v) => v.slug);
+  const { PROBLEMS } = await import("../../lib/market");
 
   const dynamicPages = [
     ...COUNTRIES.map((s) => ({ loc: `/country/${s}`, priority: "0.8", changefreq: "weekly" })),
@@ -196,6 +200,8 @@ export async function GET() {
     ...KNOWLEDGE_SLUGS.map((s) => ({ loc: `/knowledge/${s}`, priority: "0.8", changefreq: "monthly" })),
     ...ANSWER_SLUGS.map((s) => ({ loc: `/answers/${s}`, priority: "0.7", changefreq: "weekly" })),
     ...VARIETY_SLUGS.map((s) => ({ loc: `/varieties/${s}`, priority: "0.6", changefreq: "monthly" })),
+    ...PROBLEMS.map((p) => ({ loc: `/market/${p.slug}`, priority: "0.75", changefreq: "weekly" })),
+    ...PROBLEMS.map((p) => ({ loc: `/machines/${p.machineSlug}`, priority: "0.75", changefreq: "weekly" })),
   ];
 
   const allPages = [...staticPages, ...dynamicPages];
