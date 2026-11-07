@@ -1,0 +1,62 @@
+{
+ "common_name": "Jalving",
+ "summary": "Jalving is a family-owned potato breeding company in Wezup, Drenthe, Netherlands, working on varieties with Phytophthora resistance and on niche types. It sells seed potatoes in small packs to gardeners and allotment associations, and table potatoes to private customers, restaurants and caterers. Gezinus and Aaltje Jalving founded it in 1981.",
+ "hq": {
+  "city": "Wezup",
+  "country": "Netherlands"
+ },
+ "founded": "1981",
+ "ownership": "Family-owned",
+ "products": [
+  "Breeding of new potato varieties with Phytophthora resistance",
+  "Niche and speciality potato varieties",
+  "Seed potatoes in 1, 3 and 5 kg packs for gardeners",
+  "Seed potatoes suited to organic growing",
+  "Table potatoes for private customers, restaurants and caterers",
+  "Company visits with breeding demonstrations and tastings"
+ ],
+ "varieties": [
+  "Alouette",
+  "Carolus",
+  "Twister",
+  "Twinner",
+  "Levante",
+  "Vitabella",
+  "Speciaal Paars",
+  "Speciaal Rood",
+  "Speciaal gevlekt",
+  "Speciaal Tweekleurig"
+ ],
+ "plants": [
+  {
+   "town": "Wezup",
+   "country": "Netherlands"
+  },
+  {
+   "town": "Shropshire",
+   "country": "United Kingdom"
+  }
+ ],
+ "markets": [
+  "Netherlands: allotment gardeners and allotment associations",
+  "Netherlands: private customers, restaurants and caterers",
+  "United Kingdom: English market served from the Shropshire site"
+ ],
+ "facts": [
+  "Founded in 1981 by Gezinus and Aaltje Jalving, first based in Den Andel, North Groningen",
+  "Second site set up in 2006 in Shropshire, near Birmingham",
+  "Seed potato business sold in 2009; breeding became the only focus",
+  "Trial field holds about 30,000 different seedlings, according to the company",
+  "Seed packs: 1 kg EUR 4.00, 3 kg EUR 12.00, 5 kg EUR 18.00 (Alouette and Twister)"
+ ],
+ "contact": {
+  "website": "https://www.aardappelspeciaal.nl/",
+  "public_email": "info@aardappelspeciaal.nl",
+  "phone": "0591 – 76 91 41",
+  "address": "Brugstraat 1, 7852 TH Wezup, Netherlands"
+ },
+ "limitations": [
+  "Staff numbers, hectares, tonnes, seed generations and certification classes are not published on the pages read.",
+  "The website does not state Jalving's exact role in breeding the Agrico varieties it sells, and parts of it are out of date (newest news post from 2018)."
+ ]
+}

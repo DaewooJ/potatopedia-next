@@ -1,0 +1,38 @@
+{
+ "common_name": "TechNature",
+ "summary": "TechNature is a Dutch maker of camera-based sorting machines and crop sensors, with machines for potatoes and onions and a sensor for field crops. It is based in Moerkapelle, Zuid-Holland. Wouter Bac started it as a sole proprietorship in 2014. Its PotatoCam sorts 16 tonnes of seed potatoes per hour, as stated.",
+ "hq": {
+  "city": "Moerkapelle",
+  "country": "Netherlands"
+ },
+ "founded": "2014 (as a sole proprietorship)",
+ "machines": [
+  "PotatoCam: optical sorter that grades potatoes by defects such as scab, rot and growth cracks, and by size",
+  "PotatoCam NIR module: optional add-on to detect internal defects",
+  "PreCam: pre-sorting camera that detects clumps before the next step; onions, potatoes, shallots",
+  "SpectraCam: field crop sensor on a sprayer or tractor measuring chlorophyll, biomass and stress"
+ ],
+ "plants": [
+  {
+   "town": "Moerkapelle",
+   "country": "Netherlands"
+  }
+ ],
+ "facts": [
+  "PotatoCam capacity: 16 tonnes of seed potatoes per hour",
+  "PreCam capacity: 70 tonnes per hour",
+  "PotatoCam: three output streams as standard, optional fourth; up to 16 views of each potato",
+  "Staff: 13 permanent employees and 10 on-call workers",
+  "Focus moved from consultancy to product development in 2018"
+ ],
+ "contact": {
+  "website": "https://www.technature.nl/",
+  "public_email": "wouter.bac@technature.nl",
+  "phone": "+31 613198301",
+  "address": "TechNature B.V., Moerkapelse Zijde 36, 2751 DL Moerkapelle, Netherlands"
+ },
+ "limitations": [
+  "Ownership, prices, camera specifications and after-sales terms are not published on the pages read.",
+  "The PotatoCam capacity is given for seed potatoes only, with no row count, and no potato customers, countries or installed base are named."
+ ]
+}

@@ -1,0 +1,56 @@
+{
+ "common_name": "Geersing Potato Specialist",
+ "summary": "Geersing Potato Specialist is a Dutch company in Emmeloord that develops potato varieties and sells their seed potatoes, with a focus on late-blight resistant varieties and organic farming. It grew out of a family breeding programme whose first crosses were made in 2003, and became a B.V. in 2019 under Jan-Eric Geersing.",
+ "hq": {
+  "city": "Emmeloord",
+  "country": "Netherlands"
+ },
+ "founded": "2019 (breeding programme first crosses 2003)",
+ "ownership": "Led by Jan-Eric Geersing; full shareholding not published",
+ "products": [
+  "Seed potatoes of its varieties",
+  "Potato variety development and breeding",
+  "Late-blight resistant varieties for organic cultivation"
+ ],
+ "varieties": [
+  "Tentation",
+  "Passion",
+  "Messi",
+  "Marvel",
+  "Marcelle",
+  "Elata",
+  "Divaa",
+  "Celine",
+  "Cammeo",
+  "Agria"
+ ],
+ "plants": [
+  {
+   "town": "Emmeloord",
+   "country": "Netherlands"
+  },
+  {
+   "town": "Nagele",
+   "country": "Netherlands"
+  }
+ ],
+ "markets": [
+  "Most varieties marked as suitable for export"
+ ],
+ "facts": [
+  "First crosses in the breeding programme made in 2003",
+  "Holds a 20% stake in Caithness Potatoes Holding B.V., set up in 2011",
+  "Breeding trials on an organic farm in Nagele plus four satellite test fields in the Netherlands",
+  "Ten varieties listed in the variety catalogue"
+ ],
+ "contact": {
+  "website": "https://geersingpotatospecialist.com",
+  "public_email": "info@geersingpotatospecialist.com",
+  "phone": "+31 (0)6 10537192",
+  "address": "Banterweg 10, NL-8302 AC Emmeloord, Netherlands"
+ },
+ "limitations": [
+  "Turnover, staff numbers, seed hectares, tonnages, certification classes and export countries are not published on the pages read.",
+  "The variety pages do not say who bred or owns each variety."
+ ]
+}

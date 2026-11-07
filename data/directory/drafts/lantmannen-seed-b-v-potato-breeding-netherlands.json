@@ -1,0 +1,67 @@
+{
+ "common_name": "Lantmännen Seed",
+ "summary": "Lantmännen Seed BV is a potato and triticale breeding company at Emmeloord in the Netherlands. It develops potato varieties, which Agrico sells and introduces to the market. It has been wholly owned by the Swedish farmers' cooperative Lantmännen since 1993, and breeding at the farm began in 1949.",
+ "hq": {
+  "city": "Emmeloord",
+  "country": "Netherlands"
+ },
+ "founded": "1949 (farm and breeding begun by Firma Geertsema)",
+ "ownership": "100% subsidiary of the Swedish farmers' cooperative Lantmännen since 1993",
+ "products": [
+  "Potato variety breeding",
+  "Triticale variety breeding",
+  "Table potato varieties for Southern Europe and North Africa",
+  "Varieties for the French fries industry",
+  "Salad, fine-textured and baker potato varieties"
+ ],
+ "varieties": [
+  "Agata",
+  "Fontane",
+  "Almera",
+  "Perlo",
+  "Spectra",
+  "Adato",
+  "Corazon",
+  "Prince",
+  "Jacky",
+  "Rousseau",
+  "Salvador",
+  "Agostino",
+  "Thalia",
+  "Stacy",
+  "Tombola",
+  "Tanja",
+  "Resy",
+  "Ajax"
+ ],
+ "plants": [
+  {
+   "town": "Emmeloord",
+   "country": "Netherlands",
+   "capacity_as_stated": "48 hectares of clay soil and own greenhouse"
+  }
+ ],
+ "markets": [
+  "Table potatoes for Southern Europe and North Africa",
+  "French fries industry",
+  "Salad, fine-textured and baker potato markets",
+  "Varieties sold through Agrico"
+ ],
+ "facts": [
+  "Eight people work at the company",
+  "Farms 48 hectares of flat clay soil",
+  "About 250 crosses and about 60,000 seeds sown each year",
+  "Joint trials with Agrico last six years",
+  "Named Lantmännen Seed since 2020; SW Seed (2004), Lantmännen SW Seed (2009)"
+ ],
+ "contact": {
+  "website": "https://www.lantmannenseed.nl",
+  "public_email": "info@lantmannenseed.nl",
+  "phone": "+31 527 612092",
+  "address": "Lantmännen Seed BV, Kleiweg 9, 8305AR Emmeloord, Netherlands"
+ },
+ "limitations": [
+  "The website gives no type, maturity or trait data for individual varieties.",
+  "Seed production volumes, certification, export countries, turnover and variety release years are not published on the pages read."
+ ]
+}

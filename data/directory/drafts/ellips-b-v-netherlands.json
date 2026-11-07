@@ -1,0 +1,82 @@
+{
+ "common_name": "Ellips",
+ "summary": "Ellips is a family-owned Dutch maker of optical grading technology and software, based in Eindhoven and founded in 1989 by software engineers. With sister companies Elisam and Elifab it supplies camera-based grading machines, pre-sorters and retrofits for potatoes and other produce. It reports 85+ Elisam potato machines installed.",
+ "hq": {
+  "city": "Eindhoven",
+  "country": "Netherlands"
+ },
+ "founded": "1989",
+ "ownership": "Family-owned",
+ "machines": [
+  "Elisam AI potato grading machine: grades by size, shape, weight, colour and defects, 2 to 5 t/h per lane",
+  "Elisam CombiGrader: 4-lane grader for potatoes and onions, up to 15 t/h",
+  "CleanFlow Pre-Sorter: removes stones, clods and rejected product before storage or grading, up to 120 t/h",
+  "Retrofit: new cameras, electronics and software fitted to an existing grader",
+  "Ellips Internal Quality: light-transmittance scans for internal browning, hollow hearts and dry matter",
+  "Ellips TrueSort: grading software with dashboards, reports and traceability"
+ ],
+ "brands": [
+  "Elisam",
+  "Elifab",
+  "True-AI",
+  "TrueSort",
+  "CleanFlow",
+  "CombiGrader"
+ ],
+ "plants": [
+  {
+   "town": "Eindhoven",
+   "country": "Netherlands"
+  },
+  {
+   "town": "Budrio di Longiano",
+   "country": "Italy"
+  },
+  {
+   "town": "Lorquí",
+   "country": "Spain"
+  },
+  {
+   "town": "Wenatchee",
+   "country": "USA"
+  },
+  {
+   "town": "Fruitland",
+   "country": "USA"
+  },
+  {
+   "town": "Kingsburg",
+   "country": "USA"
+  },
+  {
+   "town": "Altona North",
+   "country": "Australia"
+  },
+  {
+   "town": "Vitacura, Santiago",
+   "country": "Chile"
+  }
+ ],
+ "markets": [
+  "Elisam works in 48+ countries",
+  "Named potato customers in the USA, Germany and Australia"
+ ],
+ "facts": [
+  "Founded in 1989 in Eindhoven; founder Erwin Bakker; CEO Erik Zeegers",
+  "85+ Elisam potato machines and 400+ potato grading lanes installed",
+  "3,500+ Ellips grading solutions in use worldwide",
+  "3,000+ retrofit installations",
+  "Elisam founded in Italy in 2010; Elifab founded in Spain in 2016"
+ ],
+ "contact": {
+  "website": "https://www.ellips.com/",
+  "public_email": "info@ellips.com",
+  "phone": "+31 40 245 6540",
+  "address": "Esp 300, 5633 AE Eindhoven, The Netherlands"
+ },
+ "limitations": [
+  "Staff numbers, prices and manufacturing locations are not published on the pages read.",
+  "The site does not say which locations build machines and which are sales or service offices.",
+  "Installed-base figures differ between pages."
+ ]
+}

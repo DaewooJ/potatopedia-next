@@ -1,0 +1,54 @@
+{
+ "common_name": "Flikweert Vision",
+ "summary": "Flikweert Vision develops and builds optical sorting machines for potatoes and onions, using industrial cameras and AI to grade by colour, shape and defects and to remove stones and clods. It is a family business based in Nieuwerkerk, Zeeland, Netherlands, active since 2019.",
+ "hq": {
+  "city": "Nieuwerkerk",
+  "country": "Netherlands"
+ },
+ "founded": "Active since 2019 (first prototype tested in 2020)",
+ "ownership": "Family business",
+ "machines": [
+  "QualityGrader: optical grader sorting on colour, shape and defects, up to 30 tonnes per hour",
+  "Divider: optical pre-sorter removing stones, clods and foreign objects, up to 120 tonnes per hour",
+  "Divider Pro: pre-sorter for processor and packer lines, removes foreign material and rot, widths 1 to 3 metres",
+  "Divider Select: farm pre-sorter for harvest and store loading, up to 120 tonnes per hour",
+  "RejectSeparator: compact optical sorter that recovers usable product from reject streams"
+ ],
+ "plants": [
+  {
+   "town": "Nieuwerkerk",
+   "country": "Netherlands"
+  }
+ ],
+ "markets": [
+  "Netherlands",
+  "Belgium",
+  "Germany",
+  "Poland",
+  "Sweden",
+  "United Kingdom",
+  "USA",
+  "Canada",
+  "Spain",
+  "New Zealand",
+  "Australia"
+ ],
+ "facts": [
+  "2024: QualityGrader number 200 produced",
+  "May 2025: 300th QualityGrader delivered",
+  "Over 500 machines in more than 22 countries (potato sorter page)",
+  "100 specialists (potato sorter page)",
+  "February 2026: Divider Select introduced"
+ ],
+ "contact": {
+  "website": "https://flikweertvision.com/",
+  "public_email": "info@flikweertvision.nl",
+  "phone": "+31 (0)111 21 90 00",
+  "address": "Flikweert Vision, Platte Capelledijk 1, 4306NE Nieuwerkerk, Netherlands"
+ },
+ "limitations": [
+  "The website gives no explicit founding year and does not name the founders or owners.",
+  "Installed-base figures differ between pages, and no capacity, camera count or power figure is published for the RejectSeparator.",
+  "Customer stories give no years or volumes."
+ ]
+}

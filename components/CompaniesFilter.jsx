@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import Link from "next/link";
+import CompanyCard from "./CompanyCard";
 import { KINDS, KIND_ORDER, SEGMENTS, MACHINE_SEGMENTS, flag } from "../lib/directory-labels";
 
 // Client island for /companies: the full A–Z list is server-rendered (crawlable); filters only hide cards.
@@ -31,7 +31,7 @@ export default function CompaniesFilter({ companies }) {
       (kind === "all" || c.kind === kind) &&
       (!country || c.country === country) &&
       (!machine || (c.kind === "machinery" && c.segments.includes(machine))) &&
-      (!needle || `${c.name} ${c.country} ${c.city} ${c.summary} ${c.segments.map((s) => SEGMENTS[s]).join(" ")}`.toLowerCase().includes(needle)),
+      (!needle || `${c.name} ${c.common || ""} ${c.country} ${c.city} ${c.summary} ${c.segments.map((s) => SEGMENTS[s]).join(" ")}`.toLowerCase().includes(needle)),
   );
   const showMachine = kind === "all" || kind === "machinery";
   const reset = () => { setKind("all"); setCountry(""); setMachine(""); setQ(""); };
@@ -75,19 +75,7 @@ export default function CompaniesFilter({ companies }) {
       {shown.length ? (
         <ul className="co-grid">
           {shown.map((c) => (
-            <li key={c.slug}>
-              <Link href={`/companies/${c.slug}`} className="card co-card">
-                <span className="card-k">{KINDS[c.kind]?.label}</span>
-                <span className="card-t">{c.name}</span>
-                <span className="co-where"><span aria-hidden="true">{flag(c.country)}</span> {c.city ? `${c.city}, ` : ""}{c.country}</span>
-                <span className="card-s">{c.summary}</span>
-                {c.segments.length > 0 && (
-                  <span className="co-chips">
-                    {c.segments.slice(0, 4).map((s) => <span key={s} className="co-chip">{SEGMENTS[s]}</span>)}
-                  </span>
-                )}
-              </Link>
-            </li>
+            <li key={c.slug}><CompanyCard c={c} /></li>
           ))}
         </ul>
       ) : (

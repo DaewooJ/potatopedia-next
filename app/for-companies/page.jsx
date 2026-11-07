@@ -14,8 +14,9 @@ export const metadata = {
 };
 
 const CLAIM = [
-  { name: "company", label: "Company", required: true, autoComplete: "organization" },
-  { name: "website", label: "Official website", type: "url", required: true, placeholder: "https://" },
+  { name: "company", label: "Company", required: true, autoComplete: "organization", prefillParam: "company" },
+  { name: "website", label: "Official website", type: "url", required: true, placeholder: "https://", prefillParam: "website" },
+  { name: "company_slug", type: "hidden", prefillParam: "listing" },
   { name: "kind", label: "Type", type: "select", required: true, options: ["Processor", "Seed company", "Machinery maker", "Other"] },
   { name: "country", label: "Country", autoComplete: "country-name", required: true },
   { name: "name", label: "Your name", required: true, autoComplete: "name" },

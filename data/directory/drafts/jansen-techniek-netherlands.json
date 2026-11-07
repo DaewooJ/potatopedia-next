@@ -1,0 +1,55 @@
+{
+ "common_name": "Jansen Techniek",
+ "summary": "Jansen Techniek is a family business in Putten, Netherlands, that designs, builds and installs machines, automation and robotics for the food industry, including custom machines for potato production. It also resells weighing, sorting, metal detection and magnetic separation equipment from partner brands. It was founded in 1997 by Jannes and Ria Jansen.",
+ "hq": {
+  "city": "Putten",
+  "country": "Netherlands"
+ },
+ "founded": "1997",
+ "ownership": "Family business",
+ "machines": [
+  "JT Kistenkantelaar: hydraulic tipper for various container types, up to 1,000 kg",
+  "JT Basic Kantelaar: simpler tipper for one Dolav crate, two-hand control",
+  "JT crate stacker and de-stacker: stacks and de-stacks crates",
+  "JT turntable: turntable for product handling",
+  "Conveyor belts (Transportbanden): product transport",
+  "Buffer bins: product buffering",
+  "Fortress belt metal detector: detects and rejects ferrous and non-ferrous metals",
+  "Basicline metal detector: metal detection",
+  "JCS Combi-Check: inspection system",
+  "Custom-built machines: designed to suit the customer's potato production problem"
+ ],
+ "brands": [
+  "Marelec",
+  "Fortress",
+  "Sollau",
+  "Hildebrand"
+ ],
+ "plants": [
+  {
+   "town": "Putten",
+   "country": "Netherlands"
+  }
+ ],
+ "markets": [
+  "Netherlands",
+  "Worldwide, from Iceland to Chile and from Vietnam to Canada"
+ ],
+ "facts": [
+  "Founded in 1997 as a sole proprietorship, starting in an old chicken barn",
+  "Team page shows about 72 people",
+  "Dutch Chamber of Commerce (KvK) number 08074728",
+  "Mechanics available 24/6, on site or remotely",
+  "Fortress metal detectors supplied in the Netherlands and Belgium by Jansen Control Systems"
+ ],
+ "contact": {
+  "website": "https://www.jansentechniek.nl/",
+  "public_email": "info@jansentechniek.nl",
+  "phone": "+31 (0)341 353829",
+  "address": "Jansen Techniek, Jan Nijenhuisstraat 12-14, 3882 HS Putten, Netherlands"
+ },
+ "limitations": [
+  "The potato page names no potato machine models, capacities, sorting technology or potato customers; most published machines and cases are for meat, fish, poultry, bakery and dairy.",
+  "Ownership structure, headcount, revenue and installation counts are not published on the pages read."
+ ]
+}

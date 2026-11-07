@@ -1,0 +1,48 @@
+{
+ "common_name": "DT Dijkstra",
+ "summary": "DT Dijkstra designs and makes washing, sorting, transport and bunker installations for potatoes and other tuber and bulb crops. It is based in Emmeloord, Netherlands, where it has its offices and factory. The website gives no founding year and describes the company's experience as \"over 90 years\".",
+ "hq": {
+  "city": "Emmeloord",
+  "country": "Netherlands"
+ },
+ "machines": [
+  "Screen sorting machine: sorts washed and unwashed potatoes to size, with quick-change screens",
+  "RT 2/5 sorter: size grading with frequency-controlled shaking and hydraulic screen clamping",
+  "TT2/6 sorter: size grading, supplied in a potato reception line",
+  "Drum washer: wet cleaning, with stone and clod separator",
+  "Dry soil removers: spiral, star and smooth-roller types plus hedgehog belt, remove adhering soil",
+  "Pre-soak tank, floating-parts separator and polisher: wet cleaning stages",
+  "Felt-based dryer: dries product before packing",
+  "Crate tipper and crate filler: empty and fill crates",
+  "Conveyor belts, weighing belts and drop breakers: product handling and transport",
+  "Bunkers and bunker overhaul kit: storage, with soft foam and rubber layer to reduce bruising"
+ ],
+ "plants": [
+  {
+   "town": "Emmeloord",
+   "country": "Netherlands"
+  }
+ ],
+ "markets": [
+  "Growers, packers and industry",
+  "Installations used worldwide",
+  "References in the Netherlands, Turkey, Canada, Spain, Slovenia, Hungary and Germany"
+ ],
+ "facts": [
+  "Turkey reception line handed over in May 2024 with 16 storage bunkers holding 700 tonnes of potatoes",
+  "Stular (Slovenia): sorting line 35 tonnes per hour, washing installation 30 tonnes per hour",
+  "Schaap Holland bunker overhaul: total bunker capacity of 1,500 tons",
+  "Seed potato sorting line for a 50 ha seed potato farm at Maatschap Geerligs, Anna Paulowna"
+ ],
+ "contact": {
+  "website": "https://dtdijkstra.nl/",
+  "public_email": "info@dtdijkstra.nl",
+  "phone": "+31 (0)527 30 77 00",
+  "address": "DT Dijkstra, Landbouwkade 6, 8304 AE Emmeloord, Netherlands"
+ },
+ "limitations": [
+  "The website does not publish a legal entity name, founding year, owners, staff numbers or revenue.",
+  "Capacities in tonnes per hour are not published for the sorting machines, washers or handling equipment in the model range.",
+  "Most project pages do not name the customer or give throughput."
+ ]
+}

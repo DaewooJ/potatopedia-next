@@ -1,0 +1,61 @@
+{
+ "common_name": "Tolsma-Grisnich",
+ "summary": "Tolsma-Grisnich is a Dutch maker of storage technology and handling equipment for potatoes, onions and carrots, based in Emmeloord. Its machines cover ventilation, refrigeration, climate control, intake, cleaning, washing, grading and optical sorting. It describes itself as an international family business; Tolsma began developing potato storage devices in 1952.",
+ "hq": {
+  "city": "Emmeloord",
+  "country": "Netherlands"
+ },
+ "founded": "1966 (basis of current company; potato storage devices from 1952)",
+ "ownership": "Family business",
+ "machines": [
+  "Fans and Air Control MAX: storage ventilation units developed and produced in-house",
+  "Fresh Box: refreshes storage air to remove CO2",
+  "Quadro Compact Cooler (QCC): refrigeration unit for crop stores",
+  "Vision Control: storage computer for temperature, humidity and CO2",
+  "YOU (Yield Observation Unit): measures product weight in the bulk pile",
+  "Desoiler unit: dry soil remover, inline or stand-alone",
+  "Stone, clod and haulm separator: water-stream bath removing stones, clods and haulm",
+  "TG-W washer: drum washer with automatic water level and sludge detection",
+  "MV 09, MV 13, MV 18: shake sorters with five independently driven decks",
+  "Optica S and Optica Q: optical sorters for intake defects and seed potato quality"
+ ],
+ "plants": [
+  {
+   "town": "Emmeloord",
+   "country": "Netherlands"
+  },
+  {
+   "town": "Grantham",
+   "country": "United Kingdom"
+  },
+  {
+   "town": "Bad Fallingbostel",
+   "country": "Germany"
+  }
+ ],
+ "markets": [
+  "Netherlands",
+  "Germany",
+  "France",
+  "Belgium",
+  "Canada",
+  "Australia"
+ ],
+ "facts": [
+  "Acquired Becom in 2005 and Grisnich in 2007, then became Tolsma-Grisnich",
+  "Full ownership of Farm Electronics (Grantham, UK) from 1 January 2019",
+  "Acquired rights to Swiss stone and clod separator maker Samro in 2012",
+  "Optica Q: 15 to 18 tons of seed potatoes checked per hour",
+  "German washing project: three lines, 70 t/h nominal and 100 t/h peak per line"
+ ],
+ "contact": {
+  "website": "https://www.tolsmagrisnich.com/",
+  "phone": "+31 (0)527 63 64 65",
+  "address": "Tolsma-Grisnich B.V., Cavalier 3, 8305 BD Emmeloord, The Netherlands"
+ },
+ "limitations": [
+  "Employee numbers, revenue, owners and the new factory's location are not published on the pages read.",
+  "Capacities are published only for the Optica Q and one washing project; sensing technology in the optical sorters is not stated.",
+  "No general email address is shown as readable text."
+ ]
+}

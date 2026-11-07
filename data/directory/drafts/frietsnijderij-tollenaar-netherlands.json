@@ -1,0 +1,50 @@
+{
+ "common_name": "Frietsnijderij Tollenaar",
+ "summary": "Frietsnijderij Tollenaar is a family-owned wholesaler in Hoek, Zeeland, that cuts fresh fries daily from potatoes grown mostly on its own fields and by nearby growers. Run by the fourth generation of a farming family, it also supplies vegetables, fruit, frying oil and dairy to food-service customers. It processes thousands of kilos of fries per week.",
+ "hq": {
+  "city": "Hoek",
+  "country": "Netherlands"
+ },
+ "ownership": "Family-owned, run by the fourth generation",
+ "products": [
+  "Fresh-cut fries, not pre-fried or frozen, peeled or unpeeled",
+  "Fries in cut sizes from 9 mm to 14 mm (horeca page lists 6 mm to 14 mm)",
+  "Washed potato bonken (large potato pieces)",
+  "Table potatoes",
+  "Free sample bags for comparing fry sizes",
+  "Fresh and cut vegetables, fruit, herbs and cut salads",
+  "Frying oil, cheese, dairy and eggs"
+ ],
+ "plants": [
+  {
+   "town": "Hoek",
+   "country": "Netherlands",
+   "capacity_as_stated": "thousands of kilos of fries per week"
+  }
+ ],
+ "markets": [
+  "Restaurants, lunch venues, snack bars and caterers",
+  "Other businesses and private individuals",
+  "Netherlands and Belgium",
+  "Southern Netherlands",
+  "Same-day delivery within Zeeuws-Vlaanderen for orders before 05:00"
+ ],
+ "facts": [
+  "The family has been in agriculture for more than 100 years",
+  "Processes thousands of kilos of fries per week",
+  "Production and delivery run six days a week",
+  "Dry matter of each potato lot is checked with an in-house underwater-weight test",
+  "Most potatoes come from its own fields on Zeeland clay"
+ ],
+ "contact": {
+  "website": "https://www.frietsnijderij-tollenaar.nl/",
+  "public_email": "info@frietsnijderij-tollenaar.nl",
+  "phone": "06-50428575",
+  "address": "Hoekseweg 1, 4542 PT, Hoek (Netherlands)"
+ },
+ "limitations": [
+  "The legal entity name, founding year, staff numbers, turnover and exact processing capacity are not published on the pages read.",
+  "Potato varieties, acreage, storage capacity and certifications are not published.",
+  "The website gives two different fry size ranges and two different sets of contact roles."
+ ]
+}

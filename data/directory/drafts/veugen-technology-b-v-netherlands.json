@@ -1,0 +1,60 @@
+{
+ "common_name": "Veugen Technology",
+ "summary": "Veugen Technology is a family company in Nederweert, Netherlands, that builds fogging machines used to apply sprout inhibitors in seed and ware potato stores. It also supplies cleaning and hygiene products. Frans Veugen founded it in 1988 or 1989, and his sons Rob, Paul and Jos have owned it since 2010.",
+ "hq": {
+  "city": "Nederweert",
+  "country": "Netherlands"
+ },
+ "founded": "1988 or 1989 (the website gives both years)",
+ "ownership": "Family-owned by Rob, Paul and Jos Veugen",
+ "machines": [
+  "Halofog 300 PC: container fogger for potato storage",
+  "Halofog 900P: basic fogger model for sprout inhibition",
+  "Halofog 300 Hatch: Halofog 300-series fogger for potato stores",
+  "Halofog 300: Halofog 300-series fogger for potato stores",
+  "Halofog 300 1P: Halofog 300-series fogger for potato stores",
+  "Powerfog P60: the company's newest fogger for potato storage",
+  "Synofog: fogger designed to apply sprout inhibitors",
+  "Pulsfog: fogging devices listed for the potato storage sector"
+ ],
+ "brands": [
+  "Halofog",
+  "Powerfog",
+  "Synofog",
+  "Pulsfog",
+  "Turbofog",
+  "Ultrafog",
+  "Desbest",
+  "Cleanbest"
+ ],
+ "plants": [
+  {
+   "town": "Nederweert",
+   "country": "Netherlands"
+  }
+ ],
+ "markets": [
+  "Active in 55+ countries",
+  "50% of turnover from abroad",
+  "Seed and ware potato stores",
+  "Agriculture and food industry"
+ ],
+ "facts": [
+  "More than 1,000 customers",
+  "Over 7,000 fogging units built",
+  "50% of turnover from abroad",
+  "Patent granted for Synofog in 2018",
+  "Renamed from Frans Veugen Bedrijfshygiëne B.V. to Veugen Technology B.V. in 2023"
+ ],
+ "contact": {
+  "website": "https://www.veugentech.com",
+  "public_email": "info@veugentech.com",
+  "phone": "+31 (0) 495 46 01 88",
+  "address": "Platinastraat 9, 6031 TW Nederweert, The Netherlands"
+ },
+ "limitations": [
+  "Output, tank size, power, droplet size and store capacity per machine are not published on the pages read.",
+  "Staff numbers, turnover and named potato customers are not published, and the customer and unit figures are undated.",
+  "The company supplies storage fogging equipment, not potato processing lines."
+ ]
+}

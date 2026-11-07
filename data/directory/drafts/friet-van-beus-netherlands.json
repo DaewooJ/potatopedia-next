@@ -1,0 +1,48 @@
+{
+ "common_name": "Friet van Beus",
+ "summary": "Friet van Beus is a family arable farm in Zeewolde, Flevoland, Netherlands, that grows potatoes and supplies fresh-cut fries and whole fries potatoes to food-service businesses. The family began farming in Zeewolde in 1994 and started cutting fries in 2016 after a nearby snack bar asked for help.",
+ "hq": {
+  "city": "Zeewolde",
+  "country": "Netherlands"
+ },
+ "founded": "1994 (farming); fresh fries since 2016",
+ "ownership": "Family-owned",
+ "products": [
+  "Fresh-cut fries, with or without skin, not pre-fried, no additives",
+  "Fresh fries vacuum-packed in 10 kg bags",
+  "Whole Agria fries potatoes, washed or peeled, in 20 kg net bags",
+  "Frieslander potatoes (August transition variety)"
+ ],
+ "plants": [
+  {
+   "town": "Zeewolde",
+   "country": "Netherlands"
+  }
+ ],
+ "markets": [
+  "Cafetarias and snack bars",
+  "Chip shops, food trucks, events and restaurants",
+  "Wholesalers",
+  "Fresh fries delivered across central Netherlands",
+  "Whole potatoes delivered nationwide in the Netherlands",
+  "Washed potatoes to Belgium (and Germany per one page)"
+ ],
+ "facts": [
+  "Family began farming in Zeewolde in 1994",
+  "Peeling and cutting machine bought in 2016",
+  "Fries cut on Tuesday and Friday mornings",
+  "Processes only potatoes from its own fields; no contract growers",
+  "Agria used September to July; Frieslander in August"
+ ],
+ "contact": {
+  "website": "https://www.frietvanbeus.nl/",
+  "public_email": "info@frietvanbeus.nl",
+  "phone": "06 23 97 23 00",
+  "address": "Duikerweg 10, 3897 LM Zeewolde (Netherlands)"
+ },
+ "limitations": [
+  "Capacity, volumes, staff numbers, turnover and farm size are not published on the pages read.",
+  "No certifications, cut sizes or shelf life in days are published.",
+  "The site is inconsistent on export, listing Belgium and Germany on one page and Belgium only on another."
+ ]
+}

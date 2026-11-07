@@ -1,0 +1,88 @@
+{
+ "common_name": "Agroplant",
+ "summary": "Agroplant is a family-owned seed potato company based in Medemblik, Netherlands, that trades and exports seed potatoes grown under contract by Dutch growers, runs its own breeding programme and also trades ware potatoes. It dates its roots to 1924, when Klaas Molenaar started a vegetable and potato trade. It says it exports to more than fifty countries.",
+ "hq": {
+  "city": "Medemblik",
+  "country": "Netherlands"
+ },
+ "founded": "1924 (roots in Klaas Molenaar's vegetable and potato trade)",
+ "ownership": "Family-owned",
+ "products": [
+  "Seed potatoes grown under contract by Dutch growers",
+  "Own-bred potato varieties",
+  "Free (non-proprietary) varieties",
+  "Ware potatoes",
+  "Varieties for table, traditional, fries and chips uses",
+  "Crop-technical advice from field representatives"
+ ],
+ "varieties": [
+  "Abalone",
+  "Actrice",
+  "Agria",
+  "Armin",
+  "Baroque",
+  "Bartina",
+  "Bernice",
+  "Bintje",
+  "Cara",
+  "Cereza",
+  "Desiree",
+  "Diamant",
+  "Frieslander",
+  "Hansa",
+  "Hermes",
+  "Hind",
+  "Jaerla",
+  "Kennebec",
+  "Kyra",
+  "Lady Rosetta",
+  "Liselotte",
+  "Margarita",
+  "Maris Bard",
+  "Metro",
+  "Monalisa",
+  "Nicola",
+  "Premiere",
+  "Roslin",
+  "Spunta",
+  "Taylor"
+ ],
+ "plants": [
+  {
+   "town": "Medemblik",
+   "country": "Netherlands"
+  },
+  {
+   "town": "Medemblik",
+   "country": "Netherlands",
+   "capacity_as_stated": "Cold and freezer store with own packing station"
+  },
+  {
+   "town": "Sint Annaparochie",
+   "country": "Netherlands"
+  }
+ ],
+ "markets": [
+  "Exports to more than fifty countries",
+  "Southern Europe, North Africa and the Middle East (Margarita)",
+  "Algeria and Morocco (Bartina)",
+  "Ware potato trade"
+ ],
+ "facts": [
+  "About 200 growers have exclusive cultivation contracts with Agroplant",
+  "Field staff monitor more than 1,500 hectares of seed potatoes across the Netherlands",
+  "Sold more than 60,000 tonnes of seed potatoes last season (season not named)",
+  "Breeding programme run through subsidiary Fobek in Sint Annaparochie",
+  "Fourth generation of the van der Lee family became directors in 2014"
+ ],
+ "contact": {
+  "website": "https://www.agroplant.nl/",
+  "public_email": "info@agroplant.nl",
+  "phone": "+31 (0)227 - 541 217",
+  "address": "Almereweg 35A, 1671 ND Medemblik, Netherlands"
+ },
+ "limitations": [
+  "Seed generations, certification classes, minituber production, export volumes by country and agents are not published on the pages read.",
+  "Export, tonnage, grower and hectare figures are the company's own statements, and the season they refer to is not given."
+ ]
+}

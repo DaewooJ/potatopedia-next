@@ -1,0 +1,52 @@
+{
+ "common_name": "DTS",
+ "summary": "DTS designs and builds auger-based food processing equipment, including blanchers, cookers, coolers, ricers, conveyors, brine graders, washers and bin systems used in potato processing lines. It is based in Beusichem, the Netherlands, and is part of the Sticomax Group, based in Belgium. It reports over 800 blanchers, cookers and coolers installed worldwide.",
+ "hq": {
+  "city": "Beusichem",
+  "country": "Netherlands"
+ },
+ "ownership": "Part of the Sticomax Group (Staden, Belgium)",
+ "machines": [
+  "Auger blancher: short-time high-temperature or long-time low-temperature blanching of potatoes",
+  "Next-generation screw blancher: blancher with no product guide plate, new bearing method and seals",
+  "Auger cooler: counter-flow water cooling for flake, granule and co-product lines",
+  "Auger cooker: multi-zone direct steam cooking for flake, granule and co-product lines",
+  "Belt cooker / steamer: steam cooking of potato products",
+  "Ricer: presses cooked potatoes through a grid into mash at the cooker outfeed",
+  "Auger conveyor: horizontal, inclined and vertical conveying of whole and cut potatoes",
+  "Brine and clay-bath grader: gravity separation of low-solids potatoes and floating material",
+  "Washing auger: removes soil or skin residues from potatoes before or after peeling",
+  "Bin system: underwater first-in-first-out buffering of whole potatoes with even outfeed"
+ ],
+ "plants": [
+  {
+   "town": "Beusichem",
+   "country": "Netherlands"
+  }
+ ],
+ "markets": [
+  "Installations worldwide, including India",
+  "India, Sri Lanka and Bangladesh through MTS Foods",
+  "Eastern Europe through Thermal Process Systems BVBA",
+  "Italy through Alcet",
+  "Ontario, Manitoba, Saskatchewan, Quebec and Atlantic Canada through Chisholm Machinery"
+ ],
+ "facts": [
+  "Operating for more than 30 years, according to its About page",
+  "Over 800 blanchers, cookers and coolers installed worldwide, more than 50 in India (July 2026)",
+  "Sticomax Group: over 200 employees, around 70 of whom specialise in engineering (February 2025)",
+  "Next-generation screw blancher tested for 1.5 years at production sites (November 2024)",
+  "MTS Foods appointed commercial partner for India, Sri Lanka and Bangladesh (30 July 2026)"
+ ],
+ "contact": {
+  "website": "https://www.dtsbv.nl/",
+  "public_email": "info@dtsbv.nl",
+  "phone": "+31 345 725 800",
+  "address": "Speulmanweg 4, 4112 NA Beusichem, The Netherlands"
+ },
+ "limitations": [
+  "The website gives no founding year, model names or capacities, dimensions or power ratings for any potato machine.",
+  "Staff and turnover figures are published only for the Sticomax Group, not for DTS alone.",
+  "No potato processing customers or plants are named on the pages read."
+ ]
+}

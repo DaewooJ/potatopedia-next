@@ -1,0 +1,47 @@
+{
+ "common_name": "MCR Machinery",
+ "summary": "MCR Machinery is a Dutch maker of washing, cutting, handling and sorting machines and complete processing lines for potatoes, vegetables and fruit, based in Marknesse. It was founded in 2007 by Jan Pieter Reijnoudt as a repair and construction business. Its seed potato cutter is rated at up to 7 tonnes per hour.",
+ "hq": {
+  "city": "Marknesse",
+  "country": "Netherlands"
+ },
+ "founded": "2007",
+ "machines": [
+  "Drum washer: washes potatoes from the field and separates dirt, drums 1200 to 2000 mm",
+  "Brush washer and polisher: rinses, cleans and polishes potatoes with rotating brushes",
+  "Brushwasher BW800 and BW1600: washes, polishes and peels, at least 500 kg of potatoes per hour",
+  "Seed potato cutter: cuts seed potatoes transversely in four lanes, up to 7 t/h",
+  "Potato cutting line: semi-automatic, portions potatoes with adjustable cutting length",
+  "Grading drum (tuber sorting drum): removes residual pieces from the product stream after cutting",
+  "Roller inspection table: inspection in drum washing and sliver-removal lines",
+  "Box tipper and infeed bunker: unloads boxes and feeds product into lines",
+  "Shaker conveyor: vibratory infeed to the seed potato cutter",
+  "Water recycling unit: filters and reuses washing water"
+ ],
+ "brands": [
+  "Undine"
+ ],
+ "plants": [
+  {
+   "town": "Marknesse",
+   "country": "Netherlands"
+  }
+ ],
+ "facts": [
+  "Founded in 2007 by Jan Pieter Reijnoudt; name stands for Machine Constructie Reijnoudt",
+  "The machines page lists 28 machines",
+  "The About Us page lists 11 team members",
+  "Drum washer capacity given as 5 to 120 tons (time unit not stated)"
+ ],
+ "contact": {
+  "website": "https://mcrmachinery.com/",
+  "public_email": "info@mcrmachinery.nl",
+  "phone": "+31 527 205900",
+  "address": "MCR Machinery B.V., Oudeweg 12, 8316 AC Marknesse, Netherlands"
+ },
+ "limitations": [
+  "Ownership, employee totals, revenue, export markets and installation counts are not published on the pages read.",
+  "Capacities are published for only three machines and for no complete line.",
+  "Water and energy saving figures for the Undine system are the company's own claims."
+ ]
+}

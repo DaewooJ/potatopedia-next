@@ -1,0 +1,76 @@
+{
+ "common_name": "Sloots Aardappelkweekbedrijf",
+ "summary": "Sloots Aardappelkweekbedrijf is a family-run potato breeding company in Eenrum, Groningen, Netherlands, that develops its own varieties for the starch, chips and fries industries, with a focus on disease resistance. The business goes back to 1968, when the father of Roelof Sloots began breeding potatoes for the starch industry.",
+ "hq": {
+  "city": "Eenrum",
+  "country": "Netherlands"
+ },
+ "founded": "1968 (breeding started; no formal founding date of the B.V. given)",
+ "ownership": "Family-run; owner and breeder Roelof Sloots (took over in 2005)",
+ "products": [
+  "Potato varieties for the starch industry",
+  "Potato varieties for chips (crisps)",
+  "Potato varieties for fries (in development)",
+  "Breeding selections in development"
+ ],
+ "varieties": [
+  "Saint Calais",
+  "San Francisco",
+  "Senata",
+  "Sereno",
+  "Mavilo",
+  "Mavanda",
+  "Sarion",
+  "Supporter",
+  "Simphony",
+  "Starga",
+  "Solution",
+  "Spark",
+  "Scoop",
+  "Siebo",
+  "Scala",
+  "Scarlet",
+  "Stiletto",
+  "Serum Star",
+  "Speculos",
+  "Spot",
+  "Spere",
+  "Starne",
+  "Survive",
+  "Stratos",
+  "Scorpio",
+  "Sprinter",
+  "Smaragd",
+  "Sofista",
+  "Stabilo",
+  "Skarlos"
+ ],
+ "plants": [
+  {
+   "town": "Eenrum",
+   "country": "Netherlands"
+  }
+ ],
+ "markets": [
+  "Starch industry",
+  "Chips (crisps) industry",
+  "Fries industry (varieties in development)"
+ ],
+ "facts": [
+  "30 commercial varieties and 12 numbered selections in development listed",
+  "Breeding page refers to 58 years of experience",
+  "Roelof Sloots took over the company in 2005",
+  "Parent plants are trained along wires up to 2.5 m tall"
+ ],
+ "contact": {
+  "website": "https://slootsaardappelkweekbedrijfbv.nl/",
+  "public_email": "info@slootsakb.nl",
+  "phone": "+31 6 222 792 05",
+  "address": "Sloots Aardappelkweekbedrijf, Eenrumerstreek 3, 9967 TH Eenrum, Netherlands"
+ },
+ "limitations": [
+  "Staff numbers, revenue, acreage, seed production volumes, seed classes and certification are not published on the pages read.",
+  "Export markets, licensees, agents and prices are not published.",
+  "Variety yields are given only as a relative index with no stated reference, years or trial sites."
+ ]
+}

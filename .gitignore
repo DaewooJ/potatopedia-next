@@ -60,3 +60,4 @@ content/linkedin_images/**/*.png
 
 # Generated country report PDFs/HTML (private; never commit, repo is public)
 /reports-out/
+/data/directory/cache/

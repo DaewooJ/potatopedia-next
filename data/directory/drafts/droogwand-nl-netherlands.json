@@ -1,0 +1,49 @@
+{
+ "common_name": "Droogwand.nl",
+ "summary": "Droogwand.nl is a Dutch builder of drying walls and suction walls used to ventilate, dry and store potatoes and other crops kept in storage crates. It is based in Bant, Noordoostpolder, and is part of Snijder Bouw. The company page says the team has 12 employees.",
+ "hq": {
+  "city": "Bant",
+  "country": "Netherlands"
+ },
+ "ownership": "Part of Snijder Bouw",
+ "machines": [
+  "Potato wall (Aardappelwand): drying wall for crops stored in crates, made of FSC-certified betonplex",
+  "Fixed drying walls: permanent shed walls sized by number of crates, with frames, doors, valves and shutters",
+  "Mobile drying walls: pallet-mounted plug-and-play drying and suction walls supplied with a fan",
+  "Pressure wall (Drukwand): crates against galvanised U-profiles; sliding system opens pallet openings by row",
+  "Suction wall (Zuigwand): fans pull air out of the wall so it is drawn through the crates",
+  "Crate storage (Kistenbewaring): ventilation through pallet openings or between crates, fixed or mobile",
+  "Online configurator: starts by asking which product will be stored, including potatoes"
+ ],
+ "plants": [
+  {
+   "town": "Bant",
+   "country": "Netherlands"
+  },
+  {
+   "town": "Dronten",
+   "country": "Netherlands"
+  }
+ ],
+ "markets": [
+  "Netherlands",
+  "Abroad (countries not named)"
+ ],
+ "facts": [
+  "Team of 12 employees, according to the company page",
+  "All walls are prefabricated at the Bant factory",
+  "Published projects: Van den Dries, Dronten, and Agrifirm, Emmeloord",
+  "Dealer: Fassaert Machines, Dronten"
+ ],
+ "contact": {
+  "website": "https://www.droogwand.nl/",
+  "public_email": "info@droogwand.nl",
+  "phone": "06 101 44 916",
+  "address": "Het Rister 6, 8314 RD Bant, Netherlands"
+ },
+ "limitations": [
+  "No capacities, airflow rates, fan specifications, dimensions or prices are published on the pages read.",
+  "No founding year or legal entity name is given, and the experience figures stated on the site conflict.",
+  "No export countries are named."
+ ]
+}

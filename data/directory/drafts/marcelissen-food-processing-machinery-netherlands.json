@@ -1,0 +1,54 @@
+{
+ "common_name": "Marcelissen",
+ "summary": "Marcelissen is a family-owned Dutch maker of food-processing machines, based in Venlo. It builds machines that clean, peel, inspect, sort, cut, weigh and transport potatoes, and complete lines for fresh potato products and French fries. It was founded in 1949 by Frans Marcelissen.",
+ "hq": {
+  "city": "Venlo",
+  "country": "Netherlands"
+ },
+ "founded": "1949",
+ "ownership": "Family-owned",
+ "machines": [
+  "Drum Roller Peeler SKR: abrasive roller peeling, up to 7,500 kg/hr",
+  "Batch Peeler SKB 500: abrasive disc batch peeling, up to 500 kg/hr",
+  "Drum Knife Peeler SMT: knife peeling and re-peeling, up to 10,000 kg/hr",
+  "Optical Sorter Pneumatic SOL: grades potatoes by camera, up to 90,000 potatoes per hour",
+  "Optical Sorter Mechanical SOM: camera grading with mechanical ejection, up to 108,000 potatoes per hour",
+  "Hydro Cutter SH: water-transport cutting of fries, wedges, cubes, slices, up to 15,000 kg/hr",
+  "Slitmaster 85: cuts straight French fries 7 to 14 mm wide",
+  "Sliver Remover SR2: removes slivers from cut product",
+  "Potato Diameter Sorter SRL: sorts potatoes by diameter on spiral rollers",
+  "Roller Brushing Machine NBR: brushes potatoes on rotating rollers"
+ ],
+ "plants": [
+  {
+   "town": "Venlo",
+   "country": "Netherlands"
+  }
+ ],
+ "markets": [
+  "Machines in 111 countries",
+  "Machines on every continent except Antarctica",
+  "Entered African markets in 1992"
+ ],
+ "certifications": [
+  "CE"
+ ],
+ "facts": [
+  "Founded in 1949 by Frans Marcelissen",
+  "2,000+ machines shipped",
+  "2,202 customers",
+  "8 agents",
+  "First continuous fryer delivered in 1968"
+ ],
+ "contact": {
+  "website": "https://www.marcelissen.com/",
+  "public_email": "info@marcelissen.nl",
+  "phone": "+31 (0)77 475 2002",
+  "address": "Blauwwater 14, 5951 DB Venlo, The Netherlands"
+ },
+ "limitations": [
+  "Employee numbers, turnover and owners' names are not published on the pages read.",
+  "Most machines have no published throughput, and line capacities are not given.",
+  "The names and countries of the 8 agents and details of the 2023 acquisition are not published."
+ ]
+}

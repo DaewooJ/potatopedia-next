@@ -1,0 +1,75 @@
+{
+ "common_name": "Solana Holland",
+ "summary": "Solana Holland breeds, produces and sells seed potatoes, using classic breeding only, from its head office and breeding station in Emmeloord, the Netherlands. The company started in 1937 and has been part of the Solana Group since 1987. Its seed is grown by selected producers on clay soil.",
+ "hq": {
+  "city": "Emmeloord",
+  "country": "Netherlands"
+ },
+ "founded": "1937",
+ "ownership": "Part of the Solana Group since 1987",
+ "products": [
+  "Seed potatoes for table (consumption) use",
+  "Seed potatoes for crisps, flakes and French fries",
+  "Organic seed potato varieties",
+  "Variety breeding (classic breeding, non-GMO)"
+ ],
+ "varieties": [
+  "7 Four 7",
+  "Amanda",
+  "Connect",
+  "Dior",
+  "Edison",
+  "Gaya",
+  "Granola",
+  "King Russet",
+  "Labella",
+  "Laperla",
+  "Miranda",
+  "Nola",
+  "Noya",
+  "Octa",
+  "Prada",
+  "Reza",
+  "Taisiya",
+  "Ultra",
+  "Almonda",
+  "Forza",
+  "Ludmilla",
+  "Toscane"
+ ],
+ "plants": [
+  {
+   "town": "Emmeloord",
+   "country": "Netherlands"
+  },
+  {
+   "town": "Windeby",
+   "country": "Germany"
+  }
+ ],
+ "markets": [
+  "Worldwide",
+  "Consumption (table)",
+  "Crisps",
+  "Flakes",
+  "French fries",
+  "Organic"
+ ],
+ "facts": [
+  "Company started in 1937",
+  "Part of the Solana Group since 1987",
+  "Team page lists 18 people",
+  "Variety page lists 19 entries",
+  "Farm-saved-seed fee: 60% of the regular licence fee"
+ ],
+ "contact": {
+  "website": "https://solanaholland.nl/en/",
+  "public_email": "info@solanaholland.nl",
+  "phone": "0527-298000 (+31 527 298000)",
+  "address": "Solana Holland B.V., Produktieweg 2, 8304 AV Emmeloord, the Netherlands"
+ },
+ "limitations": [
+  "Seed volumes, hectares, generations, minituber work, export countries and turnover are not published on the pages read.",
+  "The website does not explain the change from the Den Hartigh name."
+ ]
+}

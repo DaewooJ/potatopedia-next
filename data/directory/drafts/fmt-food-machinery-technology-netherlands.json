@@ -1,0 +1,48 @@
+{
+ "common_name": "FMT",
+ "summary": "FMT is a Dutch maker of food-processing machines based in 's-Hertogenbosch. For fresh potatoes and other root crops it builds receiving, destoning, washing, peeling, inspection, transport, storage and filling equipment, and says it offers complete lines for fresh potatoes. Its screw destoner is stated to handle up to 8 tons/hour.",
+ "hq": {
+  "city": "'s-Hertogenbosch",
+  "country": "Netherlands"
+ },
+ "machines": [
+  "Box tipping system: stainless steel tipper that empties boxes of potatoes and root crops",
+  "Screw de-stoner: water-filled hopper and vertical screw that removes stones and earth",
+  "Drum washing machine: rod drum that cleans potatoes with water and tumbling",
+  "Continuous roller peeler: abrasive rollers in a drum peel potatoes and other root crops",
+  "Batch peeler: abrasive surface removes skin batch by batch",
+  "Vibration dewatering system: removes water and spreads product along the line",
+  "Roller inspection table IRT: rotates product for visual quality inspection",
+  "Transport screws and belt conveyors: move product between machines",
+  "Underwater storage tank: stores product under water, also used as a dip tank",
+  "Bag filling unit: fills bags or crates by weight or by volume"
+ ],
+ "plants": [
+  {
+   "town": "'s-Hertogenbosch",
+   "country": "Netherlands"
+  }
+ ],
+ "markets": [
+  "Medium-sized and large international food processing companies",
+  "Europe and elsewhere",
+  "Agents in 21 locations across Asia, the Middle East, Europe and Australia"
+ ],
+ "facts": [
+  "Supplying machines for vegetables, fruit and meat processing for over twenty five years",
+  "Screw destoner capacity up to 8 tons/hour, depending on product size",
+  "Continuous abrasive peeler: about 800 kg/hour peeled, about 3,200 kg/hour input with about 25% waste",
+  "Roller inspection table lengths 2,000 mm to 5,000 mm",
+  "Chamber of Commerce (KvK) number 58259996"
+ ],
+ "contact": {
+  "website": "https://www.fmt.nl/en/",
+  "public_email": "info@fmt.nl",
+  "phone": "+31 (0)73 5114436",
+  "address": "Uilenwaard 48, 5236 WB 's-Hertogenbosch, The Netherlands"
+ },
+ "limitations": [
+  "Founding year, legal form, ownership, employee numbers, turnover and factory location are not published on the pages read.",
+  "No customers, installations or export countries are named, and most potato machines have no published model number or capacity."
+ ]
+}

@@ -1,0 +1,65 @@
+{
+ "common_name": "TPC",
+ "summary": "TPC is a seed potato company in Emmeloord, Netherlands, that breeds its own potato varieties, has seed grown by contract growers and trades conventional and organic seed potatoes. It says it has been developing varieties since 2004 and is led by its founder, Gaby Stet. It is active in, or exports to, more than 50 countries.",
+ "hq": {
+  "city": "Emmeloord",
+  "country": "Netherlands"
+ },
+ "founded": "2004 (developing potato varieties since 2004)",
+ "ownership": "Led by founder Gaby Stet",
+ "products": [
+  "Seed potatoes (conventional)",
+  "Organic seed potatoes (SKAL-certified)",
+  "Own-bred potato varieties",
+  "Variety breeding and testing (TPC Research)",
+  "Contract seed growing with pool options for growers"
+ ],
+ "varieties": [
+  "Exquisa",
+  "Siena",
+  "Paris",
+  "Montreal",
+  "Toronto",
+  "Monte Carlo",
+  "Bergerac",
+  "Havana",
+  "Boston",
+  "Riva",
+  "Barcelona",
+  "Monza"
+ ],
+ "plants": [
+  {
+   "town": "Emmeloord",
+   "country": "Netherlands"
+  }
+ ],
+ "markets": [
+  "More than 50 countries",
+  "Africa, North America, South America, Europe, Asia and Australia",
+  "North Africa exports",
+  "QSR fries industry",
+  "Food banks throughout the Netherlands"
+ ],
+ "certifications": [
+  "SKAL"
+ ],
+ "facts": [
+  "Developing potato varieties since 2004",
+  "12 varieties listed on the variety page",
+  "New varieties reach the variety list after five years on average",
+  "Each new variety is tested at 4 locations worldwide",
+  "Head office has 3000 Wp of solar panels"
+ ],
+ "contact": {
+  "website": "https://www.tpc.nl/en/",
+  "public_email": "info@tpc.nl",
+  "phone": "+31 (0) 527 630 110",
+  "address": "Franc 68, 8305 BS Emmeloord, Netherlands"
+ },
+ "limitations": [
+  "Ownership, revenue, hectares, tonnes, grower numbers and seed generations are not published on the pages read.",
+  "Trial locations, export countries and agents are not named.",
+  "Yields and resistances are the company's own statements, and some variety pages contradict themselves."
+ ]
+}

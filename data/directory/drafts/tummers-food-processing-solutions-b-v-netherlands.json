@@ -1,0 +1,54 @@
+{
+ "common_name": "Tummers",
+ "summary": "Tummers designs and builds machines and complete process lines for washing, peeling, cutting, potato flakes and French fries, and sells refurbished machines. It is based in Hoogerheide, the Netherlands, and was founded in 1976. Since June 2026 it has been fully owned by the industrial group of Kiremko, Idaho Steel and Reyco, branded Foodera Technologies.",
+ "hq": {
+  "city": "Hoogerheide",
+  "country": "Netherlands"
+ },
+ "founded": "1976",
+ "ownership": "100% acquired in 2026 by the industrial group of Kiremko, Idaho Steel and Reyco (Foodera Technologies)",
+ "machines": [
+  "Destoner/washer: washes, destones and separates floating parts; 15 - 180 tonnes per hour",
+  "Tummers steam peeler (TSP): steam peeling with blow-off; 8,5 - 28 tonnes per hour",
+  "E²E-Condenser: turns steam-peeler emissions into hot water for reuse",
+  "ZicZac Brusher and U-Brusher: dry peel removal with brushes, no water",
+  "Hydro cutting skid: cuts and cores produce under water pressure (4\", 6\" and 8\" pumps)",
+  "Fin aligner: centres potatoes before the cutting block",
+  "Drum dryer: dries potato mash into flake sheets; 450 - 1100 kg per hour",
+  "E²E SteamClosure: sealed hood that collects drum-dryer steam for condensing",
+  "Cooker, cooler and blancher: steam cooking, cooling and blanching for flake lines",
+  "Multi-zone fryer and IQF tunnel: frying and freezing steps in the French fry line"
+ ],
+ "plants": [
+  {
+   "town": "Hoogerheide",
+   "country": "Netherlands"
+  },
+  {
+   "town": "Boise",
+   "country": "United States"
+  },
+  {
+   "town": "Mumbai",
+   "country": "India"
+  }
+ ],
+ "facts": [
+  "First in-house Tummers machine delivered in Poland in 1990",
+  "Flake line for Lamb Weston / Meijer, Kruiningen: up to 30,000 tons of potato flakes per year",
+  "Danish starch factory washing line of four KW800 destoner/washers, each up to 175 t/h",
+  "Tummers USA Inc. in Boise, Idaho, operating since May 2024",
+  "Tummers Kiron India Pvt. Ltd. joint venture announced on 5 June 2024"
+ ],
+ "contact": {
+  "website": "https://tummers.nl/en/",
+  "public_email": "info@tummers.nl",
+  "phone": "+31 (0)164 61 40 70",
+  "address": "Ampèreweg 4, 4631 SP Hoogerheide, the Netherlands"
+ },
+ "limitations": [
+  "Headcount, turnover and floor area for Tummers alone are not published; group figures cover the whole combined group.",
+  "Capacities are published for only a few machines, and none for the French fry line's fryer, freezer or dryer.",
+  "Addresses of the offices in China, Russia and England are not published on the pages read."
+ ]
+}

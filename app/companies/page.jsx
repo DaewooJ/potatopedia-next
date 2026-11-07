@@ -1,5 +1,6 @@
 import Link from "next/link";
 import CompaniesFilter from "../../components/CompaniesFilter";
+import { Browse } from "../../components/CompanyLanding";
 import { Figures } from "../../components/Editorial";
 import { listCompanies, DIRECTORY_PUBLIC, KINDS, KIND_ORDER, SITE, flag } from "../../lib/directory";
 import { CO_CSS } from "../../lib/directory-css";
@@ -41,7 +42,7 @@ export default async function CompaniesPage() {
         mainEntity: {
           "@type": "ItemList",
           numberOfItems: companies.length,
-          itemListElement: companies.map((c, i) => ({ "@type": "ListItem", position: i + 1, url: `${SITE}/companies/${c.slug}`, name: c.name })),
+          itemListElement: companies.map((c, i) => ({ "@type": "ListItem", position: i + 1, url: `${SITE}/companies/${c.slug}`, name: c.common || c.name })),
         },
       },
       {
@@ -114,6 +115,8 @@ export default async function CompaniesPage() {
       </section>
 
       <CompaniesFilter companies={companies} />
+
+      <Browse all={companies} current="/companies" />
 
       <section className="co-how" aria-label="How this directory works">
         <div className="co-how-in">

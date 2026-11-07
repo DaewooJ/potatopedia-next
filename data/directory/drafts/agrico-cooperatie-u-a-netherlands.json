@@ -1,0 +1,122 @@
+{
+ "common_name": "Agrico",
+ "summary": "Agrico is a Dutch cooperative that breeds potato varieties through Agrico Research and sells seed potatoes in more than 80 countries. It is based in Emmeloord, the Netherlands. Its forerunners PZVB, DTV and Zuiderzeepolders joined forces in 1973, and more than 1,200 growers are members.",
+ "hq": {
+  "city": "Emmeloord",
+  "country": "Netherlands"
+ },
+ "founded": "1973 (forerunners PZVB, DTV and Zuiderzeepolders)",
+ "ownership": "Cooperative with more than 1,200 member growers",
+ "products": [
+  "Certified seed potatoes",
+  "Minitubers",
+  "In vitro planting material",
+  "Own-bred potato varieties",
+  "Varieties for fries, chips, retail and traditional export markets",
+  "Starch varieties (Semagri)",
+  "Organic varieties (BioSelect)",
+  "Seed lot quality testing at the Agrico Quality Center"
+ ],
+ "varieties": [
+  "Agria",
+  "Armedi",
+  "Babylon",
+  "Fontane",
+  "Leonore",
+  "Lugano",
+  "Markies",
+  "Nirvana",
+  "Palace",
+  "Premiere",
+  "Sevilla",
+  "Sidney",
+  "Sinora",
+  "Texas",
+  "Arsenal",
+  "Beyonce",
+  "Chester",
+  "Corsica",
+  "Napoleon",
+  "Oregon",
+  "Agata",
+  "Alouette",
+  "Artemis",
+  "Carolus",
+  "Cerisa",
+  "Chateau",
+  "Constance",
+  "Corazon",
+  "Ditta",
+  "Erika"
+ ],
+ "brands": [
+  "Semagri",
+  "BioSelect",
+  "Next Generation"
+ ],
+ "plants": [
+  {
+   "town": "Emmeloord",
+   "country": "Netherlands"
+  },
+  {
+   "town": "Bant",
+   "country": "Netherlands",
+   "capacity_as_stated": "een eigen kassencomplex van 4.000 vierkante meter"
+  },
+  {
+   "town": "Sofia",
+   "country": "Bulgaria"
+  },
+  {
+   "town": "Budapest",
+   "country": "Hungary"
+  },
+  {
+   "town": "Moscow",
+   "country": "Russia"
+  },
+  {
+   "town": "Tashkent",
+   "country": "Uzbekistan"
+  },
+  {
+   "town": "San Pedro Sula",
+   "country": "Honduras"
+  }
+ ],
+ "markets": [
+  "More than 80 countries through branches and distributors",
+  "Europe",
+  "Africa",
+  "Asia",
+  "Oceania",
+  "North and South America"
+ ],
+ "certifications": [
+  "GlobalG.A.P.",
+  "SKAL",
+  "QS",
+  "GMP+",
+  "On the way to PlanetProof",
+  "Demeter"
+ ],
+ "facts": [
+  "Grower price of EUR 26.50 per 100 kg for seed potatoes from the 2025 harvest",
+  "Quality Center can process 20,000 to 25,000 samples a year",
+  "About 30 hectares of trial fields in the Netherlands and abroad",
+  "Phytophthora resistance research started in 1985; Next Generation varieties introduced in 2018",
+  "Arizona grown on more than 1,000 hectares in the Netherlands for seed multiplication in 2019"
+ ],
+ "contact": {
+  "website": "https://www.agricopotatoes.com/nl/",
+  "public_email": "info@agrico.nl",
+  "phone": "+31 527639911",
+  "address": "Duit 15, 8305 BB Emmeloord, Netherlands"
+ },
+ "limitations": [
+  "Seed hectares, tonnes, seed classes and employee numbers are not published on the pages read.",
+  "Export volumes, storage sites and which foreign partners are subsidiaries are not stated.",
+  "The full variety list was not readable, so starch and organic varieties may be missing."
+ ]
+}

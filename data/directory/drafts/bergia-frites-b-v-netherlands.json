@@ -1,0 +1,52 @@
+{
+ "common_name": "Bergia Frites",
+ "summary": "Bergia Frites is a family-owned company based in Roermond, Netherlands, that makes frozen fries and other frozen potato products. It began as a potato and egg trading business in 1931. It started processing potatoes in the mid-1960s and has made frozen fries since the mid-1980s.",
+ "hq": {
+  "city": "Roermond",
+  "country": "Netherlands"
+ },
+ "founded": "1931 (the site also gives 1930 and the 1960s)",
+ "ownership": "Family-owned",
+ "products": [
+  "Frozen fries: Shoestring, Straight Cut, Steakhouse, Crinkle Cut",
+  "Airfryer fries",
+  "Wedges, Slices and Diced potatoes",
+  "Duchess and Noisette potatoes",
+  "Hash Browns",
+  "Combi-steamer products",
+  "Regeneration products",
+  "Tailor-made potato products"
+ ],
+ "brands": [
+  "Bergia"
+ ],
+ "plants": [
+  {
+   "town": "Roermond",
+   "country": "Netherlands"
+  }
+ ],
+ "markets": [
+  "Sold and shipped worldwide",
+  "Mainly medium-sized and international businesses",
+  "Restaurants, retailers and distributors",
+  "Restaurant and wholesale sectors"
+ ],
+ "facts": [
+  "1931: Harry Meeuwissen starts Fa. Meeuwissen in Sint Odiliënberg, trading potatoes and eggs",
+  "Mid-1960s: processing begins with pre-fried, chilled fries",
+  "Early 1970s: first automatic production line; the name Bergia Frites is adopted",
+  "Mid-1980s: frozen fries added alongside chilled products",
+  "2011: chilled production stopped; the range became frozen only"
+ ],
+ "contact": {
+  "website": "https://bergia.com/",
+  "public_email": "info@bergia.com",
+  "phone": "+31 88 32 95 000",
+  "address": "Bergia Frites, Roermond, Netherlands"
+ },
+ "limitations": [
+  "The website publishes no street address, processing capacity, employee numbers or revenue.",
+  "No certifications, export countries, customers, potato sourcing or product specifications are named on the pages read."
+ ]
+}

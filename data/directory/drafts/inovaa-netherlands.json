@@ -1,0 +1,44 @@
+{
+ "common_name": "Inovaa",
+ "summary": "Inovaa is a company in Emmeloord, Netherlands, that builds the U-Vision camera-based sorter for potatoes and onions, and control systems for complete processing lines. It began developing the sorter for seed potatoes in 2019 with Uniekum and Wevano. Its product page gives a capacity of up to 1.5 tonnes per lane per hour.",
+ "hq": {
+  "city": "Emmeloord",
+  "country": "Netherlands"
+ },
+ "machines": [
+  "U-Vision optical potato sorter: sorts potatoes and onions by size and quality using several cameras",
+  "U-Vision: separates clods and stones from unwashed and seed potatoes",
+  "Processing-line control: software and PLC control running a whole potato and onion processing line",
+  "Complete sorting lines and bunker installations built around U-Vision, usually with Wevano"
+ ],
+ "plants": [
+  {
+   "town": "Emmeloord",
+   "country": "Netherlands"
+  }
+ ],
+ "markets": [
+  "Netherlands",
+  "Germany",
+  "United Kingdom (Scotland)",
+  "New Zealand"
+ ],
+ "facts": [
+  "Development of the U-Vision sorter for seed potatoes began in 2019 with Uniekum and Wevano",
+  "U-Vision capacity: up to 1.5 tonnes per lane per hour (product page)",
+  "Home page: sorts up to 16 tonnes per hour after installation to customer requirements",
+  "One 12-lane U-Vision for unwashed seed potatoes: 15 tonnes per hour",
+  "Lane counts named in projects: 8-lane, 12-lane and a double 12-lane (24-lane) machine"
+ ],
+ "contact": {
+  "website": "https://inovaa.nl/",
+  "public_email": "info@inovaa.nl",
+  "phone": "0527-794525",
+  "address": "Inovaa BV, Ecopark 51-08, 8305 BJ Emmeloord, Netherlands"
+ },
+ "limitations": [
+  "Founding year, ownership, staff numbers and revenue are not published on the pages read.",
+  "Camera count, use of NIR or AI, number of exits and dimensions of U-Vision are not published, and capacity figures differ between pages.",
+  "No project has a year, and most have no location."
+ ]
+}

@@ -1,0 +1,39 @@
+{
+ "common_name": "Pataad",
+ "summary": "Pataad is a farm-based maker of fresh, pre-fried fries for the hospitality sector, based in Haps, Noord-Brabant, Netherlands. Brothers Willem and Arjan Ardts grow the potatoes on their own fields and began processing them into fries in early 2022. The fries are delivered in cooled vehicles.",
+ "hq": {
+  "city": "Haps",
+  "country": "Netherlands"
+ },
+ "founded": "2022 (fries business, early 2022)",
+ "ownership": "Family business of the Ardts brothers",
+ "products": [
+  "Fresh pre-fried fries (verse friet) for hospitality",
+  "Free samples for hospitality businesses"
+ ],
+ "plants": [
+  {
+   "town": "Haps",
+   "country": "Netherlands"
+  }
+ ],
+ "markets": [
+  "Hospitality sector (horeca), supplied directly from the grower",
+  "Own delivery in cooled vehicles"
+ ],
+ "facts": [
+  "Began processing its own potatoes into fries in early 2022",
+  "Potatoes spend about 100 days in the ground on average before harvest",
+  "Fresh fries are packed in recycled crates"
+ ],
+ "contact": {
+  "website": "https://pataad.nl/",
+  "public_email": "info@pataad.nl",
+  "phone": "06 – 46 40 62 31",
+  "address": "Kampsestraat 49, 5443 NJ Haps, Netherlands"
+ },
+ "limitations": [
+  "The website has only a home page and a contact page and does not publish the legal name, KvK number, capacity, volumes, employee numbers or turnover.",
+  "Varieties, farm area, storage, delivery area, export markets, certifications and product details such as cuts, pack sizes and shelf life are not stated."
+ ]
+}

@@ -1,0 +1,81 @@
+{
+ "common_name": "Averis",
+ "summary": "Averis Seeds breeds, multiplies and trades starch potato varieties and supplies seed potatoes to starch potato growers in the Netherlands and Germany. It is based in Veendam and was formed in 2001 as a wholly-owned subsidiary of the potato starch cooperative Royal Avebe. It supplies at least 80% of the seed potatoes used by Avebe's growers.",
+ "hq": {
+  "city": "Veendam",
+  "country": "Netherlands"
+ },
+ "founded": "2001 (forerunner KARNA founded 1954)",
+ "ownership": "Wholly-owned subsidiary of Coöperatie Koninklijke Avebe U.A.",
+ "products": [
+  "Starch potato varieties (own, licensed and from affiliated growers)",
+  "Multiplication seed, class E (jumbo bags of 1,250 kg or 50 kg bags)",
+  "Starch seed, class A, on one- or two-year contracts",
+  "Seed potatoes for starch growers",
+  "Variety breeding and selection"
+ ],
+ "varieties": [
+  "Adelinde",
+  "Aletta",
+  "Altus",
+  "Antora",
+  "Aragon",
+  "Avamond",
+  "Avarna",
+  "Avatar",
+  "Aveka",
+  "Aveline",
+  "Avenger",
+  "Aventor",
+  "Aventus",
+  "Axion",
+  "BMC",
+  "Ebexa",
+  "Festien",
+  "Hermans",
+  "Seresta",
+  "Vermont",
+  "Merenco",
+  "Actaro",
+  "Aventra",
+  "Avici",
+  "Avito"
+ ],
+ "plants": [
+  {
+   "town": "Veendam",
+   "country": "Netherlands"
+  },
+  {
+   "town": "Valthermond",
+   "country": "Netherlands"
+  },
+  {
+   "town": "Visbek",
+   "country": "Germany"
+  }
+ ],
+ "markets": [
+  "Starch potato growing areas of the Netherlands",
+  "Starch potato growing areas of Germany",
+  "Avebe member starch potato growers",
+  "Emsland Stärke growers (Germany)"
+ ],
+ "facts": [
+  "Supplies at least 80% of the seed potatoes used by Avebe's growers",
+  "Breeding clones are tested for at least six years before larger trials",
+  "Over 70% of seed potatoes are delivered between February and May",
+  "NAK-ATR multiplication charged at EUR 1,000 per hectare in advance",
+  "Farm-saved-seed fee: EUR 34.40 per hectare (2026), rising to EUR 50.00 (2029)"
+ ],
+ "contact": {
+  "website": "https://www.averis.nl",
+  "public_email": "info@averis.nl",
+  "phone": "+31 598 66 91 11",
+  "address": "Prins Hendrikplein 20, 9641 GK Veendam, the Netherlands"
+ },
+ "limitations": [
+  "Seed hectares, tonnes, number of contract growers, employees, turnover and management names are not published on the pages read.",
+  "Export countries, research partners and use of minitubers or tissue culture are not stated."
+ ]
+}

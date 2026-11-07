@@ -1,0 +1,39 @@
+{
+ "common_name": "GEGE",
+ "summary": "GEGE Machinebouw is a Dutch machine builder in Uden that makes custom machines and processing lines for vegetable, fruit, horticulture and food processing. For potatoes it names a washing and sorting machine for thin-skinned early potatoes and says it builds custom lines for potato processors. Its website gives the founding year as both 1999 and 1991.",
+ "hq": {
+  "city": "Uden",
+  "country": "Netherlands"
+ },
+ "founded": "1991 or 1999 (the website states both)",
+ "machines": [
+  "Washing and sorting machine for early potatoes: washes, sorts and crates thin-skinned potatoes",
+  "Custom potato processing lines: machines and lines built to order for potato processors"
+ ],
+ "plants": [
+  {
+   "town": "Uden",
+   "country": "Netherlands"
+  }
+ ],
+ "markets": [
+  "Processing companies worldwide (no countries named)"
+ ],
+ "certifications": [],
+ "facts": [
+  "Member of the Koninklijke Metaalunie (Royal Metal Union)",
+  "Chamber of Commerce (KvK) number 170.72.424",
+  "Mushroom grading machine capacity stated as about 10 – 15 tonnes per hour (mushrooms, not potatoes)"
+ ],
+ "contact": {
+  "website": "https://www.gegebv.nl/en/",
+  "public_email": "info@gegebv.nl",
+  "phone": "+31 (0) 413 - 365 219",
+  "address": "Koperslagerstraat 6, 5405 BS Uden, Netherlands"
+ },
+ "limitations": [
+  "Ownership, employee numbers, turnover and named potato customers or installations are not published on the pages read.",
+  "No capacity, model name or technology details are given for the potato washing and sorting machine.",
+  "The website gives two different founding years, 1999 and 1991."
+ ]
+}

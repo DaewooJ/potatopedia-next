@@ -1,0 +1,63 @@
+{
+ "common_name": "TopSeed",
+ "summary": "TopSeed breeds, produces and exports seed potatoes, offering varieties for the fresh market and the processing industry. It is based in Almere, the Netherlands, and was founded in 2004. It grows seed stock from minitubers and pre-basic seed in the Dutch clay polders, with contract growers abroad.",
+ "hq": {
+  "city": "Almere",
+  "country": "Netherlands"
+ },
+ "founded": "2004",
+ "products": [
+  "Seed potatoes for export",
+  "Seed potato production from minitubers",
+  "Varieties for crisps processing",
+  "Varieties for fresh consumption",
+  "Organic seed potato varieties",
+  "Varieties not listed on the site, on request"
+ ],
+ "varieties": [
+  "Atlantic",
+  "Lady Rosetta",
+  "Hermes",
+  "Saturna",
+  "Shepody",
+  "Cara",
+  "Spunta",
+  "Santé",
+  "Nicola",
+  "Monalisa",
+  "Désirée",
+  "Diamant",
+  "Draga",
+  "Jaerla",
+  "Kennebec",
+  "Texla"
+ ],
+ "plants": [
+  {
+   "town": "Almere",
+   "country": "Netherlands"
+  }
+ ],
+ "markets": [
+  "Southern Europe",
+  "Africa",
+  "Middle East",
+  "Far East"
+ ],
+ "facts": [
+  "Founded in 2004 in the Netherlands",
+  "16 varieties listed on the website",
+  "Technical staff have more than 35 years of experience in potato cultivation"
+ ],
+ "contact": {
+  "website": "https://www.topseed.nl/",
+  "public_email": "info@topseed.nl",
+  "phone": "+31 (0)36 2022 130",
+  "address": "Transistorstraat 31, 1322 CK Almere, The Netherlands"
+ },
+ "limitations": [
+  "Ownership, staff numbers, hectares, tonnes, certification classes and revenue are not published on the pages read.",
+  "The website does not say which of the listed varieties TopSeed bred or holds rights to, and gives traits for only three of them.",
+  "The site's copyright notice reads 2017, and different pages give different phone numbers, so some details may be out of date."
+ ]
+}
