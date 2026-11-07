@@ -167,7 +167,7 @@ export default async function HomePage() {
               <p className="hp-eyebrow hp-eyebrow-dk">02 · The potato chain</p>
               <h2 id="hp-chain-h" className="hp-h2">Where in the chain <em>are you?</em></h2>
             </div>
-            <p className="hp-aside">Pick a stage. Ask about it, find the companies that serve it, or get three quotes for the machine you need.</p>
+            <p className="hp-aside">Pick a stage. Ask about it, find the companies that serve it, or learn how to choose the right machine.</p>
           </div>
           <ChainSection />
         </div>

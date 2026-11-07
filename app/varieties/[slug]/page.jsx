@@ -268,7 +268,7 @@ export default async function VarietyDetailPage({ params }) {
             <div className="panel">
               <p className="k" style={{ marginBottom: 8 }}>Find certified seed</p>
               <p className="panel-t">Source certified {v.name} seed</p>
-              <p className="panel-s">Tell us the quantity and destination, and we will put your request to seed suppliers.</p>
+              <p className="panel-s">Tell us the quantity and destination. We reply within one working day.</p>
               <LeadForm
                 dark
                 compact
@@ -280,7 +280,7 @@ export default async function VarietyDetailPage({ params }) {
                   { name: "volume", label: "Quantity", placeholder: "e.g. 25 tonnes" },
                   { name: "destination", label: "Destination", placeholder: "Country or region" },
                 ]}
-                submitLabel="Request seed quotes"
+                submitLabel="Send seed enquiry"
               />
             </div>
             <FeaturedSlot kicker="Featured breeder · available" title="Your variety set, labelled" sub="Breeders can sponsor their varieties' dossiers. Facts on this page never change." />

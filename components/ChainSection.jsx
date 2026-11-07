@@ -1,18 +1,19 @@
 "use client";
 
 import { useState } from "react";
-import LeadForm from "./LeadForm";
 
 // "Where in the chain are you?" Six stages; each has three tabs: ask (questions go to the hero answer engine),
-// find suppliers (directory categories), get 3 quotes (machine_quote lead form, machine pre-selected).
+// find suppliers (directory categories), how to choose (buying questions for that stage's machine, answered by the
+// hero engine). "Get 3 quotes" is parked until supplier quotes go live (Devendra, 7 Nov 2026).
 const STAGES = [
-  { name: "Seed", questions: ["What is seed potato certification?", "How do I choose a seed potato variety for my region?", "What is true potato seed?"], suppliers: ["Seed breeders", "Certified seed houses", "Tissue-culture labs"], machine: "Seed cutter" },
-  { name: "Field", questions: ["How much fertilizer do potatoes need?", "How do I control late blight in potatoes?", "How much water does a potato crop need?"], suppliers: ["Planters", "Irrigation", "Crop protection"], machine: "Planter" },
-  { name: "Harvest", questions: ["When should potato haulms be killed before harvest?", "How do I reduce bruising at potato harvest?", "Which potato harvester suits stony soil?"], suppliers: ["Harvesters", "Haulm toppers", "Field graders"], machine: "Harvester" },
-  { name: "Storage", questions: ["What temperature suits processing potatoes in storage?", "How long can potatoes stay in cold storage?", "How do I stop potatoes sprouting in store?"], suppliers: ["Cold storage", "Ventilation", "Sprout control"], machine: "Cold storage / ventilation" },
-  { name: "Processing", questions: ["Which potato variety is best for French fries?", "What dry matter do potato chips need?", "How do optical sorters find defects in potatoes?"], suppliers: ["Optical sorters", "Fry and chip lines", "Washers and peelers"], machine: "Optical / AI sorter" },
-  { name: "Market", questions: ["Which countries import the most potatoes?", "Who are the biggest buyers of frozen fries?", "Why did potato prices rise in 2024?"], suppliers: ["Traders and exporters", "Packing and weighing", "Logistics"], machine: "Packing / weighing" },
+  { name: "Seed", questions: ["What is seed potato certification?", "How do I choose a seed potato variety for my region?", "What is true potato seed?"], suppliers: ["Seed breeders", "Certified seed houses", "Tissue-culture labs"], machine: "Seed cutter", machineName: "seed potato cutter" },
+  { name: "Field", questions: ["How much fertilizer do potatoes need?", "How do I control late blight in potatoes?", "How much water does a potato crop need?"], suppliers: ["Planters", "Irrigation", "Crop protection"], machine: "Planter", machineName: "potato planter" },
+  { name: "Harvest", questions: ["When should potato haulms be killed before harvest?", "How do I reduce bruising at potato harvest?", "Which potato harvester suits stony soil?"], suppliers: ["Harvesters", "Haulm toppers", "Field graders"], machine: "Harvester", machineName: "potato harvester" },
+  { name: "Storage", questions: ["What temperature suits processing potatoes in storage?", "How long can potatoes stay in cold storage?", "How do I stop potatoes sprouting in store?"], suppliers: ["Cold storage", "Ventilation", "Sprout control"], machine: "Cold storage / ventilation", machineName: "potato cold store and ventilation system" },
+  { name: "Processing", questions: ["Which potato variety is best for French fries?", "What dry matter do potato chips need?", "How do optical sorters find defects in potatoes?"], suppliers: ["Optical sorters", "Fry and chip lines", "Washers and peelers"], machine: "Optical / AI sorter", machineName: "optical potato sorter" },
+  { name: "Market", questions: ["Which countries import the most potatoes?", "Who are the biggest buyers of frozen fries?", "Why did potato prices rise in 2024?"], suppliers: ["Traders and exporters", "Packing and weighing", "Logistics"], machine: "Packing / weighing", machineName: "potato packing and weighing line" },
 ];
+const an = (w) => (/^[aeiou]/i.test(w) ? `an ${w}` : `a ${w}`);
 const MACHINES = ["Optical / AI sorter", "Size grader", "Washer / peeler", "Fry, chip or flake line", "Seed cutter", "Planter", "Harvester", "Haulm topper", "Cold storage / ventilation", "Irrigation", "Packing / weighing", "Other"];
 
 export default function ChainSection() {
@@ -41,7 +42,7 @@ export default function ChainSection() {
 
       <div className="ch-panel">
         <div className="ch-tabs" role="tablist">
-          {[`Ask about ${s.name.toLowerCase()}`, "Find suppliers", "Get 3 quotes"].map((label, i) => (
+          {[`Ask about ${s.name.toLowerCase()}`, "Find suppliers", "How to choose"].map((label, i) => (
             <button key={label} type="button" role="tab" aria-selected={i === tab} className={`ch-tab${i === tab ? " is-on" : ""}`} onClick={() => setTab(i)}>{label}</button>
           ))}
         </div>
@@ -77,18 +78,25 @@ export default function ChainSection() {
             </div>
           )}
           {tab === 2 && (
-            <LeadForm
-              key={s.machine}
-              type="machine_quote"
-              submitLabel="Get 3 quotes"
-              messageLabel="Anything else (crop, variety, current set-up)?"
-              extra={[
-                { name: "product", label: "Machine", options: MACHINES, defaultValue: s.machine },
-                { name: "capacity_tph", label: "Capacity (tonnes per hour)", placeholder: "e.g. 10" },
-                { name: "timeline", label: "When?", options: ["Within 3 months", "3–6 months", "6–12 months", "Just researching"] },
-                { name: "problem", label: "Stage", options: STAGES.map((x) => x.name), defaultValue: s.name },
-              ]}
-            />
+            <div className="ch-cols">
+              <div style={{ flex: 1.5 }}>
+                {[
+                  `How do I choose ${an(s.machineName)}?`,
+                  `Which specifications matter most in ${an(s.machineName)}?`,
+                  `What maintenance does ${an(s.machineName)} need?`,
+                ].map((q) => (
+                  <button key={q} type="button" className="ch-q hp-row" onClick={() => ask(q)}>
+                    <span>{q}</span>
+                    <span className="hp-arrow ch-arr">→</span>
+                  </button>
+                ))}
+              </div>
+              <a href="/advertise" className="ch-feat">
+                <span className="ch-k">FOR MAKERS</span>
+                <span className="ch-feat-t">Make {s.machineName}s?</span>
+                <span className="ch-small">Be the featured maker at the {s.name.toLowerCase()} stage, clearly labelled. Supplier quote requests open later.</span>
+              </a>
+            </div>
           )}
         </div>
       </div>

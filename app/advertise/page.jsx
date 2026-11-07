@@ -29,7 +29,7 @@ async function getStats() {
 }
 
 const PRODUCTS = [
-  { n: "01", price: "$2,000", unit: "per year, per stage", name: "Featured maker", who: "Machinery makers", what: "Your company in a labelled slot at the stage of the potato chain you serve (seed, field, harvest, storage, processing, market), with the quote requests from that stage." },
+  { n: "01", price: "$2,000", unit: "per year, per stage", name: "Featured maker", who: "Machinery makers", what: "Your company in a labelled slot at the stage of the potato chain you serve (seed, field, harvest, storage, processing, market)." },
   { n: "02", price: "$2,500", unit: "per year", name: "Breeder variety set", who: "Seed breeders and seed houses", what: "Your varieties' dossiers carry your labelled breeder card and a seed-request button. The traits and facts on the page never change." },
   { n: "03", price: "$400", unit: "per question, per year", name: "Own a question", who: "Any potato company", what: "One labelled card under the neutral, sourced answer to a question your buyers ask, on the answer page and in the answer engine." },
   { n: "04", price: "$250", unit: "per article", name: "Publish with us", who: "Any potato company", what: "A partner article, clearly marked \"Published with us\", shared in the newsletter. Partner content is never mixed into the neutral knowledge base." },
