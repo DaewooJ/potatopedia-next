@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { DIRECTORY_PUBLIC } from "../lib/directory-flag";
 
 // Premium chrome (7 Nov 2026): serif wordmark (replaces the red potato icon), quiet text nav,
-// "Ask Potatopedia…" pill to /ask and an Advertise pill to /advertise (rate card).
+// "Ask Potatopedia…" pill to /ask and a "For companies" pill to /for-companies (hub; /advertise is reached from the hub and the footer).
 const LINKS = [
   { href: "/varieties", label: "Varieties", match: ["/varieties"] },
   { href: "/countries", label: "Countries", match: ["/countries", "/country"] },
@@ -56,7 +56,7 @@ export default function Navigation() {
         </nav>
         <div className="pn-right">
           <Link href="/ask" className="pn-ask">Ask Potatopedia…</Link>
-          <Link href="/advertise" className="pn-adv">Advertise</Link>
+          <Link href="/for-companies" className="pn-adv">For companies</Link>
           <button
             type="button"
             className="pn-burger"
@@ -80,7 +80,7 @@ export default function Navigation() {
             <Link key={l.href} href={l.href} className={on(l) ? "is-on" : undefined}>{l.label}</Link>
           ))}
           <Link href="/about" className={pathname === "/about" ? "is-on" : undefined}>About</Link>
-          <Link href="/advertise" className="pn-panel-adv">Advertise</Link>
+          <Link href="/for-companies" className="pn-panel-adv">For companies</Link>
         </nav>
       )}
     </header>

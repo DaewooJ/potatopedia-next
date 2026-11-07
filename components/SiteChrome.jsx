@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import Navigation from "./Navigation";
 import Footer from "./Footer";
 import ThemeFab from "./ThemeFab";
+import SuggestCorrection from "./SuggestCorrection";
 
 // Routes that manage their own full-screen header/layout and shouldn't be
 // wrapped in the global nav + footer (e.g. /ask has its own fixed header
@@ -23,6 +24,7 @@ export default function SiteChrome({ children }) {
     <div className="pp">
       <Navigation />
       <main>{children}</main>
+      <SuggestCorrection />
       <Footer />
       <ThemeFab target="html" defaultTheme="light" storageKey="pp-read-theme" />
     </div>

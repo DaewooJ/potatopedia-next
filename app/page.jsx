@@ -118,7 +118,7 @@ export default async function HomePage() {
               <Link href="/companies">Companies</Link>
               <Link href="/blog">Blog</Link>
             </nav>
-            <a href="/advertise" className="hp-adv">Advertise</a>
+            <a href="/for-companies" className="hp-adv">For companies</a>
             <details className="hp-menu">
               <summary aria-label="Menu">
                 <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 6h12M3 12h12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" /></svg>
@@ -132,7 +132,7 @@ export default async function HomePage() {
                 <Link href="/machines">Machines</Link>
                 <Link href="/companies">Companies</Link>
                 <Link href="/blog">Blog</Link>
-                <a href="/advertise">Advertise</a>
+                <a href="/for-companies">For companies</a>
               </div>
             </details>
           </header>
@@ -244,6 +244,8 @@ export default async function HomePage() {
           <span className="hp-foot-logo">Potatopedia</span>
           <span>Sources: FAOSTAT · USDA · CIP · UN Comtrade · CPRI · Europatat · peer-reviewed journals</span>
           <nav aria-label="Footer" className="hp-foot-links">
+            <a href="/for-companies">For companies</a>
+            <a href="/for-companies#correct">Submit or correct data</a>
             <a href="/advertise">Advertise</a>
             <Link href="/about">About</Link>
             <Link href="/contact">Contact</Link>
@@ -259,7 +261,7 @@ export default async function HomePage() {
       <ThemeFab />
       <nav className="hp-bar" aria-label="Quick actions">
         <a href="#ar-q">Ask</a>
-        <a href="/advertise" className="hp-bar-alt">Advertise</a>
+        <a href="/for-companies" className="hp-bar-alt">For companies</a>
       </nav>
     </div>
   );
