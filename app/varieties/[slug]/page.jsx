@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ppCSS } from "../../../lib/styles";
+import LeadForm from "../../../components/LeadForm";
+import { Figures, FeaturedSlot } from "../../../components/Editorial";
+import { latestProduction, worldRank, fmtMt, LATEST_YEAR } from "../../../lib/production";
 import {
   VARIETIES,
-  USE_COLORS,
-  TIER_COLORS,
+
   getVarietyBySlug,
   getCountrySlugFromOrigin,
   getRelatedLinks,
@@ -57,7 +58,6 @@ export default async function VarietyDetailPage({ params }) {
   const country = countrySlug ? COUNTRIES.find((c) => c.slug === countrySlug) : null;
   const relatedLinks = getRelatedLinks(v);
   const relatedVarieties = getRelatedVarieties(v, 4);
-  const tc = v.tier ? TIER_COLORS[v.tier] : null;
   const yearMatch = v.year ? String(v.year).match(/\d{4}/) : null;
   const releaseYear = yearMatch ? yearMatch[0] : null;
 
@@ -137,213 +137,191 @@ export default async function VarietyDetailPage({ params }) {
     mainEntity: faqItems.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
   };
 
+  // ── Dossier figures and traits: only what our register holds; anything else says so. ──
+  const NA = "Not published in our sources";
+  const originPlace = (v.origin || "").replace(/\s*\(.*?\)\s*/g, " ").trim();
+  const shortUse = (u) => (u === "Frying / Fries" ? "Fries" : String(u).split("/")[0].trim());
+  const countryProd = country ? latestProduction(country.slug) : null;
+  const countryRank = country ? worldRank(country.slug) : null;
+  const figures = [
+    releaseYear ? { n: releaseYear, l: `Released${originPlace ? " · " + originPlace : ""}` } : { n: originPlace || "—", l: "Origin" },
+    v.uses?.length ? { n: shortUse(v.uses[0]), l: "Main use" } : null,
+    countryProd != null ? { n: fmtMt(countryProd), l: `${country.name} harvest · FAOSTAT ${LATEST_YEAR}` } : null,
+    v.tier ? { n: v.tier, l: "Classification · Potatopedia" } : { n: v.region, l: "Region" },
+  ].filter(Boolean);
+  const traitRows = [
+    ["Origin", v.origin],
+    ["Region", v.region],
+    ["Released", releaseYear],
+    ["Best uses", (v.uses || []).join(" · ")],
+    ["Skin / flesh", null],
+    ["Tuber shape", null],
+    ["Maturity", null],
+    ["Dry matter", null],
+    ["Disease resistance", null],
+    ["Breeder", null],
+  ];
+  const rivals = getRelatedVarieties(v, 3);
+  const nameWords = v.name.split(/\s+/);
+  const enrichment = getEnrichmentSections(v, relatedVarieties);
+
   return (
-    <div style={{ minHeight: "100vh", background: "#FFFFFF", color: "#1A1A1A", overflowX: "hidden" }}>
-      <style>{ppCSS}{`
-        .pp-variety-detail-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 36px; }
-        .pp-variety-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-        .pp-variety-related { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-        @media (max-width: 768px) {
-          .pp-variety-detail-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
-          .pp-variety-stats { grid-template-columns: 1fr 1fr !important; }
-          .pp-variety-related { grid-template-columns: 1fr !important; }
-        }
-      `}</style>
+    <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
 
-      <article style={{ maxWidth: 1000, margin: "0 auto", padding: "40px 48px 80px" }} className="pp-section">
-        {/* Breadcrumb / back */}
-        <Link href="/varieties" style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: 13, color: "#888", textDecoration: "none", marginBottom: 20 }}>
-          <span>←</span> All varieties
-        </Link>
-
-        {/* Hero */}
-        <header style={{ marginBottom: 28 }}>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 8, alignItems: "center", marginBottom: 14 }}>
-            <span style={{ display: "inline-block", fontSize: 10, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 2, background: "rgba(198,40,40,0.06)", padding: "5px 12px", borderRadius: 14 }}>{v.region}</span>
-            {tc && (
-              <span style={{ fontSize: 10, fontWeight: 700, padding: "5px 12px", borderRadius: 14, background: tc.bg, color: tc.fg, textTransform: "uppercase", letterSpacing: 1 }}>{v.tier}</span>
-            )}
-            {releaseYear && (
-              <span style={{ fontSize: 12, color: "#999" }}>Released {releaseYear}</span>
-            )}
+      <section className="dz-top">
+        <p className="crumb">
+          <Link href="/varieties">Varieties</Link><span aria-hidden="true">/</span>{v.region}<span aria-hidden="true">/</span>{v.name}
+        </p>
+        <div className="dz-hero">
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <p className="eyebrow rise">Variety dossier · {v.region}</p>
+            <h1 className="dz-h1 rise">
+              {nameWords.length > 1 ? (
+                <>{nameWords.slice(0, -1).join(" ")} <em>{nameWords[nameWords.length - 1]}</em></>
+              ) : v.name}
+            </h1>
+            <p className="dz-lede">{v.trait}</p>
           </div>
-          <h1 style={{ fontSize: 42, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1.4, lineHeight: 1.15, marginBottom: 10 }}>{v.name}</h1>
-          <p style={{ fontSize: 16, color: "#666", lineHeight: 1.6, maxWidth: 720 }}>{v.trait}</p>
-        </header>
+        </div>
+        <Figures items={figures} label={`${v.name} at a glance`} />
+      </section>
 
-        <div className="pp-variety-detail-grid">
-          {/* Main column */}
-          <div>
-            {/* At a glance */}
-            <div style={{ marginBottom: 28 }}>
-              <h2 style={{ fontSize: 14, fontWeight: 700, color: "#999", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 12 }}>At a glance</h2>
-              <div className="pp-variety-stats">
-                <div style={{ background: "#FAFAFA", border: "1px solid #ececec", borderRadius: 10, padding: "14px 16px" }}>
-                  <div style={{ fontSize: 11, fontWeight: 600, color: "#999", textTransform: "uppercase", letterSpacing: 1, marginBottom: 4 }}>Origin</div>
-                  <div style={{ fontSize: 14, fontWeight: 600, color: "#1A1A1A" }}>{v.origin}</div>
-                </div>
-                <div style={{ background: "#FAFAFA", border: "1px solid #ececec", borderRadius: 10, padding: "14px 16px" }}>
-                  <div style={{ fontSize: 11, fontWeight: 600, color: "#999", textTransform: "uppercase", letterSpacing: 1, marginBottom: 4 }}>Region</div>
-                  <div style={{ fontSize: 14, fontWeight: 600, color: "#1A1A1A" }}>{v.region}</div>
-                </div>
-                {releaseYear && (
-                  <div style={{ background: "#FAFAFA", border: "1px solid #ececec", borderRadius: 10, padding: "14px 16px" }}>
-                    <div style={{ fontSize: 11, fontWeight: 600, color: "#999", textTransform: "uppercase", letterSpacing: 1, marginBottom: 4 }}>Released</div>
-                    <div style={{ fontSize: 14, fontWeight: 600, color: "#1A1A1A" }}>{releaseYear}</div>
-                  </div>
-                )}
-                {v.tier && (
-                  <div style={{ background: "#FAFAFA", border: "1px solid #ececec", borderRadius: 10, padding: "14px 16px" }}>
-                    <div style={{ fontSize: 11, fontWeight: 600, color: "#999", textTransform: "uppercase", letterSpacing: 1, marginBottom: 4 }}>Classification</div>
-                    <div style={{ fontSize: 14, fontWeight: 600, color: "#1A1A1A" }}>{v.tier}</div>
-                  </div>
-                )}
-              </div>
-            </div>
+      <section className="dz-body">
+        <div className="dz-cols">
+          <div className="dz-main">
+            <h2 className="dz-h2">Traits</h2>
+            <table className="dz-table">
+              <tbody>
+                {traitRows.map(([k, val]) => (
+                  <tr key={k}>
+                    <th scope="row">{k}</th>
+                    <td className={val ? undefined : "dz-na"}>{val || NA}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
 
-            {/* Best uses */}
-            {v.uses && v.uses.length > 0 && (
-              <div style={{ marginBottom: 28 }}>
-                <h2 style={{ fontSize: 14, fontWeight: 700, color: "#999", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 12 }}>Best uses</h2>
-                <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
-                  {v.uses.map((u) => {
-                    const c = USE_COLORS[u] || { bg: "rgba(120,120,120,0.08)", fg: "#666" };
-                    return (
-                      <span key={u} style={{ fontSize: 12, fontWeight: 600, color: c.fg, background: c.bg, padding: "6px 14px", borderRadius: 16 }}>{u}</span>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
-
-            {/* Description / context */}
-            <div style={{ marginBottom: 28 }}>
-              <h2 style={{ fontSize: 14, fontWeight: 700, color: "#999", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 12 }}>About this variety</h2>
-              <p style={{ fontSize: 15, color: "#444", lineHeight: 1.75, marginBottom: 14 }}>{v.trait}</p>
-              <p style={{ fontSize: 13, color: "#888", lineHeight: 1.6 }}>
-                <strong>{v.name}</strong> is classified as a {v.region.toLowerCase()} variety
+            <div className="dz-sec dz-prose">
+              <h2 className="dz-h2">About this variety</h2>
+              <p>{v.trait}</p>
+              <p style={{ fontSize: 15, color: "var(--mute)" }}>
+                <strong style={{ fontWeight: 500, color: "var(--ink)" }}>{v.name}</strong> is classified as a {v.region.toLowerCase()} variety
                 {releaseYear ? ` released in ${releaseYear}` : ""}
                 {v.uses && v.uses.length ? `, primarily used for ${v.uses.slice(0, 3).map(u => u.toLowerCase()).join(", ")}` : ""}.
-                For agronomic specs, breeder details, and trial data not yet captured here, refer to the source registries linked at the bottom of this page.
+                For agronomic specs, breeder details, and trial data not yet captured here, refer to the source registries listed at the bottom of this page.
               </p>
             </div>
 
-            {/* Compare CTA */}
-            <div style={{ marginBottom: 24, padding: "16px 20px", background: "#FAFAFA", border: "1px solid #ececec", borderRadius: 10, display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, flexWrap: "wrap" }}>
-              <div>
-                <div style={{ fontSize: 13, fontWeight: 700, color: "#1A1A1A", marginBottom: 2 }}>Compare {v.name} with another variety</div>
-                <div style={{ fontSize: 12, color: "#888" }}>Side-by-side: origin, year, region, uses, traits.</div>
-              </div>
-              <Link href={`/varieties/compare?ids=${v.slug}`} style={{ display: "inline-block", padding: "9px 18px", borderRadius: 10, background: "#C62828", color: "#fff", fontSize: 12, fontWeight: 700, textDecoration: "none", whiteSpace: "nowrap" }}>
-                Compare →
-              </Link>
-            </div>
-
-            {/* Cross-links */}
-            {relatedLinks.length > 0 && (
-              <div style={{ marginBottom: 28, padding: "20px 24px", background: "rgba(198,40,40,0.03)", border: "1px solid rgba(198,40,40,0.12)", borderRadius: 12 }}>
-                <div style={{ fontSize: 11, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 10 }}>Read deeper</div>
-                <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-                  {relatedLinks.map((l, i) => (
-                    <Link key={i} href={l.href} style={{ fontSize: 14, color: "#C62828", textDecoration: "none", fontWeight: 500, lineHeight: 1.5 }}>
-                      → {l.text}
+            {rivals.length > 0 && (
+              <div className="dz-sec">
+                <h2 className="dz-h2">Nearest rivals</h2>
+                <div className="dz-rivals">
+                  {rivals.map((rv) => (
+                    <Link key={rv.slug} href={`/varieties/${rv.slug}`} className="card" style={{ padding: 18 }}>
+                      <span className="dz-rival-n">{rv.name}</span>
+                      <span className="dz-rival-m">
+                        {[(rv.origin || "").replace(/\s*\(.*?\)\s*/g, " ").trim(), rv.year, rv.uses?.[0] ? shortUse(rv.uses[0]).toLowerCase() : null].filter(Boolean).join(" · ")}
+                      </span>
                     </Link>
                   ))}
                 </div>
+                <p style={{ margin: "18px 0 0" }}>
+                  <Link href={`/varieties/compare?ids=${v.slug}`} className="gl">Compare {v.name} with another variety <span className="arr">→</span></Link>
+                </p>
               </div>
             )}
+
+            {relatedLinks.length > 0 && (
+              <nav className="ed-links" aria-label="Read deeper">
+                <p className="k">Read deeper</p>
+                {relatedLinks.map((l, i) => (
+                  <Link key={i} href={l.href}>{l.text} <span className="arr">→</span></Link>
+                ))}
+              </nav>
+            )}
+
+            {/* Enrichment sections (D1) — hand-crafted for top 12 marquee varieties; templated for next 50 */}
+            {enrichment && enrichment.map((sec) => (
+              <div key={sec.id} id={sec.id} className="dz-sec dz-prose">
+                <h2 className="dz-h2">{sec.heading}</h2>
+                {sec.paragraphs.map((p, i) => (
+                  <p key={i} dangerouslySetInnerHTML={{ __html: p }} />
+                ))}
+              </div>
+            ))}
+
+            {/* FAQ section — server-rendered to match the FAQPage JSON-LD schema */}
+            <div className="dz-sec dz-faq">
+              <h2 className="dz-h2">Questions about {v.name}</h2>
+              {faqItems.map((it, i) => (
+                <details key={i}>
+                  <summary><span>{it.q}</span><span aria-hidden="true">+</span></summary>
+                  <p>{it.a}</p>
+                </details>
+              ))}
+            </div>
           </div>
 
-          {/* Sidebar */}
-          <aside>
+          <aside className="dz-aside">
+            <div className="panel">
+              <p className="k" style={{ marginBottom: 8 }}>Find certified seed</p>
+              <p className="panel-t">Source certified {v.name} seed</p>
+              <p className="panel-s">Tell us the quantity and destination, and we will put your request to seed suppliers.</p>
+              <LeadForm
+                dark
+                compact
+                type="trade"
+                hidden={{ product: v.name }}
+                askCountry={false}
+                askMessage={false}
+                extra={[
+                  { name: "volume", label: "Quantity", placeholder: "e.g. 25 tonnes" },
+                  { name: "destination", label: "Destination", placeholder: "Country or region" },
+                ]}
+                submitLabel="Request seed quotes"
+              />
+            </div>
+            <FeaturedSlot kicker="Featured breeder · available" title="Your variety set, labelled" sub="Breeders can sponsor their varieties' dossiers. Facts on this page never change." />
+            <div className="card" style={{ padding: 22 }}>
+              <p className="k" style={{ marginBottom: 10 }}>Ask about this variety</p>
+              <form action="/ask" method="get" role="search" style={{ display: "flex", gap: 8 }}>
+                <label className="pp-sr" htmlFor="v-ask">Your question about {v.name}</label>
+                <input id="v-ask" name="q" required placeholder={`Is ${v.name} good for hot climates?`} style={{ flex: 1, minWidth: 0, border: "1px solid var(--line2)", borderRadius: 12, padding: "12px", font: "inherit", fontSize: 14, background: "var(--card)", color: "var(--ink)" }} />
+                <button type="submit" className="btn-red" style={{ minHeight: 44, padding: "0 16px" }}>Ask</button>
+              </form>
+            </div>
             {country && (
-              <div style={{ marginBottom: 24, padding: "20px 22px", background: "#fff", border: "1px solid #ececec", borderRadius: 12 }}>
-                <div style={{ fontSize: 11, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 10 }}>Origin country</div>
-                <Link href={`/country/${country.slug}`} style={{ display: "flex", alignItems: "center", gap: 12, textDecoration: "none", color: "inherit" }}>
-                  <span style={{ fontSize: 32 }}>{country.flag}</span>
-                  <div>
-                    <div style={{ fontSize: 15, fontWeight: 700, color: "#1A1A1A" }}>{country.name}</div>
-                    <div style={{ fontSize: 11, color: "#999", marginTop: 2 }}>#{country.rank} producer · {country.prod} t</div>
-                  </div>
-                </Link>
-                <div style={{ fontSize: 12, color: "#888", marginTop: 12, lineHeight: 1.55 }}>{country.highlight}</div>
-                <Link href={`/country/${country.slug}`} style={{ display: "inline-block", marginTop: 12, fontSize: 12, color: "#C62828", fontWeight: 600, textDecoration: "none" }}>
-                  Explore {country.name} →
-                </Link>
-              </div>
-            )}
-
-            {/* Related varieties */}
-            {relatedVarieties.length > 0 && (
-              <div style={{ padding: "20px 22px", background: "#fff", border: "1px solid #ececec", borderRadius: 12 }}>
-                <div style={{ fontSize: 11, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 14 }}>Related varieties</div>
-                <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-                  {relatedVarieties.map((rv) => (
-                    <Link key={rv.slug} href={`/varieties/${rv.slug}`} style={{ display: "block", textDecoration: "none", color: "inherit", padding: "10px 12px", borderRadius: 8, background: "#FAFAFA", border: "1px solid #f0f0f0" }}>
-                      <div style={{ fontSize: 13, fontWeight: 700, color: "#1A1A1A", marginBottom: 2 }}>{rv.name}</div>
-                      <div style={{ fontSize: 11, color: "#999" }}>{rv.region}{rv.year ? ` · ${rv.year}` : ""}</div>
-                    </Link>
-                  ))}
-                </div>
-              </div>
+              <Link href={`/country/${country.slug}`} className="card" style={{ padding: 22 }}>
+                <span className="card-k">Origin country</span>
+                <span className="card-t">{country.name}</span>
+                <span className="card-s">
+                  {countryProd != null ? `${fmtMt(countryProd)} in ${LATEST_YEAR}${countryRank ? ` · #${countryRank} world producer` : ""} (FAOSTAT)` : country.highlight}
+                </span>
+                <span className="gl" style={{ display: "inline-block", marginTop: 10, fontSize: 14 }}>Explore {country.name} <span className="arr">→</span></span>
+              </Link>
             )}
           </aside>
         </div>
+      </section>
 
-        {/* Enrichment sections (D1) — hand-crafted for top 12 marquee varieties; templated for next 50 */}
-        {(() => {
-          const sections = getEnrichmentSections(v, relatedVarieties);
-          if (!sections) return null;
-          return (
-            <section style={{ marginTop: 36, paddingTop: 24, borderTop: "1px solid #f0f0f0" }}>
-              {sections.map((sec) => (
-                <div key={sec.id} id={sec.id} style={{ marginBottom: 24 }}>
-                  <h2 style={{ fontSize: 18, fontWeight: 700, color: "#1A1A1A", letterSpacing: -0.3, marginBottom: 12 }}>{sec.heading}</h2>
-                  {sec.paragraphs.map((p, i) => (
-                    <p key={i} style={{ fontSize: 14.5, color: "#444", lineHeight: 1.75, marginBottom: 12 }} dangerouslySetInnerHTML={{ __html: p }} />
-                  ))}
-                </div>
-              ))}
-            </section>
-          );
-        })()}
-
-        {/* FAQ section — server-rendered to match the FAQPage JSON-LD schema */}
-        <section style={{ marginTop: 40, paddingTop: 28, borderTop: "1px solid #f0f0f0" }}>
-          <h2 style={{ fontSize: 18, fontWeight: 700, color: "#1A1A1A", marginBottom: 14 }}>Frequently asked questions about {v.name}</h2>
-          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-            {faqItems.map((it, i) => (
-              <details key={i} style={{ padding: "14px 18px", borderRadius: 10, border: "1px solid #f0f0f0", background: "#FAFAFA" }}>
-                <summary style={{ cursor: "pointer", listStyle: "none", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 10 }}>
-                  <span style={{ fontSize: 13.5, fontWeight: 600, color: "#1A1A1A", lineHeight: 1.4 }}>{it.q}</span>
-                  <span style={{ fontSize: 14, color: "#C62828", flexShrink: 0 }}>+</span>
-                </summary>
-                <p style={{ fontSize: 13, color: "#555", lineHeight: 1.7, marginTop: 10 }}>{it.a}</p>
-              </details>
-            ))}
-          </div>
-        </section>
-
-        {/* Methodology footer */}
-        <div style={{ marginTop: 40, padding: "24px 0 0", borderTop: "1px solid #f0f0f0" }}>
-          <div style={{ fontSize: 11, fontWeight: 700, color: "#999", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 8 }}>Sources & methodology</div>
-          <p style={{ fontSize: 13, color: "#888", lineHeight: 1.65, marginBottom: 10 }}>
+      <section className="dz-srcband" aria-label="Sources and methodology">
+        <div className="dz-srcband-in">
+          <p className="k">Sources &amp; methodology</p>
+          <span>
             Variety profiles aggregate data from CIP Lima genebank, ICAR-CPRI variety catalogue, EU Common Catalogue, USDA PVPO, AHDB Potato Variety Database, NIAB, NAK Netherlands, the Potato Pedigree Database, national breeding programmes (CAAS, EARO, BARI, INTA, EMBRAPA, INIFAP, IHAR-PIB, VNIIKKH), and peer-reviewed literature in Potato Research and the American Journal of Potato Research.
-          </p>
-          <p style={{ fontSize: 12, color: "#999", marginBottom: 12, fontStyle: "italic" }}>
-            Updated {UPDATED_SHORT} · Reviewed by Potatopedia editorial team{wikidata ? ` · Linked to Wikidata for cross-reference` : ""}.
-          </p>
-          <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-            <Link href="/varieties" style={{ fontSize: 13, color: "#C62828", fontWeight: 600, textDecoration: "none" }}>← Browse all 244 varieties</Link>
-            <Link href="/about" style={{ fontSize: 13, color: "#888", fontWeight: 500, textDecoration: "none" }}>About our methodology →</Link>
-            {wikidata && (
-              <a href={wikidata} rel="nofollow noopener" target="_blank" style={{ fontSize: 13, color: "#888", fontWeight: 500, textDecoration: "none" }}>View on Wikidata ↗</a>
-            )}
-          </div>
+          </span>
+          {countryProd != null && <span>{country.name} production {fmtMt(countryProd)}: FAOSTAT QCL {LATEST_YEAR}.</span>}
+          <span>Traits marked &ldquo;{NA}&rdquo; are not yet in our register; we do not estimate them.</span>
+          <span>Updated {UPDATED_SHORT} · Reviewed by Potatopedia editorial team{wikidata ? " · Linked to Wikidata for cross-reference" : ""}.</span>
+          <span style={{ display: "flex", gap: 18, flexWrap: "wrap" }}>
+            <Link href="/varieties" className="gl">Browse all {VARIETIES.length} varieties</Link>
+            <Link href="/about" className="gl">About our methodology</Link>
+            {wikidata && <a href={wikidata} rel="nofollow noopener" target="_blank" className="gl">View on Wikidata ↗</a>}
+          </span>
         </div>
-      </article>
-    </div>
+      </section>
+    </>
   );
 }

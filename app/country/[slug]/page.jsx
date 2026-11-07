@@ -10,6 +10,7 @@ import { getVarietiesByCountrySlug } from "../../../lib/varieties-data";
 import RelatedBlogPosts from "../../../components/RelatedBlogPosts";
 import CountryProfilePremium, { TrajectoryTable } from "../../../components/CountryProfilePremium";
 import { applyOgOverride } from "../../../lib/og-overrides";
+import CountryDossier from "../../../components/CountryDossier";
 
 const COUNTRY_TO_BLOGS = {
   "kenya": ["kenya-potato-boom-wpc-2026", "climate-change-rewriting-potato-map"],
@@ -216,13 +217,6 @@ const COUNTRY_WIKIDATA = {
 /* ── Standard country page (untouched for non-India routes) ── */
 
 function StandardCountryPage({ c, slug }) {
-  const statItems = [
-    { label: "Production", value: c.prod + " t", icon: "📦" },
-    { label: "Harvested Area", value: c.area, icon: "🌾" },
-    { label: "Yield", value: c.yield, icon: "📈" },
-    { label: "Per Capita", value: c.consumption, icon: "🍽️" },
-  ];
-
   const regionPeers = COUNTRIES.filter((x) => x.region === c.region && x.slug !== c.slug).slice(0, 4);
 
   const pageUrl = "https://www.potatopedia.com/country/" + slug;
@@ -295,35 +289,10 @@ function StandardCountryPage({ c, slug }) {
   };
 
   return (
-    <div className="pp-country-page" style={{ minHeight: "100vh", background: "var(--card)", overflowX: "hidden" }}>
+    <div className="pp-country-page" style={{ background: "transparent", overflowX: "hidden" }}>
       <style>{ppCSS}</style>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
-
-      <section style={{ paddingTop: 52, paddingBottom: 40, textAlign: "center", position: "relative", overflow: "hidden" }}>
-        <div style={{ position: "absolute", top: -100, left: "50%", transform: "translateX(-50%)", width: 600, height: 600, background: "radial-gradient(circle,rgba(154,114,56,0.04) 0%,transparent 70%)", borderRadius: "50%", pointerEvents: "none" }} />
-        <div style={{ maxWidth: 700, margin: "0 auto", padding: "0 24px", position: "relative" }}>
-          <Link href="/countries" style={{ fontSize: 13, color: "var(--gold)", textDecoration: "none", fontWeight: 500, marginBottom: 20, display: "inline-flex", alignItems: "center", gap: 6, padding: "6px 14px", borderRadius: 8, background: "rgba(154,114,56,0.04)", border: "1px solid rgba(154,114,56,0.1)" }}>&larr; All Countries</Link>
-          <div style={{ fontSize: 72, marginTop: 16, marginBottom: 12 }}>{c.flag}</div>
-          <h1 style={{ fontSize: 40, fontWeight: 800, color: "var(--ink)", letterSpacing: -1.5, marginBottom: 8, lineHeight: 1.15 }}>{c.name}</h1>
-          <div style={{ display: "inline-block", fontSize: 13, color: "var(--gold)", fontWeight: 600, background: "rgba(154,114,56,0.06)", borderRadius: 20, padding: "6px 18px", marginBottom: 16 }}>#{c.rank} Global Producer &middot; {c.region}</div>
-          <p style={{ fontSize: 16, color: "var(--mute)", lineHeight: 1.6, maxWidth: 520, margin: "0 auto" }}>{c.highlight}</p>
-        </div>
-      </section>
-
-      <section style={{ borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)", background: "var(--paper)" }}>
-        <div style={{ maxWidth: 800, margin: "0 auto", padding: "40px 48px" }}>
-          <div className="pp-stats-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 24 }}>
-            {statItems.map((s, i) => (
-              <div key={i} style={{ textAlign: "center" }}>
-                <div style={{ fontSize: 26, marginBottom: 4 }}>{s.icon}</div>
-                <div style={{ fontSize: 26, fontWeight: 800, color: "var(--ink)", letterSpacing: -0.5, lineHeight: 1 }}>{s.value}</div>
-                <div style={{ fontSize: 11, color: "var(--mute2)", fontWeight: 500, marginTop: 4, textTransform: "uppercase", letterSpacing: 1 }}>{s.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* 5-year FAOSTAT trajectory band — uses shared TrajectoryTable component */}
       <section style={{ background: "var(--card)", borderBottom: "1px solid var(--line)", padding: "32px 48px" }}>
@@ -552,7 +521,7 @@ function IndiaProfilePage({ c }) {
   const sourceLine = { fontSize: 12, color: "var(--mute2)", fontStyle: "italic", margin: "4px 0 0" };
 
   return (
-    <div className="pp-country-page pp-country-india" style={{ minHeight: "100vh", background: "var(--card)", overflowX: "hidden", fontFamily: "inherit" }}>
+    <div className="pp-country-page pp-country-india" style={{ background: "transparent", overflowX: "hidden", fontFamily: "inherit" }}>
       <style>{ppCSS}</style>
       <style>{printCSS}</style>
       <style>{`
@@ -613,7 +582,7 @@ function IndiaProfilePage({ c }) {
                   <span style={{ fontSize: 11, fontWeight: 600, color: "var(--ink2)", background: "rgba(0,0,0,0.05)", padding: "4px 10px", borderRadius: 4 }}>{c.region}</span>
                   <span style={{ fontSize: 11, fontWeight: 600, color: "var(--ink2)", background: "rgba(0,0,0,0.05)", padding: "4px 10px", borderRadius: 4 }}>FAOSTAT 2023</span>
                 </div>
-                <h1 style={{ fontSize: 44, fontWeight: 800, color: "var(--ink)", margin: 0, letterSpacing: -1.5, lineHeight: 1.1 }}>{c.name}</h1>
+                <h2 style={{ fontSize: 44, fontWeight: 800, color: "var(--ink)", margin: 0, letterSpacing: -1.5, lineHeight: 1.1 }}>{c.name}</h2>
                 <p className="pp-india-tagline" style={{ fontSize: 16, color: "var(--ink2)", margin: "10px 0 0", lineHeight: 1.5, maxWidth: 600 }}>
                   World&apos;s <strong>#2 potato producer</strong> at <strong style={{ color: "var(--gold)" }}>60.14 M tonnes</strong>. Uttar Pradesh leads at 33.5% of national output. Frozen French fry exports up <strong>30.9% in 2024</strong>.
                 </p>
@@ -1258,7 +1227,7 @@ function ChinaProfilePage({ c }) {
   const sourceLine = { fontSize: 12, color: "var(--mute2)", fontStyle: "italic", margin: "4px 0 0" };
 
   return (
-    <div className="pp-country-page pp-country-india" style={{ minHeight: "100vh", background: "var(--card)", overflowX: "hidden", fontFamily: "inherit" }}>
+    <div className="pp-country-page pp-country-india" style={{ background: "transparent", overflowX: "hidden", fontFamily: "inherit" }}>
       <style>{ppCSS}</style>
       <style>{printCSS}</style>
       <style>{`
@@ -1311,7 +1280,7 @@ function ChinaProfilePage({ c }) {
                   <span style={{ fontSize: 11, fontWeight: 600, color: "var(--ink2)", background: "rgba(0,0,0,0.05)", padding: "4px 10px", borderRadius: 4 }}>{c.region}</span>
                   <span style={{ fontSize: 11, fontWeight: 600, color: "var(--ink2)", background: "rgba(0,0,0,0.05)", padding: "4px 10px", borderRadius: 4 }}>FAOSTAT 2023</span>
                 </div>
-                <h1 style={{ fontSize: 44, fontWeight: 800, color: "var(--ink)", margin: 0, letterSpacing: -1.5, lineHeight: 1.1 }}>{c.name}</h1>
+                <h2 style={{ fontSize: 44, fontWeight: 800, color: "var(--ink)", margin: 0, letterSpacing: -1.5, lineHeight: 1.1 }}>{c.name}</h2>
                 <p className="pp-india-tagline" style={{ fontSize: 16, color: "var(--ink2)", margin: "10px 0 0", lineHeight: 1.5, maxWidth: 600 }}>
                   World&apos;s <strong>#1 potato producer</strong> at <strong style={{ color: "var(--gold)" }}>93.49 M tonnes</strong> &mdash; 24.4% of global output. Net exporter of frozen French fries since 2022. The 2015 Staple Food Strategy elevated potato to China&apos;s 4th national staple.
                 </p>
@@ -1854,7 +1823,7 @@ function BelgiumProfilePage({ c }) {
   const sourceLine = { fontSize: 12, color: "var(--mute2)", fontStyle: "italic", margin: "4px 0 0" };
 
   return (
-    <div className="pp-country-page pp-country-india" style={{ minHeight: "100vh", background: "var(--card)", overflowX: "hidden", fontFamily: "inherit" }}>
+    <div className="pp-country-page pp-country-india" style={{ background: "transparent", overflowX: "hidden", fontFamily: "inherit" }}>
       <style>{ppCSS}</style>
       <style>{printCSS}</style>
       <style>{`
@@ -1906,7 +1875,7 @@ function BelgiumProfilePage({ c }) {
                   <span style={{ fontSize: 11, fontWeight: 600, color: "var(--ink2)", background: "rgba(0,0,0,0.05)", padding: "4px 10px", borderRadius: 4 }}>{c.region}</span>
                   <span style={{ fontSize: 11, fontWeight: 600, color: "var(--ink2)", background: "rgba(0,0,0,0.05)", padding: "4px 10px", borderRadius: 4 }}>FAOSTAT 2023</span>
                 </div>
-                <h1 style={{ fontSize: 44, fontWeight: 800, color: "var(--ink)", margin: 0, letterSpacing: -1.5, lineHeight: 1.1 }}>{c.name}</h1>
+                <h2 style={{ fontSize: 44, fontWeight: 800, color: "var(--ink)", margin: 0, letterSpacing: -1.5, lineHeight: 1.1 }}>{c.name}</h2>
                 <p className="pp-india-tagline" style={{ fontSize: 16, color: "var(--ink2)", margin: "10px 0 0", lineHeight: 1.5, maxWidth: 600 }}>
                   World&apos;s <strong>#1 frozen French fry exporter</strong> at <strong style={{ color: "var(--gold)" }}>$4.6 billion</strong>. 8.61 M tonnes domestic + 1.5&ndash;2 M tonnes imported raw, processed by 5+ major plants in the Westhoek region of West Flanders.
                 </p>
@@ -2425,7 +2394,7 @@ function NetherlandsProfilePage({ c }) {
   const sourceLine = { fontSize: 12, color: "var(--mute2)", fontStyle: "italic", margin: "4px 0 0" };
 
   return (
-    <div className="pp-country-page pp-country-india" style={{ minHeight: "100vh", background: "var(--card)", overflowX: "hidden", fontFamily: "inherit" }}>
+    <div className="pp-country-page pp-country-india" style={{ background: "transparent", overflowX: "hidden", fontFamily: "inherit" }}>
       <style>{ppCSS}</style>
       <style>{printCSS}</style>
       <style>{`
@@ -2478,7 +2447,7 @@ function NetherlandsProfilePage({ c }) {
                   <span style={{ fontSize: 11, fontWeight: 600, color: "var(--ink2)", background: "rgba(0,0,0,0.05)", padding: "4px 10px", borderRadius: 4 }}>{c.region}</span>
                   <span style={{ fontSize: 11, fontWeight: 600, color: "var(--ink2)", background: "rgba(0,0,0,0.05)", padding: "4px 10px", borderRadius: 4 }}>Eurostat 2023</span>
                 </div>
-                <h1 style={{ fontSize: 44, fontWeight: 800, color: "var(--ink)", margin: 0, letterSpacing: -1.5, lineHeight: 1.1 }}>{c.name}</h1>
+                <h2 style={{ fontSize: 44, fontWeight: 800, color: "var(--ink)", margin: 0, letterSpacing: -1.5, lineHeight: 1.1 }}>{c.name}</h2>
                 <p className="pp-india-tagline" style={{ fontSize: 16, color: "var(--ink2)", margin: "10px 0 0", lineHeight: 1.5, maxWidth: 600 }}>
                   World&apos;s <strong style={{ color: "var(--gold)" }}>#1 seed-potato exporter</strong> &mdash; over 60% of the global certified-seed market. Home to HZPC, Agrico, Solynta, and AVEBE. The Silicon Valley of the global potato industry.
                 </p>
@@ -3023,7 +2992,7 @@ function UnitedStatesProfilePage({ c }) {
   const sourceLine = { fontSize: 12, color: "var(--mute2)", fontStyle: "italic", margin: "4px 0 0" };
 
   return (
-    <div className="pp-country-page pp-country-india" style={{ minHeight: "100vh", background: "var(--card)", overflowX: "hidden", fontFamily: "inherit" }}>
+    <div className="pp-country-page pp-country-india" style={{ background: "transparent", overflowX: "hidden", fontFamily: "inherit" }}>
       <style>{ppCSS}</style>
       <style>{printCSS}</style>
       <style>{`
@@ -3075,7 +3044,7 @@ function UnitedStatesProfilePage({ c }) {
                   <span style={{ fontSize: 11, fontWeight: 600, color: "var(--ink2)", background: "rgba(0,0,0,0.05)", padding: "4px 10px", borderRadius: 4 }}>{c.region}</span>
                   <span style={{ fontSize: 11, fontWeight: 600, color: "var(--ink2)", background: "rgba(0,0,0,0.05)", padding: "4px 10px", borderRadius: 4 }}>USDA NASS 2023</span>
                 </div>
-                <h1 style={{ fontSize: 44, fontWeight: 800, color: "var(--ink)", margin: 0, letterSpacing: -1.5, lineHeight: 1.1 }}>{c.name}</h1>
+                <h2 style={{ fontSize: 44, fontWeight: 800, color: "var(--ink)", margin: 0, letterSpacing: -1.5, lineHeight: 1.1 }}>{c.name}</h2>
                 <p className="pp-india-tagline" style={{ fontSize: 16, color: "var(--ink2)", margin: "10px 0 0", lineHeight: 1.5, maxWidth: 600 }}>
                   World&apos;s <strong style={{ color: "var(--gold)" }}>highest potato yield at 51.4 t/ha</strong> &mdash; nearly 2.3&times; the global average. Idaho + Washington alone produce 55% of the US crop. Lamb Weston, Simplot, and McCain power a $5 B industry that exports $2.3 B / yr.
                 </p>
@@ -3579,7 +3548,7 @@ function KenyaProfilePage({ c }) {
   ];
 
   return (
-    <div style={{ minHeight: "100vh", background: "var(--card)", color: "var(--ink)" }}>
+    <div style={{ background: "transparent", color: "var(--ink)" }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@graph": jsonLdGraph }) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqItems.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) }) }} />
 
@@ -3609,9 +3578,9 @@ function KenyaProfilePage({ c }) {
             <span style={{ fontSize: 12, color: "var(--mute2)" }}>·</span>
             <span style={{ fontSize: 12, color: "var(--mute2)" }}>14 min read</span>
           </div>
-          <h1 style={{ fontSize: 34, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1.18, margin: "0 0 12px", maxWidth: 920 }}>
+          <h2 style={{ fontSize: 34, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1.18, margin: "0 0 12px", maxWidth: 920 }}>
             Kenya Potato Industry: East Africa&apos;s Largest Producer &amp; Host of World Potato Congress 2026
-          </h1>
+          </h2>
 
           <div className="pp-ke-wpc-banner">
             <div className="pp-ke-wpc-badge">Host Country 2026</div>
@@ -8149,98 +8118,103 @@ export default async function CountryProfilePage({ params }) {
   if (!c) notFound();
 
   if (slug === "india") {
-    return <IndiaProfilePage c={c} />;
+    return <CountryDossier c={c} slug={slug}><IndiaProfilePage c={c} /></CountryDossier>;
   }
   if (slug === "china") {
-    return <ChinaProfilePage c={c} />;
+    return <CountryDossier c={c} slug={slug}><ChinaProfilePage c={c} /></CountryDossier>;
   }
   if (slug === "belgium") {
-    return <BelgiumProfilePage c={c} />;
+    return <CountryDossier c={c} slug={slug}><BelgiumProfilePage c={c} /></CountryDossier>;
   }
   if (slug === "netherlands") {
-    return <NetherlandsProfilePage c={c} />;
+    return <CountryDossier c={c} slug={slug}><NetherlandsProfilePage c={c} /></CountryDossier>;
   }
   if (slug === "united-states") {
-    return <UnitedStatesProfilePage c={c} />;
+    return <CountryDossier c={c} slug={slug}><UnitedStatesProfilePage c={c} /></CountryDossier>;
   }
   if (slug === "kenya") {
-    return <KenyaProfilePage c={c} />;
+    return <CountryDossier c={c} slug={slug}><KenyaProfilePage c={c} /></CountryDossier>;
   }
   if (slug === "turkey") {
-    return <TurkeyProfilePage c={c} />;
+    return <CountryDossier c={c} slug={slug}><TurkeyProfilePage c={c} /></CountryDossier>;
   }
   if (slug === "iran") {
-    return <IranProfilePage c={c} />;
+    return <CountryDossier c={c} slug={slug}><IranProfilePage c={c} /></CountryDossier>;
   }
   if (slug === "algeria") {
-    return <AlgeriaProfilePage c={c} />;
+    return <CountryDossier c={c} slug={slug}><AlgeriaProfilePage c={c} /></CountryDossier>;
   }
   if (slug === "uzbekistan") {
-    return <UzbekistanProfilePage c={c} />;
+    return <CountryDossier c={c} slug={slug}><UzbekistanProfilePage c={c} /></CountryDossier>;
   }
   if (slug === "colombia") {
-    return <ColombiaProfilePage c={c} />;
+    return <CountryDossier c={c} slug={slug}><ColombiaProfilePage c={c} /></CountryDossier>;
   }
   if (slug === "pakistan") {
-    return <PakistanProfilePage c={c} />;
+    return <CountryDossier c={c} slug={slug}><PakistanProfilePage c={c} /></CountryDossier>;
   }
   if (slug === "bangladesh") {
-    return <BangladeshProfilePage c={c} />;
+    return <CountryDossier c={c} slug={slug}><BangladeshProfilePage c={c} /></CountryDossier>;
   }
   if (slug === "nepal") {
-    return <NepalProfilePage c={c} />;
+    return <CountryDossier c={c} slug={slug}><NepalProfilePage c={c} /></CountryDossier>;
   }
   if (slug === "indonesia") {
-    return <IndonesiaProfilePage c={c} />;
+    return <CountryDossier c={c} slug={slug}><IndonesiaProfilePage c={c} /></CountryDossier>;
   }
   if (slug === "australia") {
-    return <AustraliaProfilePage c={c} />;
+    return <CountryDossier c={c} slug={slug}><AustraliaProfilePage c={c} /></CountryDossier>;
   }
   if (slug === "south-africa") {
-    return <SouthAfricaProfilePage c={c} />;
+    return <CountryDossier c={c} slug={slug}><SouthAfricaProfilePage c={c} /></CountryDossier>;
   }
   if (slug === "egypt") {
-    return <EgyptProfilePage c={c} />;
+    return <CountryDossier c={c} slug={slug}><EgyptProfilePage c={c} /></CountryDossier>;
   }
   if (slug === "peru") {
-    return <PeruProfilePage c={c} />;
+    return <CountryDossier c={c} slug={slug}><PeruProfilePage c={c} /></CountryDossier>;
   }
   if (slug === "canada") {
-    return <CanadaProfilePage c={c} />;
+    return <CountryDossier c={c} slug={slug}><CanadaProfilePage c={c} /></CountryDossier>;
   }
   if (slug === "united-kingdom") {
-    return <UnitedKingdomProfilePage c={c} />;
+    return <CountryDossier c={c} slug={slug}><UnitedKingdomProfilePage c={c} /></CountryDossier>;
   }
   if (slug === "france") {
-    return <FranceProfilePage c={c} />;
+    return <CountryDossier c={c} slug={slug}><FranceProfilePage c={c} /></CountryDossier>;
   }
   if (slug === "germany") {
-    return <GermanyProfilePage c={c} />;
+    return <CountryDossier c={c} slug={slug}><GermanyProfilePage c={c} /></CountryDossier>;
   }
   if (slug === "ukraine") {
-    return <UkraineProfilePage c={c} />;
+    return <CountryDossier c={c} slug={slug}><UkraineProfilePage c={c} /></CountryDossier>;
   }
   if (slug === "russia") {
-    return <RussiaProfilePage c={c} />;
+    return <CountryDossier c={c} slug={slug}><RussiaProfilePage c={c} /></CountryDossier>;
   }
   if (slug === "poland") {
-    return <PolandProfilePage c={c} />;
+    return <CountryDossier c={c} slug={slug}><PolandProfilePage c={c} /></CountryDossier>;
   }
   if (slug === "mexico") {
-    return <MexicoProfilePage c={c} />;
+    return <CountryDossier c={c} slug={slug}><MexicoProfilePage c={c} /></CountryDossier>;
   }
   if (slug === "brazil") {
-    return <BrazilProfilePage c={c} />;
+    return <CountryDossier c={c} slug={slug}><BrazilProfilePage c={c} /></CountryDossier>;
   }
   if (slug === "denmark") {
-    return <DenmarkProfilePage c={c} />;
+    return <CountryDossier c={c} slug={slug}><DenmarkProfilePage c={c} /></CountryDossier>;
   }
   if (slug === "japan") {
-    return <JapanProfilePage c={c} />;
+    return <CountryDossier c={c} slug={slug}><JapanProfilePage c={c} /></CountryDossier>;
   }
   if (slug === "south-korea") {
-    return <SouthKoreaProfilePage c={c} />;
+    return <CountryDossier c={c} slug={slug}><SouthKoreaProfilePage c={c} /></CountryDossier>;
   }
 
-  return <StandardCountryPage c={c} slug={slug} />;
+  const extraFigures = [
+    c.area ? { n: c.area, l: "Harvested area" } : null,
+    c.yield ? { n: c.yield, l: "Average yield" } : null,
+    c.consumption ? { n: c.consumption, l: "Per-capita consumption" } : null,
+  ].filter(Boolean);
+  return <CountryDossier c={c} slug={slug} extraFigures={extraFigures}><StandardCountryPage c={c} slug={slug} /></CountryDossier>;
 }

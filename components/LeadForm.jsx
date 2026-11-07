@@ -13,12 +13,12 @@ const field = {
   padding: "12px 14px",
   fontSize: 15,
   fontFamily: "inherit",
-  border: "1px solid #D9D9D9",
+  border: "1px solid var(--line2)",
   borderRadius: 10,
-  background: "#fff",
-  color: "#1a1a1a",
+  background: "var(--card)",
+  color: "var(--ink)",
 };
-const label = { display: "block", fontSize: 13, fontWeight: 600, color: "#333", marginBottom: 6 };
+const label = { display: "block", fontSize: 13, fontWeight: 500, color: "var(--ink2)", marginBottom: 6 };
 
 export default function LeadForm({
   type,
@@ -70,11 +70,11 @@ export default function LeadForm({
 
   if (state === "done") {
     return (
-      <div role="status" style={{ padding: compact ? 16 : 24, border: dark ? "1px solid rgba(255,255,255,.14)" : "1px solid #EEE", borderRadius: 14, background: dark ? "rgba(255,255,255,.04)" : "#FAFAFA" }}>
-        <p style={{ margin: 0, fontSize: 16, fontWeight: 600, color: dark ? "#F4F1EC" : "#1a1a1a" }}>
+      <div role="status" style={{ padding: compact ? 16 : 24, border: dark ? "1px solid rgba(255,255,255,.14)" : "1px solid var(--line)", borderRadius: 14, background: dark ? "rgba(255,255,255,.04)" : "var(--paper)" }}>
+        <p style={{ margin: 0, fontSize: 16, fontWeight: 600, color: dark ? "#F4F1EC" : "var(--ink)" }}>
           {type === "newsletter" ? "Check your inbox to confirm your signup." : "Thank you, we have your request."}
         </p>
-        <p style={{ margin: "8px 0 0", fontSize: 14, color: dark ? "#B7B2AA" : "#555" }}>
+        <p style={{ margin: "8px 0 0", fontSize: 14, color: dark ? "#B7B2AA" : "var(--mute)" }}>
           {type === "newsletter" ? "One click in that mail and you're in." : `${REPLY_PROMISE} Your reference: ${ref}`}
         </p>
       </div>
@@ -85,8 +85,8 @@ export default function LeadForm({
 
   return (
     <form onSubmit={onSubmit} style={{ display: "grid", gap: 14 }} noValidate>
-      {title && <h3 style={{ margin: 0, fontSize: compact ? 18 : 22, fontWeight: dark ? 400 : 700, color: dark ? "#F4F1EC" : "#1a1a1a", fontFamily: dark ? "var(--hp-serif), Georgia, serif" : "inherit", ...(dark ? { fontSize: 30 } : {}) }}>{title}</h3>}
-      {intro && <p style={{ margin: 0, fontSize: 15, color: dark ? "#A9A49C" : "#555", lineHeight: 1.5 }}>{intro}</p>}
+      {title && <h3 style={{ margin: 0, fontSize: compact ? 22 : 26, color: dark ? "#F4F1EC" : "var(--ink)", fontFamily: "var(--hp-serif), Georgia, serif", fontWeight: 400, ...(dark ? { fontSize: 30 } : {}) }}>{title}</h3>}
+      {intro && <p style={{ margin: 0, fontSize: 15, color: dark ? "#A9A49C" : "var(--mute)", lineHeight: 1.5 }}>{intro}</p>}
 
       {hidden && Object.entries(hidden).map(([k, v]) => <input key={k} type="hidden" name={k} value={v || ""} />)}
 
@@ -167,7 +167,7 @@ export default function LeadForm({
         >
           {state === "sending" ? "Sending…" : submitLabel}
         </button>
-        {type !== "newsletter" && <span style={{ fontSize: 13, color: dark ? "#8E8A83" : "#666" }}>{REPLY_PROMISE}</span>}
+        {type !== "newsletter" && <span style={{ fontSize: 13, color: dark ? "#8E8A83" : "var(--mute2)" }}>{REPLY_PROMISE}</span>}
       </div>
     </form>
   );

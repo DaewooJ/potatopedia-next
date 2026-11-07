@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 
+// Thin gold reading-progress line at the top of the viewport (editorial template).
 export default function ReadingProgressBar() {
   const [progress, setProgress] = useState(0);
 
@@ -9,8 +10,8 @@ export default function ReadingProgressBar() {
     const handle = () => {
       const doc = document.documentElement;
       const total = doc.scrollHeight - doc.clientHeight;
-      const pct = total > 0 ? (window.scrollY / total) * 100 : 0;
-      setProgress(Math.max(0, Math.min(100, pct)));
+      const p = total > 0 ? window.scrollY / total : 0;
+      setProgress(Math.max(0, Math.min(1, p)));
     };
     handle();
     window.addEventListener("scroll", handle, { passive: true });
@@ -22,19 +23,8 @@ export default function ReadingProgressBar() {
   }, []);
 
   return (
-    <div
-      aria-hidden="true"
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        height: 3,
-        width: `${progress}%`,
-        background: "linear-gradient(90deg, #C62828, #E53935)",
-        zIndex: 200,
-        transition: "width 0.08s linear",
-        pointerEvents: "none",
-      }}
-    />
+    <div className="ed-prog" aria-hidden="true">
+      <span style={{ transform: `scaleX(${progress})` }} />
+    </div>
   );
 }

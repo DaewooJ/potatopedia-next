@@ -6,6 +6,7 @@ import BlogTOC from "../../../components/BlogTOC";
 import BlogShare from "../../../components/BlogShare";
 import { POTATOPEDIA_PUBLISHER, POTATOPEDIA_EDITORIAL, SPEAKABLE } from "../../../lib/authors";
 import { applyOgOverride } from "../../../lib/og-overrides";
+import { AccentTitle, SourceRoots, AskFollowUp, KeepReading } from "../../../components/Editorial";
 
 function slugifyHeading(s) {
   return (s || "").toLowerCase()
@@ -14,16 +15,6 @@ function slugifyHeading(s) {
     .trim()
     .replace(/\s+/g, "-")
     .replace(/-+/g, "-");
-}
-
-function toRoman(n) {
-  const map = [["X", 10], ["IX", 9], ["V", 5], ["IV", 4], ["I", 1]];
-  let r = "";
-  let x = n;
-  for (const [sym, val] of map) {
-    while (x >= val) { r += sym; x -= val; }
-  }
-  return r;
 }
 
 export function generateStaticParams() {
@@ -180,200 +171,113 @@ export default async function BlogPostPage({ params }) {
     ? new Date(post.updatedISO).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })
     : null;
 
+  // Sources: every "source" block of the post, split into individual citations.
+  const sourceItems = post.content.filter((b) => b.type === "source").flatMap((b) => splitSources(b.text)).map((s) => s.trim()).filter(Boolean);
+  const tocWithSources = sourceItems.length ? [...tocItems, { id: "sources", label: "Sources" }] : tocItems;
+
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        background: "#FFFFFF",
-        color: "#1A1A1A",
-        width: "100%",
-        overflowX: "hidden",
-        fontFamily: "'Poppins',sans-serif",
-      }}
-    >
+    <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       {blogFaqLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogFaqLd) }} />}
       <ReadingProgressBar />
-      <style>{`
-        .pp-blog-article { padding: 96px 24px 56px; max-width: 720px; margin: 0 auto; }
-        .pp-blog-h2-wrap { margin-top: 56px; margin-bottom: 18px; padding-bottom: 12px; border-bottom: 1px solid #ececec; }
-        .pp-blog-h2-num { display: block; font-size: 11px; font-weight: 700; color: #C62828; text-transform: uppercase; letter-spacing: 2.5px; margin-bottom: 6px; font-feature-settings: "smcp"; }
-        .pp-blog-h2 { font-size: 24px; font-weight: 700; color: #1A1A1A; letter-spacing: -0.4px; line-height: 1.25; margin: 0; }
-        .pp-blog-p { font-size: 17px; line-height: 1.72; color: #2c2c2c; margin-bottom: 22px; font-weight: 400; }
-        .pp-blog-p--drop::first-letter { font-size: 64px; font-weight: 800; float: left; line-height: 0.86; margin-right: 10px; margin-top: 5px; color: #1A1A1A; letter-spacing: -1px; }
-        .pp-blog-sources { margin-top: 48px; padding-top: 20px; border-top: 1px solid #ececec; }
-        .pp-blog-sources summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; font-size: 12px; font-weight: 600; color: #888; text-transform: uppercase; letter-spacing: 1.5px; padding: 4px 0; }
-        .pp-blog-sources summary::-webkit-details-marker { display: none; }
-        .pp-blog-sources summary:hover { color: #555; }
-        .pp-blog-sources-chevron { font-size: 13px; color: #bbb; transition: transform 0.18s ease; }
-        .pp-blog-sources[open] .pp-blog-sources-chevron { transform: rotate(180deg); }
-        .pp-blog-sources ul { list-style: none; padding: 0; margin: 14px 0 0; }
-        .pp-blog-sources li { font-size: 12.5px; color: #777; line-height: 1.6; padding: 6px 0; border-bottom: 1px solid #f5f5f5; }
-        .pp-blog-sources li:last-child { border-bottom: none; }
-        .pp-blog-related { margin-top: 64px; padding-top: 40px; border-top: 1px solid #ececec; }
-        .pp-blog-related-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
-        @media (max-width: 768px) {
-          .pp-blog-article { padding: 80px 18px 40px !important; }
-          .pp-blog-h2 { font-size: 21px !important; margin-top: 40px !important; }
-          .pp-blog-p { font-size: 16.5px !important; line-height: 1.7 !important; }
-          .pp-blog-related-grid { grid-template-columns: 1fr !important; }
-        }
-      `}</style>
 
-      <article className="pp-blog-article">
-        {/* Breadcrumb / back */}
-        <div style={{ marginBottom: 28, fontSize: 13, color: "#888" }}>
-          <Link href="/" style={{ color: "#888", textDecoration: "none" }}>Home</Link>
-          <span style={{ color: "#ddd", margin: "0 8px" }}>/</span>
-          <Link href="/blog" style={{ color: "#888", textDecoration: "none" }}>Blog</Link>
-          <span style={{ color: "#ddd", margin: "0 8px" }}>/</span>
-          <span style={{ color: "#C62828", fontWeight: 600 }}>{post.category}</span>
-        </div>
-
-        {/* Hero — typographic, no gradient card */}
-        <header style={{ marginBottom: 40 }}>
-          <span style={{ display: "inline-block", fontSize: 11, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 2, marginBottom: 14 }}>
-            {post.category}
-          </span>
-          <h1 style={{ fontSize: 44, fontWeight: 800, color: "#1A1A1A", letterSpacing: -1.6, lineHeight: 1.12, margin: "0 0 18px" }}>
-            {post.title}
-          </h1>
-          <p style={{ fontSize: 19, color: "#444", lineHeight: 1.55, fontWeight: 400, margin: "0 0 26px", maxWidth: 660 }}>
-            {post.excerpt}
+      <article className="ed">
+        <header className="ed-head">
+          <p className="eyebrow rise">
+            <Link href="/blog">Blog</Link> · {post.category}
           </p>
-          <div style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap", borderTop: "1px solid #ececec", borderBottom: "1px solid #ececec", padding: "16px 0", fontSize: 13, color: "#888" }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-              <div style={{ width: 28, height: 28, borderRadius: "50%", background: "linear-gradient(135deg,#C62828,#8E0000)", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 11, fontWeight: 800, letterSpacing: -0.5 }}>P</div>
-              <span style={{ color: "#444", fontWeight: 600 }}>Potatopedia Editorial</span>
-            </div>
-            <span style={{ color: "#ddd" }}>·</span>
+          <h1 className="ed-h1 rise"><AccentTitle title={post.title} /></h1>
+          <p className="ed-dek">{post.excerpt}</p>
+          <p className="ed-by">
+            Potatopedia Editorial<span className="dot">·</span>
             <time dateTime={isoDate}>{post.date}</time>
             {updatedDisplay && updatedDate !== isoDate && (
               <>
-                <span style={{ color: "#ddd" }}>·</span>
-                <span style={{ color: "#666" }}>Updated {updatedDisplay}</span>
+                <span className="dot">·</span>Updated {updatedDisplay}
               </>
             )}
-            <span style={{ color: "#ddd" }}>·</span>
-            <span>{post.readTime}</span>
-            <span style={{ color: "#ddd" }}>·</span>
-            <span>{wordCount.toLocaleString()} words</span>
-          </div>
-          <BlogShare url={pageUrl} title={post.title} />
+            <span className="dot">·</span>{post.readTime}
+            <span className="dot">·</span>{wordCount.toLocaleString()} words
+          </p>
         </header>
 
-        {/* Key takeaways */}
-        {keyTakeaways && keyTakeaways.length > 0 && (
-          <aside style={{ marginBottom: 32, padding: "20px 24px", background: "rgba(198,40,40,0.03)", border: "1px solid rgba(198,40,40,0.12)", borderRadius: 12 }}>
-            <div style={{ fontSize: 11, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 1.8, marginBottom: 12 }}>Key takeaways</div>
-            <ul style={{ margin: 0, paddingLeft: 22, color: "#333", fontSize: 14.5, lineHeight: 1.65 }}>
-              {keyTakeaways.map((t, i) => (
-                <li key={i} style={{ marginBottom: 6 }}>{t}</li>
-              ))}
-            </ul>
-          </aside>
+        {/* Photo slot: rendered only when the post carries a real, credited image. */}
+        {post.image && (
+          <figure className="ed-fig">
+            <img src={post.image} alt={post.imageAlt || ""} loading="eager" />
+            {post.imageCredit && <figcaption>{post.imageCredit}</figcaption>}
+          </figure>
         )}
 
-        {/* Table of contents (auto-collapses on short posts via component) */}
-        <BlogTOC items={tocItems} />
+        <div className="ed-cols">
+          <BlogTOC items={tocWithSources}>
+            <BlogShare url={pageUrl} title={post.title} />
+          </BlogTOC>
 
-        {/* Content blocks */}
-        {(() => {
-          let h2n = 0;
-          let firstP = true;
-          const longForm = true; // drop-cap applies to every blog post
-          return post.content.map((block, i) => {
-          if (block.type === "h2") {
-            h2n += 1;
-            const hid = headingIdFor(block.text);
-            return (
-              <div key={i} className="pp-blog-h2-wrap">
-                <span className="pp-blog-h2-num">{toRoman(h2n)} · Section</span>
-                <h2 id={hid} className="pp-blog-h2">{block.text}</h2>
-              </div>
-            );
-          }
-          if (block.type === "source") {
-            const items = splitSources(block.text);
-            return (
-              <details key={i} className="pp-blog-sources">
-                <summary>
-                  <span>Sources &amp; methodology ({items.length})</span>
-                  <span className="pp-blog-sources-chevron" aria-hidden="true">▾</span>
-                </summary>
+          <div className="ed-main">
+            <BlogTOC items={tocWithSources} variant="inline" />
+
+            {keyTakeaways && keyTakeaways.length > 0 && (
+              <aside className="ed-take" aria-label="Key takeaways">
+                <p className="k">Key takeaways</p>
                 <ul>
-                  {items.map((s, j) => (
-                    <li key={j}>{s.trim()}</li>
+                  {keyTakeaways.map((t, i) => (
+                    <li key={i}>{t}</li>
                   ))}
                 </ul>
-              </details>
-            );
-          }
-          if (block.type === "links") {
-            return (
-              <div key={i} style={{ margin: "32px 0", padding: "20px 24px", background: "rgba(198,40,40,0.03)", border: "1px solid rgba(198,40,40,0.12)", borderRadius: 12 }}>
-                {block.title && (
-                  <div style={{ fontSize: 11, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 10 }}>
-                    {block.title}
-                  </div>
-                )}
-                <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-                  {(block.items || []).map((it, j) => (
-                    <Link key={j} href={it.href} style={{ fontSize: 14, color: "#C62828", textDecoration: "none", fontWeight: 500, lineHeight: 1.5 }}>
-                      → {it.text}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            );
-          }
-          const isFirstP = block.type === "p" && firstP;
-          if (block.type === "p") firstP = false;
-          const cls = "pp-blog-p" + (isFirstP && longForm ? " pp-blog-p--drop" : "");
-          return (
-            <p key={i} className={cls}>{block.text}</p>
-          );
-        });
-        })()}
+              </aside>
+            )}
 
-        {/* Quiet attribution close */}
-        <section style={{ marginTop: 56, padding: "28px 0 8px", borderTop: "1px solid #ececec" }}>
-          <div style={{ display: "flex", alignItems: "flex-start", gap: 14 }}>
-            <div style={{ width: 44, height: 44, borderRadius: "50%", background: "linear-gradient(135deg,#C62828,#8E0000)", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 17, fontWeight: 800, letterSpacing: -0.5, flexShrink: 0 }}>P</div>
-            <div>
-              <div style={{ fontSize: 14, fontWeight: 700, color: "#1A1A1A", marginBottom: 2 }}>Potatopedia Editorial</div>
-              <div style={{ fontSize: 13, color: "#666", lineHeight: 1.6 }}>
-                The verified knowledge base for the global potato industry. 5,657 data points, 277 authoritative sources, 204 countries, 244 varieties &mdash; with cited AI Q&amp;A. <Link href="/about" style={{ color: "#C62828", textDecoration: "none", fontWeight: 600 }}>About our methodology →</Link>
+            {(() => {
+              let firstP = true;
+              let sourcesShown = false;
+              return post.content.map((block, i) => {
+                if (block.type === "h2") {
+                  const hid = headingIdFor(block.text);
+                  return <h2 key={i} id={hid} className="ed-h2">{block.text}</h2>;
+                }
+                if (block.type === "source") {
+                  if (sourcesShown) return null;
+                  sourcesShown = true;
+                  return <SourceRoots key={i} items={sourceItems} />;
+                }
+                if (block.type === "links") {
+                  return (
+                    <nav key={i} className="ed-links" aria-label={block.title || "Related on Potatopedia"}>
+                      <p className="k">{block.title || "Related on Potatopedia"}</p>
+                      {(block.items || []).map((it, j) => (
+                        <Link key={j} href={it.href}>{it.text} <span className="arr">→</span></Link>
+                      ))}
+                    </nav>
+                  );
+                }
+                const isFirstP = block.type === "p" && firstP;
+                if (block.type === "p") firstP = false;
+                return (
+                  <p key={i} className={"ed-p" + (isFirstP ? " ed-drop" : "")}>{block.text}</p>
+                );
+              });
+            })()}
+
+            <AskFollowUp placeholder={`Ask about ${post.category.toLowerCase()}…`} />
+
+            <section className="ed-author" aria-label="About the author">
+              <span className="ed-mono" aria-hidden="true">P</span>
+              <div>
+                <p className="ed-author-n">Potatopedia Editorial</p>
+                <p className="ed-author-s">
+                  The verified knowledge base for the global potato industry. 5,657 data points, 277 authoritative sources, 204 countries, 244 varieties &mdash; with cited AI Q&amp;A. <Link href="/about" className="gl">About our methodology <span className="arr">→</span></Link>
+                </p>
               </div>
-            </div>
+            </section>
           </div>
-        </section>
-
-        {/* Related posts */}
-        {relatedPosts.length > 0 && (
-          <section className="pp-blog-related">
-            <div style={{ marginBottom: 18 }}>
-              <span style={{ display: "inline-block", fontSize: 11, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 2, marginBottom: 6 }}>Continue reading</span>
-              <h2 style={{ fontSize: 22, fontWeight: 800, color: "#1A1A1A", letterSpacing: -0.6, margin: 0 }}>More from Potatopedia</h2>
-            </div>
-            <div className="pp-blog-related-grid">
-              {relatedPosts.map((p) => (
-                <Link key={p.slug} href={"/blog/" + p.slug} style={{ display: "block", textDecoration: "none", color: "inherit", padding: "18px 20px", border: "1px solid #ececec", borderRadius: 12, background: "#fff" }}>
-                  <div style={{ fontSize: 10, fontWeight: 700, color: "#C62828", textTransform: "uppercase", letterSpacing: 1.2, marginBottom: 8 }}>{p.category}</div>
-                  <div style={{ fontSize: 15, fontWeight: 700, color: "#1A1A1A", lineHeight: 1.35, marginBottom: 8 }}>{p.title}</div>
-                  <div style={{ fontSize: 12, color: "#888", lineHeight: 1.5, marginBottom: 10 }}>{p.excerpt.length > 100 ? p.excerpt.slice(0, 100) + "…" : p.excerpt}</div>
-                  <div style={{ fontSize: 11, color: "#aaa" }}>{p.date} · {p.readTime}</div>
-                </Link>
-              ))}
-            </div>
-            <div style={{ marginTop: 18, textAlign: "center" }}>
-              <Link href="/blog" style={{ display: "inline-block", padding: "10px 22px", borderRadius: 10, border: "1px solid #C62828", color: "#C62828", fontSize: 13, fontWeight: 600, textDecoration: "none" }}>
-                Browse all 20 articles →
-              </Link>
-            </div>
-          </section>
-        )}
+        </div>
       </article>
-    </div>
+
+      <KeepReading
+        items={relatedPosts.map((p) => ({ href: "/blog/" + p.slug, kicker: p.category, title: p.title, sub: `${p.date} · ${p.readTime}` }))}
+        more={{ href: "/blog", label: `Browse all ${BLOG_POSTS.length} stories` }}
+      />
+    </>
   );
 }

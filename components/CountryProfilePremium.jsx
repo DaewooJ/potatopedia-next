@@ -249,7 +249,7 @@ export default function CountryProfilePremium({ data }) {
   ];
 
   return (
-    <div style={{ minHeight: "100vh", background: "var(--card)", color: "var(--ink)" }}>
+    <div style={{ background: "transparent", color: "var(--ink)" }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@graph": jsonLdGraph }) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqItems.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) }) }} />
 
@@ -272,7 +272,7 @@ export default function CountryProfilePremium({ data }) {
             <span style={{ fontSize: 12, color: "var(--mute2)" }}>·</span>
             <span style={{ fontSize: 12, color: "var(--mute2)" }}>{readMin} min read</span>
           </div>
-          <h1 style={{ fontSize: 34, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1.18, margin: "0 0 12px", maxWidth: 920 }} dangerouslySetInnerHTML={{ __html: h1 }} />
+          <h2 style={{ fontSize: 34, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1.18, margin: "0 0 12px", maxWidth: 920 }} dangerouslySetInnerHTML={{ __html: h1 }} />
           {accentLabel && <p style={{ fontSize: 14, color: "var(--mute)", margin: 0, maxWidth: 760, lineHeight: 1.6 }}>{accentLabel}</p>}
         </div>
       </section>
