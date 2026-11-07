@@ -1,0 +1,26 @@
+{
+  "india": {
+    "edition": "2026-11",
+    "pages": 10,
+    "file": "reports/india-2026-11.pdf",
+    "name": "India"
+  },
+  "china": {
+    "edition": "2026-11",
+    "pages": 10,
+    "file": "reports/china-2026-11.pdf",
+    "name": "China"
+  },
+  "united-states": {
+    "edition": "2026-11",
+    "pages": 10,
+    "file": "reports/united-states-2026-11.pdf",
+    "name": "United States"
+  },
+  "netherlands": {
+    "edition": "2026-11",
+    "pages": 10,
+    "file": "reports/netherlands-2026-11.pdf",
+    "name": "Netherlands"
+  }
+}

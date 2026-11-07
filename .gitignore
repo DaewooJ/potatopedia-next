@@ -57,3 +57,6 @@ __pycache__/
 # in Notion (Image file property). Handoff doc + mapping JSON are tracked;
 # the PNGs themselves are not.
 content/linkedin_images/**/*.png
+
+# Generated country report PDFs/HTML (private; never commit, repo is public)
+/reports-out/

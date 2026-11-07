@@ -2,6 +2,7 @@ import { neon } from "@neondatabase/serverless";
 import { SESv2Client, SendEmailCommand } from "@aws-sdk/client-sesv2";
 import { LEAD_TYPES, LEAD_DETAILS, REPORT_ROLES, emailType, validateExtra } from "@/lib/leads";
 import { signReportToken } from "@/lib/report-token";
+import REPORTS from "@/lib/reports-manifest.json";
 import { COUNTRIES } from "@/lib/data";
 
 // Every Potatopedia lead: (1) saved to Neon `leads` first so nothing is lost if mail fails,
@@ -166,7 +167,9 @@ export async function POST(req) {
         const mid = await send(
           row.email,
           "Your Potatopedia country report",
-          `<p>Hello ${esc(row.name)},</p><p>Thank you for your interest. Open your report here (valid for 7 days):</p><p><a href="${link}">Get the ${esc(reportSlug)} country report</a></p><p>The link opens the country page ready to save as PDF. If you did not ask for this, ignore this mail.</p><p>Potatopedia</p>`,
+          REPORTS[reportSlug]
+            ? `<p>Hello ${esc(row.name)},</p><p>Thank you for your interest. Download your report here (valid for 7 days):</p><p><a href="${link}">${esc(REPORTS[reportSlug].name)} Potato Market Report (PDF, ${REPORTS[reportSlug].pages} pages)</a></p><p>If you did not ask for this, ignore this mail.</p><p>Potatopedia</p>`
+            : `<p>Hello ${esc(row.name)},</p><p>Thank you for your interest. Open your report here (valid for 7 days):</p><p><a href="${link}">Get the ${esc(reportSlug)} country report</a></p><p>The link opens the country page ready to save as PDF. If you did not ask for this, ignore this mail.</p><p>Potatopedia</p>`,
         );
         await sql`update leads set mail_message_id = ${mid} where ref = ${ref}`;
       }
