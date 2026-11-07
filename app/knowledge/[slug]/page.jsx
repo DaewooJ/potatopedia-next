@@ -5,6 +5,7 @@ import KnowledgeAI from "../../../components/KnowledgeAI";
 import SupportBlock from "../../../components/SupportBlock";
 import { POTATOPEDIA_PUBLISHER, POTATOPEDIA_EDITORIAL, SPEAKABLE } from "../../../lib/authors";
 import { applyOgOverride } from "../../../lib/og-overrides";
+import { SourceRoots, AskFollowUp } from "../../../components/Editorial";
 
 const BLOG_POSTS_LOCAL = Object.fromEntries(BLOG_POSTS.map((p) => [p.slug, p]));
 
@@ -142,19 +143,20 @@ export async function generateMetadata({ params }) {
   }, "/knowledge/" + slug);
 }
 
-/* ── Shared styles ── */
-const sH2 = { fontSize: 22, fontWeight: 700, paddingLeft: 16, borderLeft: "4px solid var(--gold)", marginTop: 44, marginBottom: 14, color: "var(--ink)" };
-const sP = { fontSize: 15, color: "var(--ink2)", lineHeight: 1.8, marginBottom: 16 };
-const sIntro = { ...sP, fontSize: 16 };
-const sTh = { padding: "10px 12px", textAlign: "left", background: "var(--accent-bg)", color: "#fff", fontSize: 13, fontWeight: 700 };
-const sTd = { padding: "9px 12px", fontSize: 14, borderBottom: "1px solid var(--line)" };
-const sSource = { fontSize: 12, color: "var(--mute2)", marginTop: 8, marginBottom: 24, fontStyle: "italic" };
+/* ── Shared styles (premium editorial system, 7 Nov 2026) ── */
+const sH2 = { fontSize: 34, lineHeight: 1.1, marginTop: 48, marginBottom: 14, color: "var(--ink)" };
+const sP = { fontSize: 17, color: "var(--ink2)", lineHeight: 1.75, marginBottom: 18 };
+const sIntro = { ...sP, fontSize: 18.5 };
+const sTh = { padding: "10px 12px 10px 0", textAlign: "left", background: "transparent", color: "var(--mute2)", fontSize: 11.5, fontWeight: 500, letterSpacing: ".12em", textTransform: "uppercase", borderBottom: "1px solid var(--line2)" };
+const sTd = { padding: "11px 12px 11px 0", fontSize: 14.5, borderBottom: "1px solid var(--line)", color: "var(--ink)" };
+const sSource = { fontSize: 12.5, color: "var(--mute2)", marginTop: 8, marginBottom: 24 };
 
 /* ── Premium article sub-components ── */
 
 function DefinitiveAnswer({ children }) {
   return (
-    <div data-summary="true" style={{ background: "rgba(154,114,56,0.03)", border: "1px solid rgba(154,114,56,0.12)", borderLeft: "4px solid var(--gold)", borderRadius: "0 12px 12px 0", padding: "24px 28px", marginBottom: 32, fontSize: 16, color: "var(--ink2)", lineHeight: 1.8 }}>
+    <div data-summary="true" className="ed-take" style={{ fontSize: 17.5, color: "var(--ink2)", lineHeight: 1.7 }}>
+      <p className="k">The short answer</p>
       {children}
     </div>
   );
@@ -162,34 +164,24 @@ function DefinitiveAnswer({ children }) {
 
 function KeyStatStrip({ stats }) {
   return (
-    <>
-      <style>{`
-        .pp-stat-strip { display: grid; grid-template-columns: repeat(${stats.length},1fr); }
-        @media (max-width: 768px) { .pp-stat-strip { grid-template-columns: repeat(2,1fr) !important; gap: 20px !important; padding: 24px 20px !important; } }
-        @media (max-width: 400px) { .pp-stat-strip { grid-template-columns: 1fr !important; } }
-      `}</style>
-      <div className="pp-stat-strip" style={{ background: "var(--panel)", borderRadius: 12, padding: "28px 24px", marginBottom: 32, gap: 0 }}>
-        {stats.map((s, i) => (
-          <div key={i} style={{ textAlign: "center", borderRight: i < stats.length - 1 ? "1px solid rgba(255,255,255,0.1)" : "none", padding: "0 12px" }}>
-            <div style={{ fontSize: 32, fontWeight: 800, color: s.accent || "#FFFFFF", letterSpacing: -1, lineHeight: 1 }}>{s.value}</div>
-            <div style={{ fontSize: 10, fontWeight: 600, color: "rgba(255,255,255,0.5)", marginTop: 8, textTransform: "uppercase", letterSpacing: 1.5 }}>{s.label}</div>
-          </div>
-        ))}
-      </div>
-    </>
+    <ul className="figs" style={{ margin: "0 0 36px", gridTemplateColumns: `repeat(${Math.min(stats.length, 4)}, minmax(0, 1fr))` }}>
+      {stats.map((s, i) => (
+        <li key={i}>
+          <span className="fig-n" style={{ fontSize: 36 }}>{s.value}</span>
+          <span className="fig-l">{s.label}</span>
+        </li>
+      ))}
+    </ul>
   );
 }
 
 function CollapsibleTOC({ items }) {
   return (
-    <details style={{ background: "var(--paper)", border: "1px solid var(--line)", borderRadius: 10, padding: "14px 20px", marginBottom: 40 }}>
-      <summary style={{ cursor: "pointer", listStyle: "none", display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: 13, fontWeight: 600, color: "var(--mute)" }}>
-        <span>In this article ({items.length} sections)</span>
-        <span style={{ fontSize: 10, color: "var(--mute3)", transition: "transform 0.2s" }}>{"▾"}</span>
-      </summary>
-      <nav style={{ marginTop: 12, display: "flex", flexDirection: "column", gap: 4 }}>
+    <details className="ed-tocm" style={{ display: "block" }}>
+      <summary><span>In this article · {items.length}</span><span aria-hidden="true">▾</span></summary>
+      <nav aria-label="In this article">
         {items.map((item, i) => (
-          <a key={i} href={"#" + item.id} style={{ fontSize: 13, color: "var(--mute)", textDecoration: "none", padding: "6px 0", borderBottom: i < items.length - 1 ? "1px solid rgba(0,0,0,0.04)" : "none" }}>{item.label}</a>
+          <a key={i} href={"#" + item.id}>{item.label}</a>
         ))}
       </nav>
     </details>
@@ -198,63 +190,33 @@ function CollapsibleTOC({ items }) {
 
 function StatCallout({ number, unit, context, source }) {
   return (
-    <>
-      <style>{`
-        .pp-stat-callout { display: flex; gap: 20px; align-items: flex-start; }
-        .pp-stat-callout-mobile { display: none; }
-        @media (max-width: 640px) {
-          .pp-stat-callout { display: none !important; }
-          .pp-stat-callout-mobile { display: block !important; }
-        }
-      `}</style>
-      {/* Desktop: split layout with red number box */}
-      <div className="pp-stat-callout" style={{ margin: "32px 0" }}>
-        <div style={{ background: "var(--accent-bg)", borderRadius: 12, padding: "20px 24px", minWidth: 120, textAlign: "center", flexShrink: 0 }}>
-          <div style={{ fontSize: 28, fontWeight: 800, color: "#FFFFFF", lineHeight: 1 }}>{number}</div>
-          {unit && <div style={{ fontSize: 12, color: "rgba(255,255,255,0.7)", marginTop: 4, textTransform: "uppercase" }}>{unit}</div>}
-        </div>
-        <div style={{ padding: "8px 0", flex: 1 }}>
-          <div style={{ fontSize: 14, color: "var(--mute)", lineHeight: 1.7 }}>{context}</div>
-          {source && <div style={{ fontSize: 11, color: "var(--mute3)", marginTop: 6, fontStyle: "italic" }}>{source}</div>}
-        </div>
+    <div style={{ margin: "32px 0", display: "flex", gap: 22, alignItems: "baseline", borderTop: "1px solid var(--gold-line)", borderBottom: "1px solid var(--gold-line)", padding: "18px 0", flexWrap: "wrap" }}>
+      <div style={{ flex: "none", minWidth: 120 }}>
+        <span style={{ fontFamily: "var(--hp-serif), Georgia, serif", fontSize: 46, lineHeight: 1, color: "var(--gold)" }}>{number}</span>
+        {unit && <span style={{ display: "block", fontSize: 11.5, letterSpacing: ".14em", textTransform: "uppercase", color: "var(--mute2)", marginTop: 6 }}>{unit}</span>}
       </div>
-      {/* Mobile: single cohesive container with red left border */}
-      <div className="pp-stat-callout-mobile" style={{ margin: "28px 0", borderLeft: "4px solid var(--gold)", borderRadius: "0 10px 10px 0", background: "var(--paper)", padding: "18px 20px" }}>
-        <div style={{ marginBottom: 6 }}>
-          <span style={{ fontSize: 24, fontWeight: 800, color: "var(--gold)", lineHeight: 1 }}>{number}</span>
-          {unit && <span style={{ fontSize: 13, fontWeight: 600, color: "var(--gold)", marginLeft: 4 }}>{unit}</span>}
-        </div>
-        <div style={{ fontSize: 14, color: "var(--mute)", lineHeight: 1.7 }}>{context}</div>
-        {source && <div style={{ fontSize: 11, color: "var(--mute3)", marginTop: 6, fontStyle: "italic" }}>{source}</div>}
+      <div style={{ flex: 1, minWidth: 200 }}>
+        <div style={{ fontSize: 15.5, color: "var(--ink2)", lineHeight: 1.65 }}>{context}</div>
+        {source && <div style={{ fontSize: 12, color: "var(--mute2)", marginTop: 6 }}>{source}</div>}
       </div>
-    </>
-  );
-}
-
-function SourceBlock({ sources }) {
-  return (
-    <div style={{ padding: "16px 20px", background: "var(--paper)", borderRadius: 10, marginTop: 32, marginBottom: 8 }}>
-      <div style={{ fontSize: 10, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 8 }}>Sources</div>
-      {sources.map((s, i) => <div key={i} style={{ fontSize: 12, color: "var(--mute)", lineHeight: 1.6 }}>{s}</div>)}
     </div>
   );
 }
 
+function SourceBlock({ sources }) {
+  return <SourceRoots items={sources} />;
+}
+
 function FAQSection({ items }) {
   return (
-    <section style={{ marginTop: 48 }}>
-      <h2 style={{ fontSize: 20, fontWeight: 700, color: "var(--ink)", marginBottom: 16 }}>Frequently Asked Questions</h2>
-      <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-        {items.map((item, i) => (
-          <details key={i} style={{ padding: "16px 20px", borderRadius: 12, border: "1px solid var(--line)", background: "var(--paper)" }}>
-            <summary style={{ cursor: "pointer", listStyle: "none", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12 }}>
-              <span style={{ fontSize: 14, fontWeight: 600, color: "var(--ink)", lineHeight: 1.4 }}>{item.q}</span>
-              <span style={{ fontSize: 16, color: "var(--gold)", flexShrink: 0 }}>+</span>
-            </summary>
-            <p style={{ fontSize: 13, color: "var(--mute)", lineHeight: 1.7, marginTop: 12 }}>{item.a}</p>
-          </details>
-        ))}
-      </div>
+    <section className="dz-faq" style={{ marginTop: 48 }}>
+      <h2 style={{ fontSize: 34, color: "var(--ink)", marginBottom: 12 }}>Frequently asked questions</h2>
+      {items.map((item, i) => (
+        <details key={i}>
+          <summary><span>{item.q}</span><span aria-hidden="true">+</span></summary>
+          <p>{item.a}</p>
+        </details>
+      ))}
     </section>
   );
 }
@@ -264,16 +226,14 @@ function RelatedBlogPosts({ slugs, title = "Related analysis" }) {
   const posts = slugs.map((s) => BLOG_POSTS_LOCAL[s]).filter(Boolean).slice(0, 3);
   if (posts.length === 0) return null;
   return (
-    <section style={{ margin: "32px 0", padding: "22px 24px", background: "var(--paper)", border: "1px solid var(--line)", borderRadius: 14 }}>
-      <div style={{ marginBottom: 14 }}>
-        <div style={{ fontSize: 11, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.8, marginBottom: 4 }}>{title}</div>
-        <div style={{ fontSize: 12, color: "var(--mute2)" }}>Story-format analysis from our blog.</div>
-      </div>
-      <div style={{ display: "grid", gridTemplateColumns: posts.length === 1 ? "1fr" : "repeat(auto-fit, minmax(220px, 1fr))", gap: 10 }}>
+    <section style={{ margin: "36px 0" }}>
+      <p className="k" style={{ marginBottom: 6 }}>{title}</p>
+      <p style={{ margin: "0 0 14px", fontSize: 14, color: "var(--mute)" }}>Story-format analysis from our blog.</p>
+      <div className="grid-cards">
         {posts.map((p) => (
-          <Link key={p.slug} href={"/blog/" + p.slug} style={{ display: "block", textDecoration: "none", color: "inherit", padding: "12px 14px", background: "var(--card)", border: "1px solid var(--line)", borderRadius: 10 }}>
-            <div style={{ fontSize: 10, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.2, marginBottom: 4 }}>{p.category}</div>
-            <div style={{ fontSize: 13, fontWeight: 700, color: "var(--ink)", lineHeight: 1.35 }}>{p.title}</div>
+          <Link key={p.slug} href={"/blog/" + p.slug} className="card">
+            <span className="card-k">{p.category}</span>
+            <span className="card-t" style={{ fontSize: 20 }}>{p.title}</span>
           </Link>
         ))}
       </div>
@@ -284,15 +244,13 @@ function RelatedBlogPosts({ slugs, title = "Related analysis" }) {
 function VarietySpotlight({ slugs, title }) {
   if (!slugs || slugs.length === 0) return null;
   return (
-    <section style={{ marginTop: 40, padding: "24px 26px", background: "rgba(154,114,56,0.03)", border: "1px solid rgba(154,114,56,0.12)", borderRadius: 14 }}>
-      <div style={{ fontSize: 11, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 12 }}>{title || "Variety detail pages"}</div>
-      <div className="pp-related-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
+    <section style={{ marginTop: 40 }}>
+      <p className="k">{title || "Variety detail pages"}</p>
+      <div className="dz-rivals">
         {slugs.map((s) => (
-          <Link key={s} href={`/varieties/${s}`} style={{ display: "block", textDecoration: "none", color: "inherit", padding: "12px 14px", background: "var(--card)", border: "1px solid var(--line)", borderRadius: 10 }}>
-            <div style={{ fontSize: 14, fontWeight: 700, color: "var(--ink)", marginBottom: 2 }}>
-              {s.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())}
-            </div>
-            <div style={{ fontSize: 11, color: "var(--mute2)" }}>Origin · traits · uses · related country</div>
+          <Link key={s} href={`/varieties/${s}`} className="card" style={{ padding: 18 }}>
+            <span className="dz-rival-n" style={{ fontSize: 22 }}>{s.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())}</span>
+            <span className="dz-rival-m">Origin · traits · uses · related country</span>
           </Link>
         ))}
       </div>
@@ -303,13 +261,13 @@ function VarietySpotlight({ slugs, title }) {
 function RelatedArticles({ articles }) {
   return (
     <section style={{ marginTop: 48 }}>
-      <h2 style={{ fontSize: 20, fontWeight: 700, color: "var(--ink)", marginBottom: 16 }}>Continue Reading</h2>
-      <div className="pp-related-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+      <h2 style={{ fontSize: 34, color: "var(--ink)", marginBottom: 16 }}>Keep reading</h2>
+      <div className="grid-cards">
         {articles.map((a, i) => (
-          <Link key={i} href={"/knowledge/" + a.slug} style={{ background: "var(--paper)", border: "1px solid var(--line)", borderRadius: 12, padding: "18px 20px", textDecoration: "none", color: "inherit", transition: "border-color 0.2s", display: "block" }}>
-            <span style={{ display: "inline-block", fontSize: 10, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.2, background: "rgba(154,114,56,0.06)", padding: "2px 8px", borderRadius: 6, marginBottom: 8 }}>{a.tag}</span>
-            <div style={{ fontSize: 14, fontWeight: 600, color: "var(--ink)", lineHeight: 1.4, marginBottom: 4 }}>{a.title}</div>
-            <div style={{ fontSize: 12, color: "var(--mute2)", lineHeight: 1.4 }}>{a.desc}</div>
+          <Link key={i} href={"/knowledge/" + a.slug} className="card">
+            <span className="card-k">{a.tag}</span>
+            <span className="card-t" style={{ fontSize: 21 }}>{a.title}</span>
+            <span className="card-s">{a.desc}</span>
           </Link>
         ))}
       </div>
@@ -319,57 +277,26 @@ function RelatedArticles({ articles }) {
 
 function HeroBanner({ children }) {
   return (
-    <>
-      <style>{`
-        .pp-hero-banner { padding: 56px 24px 40px; }
-        @media (max-width: 768px) { .pp-hero-banner { padding: 40px 20px 32px !important; } }
-      `}</style>
-      <div className="pp-hero-banner" style={{
-        background: "var(--paper)",
-        position: "relative",
-        overflow: "hidden",
-        borderBottom: "1px solid var(--line)",
-        marginBottom: 32,
-        backgroundImage: "repeating-linear-gradient(0deg, rgba(154,114,56,0.04) 0px, rgba(154,114,56,0.04) 1px, transparent 1px, transparent 60px), repeating-linear-gradient(90deg, rgba(154,114,56,0.04) 0px, rgba(154,114,56,0.04) 1px, transparent 1px, transparent 60px)",
-      }}>
-        {/* Decorative accent line — top right */}
-        <div style={{ position: "absolute", top: 16, right: 24, width: 200, height: 2, background: "var(--accent-bg)", borderRadius: 1, zIndex: 0 }} />
-        <div style={{ position: "relative", zIndex: 1, maxWidth: 820, margin: "0 auto" }}>
-          {children}
-        </div>
-      </div>
-    </>
+    <header className="pp-legacy" style={{ padding: "56px 24px 28px", marginBottom: 28, borderBottom: "1px solid var(--line)" }}>
+      <div style={{ maxWidth: 820, margin: "0 auto" }}>{children}</div>
+    </header>
   );
 }
 
 function Breadcrumb({ tag }) {
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 24, fontSize: 13 }}>
-      <Link href="/knowledge" style={{ color: "var(--mute2)", textDecoration: "none" }}>Knowledge Hub</Link>
-      <span style={{ color: "var(--mute3)" }}>/</span>
-      <span style={{ color: "var(--gold)", fontWeight: 700 }}>{tag}</span>
-    </div>
+    <p className="crumb">
+      <Link href="/knowledge">Knowledge</Link><span aria-hidden="true">/</span>{tag}
+    </p>
   );
 }
 
 function TagBadge({ tag }) {
-  return (
-    <span style={{ display: "inline-block", fontSize: 10, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.5, background: "rgba(154,114,56,0.06)", padding: "4px 12px", borderRadius: 10, marginBottom: 16 }}>
-      {tag}
-    </span>
-  );
+  return <span className="eyebrow" style={{ margin: 0 }}>{tag}</span>;
 }
 
 function BottomCTA() {
-  return (
-    <div style={{ marginTop: 56, padding: "32px 28px", borderRadius: 16, background: "linear-gradient(135deg, rgba(154,114,56,0.06), rgba(154,114,56,0.02))", border: "1px solid rgba(154,114,56,0.12)", textAlign: "center" }}>
-      <div style={{ fontSize: 18, fontWeight: 700, color: "var(--ink)", marginBottom: 8 }}>Have more questions?</div>
-      <div style={{ fontSize: 14, color: "var(--mute)", marginBottom: 16 }}>Ask Potatopedia AI for instant, data-backed answers.</div>
-      <Link href="/ask" style={{ display: "inline-block", padding: "12px 28px", borderRadius: 12, background: "var(--accent-bg)", color: "#fff", fontSize: 14, fontWeight: 700, textDecoration: "none" }}>
-        Ask Potatopedia AI &rarr;
-      </Link>
-    </div>
-  );
+  return <AskFollowUp title="Have more questions?" sub="Ask Potatopedia for a sourced answer: FAOSTAT, USDA, CIP and peer-reviewed research." />;
 }
 
 /* ── Static page renderers ── */

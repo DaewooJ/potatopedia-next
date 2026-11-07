@@ -46,18 +46,18 @@ export default function AnswerBlock({ data }) {
         <div style={{ marginTop: 14, display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
           <span style={{
             fontSize: 11, fontWeight: 600,
-            color: data.confidence === "high" ? "#2D6A30" : data.confidence === "medium" ? "#B8860B" : "var(--gold)",
-            background: data.confidence === "high" ? "rgba(45,106,48,0.08)" : data.confidence === "medium" ? "rgba(184,134,11,0.08)" : "rgba(154,114,56,0.08)",
+            color: data.confidence === "high" ? "var(--gold)" : data.confidence === "medium" ? "var(--mute)" : "var(--gold)",
+            background: data.confidence === "high" ? "rgba(154,114,56,0.08)" : data.confidence === "medium" ? "rgba(154,114,56,0.08)" : "rgba(154,114,56,0.08)",
             padding: "3px 10px", borderRadius: 8,
           }}>{data.confidence} confidence</span>
           <button
             onClick={doCopy}
             style={{
               fontSize: 11, fontWeight: 500,
-              color: copied ? "#2D6A30" : "#888",
+              color: copied ? "var(--gold)" : "#888",
               background: "none",
               border: "1px solid",
-              borderColor: copied ? "#2D6A30" : "#e8e8e8",
+              borderColor: copied ? "var(--gold)" : "#e8e8e8",
               borderRadius: 8, padding: "3px 10px",
               cursor: "pointer", fontFamily: "inherit",
               transition: "all 0.2s",

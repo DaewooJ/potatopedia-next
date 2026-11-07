@@ -62,30 +62,17 @@ export default function VarietiesPage() {
   };
 
   return (
-    <div style={{ minHeight: "100vh", background: "var(--card)", color: "var(--ink)", overflowX: "hidden" }}>
+    <div style={{ color: "var(--ink)" }}>
       <style>{ppCSS}</style>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(quickAnswersJsonLd) }} />
 
-      {/* Hero */}
-      <section style={{ paddingTop: 64, paddingBottom: 32, textAlign: "center" }}>
-        <div className="pp-section" style={{ maxWidth: 880, margin: "0 auto", padding: "0 48px" }}>
-          <span style={{ display: "inline-block", fontSize: 11, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 2.5, background: "rgba(154,114,56,0.06)", padding: "6px 16px", borderRadius: 20, marginBottom: 18 }}>Varieties database</span>
-          <h1 style={{ fontSize: 40, fontWeight: 800, color: "var(--ink)", lineHeight: 1.15, letterSpacing: -1.4, marginBottom: 14 }}>
-            Potato Varieties,<br />
-            <span style={{ background: "var(--accent-bg)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>From the Andes to every fry line.</span>
-          </h1>
-          <p style={{ fontSize: 16, color: "var(--mute)", lineHeight: 1.65, maxWidth: 700, margin: "0 auto" }}>
-            {total} commercially significant cultivars across 9 regions — origin, traits, and best uses for each, verified against CIP, FAOSTAT, ICAR-CPRI, and breeder release archives.
-          </p>
-          <p style={{ fontSize: 13, color: "var(--mute2)", marginTop: 14, maxWidth: 600, margin: "14px auto 0" }}>
-            The total estimated number of cultivated varieties worldwide is ~4,000 (CIP, FAO). This database tracks the commercially significant subset most relevant to international trade, breeding, and culinary use.
-          </p>
-          <div style={{ marginTop: 22 }}>
-            <Link href="/varieties/compare" style={{ display: "inline-block", padding: "10px 22px", borderRadius: 10, background: "var(--card)", color: "var(--gold)", fontSize: 13, fontWeight: 700, textDecoration: "none", border: "1.5px solid var(--gold)" }}>
-              Compare 2–4 varieties side by side →
-            </Link>
-          </div>
+      {/* Hero (premium system, 7 Nov 2026) */}
+      <section className="ix-hero">
+        <p className="eyebrow rise">Varieties database</p>
+        <div className="ix-row">
+          <h1 className="ix-h1 rise">Potato varieties, from the Andes to <em>every fry line.</em></h1>
+          <div className="ix-dek"><p style={{ margin: 0 }}>{total} commercially significant cultivars across 9 regions — origin, traits, and best uses for each, verified against CIP, FAOSTAT, ICAR-CPRI, and breeder release archives.</p><p style={{ margin: "10px 0 0", fontSize: 13.5, color: "var(--mute2)" }}>The total estimated number of cultivated varieties worldwide is ~4,000 (CIP, FAO). This database tracks the commercially significant subset most relevant to international trade, breeding, and culinary use.</p><p style={{ margin: "16px 0 0" }}><Link href="/varieties/compare" className="btn-line">Compare 2–4 varieties side by side <span className="arr">→</span></Link></p></div>
         </div>
       </section>
 

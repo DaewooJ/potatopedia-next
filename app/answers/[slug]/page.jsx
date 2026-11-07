@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ppCSS } from "../../../lib/styles";
+import { KeepReading } from "../../../components/Editorial";
 import { POPULAR_ANSWERS, UPDATED_SHORT } from "../../../lib/data";
 import baked from "../../../lib/answers-baked.json";
 import BakedAnswerBlock from "../../../components/BakedAnswerBlock";
@@ -182,99 +182,45 @@ export default async function AnswerPage({ params }) {
       )}
       {/* HowTo schema for procedural answers (M7) */}
       {howToLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToLd) }} />}
-      <style dangerouslySetInnerHTML={{ __html: ppCSS }} />
 
-      <section style={{ maxWidth: 820, margin: "0 auto", padding: "40px 24px 0" }}>
-        {/* Back link */}
-        <Link
-          href="/answers"
-          style={{
-            display: "inline-flex", alignItems: "center", gap: 6,
-            fontSize: 13, fontWeight: 600, color: "var(--gold)",
-            textDecoration: "none", marginBottom: 28,
-          }}
-        >
-          <span>&larr;</span> All Questions
-        </Link>
+      <article className="ed">
+        <header className="ed-head">
+          <p className="eyebrow rise">
+            <Link href="/answers">Answers</Link> · {pa.category}
+          </p>
+          <h1 className="ed-h1 rise" style={{ fontSize: "clamp(36px, 4.6vw, 56px)" }}>{pa.question}</h1>
+          <p className="ed-by">Potatopedia Answers<span className="dot">·</span>Updated {UPDATED_SHORT}</p>
+        </header>
 
-        {/* Category badge + updated date */}
-        <div style={{ marginBottom: 12, display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
-          <span style={{
-            display: "inline-block", fontSize: 10, fontWeight: 700,
-            color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.5,
-            background: "rgba(154,114,56,0.06)", padding: "4px 12px",
-            borderRadius: 6,
-          }}>{pa.category}</span>
-          <span style={{ fontSize: 12, color: "var(--mute2)" }}>Updated {UPDATED_SHORT}</span>
-        </div>
+        <div className="ed-cols solo">
+          <div className="ed-main">
+            {/* SERVER-RENDERED baked answer (visible to crawlers and AI engines) */}
+            {b ? (
+              <BakedAnswerBlock data={b} />
+            ) : (
+              // Fallback when slug isn't baked yet (e.g., new entry added but bake not re-run)
+              <AnswerAI slug={slug} question={pa.question} />
+            )}
 
-        {/* Question heading */}
-        <h1 style={{
-          fontSize: 28, fontWeight: 800, color: "var(--ink)",
-          letterSpacing: -0.8, lineHeight: 1.3, marginBottom: 28,
-          maxWidth: 720,
-        }}>{pa.question}</h1>
-
-        {/* SERVER-RENDERED baked answer (visible to crawlers and AI engines) */}
-        {b ? (
-          <BakedAnswerBlock data={b} />
-        ) : (
-          // Fallback when slug isn't baked yet (e.g., new entry added but bake not re-run)
-          <AnswerAI slug={slug} question={pa.question} />
-        )}
-
-        {/* Follow-up Q&A widget — client-side, doesn't block primary content */}
-        {b && (
-          <div style={{ marginTop: 36, paddingTop: 24, borderTop: "1px solid var(--line)" }}>
-            <h2 style={{ fontSize: 16, fontWeight: 700, color: "var(--ink)", margin: "0 0 14px" }}>Ask a follow-up question</h2>
-            <AnswerAI slug={slug} question={pa.question} prebakedAnswer={b.answer} skipInitialFetch={true} />
+            {/* Follow-up Q&A widget — client-side, doesn't block primary content */}
+            {b && (
+              <section className="ask" style={{ display: "block" }} aria-labelledby="ask-follow">
+                <h2 id="ask-follow" className="ask-t" style={{ margin: "0 0 4px" }}>Ask a follow-up</h2>
+                <p className="ask-s" style={{ margin: "0 0 16px" }}>Answers grow from FAOSTAT, USDA, CIP and peer-reviewed research.</p>
+                <div style={{ background: "var(--card)", color: "var(--ink)", borderRadius: 14, padding: 16 }}>
+                  <AnswerAI slug={slug} question={pa.question} prebakedAnswer={b.answer} skipInitialFetch={true} />
+                </div>
+              </section>
+            )}
           </div>
-        )}
-      </section>
-
-      {/* More Popular Questions */}
-      <section style={{
-        maxWidth: 820, margin: "0 auto", padding: "56px 24px 80px",
-      }}>
-        <h2 style={{
-          fontSize: 20, fontWeight: 700, color: "var(--ink)",
-          marginBottom: 20, display: "flex", alignItems: "center", gap: 10,
-        }}>
-          <span style={{
-            width: 4, height: 24, borderRadius: 2,
-            background: "var(--accent-bg)",
-            display: "inline-block",
-          }} />
-          More Popular Questions
-        </h2>
-        <div className="pp-categories-grid" style={{
-          display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 14,
-        }}>
-          {related.map((rpa) => (
-            <Link
-              key={rpa.slug}
-              href={"/answers/" + rpa.slug}
-              className="pp-country-card"
-              style={{
-                display: "block", padding: "18px 20px", borderRadius: 14,
-                border: "1px solid var(--line)", background: "var(--card)",
-                textDecoration: "none",
-              }}
-            >
-              <span style={{
-                display: "inline-block", fontSize: 9, fontWeight: 700,
-                color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.2,
-                background: "rgba(154,114,56,0.06)", padding: "2px 8px",
-                borderRadius: 5, marginBottom: 8,
-              }}>{rpa.category}</span>
-              <h3 style={{
-                fontSize: 13, fontWeight: 600, color: "var(--ink)",
-                lineHeight: 1.5, margin: 0,
-              }}>{rpa.question}</h3>
-            </Link>
-          ))}
         </div>
-      </section>
+      </article>
+
+      <KeepReading
+        title="More questions"
+        items={related.map((rpa) => ({ href: "/answers/" + rpa.slug, kicker: rpa.category, title: rpa.question }))}
+        more={{ href: "/answers", label: "All questions" }}
+      />
     </>
   );
 }

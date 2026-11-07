@@ -37,30 +37,13 @@ export default function AnswersIndexPage() {
       <style dangerouslySetInnerHTML={{ __html: ppCSS }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionJsonLd) }} />
 
-      {/* Hero */}
-      <section style={{ textAlign: "center", padding: "64px 24px 48px" }}>
-        <span style={{
-          display: "inline-block", fontSize: 11, fontWeight: 700,
-          color: "var(--gold)", textTransform: "uppercase", letterSpacing: 2.5,
-          background: "rgba(154,114,56,0.06)", padding: "6px 16px",
-          borderRadius: 20, marginBottom: 20,
-        }}>Popular Questions</span>
-        <h1 style={{
-          fontSize: 36, fontWeight: 800, color: "var(--ink)",
-          letterSpacing: -1.2, marginBottom: 16,
-        }}>
-          Top Potato Questions,{" "}
-          <span style={{
-            background: "var(--accent-bg)",
-            WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
-          }}>Answered by AI</span>
-        </h1>
-        <p style={{
-          fontSize: 16, color: "var(--mute)", maxWidth: 520,
-          margin: "0 auto", lineHeight: 1.6,
-        }}>
-          In-depth, sourced answers to the most-searched potato questions &mdash; powered by 277 verified data sources.
-        </p>
+      {/* Hero (premium system, 7 Nov 2026) */}
+      <section className="ix-hero">
+        <p className="eyebrow rise">Popular questions</p>
+        <div className="ix-row">
+          <h1 className="ix-h1 rise">Top potato questions, <em>answered.</em></h1>
+          <div className="ix-dek"><p style={{ margin: 0 }}>In-depth, sourced answers to the most-searched potato questions &mdash; powered by 277 verified data sources.</p></div>
+        </div>
       </section>
 
       {/* Filter + Grid (client island) */}

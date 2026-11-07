@@ -3,10 +3,16 @@
 // of the "Answer could not be loaded" placeholder that AnswerAI client-side
 // fetching produced).
 //
-// Mirrors the visual structure of AnswerBlock.jsx (client component used for
-// follow-up Q&A) but with no React state — purely server-rendered.
+// Premium editorial styling (7 Nov 2026): reading-size paragraphs, drop cap, and the
+// sources section with gold roots growing into the source cards.
 
 import { formatAnswer } from "../lib/format";
+
+const ROOTS = {
+  1: ["M340 0 L340 68"],
+  2: ["M340 0 C340 30 170 36 165 68", "M340 0 C340 30 510 36 515 68"],
+  3: ["M340 0 C340 30 120 36 110 68", "M340 0 L340 68", "M340 0 C340 30 560 36 570 68"],
+};
 
 export default function BakedAnswerBlock({ data }) {
   if (!data || !data.answer) return null;
@@ -16,76 +22,76 @@ export default function BakedAnswerBlock({ data }) {
   const yearRange = srcYears.length > 0
     ? Math.min(...srcYears) + "–" + Math.max(...srcYears)
     : "";
+  const sources = data.sources || [];
+  const top = sources.slice(0, 3);
+  const lines = cleaned.split("\n").filter((l) => l.trim());
 
   return (
-    <div className="pp-answer-block" data-baked="true" style={{ overflowX: "hidden" }}>
-      {/* Formatted answer text — split into paragraphs, render markdown bold */}
-      <div data-summary="true" style={{ fontSize: 15, lineHeight: 1.8, color: "var(--ink2)" }}>
-        {cleaned.split("\n").map((line, j) => (
-          <p key={j} style={{ margin: j > 0 ? "10px 0 0" : 0 }}>
+    <div className="pp-answer-block" data-baked="true">
+      <div data-summary="true">
+        {lines.map((line, j) => (
+          <p key={j} className={"ed-p" + (j === 0 ? " ed-drop" : "")}>
             {line.split(/(\*\*.*?\*\*)/).map((part, k) => {
               if (part.startsWith("**") && part.endsWith("**"))
-                return <strong key={k} style={{ fontWeight: 600, color: "var(--ink)" }}>{part.slice(2, -2)}</strong>;
+                return <strong key={k} style={{ fontWeight: 500, color: "var(--ink)" }}>{part.slice(2, -2)}</strong>;
               return part;
             })}
           </p>
         ))}
       </div>
 
-      {/* Data freshness microcopy */}
-      {data.data_freshness && data.data_freshness.earliest_year && data.data_freshness.latest_year && (
-        <p style={{ margin: "14px 0 0", fontSize: 12, color: "var(--mute2)", fontStyle: "italic" }}>
-          Based on data from {data.data_freshness.earliest_year}&ndash;{data.data_freshness.latest_year}
-        </p>
-      )}
-
-      {/* Confidence badge */}
-      {data.confidence && (
-        <div style={{ marginTop: 14, display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
-          <span style={{
-            fontSize: 11, fontWeight: 600,
-            color: data.confidence === "high" ? "#2D6A30" : data.confidence === "medium" ? "#B8860B" : "var(--gold)",
-            background: data.confidence === "high" ? "rgba(45,106,48,0.08)" : data.confidence === "medium" ? "rgba(184,134,11,0.08)" : "rgba(154,114,56,0.08)",
-            padding: "3px 10px", borderRadius: 8,
-          }}>{data.confidence} confidence</span>
-        </div>
-      )}
-
-      {/* Sources — server-rendered as an open <details> for instant crawler readability */}
-      {data.sources && data.sources.length > 0 && (
-        <details open style={{ marginTop: 18, paddingTop: 12, borderTop: "1px solid var(--line)" }}>
-          <summary style={{ cursor: "pointer", display: "flex", alignItems: "center", gap: 6, padding: "4px 0", listStyle: "none" }}>
-            <span style={{ fontSize: 12, color: "var(--mute2)" }}>{"📚"}</span>
-            <span style={{ fontSize: 11, color: "var(--mute2)", fontWeight: 500 }}>
-              {data.sources.length} source{data.sources.length !== 1 ? "s" : ""}{yearRange ? ` (${yearRange})` : ""}
+      {(data.data_freshness?.earliest_year && data.data_freshness?.latest_year) || data.confidence ? (
+        <p style={{ margin: "4px 0 0", fontSize: 13, color: "var(--mute2)" }}>
+          {data.data_freshness?.earliest_year && data.data_freshness?.latest_year && (
+            <>Based on data from {data.data_freshness.earliest_year}&ndash;{data.data_freshness.latest_year}</>
+          )}
+          {data.confidence && (
+            <span style={{ marginLeft: data.data_freshness?.earliest_year ? 14 : 0, color: "var(--gold)", border: "1px solid var(--gold-line)", borderRadius: 999, padding: "3px 10px", fontSize: 11.5, letterSpacing: ".06em" }}>
+              {data.confidence} confidence
             </span>
-          </summary>
-          <div style={{ display: "flex", flexDirection: "column", gap: 6, paddingTop: 8 }}>
-            {data.sources.map((s, si) => (
-              <div key={si} style={{ padding: "8px 12px", borderRadius: 8, background: "var(--paper)", border: "1px solid var(--line)" }}>
-                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 6 }}>
-                  <span style={{ fontSize: 12, fontWeight: 600, color: "var(--ink2)", lineHeight: 1.3 }}>{s.title || s.source}</span>
-                  {s.data_year && (
-                    <span style={{ fontSize: 10, fontWeight: 600, color: "var(--gold)", background: "rgba(154,114,56,0.06)", padding: "1px 6px", borderRadius: 4, whiteSpace: "nowrap", flexShrink: 0 }}>{s.data_year}</span>
-                  )}
-                </div>
-                {s.relevant_excerpt && (
-                  <p style={{ fontSize: 11, color: "var(--mute2)", lineHeight: 1.5, margin: "4px 0 0" }}>{s.relevant_excerpt}</p>
-                )}
+          )}
+        </p>
+      ) : null}
+
+      {top.length > 0 && (
+        <section className="src" id="sources" aria-labelledby="sources-h">
+          <p className="k" id="sources-h">
+            Sources · {sources.length}{yearRange ? ` (${yearRange})` : ""}
+          </p>
+          <svg className="src-roots" viewBox="0 0 680 70" preserveAspectRatio="none" aria-hidden="true">
+            {ROOTS[top.length].map((d) => <path key={d} className="src-root" d={d} />)}
+          </svg>
+          <div className="src-grid" style={top.length < 3 ? { gridTemplateColumns: `repeat(${top.length}, minmax(0, 1fr))` } : undefined}>
+            {top.map((s, si) => (
+              <div key={si} className="src-card">
+                <p className="src-n">{s.title || s.source}</p>
+                <p className="src-m">{[s.data_year, s.title && s.source && s.source !== s.title ? s.source : null].filter(Boolean).join(" · ")}</p>
               </div>
             ))}
           </div>
-        </details>
+          <details open>
+            <summary>What each source says</summary>
+            <ol className="src-list">
+              {sources.map((s, si) => (
+                <li key={si}>
+                  <span style={{ color: "var(--ink2)" }}>{s.title || s.source}</span>
+                  {s.data_year ? ` (${s.data_year})` : ""}
+                  {s.relevant_excerpt && <span style={{ display: "block" }}>{s.relevant_excerpt}</span>}
+                </li>
+              ))}
+            </ol>
+          </details>
+        </section>
       )}
 
       {/* Fallback inline sources (rare; only when structured sources missing) */}
-      {(!data.sources || data.sources.length === 0) && inlineSources.length > 0 && (
-        <div style={{ marginTop: 14, paddingTop: 10, borderTop: "1px solid var(--line)" }}>
-          <div style={{ fontSize: 11, fontWeight: 600, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1, marginBottom: 6 }}>Sources</div>
-          {inlineSources.map((s, si) => (
-            <div key={si} style={{ fontSize: 12, color: "var(--mute2)", lineHeight: 1.5 }}>{s}</div>
-          ))}
-        </div>
+      {sources.length === 0 && inlineSources.length > 0 && (
+        <section className="src">
+          <p className="k">Sources</p>
+          <ol className="src-list">
+            {inlineSources.map((s, si) => <li key={si}>{s}</li>)}
+          </ol>
+        </section>
       )}
     </div>
   );

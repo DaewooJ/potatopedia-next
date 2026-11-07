@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { BLOG_POSTS, POPULAR_ANSWERS } from "../../lib/data";
-import { ppCSS } from "../../lib/styles";
-import BlogFilter from "../../components/BlogFilter";
+import LeadForm from "../../components/LeadForm";
+
 import ContentRequestCTA from "../../components/ContentRequestCTA";
 
 export const metadata = {
@@ -79,210 +79,140 @@ export default function BlogListPage() {
     ],
   };
 
+  // Magazine layout (premium system, 7 Nov 2026): lead story + latest, then every story by desk.
+  const DESKS = [
+    { id: "agronomy", label: "Agronomy", cats: ["Agronomy", "Cultivation", "Seed Systems", "Storage"] },
+    { id: "industry-trade", label: "Industry & Trade", cats: ["Industry & Trade", "Trade & Industry", "Processing", "Production", "Global Trends", "Consumption"] },
+    { id: "nutrition", label: "Nutrition", cats: ["Nutrition"] },
+    { id: "around-the-world", label: "Around the World", cats: ["Around the World", "Country Profile"] },
+    { id: "history-culture", label: "History & Culture", cats: ["History & Culture"] },
+    { id: "varieties", label: "Varieties", cats: ["Varieties"] },
+  ];
+  const lead = BLOG_POSTS[0];
+  const latest = BLOG_POSTS.slice(1, 5);
+  const shownTop = new Set([lead, ...latest].map((p) => p.slug));
+  const deskPosts = DESKS.map((d) => ({ ...d, posts: BLOG_POSTS.filter((p) => d.cats.includes(p.category) && !shownTop.has(p.slug)) }));
+  const otherPosts = BLOG_POSTS.filter((p) => !shownTop.has(p.slug) && !DESKS.some((d) => d.cats.includes(p.category)));
+  const minutes = (p) => String(p.readTime || "").replace(/\s*read$/i, "").toUpperCase();
+
   return (
-    <div style={{ minHeight: "100vh", background: "var(--card)", color: "var(--ink)", overflowX: "hidden" }}>
+    <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
-      <style>{`
-        @media(max-width:768px){
-          .pp-blog-grid{grid-template-columns:1fr !important;gap:16px !important}
-          .pp-blog-section{padding-left:20px !important;padding-right:20px !important}
-          .pp-blog-featured-grid{grid-template-columns:1fr !important}
-          .pp-blog-stats{grid-template-columns:repeat(2,1fr) !important;gap:16px !important}
-          .pp-blog-region-grid{grid-template-columns:1fr 1fr !important}
-        }
-        .pp-blog-card{transition:all 0.3s ease}
-        .pp-blog-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(0,0,0,0.1) !important}
-        .pp-blog-featured-card{transition:transform 0.2s ease, box-shadow 0.2s ease}
-        .pp-blog-featured-card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,0.08)}
-        ${ppCSS}
-      `}</style>
 
-      {/* Hero */}
-      <section style={{ paddingTop: 72, paddingBottom: 48, textAlign: "center", position: "relative", overflow: "hidden" }}>
-        <div style={{ position: "absolute", top: -100, left: "50%", transform: "translateX(-50%)", width: 600, height: 600, background: "radial-gradient(circle,rgba(154,114,56,0.04) 0%,transparent 70%)", borderRadius: "50%", pointerEvents: "none" }} />
-        <div style={{ maxWidth: 760, margin: "0 auto", padding: "0 24px", position: "relative" }}>
-          <span style={{ display: "inline-block", fontSize: 11, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 2.5, background: "rgba(154,114,56,0.06)", padding: "6px 16px", borderRadius: 20, marginBottom: 20 }}>Potatopedia Blog</span>
-          <h1 style={{ fontSize: 40, fontWeight: 800, color: "var(--ink)", lineHeight: 1.1, letterSpacing: -1.5, marginBottom: 14 }}>
-            Stories &amp; Analysis from<br />
-            <span style={{ background: "var(--accent-bg)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>The Global Potato Industry</span>
-          </h1>
-          <p style={{ fontSize: 16, color: "var(--mute)", lineHeight: 1.7, maxWidth: 600, margin: "0 auto 8px" }}>
-            Country case studies, market trends, processing intelligence, and trade flows &mdash; the stories behind the numbers.
-          </p>
-          <p style={{ fontSize: 14, color: "var(--mute2)", lineHeight: 1.6, maxWidth: 560, margin: "0 auto" }}>
-            Looking for evergreen reference data? Visit the <Link href="/knowledge" style={{ color: "var(--gold)", textDecoration: "none", fontWeight: 600 }}>Knowledge Hub</Link>.
+      <section className="mg-mast">
+        <div className="mg-mast-row">
+          <h1 className="mg-h1 rise">The Potato <em>Review</em></h1>
+          <p className="mg-dek">
+            Stories and analysis from the global potato industry, every figure sourced. {totalPosts} stories{latestDateStr ? `, latest ${latestDateStr}` : ""}. For evergreen reference data, see the <Link href="/knowledge" className="gl">Knowledge Hub</Link>.
           </p>
         </div>
+        <nav className="mg-cats" aria-label="Desks">
+          <a href="#latest" className="is-on">All</a>
+          {DESKS.map((d) => <a key={d.id} href={`#${d.id}`}>{d.label}</a>)}
+        </nav>
       </section>
 
-      {/* Stats banner */}
-      <section style={{ background: "var(--paper)", borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)" }}>
-        <div className="pp-blog-stats" style={{ maxWidth: 1000, margin: "0 auto", padding: "32px 48px", display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 24 }}>
-          <div style={{ textAlign: "center" }}>
-            <div style={{ fontSize: 28, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1 }}>{totalPosts}</div>
-            <div style={{ fontSize: 11, color: "var(--mute2)", fontWeight: 500, marginTop: 4, textTransform: "uppercase", letterSpacing: 1 }}>Articles published</div>
-          </div>
-          <div style={{ textAlign: "center" }}>
-            <div style={{ fontSize: 28, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1 }}>9+</div>
-            <div style={{ fontSize: 11, color: "var(--mute2)", fontWeight: 500, marginTop: 4, textTransform: "uppercase", letterSpacing: 1 }}>Countries covered</div>
-          </div>
-          <div style={{ textAlign: "center" }}>
-            <div style={{ fontSize: 28, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1 }}>{totalCategories}</div>
-            <div style={{ fontSize: 11, color: "var(--mute2)", fontWeight: 500, marginTop: 4, textTransform: "uppercase", letterSpacing: 1 }}>Topic categories</div>
-          </div>
-          <div style={{ textAlign: "center" }}>
-            <div style={{ fontSize: 28, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1 }}>{latestDateStr || "—"}</div>
-            <div style={{ fontSize: 11, color: "var(--mute2)", fontWeight: 500, marginTop: 4, textTransform: "uppercase", letterSpacing: 1 }}>Latest publication</div>
-          </div>
-        </div>
-      </section>
-
-      {/* Featured posts — magazine-style 1 hero + 2 secondary */}
-      <section style={{ maxWidth: 1080, margin: "0 auto", padding: "64px 48px 24px" }} className="pp-blog-section">
-        <div style={{ marginBottom: 28, display: "flex", justifyContent: "space-between", alignItems: "baseline", flexWrap: "wrap", gap: 12 }}>
-          <div>
-            <span style={{ display: "inline-block", fontSize: 11, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 2, marginBottom: 8 }}>Featured stories</span>
-            <h2 style={{ fontSize: 24, fontWeight: 800, color: "var(--ink)", letterSpacing: -0.7, margin: 0 }}>Latest from Potatopedia</h2>
-          </div>
-          <Link href="#all-articles" style={{ fontSize: 13, color: "var(--gold)", fontWeight: 600, textDecoration: "none" }}>Browse all {totalPosts} →</Link>
-        </div>
-
-        {featured.length > 0 && (
-          <div className="pp-blog-featured-magazine" style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr", gap: 28, marginBottom: 28 }}>
-            {/* Hero feature — first post, large treatment */}
-            <Link href={`/blog/${featured[0].slug}`} className="pp-blog-featured-hero" style={{ display: "block", textDecoration: "none", color: "inherit", padding: "32px 36px", background: "var(--card)", border: "1px solid var(--line)", borderRadius: 16, transition: "transform 0.15s, box-shadow 0.15s, border-color 0.15s" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 16 }}>
-                <span style={{ fontSize: 11, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.8 }}>{featured[0].category}</span>
-                <span style={{ color: "var(--mute3)" }}>·</span>
-                <span style={{ fontSize: 11, fontWeight: 600, color: "var(--mute2)", textTransform: "uppercase", letterSpacing: 1 }}>Featured</span>
-              </div>
-              <h3 style={{ fontSize: 28, fontWeight: 800, color: "var(--ink)", letterSpacing: -0.8, lineHeight: 1.18, margin: "0 0 14px" }}>{featured[0].title}</h3>
-              <p style={{ fontSize: 15, color: "var(--mute)", lineHeight: 1.65, margin: "0 0 18px" }}>{featured[0].excerpt}</p>
-              <div style={{ fontSize: 12, color: "var(--mute2)", display: "flex", alignItems: "center", gap: 8 }}>
-                <span>{featured[0].date}</span>
-                <span style={{ color: "var(--mute3)" }}>·</span>
-                <span>{featured[0].readTime}</span>
-                <span style={{ color: "var(--mute3)" }}>·</span>
-                <span style={{ color: "var(--gold)", fontWeight: 600 }}>Read story →</span>
-              </div>
-            </Link>
-
-            {/* Secondary features — posts 2-3, stacked */}
-            <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-              {featured.slice(1, 3).map((p) => (
-                <Link key={p.slug} href={`/blog/${p.slug}`} className="pp-blog-featured-side" style={{ display: "block", textDecoration: "none", color: "inherit", padding: "20px 22px", background: "var(--card)", border: "1px solid var(--line)", borderRadius: 12, flex: 1, transition: "transform 0.15s, box-shadow 0.15s, border-color 0.15s" }}>
-                  <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 10 }}>
-                    <span style={{ fontSize: 10, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.5 }}>{p.category}</span>
-                  </div>
-                  <h4 style={{ fontSize: 16, fontWeight: 700, color: "var(--ink)", lineHeight: 1.3, margin: "0 0 8px", letterSpacing: -0.3 }}>{p.title}</h4>
-                  <p style={{ fontSize: 13, color: "var(--mute)", lineHeight: 1.55, margin: "0 0 10px" }}>{p.excerpt.length > 110 ? p.excerpt.slice(0, 108) + "…" : p.excerpt}</p>
-                  <div style={{ fontSize: 11, color: "var(--mute2)" }}>{p.date} · {p.readTime}</div>
-                </Link>
-              ))}
-            </div>
-          </div>
-        )}
-
-        <style>{`
-          .pp-blog-featured-hero:hover, .pp-blog-featured-side:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(0,0,0,0.05); border-color: rgba(154,114,56,0.25); }
-          .pp-blog-featured-hero:hover h3, .pp-blog-featured-side:hover h4 { color: var(--gold) !important; }
-          @media (max-width: 768px) {
-            .pp-blog-featured-magazine { grid-template-columns: 1fr !important; gap: 14px !important; }
-            .pp-blog-featured-hero { padding: 24px 22px !important; }
-            .pp-blog-featured-hero h3 { font-size: 22px !important; }
-          }
-        `}</style>
-      </section>
-
-      {/* Blog vs Knowledge differentiator */}
-      <section style={{ maxWidth: 1000, margin: "0 auto", padding: "32px 48px 16px" }} className="pp-blog-section">
-        <div style={{ background: "var(--card)", border: "1px solid rgba(154,114,56,0.12)", borderRadius: 14, padding: "20px 24px", display: "flex", alignItems: "center", gap: 20, flexWrap: "wrap" }}>
-          <div style={{ flex: 1, minWidth: 280 }}>
-            <div style={{ fontSize: 11, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 6 }}>Blog vs Knowledge Hub</div>
-            <p style={{ fontSize: 13.5, color: "var(--mute)", lineHeight: 1.6, margin: 0 }}>
-              <strong>Blog</strong> is for stories, country case studies, and market trends &mdash; the <em>narrative</em> behind the data. <strong>Knowledge Hub</strong> is for evergreen reference articles &mdash; FAQ-driven, citation-heavy, structured tables.
-            </p>
-          </div>
-          <Link href="/knowledge" style={{ display: "inline-block", padding: "10px 20px", borderRadius: 10, border: "1px solid var(--gold)", color: "var(--gold)", textDecoration: "none", fontSize: 13, fontWeight: 600, whiteSpace: "nowrap" }}>
-            Knowledge Hub &rarr;
+      <section className="mg-sec" id="latest">
+        <div className="mg-lead-row">
+          <Link href={`/blog/${lead.slug}`} className="mg-lead">
+            <p className="mg-lead-k">{lead.category} · {minutes(lead)}</p>
+            <h2 className="mg-lead-t">{lead.title}</h2>
+            <p className="mg-lead-s">{lead.excerpt}</p>
+            {lead.takeaways?.length > 0 && (
+              <ul className="mg-lead-take">
+                {lead.takeaways.slice(0, 2).map((t, i) => <li key={i}>{t}</li>)}
+              </ul>
+            )}
           </Link>
-        </div>
-      </section>
-
-      {/* Filter + Grid (client island) */}
-      <section id="all-articles" style={{ paddingTop: 24, scrollMarginTop: 80 }}>
-        <div style={{ maxWidth: 1080, margin: "0 auto", padding: "0 48px 8px" }} className="pp-blog-section">
-          <div style={{ textAlign: "left" }}>
-            <span style={{ display: "inline-block", fontSize: 11, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 2.5, marginBottom: 6 }}>All articles</span>
-            <h2 style={{ fontSize: 22, fontWeight: 800, color: "var(--ink)", letterSpacing: -0.7, margin: "0 0 8px" }}>Browse the full archive</h2>
-            <p style={{ fontSize: 13, color: "var(--mute2)", margin: "0 0 16px" }}>Filter by category or search by keyword.</p>
-          </div>
-        </div>
-        <BlogFilter posts={BLOG_POSTS} />
-      </section>
-
-      {/* Regional coverage */}
-      <section style={{ background: "var(--paper)", borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)" }}>
-        <div style={{ maxWidth: 1000, margin: "0 auto", padding: "56px 48px" }} className="pp-blog-section">
-          <div style={{ textAlign: "center", marginBottom: 28 }}>
-            <span style={{ display: "inline-block", fontSize: 11, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 2.5, marginBottom: 10 }}>Coverage by region</span>
-            <h2 style={{ fontSize: 22, fontWeight: 800, color: "var(--ink)", letterSpacing: -0.7, margin: 0 }}>Stories from every continent</h2>
-          </div>
-          <div className="pp-blog-region-grid" style={{ display: "grid", gridTemplateColumns: "repeat(5,1fr)", gap: 12 }}>
-            {REGIONS.map((r) => (
-              <div key={r.label} style={{ padding: 16, background: "var(--card)", border: "1px solid var(--line)", borderRadius: 12 }}>
-                <div style={{ fontSize: 12, fontWeight: 700, color: "var(--ink)", marginBottom: 6 }}>{r.label}</div>
-                <div style={{ fontSize: 11, color: "var(--mute2)", marginBottom: 10 }}>{r.slugs.length} {r.slugs.length === 1 ? "article" : "articles"}</div>
-                <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
-                  {r.slugs.map((s) => {
-                    const post = BLOG_POSTS.find((p) => p.slug === s);
-                    if (!post) return null;
-                    return (
-                      <Link key={s} href={`/blog/${s}`} style={{ fontSize: 11.5, color: "var(--gold)", textDecoration: "none", lineHeight: 1.4 }}>
-                        {post.title.length > 50 ? post.title.slice(0, 48) + "…" : post.title}
-                      </Link>
-                    );
-                  })}
-                </div>
-              </div>
+          <div className="mg-latest">
+            <p className="k k-mute" style={{ marginBottom: 6 }}>Latest</p>
+            {latest.map((p) => (
+              <Link key={p.slug} href={`/blog/${p.slug}`} className="mg-row">
+                <span className="mg-row-k">{p.category}</span>
+                <span className="mg-row-t">{p.title}</span>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Cross-link to other site sections */}
-      <section style={{ maxWidth: 1000, margin: "0 auto", padding: "56px 48px 24px", textAlign: "center" }} className="pp-blog-section">
-        <span style={{ display: "inline-block", fontSize: 11, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 2.5, marginBottom: 10 }}>Beyond the blog</span>
-        <h2 style={{ fontSize: 22, fontWeight: 800, color: "var(--ink)", letterSpacing: -0.7, marginBottom: 24 }}>Explore the full Potatopedia platform</h2>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))", gap: 14, textAlign: "left" }}>
-          <Link href="/knowledge" style={{ padding: 18, background: "var(--card)", border: "1px solid var(--line)", borderRadius: 12, textDecoration: "none", color: "inherit" }}>
-            <div style={{ fontSize: 22, marginBottom: 6 }}>📚</div>
-            <div style={{ fontSize: 14, fontWeight: 700, color: "var(--ink)", marginBottom: 4 }}>Knowledge Hub</div>
-            <div style={{ fontSize: 12.5, color: "var(--mute)", lineHeight: 1.5 }}>29 evergreen reference articles with citations and structured data.</div>
-          </Link>
-          <Link href="/countries" style={{ padding: 18, background: "var(--card)", border: "1px solid var(--line)", borderRadius: 12, textDecoration: "none", color: "inherit" }}>
-            <div style={{ fontSize: 22, marginBottom: 6 }}>🌍</div>
-            <div style={{ fontSize: 14, fontWeight: 700, color: "var(--ink)", marginBottom: 4 }}>Country Profiles</div>
-            <div style={{ fontSize: 12.5, color: "var(--mute)", lineHeight: 1.5 }}>31 country pages including 5 premium dossiers (India, China, Belgium, Netherlands, USA) with PDF reports.</div>
-          </Link>
-          <Link href="/ask" style={{ padding: 18, background: "var(--accent-bg)", border: "1px solid var(--gold)", borderRadius: 12, textDecoration: "none", color: "#fff" }}>
-            <div style={{ fontSize: 22, marginBottom: 6 }}>⚡</div>
-            <div style={{ fontSize: 14, fontWeight: 700, color: "#fff", marginBottom: 4 }}>Ask the AI</div>
-            <div style={{ fontSize: 12.5, color: "rgba(255,255,255,0.9)", lineHeight: 1.5 }}>Natural-language search across 5,657 verified data points. Cited answers in seconds.</div>
-          </Link>
-          <Link href="/answers" style={{ padding: 18, background: "var(--card)", border: "1px solid var(--line)", borderRadius: 12, textDecoration: "none", color: "inherit" }}>
-            <div style={{ fontSize: 22, marginBottom: 6 }}>💡</div>
-            <div style={{ fontSize: 14, fontWeight: 700, color: "var(--ink)", marginBottom: 4 }}>Quick Answers</div>
-            <div style={{ fontSize: 12.5, color: "var(--mute)", lineHeight: 1.5 }}>{POPULAR_ANSWERS.length} direct answers to common potato questions, each with cited sources.</div>
-          </Link>
+      <section className="mg-news" aria-labelledby="mg-news-h">
+        <div className="mg-news-in">
+          <div style={{ flex: 1 }}>
+            <p id="mg-news-h" className="mg-news-t">The Potato Week</p>
+            <p className="mg-news-s">The best new stories and data, once a week. Free.</p>
+          </div>
+          <div style={{ flex: 1, width: "100%" }}>
+            <LeadForm dark type="newsletter" askName={false} askCompany={false} askCountry={false} askMessage={false} submitLabel="Subscribe" compact />
+          </div>
         </div>
       </section>
 
-      {/* Content Request CTA */}
-      <section style={{ padding: "20px 24px 80px", background: "transparent" }}>
+      {deskPosts.filter((d) => d.posts.length > 0).map((d, di) => (
+        <section key={d.id} id={d.id} className="mg-sec" style={{ scrollMarginTop: 90 }}>
+          <div className="mg-sec-h">
+            <h2>{d.label}</h2>
+            <span style={{ fontSize: 13, color: "var(--mute2)" }}>{d.posts.length} {d.posts.length === 1 ? "story" : "stories"}</span>
+          </div>
+          <div className="mg-grid">
+            {d.posts.map((p) => (
+              <Link key={p.slug} href={`/blog/${p.slug}`} className="mg-story">
+                <p className="mg-story-k">{p.category}</p>
+                <span className="mg-story-t">{p.title}</span>
+                <p className="mg-story-s">{p.excerpt.length > 140 ? p.excerpt.slice(0, 140).trimEnd() + "…" : p.excerpt}</p>
+                <p className="mg-story-m">{p.date} · {p.readTime}</p>
+              </Link>
+            ))}
+            {di === 0 && (
+              <Link href="/#companies" className="mg-slot">
+                <p className="mg-story-k" style={{ color: "var(--mute3)" }}>Published with us · partner content</p>
+                <span className="mg-story-t">Your story, clearly labelled</span>
+                <p className="mg-story-s">Makers, breeders and traders can publish here. Partner stories are always marked and never change a fact.</p>
+              </Link>
+            )}
+          </div>
+        </section>
+      ))}
+
+      {otherPosts.length > 0 && (
+        <section className="mg-sec">
+          <div className="mg-sec-h"><h2>More stories</h2></div>
+          <div className="mg-grid">
+            {otherPosts.map((p) => (
+              <Link key={p.slug} href={`/blog/${p.slug}`} className="mg-story">
+                <p className="mg-story-k">{p.category}</p>
+                <span className="mg-story-t">{p.title}</span>
+                <p className="mg-story-m">{p.date} · {p.readTime}</p>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <section className="band" aria-labelledby="mg-region-h">
+        <div className="band-in" style={{ maxWidth: 1136 }}>
+          <h2 id="mg-region-h" className="band-h">By region</h2>
+          <div className="grid-cards">
+            {REGIONS.map((r) => {
+              const posts = r.slugs.map((s) => BLOG_POSTS.find((p) => p.slug === s)).filter(Boolean);
+              return (
+                <div key={r.label} className="card">
+                  <span className="card-k">{r.label}</span>
+                  <span className="card-s" style={{ marginTop: 6 }}>{r.countries.join(" · ")}</span>
+                  {posts.map((p) => (
+                    <Link key={p.slug} href={`/blog/${p.slug}`} className="gl" style={{ display: "block", marginTop: 10, fontSize: 14, lineHeight: 1.45 }}>{p.title}</Link>
+                  ))}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section style={{ padding: "48px 24px 80px" }}>
         <ContentRequestCTA pageContext="Blog index" />
       </section>
-    </div>
+    </>
   );
 }

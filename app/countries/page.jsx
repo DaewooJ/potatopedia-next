@@ -34,19 +34,16 @@ export default function CountriesPage() {
     })),
   };
   return (
-    <div style={{ minHeight: "100vh", background: "var(--card)" }}>
+    <div>
       <style>{ppCSS}</style>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }} />
 
-      {/* Hero */}
-      <section style={{ paddingTop: 52, paddingBottom: 40, textAlign: "center", background: "linear-gradient(180deg,rgba(154,114,56,0.03) 0%,#fff 100%)" }}>
-        <div style={{ maxWidth: 700, margin: "0 auto", padding: "0 24px" }}>
-          <span style={{ display: "inline-block", fontSize: 11, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 2.5, background: "rgba(154,114,56,0.06)", padding: "6px 16px", borderRadius: 20, marginBottom: 16 }}>Country Profiles</span>
-          <h1 style={{ fontSize: 40, fontWeight: 800, color: "var(--ink)", letterSpacing: -1.5, marginBottom: 12, lineHeight: 1.15 }}>
-            Potato Production<br />
-            <span style={{ background: "var(--accent-bg)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Around the World</span>
-          </h1>
-          <p style={{ fontSize: 16, color: "var(--mute)", lineHeight: 1.6 }}>Production data, yields, and industry highlights for {COUNTRIES.length} major potato nations. All data from FAOSTAT 2024.</p>
+      {/* Hero (premium system, 7 Nov 2026) */}
+      <section className="ix-hero">
+        <p className="eyebrow rise">Country profiles</p>
+        <div className="ix-row">
+          <h1 className="ix-h1 rise">Potato production <em>around the world.</em></h1>
+          <div className="ix-dek"><p style={{ margin: 0 }}>Production data, yields, and industry highlights for {COUNTRIES.length} major potato nations. All data from FAOSTAT 2024.</p></div>
         </div>
       </section>
 
