@@ -105,6 +105,9 @@ const SLUG_META = {
   "potato-expo-2026": { tag: "Events", title: "2026 Potato Expo: Location, Dates, and What to Expect at the NPC's Annual Event" },
 };
 
+// Unknown slugs must 404 (7 Nov 2026: Google flagged made-up /knowledge/* URLs that rendered an empty shell as soft 404s).
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return ALL_SLUGS.map((slug) => ({ slug }));
 }
