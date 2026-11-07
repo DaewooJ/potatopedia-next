@@ -538,7 +538,7 @@ function IndiaProfilePage({ c }) {
       <style>{ppCSS}</style>
       <style>{printCSS}</style>
       <style>{`
-        /* Mobile PDF CTA: shown only below 768px; hidden on desktop where banner button handles it */
+        /* Mobile PDF CTA: shown only below 768px; hidden on desktop where cty-band button handles it */
         .pp-mobile-pdf-cta { display: none; }
         @media (max-width: 768px) {
           .pp-india-banner-row { flex-direction: column !important; text-align: center !important; gap: 16px !important; }
@@ -602,7 +602,7 @@ function IndiaProfilePage({ c }) {
               </div>
             </div>
             <div className="pp-india-banner-pdf">
-              <PdfDownloadButton size="md" placement="banner" />
+              <PdfDownloadButton size="md" placement="cty-band" />
             </div>
           </div>
         </div>
@@ -704,7 +704,7 @@ function IndiaProfilePage({ c }) {
       {/* ─── Mobile-only PDF download CTA (between stats and quick facts) ─── */}
       <section className="pp-mobile-pdf-cta pp-no-print" style={{ background: "var(--card)", borderBottom: "1px solid var(--line)", padding: "20px 0", textAlign: "center" }}>
         <div style={sectionWrap} className="pp-section-wrap">
-          <PdfDownloadButton size="md" placement="banner" />
+          <PdfDownloadButton size="md" placement="cty-band" />
           <div style={{ fontSize: 11, color: "var(--mute2)", marginTop: 8, fontWeight: 500 }}>A4-formatted report &middot; all sections, all tables</div>
         </div>
       </section>
@@ -1299,7 +1299,7 @@ function ChinaProfilePage({ c }) {
                 </p>
               </div>
             </div>
-            <div className="pp-india-banner-pdf"><PdfDownloadButton size="md" placement="banner" /></div>
+            <div className="pp-india-banner-pdf"><PdfDownloadButton size="md" placement="cty-band" /></div>
           </div>
         </div>
       </section>
@@ -1328,7 +1328,7 @@ function ChinaProfilePage({ c }) {
       {/* Mobile-only PDF CTA */}
       <section className="pp-mobile-pdf-cta pp-no-print" style={{ background: "var(--card)", borderBottom: "1px solid var(--line)", padding: "20px 0", textAlign: "center" }}>
         <div style={sectionWrap} className="pp-section-wrap">
-          <PdfDownloadButton size="md" placement="banner" />
+          <PdfDownloadButton size="md" placement="cty-band" />
           <div style={{ fontSize: 11, color: "var(--mute2)", marginTop: 8, fontWeight: 500 }}>A4-formatted report &middot; all sections, all tables</div>
         </div>
       </section>
@@ -1894,7 +1894,7 @@ function BelgiumProfilePage({ c }) {
                 </p>
               </div>
             </div>
-            <div className="pp-india-banner-pdf"><PdfDownloadButton size="md" placement="banner" /></div>
+            <div className="pp-india-banner-pdf"><PdfDownloadButton size="md" placement="cty-band" /></div>
           </div>
         </div>
       </section>
@@ -1921,7 +1921,7 @@ function BelgiumProfilePage({ c }) {
 
       <section className="pp-mobile-pdf-cta pp-no-print" style={{ background: "var(--card)", borderBottom: "1px solid var(--line)", padding: "20px 0", textAlign: "center" }}>
         <div style={sectionWrap} className="pp-section-wrap">
-          <PdfDownloadButton size="md" placement="banner" />
+          <PdfDownloadButton size="md" placement="cty-band" />
           <div style={{ fontSize: 11, color: "var(--mute2)", marginTop: 8, fontWeight: 500 }}>A4-formatted report &middot; all sections, all tables</div>
         </div>
       </section>
@@ -2466,7 +2466,7 @@ function NetherlandsProfilePage({ c }) {
                 </p>
               </div>
             </div>
-            <div className="pp-india-banner-pdf"><PdfDownloadButton size="md" placement="banner" /></div>
+            <div className="pp-india-banner-pdf"><PdfDownloadButton size="md" placement="cty-band" /></div>
           </div>
         </div>
       </section>
@@ -2495,7 +2495,7 @@ function NetherlandsProfilePage({ c }) {
       {/* Mobile-only PDF CTA */}
       <section className="pp-mobile-pdf-cta pp-no-print" style={{ background: "var(--card)", borderBottom: "1px solid var(--line)", padding: "20px 0", textAlign: "center" }}>
         <div style={sectionWrap} className="pp-section-wrap">
-          <PdfDownloadButton size="md" placement="banner" />
+          <PdfDownloadButton size="md" placement="cty-band" />
           <div style={{ fontSize: 11, color: "var(--mute2)", marginTop: 8, fontWeight: 500 }}>A4-formatted report &middot; all sections, all tables</div>
         </div>
       </section>
@@ -3063,7 +3063,7 @@ function UnitedStatesProfilePage({ c }) {
                 </p>
               </div>
             </div>
-            <div className="pp-india-banner-pdf"><PdfDownloadButton size="md" placement="banner" /></div>
+            <div className="pp-india-banner-pdf"><PdfDownloadButton size="md" placement="cty-band" /></div>
           </div>
         </div>
       </section>
@@ -3092,7 +3092,7 @@ function UnitedStatesProfilePage({ c }) {
       {/* Mobile-only PDF CTA */}
       <section className="pp-mobile-pdf-cta pp-no-print" style={{ background: "var(--card)", borderBottom: "1px solid var(--line)", padding: "20px 0", textAlign: "center" }}>
         <div style={sectionWrap} className="pp-section-wrap">
-          <PdfDownloadButton size="md" placement="banner" />
+          <PdfDownloadButton size="md" placement="cty-band" />
           <div style={{ fontSize: 11, color: "var(--mute2)", marginTop: 8, fontWeight: 500 }}>A4-formatted report &middot; all sections, all tables</div>
         </div>
       </section>
