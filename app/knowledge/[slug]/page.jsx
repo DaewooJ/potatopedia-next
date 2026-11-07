@@ -5,6 +5,7 @@ import KnowledgeAI from "../../../components/KnowledgeAI";
 import SupportBlock from "../../../components/SupportBlock";
 import { POTATOPEDIA_PUBLISHER, POTATOPEDIA_EDITORIAL, SPEAKABLE } from "../../../lib/authors";
 import { applyOgOverride } from "../../../lib/og-overrides";
+import { applySeoOverride } from "../../../lib/seo-overrides";
 import { SourceRoots, AskFollowUp } from "../../../components/Editorial";
 
 const BLOG_POSTS_LOCAL = Object.fromEntries(BLOG_POSTS.map((p) => [p.slug, p]));
@@ -135,7 +136,7 @@ export async function generateMetadata({ params }) {
       openGraph: { type: "article", url: canonical, title, description, images: ["/og-image.png"] },
       twitter: { card: "summary_large_image", title, description },
     };
-    return applyOgOverride(out, "/knowledge/" + slug);
+    return applyOgOverride(applySeoOverride(out, "/knowledge/" + slug), "/knowledge/" + slug);
   }
   const fallback = SLUG_META[slug];
   const title = fallback?.title || slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());

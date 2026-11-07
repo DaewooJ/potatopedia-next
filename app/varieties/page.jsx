@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { applySeoOverride } from "../../lib/seo-overrides";
 import VarietyAtlas from "../../components/VarietyAtlas";
 import { getAtlasData } from "../../lib/varieties-atlas";
 import { listCompanies, SITE } from "../../lib/directory";
@@ -7,7 +8,7 @@ import { listCompanies, SITE } from "../../lib/directory";
 // Performance: only slim card data reaches the client; the first 24 cards are server-rendered.
 export const revalidate = 3600;
 
-export const metadata = {
+export const metadata = applySeoOverride({
   title: "Potato Varieties Database — 244 Cultivars Across 9 Regions",
   description: "Searchable database of 244 commercially significant potato varieties. Russet Burbank, Bintje, Spunta, Maris Piper, Désirée, Kufri Pukhraj, Shangi, Yukon Gold, Belete, Tigoni, Yungay, Diacol Capiro, BRS Ana, Nevskij, Zhongshu — origin, traits, and best uses for each.",
   alternates: { canonical: "https://www.potatopedia.com/varieties" },
@@ -18,7 +19,7 @@ export const metadata = {
     description: "Origin, traits, and best uses for the world's commercially significant potato varieties — from Andean landraces to North America's Russet Burbank, Bangladeshi BARI, Kenyan Shangi, Brazilian BRS Ana, and Chinese Zhongshu.",
     images: ["/og-image.png"],
   },
-};
+}, "/varieties");
 
 async function seedCompanies() {
   // The directory lives in Neon. If it cannot be reached, the atlas still renders (the sidebar says so).
