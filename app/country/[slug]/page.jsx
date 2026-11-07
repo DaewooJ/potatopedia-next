@@ -12,6 +12,7 @@ import CountryProfilePremium, { TrajectoryTable } from "../../../components/Coun
 import { applyOgOverride } from "../../../lib/og-overrides";
 import { INDIA_POTATO } from "../../../lib/facts";
 import CountryDossier from "../../../components/CountryDossier";
+import { NEW_COUNTRY_META, newCountryProfile } from "../../../lib/reference/new-countries";
 
 const COUNTRY_TO_BLOGS = {
   "kenya": ["kenya-potato-boom-wpc-2026", "climate-change-rewriting-potato-map"],
@@ -165,6 +166,17 @@ export async function generateMetadata({ params }) {
       openGraph: { title: "Kenya Potato Industry — Potatopedia", description: trim(desc), type: "article", images: ["/og-image.png"] },
       twitter: { card: "summary_large_image", title: "Kenya Potato Industry", description: trim(desc) },
     }, "/country/kenya");
+  }
+
+  if (NEW_COUNTRY_META[slug]) {
+    const m = NEW_COUNTRY_META[slug];
+    return applyOgOverride({
+      title: m.title,
+      description: m.description,
+      alternates: { canonical: "https://www.potatopedia.com/country/" + slug },
+      openGraph: { title: `${c.name} Potato Industry — Potatopedia`, description: m.description, type: "article", images: ["/og-image.png"] },
+      twitter: { card: "summary_large_image", title: `${c.name} Potato Industry`, description: m.description },
+    }, "/country/" + slug);
   }
 
   // Standard country profile fallback — keep tight under 155 chars.
@@ -8210,6 +8222,11 @@ export default async function CountryProfilePage({ params }) {
   }
   if (slug === "south-korea") {
     return <CountryDossier c={c} slug={slug}><SouthKoreaProfilePage c={c} /></CountryDossier>;
+  }
+
+  const newProfile = newCountryProfile(slug, c);
+  if (newProfile) {
+    return <CountryDossier c={c} slug={slug}><CountryProfilePremium data={newProfile} /></CountryDossier>;
   }
 
   const extraFigures = [
