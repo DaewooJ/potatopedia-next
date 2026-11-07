@@ -1,0 +1,224 @@
+[
+ {
+  "match_id": 1, "kind": "processing", "slug": "handy-snacks-ltd-frou-frou-group-cyprus-and-malta", "name": "Handy Snacks Ltd (Frou Frou Group)", "domain": "froufrou.com.cy", "home_url": "https://froufrou.com.cy/", "country": "Cyprus", "region": "Nicosia", "segments": ["chips-snacks"],
+  "profile": {
+   "summary": "Handy Snacks Ltd is a Cypriot maker of potato chips and extruded snacks that the Frou Frou Group agreed to buy in 2010. It sells potato chips and potato sticks under the Handy Snacks brand, which the company says are made from locally grown Cypriot potatoes.",
+   "hq": {"city": "Kokkinotrimithia, Nicosia", "country": "Cyprus"},
+   "founded": "1964 (Frou Frou parent group); Handy Snacks joined the group in 2010",
+   "ownership": "Part of the Frou Frou Group, alongside Alkis H. Hadjikyriacos (Frou Frou Biscuits) Public Ltd and Spinneys Cyprus Ltd",
+   "brands": ["Handy Snacks"],
+   "products": ["Cyprus Potato Chips (90 g and 8 x 45 g packs; flavours include Sea Salt, No Added Salt, Prawn Cocktail, Vinegar & Oregano, Vinegar & Sea Salt, Souvla)", "Cyprus Potato Sticks (Salt, 100 g)", "Corn snacks, cheese curls and popcorn (not stated to be potato-based)"],
+   "plants": [{"town": "Kokkinotrimithia Industrial Area, Nicosia", "country": "Cyprus", "capacity_as_stated": "Group factory; the website does not say where the potato chips are made or give a capacity"}],
+   "markets": ["Cyprus (home market)", "Group exports to Europe, the Middle East, the Far East, Africa and America; the website does not say which export products are potato chips"],
+   "certifications": ["Group quality management system based on ISO 22000:2018 (scope for snack production not stated)"],
+   "contact": {"website": "https://froufrou.com.cy/", "public_email": "info@froufrou.com.cy", "phone": "+357 22 835090", "address": "115, Grigori Afxentiou Avenue, Kokkinotrimithia Industrial Area, 2660 Nicosia, Cyprus"},
+   "facts": ["Registration number HE268693", "Mon Ami (acquired 2013) and Bakandys Industry (acquired 2015) also operate under Handy Snacks Ltd", "Group factory moved from Engomi to Kokkinotrimithia in 2007"],
+   "limitations": ["No potato processing capacity, plant location for the potato lines, varieties or grower arrangements are published."],
+   "sources": [
+    {"url": "https://froufrou.com.cy/who-we-are/group-information/", "title": "Group Information", "accessed": "2026-11-07"},
+    {"url": "https://froufrou.com.cy/who-we-are/our-history/", "title": "Our History", "accessed": "2026-11-07"},
+    {"url": "https://froufrou.com.cy/who-we-are/about-us/", "title": "About Us", "accessed": "2026-11-07"},
+    {"url": "https://froufrou.com.cy/brands/handy-snacks/", "title": "Handy Snacks brand page", "accessed": "2026-11-07"},
+    {"url": "https://froufrou.com.cy/product-item/cyprus-potato-chips/", "title": "Cyprus Potato Chips", "accessed": "2026-11-07"},
+    {"url": "https://froufrou.com.cy/products/cyprus-potato-sticks/", "title": "Cyprus Potato Sticks", "accessed": "2026-11-07"},
+    {"url": "https://froufrou.com.cy/contact-us/", "title": "Contact Us", "accessed": "2026-11-07"}
+   ]
+  }
+ },
+ {
+  "match_id": 7, "kind": "processing", "slug": "aviko-b-v-netherlands", "name": "Aviko B.V.", "domain": "aviko.nl", "home_url": "https://www.aviko.nl/", "country": "Netherlands", "region": "Gelderland", "segments": ["fries", "dehydrated", "ready-meals"],
+  "profile": {
+   "summary": "Aviko is a Dutch maker of fries and other potato products, part of the Dutch cooperative Cosun. It was started in 1962 in Hoog-Keppel by 32 potato farmers to make chilled fries and is now based in Steenderen. The company says it has eleven production sites in five countries and about 2,500 employees.",
+   "hq": {"city": "Steenderen", "country": "Netherlands"},
+   "founded": "1962, Hoog-Keppel",
+   "ownership": "Part of the Dutch cooperative Cosun",
+   "products": ["Fries, including thin fries for air fryers", "Potato specialties such as Pom' Duchesse and rösti rounds"],
+   "brands": ["Aviko"],
+   "plants": [{"town": "Eleven production sites (towns not listed)", "country": "Netherlands, Belgium, Germany, Poland and China", "capacity_as_stated": "Not published"}],
+   "markets": ["Consumers, foodservice and industry customers; the website says its products reach tables around the world"],
+   "contact": {"website": "https://www.aviko.nl/"},
+   "facts": ["Original name: Aardappel Verwerkende Industrie Keppel en Omstreken", "Moved to a larger factory in Steenderen about ten years after founding", "About 2,500 employees"],
+   "limitations": ["Capacity, plant towns, export countries and certifications are not published on the pages read."],
+   "sources": [
+    {"url": "https://www.aviko.nl/historie", "title": "Historie", "accessed": "2026-11-07"},
+    {"url": "https://www.aviko.nl/over-ons", "title": "Over ons", "accessed": "2026-11-07"},
+    {"url": "https://www.aviko.nl/en/about-aviko", "title": "About Aviko", "accessed": "2026-11-07"}
+   ]
+  }
+ },
+ {
+  "match_id": null, "kind": "processing", "slug": "emsland-group-germany", "name": "Emsland Group", "domain": "emsland-group.de", "home_url": "https://www.emsland-group.de/en/", "country": "Germany", "region": null, "segments": ["starch", "dehydrated", "protein"],
+  "profile": {
+   "summary": "Emsland Group is a German producer of starch products from potatoes and peas, headquartered in Emlichheim. It says it processes more than 2.2 million tonnes of potatoes a year across its group and makes native and modified starches, potato flakes and granules, proteins and fibres.",
+   "hq": {"city": "Emlichheim", "country": "Germany"},
+   "founded": "1928",
+   "products": ["Native and modified starch products", "Dried potato products (flakes and granules)", "Protein and fibre products for food", "Starch products for adhesives, construction additives, textiles and filter materials", "Animal feed"],
+   "brands": ["Echt vom Feld (dried potato products)", "Empure (pea products)"],
+   "plants": [
+    {"town": "Emlichheim (main plant, Emsland-Stärke)", "country": "Germany", "capacity_as_stated": "Group processes more than 2.2 million tonnes of potatoes"},
+    {"town": "Wietzendorf (Emsland-Stärke)", "country": "Germany"},
+    {"town": "Golßen (Emsland-Stärke)", "country": "Germany"},
+    {"town": "Kyritz (Emsland-Stärke)", "country": "Germany"},
+    {"town": "Cloppenburg (Emsland Food)", "country": "Germany"},
+    {"town": "Wittingen (Emsland Food)", "country": "Germany"},
+    {"town": "Hagenow (Emsland Food)", "country": "Germany"}
+   ],
+   "markets": ["About 100 countries", "Export share of more than 75 percent"],
+   "certifications": ["ISO 9001", "IFS Food", "FSSC 22000", "ISO 14001", "ISO 50001", "QS-Futtermittelwirtschaft", "OK Kosher", "HALAL CONTROL", "ISCC PLUS", "ZDHC Level 3", "Non-GMO Project", "GOTS approved"],
+   "contact": {"website": "https://www.emsland-group.de/en/", "public_email": "info@emsland-group.de", "phone": "+49 (0) 5943 81-0", "address": "Emslandstraße 58, D-49824 Emlichheim, Germany"},
+   "facts": ["About 1,500 employees", "Seven production sites in Germany", "More than 160,000 tonnes of peas processed", "Emsland-Stärke GmbH is main shareholder of Mecklenburg Kartoffelveredlung GmbH, Hagenow"],
+   "limitations": ["Ownership structure and turnover unit are not stated on the pages read."],
+   "sources": [
+    {"url": "https://www.emsland-group.de/en/", "title": "Emsland Group home page", "accessed": "2026-11-07"},
+    {"url": "https://www.emsland-group.de/en/about-us/", "title": "About us", "accessed": "2026-11-07"},
+    {"url": "https://www.emsland-group.de/en/contact/", "title": "Contact", "accessed": "2026-11-07"}
+   ]
+  }
+ },
+ {
+  "match_id": null, "kind": "processing", "slug": "mccain-foods-canada", "name": "McCain Foods Limited", "domain": "mccain.com", "home_url": "https://www.mccain.com/", "country": "Canada", "region": null, "segments": ["fries", "dehydrated", "ready-meals"],
+  "profile": {
+   "summary": "McCain Foods is a Canadian maker of frozen fries, potato products and appetizers, founded in 1957 by the McCain brothers in Florenceville, New Brunswick. The company says it has 49 production facilities, more than 20,000 employees and sells in 160 countries. Its corporate head office is in Toronto.",
+   "hq": {"city": "Toronto, Ontario", "country": "Canada"},
+   "founded": "1957, Florenceville, New Brunswick",
+   "ownership": "Described by the company as a family company",
+   "products": ["French fries, including pre-fried fries", "Prepared potato products and appetizers", "Frozen potato specialties", "Dehydrated potato flakes (Lutosa)", "Frozen convenience snacks", "Potato seed cultivation"],
+   "brands": ["McCain", "Lutosa", "Ore-Ida", "Brew City", "Moore's", "Harvest Splendor", "Anchor", "Van Geloven", "Mora", "Strong Roots", "Forno de Minas"],
+   "plants": [{"town": "49 production facilities (towns not listed); first plant in Florenceville, New Brunswick", "country": "Worldwide", "capacity_as_stated": "Not published"}],
+   "markets": ["Products sold in 160 countries"],
+   "contact": {"website": "https://www.mccain.com/", "phone": "(416) 955-1700", "address": "439 King Street West, 5th Floor, Toronto, ON, Canada M5V 1K4"},
+   "facts": ["Founders: Wallace, Harrison, Robert and Andrew McCain", "Global revenues stated as over C$16 billion", "Business units include McCain Foods, Lutosa, Van Geloven, Forno de Minas, Strong Roots and Day & Ross (transport)"],
+   "limitations": ["Plant towns and capacities are not published on the pages read."],
+   "sources": [
+    {"url": "https://www.mccain.com/about-us/our-history/", "title": "Our history", "accessed": "2026-11-07"},
+    {"url": "https://www.mccain.com/about-us/our-business-brands/", "title": "Our business and brands", "accessed": "2026-11-07"},
+    {"url": "https://www.mccain.com/contact/", "title": "Contact", "accessed": "2026-11-07"}
+   ]
+  }
+ },
+ {
+  "match_id": 34, "kind": "seed", "slug": "royal-hzpc-group-b-v-hzpc-holland-netherlands", "name": "Royal HZPC Group", "domain": "hzpc.com", "home_url": "https://www.hzpc.com/", "country": "Netherlands", "region": "Friesland", "segments": ["breeding", "seed-multiplication", "seed-export"],
+  "profile": {
+   "summary": "HZPC is a Dutch potato breeding and seed potato company with its head office in Joure. It was formed in 1999 by the merger of Hettema (founded 1898) and ZPC (founded 1919). The company states seed potato sales of 941,000 tonnes, exports to 96 countries and more than 130 protected varieties.",
+   "hq": {"city": "Joure", "country": "Netherlands"},
+   "founded": "1898 (Hettema & Sons, Bitgum); merged with ZPC into HZPC in 1999",
+   "varieties": ["Colomba", "Sifra", "Mozart", "Challenger", "Fenway Red", "Ivory Russet", "Alverstone Russet", "Rickey Russet", "Salinero", "Primabelle", "Violet Queen"],
+   "products": ["Seed potatoes", "Minitubers (9 million a year in the Netherlands)", "Hybrid potato breeding (started 2011)"],
+   "plants": [{"town": "Metslawier and Wageningen (research locations)", "country": "Netherlands", "capacity_as_stated": "941,000 tonnes of seed potatoes"}],
+   "markets": ["Exports to 96 countries", "Office countries: 16"],
+   "contact": {"website": "https://www.hzpc.com/", "public_email": "info@hzpc.com", "phone": "+31 (0)513 48 98 88", "address": "Edisonweg 5, 8501 XG Joure, The Netherlands"},
+   "facts": ["About 400 employees", "Turnover about EUR 415 million", "About 1,000 growers", "HZPC Research: 80+ staff, 8 teams, about EUR 11 million R&D a year"],
+   "limitations": ["Ownership structure is not described on the pages read."],
+   "sources": [
+    {"url": "https://www.hzpc.com/about-us/facts-and-figures", "title": "Facts and figures", "accessed": "2026-11-07"},
+    {"url": "https://www.hzpc.com/about-us/potato-innovators-since-1898", "title": "Potato innovators since 1898", "accessed": "2026-11-07"},
+    {"url": "https://www.hzpc.com/contact", "title": "Contact", "accessed": "2026-11-07"}
+   ]
+  }
+ },
+ {
+  "match_id": 54, "kind": "seed", "slug": "europlant-pflanzenzucht-gmbh-germany", "name": "EUROPLANT Pflanzenzucht GmbH", "domain": "europlant.biz", "home_url": "https://www.europlant.biz/en/", "country": "Germany", "region": "Lower Saxony", "segments": ["breeding", "seed-multiplication", "seed-export"],
+  "profile": {
+   "summary": "EUROPLANT is a German potato breeding and seed potato company based in Lüneburg. It was founded in 1992 as the sales company for the Böhm breeding house and its cooperative partners, whose breeding roots go back to 1900. The company offers more than 100 varieties for table, processing and starch use and says it operates in over 70 countries.",
+   "hq": {"city": "Lüneburg", "country": "Germany"},
+   "founded": "1992 (breeding roots: Böhm breeding station, 1900)",
+   "ownership": "Founded as the sales company of Kartoffelzucht Böhm GmbH & Co. KG and the cooperatives Vereinigte Saatzuchten Ebstorf-Rosche eG, Raiffeisen Centralheide eG and Stader Saatzucht eG",
+   "varieties": ["Euroqueen (starch)", "Eurolika (starch)", "Debora (crisps)", "Juliane (table)", "Santoria (table)", "Theda (fries)", "Kerren (fries)", "Saratoga Russet (fries)", "Calisto (fries)", "Milenia (table)"],
+   "products": ["Seed potatoes", "In vitro plants, minitubers and pre-basic seed"],
+   "plants": [{"town": "Plattling (Straubinger Kartoffelhandels GmbH, taken over 2019)", "country": "Germany"}],
+   "markets": ["Over 70 countries", "Subsidiaries in the Netherlands, United Kingdom, USA, France, Poland, Denmark, Spain and Romania"],
+   "contact": {"website": "https://www.europlant.biz/en/", "public_email": "europlant@europlant.biz", "phone": "+49 (0)4131 748005", "address": "Wulf-Werum-Straße 1, D-21337 Lüneburg, Germany"},
+   "facts": ["More than 100 varieties, about one third suited to organic growing", "Took over the operational seed potato business of its shareholders in 2002"],
+   "limitations": ["Volumes, employees and breeding-station locations are not published on the pages read."],
+   "sources": [
+    {"url": "https://www.europlant.biz/en/", "title": "EUROPLANT home page", "accessed": "2026-11-07"},
+    {"url": "https://www.europlant.biz/en/history/", "title": "History", "accessed": "2026-11-07"},
+    {"url": "https://www.europlant.biz/en/list-of-varieties/", "title": "List of varieties", "accessed": "2026-11-07"}
+   ]
+  }
+ },
+ {
+  "match_id": 35, "kind": "seed", "slug": "agrico-cooperatie-u-a-netherlands", "name": "Agrico Coöperatie U.A.", "domain": "agricopotatoes.com", "home_url": "https://www.agricopotatoes.com/", "country": "Netherlands", "region": "Flevoland", "segments": ["breeding", "seed-multiplication", "seed-export"],
+  "profile": {
+   "summary": "Agrico is a Dutch potato cooperative of more than 1,200 growers that breeds varieties and trades seed and other potatoes. It was formed in 1973 and has its head office in Emmeloord. The company reports turnover of EUR 537 million for 2024/2025 and a network of subsidiaries and distributors in more than 80 countries.",
+   "hq": {"city": "Emmeloord", "country": "Netherlands"},
+   "founded": "1973 (forerunners PZVB, DTV and Zuiderzeepolders)",
+   "ownership": "Cooperative owned by more than 1,200 growers",
+   "varieties": ["Lugano (processing, yellow flesh)", "Paradiso (traditional market)", "Napoleon (crisping)"],
+   "products": ["Seed potatoes", "Protected varieties, including Next Generation varieties with natural late blight resistance"],
+   "plants": [{"town": "Bant (Agrico Research laboratory)", "country": "Netherlands"}],
+   "markets": ["More than 80 countries through subsidiaries and distributors"],
+   "contact": {"website": "https://www.agricopotatoes.com/", "public_email": "info@agrico.nl", "phone": "+31 527 639 911", "address": "Duit 15, 8305 BB Emmeloord, The Netherlands"},
+   "facts": ["Turnover EUR 537 million in 2024/2025", "Group companies named alongside Agrico: Semagri and BioSelect"],
+   "limitations": ["Volumes, number of varieties and employees are not published on the pages read."],
+   "sources": [
+    {"url": "https://www.agricopotatoes.com/", "title": "Agrico home page", "accessed": "2026-11-07"},
+    {"url": "https://www.agricopotatoes.com/about-agrico", "title": "About Agrico", "accessed": "2026-11-07"},
+    {"url": "https://www.agricopotatoes.com/contact", "title": "Contact", "accessed": "2026-11-07"}
+   ]
+  }
+ },
+ {
+  "match_id": 59, "kind": "machinery", "slug": "kiremko-foodera-technologies-netherlands", "name": "Kiremko (Foodera Technologies)", "domain": "fooderatechnologies.com", "home_url": "https://fooderatechnologies.com/", "country": "Netherlands", "region": "Utrecht", "segments": ["turnkey-lines", "frying", "cutting", "washing-peeling", "drying-dehydration"],
+  "profile": {
+   "summary": "Kiremko is a Dutch maker of potato processing lines based in Montfoort, now a product brand of Foodera Technologies. Foodera groups Kiremko, Idaho Steel and Reyco Systems and supplies lines for French fries, flakes, formed mash, hash browns, potato chips and pellet snacks.",
+   "hq": {"city": "Montfoort", "country": "Netherlands"},
+   "ownership": "Part of Foodera Technologies, with Idaho Steel and Reyco Systems",
+   "machines": ["French fry lines, including coated fries", "Potato flake lines", "Formed mash lines", "Hash brown lines", "Potato chip lines", "Pellet snack lines"],
+   "brands": ["Kiremko", "Idaho Steel", "Reyco Systems"],
+   "plants": [
+    {"town": "Montfoort (Kiremko)", "country": "Netherlands"},
+    {"town": "Idaho Falls (Idaho Steel)", "country": "United States"},
+    {"town": "Caldwell (Reyco Systems)", "country": "United States"},
+    {"town": "Beijing (Kiremko (Beijing) Trading, sales)", "country": "China"}
+   ],
+   "contact": {"website": "https://fooderatechnologies.com/", "public_email": "info@fooderatechnologies.com", "phone": "+31 (0)348 47 94 00", "address": "Montfoort, The Netherlands"},
+   "limitations": ["Founding year, employees and number of installed lines are not published on the pages read."],
+   "sources": [
+    {"url": "https://fooderatechnologies.com/", "title": "Foodera Technologies home page", "accessed": "2026-11-07"},
+    {"url": "https://fooderatechnologies.com/about-us/", "title": "About us", "accessed": "2026-11-07"},
+    {"url": "https://fooderatechnologies.com/foodera-technologies-locations/", "title": "World wide offices", "accessed": "2026-11-07"}
+   ]
+  }
+ },
+ {
+  "match_id": null, "kind": "machinery", "slug": "tomra-food-belgium", "name": "TOMRA Food", "domain": "tomra.com", "home_url": "https://www.tomra.com/food", "country": "Belgium", "region": null, "segments": ["optical-sorting", "grading-sizing", "washing-peeling"],
+  "profile": {
+   "summary": "TOMRA Food makes sensor-based sorting machines, steam peelers and post-harvest systems, with its main office in Leuven, Belgium. It is a division of TOMRA Systems ASA of Asker, Norway, founded in 1972. For potatoes it offers sorters for field and fresh-pack potatoes, fries and chips, and steam peeling lines.",
+   "hq": {"city": "Leuven", "country": "Belgium"},
+   "founded": "1972 (TOMRA Systems ASA)",
+   "ownership": "Business division of TOMRA Systems ASA, Asker, Norway",
+   "machines": ["TOMRA 3A (foreign-material removal, field and fresh-pack potatoes)", "TOMRA 4A (three-way sorting, up to 100 t/h)", "TOMRA 5A (bulk sorting and size grading)", "TOMRA 5B (belt sorter for fries and potato chips)", "TOMRA 5S Advanced (multi-lane, fresh pack)", "Sentinel II (defect removal)", "Single and dual lane sorters", "Orbit, Odyssey and Eco steam peelers"],
+   "markets": ["TOMRA group: present in over 100 countries"],
+   "contact": {"website": "https://www.tomra.com/food", "phone": "+32 16 396 396", "address": "Research Park Haasrode 1622, Romeinse straat 20, 3001 Leuven, Belgium"},
+   "facts": ["TOMRA group: over 5,800 employees; revenue about EUR 1.32 billion (2025)", "Group divisions: TOMRA Collection, TOMRA Recycling, TOMRA Food"],
+   "limitations": ["TOMRA Food's own employee count and installed base are not published on the pages read."],
+   "sources": [
+    {"url": "https://www.tomra.com/food", "title": "TOMRA Food", "accessed": "2026-11-07"},
+    {"url": "https://www.tomra.com/food/machines/potatoes", "title": "Potato machines", "accessed": "2026-11-07"},
+    {"url": "https://www.tomra.com/about-tomra", "title": "About TOMRA", "accessed": "2026-11-07"}
+   ]
+  }
+ },
+ {
+  "match_id": null, "kind": "machinery", "slug": "grimme-germany", "name": "GRIMME Group", "domain": "grimme.com", "home_url": "https://www.grimme.com/en/", "country": "Germany", "region": null, "segments": ["planting-harvesting", "storage-ventilation", "handling", "grading-sizing"],
+  "profile": {
+   "summary": "GRIMME is a family-run German maker of machinery for planting, harvesting, storing and handling potatoes, beet and vegetables, founded in 1861 in Damme, Lower Saxony. The group states 3,300 employees, 38 locations and sales of EUR 792 million in 2025, and is active in over 120 countries.",
+   "hq": {"city": "Damme", "country": "Germany"},
+   "founded": "1861, Damme",
+   "ownership": "Family business; the fourth and fifth generations of the Grimme family manage GRIMME Holding",
+   "machines": ["Separating technology (e.g. CS 150 separator)", "Planting technology (e.g. PRIOS 440 cup planter)", "Soil cultivation", "Harvest preparation", "Trailed and self-propelled harvesters (e.g. SELECT 200)", "Crop storage technology (e.g. CleanLoader receiving hopper)"],
+   "brands": ["GRIMME", "SPUDNIK", "ASA-LIFT", "HAITH", "RICON", "INTERNORM"],
+   "markets": ["Active in over 120 countries"],
+   "contact": {"website": "https://www.grimme.com/en/", "public_email": "info@grimme.de", "phone": "+49 5491 666-0", "address": "Hunteburger Str. 32, D-49401 Damme, Germany"},
+   "facts": ["3,300 employees worldwide", "38 locations worldwide", "Group sales EUR 792 million (2025)", "130 apprentices in 20 trades"],
+   "limitations": ["Production-site towns are not listed on the pages read."],
+   "sources": [
+    {"url": "https://group.grimme.com/", "title": "GRIMME Group", "accessed": "2026-11-07"},
+    {"url": "https://group.grimme.com/about", "title": "About GRIMME", "accessed": "2026-11-07"},
+    {"url": "https://products.grimme.com/en", "title": "GRIMME product catalogue", "accessed": "2026-11-07"},
+    {"url": "https://www.grimme.com/en/", "title": "GRIMME home page", "accessed": "2026-11-07"}
+   ]
+  }
+ }
+]

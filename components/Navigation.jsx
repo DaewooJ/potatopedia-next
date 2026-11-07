@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { DIRECTORY_PUBLIC } from "../lib/directory-flag";
 
 // Premium chrome (7 Nov 2026): serif wordmark (replaces the red potato icon), quiet text nav,
 // "Ask Potatopedia…" pill to /ask and an Advertise pill to /advertise (rate card).
@@ -13,6 +14,7 @@ const LINKS = [
   { href: "/answers", label: "Answers", match: ["/answers"] },
   { href: "/market", label: "Market", match: ["/market"] },
   { href: "/machines", label: "Machines", match: ["/machines"] },
+  ...(DIRECTORY_PUBLIC ? [{ href: "/companies", label: "Companies", match: ["/companies"] }] : []),
   { href: "/blog", label: "Blog", match: ["/blog"] },
 ];
 
