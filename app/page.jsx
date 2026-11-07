@@ -1,35 +1,41 @@
 import Link from "next/link";
-import { Bodoni_Moda, Inter_Tight } from "next/font/google";
 import { VARIETIES } from "../lib/varieties-data";
+import { COUNTRIES, KNOWLEDGE_TITLES } from "../lib/data";
 import { POTATOPEDIA_PUBLISHER, POTATOPEDIA_WEBSITE } from "../lib/authors";
 import ANSWERS from "../lib/answers-baked.json";
-import HomeAsk from "../components/HomeAsk";
+import AskHero from "../components/AskHero";
 import LeadForm from "../components/LeadForm";
 
-// Homepage — "Today's Issue, as a deck of cards" (Devendra, 6 Nov 2026: one idea from boards D + A + F).
-//   D = the frame: the homepage is today's numbered issue, "presented by" a sponsor.
-//   A = the content: the cover story is today's question with its sourced answer; more questions follow.
-//   F = the form: every item (question, variety, machine, number) is the same collectible card.
-// One palette, two fonts. Everything is real: published answers, lib/varieties-data.js, sourced numbers.
-// Rotates daily (ISR). LCP is the cover text, no hero image.
+// Homepage v3 (7 Nov 2026). The AI answer engine is the hero: ask, get a sourced answer in place.
+// Below it, "Today on Potatopedia" keeps the daily-issue idea (today's question, number, variety, machine)
+// as flat, aligned cards, then Explore, newsletter and the companies band. Clean, global, one accent colour.
+// Everything shown is real: published answers, lib/varieties-data.js, sourced numbers, live /stats.
 
 export const revalidate = 3600;
 
-const display = Bodoni_Moda({ subsets: ["latin"], weight: ["400", "700", "800"], style: ["normal", "italic"], display: "swap", variable: "--pp-display" });
-const text = Inter_Tight({ subsets: ["latin"], weight: ["400", "500", "600", "700"], display: "swap", variable: "--pp-text" });
-
 export const metadata = {
   title: { absolute: "Potatopedia — Ask Anything About Potatoes: Varieties, Machines, Data" },
-  description: "The neutral global reference on potatoes. Sourced answers on varieties, machines, trade and production data. A new issue every day.",
+  description: "Ask any question about potatoes and get a sourced answer in seconds: varieties, production, trade, processing and machines. Free, neutral, global.",
   alternates: { canonical: "https://www.potatopedia.com" },
   openGraph: {
     type: "website",
     url: "https://www.potatopedia.com",
     title: "Potatopedia — Ask Anything About Potatoes",
-    description: "Sourced answers on potato varieties, machines, trade and data from FAOSTAT, USDA, CIP and peer-reviewed research.",
+    description: "Sourced answers from FAOSTAT, USDA, CIP, UN Comtrade and peer-reviewed research, in any language.",
     images: ["/og-image.png"],
   },
 };
+
+async function getStats() {
+  try {
+    const r = await fetch("https://potatopedia-backend.onrender.com/stats", { next: { revalidate: 3600 }, signal: AbortSignal.timeout(8000) });
+    if (!r.ok) return null;
+    const s = await r.json();
+    return { points: s.total_chunks, sources: s.unique_sources };
+  } catch {
+    return null;
+  }
+}
 
 const DAY = 86400_000;
 const LAUNCH = Date.UTC(2026, 3, 7); // issue No. 1 = 7 Apr 2026, when this site went live
@@ -91,158 +97,146 @@ function issueFor(no, answers, varieties) {
   };
 }
 
-export default function HomePage() {
+export default async function HomePage() {
   const now = Date.now();
   const no = Math.max(1, Math.floor((now - LAUNCH) / DAY) + 1);
-  const date = (n) =>
-    new Date(LAUNCH + (n - 1) * DAY).toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short", year: "numeric", timeZone: "UTC" });
+  const dateLabel = new Date(now).toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
+  const stats = await getStats();
 
   const all = Object.values(ANSWERS);
   const answers = {
     all,
-    // Cover candidates: high-confidence answers whose opening is a complete statement (not a lead-in to a list).
     leads: all.filter((a) => {
       const e = excerpt(a.answer);
       return a.confidence === "high" && e.length > 80 && /[.!?)"”]$/.test(e);
     }),
   };
   const varieties = VARIETY_ROTATION.map((n) => VARIETIES.find((v) => v.name === n)).filter(Boolean);
-
   const today = issueFor(no, answers, varieties);
-  const past = [1, 2, 3, 4, 5, 6].map((d) => issueFor(no - d, answers, varieties)).filter((i) => i.no >= 1);
   const v = today.variety;
 
+  const trust = [
+    stats && [stats.points.toLocaleString("en-US"), "data points"],
+    stats && [String(stats.sources), "sources"],
+    [String(VARIETIES.length), "varieties"],
+    [String(COUNTRIES.length), "country profiles"],
+  ].filter(Boolean);
+
+  const explore = [
+    { href: "/varieties", title: "Varieties", sub: `${VARIETIES.length} cultivars, traits and uses` },
+    { href: "/countries", title: "Countries", sub: `${COUNTRIES.length} production and trade profiles` },
+    { href: "/knowledge", title: "Knowledge", sub: `${Object.keys(KNOWLEDGE_TITLES).length} in-depth guides` },
+    { href: "/answers", title: "Answers", sub: `${all.length} published questions` },
+    { href: "#quote", title: "Machines", sub: "Get 3 quotes from makers" },
+  ];
+
   return (
-    <div className={`${display.variable} ${text.variable} pp-home`}>
+    <div className="hp">
       <style>{CSS}</style>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@graph": [POTATOPEDIA_PUBLISHER, POTATOPEDIA_WEBSITE] }) }}
       />
 
-      {/* ── Masthead ── */}
-      <header className="pp-mast">
-        <span className="pp-mast-meta">No. {String(no).padStart(4, "0")}</span>
-        <p className="pp-mast-name" aria-hidden="true">Potatopedia</p>
-        <span className="pp-mast-meta pp-right">{date(no).toUpperCase()}</span>
-        <p className="pp-mast-strap">The neutral world reference on potatoes · sourced from FAOSTAT, USDA, CIP, UN Comtrade, CPRI, Europatat and peer-reviewed research</p>
-      </header>
-
-      {/* ── Today's issue: cover + deck ── */}
-      <section className="pp-issue" aria-label={`Issue ${no}`}>
-        <div className="pp-deck">
-          {/* Cover card = today's question */}
-          <article className="pp-card pp-cover">
-            <div className="pp-card-top">
-              <span>TODAY&apos;S QUESTION · {today.lead.category?.toUpperCase()}</span>
-              <span>1 / 7</span>
-            </div>
-            <h1 className="pp-cover-q">{today.lead.question}</h1>
-            <div className="pp-answer">
-              <p>{excerpt(today.lead.answer)}</p>
-              <Link href={`/answers/${today.lead.slug}`} className="pp-answer-link">
-                Read the full sourced answer →
-              </Link>
-            </div>
-            <div className="pp-cover-ask" id="ask">
-              <p className="pp-label">ASK YOUR OWN</p>
-              <HomeAsk />
-            </div>
-            <a href="#companies" className="pp-presented">
-              <span className="pp-label">TODAY&apos;S ISSUE IS PRESENTED BY</span>
-              <span>Available · present an issue →</span>
-            </a>
-          </article>
-
-          {/* Question cards */}
-          {today.more.map((a, i) => (
-            <Link key={a.slug} href={`/answers/${a.slug}`} className="pp-card pp-q" style={{ "--tilt": `${[-1.5, 1.2][i]}deg` }}>
-              <div className="pp-card-top">
-                <span>QUESTION · {a.category?.toUpperCase()}</span>
-                <span>{i + 2} / 7</span>
-              </div>
-              <strong className="pp-q-t">{a.question}</strong>
-              <span className="pp-more">Sourced answer →</span>
-            </Link>
-          ))}
-
-          {/* Variety of the day */}
-          {v && (
-            <Link href={`/varieties/${v.slug}`} className="pp-card" style={{ "--tilt": "1.4deg" }}>
-              <div className="pp-card-top">
-                <span>VARIETY OF THE DAY</span>
-                <span>4 / 7</span>
-              </div>
-              <span className="pp-art" aria-hidden="true">{v.name.charAt(0)}</span>
-              <strong className="pp-card-name">{v.name}</strong>
-              <span className="pp-rows">
-                <span className="pp-row"><span>Origin</span><span>{v.origin.replace(/\s*\(.*\)/, "")}</span></span>
-                <span className="pp-row"><span>Released</span><span>{v.year || "not published"}</span></span>
-                <span className="pp-row"><span>Best for</span><span>{v.uses[0]?.split(" / ")[0]}</span></span>
-              </span>
-              <span className="pp-slot">BREEDER SET · AVAILABLE</span>
-            </Link>
-          )}
-
-          {/* Machine of the day */}
-          <a href="#quote" className="pp-card" style={{ "--tilt": "-1.2deg" }}>
-            <div className="pp-card-top">
-              <span>MACHINE OF THE DAY</span>
-              <span>5 / 7</span>
-            </div>
-            <span className="pp-art pp-art-m" aria-hidden="true">{today.machine.no}</span>
-            <strong className="pp-card-name">{today.machine.name}</strong>
-            <span className="pp-small">{today.machine.what}</span>
-            <span className="pp-rows">
-              <span className="pp-row"><span>Fixes</span><span>{today.machine.fixes}</span></span>
-            </span>
-            <span className="pp-more">Get 3 quotes →</span>
-          </a>
-
-          {/* Number of the day */}
-          <Link href={today.number.href} className="pp-card pp-num" style={{ "--tilt": "0.9deg" }}>
-            <div className="pp-card-top">
-              <span>NUMBER OF THE DAY</span>
-              <span>6 / 7</span>
-            </div>
-            <strong className="pp-num-n">{today.number.n}</strong>
-            <span className="pp-num-what">{today.number.what}</span>
-            <span className="pp-num-src">Source: {today.number.src}</span>
-          </Link>
-
-          {/* Sponsor card */}
-          <a href="#companies" className="pp-card pp-spon" style={{ "--tilt": "-0.7deg" }}>
-            <div className="pp-card-top">
-              <span>FOR COMPANIES</span>
-              <span>7 / 7</span>
-            </div>
-            <strong className="pp-q-t">Own a question your buyers ask.</strong>
-            <span className="pp-small">The neutral, sourced answer always comes first. Below it, one card labelled Sponsored with your offer.</span>
-            <span className="pp-more">See the options →</span>
-          </a>
+      {/* ── Hero: the AI answer engine ── */}
+      <section className="hp-hero" aria-labelledby="hp-h1">
+        <div className="hp-hero-in">
+          <p className="hp-eyebrow">The neutral global reference on potatoes</p>
+          <h1 id="hp-h1" className="hp-h1">Ask anything about potatoes.</h1>
+          <p className="hp-sub">
+            Sourced answers in seconds, in any language. Built on FAOSTAT, USDA, CIP, UN Comtrade, CPRI, Europatat and peer-reviewed research.
+          </p>
+          <div id="ask" className="hp-ask">
+            <AskHero />
+          </div>
+          <ul className="hp-trust" aria-label="Knowledge base">
+            {trust.map(([n, l]) => (
+              <li key={l}>
+                <strong>{n}</strong> {l}
+              </li>
+            ))}
+          </ul>
+          <ol className="hp-how" aria-label="How answers work">
+            <li><span>1</span>We search the knowledge base for your question</li>
+            <li><span>2</span>We cite the sources and years we used</li>
+            <li><span>3</span>We answer, and say when data is not published</li>
+          </ol>
         </div>
-        <p className="pp-swipe-hint" aria-hidden="true">Swipe through today&apos;s issue →</p>
       </section>
 
-      {/* ── Past issues ── */}
-      <section className="pp-band" aria-labelledby="past-h">
-        <div className="pp-wrap">
-          <div className="pp-band-head">
-            <h2 id="past-h" className="pp-h2">Earlier issues</h2>
-            <Link href="/answers" className="pp-link">All {all.length} answers →</Link>
+      {/* ── Today on Potatopedia ── */}
+      <section className="hp-sec" aria-labelledby="hp-today">
+        <div className="hp-in">
+          <div className="hp-head">
+            <h2 id="hp-today" className="hp-h2">Today on Potatopedia</h2>
+            <span className="hp-meta">Issue {no} · {dateLabel}</span>
           </div>
-          <div className="pp-past">
-            {past.map((i) => (
-              <Link key={i.no} href={`/answers/${i.lead.slug}`} className="pp-past-card">
-                <span className="pp-label">No. {String(i.no).padStart(4, "0")} · {date(i.no)}</span>
-                <span className="pp-past-q">{i.lead.question}</span>
+          <div className="hp-today">
+            <article className="hp-card hp-lead">
+              <p className="hp-kicker">Question of the day · {today.lead.category}</p>
+              <h3 className="hp-lead-q">{today.lead.question}</h3>
+              <p className="hp-lead-a">{excerpt(today.lead.answer)}</p>
+              <div className="hp-lead-foot">
+                <Link href={`/answers/${today.lead.slug}`} className="hp-link">Read the full sourced answer →</Link>
+                <span className="hp-more-q">
+                  Also asked:{" "}
+                  {today.more.map((a, i) => (
+                    <span key={a.slug}>
+                      {i > 0 && " · "}
+                      <Link href={`/answers/${a.slug}`}>{a.question}</Link>
+                    </span>
+                  ))}
+                </span>
+              </div>
+            </article>
+
+            <Link href={today.number.href} className="hp-card hp-num">
+              <p className="hp-kicker">Number of the day</p>
+              <strong className="hp-num-n">{today.number.n}</strong>
+              <span className="hp-num-w">{today.number.what}</span>
+              <span className="hp-src">Source: {today.number.src}</span>
+            </Link>
+
+            {v && (
+              <Link href={`/varieties/${v.slug}`} className="hp-card">
+                <p className="hp-kicker">Variety of the day</p>
+                <strong className="hp-card-t">{v.name}</strong>
+                <dl className="hp-dl">
+                  <div><dt>Origin</dt><dd>{v.origin.replace(/\s*\(.*\)/, "")}</dd></div>
+                  <div><dt>Released</dt><dd>{v.year || "not published"}</dd></div>
+                  <div><dt>Best for</dt><dd>{v.uses[0]?.split(" / ")[0]}</dd></div>
+                </dl>
+                <span className="hp-link">Variety profile →</span>
+              </Link>
+            )}
+
+            <a href="#quote" className="hp-card">
+              <p className="hp-kicker">Machine of the day</p>
+              <strong className="hp-card-t">{today.machine.name}</strong>
+              <span className="hp-small">{today.machine.what}</span>
+              <span className="hp-small"><b>Fixes:</b> {today.machine.fixes}</span>
+              <span className="hp-link">Get 3 quotes →</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Explore ── */}
+      <section className="hp-sec hp-sec-tint" aria-labelledby="hp-explore">
+        <div className="hp-in">
+          <h2 id="hp-explore" className="hp-h2" style={{ marginBottom: 20 }}>Explore</h2>
+          <div className="hp-explore">
+            {explore.map((e) => (
+              <Link key={e.title} href={e.href} className="hp-tile">
+                <strong>{e.title}</strong>
+                <span>{e.sub}</span>
               </Link>
             ))}
           </div>
-          <div className="pp-news">
+          <div className="hp-news">
             <div>
-              <h2 className="pp-h2" style={{ fontSize: 28 }}>Get each issue by email</h2>
-              <p className="pp-muted">The Potato Week: one email a week with the best questions, numbers and stories. Free.</p>
+              <h2 className="hp-h3">The Potato Week</h2>
+              <p className="hp-small" style={{ margin: "6px 0 0" }}>One email a week: the most useful new answers, data and stories. Free.</p>
             </div>
             <LeadForm type="newsletter" askName={false} askCompany={false} askCountry={false} askMessage={false} submitLabel="Subscribe" compact />
           </div>
@@ -250,26 +244,27 @@ export default function HomePage() {
       </section>
 
       {/* ── For companies ── */}
-      <section id="companies" className="pp-band pp-band-ink" aria-labelledby="co-h">
-        <div className="pp-wrap pp-co">
+      <section id="companies" className="hp-sec hp-dark" aria-labelledby="hp-co">
+        <div className="hp-in hp-co">
           <div>
-            <p className="pp-label" style={{ color: "#F4B8C0" }}>FOR COMPANIES</p>
-            <h2 id="co-h" className="pp-h2" style={{ color: "#fff" }}>Put your brand inside the answer.</h2>
-            <p style={{ color: "#DCD3E0", lineHeight: 1.6, margin: "12px 0 18px" }}>
-              Growers, processors, traders and researchers come here for neutral, sourced answers. Makers, breeders and suppliers reach
-              them with clearly labelled placements. Paid content never changes a fact.
+            <p className="hp-eyebrow" style={{ color: "#F3A7A7" }}>For companies</p>
+            <h2 id="hp-co" className="hp-h2" style={{ color: "#fff" }}>Reach the potato industry, inside the answer.</h2>
+            <p style={{ color: "#C9C9D1", lineHeight: 1.65, margin: "14px 0 18px" }}>
+              Growers, processors, traders and researchers use Potatopedia for neutral, sourced answers. Machinery makers, breeders and
+              suppliers reach them through clearly labelled placements. The sourced answer always comes first, and paid content never
+              changes a fact.
             </p>
-            <ul className="pp-list">
-              <li>Present an issue and the newsletter</li>
+            <ul className="hp-list">
+              <li>Featured maker for a machine and its quote requests</li>
+              <li>Breeder set: your varieties, labelled</li>
               <li>Own a question: one labelled card under the answer</li>
-              <li>Breeder set: your varieties&apos; cards, labelled</li>
-              <li>Featured maker on a machine card and its quotes</li>
               <li>Publish with us: a labelled partner article</li>
+              <li>Present the daily issue and the newsletter</li>
               <li>AI visibility report: how often AI answers name you</li>
             </ul>
           </div>
-          <div className="pp-forms">
-            <div className="pp-form" id="quote">
+          <div className="hp-forms">
+            <div className="hp-form" id="quote">
               <LeadForm
                 type="machine_quote"
                 title="Get 3 quotes for a machine"
@@ -284,7 +279,7 @@ export default function HomePage() {
                 ]}
               />
             </div>
-            <div className="pp-form">
+            <div className="hp-form">
               <LeadForm
                 type="advertise_call"
                 title="Book a 15-minute call"
@@ -292,117 +287,88 @@ export default function HomePage() {
                 submitLabel="Book the call"
                 compact
                 askMessage={false}
-                extra={[{ name: "product_interest", label: "Interested in", options: ["Present an issue", "Own a question", "Breeder set", "Featured maker", "Publish with us", "AI visibility check", "Not sure yet"] }]}
+                extra={[{ name: "product_interest", label: "Interested in", options: ["Featured maker", "Breeder set", "Own a question", "Publish with us", "Present the daily issue", "AI visibility check", "Not sure yet"] }]}
               />
             </div>
           </div>
         </div>
       </section>
-
-      <nav aria-label="Quick actions" className="pp-bar">
-        <a href="#ask">Ask</a>
-        <a href="#companies" className="pp-bar-alt">Advertise</a>
-      </nav>
     </div>
   );
 }
 
-// One palette: paper, ink, one red. No green anywhere.
+// White, near-black text, one accent (brand red #C62828). No green. Site font (Poppins from the layout).
 const CSS = `
-.pp-home { --paper: #FBF5EC; --card: #FFFDF8; --ink: #16101E; --red: #D7263D; --mute: #6B6272; --line: #E3D7C6;
-  font-family: var(--pp-text), system-ui, sans-serif; background: var(--paper); color: var(--ink); overflow-x: hidden; }
-.pp-home a { color: inherit; }
-.pp-label { display: block; margin: 0 0 6px; font-size: 11px; font-weight: 700; letter-spacing: .14em; }
-.pp-muted { color: var(--mute); margin: 6px 0 0; line-height: 1.5; }
+.hp { background: #fff; color: #111114; overflow-x: hidden; }
+.hp a { color: inherit; }
+.hp-eyebrow { margin: 0 0 14px; font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #C62828; }
+.hp-hero { padding: 72px 20px 56px; background: radial-gradient(1200px 400px at 50% -120px, #FBEDED 0%, #fff 70%); border-bottom: 1px solid #EEEEF0; }
+.hp-hero-in { max-width: 820px; margin: 0 auto; text-align: center; }
+.hp-h1 { margin: 0; font-size: clamp(36px, 5.6vw, 60px); font-weight: 700; line-height: 1.05; letter-spacing: -.03em; }
+.hp-sub { margin: 18px auto 0; max-width: 640px; font-size: 18px; line-height: 1.55; color: #4A4A52; }
+.hp-ask { margin: 32px auto 0; text-align: left; }
+.hp-trust { list-style: none; margin: 28px 0 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 28px; font-size: 14px; color: #5A5A63; }
+.hp-trust strong { color: #111114; font-weight: 700; }
+.hp-how { list-style: none; margin: 22px auto 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 24px; font-size: 13px; color: #6B6B74; }
+.hp-how li { display: flex; align-items: center; gap: 8px; }
+.hp-how span { width: 20px; height: 20px; border-radius: 50%; background: #F4F4F5; color: #111114; font-size: 11px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; }
 
-.pp-mast { max-width: 1240px; margin: 0 auto; padding: 22px 20px 14px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: end; gap: 12px; border-bottom: 3px double var(--ink); }
-.pp-mast-name { margin: 0; font-family: var(--pp-display), Georgia, serif; font-weight: 800; font-size: clamp(44px, 7vw, 92px); line-height: .9; letter-spacing: -.03em; text-align: center; }
-.pp-mast-meta { font-size: 12px; font-weight: 700; letter-spacing: .14em; padding-bottom: 8px; }
-.pp-right { text-align: right; }
-.pp-mast-strap { grid-column: 1 / -1; margin: 6px 0 0; text-align: center; font-size: 12.5px; color: var(--mute); }
+.hp-sec { padding: 56px 20px; }
+.hp-sec-tint { background: #FAFAFA; border-top: 1px solid #EEEEF0; border-bottom: 1px solid #EEEEF0; }
+.hp-in { max-width: 1160px; margin: 0 auto; }
+.hp-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+.hp-h2 { margin: 0; font-size: clamp(24px, 2.8vw, 32px); font-weight: 700; letter-spacing: -.02em; line-height: 1.15; }
+.hp-h3 { margin: 0; font-size: 20px; font-weight: 700; }
+.hp-meta { font-size: 13px; color: #6B6B74; }
+.hp-today { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 16px; }
+.hp-card { background: #fff; border: 1px solid #E4E4E7; border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 10px; text-decoration: none; transition: border-color .15s ease, box-shadow .15s ease; }
+a.hp-card:hover { border-color: #C9C9CF; box-shadow: 0 8px 24px rgba(15,15,20,.06); }
+a.hp-card:focus-visible, .hp-tile:focus-visible { outline: 3px solid #C62828; outline-offset: 2px; }
+.hp-kicker { margin: 0; font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: #6B6B74; }
+.hp-lead { grid-row: span 1; }
+.hp-lead-q { margin: 0; font-size: 24px; font-weight: 700; line-height: 1.2; letter-spacing: -.01em; }
+.hp-lead-a { margin: 0; font-size: 15.5px; line-height: 1.65; color: #34343B; }
+.hp-lead-foot { margin-top: auto; display: flex; flex-direction: column; gap: 10px; }
+.hp-more-q { font-size: 13px; color: #6B6B74; line-height: 1.5; }
+.hp-more-q a { color: #34343B; text-decoration: underline; text-decoration-color: #D4D4D8; }
+.hp-link { color: #C62828 !important; font-weight: 600; font-size: 14px; text-decoration: none; margin-top: auto; }
+.hp-card-t { font-size: 20px; font-weight: 700; line-height: 1.2; }
+.hp-small { font-size: 14px; line-height: 1.55; color: #4A4A52; }
+.hp-num-n { font-size: 44px; font-weight: 700; letter-spacing: -.03em; line-height: 1; color: #C62828; }
+.hp-num-w { font-size: 14.5px; line-height: 1.5; color: #34343B; }
+.hp-src { margin-top: auto; font-size: 12.5px; color: #6B6B74; }
+.hp-dl { margin: 0; display: grid; gap: 6px; font-size: 13.5px; }
+.hp-dl div { display: flex; justify-content: space-between; gap: 8px; border-top: 1px solid #F0F0F2; padding-top: 6px; }
+.hp-dl dt { color: #6B6B74; }
+.hp-dl dd { margin: 0; font-weight: 600; text-align: right; }
+.hp-explore { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
+.hp-tile { background: #fff; border: 1px solid #E4E4E7; border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 6px; text-decoration: none; }
+.hp-tile:hover { border-color: #C62828; }
+.hp-tile strong { font-size: 16px; }
+.hp-tile span { font-size: 13.5px; color: #6B6B74; line-height: 1.45; }
+.hp-news { margin-top: 28px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; align-items: center; background: #fff; border: 1px solid #E4E4E7; border-radius: 14px; padding: 22px 24px; }
+.hp-dark { background: #111114; color: #fff; }
+.hp-co { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 40px; align-items: start; }
+.hp-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; color: #E4E4E7; font-size: 15px; }
+.hp-list li { display: flex; gap: 10px; }
+.hp-list li::before { content: ""; flex: 0 0 6px; height: 6px; margin-top: 9px; border-radius: 50%; background: #E57373; }
+.hp-forms { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; }
+.hp-form { background: #fff; color: #111114; border-radius: 14px; padding: 20px; }
 
-.pp-issue { max-width: 1240px; margin: 0 auto; padding: 28px 20px 40px; }
-.pp-deck { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: minmax(250px, auto); gap: 22px; }
-.pp-card { background: var(--card); border: 2.5px solid var(--ink); border-radius: 18px; box-shadow: 6px 7px 0 var(--ink); padding: 16px 18px;
-  display: flex; flex-direction: column; gap: 12px; text-decoration: none; transform: rotate(var(--tilt, 0deg)); transition: transform .15s ease, box-shadow .15s ease; }
-a.pp-card:hover { transform: rotate(0deg) translateY(-4px); box-shadow: 8px 10px 0 var(--ink); }
-a.pp-card:focus-visible { outline: 3px solid var(--red); outline-offset: 4px; }
-.pp-card-top { display: flex; justify-content: space-between; gap: 8px; font-size: 10.5px; font-weight: 800; letter-spacing: .13em; }
-.pp-cover { grid-column: 1 / span 2; grid-row: 1 / span 3; padding: 26px 28px; gap: 18px; }
-.pp-cover-q { margin: 0; font-family: var(--pp-display), Georgia, serif; font-weight: 700; font-size: clamp(34px, 3.6vw, 52px); line-height: 1.02; letter-spacing: -.015em; }
-.pp-answer { border-left: 4px solid var(--red); padding: 4px 0 4px 16px; }
-.pp-answer p { margin: 0 0 10px; font-size: 17px; line-height: 1.55; }
-.pp-answer-link, .pp-more, .pp-link { color: var(--red) !important; font-weight: 700; font-size: 14px; text-decoration: none; }
-.pp-answer-link:hover, .pp-link:hover { text-decoration: underline; }
-.pp-cover-ask { margin-top: auto; border-top: 1px solid var(--line); padding-top: 14px; }
-.pp-cover-ask section, .pp-cover-ask > div { padding: 0 !important; margin: 0 !important; }
-.pp-presented { display: block; border: 1.5px dashed var(--mute); border-radius: 12px; padding: 10px 14px; text-decoration: none; font-size: 14px; font-weight: 600; }
-.pp-q-t { font-family: var(--pp-display), Georgia, serif; font-weight: 700; font-size: 24px; line-height: 1.1; }
-.pp-q .pp-more, .pp-spon .pp-more { margin-top: auto; }
-.pp-art { height: 92px; border-radius: 12px; background: #F2D9A9; display: flex; align-items: center; justify-content: center; font-family: var(--pp-display), Georgia, serif; font-weight: 800; font-size: 56px; color: rgba(22,16,30,.55); }
-.pp-art-m { background: #E9DCF3; font-family: var(--pp-text), sans-serif; font-size: 22px; letter-spacing: .1em; }
-.pp-card-name { font-size: 23px; line-height: 1.05; letter-spacing: -.02em; }
-.pp-small { font-size: 13px; line-height: 1.45; color: #3A3242; }
-.pp-rows { margin-top: auto; display: flex; flex-direction: column; gap: 5px; font-size: 12px; font-weight: 700; }
-.pp-row { display: flex; justify-content: space-between; gap: 8px; border-top: 1px solid var(--ink); padding-top: 5px; }
-.pp-row span:last-child { text-align: right; font-weight: 600; }
-.pp-slot { font-size: 10px; font-weight: 800; letter-spacing: .12em; color: var(--red); }
-.pp-home a.pp-num { background: var(--ink); color: #fff; }
-.pp-num .pp-card-top { color: #F4B8C0; }
-.pp-num-n { font-family: var(--pp-display), Georgia, serif; font-weight: 800; font-size: 54px; line-height: .95; letter-spacing: -.02em; }
-.pp-num-what { font-size: 15px; line-height: 1.4; }
-.pp-num-src { margin-top: auto; font-size: 12px; color: #CFC6D6; }
-.pp-home a.pp-spon { background: var(--red); color: #fff; }
-.pp-spon .pp-small { color: #FFE3E6; }
-.pp-spon .pp-more { color: #fff !important; }
-.pp-swipe-hint { display: none; }
-
-.pp-band { padding: 48px 20px 56px; border-top: 1px solid var(--line); }
-.pp-band-ink { background: var(--ink); color: #fff; border-top: 0; }
-.pp-wrap { max-width: 1240px; margin: 0 auto; }
-.pp-band-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 18px; }
-.pp-h2 { margin: 0; font-family: var(--pp-display), Georgia, serif; font-weight: 800; font-size: clamp(30px, 3.6vw, 44px); line-height: 1; letter-spacing: -.015em; }
-.pp-past { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px; }
-.pp-past-card { background: var(--card); border: 1.5px solid var(--ink); border-radius: 14px; padding: 14px; text-decoration: none; display: flex; flex-direction: column; gap: 8px; min-height: 130px; }
-.pp-past-card:hover { box-shadow: 4px 5px 0 var(--ink); }
-.pp-past-q { font-family: var(--pp-display), Georgia, serif; font-weight: 700; font-size: 17px; line-height: 1.15; }
-.pp-news { margin-top: 40px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 28px; align-items: center; background: var(--card); border: 2.5px solid var(--ink); border-radius: 18px; padding: 24px; }
-.pp-co { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 40px; align-items: start; }
-.pp-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
-.pp-list li::before { content: "■"; color: var(--red); margin-right: 10px; }
-.pp-forms { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 18px; }
-.pp-form { background: var(--card); color: var(--ink); border-radius: 18px; padding: 20px; }
-.pp-bar { display: none; }
-
-@media (max-width: 1080px) {
-  .pp-deck { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .pp-past { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .pp-co, .pp-forms { grid-template-columns: 1fr; }
+@media (max-width: 1040px) {
+  .hp-today { grid-template-columns: 1fr 1fr; }
+  .hp-lead { grid-column: 1 / -1; }
+  .hp-explore { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .hp-co, .hp-forms { grid-template-columns: 1fr; }
 }
-@media (max-width: 768px) {
-  .pp-mast { grid-template-columns: 1fr 1fr; padding: 16px 16px 10px; }
-  .pp-mast-name { grid-column: 1 / -1; grid-row: 1; font-size: 52px; }
-  .pp-mast-meta { padding: 0; font-size: 10.5px; }
-  .pp-mast-strap { font-size: 11.5px; }
-  .pp-issue { padding: 18px 0 28px; }
-  /* Phone: the issue is a swipeable deck, one card per screen (stories pattern) */
-  .pp-deck { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 14px; padding: 6px 16px 16px; scrollbar-width: none; }
-  .pp-deck::-webkit-scrollbar { display: none; }
-  .pp-card { flex: 0 0 calc(100% - 44px); min-width: 0; max-width: calc(100% - 44px); box-sizing: border-box; overflow: hidden; scroll-snap-align: center; min-height: 440px; transform: none; box-shadow: 4px 5px 0 var(--ink); }
-  .pp-cover { min-height: 0; padding: 20px; }
-  .pp-cover-q { font-size: 32px; }
-  .pp-answer p { font-size: 16px; }
-  .pp-q-t { font-size: 30px; }
-  .pp-num-n { font-size: 64px; }
-  .pp-swipe-hint { display: block; margin: 0; padding: 0 16px; font-size: 12.5px; font-weight: 600; color: var(--mute); }
-  .pp-band { padding: 36px 16px 44px; }
-  .pp-past { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; margin: 0 -16px; padding: 0 16px 6px; gap: 12px; scrollbar-width: none; }
-  .pp-past-card { flex: 0 0 70%; scroll-snap-align: start; }
-  .pp-news { grid-template-columns: 1fr; padding: 18px; }
-  .pp-form { padding: 16px; }
-  .pp-bar { display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; gap: 8px; padding: 10px 12px calc(10px + env(safe-area-inset-bottom)); background: var(--ink); }
-  .pp-bar a { flex: 1; text-align: center; border-radius: 999px; padding: 14px; font-weight: 700; font-size: 15px; text-decoration: none; background: #fff; color: var(--ink) !important; }
-  .pp-bar a.pp-bar-alt { background: var(--red); color: #fff !important; }
-  #companies { padding-bottom: 110px; }
+@media (max-width: 640px) {
+  .hp-hero { padding: 40px 16px 36px; }
+  .hp-sub { font-size: 16px; }
+  .hp-how { display: none; }
+  .hp-sec { padding: 40px 16px; }
+  .hp-today { display: flex; flex-direction: column; }
+  .hp-explore { grid-template-columns: 1fr 1fr; }
+  .hp-news { grid-template-columns: 1fr; padding: 18px; }
+  .hp-form { padding: 16px; }
 }
 `;
