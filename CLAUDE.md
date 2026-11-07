@@ -47,7 +47,7 @@
 - **`PLAUSIBLE_API_KEY`** required in `.env.local` for analytics fetcher scripts (see `scripts/PLAUSIBLE_SETUP.md`)
 - **`PLAUSIBLE_SITE_ID=potatopedia.com`** required alongside the API key
 - Bing Webmaster Tools + GSC CSV exports go in `scripts/data/{bing,gsc}/` (gitignored)
-- Run weekly unified analytics report via `python3 scripts/unified_analytics_report.py`
+- Monthly report: `node scripts/analytics/monthly-report.mjs` (Google via GSC API + Bing exports + AI citations). After a new Bing AI export lands in scripts/data/bing/, run `node scripts/analytics/ai-citations.mjs` (updates lib/ai-citations.json → /advertise + media kit)
 - Otterly.AI / AthenaHQ / Profound NOT subscribed — Bing + Plausible + manual quarterly cross-engine spot-checks suffice for first 90 days
 
 ## Schema + entity-graph rules

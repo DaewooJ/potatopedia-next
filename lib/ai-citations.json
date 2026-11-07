@@ -1,0 +1,32 @@
+{
+ "source": "Bing Webmaster Tools, AI performance (Microsoft Copilot and Bing AI answers)",
+ "period_end": "2026-11-04",
+ "period_start": "2026-08-07",
+ "citations_per_day_30d": 1584,
+ "cited_pages_per_day_30d": 72,
+ "citations_per_day_first30d": 862,
+ "citations_total": 117954,
+ "days": 90,
+ "monthly": [
+  {
+   "month": "2026-08",
+   "citations_per_day": 792,
+   "days": 25
+  },
+  {
+   "month": "2026-09",
+   "citations_per_day": 1409,
+   "days": 30
+  },
+  {
+   "month": "2026-10",
+   "citations_per_day": 1595,
+   "days": 31
+  },
+  {
+   "month": "2026-11",
+   "citations_per_day": 1612,
+   "days": 4
+  }
+ ]
+}

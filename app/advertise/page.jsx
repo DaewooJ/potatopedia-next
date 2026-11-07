@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getSiteStats } from "../../lib/site-stats";
+import AI from "../../lib/ai-citations.json";
 import { serif, sans } from "../../lib/fonts";
 import { VARIETIES } from "../../lib/varieties-data";
 import { COUNTRIES, BLOG_POSTS } from "../../lib/data";
@@ -45,7 +46,7 @@ export default async function AdvertisePage() {
   const facts = [
     stats && [stats.points.toLocaleString("en-US"), "data points in the answer engine"],
     stats && [String(stats.sources), "sources"],
-    [String(VARIETIES.length), "variety dossiers"],
+    [String(VARIETIES.length), "varieties"],
     [String(COUNTRIES.length), "country profiles"],
     [String(Object.keys(ANSWERS).length), "published answers"],
     [String(BLOG_POSTS.length), "stories"],
@@ -76,6 +77,10 @@ export default async function AdvertisePage() {
             </div>
           ))}
         </div>
+        <p className="ad-wrap ad-ai">
+          <span className="ad-ai-n">{AI.citations_per_day_30d.toLocaleString("en-US")}</span>
+          <span>citations a day in Microsoft Copilot and Bing AI answers <span className="ad-ai-s">(Bing Webmaster Tools, 30-day average to {new Date(AI.period_end + "T00:00:00Z").toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" })}; {AI.citations_total.toLocaleString("en-US")} citations in {AI.days} days)</span></span>
+        </p>
         <p className="ad-wrap ad-note">Audience figures (visits, countries, questions asked, newsletter size) come in the media kit with their dates.</p>
       </section>
 
@@ -152,6 +157,9 @@ const CSS = `
 .ad-facts-in { display: flex; flex-wrap: wrap; gap: 18px 48px; }
 .ad-fact-n { display: block; font-family: var(--hp-serif), Georgia, serif; font-size: 40px; }
 .ad-fact-l { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--mute); }
+.ad-ai { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; margin-top: 26px; padding-top: 20px; padding-bottom: 20px; border: 1px solid rgba(226,192,141,.3); border-radius: 14px; font-size: 15px; line-height: 1.5; }
+.ad-ai-n { font-family: var(--hp-serif), Georgia, serif; font-size: 40px; line-height: 1; color: #E2C08D; }
+.ad-ai-s { font-size: 12.5px; opacity: .7; }
 .ad-note { margin: 18px auto 0; font-size: 13px; color: var(--mute); }
 .ad-sec { padding: 72px 0; }
 .ad-h2 { margin: 0 0 28px; font-family: var(--hp-serif), Georgia, serif; font-weight: 400; font-size: clamp(36px, 4.5vw, 54px); line-height: 1; letter-spacing: -.015em; }

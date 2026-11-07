@@ -20,7 +20,10 @@ const baked = JSON.parse(readFileSync(join(ROOT, "lib/answers-baked.json"), "utf
 const answers = Array.isArray(baked) ? baked.length : Object.values(baked).filter((a) => a && typeof a === "object" && a.slug).length;
 const traits = Object.keys(JSON.parse(readFileSync(join(ROOT, "lib/variety-traits.json"), "utf8"))).length;
 
+const ai = JSON.parse(readFileSync(join(ROOT, "lib/ai-citations.json"), "utf8"));
+const longDate = (iso) => new Date(iso + "T00:00:00Z").toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
 const vals = {
+  ai_citations: fmt(ai.citations_per_day_30d), ai_end: longDate(ai.period_end), ai_total: fmt(ai.citations_total), ai_days: String(ai.days),
   data_points: fmt(stats.total_chunks), sources: fmt(stats.unique_sources), varieties: fmt(VARIETIES.length), traits: fmt(traits),
   countries: fmt(COUNTRIES.length), answers: fmt(answers), stories: fmt(BLOG_POSTS.length),
   as_of: new Date().toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "Asia/Kolkata" }),
