@@ -733,7 +733,10 @@ const CSS = `
   .ad-note-k { display: none; }
   .ad-sel { max-width: 140px; }
 }
-@media (max-width: 420px) {
+@media (max-width: 440px) {
+  .ad-bar-k { overflow: hidden; text-overflow: ellipsis; min-width: 0; font-size: 10px; letter-spacing: .14em; }
+  .ad-bar-r { gap: 6px; }
+  .ad-sel { max-width: 124px; padding: 0 8px; }
   .ad-mail-row { flex-direction: column; }
   .ad-mail-btn { width: 100%; }
 }
