@@ -93,6 +93,11 @@ export async function POST(req) {
     const v = body[k];
     if (typeof v === "string" && v.trim()) details[k] = v.trim().slice(0, 300);
   }
+  // Variety alerts (/varieties) ride on the newsletter type with a segment, so they keep the double opt-in.
+  const ALERT_SEGMENTS = ["all", "fries", "chips", "table", "starch", "native", "seed"];
+  if (details.segment && (type !== "newsletter" || !ALERT_SEGMENTS.includes(details.segment))) {
+    return Response.json({ error: "Bad request" }, { status: 400 });
+  }
   const utm = Object.fromEntries(UTM.map((k) => [k, typeof body[k] === "string" ? body[k].slice(0, 200) : null]));
   const ref = makeRef();
   const token = type === "newsletter" ? rand(24) : null;
@@ -118,7 +123,13 @@ export async function POST(req) {
       const saved = details.saved_question
         ? `<p>The answer you saved: <a href="https://www.potatopedia.com/ask?q=${encodeURIComponent(details.saved_question)}">${esc(details.saved_question)}</a></p>`
         : "";
-      messageId = await send(
+      messageId = details.segment
+        ? await send(
+            row.email,
+            "Confirm your Potatopedia variety alerts",
+            `<p>Please confirm you want one email when Potatopedia adds a newly registered potato variety${details.segment === "all" ? "" : ` in the ${esc(details.segment)} segment`}.</p><p><a href="${link}">Yes, send me variety alerts</a></p><p>If you did not ask for this, ignore this mail.</p>`,
+          )
+        : await send(
         row.email,
         details.saved_question ? "Your saved Potatopedia answer" : "Confirm your Potatopedia newsletter signup",
         `${saved}<p>Please confirm you want The Potato Week from Potatopedia, one useful digest a week.</p><p><a href="${link}">Yes, subscribe me</a></p><p>If you did not ask for this, ignore this mail.</p>`,

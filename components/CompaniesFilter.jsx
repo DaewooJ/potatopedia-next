@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { KINDS, KIND_ORDER, SEGMENTS, MACHINE_SEGMENTS, flag } from "../lib/directory-labels";
 
@@ -11,6 +11,12 @@ export default function CompaniesFilter({ companies }) {
   const [country, setCountry] = useState("");
   const [machine, setMachine] = useState("");
   const [q, setQ] = useState("");
+
+  // Deep link: /companies?type=seed (used by "Who sells the seed" on /varieties) opens that tab.
+  useEffect(() => {
+    const t = new URLSearchParams(window.location.search).get("type");
+    if (t && KINDS[t]) setKind(t);
+  }, []);
 
   const countries = useMemo(() => [...new Set(companies.map((c) => c.country).filter(Boolean))].sort(), [companies]);
   const machineSegs = useMemo(() => {

@@ -1,10 +1,11 @@
 import Link from "next/link";
-import { ppCSS } from "../../lib/styles";
-import VarietiesFilter from "../../components/VarietiesFilter";
-import VarietyGrid from "../../components/VarietyGrid";
-import VarietyQuickAnswers from "../../components/VarietyQuickAnswers";
-import VarietyIconicShowcase from "../../components/VarietyIconicShowcase";
-import { VARIETIES, getIconicVarieties, getQuickAnswers } from "../../lib/varieties-data";
+import VarietyAtlas from "../../components/VarietyAtlas";
+import { getAtlasData } from "../../lib/varieties-atlas";
+import { listCompanies, SITE } from "../../lib/directory";
+
+// Atlas (A) with the Finder (B) as a tool on the same page (#finder). Approved design, 7 Nov 2026.
+// Performance: only slim card data reaches the client; the first 24 cards are server-rendered.
+export const revalidate = 3600;
 
 export const metadata = {
   title: "Potato Varieties Database — 244 Cultivars Across 9 Regions",
@@ -19,135 +20,82 @@ export const metadata = {
   },
 };
 
-export default function VarietiesPage() {
-  const total = VARIETIES.length;
-  const regionCounts = VARIETIES.reduce((acc, v) => { acc[v.region] = (acc[v.region] || 0) + 1; return acc; }, {});
-  const iconicVarieties = getIconicVarieties();
-  const quickAnswers = getQuickAnswers();
+async function seedCompanies() {
+  // The directory lives in Neon. If it cannot be reached, the atlas still renders (the sidebar says so).
+  try {
+    const rows = await listCompanies();
+    return rows.filter((c) => c.kind === "seed").map((c) => ({ slug: c.slug, name: c.name, country: c.country, segments: c.segments }));
+  } catch (e) {
+    console.error("varieties_seed_companies_failed", e?.message);
+    return [];
+  }
+}
 
-  const itemListJsonLd = {
+export default async function VarietiesPage() {
+  const seed = await seedCompanies();
+  const data = getAtlasData(seed);
+  const first = data.cards.slice(0, 24);
+
+  const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "ItemList",
-    name: "Potatopedia Varieties Database",
-    description: `${total} commercially significant potato varieties from 9 regions worldwide.`,
-    numberOfItems: total,
-    itemListElement: VARIETIES.map((v, i) => ({
-      "@type": "ListItem",
-      position: i + 1,
-      item: {
-        "@type": "Thing",
-        name: v.name,
-        description: v.trait,
-        additionalProperty: [
-          { "@type": "PropertyValue", name: "Origin", value: v.origin },
-          { "@type": "PropertyValue", name: "Region", value: v.region },
-          ...(v.year ? [{ "@type": "PropertyValue", name: "Released", value: v.year }] : []),
-          ...(v.uses ? [{ "@type": "PropertyValue", name: "Uses", value: v.uses.join(", ") }] : []),
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": `${SITE}/varieties#page`,
+        url: `${SITE}/varieties`,
+        name: "Potato varieties atlas",
+        isPartOf: { "@id": `${SITE}/#website` },
+        publisher: { "@id": `${SITE}/#publisher` },
+        mainEntity: {
+          "@type": "ItemList",
+          name: "Potatopedia varieties atlas",
+          numberOfItems: data.stats.total,
+          itemListElement: first.map((c, i) => ({ "@type": "ListItem", position: i + 1, url: `${SITE}/varieties/${c.s}`, name: c.n })),
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: `${SITE}/` },
+          { "@type": "ListItem", position: 2, name: "Varieties", item: `${SITE}/varieties` },
         ],
       },
-    })),
-  };
-
-  // Complements the ItemList above with clean, quotable declarative sentences —
-  // AI answer engines and "People also ask"-style features quote sentences far
-  // more readily than they infer answers from tag pills on 244 cards.
-  const quickAnswersJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: quickAnswers.map(({ use, variety }) => ({
-      "@type": "Question",
-      name: `What is the best potato variety for ${use.split(" / ")[0].toLowerCase()}?`,
-      acceptedAnswer: { "@type": "Answer", text: `${variety.name} is widely regarded as the best variety for ${use.toLowerCase()}. ${variety.trait}` },
-    })),
+    ],
   };
 
   return (
     <div style={{ color: "var(--ink)" }}>
-      <style>{ppCSS}</style>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(quickAnswersJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      {/* Hero (premium system, 7 Nov 2026) */}
-      <section className="ix-hero">
-        <p className="eyebrow rise">Varieties database</p>
-        <div className="ix-row">
-          <h1 className="ix-h1 rise">Potato varieties, from the Andes to <em>every fry line.</em></h1>
-          <div className="ix-dek"><p style={{ margin: 0 }}>{total} commercially significant cultivars across 9 regions — origin, traits, and best uses for each, verified against CIP, FAOSTAT, ICAR-CPRI, and breeder release archives.</p><p style={{ margin: "10px 0 0", fontSize: 13.5, color: "var(--mute2)" }}>The total estimated number of cultivated varieties worldwide is ~4,000 (CIP, FAO). This database tracks the commercially significant subset most relevant to international trade, breeding, and culinary use.</p><p style={{ margin: "16px 0 0" }}><Link href="/varieties/compare" className="btn-line">Compare 2–4 varieties side by side <span className="arr">→</span></Link></p></div>
-        </div>
-      </section>
+      <VarietyAtlas
+        cards={data.cards}
+        finder={data.finder}
+        useCounts={data.useCounts}
+        facets={data.facets}
+        regionList={data.regionList}
+        stats={data.stats}
+        seedCompanies={seed.map(({ slug, name, country }) => ({ slug, name, country }))}
+      />
 
-      {/* Quick answers */}
-      <VarietyQuickAnswers answers={quickAnswers} />
-
-      {/* Iconic showcase */}
-      <VarietyIconicShowcase varieties={iconicVarieties} />
-
-      {/* Compare banner */}
-      <section style={{ paddingTop: 44, paddingBottom: 8 }}>
-        <div className="pp-section" style={{ maxWidth: 1080, margin: "0 auto", padding: "0 48px" }}>
-          <Link
-            href="/varieties/compare"
-            className="pp-compare-banner"
-            style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 24, flexWrap: "wrap", background: "var(--accent-bg)", borderRadius: 20, padding: "28px 32px", textDecoration: "none" }}
-          >
-            <div style={{ minWidth: 0 }}>
-              <h3 style={{ fontSize: 19, fontWeight: 800, color: "#fff", marginBottom: 5 }}>Compare 2–4 varieties side by side</h3>
-              <p style={{ fontSize: 13, color: "rgba(255,255,255,0.85)", maxWidth: 420 }}>Origin, year, region, best uses, and traits — laid out in a table so you can decide in seconds.</p>
-            </div>
-            <div className="pp-compare-demo" style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }}>
-              <span className="pp-compare-demo-chip" style={{ background: "rgba(255,255,255,0.15)", border: "1px solid rgba(255,255,255,0.3)", borderRadius: 10, padding: "8px 14px", fontSize: 12.5, fontWeight: 600, color: "#fff" }}>Russet Burbank</span>
-              <span className="pp-compare-demo-chip" style={{ color: "rgba(255,255,255,0.6)", fontSize: 12 }}>vs</span>
-              <span className="pp-compare-demo-chip" style={{ background: "rgba(255,255,255,0.15)", border: "1px solid rgba(255,255,255,0.3)", borderRadius: 10, padding: "8px 14px", fontSize: 12.5, fontWeight: 600, color: "#fff" }}>Maris Piper</span>
-              <span style={{ background: "var(--card)", color: "var(--gold)", fontWeight: 800, fontSize: 13, padding: "10px 20px", borderRadius: 10, whiteSpace: "nowrap" }}>Compare →</span>
-            </div>
-          </Link>
-        </div>
-      </section>
-      <style>{`
-        @media (max-width: 640px) {
-          .pp-compare-demo-chip { display: none !important; }
-        }
-      `}</style>
-
-      {/* Full archive */}
-      <section id="archive" style={{ paddingTop: 44, paddingBottom: 8 }}>
-        <div style={{ textAlign: "center", marginBottom: 26 }}>
-          <span style={{ display: "inline-block", fontSize: 11, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 2, marginBottom: 8 }}>The complete archive</span>
-          <h2 style={{ fontSize: 26, fontWeight: 800, color: "var(--ink)", letterSpacing: -0.7, marginBottom: 8 }}>{total} commercial varieties</h2>
-          <p style={{ fontSize: 13.5, color: "var(--mute2)", maxWidth: 560, margin: "0 auto" }}>Every commercially significant variety we track, filterable by region, use, and era.</p>
-        </div>
-        <VarietiesFilter totalCount={VARIETIES.length} regionCounts={regionCounts} />
-        <VarietyGrid varieties={VARIETIES} />
-      </section>
-
-      {/* Footer cross-links */}
       <section style={{ background: "var(--paper)", borderTop: "1px solid var(--line)" }}>
-        <div className="pp-section" style={{ maxWidth: 1080, margin: "0 auto", padding: "48px 48px 64px", textAlign: "center" }}>
-          <span style={{ display: "inline-block", fontSize: 11, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 2.5, marginBottom: 10 }}>Go deeper</span>
-          <h2 style={{ fontSize: 22, fontWeight: 700, color: "var(--ink)", letterSpacing: -0.6, marginBottom: 24 }}>Featured variety deep-dives</h2>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(240px,1fr))", gap: 14, textAlign: "left" }}>
-            <Link href="/knowledge/russet-burbank-history" style={{ background: "var(--card)", border: "1px solid var(--line)", borderRadius: 12, padding: "18px 20px", textDecoration: "none", color: "inherit", display: "block" }}>
-              <div style={{ fontSize: 11, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.2, marginBottom: 6 }}>North America</div>
-              <div style={{ fontSize: 15, fontWeight: 700, color: "var(--ink)", marginBottom: 4 }}>Russet Burbank</div>
-              <div style={{ fontSize: 13, color: "var(--mute)", lineHeight: 1.5 }}>The 1872 variety behind North America&apos;s frozen-fry industry.</div>
-            </Link>
-            <Link href="/knowledge/kufri-potato-varieties-india" style={{ background: "var(--card)", border: "1px solid var(--line)", borderRadius: 12, padding: "18px 20px", textDecoration: "none", color: "inherit", display: "block" }}>
-              <div style={{ fontSize: 11, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.2, marginBottom: 6 }}>South Asia</div>
-              <div style={{ fontSize: 15, fontWeight: 700, color: "var(--ink)", marginBottom: 4 }}>Kufri varieties (India)</div>
-              <div style={{ fontSize: 13, color: "var(--mute)", lineHeight: 1.5 }}>75+ Kufri cultivars from ICAR-CPRI Shimla — Pukhraj, Jyoti, Chipsona, Frysona, Tejas.</div>
-            </Link>
-            <Link href="/knowledge/potato-varieties-guide" style={{ background: "var(--card)", border: "1px solid var(--line)", borderRadius: 12, padding: "18px 20px", textDecoration: "none", color: "inherit", display: "block" }}>
-              <div style={{ fontSize: 11, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.2, marginBottom: 6 }}>Reference</div>
-              <div style={{ fontSize: 15, fontWeight: 700, color: "var(--ink)", marginBottom: 4 }}>Complete varieties guide</div>
-              <div style={{ fontSize: 13, color: "var(--mute)", lineHeight: 1.5 }}>Floury vs waxy, GI ranges, breeding programmes, and how to pick the right variety for the job.</div>
-            </Link>
-            <Link href="/blog/andean-potato-origin-story" style={{ background: "var(--card)", border: "1px solid var(--line)", borderRadius: 12, padding: "18px 20px", textDecoration: "none", color: "inherit", display: "block" }}>
-              <div style={{ fontSize: 11, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.2, marginBottom: 6 }}>History</div>
-              <div style={{ fontSize: 15, fontWeight: 700, color: "var(--ink)", marginBottom: 4 }}>The 8,000-year Andean journey</div>
-              <div style={{ fontSize: 13, color: "var(--mute)", lineHeight: 1.5 }}>Where every potato variety descends from — and why CIP&apos;s Lima genebank holds the world&apos;s genetic insurance policy.</div>
-            </Link>
+        <div style={{ maxWidth: 1080, margin: "0 auto", padding: "48px 20px 64px" }}>
+          <p className="eyebrow" style={{ textAlign: "center" }}>Go deeper</p>
+          <h2 style={{ fontFamily: "var(--hp-serif), Georgia, serif", fontWeight: 400, fontSize: 32, color: "var(--ink)", textAlign: "center", margin: "0 0 24px" }}>Variety guides</h2>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(230px,1fr))", gap: 14 }}>
+            {[
+              ["/knowledge/russet-burbank-history", "North America", "Russet Burbank", "The 1872 variety behind North America's frozen-fry industry."],
+              ["/knowledge/kufri-potato-varieties-india", "South Asia", "Kufri varieties (India)", "Kufri cultivars from ICAR-CPRI Shimla: Pukhraj, Jyoti, Chipsona, Frysona."],
+              ["/knowledge/potato-varieties-guide", "Reference", "Complete varieties guide", "Floury vs waxy, breeding programmes, and how to pick a variety for the job."],
+              ["/varieties/compare", "Tool", "Compare side by side", "Put two to four varieties in one table: origin, uses and datasheet traits."],
+            ].map(([href, k, t, s]) => (
+              <Link key={href} href={href} style={{ background: "var(--card)", border: "1px solid var(--line)", borderRadius: 14, padding: "18px 20px", textDecoration: "none", color: "inherit", display: "block" }}>
+                <span style={{ display: "block", fontSize: 11, letterSpacing: ".12em", textTransform: "uppercase", color: "var(--gold)", marginBottom: 6 }}>{k}</span>
+                <span style={{ display: "block", fontFamily: "var(--hp-serif), Georgia, serif", fontSize: 22, color: "var(--ink)", marginBottom: 4 }}>{t}</span>
+                <span style={{ display: "block", fontSize: 13, color: "var(--mute)", lineHeight: 1.5 }}>{s}</span>
+              </Link>
+            ))}
           </div>
-          <div style={{ fontSize: 11, color: "var(--mute3)", marginTop: 28 }}>Sources: CIP, FAO, ICAR-CPRI, AHDB Potatoes, USDA, NL NAK, breeder release archives</div>
+          <p style={{ fontSize: 11.5, color: "var(--mute3)", marginTop: 28, textAlign: "center" }}>Datasheet sources: HZPC, Agrico, Germicopa, C. Meijer, STET Holland, Sarpo, ICAR-CPRI, CIP, USDA-ARS and US land-grant extension programmes. Each variety page lists its sources.</p>
         </div>
       </section>
     </div>
