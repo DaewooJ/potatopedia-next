@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { KNOWLEDGE_TITLES, COUNTRIES, UPDATED_SHORT, BLOG_POSTS } from "../../../lib/data";
+import { KNOWLEDGE_TITLES, COUNTRIES, UPDATED_SHORT, BLOG_POSTS, FAOSTAT_TOP30_2024 } from "../../../lib/data";
 import { PRODUCTION_TIMESERIES, FAOSTAT_YEARS, TRADE_TIMESERIES, yoyChange, trendLabel } from "../../../lib/faostat-timeseries";
 import KnowledgeAI from "../../../components/KnowledgeAI";
 import SupportBlock from "../../../components/SupportBlock";
@@ -308,21 +308,21 @@ function BottomCTA() {
 /* ── Static page renderers ── */
 
 function TopProducingCountries() {
-  const top30 = COUNTRIES.slice(0, 30);
+  const top30 = FAOSTAT_TOP30_2024;
   const totalGlobal = 390.4;
-  // Other producers without a profile in the top-30 table, with their FAOSTAT 2024 world rank. Plain text per
+  // FAOSTAT 2024 world ranks 31-100 (the top 30 come from FAOSTAT_TOP30_2024). Plain text per
   // the M2 sprint plan: countries without dedicated profiles render as text only.
   // Production in million tonnes, FAOSTAT 2024 (rebuilt 7 Nov 2026 from FAOSTAT QCL).
   const longTailProducers = [
-    { rank: 19, name: "Ethiopia", prod: "4.09M" },
-    { rank: 23, name: "Belarus", prod: "3.11M" },
-    { rank: 26, name: "Kazakhstan", prod: "2.63M" },
-    { rank: 30, name: "Morocco", prod: "2.19M" },
+    { rank: 31, name: "Kenya", prod: "2.19M" },
+    { rank: 32, name: "Mexico", prod: "2.12M" },
     { rank: 33, name: "Argentina", prod: "2.11M" },
     { rank: 34, name: "Spain", prod: "1.97M" },
+    { rank: 35, name: "Australia", prod: "1.53M" },
     { rank: 36, name: "Malawi", prod: "1.46M" },
     { rank: 37, name: "Italy", prod: "1.41M" },
     { rank: 38, name: "Bolivia", prod: "1.38M" },
+    { rank: 39, name: "Indonesia", prod: "1.27M" },
     { rank: 40, name: "Tajikistan", prod: "1.26M" },
     { rank: 41, name: "Chile", prod: "1.25M" },
     { rank: 42, name: "Nigeria", prod: "1.23M" },
@@ -341,6 +341,7 @@ function TopProducingCountries() {
     { rank: 55, name: "Lebanon", prod: "0.61M" },
     { rank: 56, name: "Serbia", prod: "0.61M" },
     { rank: 57, name: "Guinea", prod: "0.61M" },
+    { rank: 58, name: "South Korea", prod: "0.57M" },
     { rank: 59, name: "Tanzania", prod: "0.56M" },
     { rank: 60, name: "Finland", prod: "0.55M" },
     { rank: 61, name: "Mozambique", prod: "0.55M" },
@@ -383,7 +384,6 @@ function TopProducingCountries() {
     { rank: 98, name: "Moldova", prod: "0.14M" },
     { rank: 99, name: "Croatia", prod: "0.13M" },
     { rank: 100, name: "Lesotho", prod: "0.13M" },
-    { rank: 101, name: "Latvia", prod: "0.13M" },
   ];
 
   const tocItems = [
@@ -460,7 +460,7 @@ function TopProducingCountries() {
       {/* Definitive Answer Block */}
       <DefinitiveAnswer>
         <p style={{ margin: 0, lineHeight: 1.8 }} data-summary="true">
-          <strong>China is the world&apos;s largest potato producer at 94.9 million tonnes (FAOSTAT 2024), followed by India (57.1M) and Ukraine.</strong> Global production has held in the 380–390 million tonne range across 2018–2024, with the top 30 countries accounting for over 90% of total output. Asia alone contributes ~53% of world production, with developing countries now producing more than half of the global crop (CIP, International Potato Center). The 7-year time-series table below tracks production trajectory for the top 30 producers — Pakistan and Bangladesh are the fastest-growing, while Iran has experienced one of the steepest contractions in any major producer (5.14M peak 2015 → 2.34M trough 2023, with partial 2024 recovery to 2.92M).
+          <strong>China is the world&apos;s largest potato producer at 94.9 million tonnes (FAOSTAT 2024), followed by India (57.1M) and Ukraine.</strong> Global production has held in the 380–390 million tonne range across 2018–2024, with the top 30 countries accounting for about 88% of total output (FAOSTAT 2024). Asia alone contributes ~53% of world production, with developing countries now producing more than half of the global crop (CIP, International Potato Center). The 7-year time-series table below tracks production trajectory for the top 30 producers — Pakistan and Bangladesh are the fastest-growing, while Iran has experienced one of the steepest contractions in any major producer (5.14M peak 2015 → 2.34M trough 2023, with partial 2024 recovery to 2.92M).
         </p>
       </DefinitiveAnswer>
 
@@ -478,7 +478,7 @@ function TopProducingCountries() {
       {/* Section 1 */}
       <h2 id="top-producers" style={sH2}>Which country produces the most potatoes?</h2>
       <p style={sP}><Link href="/country/china" style={{ color: "var(--gold)", fontWeight: 600, textDecoration: "none" }}>China</Link> dominates global potato production at 94.87 million tonnes annually, growing about 24% of the world&apos;s potatoes on 4.56 million hectares (FAOSTAT 2024). <Link href="/country/india" style={{ color: "var(--gold)", fontWeight: 600, textDecoration: "none" }}>India</Link> ranks second at 58.1 million tonnes (2024-25, 3rd Advance Estimate), with Uttar Pradesh alone producing more potatoes than most entire countries. <Link href="/country/ukraine" style={{ color: "var(--gold)", fontWeight: 600, textDecoration: "none" }}>Ukraine</Link> is third at 21.13 million tonnes, also holding the world&apos;s highest per-capita consumption at 136 kg/year.</p>
-      <p style={sP}>The complete top 30 rankings below represent nations producing over 600,000 tonnes annually. Together, these 30 countries grow over 90% of the world&apos;s potatoes. Each country name links to its dedicated Potatopedia profile with detailed industry data.</p>
+      <p style={sP}>The top 30 below are the true FAOSTAT 2024 ranking: every one produced more than 2 million tonnes, and together they grew about 88% of the world&apos;s potatoes (342.7 of 390.4 million tonnes). Country names link to their Potatopedia profile where one exists.</p>
 
       <p style={sP}><strong>Multi-year FAOSTAT time series (2018–2024).</strong> Each row shows annual potato production in million tonnes. The right column shows the 7-year trajectory from 2018 to 2024.</p>
 
@@ -494,7 +494,7 @@ function TopProducingCountries() {
               return (
                 <tr key={c.slug} style={{ background: i < 3 ? "rgba(154,114,56,0.03)" : i % 2 === 0 ? "var(--card)" : "var(--paper)" }}>
                   <td style={{ ...sTd, padding: "8px 6px", textAlign: "center", fontWeight: 600, color: "var(--mute2)" }}>{c.rank}</td>
-                  <td style={{ ...sTd, padding: "8px 6px" }}><Link href={"/country/" + c.slug} style={{ color: "var(--ink)", textDecoration: "none", fontWeight: i < 3 ? 700 : 500 }}>{c.flag} {c.name}</Link></td>
+                  <td style={{ ...sTd, padding: "8px 6px" }}>{c.profile ? <Link href={"/country/" + c.slug} style={{ color: "var(--ink)", textDecoration: "none", fontWeight: i < 3 ? 700 : 500 }}>{c.flag} {c.name}</Link> : <span style={{ color: "var(--ink)", fontWeight: 500 }}>{c.flag} {c.name}</span>}</td>
                   {[2018,2019,2020,2021,2022,2023,2024].map((y) => (
                     <td key={y} style={{ ...sTd, padding: "8px 6px", textAlign: "right", fontVariantNumeric: "tabular-nums", color: y === 2024 ? "var(--gold)" : "#444", fontWeight: y === 2024 ? 700 : 400 }}>{fmt(series[y])}</td>
                   ))}
@@ -512,7 +512,7 @@ function TopProducingCountries() {
       {/* Long-tail producers (M2 from comprehensive SEO audit): plain-text country list for ranks 31–100 */}
       <details style={{ marginTop: 20, background: "var(--paper)", border: "1px solid var(--line)", borderRadius: 10, padding: "14px 18px" }}>
         <summary style={{ cursor: "pointer", listStyle: "none", display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: 13, fontWeight: 700, color: "var(--ink)" }}>
-          <span>Other producers by world rank (FAOSTAT 2024)</span>
+          <span>Producers ranked 31–100 (FAOSTAT 2024)</span>
           <span style={{ fontSize: 10, color: "var(--mute3)" }}>▾</span>
         </summary>
         <div style={{ marginTop: 14, display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "6px 18px", fontSize: 13, color: "var(--ink2)" }}>

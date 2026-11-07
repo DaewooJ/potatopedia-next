@@ -7439,7 +7439,7 @@ function MexicoProfilePage({ c }) {
       { label: "Sabritas contract farming", value: "15,000–20,000 ha/year" },
       { label: "Frozen fry imports", value: "150,000–200,000 tonnes/year" },
     ],
-    definitiveAnswer: "<strong>Mexico produced 2.12 million tonnes of potatoes in 2024</strong> on roughly 65,000 hectares at a yield of 29.2 t/ha (FAOSTAT) &mdash; a yield above the world average, reflecting Mexico's heavy reliance on irrigation: an estimated <strong>85&ndash;90% of Mexican potato production is irrigated</strong>, making it one of the most irrigation-dependent major producers anywhere. Production concentrates in <strong>Sinaloa (~35% of national output)</strong> and neighboring Sonora, both winter-cycle desert-valley operations, plus highland spring-summer production in Nuevo León, Chihuahua, and Puebla. The single defining feature of Mexico's potato economy is <strong>PepsiCo's Sabritas division</strong> &mdash; holding over 70% of the Mexican chip market and contracting <strong>15,000&ndash;20,000 hectares annually</strong>, making it the largest private-sector potato buyer in the country and a direct shaper of which varieties get planted. Mexico is also scientifically significant: the <strong>Toluca Valley is part of the actual center of genetic diversity for Phytophthora infestans</strong>, the late blight pathogen behind the Irish Potato Famine.",
+    definitiveAnswer: "<strong>Mexico produced 2.12 million tonnes of potatoes in 2024</strong> on roughly 65,000 hectares at a yield of 32.7 t/ha (FAOSTAT) &mdash; a yield above the world average, reflecting Mexico's heavy reliance on irrigation: an estimated <strong>85&ndash;90% of Mexican potato production is irrigated</strong>, making it one of the most irrigation-dependent major producers anywhere. Production concentrates in <strong>Sinaloa (~35% of national output)</strong> and neighboring Sonora, both winter-cycle desert-valley operations, plus highland spring-summer production in Nuevo León, Chihuahua, and Puebla. The single defining feature of Mexico's potato economy is <strong>PepsiCo's Sabritas division</strong> &mdash; holding over 70% of the Mexican chip market and contracting <strong>15,000&ndash;20,000 hectares annually</strong>, making it the largest private-sector potato buyer in the country and a direct shaper of which varieties get planted. Mexico is also scientifically significant: the <strong>Toluca Valley is part of the actual center of genetic diversity for Phytophthora infestans</strong>, the late blight pathogen behind the Irish Potato Famine.",
     keyStats: [
       { value: "2.12M t", label: "2024 production" },
       { value: "85–90%", label: "Share irrigated" },
@@ -7463,7 +7463,7 @@ function MexicoProfilePage({ c }) {
         quickFacts: [
           { label: "Production (2024)", value: "2.12M tonnes" },
           { label: "Area", value: "~65,000 hectares" },
-          { label: "Yield", value: "29.2 t/ha" },
+          { label: "Yield", value: "32.7 t/ha" },
           { label: "Irrigated share", value: "85–90%" },
         ],
         body: [
