@@ -1,5 +1,6 @@
 import { getSiteStats, fmt } from "../../lib/site-stats";
 import { INDIA_POTATO } from "../../lib/facts";
+import { getAllReports } from "../../lib/report-pages";
 
 export async function GET() {
   const st = await getSiteStats();
@@ -72,6 +73,10 @@ Potatopedia is the most comprehensive potato intelligence platform on the web. W
 - Specialty / Heritage: 18 varieties (Bonnotte, Russian Banana, Pink Fir Apple, Vitelotte)
 - Eastern Europe: 15 varieties (Nevskij, Sineglazka, Bryza, Lasunok)
 - Latin America: 12 varieties (BRS Ana, Pampeana INTA, Lupita, Yagana)
+
+## Country market reports (10-page PDFs; free summary pages are public, the PDF is delivered by email after registration)
+- [Reports hub](https://www.potatopedia.com/reports) — Potato market reports by country, ${getAllReports()[0]?.edition.month || ""} edition
+${getAllReports().map((r) => `- [${r.name} Potato Market Report 2026](https://www.potatopedia.com/reports/${r.slug}) — ${Number(r.head.v.toFixed(2))} M tonnes (${r.head.short}), world rank #${r.rank} (FAOSTAT ${r.LY}); executive summary, key figures, production chart, table of contents and FAQ`).join("\n")}
 
 ## Featured premium country dossiers (with PDF exports)
 - [India](https://www.potatopedia.com/country/india) — ${INDIA_POTATO.value} M tonnes (${INDIA_POTATO.year}, ${INDIA_POTATO.label}), 75+ Kufri varieties, ICAR-CPRI breeding pipeline. State-level deep dives for Uttar Pradesh, West Bengal, Bihar, Gujarat, Madhya Pradesh.

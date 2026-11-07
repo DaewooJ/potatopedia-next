@@ -1,5 +1,6 @@
 import Link from "next/link";
 import LeadForm from "./LeadForm";
+import ReportBanner from "./ReportBanner";
 import { Figures, FeaturedSlot } from "./Editorial";
 import { productionSeries, latestProduction, worldRank, fmtMt, LATEST_YEAR } from "../lib/production";
 
@@ -79,6 +80,7 @@ export default function CountryDossier({ c, slug, children, extraFigures = [] })
         <h1 className="dz-h1 rise" style={{ fontSize: "clamp(60px, 9.5vw, 110px)", lineHeight: 0.92 }}>{c.name}</h1>
         <p className="dz-lede">{c.highlight}</p>
         <Figures items={figures} label={`${c.name} potato production at a glance`} />
+        <ReportBanner slug={slug} />
         {extraFigures.length > 0 && <Figures items={extraFigures} label={`${c.name} area, yield and consumption`} />}
       </section>
 

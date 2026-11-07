@@ -1,3 +1,5 @@
+import REPORTS_MANIFEST from "../../lib/reports-manifest.json";
+
 const BASE = "https://www.potatopedia.com";
 
 const INDIA_STATE_SLUGS = [
@@ -191,6 +193,7 @@ export async function GET() {
     ...["/prices", "/prices/india", "/prices/europe", "/prices/usa", "/prices/futures"].map((loc) => ({ loc, priority: "0.8", changefreq: "monthly" })),
     ...["/diseases", "/diseases/late-blight", "/diseases/blackleg-soft-rot", "/diseases/bacterial-wilt-brown-rot", "/diseases/potato-cyst-nematode", "/diseases/common-scab", "/diseases/pvy-viruses"].map((loc) => ({ loc, priority: "0.8", changefreq: "monthly" })),
     { loc: "/events", priority: "0.7", changefreq: "weekly" },
+    { loc: "/reports", priority: "0.85", changefreq: "weekly" },
   ];
 
   // Lazy import varieties data to avoid loading on every sitemap render hop
@@ -206,6 +209,7 @@ export async function GET() {
   const answerSlugs = [...new Set([...ANSWER_SLUGS, ...bakedList.map((a) => a.slug)])];
 
   const dynamicPages = [
+    ...Object.keys(REPORTS_MANIFEST).map((s) => ({ loc: `/reports/${s}`, priority: "0.85", changefreq: "monthly", lastmod: "2026-11-07" })),
     ...COUNTRIES.map((s) => ({ loc: `/country/${s}`, priority: "0.8", changefreq: "weekly" })),
     ...INDIA_STATE_SLUGS.map((s) => ({ loc: `/country/india/${s}`, priority: "0.85", changefreq: "weekly" })),
     ...BLOG_POSTS.map((b) => ({ loc: `/blog/${b.slug}`, priority: "0.7", changefreq: "monthly", lastmod: day(b.updated || b.date) })),

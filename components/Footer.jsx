@@ -20,6 +20,7 @@ export default function Footer() {
             <Link href="/answers">Answers</Link>
             <Link href="/market">Market</Link>
             <Link href="/machines">Machines</Link>
+            <Link href="/reports">Market reports</Link>
             <Link href="/prices">Prices</Link>
             <Link href="/diseases">Diseases</Link>
             <Link href="/events">Events</Link>
