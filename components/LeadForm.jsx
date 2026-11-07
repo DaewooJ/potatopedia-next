@@ -32,7 +32,10 @@ export default function LeadForm({
   askMessage = true,
   messageLabel = "What do you need?",
   compact = false,
+  dark = false,
 }) {
+  const F = dark ? { ...field, background: "rgba(0,0,0,.25)", border: "1px solid rgba(255,255,255,.16)", color: "#F4F1EC" } : field;
+  const L = dark ? { ...label, color: "#A9A49C", fontWeight: 500, letterSpacing: ".08em", textTransform: "uppercase", fontSize: 11.5 } : label;
   const [state, setState] = useState("idle"); // idle | sending | done | error
   const [error, setError] = useState("");
   const [ref, setRef] = useState("");
@@ -66,11 +69,11 @@ export default function LeadForm({
 
   if (state === "done") {
     return (
-      <div role="status" style={{ padding: compact ? 16 : 24, border: "1px solid #EEE", borderRadius: 14, background: "#FAFAFA" }}>
-        <p style={{ margin: 0, fontSize: 16, fontWeight: 600, color: "#1a1a1a" }}>
+      <div role="status" style={{ padding: compact ? 16 : 24, border: dark ? "1px solid rgba(255,255,255,.14)" : "1px solid #EEE", borderRadius: 14, background: dark ? "rgba(255,255,255,.04)" : "#FAFAFA" }}>
+        <p style={{ margin: 0, fontSize: 16, fontWeight: 600, color: dark ? "#F4F1EC" : "#1a1a1a" }}>
           {type === "newsletter" ? "Check your inbox to confirm your signup." : "Thank you, we have your request."}
         </p>
-        <p style={{ margin: "8px 0 0", fontSize: 14, color: "#555" }}>
+        <p style={{ margin: "8px 0 0", fontSize: 14, color: dark ? "#B7B2AA" : "#555" }}>
           {type === "newsletter" ? "One click in that mail and you're in." : `${REPLY_PROMISE} Your reference: ${ref}`}
         </p>
       </div>
@@ -81,8 +84,8 @@ export default function LeadForm({
 
   return (
     <form onSubmit={onSubmit} style={{ display: "grid", gap: 14 }} noValidate>
-      {title && <h3 style={{ margin: 0, fontSize: compact ? 18 : 22, fontWeight: 700, color: "#1a1a1a" }}>{title}</h3>}
-      {intro && <p style={{ margin: 0, fontSize: 15, color: "#555", lineHeight: 1.5 }}>{intro}</p>}
+      {title && <h3 style={{ margin: 0, fontSize: compact ? 18 : 22, fontWeight: dark ? 400 : 700, color: dark ? "#F4F1EC" : "#1a1a1a", fontFamily: dark ? "var(--hp-serif), Georgia, serif" : "inherit", ...(dark ? { fontSize: 30 } : {}) }}>{title}</h3>}
+      {intro && <p style={{ margin: 0, fontSize: 15, color: dark ? "#A9A49C" : "#555", lineHeight: 1.5 }}>{intro}</p>}
 
       {/* honeypot */}
       <div aria-hidden="true" style={{ position: "absolute", left: -9999, width: 1, height: 1, overflow: "hidden" }}>
@@ -94,38 +97,38 @@ export default function LeadForm({
       <div style={grid}>
         {askName && (
           <div>
-            <label style={label} htmlFor={`${type}-name`}>Name</label>
-            <input id={`${type}-name`} name="name" required autoComplete="name" style={field} />
+            <label style={L} htmlFor={`${type}-name`}>Name</label>
+            <input id={`${type}-name`} name="name" required autoComplete="name" style={F} />
           </div>
         )}
         {askCompany && (
           <div>
-            <label style={label} htmlFor={`${type}-company`}>Company</label>
-            <input id={`${type}-company`} name="company" autoComplete="organization" style={field} />
+            <label style={L} htmlFor={`${type}-company`}>Company</label>
+            <input id={`${type}-company`} name="company" autoComplete="organization" style={F} />
           </div>
         )}
         <div>
-          <label style={label} htmlFor={`${type}-email`}>Work email</label>
-          <input id={`${type}-email`} name="email" type="email" required autoComplete="email" style={field} />
+          <label style={L} htmlFor={`${type}-email`}>{type === "newsletter" ? "Email" : "Work email"}</label>
+          <input id={`${type}-email`} name="email" type="email" required autoComplete="email" style={F} />
         </div>
         {askCountry && (
           <div>
-            <label style={label} htmlFor={`${type}-country`}>Country</label>
-            <input id={`${type}-country`} name="country" autoComplete="country-name" style={field} />
+            <label style={L} htmlFor={`${type}-country`}>Country</label>
+            <input id={`${type}-country`} name="country" autoComplete="country-name" style={F} />
           </div>
         )}
         {extra.map((f) => (
           <div key={f.name}>
-            <label style={label} htmlFor={`${type}-${f.name}`}>{f.label}</label>
+            <label style={L} htmlFor={`${type}-${f.name}`}>{f.label}</label>
             {f.options ? (
-              <select id={`${type}-${f.name}`} name={f.name} defaultValue={f.defaultValue || ""} style={field}>
+              <select id={`${type}-${f.name}`} name={f.name} defaultValue={f.defaultValue || ""} style={F}>
                 <option value="">Choose…</option>
                 {f.options.map((o) => (
                   <option key={o} value={o}>{o}</option>
                 ))}
               </select>
             ) : (
-              <input id={`${type}-${f.name}`} name={f.name} defaultValue={f.defaultValue} placeholder={f.placeholder} style={field} />
+              <input id={`${type}-${f.name}`} name={f.name} defaultValue={f.defaultValue} placeholder={f.placeholder} style={F} />
             )}
           </div>
         ))}
@@ -133,8 +136,8 @@ export default function LeadForm({
 
       {askMessage && (
         <div>
-          <label style={label} htmlFor={`${type}-message`}>{messageLabel}</label>
-          <textarea id={`${type}-message`} name="message" rows={compact ? 3 : 4} style={{ ...field, resize: "vertical" }} />
+          <label style={L} htmlFor={`${type}-message`}>{messageLabel}</label>
+          <textarea id={`${type}-message`} name="message" rows={compact ? 3 : 4} style={{ ...F, resize: "vertical" }} />
         </div>
       )}
 
@@ -151,8 +154,8 @@ export default function LeadForm({
             fontSize: 15,
             fontWeight: 600,
             fontFamily: "inherit",
-            color: "#fff",
-            background: RED,
+            background: dark ? "#F4F1EC" : RED,
+            color: dark ? "#0A0A0D" : "#fff",
             border: "none",
             borderRadius: 10,
             cursor: state === "sending" ? "wait" : "pointer",
@@ -161,7 +164,7 @@ export default function LeadForm({
         >
           {state === "sending" ? "Sending…" : submitLabel}
         </button>
-        {type !== "newsletter" && <span style={{ fontSize: 13, color: "#666" }}>{REPLY_PROMISE}</span>}
+        {type !== "newsletter" && <span style={{ fontSize: 13, color: dark ? "#8E8A83" : "#666" }}>{REPLY_PROMISE}</span>}
       </div>
     </form>
   );
