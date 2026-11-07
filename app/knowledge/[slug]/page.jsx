@@ -309,81 +309,81 @@ function BottomCTA() {
 
 function TopProducingCountries() {
   const top30 = COUNTRIES.slice(0, 30);
-  const totalGlobal = 383;
-  // Long-tail producers (FAOSTAT 2023 / 2022 — verified ranks 31–100). Plain text per
+  const totalGlobal = 390.4;
+  // Other producers without a profile in the top-30 table, with their FAOSTAT 2024 world rank. Plain text per
   // the M2 sprint plan: countries without dedicated profiles render as text only.
-  // Production figures in thousand tonnes, sourced from FAOSTAT 2023.
+  // Production in million tonnes, FAOSTAT 2024 (rebuilt 7 Nov 2026 from FAOSTAT QCL).
   const longTailProducers = [
-    { rank: 31, name: "Spain", prod: "1.97M" },
-    { rank: 32, name: "Czech Republic", prod: "0.48M" },
-    { rank: 33, name: "Romania", prod: "1.65M" },
-    { rank: 34, name: "Belarus", prod: "5.49M" },
-    { rank: 35, name: "Argentina", prod: "1.96M" },
-    { rank: 36, name: "Chile", prod: "0.97M" },
-    { rank: 37, name: "Ecuador", prod: "0.41M" },
-    { rank: 38, name: "Bolivia", prod: "1.08M" },
-    { rank: 39, name: "Uzbekistan", prod: "3.34M" },
-    { rank: 40, name: "Tajikistan", prod: "1.01M" },
-    { rank: 41, name: "Kazakhstan", prod: "2.55M" },
-    { rank: 42, name: "Kyrgyzstan", prod: "1.43M" },
-    { rank: 43, name: "Morocco", prod: "1.78M" },
-    { rank: 44, name: "Tunisia", prod: "0.42M" },
-    { rank: 45, name: "Ethiopia", prod: "1.85M" },
-    { rank: 46, name: "Rwanda", prod: "1.05M" },
-    { rank: 47, name: "Uganda", prod: "0.20M" },
-    { rank: 48, name: "Tanzania", prod: "1.83M" },
-    { rank: 49, name: "Madagascar", prod: "0.42M" },
-    { rank: 50, name: "Cameroon", prod: "0.42M" },
-    { rank: 51, name: "Lebanon", prod: "0.43M" },
-    { rank: 52, name: "Syria", prod: "0.83M" },
-    { rank: 53, name: "Iraq", prod: "0.43M" },
-    { rank: 54, name: "Saudi Arabia", prod: "0.51M" },
-    { rank: 55, name: "Israel", prod: "0.59M" },
-    { rank: 56, name: "Yemen", prod: "0.30M" },
-    { rank: 57, name: "Sri Lanka", prod: "0.10M" },
-    { rank: 58, name: "Vietnam", prod: "0.42M" },
-    { rank: 59, name: "Philippines", prod: "0.13M" },
-    { rank: 60, name: "Myanmar", prod: "0.61M" },
-    { rank: 61, name: "Bhutan", prod: "0.05M" },
-    { rank: 62, name: "Afghanistan", prod: "0.43M" },
-    { rank: 63, name: "Greece", prod: "0.16M" },
-    { rank: 64, name: "Italy", prod: "1.30M" },
-    { rank: 65, name: "Portugal", prod: "0.49M" },
-    { rank: 66, name: "Sweden", prod: "0.81M" },
-    { rank: 67, name: "Finland", prod: "0.55M" },
-    { rank: 68, name: "Norway", prod: "0.34M" },
-    { rank: 69, name: "Switzerland", prod: "0.45M" },
-    { rank: 70, name: "Austria", prod: "0.78M" },
-    { rank: 71, name: "Hungary", prod: "0.26M" },
-    { rank: 72, name: "Slovakia", prod: "0.13M" },
-    { rank: 73, name: "Bulgaria", prod: "0.16M" },
-    { rank: 74, name: "Serbia", prod: "0.27M" },
-    { rank: 75, name: "Croatia", prod: "0.08M" },
-    { rank: 76, name: "Lithuania", prod: "0.21M" },
-    { rank: 77, name: "Latvia", prod: "0.18M" },
-    { rank: 78, name: "Estonia", prod: "0.08M" },
-    { rank: 79, name: "Ireland", prod: "0.39M" },
-    { rank: 80, name: "Moldova", prod: "0.29M" },
-    { rank: 81, name: "Georgia", prod: "0.18M" },
-    { rank: 82, name: "Armenia", prod: "0.51M" },
-    { rank: 83, name: "Azerbaijan", prod: "1.04M" },
-    { rank: 84, name: "DR Congo", prod: "0.12M" },
-    { rank: 85, name: "Burundi", prod: "0.11M" },
-    { rank: 86, name: "Zimbabwe", prod: "0.03M" },
-    { rank: 87, name: "Malawi", prod: "0.43M" },
-    { rank: 88, name: "Lesotho", prod: "0.09M" },
-    { rank: 89, name: "Eswatini", prod: "0.02M" },
-    { rank: 90, name: "Sudan", prod: "0.42M" },
-    { rank: 91, name: "Senegal", prod: "0.04M" },
-    { rank: 92, name: "Mali", prod: "0.04M" },
-    { rank: 93, name: "Guinea", prod: "0.02M" },
-    { rank: 94, name: "Madagascar", prod: "0.42M" },
-    { rank: 95, name: "Honduras", prod: "0.02M" },
-    { rank: 96, name: "Cuba", prod: "0.07M" },
-    { rank: 97, name: "Venezuela", prod: "0.31M" },
-    { rank: 98, name: "Costa Rica", prod: "0.07M" },
-    { rank: 99, name: "Guatemala", prod: "0.36M" },
-    { rank: 100, name: "Panama", prod: "0.04M" },
+    { rank: 19, name: "Ethiopia", prod: "4.09M" },
+    { rank: 23, name: "Belarus", prod: "3.11M" },
+    { rank: 26, name: "Kazakhstan", prod: "2.63M" },
+    { rank: 30, name: "Morocco", prod: "2.19M" },
+    { rank: 33, name: "Argentina", prod: "2.11M" },
+    { rank: 34, name: "Spain", prod: "1.97M" },
+    { rank: 36, name: "Malawi", prod: "1.46M" },
+    { rank: 37, name: "Italy", prod: "1.41M" },
+    { rank: 38, name: "Bolivia", prod: "1.38M" },
+    { rank: 40, name: "Tajikistan", prod: "1.26M" },
+    { rank: 41, name: "Chile", prod: "1.25M" },
+    { rank: 42, name: "Nigeria", prod: "1.23M" },
+    { rank: 43, name: "Kyrgyzstan", prod: "1.19M" },
+    { rank: 44, name: "Romania", prod: "1.05M" },
+    { rank: 45, name: "Azerbaijan", prod: "0.95M" },
+    { rank: 46, name: "Afghanistan", prod: "0.91M" },
+    { rank: 47, name: "Sweden", prod: "0.88M" },
+    { rank: 48, name: "Rwanda", prod: "0.83M" },
+    { rank: 49, name: "Turkmenistan", prod: "0.82M" },
+    { rank: 50, name: "Austria", prod: "0.69M" },
+    { rank: 51, name: "Zimbabwe", prod: "0.67M" },
+    { rank: 52, name: "Syria", prod: "0.67M" },
+    { rank: 53, name: "Czech Republic", prod: "0.66M" },
+    { rank: 54, name: "Saudi Arabia", prod: "0.63M" },
+    { rank: 55, name: "Lebanon", prod: "0.61M" },
+    { rank: 56, name: "Serbia", prod: "0.61M" },
+    { rank: 57, name: "Guinea", prod: "0.61M" },
+    { rank: 59, name: "Tanzania", prod: "0.56M" },
+    { rank: 60, name: "Finland", prod: "0.55M" },
+    { rank: 61, name: "Mozambique", prod: "0.55M" },
+    { rank: 62, name: "Guatemala", prod: "0.55M" },
+    { rank: 63, name: "Sudan", prod: "0.54M" },
+    { rank: 64, name: "New Zealand", prod: "0.53M" },
+    { rank: 65, name: "Angola", prod: "0.53M" },
+    { rank: 66, name: "Venezuela", prod: "0.52M" },
+    { rank: 67, name: "Israel", prod: "0.48M" },
+    { rank: 68, name: "Tunisia", prod: "0.47M" },
+    { rank: 69, name: "Uganda", prod: "0.46M" },
+    { rank: 70, name: "Myanmar", prod: "0.42M" },
+    { rank: 71, name: "Burundi", prod: "0.42M" },
+    { rank: 72, name: "North Korea", prod: "0.41M" },
+    { rank: 73, name: "Bosnia and Herzegovina", prod: "0.39M" },
+    { rank: 74, name: "Switzerland", prod: "0.37M" },
+    { rank: 75, name: "Cameroon", prod: "0.37M" },
+    { rank: 76, name: "Libya", prod: "0.37M" },
+    { rank: 77, name: "Ireland", prod: "0.37M" },
+    { rank: 78, name: "Portugal", prod: "0.36M" },
+    { rank: 79, name: "Norway", prod: "0.35M" },
+    { rank: 80, name: "Vietnam", prod: "0.35M" },
+    { rank: 81, name: "Armenia", prod: "0.34M" },
+    { rank: 82, name: "Greece", prod: "0.33M" },
+    { rank: 83, name: "Niger", prod: "0.33M" },
+    { rank: 84, name: "Yemen", prod: "0.31M" },
+    { rank: 85, name: "Albania", prod: "0.28M" },
+    { rank: 86, name: "Lithuania", prod: "0.27M" },
+    { rank: 87, name: "Mongolia", prod: "0.25M" },
+    { rank: 88, name: "Madagascar", prod: "0.25M" },
+    { rank: 89, name: "Hungary", prod: "0.23M" },
+    { rank: 90, name: "Mali", prod: "0.23M" },
+    { rank: 91, name: "Georgia", prod: "0.22M" },
+    { rank: 92, name: "Ecuador", prod: "0.22M" },
+    { rank: 93, name: "North Macedonia", prod: "0.20M" },
+    { rank: 94, name: "Iraq", prod: "0.20M" },
+    { rank: 95, name: "Slovakia", prod: "0.17M" },
+    { rank: 96, name: "Jordan", prod: "0.16M" },
+    { rank: 97, name: "Senegal", prod: "0.15M" },
+    { rank: 98, name: "Moldova", prod: "0.14M" },
+    { rank: 99, name: "Croatia", prod: "0.13M" },
+    { rank: 100, name: "Lesotho", prod: "0.13M" },
+    { rank: 101, name: "Latvia", prod: "0.13M" },
   ];
 
   const tocItems = [
@@ -399,7 +399,7 @@ function TopProducingCountries() {
 
   const faqItems = [
     { q: "Which country has the largest production of potatoes?", a: "China is the world's largest potato producer at 94.87 million tonnes annually (FAOSTAT 2024), accounting for roughly 25% of global output. India ranks second at 58.1 million tonnes (2024-25, 3rd Advance Estimate), followed by Ukraine at 21.13 million tonnes." },
-    { q: "Where does the US rank in potato production?", a: "The United States ranks #5 globally at 18.7 million tonnes (FAOSTAT 2023). Idaho alone produced 33.5% of the US crop in 2025 (USDA NASS). American yields average 51.0 t/ha — among the highest in the world." },
+    { q: "Where does the US rank in potato production?", a: "The United States ranks #4 globally at 19.06 million tonnes (FAOSTAT 2024). Idaho alone produced 33.5% of the US crop in 2025 (USDA NASS). American yields average 51.0 t/ha — among the highest in the world." },
     { q: "Which country has the best quality potatoes?", a: "The Netherlands is widely considered the global leader in potato quality, particularly for certified seed potatoes. Dutch breeders like HZPC, Agrico, and Meijer export seed to 80+ countries. For eating quality, Peru's 3,000+ native Andean varieties are unmatched in diversity." },
     { q: "Does China produce a lot of potatoes?", a: "Yes — China produces 94.87 million tonnes annually, more than any other country and roughly 25% of the entire global harvest. Production is concentrated in Inner Mongolia, Gansu, Sichuan, and Yunnan provinces." },
     { q: "Which country produces the most potatoes per capita?", a: "Belarus leads per-capita production and consumption at 166.9 kg/person/year (FAOSTAT 2023). Ukraine follows at 136 kg and Russia at 111 kg. Eastern Europe dominates per-capita metrics even though Asia leads in absolute volume." },
@@ -460,7 +460,7 @@ function TopProducingCountries() {
       {/* Definitive Answer Block */}
       <DefinitiveAnswer>
         <p style={{ margin: 0, lineHeight: 1.8 }} data-summary="true">
-          <strong>China is the world&apos;s largest potato producer at 94.9 million tonnes (FAOSTAT 2024), followed by India (57.1M) and Ukraine.</strong> Global production has held in the 380–390 million tonne range across 2018–2024, with the top 30 countries accounting for over 90% of total output. Asia alone contributes ~46% of world production, with developing countries now producing more than half of the global crop (CIP, International Potato Center). The 7-year time-series table below tracks production trajectory for the top 30 producers — Pakistan and Bangladesh are the fastest-growing, while Iran has experienced one of the steepest contractions in any major producer (5.14M peak 2015 → 2.34M trough 2023, with partial 2024 recovery to 2.92M).
+          <strong>China is the world&apos;s largest potato producer at 94.9 million tonnes (FAOSTAT 2024), followed by India (57.1M) and Ukraine.</strong> Global production has held in the 380–390 million tonne range across 2018–2024, with the top 30 countries accounting for over 90% of total output. Asia alone contributes ~53% of world production, with developing countries now producing more than half of the global crop (CIP, International Potato Center). The 7-year time-series table below tracks production trajectory for the top 30 producers — Pakistan and Bangladesh are the fastest-growing, while Iran has experienced one of the steepest contractions in any major producer (5.14M peak 2015 → 2.34M trough 2023, with partial 2024 recovery to 2.92M).
         </p>
       </DefinitiveAnswer>
 
@@ -477,7 +477,7 @@ function TopProducingCountries() {
 
       {/* Section 1 */}
       <h2 id="top-producers" style={sH2}>Which country produces the most potatoes?</h2>
-      <p style={sP}><Link href="/country/china" style={{ color: "var(--gold)", fontWeight: 600, textDecoration: "none" }}>China</Link> dominates global potato production at 94.87 million tonnes annually, growing approximately 25% of the world&apos;s potatoes on 4.7 million hectares (FAOSTAT 2024). <Link href="/country/india" style={{ color: "var(--gold)", fontWeight: 600, textDecoration: "none" }}>India</Link> ranks second at 58.1 million tonnes (2024-25, 3rd Advance Estimate), with Uttar Pradesh alone producing more potatoes than most entire countries. <Link href="/country/ukraine" style={{ color: "var(--gold)", fontWeight: 600, textDecoration: "none" }}>Ukraine</Link> is third at 21.13 million tonnes, also holding the world&apos;s highest per-capita consumption at 136 kg/year.</p>
+      <p style={sP}><Link href="/country/china" style={{ color: "var(--gold)", fontWeight: 600, textDecoration: "none" }}>China</Link> dominates global potato production at 94.87 million tonnes annually, growing about 24% of the world&apos;s potatoes on 4.56 million hectares (FAOSTAT 2024). <Link href="/country/india" style={{ color: "var(--gold)", fontWeight: 600, textDecoration: "none" }}>India</Link> ranks second at 58.1 million tonnes (2024-25, 3rd Advance Estimate), with Uttar Pradesh alone producing more potatoes than most entire countries. <Link href="/country/ukraine" style={{ color: "var(--gold)", fontWeight: 600, textDecoration: "none" }}>Ukraine</Link> is third at 21.13 million tonnes, also holding the world&apos;s highest per-capita consumption at 136 kg/year.</p>
       <p style={sP}>The complete top 30 rankings below represent nations producing over 600,000 tonnes annually. Together, these 30 countries grow over 90% of the world&apos;s potatoes. Each country name links to its dedicated Potatopedia profile with detailed industry data.</p>
 
       <p style={sP}><strong>Multi-year FAOSTAT time series (2018–2024).</strong> Each row shows annual potato production in million tonnes. The right column shows the 7-year trajectory from 2018 to 2024.</p>
@@ -512,7 +512,7 @@ function TopProducingCountries() {
       {/* Long-tail producers (M2 from comprehensive SEO audit): plain-text country list for ranks 31–100 */}
       <details style={{ marginTop: 20, background: "var(--paper)", border: "1px solid var(--line)", borderRadius: 10, padding: "14px 18px" }}>
         <summary style={{ cursor: "pointer", listStyle: "none", display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: 13, fontWeight: 700, color: "var(--ink)" }}>
-          <span>Notable producers ranks 31–100 (FAOSTAT 2023)</span>
+          <span>Other producers by world rank (FAOSTAT 2024)</span>
           <span style={{ fontSize: 10, color: "var(--mute3)" }}>▾</span>
         </summary>
         <div style={{ marginTop: 14, display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "6px 18px", fontSize: 13, color: "var(--ink2)" }}>
@@ -520,31 +520,31 @@ function TopProducingCountries() {
             <div key={p.rank} style={{ lineHeight: 1.6 }}><span style={{ color: "var(--mute2)", marginRight: 6 }}>#{p.rank}</span><strong style={{ color: "var(--ink)" }}>{p.name}</strong> <span style={{ color: "var(--mute2)" }}>· {p.prod} t</span></div>
           ))}
         </div>
-        <p style={{ fontSize: 11, color: "var(--mute2)", marginTop: 12, fontStyle: "italic" }}>Source: FAOSTAT 2023 production data (UN FAO). Production figures rounded to nearest 10,000 tonnes; some 2022 figures used where 2023 was unavailable. Country profiles for these producers are not yet available — see <a href="/countries" style={{ color: "var(--gold)", textDecoration: "none" }}>all 31 country profiles</a> for the top tier.</p>
+        <p style={{ fontSize: 11, color: "var(--mute2)", marginTop: 12, fontStyle: "italic" }}>Source: FAOSTAT 2024 production data (UN FAO, QCL item Potatoes). Production figures rounded to nearest 10,000 tonnes; the number is each country&apos;s world rank by 2024 production. Country profiles for these producers are not yet available — see <a href="/countries" style={{ color: "var(--gold)", textDecoration: "none" }}>all 31 country profiles</a> for the top tier.</p>
       </details>
 
-      <StatCallout number="94.87M" unit="tonnes" context="China produces 25% of the world's potatoes on 4.7 million hectares, with yields of 20.1 t/ha." source="FAOSTAT 2023" />
+      <StatCallout number="94.87M" unit="tonnes" context="China produces about 24% of the world's potatoes on 4.56 million hectares, with yields of 20.8 t/ha." source="FAOSTAT 2024" />
 
       {/* Section 2 */}
       <h2 id="by-continent" style={sH2}>How is global potato production distributed by continent?</h2>
-      <p style={sP}><strong>Asia</strong> leads global potato production at approximately 175.8 million tonnes, accounting for 46% of the world total (FAOSTAT 2024). China (94.87M), India (58.1M, 2024-25 3rd Advance Estimate), <Link href="/country/bangladesh" style={{ color: "var(--gold)", textDecoration: "none" }}>Bangladesh</Link> (10.8M), and <Link href="/country/pakistan" style={{ color: "var(--gold)", textDecoration: "none" }}>Pakistan</Link> (8.43M) are the continent&apos;s major producers.</p>
-      <p style={sP}><strong>Europe</strong> follows at 107.2 million tonnes, led by <Link href="/country/ukraine" style={{ color: "var(--gold)", textDecoration: "none" }}>Ukraine</Link> (21.13M), <Link href="/country/russia" style={{ color: "var(--gold)", textDecoration: "none" }}>Russia</Link> (18.45M), <Link href="/country/germany" style={{ color: "var(--gold)", textDecoration: "none" }}>Germany</Link> (12.70M), and <Link href="/country/france" style={{ color: "var(--gold)", textDecoration: "none" }}>France</Link> (8.8M). European yields are among the world&apos;s highest, with <Link href="/country/belgium" style={{ color: "var(--gold)", textDecoration: "none" }}>Belgium</Link> averaging 46.0 t/ha.</p>
-      <p style={sP}><strong>The Americas</strong> contribute 38.5 million tonnes, with the <Link href="/country/united-states" style={{ color: "var(--gold)", textDecoration: "none" }}>United States</Link> (19.06M), <Link href="/country/peru" style={{ color: "var(--gold)", textDecoration: "none" }}>Peru</Link> (5.6M), and <Link href="/country/canada" style={{ color: "var(--gold)", textDecoration: "none" }}>Canada</Link> (5.3M) as the top producers. <strong>Africa and the Middle East</strong> account for 28.9 million tonnes and are growing fastest, with <Link href="/country/egypt" style={{ color: "var(--gold)", textDecoration: "none" }}>Egypt</Link> (8.08M) and <Link href="/country/algeria" style={{ color: "var(--gold)", textDecoration: "none" }}>Algeria</Link> (4.60M, FAOSTAT 2024) as the leading African producers.</p>
+      <p style={sP}><strong>Asia</strong> leads global potato production at approximately 205.4 million tonnes, accounting for 53% of the world total (FAOSTAT 2024). China (94.87M), India (58.1M, 2024-25 3rd Advance Estimate), <Link href="/country/bangladesh" style={{ color: "var(--gold)", textDecoration: "none" }}>Bangladesh</Link> (10.6M), and <Link href="/country/pakistan" style={{ color: "var(--gold)", textDecoration: "none" }}>Pakistan</Link> (8.43M) are the continent&apos;s major producers.</p>
+      <p style={sP}><strong>Europe</strong> follows at 101.3 million tonnes (FAOSTAT 2024), led by <Link href="/country/ukraine" style={{ color: "var(--gold)", textDecoration: "none" }}>Ukraine</Link> (21.13M), <Link href="/country/russia" style={{ color: "var(--gold)", textDecoration: "none" }}>Russia</Link> (18.45M), <Link href="/country/germany" style={{ color: "var(--gold)", textDecoration: "none" }}>Germany</Link> (12.70M), and <Link href="/country/france" style={{ color: "var(--gold)", textDecoration: "none" }}>France</Link> (9.24M). European yields are among the world&apos;s highest, with Germany averaging 45.0 t/ha and <Link href="/country/belgium" style={{ color: "var(--gold)", textDecoration: "none" }}>Belgium</Link> 39.6 t/ha in 2024.</p>
+      <p style={sP}><strong>The Americas</strong> contribute 47.5 million tonnes (FAOSTAT 2024), with the <Link href="/country/united-states" style={{ color: "var(--gold)", textDecoration: "none" }}>United States</Link> (19.06M), <Link href="/country/peru" style={{ color: "var(--gold)", textDecoration: "none" }}>Peru</Link> (6.58M), and <Link href="/country/canada" style={{ color: "var(--gold)", textDecoration: "none" }}>Canada</Link> (6.51M) as the top producers. <strong>Africa</strong> accounts for 34.2 million tonnes (FAOSTAT 2024) and is growing fastest, with <Link href="/country/egypt" style={{ color: "var(--gold)", textDecoration: "none" }}>Egypt</Link> (8.08M) and <Link href="/country/algeria" style={{ color: "var(--gold)", textDecoration: "none" }}>Algeria</Link> (4.60M, FAOSTAT 2024) as the leading African producers.</p>
 
-      <StatCallout number="46%" context="of the world's potatoes are grown in Asia — a share that has increased steadily as developing-country production overtakes Europe." source="FAOSTAT 2023" />
+      <StatCallout number="53%" context="of the world's potatoes are grown in Asia — a share that has increased steadily as developing-country production overtakes Europe." source="FAOSTAT 2024" />
 
       {/* Section 3 */}
       <h2 id="fastest-growing" style={sH2}>Which countries are growing potato production the fastest?</h2>
-      <p style={sP}><Link href="/country/pakistan" style={{ color: "var(--gold)", textDecoration: "none" }}>Pakistan</Link> stands out with 186% production growth over the past decade, the fastest among the top 20 producers (FAOSTAT). Bangladesh has also expanded rapidly, with potato now a staple alongside rice, feeding 170 million people. In Sub-Saharan Africa, <Link href="/country/kenya" style={{ color: "var(--gold)", textDecoration: "none" }}>Kenya</Link> and Ethiopia are experiencing double-digit annual production growth as CIP-backed seed programs improve yields from a low base of 8&ndash;15 t/ha.</p>
+      <p style={sP}><Link href="/country/pakistan" style={{ color: "var(--gold)", textDecoration: "none" }}>Pakistan</Link> stands out with 191% production growth from 2014 to 2024, the fastest among the top 20 producers (FAOSTAT). Bangladesh has also expanded rapidly, with potato now a staple alongside rice, feeding 170 million people. In Sub-Saharan Africa, <Link href="/country/kenya" style={{ color: "var(--gold)", textDecoration: "none" }}>Kenya</Link> and Ethiopia are experiencing double-digit annual production growth as CIP-backed seed programs improve yields from a low base of 8&ndash;15 t/ha.</p>
       <p style={sP}>Not all trends point upward. <Link href="/country/poland" style={{ color: "var(--gold)", textDecoration: "none" }}>Poland&apos;s</Link> harvested area shrank from 2.8 million to 188,000 hectares over 20 years as the country shifted from subsistence to commercial agriculture. Japan&apos;s production continues to decline due to an aging farming population and decreasing domestic demand for fresh potatoes. In Europe broadly, total area is contracting while yields rise &mdash; producing similar or higher volumes from less land.</p>
 
       {/* Section 4 */}
       <h2 id="decade-trends" style={sH2}>How have global potato production trends changed over the past decade?</h2>
-      <p style={sP}>Global potato production reached 383 million tonnes in 2023, up from 376 million tonnes in 2022 (FAOSTAT). More notably, this growth occurred despite a decline in harvested area from 18.1 million to 16.8 million hectares, reflecting significant yield improvements driven by better varieties, precision irrigation, and fertilizer optimization.</p>
+      <p style={sP}>Global potato production reached 390.4 million tonnes in 2024, up from 386.7 million tonnes in 2023 and 368.5 million tonnes in 2014 (FAOSTAT). More notably, this growth occurred despite a decline in harvested area from 18.0 million hectares in 2014 to 17.1 million in 2024, reflecting significant yield improvements driven by better varieties, precision irrigation, and fertilizer optimization.</p>
       <p style={sP}>The most dramatic structural shift is geographic: developing countries now produce more than half of the world&apos;s potatoes (CIP). In 1990, Europe and North America dominated global production. Today, Asia and Africa are the growth engines. China&apos;s 2014 &ldquo;Potato Staple Food Strategy&rdquo; accelerated investment in mechanization, cold storage, and processing capacity. India&apos;s frozen fry exports surged 77.5% in a single month in 2025, signaling a new phase of Asian potato industrialization.</p>
-      <p style={sP}>In the <Link href="/country/united-states" style={{ color: "var(--gold)", textDecoration: "none" }}>United States</Link>, 2024 production reached 421 million cwt, down 4% from the prior year, with a total crop value of $4.60 billion (USDA NASS). The US maintains the world&apos;s highest commercial yields at 51.0 t/ha, driven by center-pivot irrigation and precision agriculture in Idaho, Washington, and the Pacific Northwest.</p>
+      <p style={sP}>In the <Link href="/country/united-states" style={{ color: "var(--gold)", textDecoration: "none" }}>United States</Link>, 2024 production reached 421 million cwt, down 4% from the prior year, with a total crop value of $4.60 billion (USDA NASS). The US has among the world&apos;s highest yields at 50.9 t/ha (FAOSTAT 2024), driven by center-pivot irrigation and precision agriculture in Idaho, Washington, and the Pacific Northwest.</p>
 
-      <StatCallout number="+1.9%" context="global production growth from 2022 to 2023, driven by yield improvements despite declining harvested area." source="FAOSTAT 2023" />
+      <StatCallout number="+6.0%" context="global production growth from 2014 to 2024, driven by yield improvements despite declining harvested area." source="FAOSTAT 2024" />
 
       {/* Section 5 */}
       <h2 id="climate" style={sH2}>How is climate change affecting potato production?</h2>
@@ -554,13 +554,13 @@ function TopProducingCountries() {
 
       {/* Section 6 */}
       <h2 id="us-rank" style={sH2}>Where does the US rank in global potato production?</h2>
-      <p style={sP}>The <Link href="/country/united-states" style={{ color: "var(--gold)", fontWeight: 600, textDecoration: "none" }}>United States</Link> ranks <strong>#5 globally</strong> at 18.7 million tonnes (FAOSTAT 2023). Idaho is the dominant state, producing 33.5% of the national crop in 2025 (USDA NASS), followed by Washington (21.8%), Wisconsin, Oregon, and North Dakota. US yields average 51.0 t/ha &mdash; the highest among major producers and more than double the global average of 22 t/ha.</p>
+      <p style={sP}>The <Link href="/country/united-states" style={{ color: "var(--gold)", fontWeight: 600, textDecoration: "none" }}>United States</Link> ranks <strong>#4 globally</strong> at 19.06 million tonnes (FAOSTAT 2024). Idaho is the dominant state, producing 33.5% of the national crop in 2025 (USDA NASS), followed by Washington (21.8%), Wisconsin, Oregon, and North Dakota. US yields average 51.0 t/ha &mdash; the highest among major producers and more than double the global average of 22 t/ha.</p>
       <p style={sP}>Roughly 69% of the US crop goes to processing (frozen fries, chips, dehydrated products), with Lamb Weston, Simplot, and McCain operating major facilities in the Pacific Northwest. The 2024 crop was valued at $4.60 billion, making potatoes one of America&apos;s most valuable vegetable crops (USDA NASS). For complete US state-by-state data, see our <Link href="/answers/us-potato-production-by-state" style={{ color: "var(--gold)", textDecoration: "none" }}>US production breakdown</Link>.</p>
 
       {/* Section 7 */}
       <h2 id="consumption-vs-production" style={sH2}>How does per capita consumption differ from production rankings?</h2>
       <p style={sP}>The biggest producers are not always the biggest consumers per capita. China grows 94.87 million tonnes but consumes only 41 kg per person per year due to its massive population. In contrast, Belarus &mdash; not even in the top 20 producers &mdash; leads global consumption at 166.9 kg/person/year (FAOSTAT 2023). <Link href="/country/ukraine" style={{ color: "var(--gold)", textDecoration: "none" }}>Ukraine</Link> (136 kg) and <Link href="/country/russia" style={{ color: "var(--gold)", textDecoration: "none" }}>Russia</Link> (111 kg) follow.</p>
-      <p style={sP}><Link href="/country/belgium" style={{ color: "var(--gold)", textDecoration: "none" }}>Belgium</Link> processes far more potatoes than it grows, importing millions of tonnes from <Link href="/country/france" style={{ color: "var(--gold)", textDecoration: "none" }}>France</Link> and the <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link> to feed its massive frozen fry export industry ($4.6B annually). The <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link> produces 7.1 million tonnes but exports the majority as seed potatoes and processed products rather than consuming domestically. For the full per-capita rankings, see <Link href="/knowledge/potato-consumption-per-capita" style={{ color: "var(--gold)", textDecoration: "none" }}>Potato Consumption Per Capita by Country</Link>.</p>
+      <p style={sP}><Link href="/country/belgium" style={{ color: "var(--gold)", textDecoration: "none" }}>Belgium</Link> processes far more potatoes than it grows, importing millions of tonnes from <Link href="/country/france" style={{ color: "var(--gold)", textDecoration: "none" }}>France</Link> and the <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link> to feed its massive frozen fry export industry ($4.6B annually). The <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link> produces 6.4 million tonnes (FAOSTAT 2024) but exports the majority as seed potatoes and processed products rather than consuming domestically. For the full per-capita rankings, see <Link href="/knowledge/potato-consumption-per-capita" style={{ color: "var(--gold)", textDecoration: "none" }}>Potato Consumption Per Capita by Country</Link>.</p>
 
       {/* Sources */}
       <SourceBlock sources={[
@@ -1390,7 +1390,7 @@ function PotatoConsumptionPerCapita() {
 
       <h2 id="vs-production" style={sH2}>How does consumption differ from production rankings?</h2>
       <p style={sP}>The biggest producers are not the biggest consumers. China grows the most potatoes but ranks just #20 in per-capita consumption. Belarus is not even in the top 20 producers but eats the most. <Link href="/country/belgium" style={{ color: "var(--gold)", textDecoration: "none" }}>Belgium</Link> processes far more potatoes than it grows, importing millions of tonnes from <Link href="/country/france" style={{ color: "var(--gold)", textDecoration: "none" }}>France</Link> and the <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link> to feed its $4.6 billion frozen fry export industry.</p>
-      <p style={sP}>The <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link> produces 7.1 million tonnes but consumes only 78 kg per capita across its small population; the rest feeds its world-leading <Link href="/answers/netherlands-seed-potato-exports" style={{ color: "var(--gold)", textDecoration: "none" }}>seed potato</Link> and processing export industries. <Link href="/country/egypt" style={{ color: "var(--gold)", textDecoration: "none" }}>Egypt</Link> produces 8.08 million tonnes (FAOSTAT 2024) but consumes 26 kg per capita, exporting over 1 million tonnes annually. For full production rankings, see <Link href="/knowledge/top-potato-producing-countries" style={{ color: "var(--gold)", textDecoration: "none" }}>Top Producing Countries</Link>.</p>
+      <p style={sP}>The <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link> produces 6.4 million tonnes (FAOSTAT 2024) but consumes only 78 kg per capita across its small population; the rest feeds its world-leading <Link href="/answers/netherlands-seed-potato-exports" style={{ color: "var(--gold)", textDecoration: "none" }}>seed potato</Link> and processing export industries. <Link href="/country/egypt" style={{ color: "var(--gold)", textDecoration: "none" }}>Egypt</Link> produces 8.08 million tonnes (FAOSTAT 2024) but consumes 26 kg per capita, exporting over 1 million tonnes annually. For full production rankings, see <Link href="/knowledge/top-potato-producing-countries" style={{ color: "var(--gold)", textDecoration: "none" }}>Top Producing Countries</Link>.</p>
 
       <h2 id="trends" style={sH2}>Which countries are eating more potatoes?</h2>
       <p style={sP}>Developing countries in Asia and Africa are the growth story. <Link href="/country/bangladesh" style={{ color: "var(--gold)", textDecoration: "none" }}>Bangladesh&apos;s</Link> per capita consumption has doubled in 20 years as potato has become a staple alongside rice. <Link href="/country/pakistan" style={{ color: "var(--gold)", textDecoration: "none" }}>Pakistan&apos;s</Link> consumption is rising in step with its 186% production growth. In Sub-Saharan Africa, urbanization is driving demand for convenient potato products &mdash; chips, fries, and processed snacks.</p>
@@ -2958,7 +2958,7 @@ function KufriPotatoVarietiesIndia() {
   ];
 
   const relatedArticles = [
-    { slug: "top-potato-producing-countries", tag: "Production", title: "Top Producing Countries 2025", desc: "FAOSTAT rankings: India is #2 globally at 56.2M tonnes." },
+    { slug: "top-potato-producing-countries", tag: "Production", title: "Top Producing Countries 2025", desc: "FAOSTAT 2024 rankings: India is #2 globally at 57.1M tonnes." },
     { slug: "potato-varieties-guide", tag: "Varieties", title: "Potato Varieties Guide: 50+ Types", desc: "Russet Burbank, Yukon Gold, Maris Piper, Kufri Jyoti and more." },
     { slug: "mcdonalds-potato-varieties", tag: "Processing", title: "What Potatoes Does McDonald's Use?", desc: "The Russet Burbank story behind the global frozen fry industry." },
     { slug: "complete-potato-growing-guide", tag: "Cultivation", title: "Complete Potato Growing Guide", desc: "Soil prep, seed selection, planting, watering, harvest." },
@@ -6581,7 +6581,7 @@ export default async function KnowledgePage({ params }) {
       case "top-potato-producing-countries": {
         const tpcFaq = [
           { q: "Which country has the largest production of potatoes?", a: "China is the world's largest potato producer at 94.87 million tonnes annually (FAOSTAT 2024), accounting for roughly 25% of global output." },
-          { q: "Where does the US rank in potato production?", a: "The United States ranks #5 globally at 18.7 million tonnes. Idaho produced 33.5% of the US crop in 2025 (USDA NASS)." },
+          { q: "Where does the US rank in potato production?", a: "The United States ranks #4 globally at 19.06 million tonnes (FAOSTAT 2024). Idaho produced 33.5% of the US crop in 2025 (USDA NASS)." },
           { q: "Which country has the best quality potatoes?", a: "The Netherlands is the global leader in certified seed potato quality, exporting to 80+ countries." },
           { q: "Does China produce a lot of potatoes?", a: "Yes — China produces 94.87 million tonnes annually, roughly 25% of the global harvest." },
           { q: "Which country produces the most potatoes per capita?", a: "Belarus leads per-capita consumption at 166.9 kg/person/year (FAOSTAT 2023), followed by Ukraine at 136 kg." },

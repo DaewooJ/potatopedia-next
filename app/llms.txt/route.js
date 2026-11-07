@@ -59,7 +59,7 @@ Potatopedia is the most comprehensive potato intelligence platform on the web. W
 5. Russia — 18.45M tonnes (FAOSTAT 2024)
 6. Germany — 12.70M tonnes (FAOSTAT 2024)
 7. Bangladesh — 10.6M tonnes (FAOSTAT 2024)
-8. France — 8.8M tonnes
+8. France — 9.24M tonnes (FAOSTAT 2024)
 9. Pakistan — 8.43M tonnes (FAOSTAT 2024)
 10. Egypt — 8.08M tonnes (FAOSTAT 2024)
 
