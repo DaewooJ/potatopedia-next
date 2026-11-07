@@ -20,7 +20,7 @@ export async function generateMetadata() {
 }
 
 const buildFaqs = (st) => [
-  { q: "What is Potatopedia?", a: `Potatopedia is the world's first AI-powered potato knowledge base. We aggregate, verify, and organise data from ${st.sources} authoritative sources — FAOSTAT, USDA, CIP, ICAR-CPRI, peer-reviewed journals, and government agencies — into ${fmt(st.dataPoints)} searchable data points covering 204 countries, ${st.varieties} varieties, and the complete potato value chain.` },
+  { q: "What is Potatopedia?", a: `Potatopedia is the sourced potato reference. We gather, check and organise data from ${st.sources} authoritative sources — FAOSTAT, USDA, CIP, ICAR-CPRI, peer-reviewed journals, and government agencies — into ${fmt(st.dataPoints)} searchable data points covering 99 producing countries, ${st.varieties} varieties, and the complete potato value chain.` },
   { q: "Where does the data come from?", a: "Primary sources only: FAOSTAT (UN FAO), USDA NASS/ERS, CIP (International Potato Center, Lima), ICAR-CPRI (India), CAAS (China), UN Comtrade, Eurostat, AHDB Potatoes (UK), PMC/PubMed, and dozens of national agriculture ministries. We exclude crowd-sourced encyclopaedias, news aggregators, and sources whose methodology can't be inspected." },
   { q: "How accurate is the data?", a: "Every data point traces to a primary or peer-reviewed source. The backend tracks source provenance for each fact, and the AI Q&A interface returns citations with every answer." },
   { q: "Is Potatopedia free to use?", a: "Yes — free, with no paywall or subscription. Any sponsored placement is clearly labelled and never mixed into the sourced data. The mission is to make potato intelligence accessible to researchers, growers, traders, policymakers, and students worldwide." },
@@ -29,7 +29,7 @@ const buildFaqs = (st) => [
 ];
 
 const sources = [
-  { name: "FAOSTAT", org: "UN Food & Agriculture Organization", desc: "Global production, trade, and food balance data for 204 countries.", tag: "Primary" },
+  { name: "FAOSTAT", org: "UN Food & Agriculture Organization", desc: "Global production, trade and food balance data.", tag: "Primary" },
   { name: "USDA NASS & ERS", org: "U.S. Department of Agriculture", desc: "U.S. acreage, yield, pricing, and Census of Agriculture data.", tag: "Primary" },
   { name: "CIP", org: "International Potato Center, Lima", desc: "Variety breeding and developing-world potato science.", tag: "Primary" },
   { name: "ICAR-CPRI", org: "Central Potato Research Institute, Shimla", desc: "Indian Kufri varieties and sub-tropical agronomy.", tag: "Primary" },
