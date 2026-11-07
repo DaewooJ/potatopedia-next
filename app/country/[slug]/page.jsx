@@ -251,7 +251,7 @@ function StandardCountryPage({ c, slug }) {
     },
     {
       q: `How much potato does each person in ${c.name} consume?`,
-      a: `Per-capita potato consumption in ${c.name} is ${c.consumption}. Belarus leads global per-capita consumption at 181 kg/year, followed by Ukraine and Russia.`,
+      a: `Per-capita potato consumption in ${c.name} is ${c.consumption}. Belarus leads global per-capita consumption at 166.9 kg/year, followed by Ukraine and Russia.`,
     },
   ];
 

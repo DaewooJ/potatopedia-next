@@ -400,7 +400,7 @@ function TopProducingCountries() {
     { q: "Where does the US rank in potato production?", a: "The United States ranks #5 globally at 18.7 million tonnes (FAOSTAT 2023). Idaho alone produces approximately 30% of the US crop. American yields average 51.0 t/ha — among the highest in the world." },
     { q: "Which country has the best quality potatoes?", a: "The Netherlands is widely considered the global leader in potato quality, particularly for certified seed potatoes. Dutch breeders like HZPC, Agrico, and Meijer export seed to 80+ countries. For eating quality, Peru's 3,000+ native Andean varieties are unmatched in diversity." },
     { q: "Does China produce a lot of potatoes?", a: "Yes — China produces 94.4 million tonnes annually, more than any other country and roughly 25% of the entire global harvest. Production is concentrated in Inner Mongolia, Gansu, Sichuan, and Yunnan provinces." },
-    { q: "Which country produces the most potatoes per capita?", a: "Belarus leads per-capita production and consumption at 181 kg/person/year. Ukraine follows at 136 kg and Russia at 111 kg. Eastern Europe dominates per-capita metrics even though Asia leads in absolute volume." },
+    { q: "Which country produces the most potatoes per capita?", a: "Belarus leads per-capita production and consumption at 166.9 kg/person/year (FAOSTAT 2023). Ukraine follows at 136 kg and Russia at 111 kg. Eastern Europe dominates per-capita metrics even though Asia leads in absolute volume." },
     { q: "What are the top 5 potato producing countries?", a: "The top 5 are: 1) China (94.87M tonnes), 2) India (58.1M, 2024-25 3rd Advance Estimate), 3) Ukraine (21.13M), 4) United States (19.06M), and 5) Russia (18.45M). Together they produce over 55% of the world's potatoes (FAOSTAT 2024)." },
   ];
 
@@ -557,7 +557,7 @@ function TopProducingCountries() {
 
       {/* Section 7 */}
       <h2 id="consumption-vs-production" style={sH2}>How does per capita consumption differ from production rankings?</h2>
-      <p style={sP}>The biggest producers are not always the biggest consumers per capita. China grows 94.4 million tonnes but consumes only 41 kg per person per year due to its massive population. In contrast, Belarus &mdash; not even in the top 20 producers &mdash; leads global consumption at 181 kg/person/year. <Link href="/country/ukraine" style={{ color: "var(--gold)", textDecoration: "none" }}>Ukraine</Link> (136 kg) and <Link href="/country/russia" style={{ color: "var(--gold)", textDecoration: "none" }}>Russia</Link> (111 kg) follow.</p>
+      <p style={sP}>The biggest producers are not always the biggest consumers per capita. China grows 94.4 million tonnes but consumes only 41 kg per person per year due to its massive population. In contrast, Belarus &mdash; not even in the top 20 producers &mdash; leads global consumption at 166.9 kg/person/year (FAOSTAT 2023). <Link href="/country/ukraine" style={{ color: "var(--gold)", textDecoration: "none" }}>Ukraine</Link> (136 kg) and <Link href="/country/russia" style={{ color: "var(--gold)", textDecoration: "none" }}>Russia</Link> (111 kg) follow.</p>
       <p style={sP}><Link href="/country/belgium" style={{ color: "var(--gold)", textDecoration: "none" }}>Belgium</Link> processes far more potatoes than it grows, importing millions of tonnes from <Link href="/country/france" style={{ color: "var(--gold)", textDecoration: "none" }}>France</Link> and the <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link> to feed its massive frozen fry export industry ($4.6B annually). The <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link> produces 7.1 million tonnes but exports the majority as seed potatoes and processed products rather than consuming domestically. For the full per-capita rankings, see <Link href="/knowledge/potato-consumption-per-capita" style={{ color: "var(--gold)", textDecoration: "none" }}>Potato Consumption Per Capita by Country</Link>.</p>
 
       {/* Sources */}
@@ -1270,7 +1270,7 @@ function HowPotatoesAreProcessed() {
 
 function PotatoConsumptionPerCapita() {
   const rows = [
-    [1,"\u{1F1E7}\u{1F1FE}","Belarus","181","Europe"],
+    [1,"\u{1F1E7}\u{1F1FE}","Belarus","166.9","Europe"],
     [2,"\u{1F1FA}\u{1F1E6}","Ukraine","136","Europe"],
     [3,"\u{1F1F7}\u{1F1FA}","Russia","111","Europe"],
     [4,"\u{1F1F5}\u{1F1F1}","Poland","96","Europe"],
@@ -1302,8 +1302,8 @@ function PotatoConsumptionPerCapita() {
     { id: "faq", label: "Frequently asked questions" },
   ];
   const faqItems = [
-    { q: "Which country eats the most potatoes?", a: "Belarus leads global per-capita consumption at 181 kg/person/year, followed by Ukraine (136 kg) and Russia (111 kg). Eastern Europe dominates the top of the rankings (FAOSTAT Food Balance Sheets)." },
-    { q: "What is the global average potato consumption?", a: "The global average is approximately 33 kg per person per year. This ranges from 181 kg in Belarus to under 3 kg in many Southeast Asian countries where rice is the dominant staple." },
+    { q: "Which country eats the most potatoes?", a: "Belarus leads global per-capita consumption at 166.9 kg/person/year (FAOSTAT 2023), followed by Ukraine (136 kg) and Russia (111 kg). Eastern Europe dominates the top of the rankings (FAOSTAT Food Balance Sheets)." },
+    { q: "What is the global average potato consumption?", a: "The global average is approximately 33 kg per person per year. This ranges from 166.9 kg in Belarus to under 3 kg in many Southeast Asian countries where rice is the dominant staple." },
     { q: "Why do Eastern Europeans eat so many potatoes?", a: "Historical, climatic, and cultural factors: potatoes grow well in Eastern Europe's cool climate, were a peasant staple for centuries, and remain deeply embedded in cuisine. Belarus, Ukraine, and Russia never experienced the shift to processed convenience foods that reduced fresh consumption in Western Europe." },
     { q: "Does China eat a lot of potatoes?", a: "China produces 94.4 million tonnes (world #1) but consumes only 41 kg per person per year because the population is 1.4 billion. In many Chinese provinces, potato is treated as a vegetable, not a staple carbohydrate. China's 2014 Potato Staple Food Strategy aims to increase consumption." },
     { q: "How much potato does the average American eat?", a: "The average American consumes approximately 54 kg of potatoes per year, but 69% of that is in processed form (frozen fries, chips, dehydrated products) rather than fresh (USDA NASS)." },
@@ -1335,12 +1335,12 @@ function PotatoConsumptionPerCapita() {
 
       <DefinitiveAnswer>
         <p style={{ margin: 0, lineHeight: 1.8 }}>
-          <strong>Belarus leads the world in potato consumption at 181 kg per person per year &mdash; nearly half a kilogram every day, according to FAOSTAT Food Balance Sheets.</strong> Ukraine follows at 136 kg, Russia at 111 kg. Eastern Europe dominates the top rankings, but consumption patterns vary enormously: from 181 kg in Belarus to under 3 kg in Indonesia. Globally, the average person consumes approximately 33 kg of potatoes per year. The form is shifting rapidly &mdash; in the US, 69% of all potatoes go to processors (USDA NASS), and Asia is following the same trajectory.
+          <strong>Belarus leads the world in potato consumption at 166.9 kg per person per year &mdash; nearly half a kilogram every day, according to FAOSTAT Food Balance Sheets.</strong> Ukraine follows at 136 kg, Russia at 111 kg. Eastern Europe dominates the top rankings, but consumption patterns vary enormously: from 166.9 kg in Belarus to under 3 kg in Indonesia. Globally, the average person consumes approximately 33 kg of potatoes per year. The form is shifting rapidly &mdash; in the US, 69% of all potatoes go to processors (USDA NASS), and Asia is following the same trajectory.
         </p>
       </DefinitiveAnswer>
 
       <KeyStatStrip stats={[
-        { value: "181 kg", label: "#1 Belarus per capita" },
+        { value: "166.9 kg", label: "#1 Belarus per capita" },
         { value: "33 kg", label: "global average" },
         { value: "85 kg", label: "European average" },
         { value: "69%", label: "US crop processed" },
@@ -1349,7 +1349,7 @@ function PotatoConsumptionPerCapita() {
       <CollapsibleTOC items={tocItems} />
 
       <h2 id="top-consumers" style={sH2}>Which country eats the most potatoes per capita?</h2>
-      <p style={sP}>Belarus leads at an extraordinary 181 kg per person per year (FAOSTAT). <Link href="/country/ukraine" style={{ color: "var(--gold)", textDecoration: "none" }}>Ukraine</Link> follows at 136 kg, <Link href="/country/russia" style={{ color: "var(--gold)", textDecoration: "none" }}>Russia</Link> at 111 kg, and <Link href="/country/poland" style={{ color: "var(--gold)", textDecoration: "none" }}>Poland</Link> at 96 kg. Eastern Europe dominates because potatoes have been a staple for centuries in these cool-climate nations. The complete top 20 below covers countries consuming over 40 kg per person annually.</p>
+      <p style={sP}>Belarus leads at an extraordinary 166.9 kg per person per year (FAOSTAT). <Link href="/country/ukraine" style={{ color: "var(--gold)", textDecoration: "none" }}>Ukraine</Link> follows at 136 kg, <Link href="/country/russia" style={{ color: "var(--gold)", textDecoration: "none" }}>Russia</Link> at 111 kg, and <Link href="/country/poland" style={{ color: "var(--gold)", textDecoration: "none" }}>Poland</Link> at 96 kg. Eastern Europe dominates because potatoes have been a staple for centuries in these cool-climate nations. The complete top 20 below covers countries consuming over 40 kg per person annually.</p>
       <div style={{ overflowX: "auto", marginBottom: 8 }}>
         <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 14 }}>
           <thead><tr>{["Rank", "Country", "kg / person / year", "Region"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
@@ -1371,10 +1371,10 @@ function PotatoConsumptionPerCapita() {
       </div>
       <p style={sSource}>Source: FAOSTAT Food Balance Sheets (latest available year). Figures include fresh and processed potato equivalent (kg/capita/year).</p>
 
-      <StatCallout number="181 kg" context="A Belarusian eats nearly half a kilogram of potatoes every single day. That is 5.5x the global average and 3.4x the American rate." source="FAOSTAT Food Balance Sheets" />
+      <StatCallout number="166.9 kg" context="A Belarusian eats nearly half a kilogram of potatoes every single day. That is about 5x the global average and 3x the American rate." source="FAOSTAT Food Balance Sheets, 2023" />
 
       <h2 id="regional-patterns" style={sH2}>How do consumption patterns differ by region?</h2>
-      <p style={sP}><strong>Europe</strong> is the largest per-capita consumer, averaging approximately 85 kg per person per year. Eastern Europe leads &mdash; Belarus (181), <Link href="/country/ukraine" style={{ color: "var(--gold)", textDecoration: "none" }}>Ukraine</Link> (136), <Link href="/country/russia" style={{ color: "var(--gold)", textDecoration: "none" }}>Russia</Link> (111), and <Link href="/country/poland" style={{ color: "var(--gold)", textDecoration: "none" }}>Poland</Link> (96) all exceed the continental average. Western Europe consumes less: <Link href="/country/united-kingdom" style={{ color: "var(--gold)", textDecoration: "none" }}>UK</Link> at 84 kg, <Link href="/country/belgium" style={{ color: "var(--gold)", textDecoration: "none" }}>Belgium</Link> at 90.8 kg (FAOSTAT 2023), and <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link> at 78 kg &mdash; but still well above the global average of 33 kg.</p>
+      <p style={sP}><strong>Europe</strong> is the largest per-capita consumer, averaging approximately 85 kg per person per year. Eastern Europe leads &mdash; Belarus (166.9), <Link href="/country/ukraine" style={{ color: "var(--gold)", textDecoration: "none" }}>Ukraine</Link> (136), <Link href="/country/russia" style={{ color: "var(--gold)", textDecoration: "none" }}>Russia</Link> (111), and <Link href="/country/poland" style={{ color: "var(--gold)", textDecoration: "none" }}>Poland</Link> (96) all exceed the continental average. Western Europe consumes less: <Link href="/country/united-kingdom" style={{ color: "var(--gold)", textDecoration: "none" }}>UK</Link> at 84 kg, <Link href="/country/belgium" style={{ color: "var(--gold)", textDecoration: "none" }}>Belgium</Link> at 90.8 kg (FAOSTAT 2023), and <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link> at 78 kg &mdash; but still well above the global average of 33 kg.</p>
       <p style={sP}><strong>Americas:</strong> <Link href="/country/peru" style={{ color: "var(--gold)", textDecoration: "none" }}>Peru</Link> stands out at 85 kg, unsurprising given the potato originated in the Andes. The <Link href="/country/united-states" style={{ color: "var(--gold)", textDecoration: "none" }}>US</Link> and <Link href="/country/canada" style={{ color: "var(--gold)", textDecoration: "none" }}>Canada</Link> consume 54&ndash;55 kg, with most consumed as processed products. Latin American consumption is lower: <Link href="/country/brazil" style={{ color: "var(--gold)", textDecoration: "none" }}>Brazil</Link> just 16 kg per capita.</p>
       <p style={sP}><strong>Asia</strong> has the most varied picture. <Link href="/country/nepal" style={{ color: "var(--gold)", textDecoration: "none" }}>Nepal</Link> at 62 kg is the highest, followed by <Link href="/country/bangladesh" style={{ color: "var(--gold)", textDecoration: "none" }}>Bangladesh</Link> (43 kg) and <Link href="/country/china" style={{ color: "var(--gold)", textDecoration: "none" }}>China</Link> (41 kg). But <Link href="/country/indonesia" style={{ color: "var(--gold)", textDecoration: "none" }}>Indonesia</Link> and <Link href="/country/south-korea" style={{ color: "var(--gold)", textDecoration: "none" }}>South Korea</Link> consume under 15 kg. Rice dominance explains the gap.</p>
       <p style={sP}><strong>Africa:</strong> <Link href="/country/algeria" style={{ color: "var(--gold)", textDecoration: "none" }}>Algeria</Link> leads at 72 kg per capita. <Link href="/country/kenya" style={{ color: "var(--gold)", textDecoration: "none" }}>Kenya</Link> (28 kg) and <Link href="/country/south-africa" style={{ color: "var(--gold)", textDecoration: "none" }}>South Africa</Link> (30 kg) are lower but growing rapidly as urbanization drives demand for convenient potato-based foods.</p>
@@ -1470,7 +1470,7 @@ function CompleteGrowingGuide() {
     { slug: "potato-nutrition-facts", tag: "Nutrition", title: "Potato Nutrition Facts", desc: "What's in a potato: 110 cal, 620mg potassium, 30% DV vitamin C." },
     { slug: "potato-varieties-guide", tag: "Varieties", title: "Varieties Guide: 50+ Types", desc: "Starchy, waxy, all-purpose: choosing the right variety to grow." },
     { slug: "top-potato-producing-countries", tag: "Production", title: "Top Producing Countries 2025", desc: "How the world's largest producers grow 383 million tonnes." },
-    { slug: "potato-consumption-per-capita", tag: "Consumption", title: "Consumption Per Capita", desc: "From 181 kg in Belarus to 3 kg in Indonesia." },
+    { slug: "potato-consumption-per-capita", tag: "Consumption", title: "Consumption Per Capita", desc: "From 166.9 kg in Belarus to 3 kg in Indonesia." },
   ];
   const growingCountries = COUNTRIES.filter(c => ["india","united-states","kenya","peru","united-kingdom","netherlands","egypt","bangladesh"].includes(c.slug));
 
@@ -2279,7 +2279,7 @@ function PotatoesAndBloodSugar() {
     { slug: "potato-nutrition-facts", tag: "Nutrition", title: "Potato Nutrition Facts and Health Benefits", desc: "110 calories, 620mg potassium, 27mg vitamin C, 0g fat per medium potato. Full USDA breakdown." },
     { slug: "potato-varieties-guide", tag: "Varieties", title: "Potato Varieties Guide: 50+ Types", desc: "Waxy, all-purpose, floury — and which to pick for low-GI cooking." },
     { slug: "complete-potato-growing-guide", tag: "Cultivation", title: "Complete Potato Growing Guide", desc: "Soil prep, seed, planting, watering, pests, harvest — from FAO and USDA Extension." },
-    { slug: "potato-consumption-per-capita", tag: "Consumption", title: "Potato Consumption Per Capita", desc: "Belarus leads at 181 kg/year. Where the US, India, China rank." },
+    { slug: "potato-consumption-per-capita", tag: "Consumption", title: "Potato Consumption Per Capita", desc: "Belarus leads at 166.9 kg/year. Where the US, India, China rank." },
   ];
 
   const relatedCountries = COUNTRIES.filter(c => ["united-states","india","china","united-kingdom","australia","germany","bangladesh","peru"].includes(c.slug));
@@ -3189,7 +3189,7 @@ function WhyPotatoesIllegalInFrance() {
   const relatedArticles = [
     { slug: "top-potato-producing-countries", tag: "Production", title: "Top Producing Countries 2025", desc: "FAOSTAT rankings — China #1 at 94.4M tonnes; France today produces 8M+ tonnes." },
     { slug: "potato-diseases-pests", tag: "Diseases", title: "Potato Diseases & Pests", desc: "Late blight, the disease behind the Irish Famine — still a $6B/year global cost." },
-    { slug: "potato-consumption-per-capita", tag: "Consumption", title: "Potato Consumption Per Capita", desc: "Belarus leads at 181 kg/year; Ukraine 136 kg; France 52 kg." },
+    { slug: "potato-consumption-per-capita", tag: "Consumption", title: "Potato Consumption Per Capita", desc: "Belarus leads at 166.9 kg/year; Ukraine 136 kg; France 52 kg." },
     { slug: "potato-varieties-guide", tag: "Varieties", title: "Potato Varieties Guide: 50+ Types", desc: "From the Irish Lumper to Russet Burbank to Kufri Jyoti." },
   ];
 
@@ -6346,7 +6346,7 @@ export default async function KnowledgePage({ params }) {
           { q: "Where does the US rank in potato production?", a: "The United States ranks #5 globally at 18.7 million tonnes. Idaho produces approximately 30% of the US crop." },
           { q: "Which country has the best quality potatoes?", a: "The Netherlands is the global leader in certified seed potato quality, exporting to 80+ countries." },
           { q: "Does China produce a lot of potatoes?", a: "Yes — China produces 94.4 million tonnes annually, roughly 25% of the global harvest." },
-          { q: "Which country produces the most potatoes per capita?", a: "Belarus leads per-capita consumption at 181 kg/person/year, followed by Ukraine at 136 kg." },
+          { q: "Which country produces the most potatoes per capita?", a: "Belarus leads per-capita consumption at 166.9 kg/person/year (FAOSTAT 2023), followed by Ukraine at 136 kg." },
           { q: "What are the top 5 potato producing countries?", a: "China (94.87M), India (58.1M, 2024-25 3rd Advance Estimate), Ukraine (21.13M), United States (19.06M), Russia (18.45M) per FAOSTAT 2024." },
         ];
         // M2 — Dataset schema for the production-by-country table. Cited per FAOSTAT methodology;
@@ -6417,8 +6417,8 @@ export default async function KnowledgePage({ params }) {
       }
       case "potato-consumption-per-capita": {
         const cpFaq = [
-          { q: "Which country eats the most potatoes?", a: "Belarus at 181 kg/person/year, followed by Ukraine (136 kg) and Russia (111 kg) per FAOSTAT Food Balance Sheets." },
-          { q: "What is the global average potato consumption?", a: "Approximately 33 kg per person per year, ranging from 181 kg in Belarus to under 3 kg in Indonesia." },
+          { q: "Which country eats the most potatoes?", a: "Belarus at 166.9 kg/person/year (FAOSTAT Food Balance Sheets, 2023), followed by Ukraine (136 kg) and Russia (111 kg)." },
+          { q: "What is the global average potato consumption?", a: "Approximately 33 kg per person per year, ranging from 166.9 kg in Belarus to under 3 kg in Indonesia." },
           { q: "Why do Eastern Europeans eat so many potatoes?", a: "Historical, climatic, and cultural factors: cool climate suits potato growing, centuries-old staple tradition, and less shift to processed convenience foods." },
           { q: "Does China eat a lot of potatoes?", a: "China produces 94.4M tonnes (#1) but consumes only 41 kg/person/year. Potato is a vegetable, not a staple, in most Chinese provinces." },
           { q: "How much potato does the average American eat?", a: "~54 kg/year, but 69% in processed form (fries, chips) rather than fresh (USDA NASS)." },
