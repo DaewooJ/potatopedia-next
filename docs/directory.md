@@ -52,8 +52,9 @@ Potatopedia is neutral and global, so `COUNTRY_CAP_PER_KIND = 12` (`lib/director
 country per kind (processing / seed / machinery). `scripts/directory-import.mjs` enforces it on every `--apply` run
 (`--cap-only [--apply]` runs just the cap). Rows over the cap are not deleted: `published = false`, log line
 `held: country cap (Country, kind)`, profile kept. They are re-published automatically (log `released: country cap`)
-when the cap allows. Kept first: higher completeness score (sourced profile fields + sources count), then oldest
-`found_at`, then slug; never by size or fame. A held `/companies/<slug>` 308-redirects to its country page (or
+when the cap allows. Kept first by verification quality: company-verified, then hand-reviewed by the editors (log line
+`reviewed: by hand`; the 10 original profiles of 7 Nov), then machine drafts; then higher completeness score (sourced
+profile fields + sources count), then oldest `found_at`, then slug; never by size or fame. A held `/companies/<slug>` 308-redirects to its country page (or
 `/companies`), and drops out of the sitemap, counts and ItemList because those read published rows only.
 Listing order: countries interleaved round-robin within each kind (alphabetical tie-break); category pages list
 country sections alphabetically.

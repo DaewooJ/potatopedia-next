@@ -210,10 +210,10 @@ async function pool(items, n, fn) {
 // ── per-country cap (lib/directory-cap.mjs; docs/directory.md) ────────────────────────────────────────────────────
 // At most COUNTRY_CAP_PER_KIND published companies per country per kind. Over the cap: published = false + a log line
 // "held: country cap (Country, kind)", profile kept. Held rows come back (log "released: country cap") when the cap
-// allows. Order of keeping: completeness score, then oldest found_at, then slug. Never by size or fame. No deletes.
+// allows. Order of keeping: verification quality (company-verified > hand-reviewed > machine draft), completeness score, then oldest found_at, then slug. Never by size or fame. No deletes.
 // `pending` = rows that pass the gate in this run but are not written yet (dry-run preview).
 async function enforceCap(sql, apply, pending = []) {
-  const rows = await sql`select id, slug, country, kind, profile, found_at, published, log, featured, verified from pp_companies
+  const rows = await sql`select id, slug, country, kind, profile, found_at, published, log, featured, verified, verified_until from pp_companies
     where profile is not null and status = 'ingested' and (published = true or log like ${"%" + HELD_MARK + "%"})`;
   const bySlug = new Map(rows.map((r) => [r.slug, r]));
   for (const r of pending) bySlug.set(r.row.slug, { ...r.row, profile: r.profile, found_at: r.row.found_at, published: true, log: r.row.log });
@@ -232,7 +232,7 @@ async function enforceCap(sql, apply, pending = []) {
   console.log("  country | kind                       published now -> after cap");
   for (const k of Object.keys(tally).sort()) console.log(`  ${k.padEnd(34)} ${String(tally[k].now).padStart(3)} -> ${String(tally[k].after).padStart(3)}`);
   console.log(`  to hold: ${toHold.length}   to release: ${toRelease.length}`);
-  for (const x of toHold) console.log(`    hold ${x.row.country} / ${x.row.kind} / ${x.row.slug} (score ${x.score}, found ${new Date(x.row.found_at).toISOString().slice(0, 10)})${x.row.featured || x.row.verified ? "  [PAID: featured/verified]" : ""}`);
+  for (const x of toHold) console.log(`    hold ${x.row.country} / ${x.row.kind} / ${x.row.slug} (quality ${x.q}, score ${x.score}, found ${new Date(x.row.found_at).toISOString().slice(0, 10)})${x.row.featured || x.row.verified ? "  [PAID: featured/verified]" : ""}`);
   for (const r of toRelease) console.log(`    release ${r.country} / ${r.kind} / ${r.slug}`);
   if (!apply) return;
   for (const x of toHold) {
