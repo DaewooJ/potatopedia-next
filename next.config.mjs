@@ -17,7 +17,6 @@ const nextConfig = {
       { source: "/knowledge/potato-starch-industry", destination: "/knowledge/potato-processing-industry", permanent: true },
       { source: "/knowledge/potato-dry-matter", destination: "/knowledge/how-potatoes-are-processed", permanent: true },
       { source: "/knowledge/digital-trading-platforms-potato", destination: "/knowledge/global-potato-trade", permanent: true },
-      { source: "/knowledge/potato-history-origin", destination: "/knowledge", permanent: true },
       { source: "/&", destination: "/", permanent: true },
       { source: "/$", destination: "/", permanent: true },
       // /support (donation page) became /advertise on 7 Nov 2026

@@ -147,9 +147,9 @@ export async function generateMetadata({ params }) {
   }
 
   if (slug === "united-states") {
-    const desc = "The USA produces 19.96M tonnes at 51.4 t/ha — world's highest yield. Idaho 32%, Washington 23%. Lamb Weston, Simplot, McCain power the $5B industry.";
+    const desc = "The USA produced 18.94M tonnes in 2025 (USDA NASS) at 51.8 t/ha — world's highest yield. Idaho 33.5%, Washington 21.8%. Lamb Weston, Simplot, McCain power the $4.5B industry.";
     return applyOgOverride({
-      title: "United States Potato Industry: 19.96M Tonnes",
+      title: "United States Potato Industry: 18.94M Tonnes (2025)",
       description: trim(desc),
       alternates: { canonical: "https://www.potatopedia.com/country/united-states" },
       openGraph: { title: "United States Potato Industry — Potatopedia", description: trim(desc), type: "article", images: ["/og-image.png"] },
@@ -2844,39 +2844,40 @@ function NetherlandsProfilePage({ c }) {
 
 function UnitedStatesProfilePage({ c }) {
   const stats = [
-    { value: "19.96 M t", label: "Annual Production", sub: "USDA NASS 2023 (440 M cwt)" },
-    { value: "388,900 ha", label: "Harvested Area", sub: "961,100 acres" },
-    { value: "51.4 t/ha", label: "Average Yield", sub: "458 cwt/acre — world's highest" },
+    { value: "18.94 M t", label: "Annual Production", sub: "USDA NASS 2025 (417.6 M cwt)" },
+    { value: "365,500 ha", label: "Harvested Area", sub: "903,200 acres (2025)" },
+    { value: "51.8 t/ha", label: "Average Yield", sub: "462 cwt/acre — world's highest" },
     { value: "#5", label: "Global Production Rank", sub: "after CN, IN, UA, RU" },
-    { value: "$5.0 B", label: "Farm-Gate Crop Value", sub: "USDA NASS 2023" },
+    { value: "$4.51 B", label: "Value of Production", sub: "USDA NASS 2025" },
     { value: "$2.3 B", label: "Total Export Value", sub: "Jul 2023–Jun 2024 record", positive: true },
     { value: "69–71%", label: "Processed Share of Crop", sub: "269 M cwt processed (2024)" },
     { value: "120 lbs", label: "Per-Capita Consumption", sub: "/ person / year" },
   ];
 
   const quickFacts = [
-    "The Pacific Northwest (Idaho + Washington + Oregon) grows 62% of all US potatoes",
-    "Idaho alone produces 32% of the US crop — 6.13 M tonnes from the Magic Valley + Snake River Plain",
+    "The Pacific Northwest (Idaho + Washington + Oregon) grew 61.5% of all US potatoes in 2025 (USDA NASS)",
+    "Idaho alone produced 33.5% of the US crop in 2025 — 6.35 M tonnes from the Magic Valley + Snake River Plain",
     "US frozen French fry exports reached $1.5 B in 2023-24 — 1.5 M tonnes to 100+ countries",
     "Russet Burbank, selected by Luther Burbank in 1876, still occupies ~40% of US potato acreage",
     "Lamb Weston, Simplot, and McCain together control ~70% of the global frozen-fry market",
-    "Washington achieves 659 cwt/acre yields (73.8 t/ha) — the highest state-level yield in the world",
+    "Oregon (635 cwt/acre, ~71 t/ha) and Washington (630 cwt/acre) had the highest state yields in 2025 (USDA NASS)",
     "The Tri-State breeding program (USDA-ARS + ID + OR + WA) has released 12+ russet varieties since 1991",
     "100% of Idaho's commercial potato crop is irrigated — Snake River + tributaries supply ~22 inches/season",
   ];
 
+  // USDA NASS Potatoes 2025 Summary (Sept 2026); tonnes and shares are Potatopedia conversions.
   const stateRows = [
-    ["Idaho", "6.13", "135.2 M cwt", 32.0, "Magic Valley + Snake River Plain", "Russet Burbank, Ranger Russet, Umatilla"],
-    ["Washington", "4.49", "98.9 M cwt", 22.5, "Columbia Basin", "Russet Burbank, Ranger, Umatilla, Alpine"],
-    ["Wisconsin", "1.20", "26.4 M cwt", 6.0, "Central Sands", "Russet Burbank, Snowden, chip varieties"],
-    ["Oregon", "1.19", "26.2 M cwt", 6.0, "Columbia Basin + Klamath", "Russet Burbank, Shepody, Umatilla"],
-    ["North Dakota", "1.15", "25.3 M cwt", 5.7, "Red River Valley", "Russet Burbank, Norkotah, Red Norland"],
-    ["Colorado", "1.00", "22.1 M cwt", 5.0, "San Luis Valley", "Norkotah selections, Centennial, Purple Majesty"],
-    ["Michigan", "0.93", "20.4 M cwt", 4.6, "Central LP + Upper Peninsula", "Atlantic, Snowden, Lamoka (chip)"],
-    ["Maine", "0.83", "18.3 M cwt", 4.2, "Aroostook County", "Russet Burbank, Atlantic, Lamoka, seed"],
-    ["Minnesota", "0.81", "17.9 M cwt", 4.1, "Red River + Anoka Sand Plain", "Russet Burbank, Norkotah, Red Pontiac"],
-    ["Nebraska", "0.40 (est.)", "8.8 M cwt", 2.0, "South Platte", "Russet Burbank, Norkotah"],
-    ["Other (15+ states)", "1.83", "40.6 M cwt", 8.0, "Smaller commercial pockets", "Mixed: fresh + chip"],
+    ["Idaho", "6.35", "140.0 M cwt", 33.5, "Magic Valley + Snake River Plain", "Russet Burbank, Ranger Russet, Umatilla"],
+    ["Washington", "4.13", "91.0 M cwt", 21.8, "Columbia Basin", "Russet Burbank, Ranger, Umatilla, Alpine"],
+    ["Wisconsin", "1.32", "29.1 M cwt", 7.0, "Central Sands", "Russet Burbank, Snowden, chip varieties"],
+    ["Oregon", "1.18", "26.0 M cwt", 6.2, "Columbia Basin + Klamath", "Russet Burbank, Shepody, Umatilla"],
+    ["North Dakota", "1.10", "24.3 M cwt", 5.8, "Red River Valley", "Russet Burbank, Norkotah, Red Norland"],
+    ["Colorado", "1.04", "23.0 M cwt", 5.5, "San Luis Valley", "Norkotah selections, Centennial, Purple Majesty"],
+    ["Michigan", "0.92", "20.4 M cwt", 4.9, "Central LP + Upper Peninsula", "Atlantic, Snowden, Lamoka (chip)"],
+    ["Minnesota", "0.78", "17.3 M cwt", 4.1, "Red River + Anoka Sand Plain", "Russet Burbank, Norkotah, Red Pontiac"],
+    ["Maine", "0.78", "17.1 M cwt", 4.1, "Aroostook County", "Russet Burbank, Atlantic, Lamoka, seed"],
+    ["Nebraska", "0.44", "9.7 M cwt", 2.3, "South Platte", "Russet Burbank, Norkotah"],
+    ["California, Texas, Florida", "0.90", "19.7 M cwt", 4.7, "Winter, spring and fresh-market crops", "Mixed: fresh + chip"],
   ];
 
   const varietyRows = [
@@ -2956,7 +2957,7 @@ function UnitedStatesProfilePage({ c }) {
       {
         "@type": "Article",
         headline: "United States Potato Industry Profile — World's #1 Yield + Frozen Fry Powerhouse",
-        description: "Country profile of the United States' potato industry. 19.96 M tonnes on 388,900 ha at 51.4 t/ha (USDA NASS 2023) — world's highest yield. Idaho 32%, Washington 23%; Russet Burbank dominant; $2.3 B exports; Lamb Weston, Simplot, McCain.",
+        description: "Country profile of the United States' potato industry. 18.94 M tonnes from 903,200 acres at 462 cwt/acre (51.8 t/ha; USDA NASS 2025) — world's highest yield. Idaho 33.5%, Washington 21.8%; Russet Burbank dominant; $2.3 B exports; Lamb Weston, Simplot, McCain.",
         datePublished: "2026-04-27",
         dateModified: "2026-04-27",
         author: [POTATOPEDIA_EDITORIAL, { "@id": "https://www.potatopedia.com/#publisher" }],
@@ -2986,8 +2987,8 @@ function UnitedStatesProfilePage({ c }) {
       {
         "@type": "FAQPage",
         mainEntity: [
-          { "@type": "Question", name: "Which US state produces the most potatoes?", acceptedAnswer: { "@type": "Answer", text: "Idaho leads at 135.2 million cwt (~6.13 M tonnes / 32% of US production), followed by Washington at 98.9 million cwt (~4.49 M t / 23%). The Pacific Northwest trio of Idaho + Washington + Oregon together produces 62% of all US potatoes (USDA NASS 2024; NPC 2025 Yearbook)." } },
-          { "@type": "Question", name: "What is the average potato yield in the United States?", acceptedAnswer: { "@type": "Answer", text: "The US national average yield is 51.4 tonnes per hectare (458 cwt/acre) — the world's highest commercial potato yield (USDA NASS 2023). Washington alone achieves 659 cwt/acre (73.8 t/ha) — the highest state-level yield on Earth, driven by center-pivot irrigation, the Columbia Basin's solar radiation profile, and intensive precision-agriculture management." } },
+          { "@type": "Question", name: "Which US state produces the most potatoes?", acceptedAnswer: { "@type": "Answer", text: "Idaho leads at 139.95 million cwt (~6.35 M tonnes / 33.5% of US production in 2025), followed by Washington at 91.0 million cwt (~4.13 M t / 21.8%). The Pacific Northwest trio of Idaho + Washington + Oregon together produced 61.5% of all US potatoes, and Minnesota (17.3 million cwt) now ranks just above Maine (17.1 million cwt) (USDA NASS Potatoes 2025 Summary, Sept 2026)." } },
+          { "@type": "Question", name: "What is the average potato yield in the United States?", acceptedAnswer: { "@type": "Answer", text: "The US national average yield was about 51.8 tonnes per hectare (462 cwt/acre) in 2025 — the world's highest commercial potato yield (USDA NASS 2025). Oregon (635 cwt/acre, ~71 t/ha) and Washington (630 cwt/acre) had the highest state yields, driven by center-pivot irrigation, the Columbia Basin's solar radiation profile, and intensive precision-agriculture management." } },
           { "@type": "Question", name: "How much of the US potato crop is processed?", acceptedAnswer: { "@type": "Answer", text: "Roughly 69–71% of US potatoes are processed: 36% frozen (mostly French fries), 23% chips, 8% dehydrated, 4% refrigerated, 2% other. Fresh-market consumption accounts for the remaining 27% (Potatoes USA 2024 Utilization Report; USDA NASS Potatoes 2024 Summary). 269 million cwt of potatoes were processed in 2024." } },
           { "@type": "Question", name: "Why is Russet Burbank still the dominant US potato variety?", acceptedAnswer: { "@type": "Answer", text: "Russet Burbank has been dominant since J.R. Simplot's 1965 deal with McDonald's locked the entire US frozen-fry industry into its specifications: long tubers, high specific gravity, white flesh, low reducing sugars. Despite being 150 years old (selected by Luther Burbank in 1876), the variety still occupies ~40% of US potato acreage and 60–70% of Idaho's commercial acreage. New Tri-State varieties (Ranger Russet, Umatilla, Clearwater, Alpine, Galena) are progressively replacing it, but the transition is slow because of contract specifications and storage infrastructure." } },
           { "@type": "Question", name: "Who are the largest US potato processors?", acceptedAnswer: { "@type": "Answer", text: "The 'big three' are Lamb Weston (Eagle, Idaho HQ — world's #1 frozen potato processor, 4 B+ kg capacity, spun off from ConAgra in 2016), J.R. Simplot Company (Boise, Idaho — built around the original McDonald's contract), and McCain Foods USA (Canadian-owned, multi-plant operations in Idaho, Washington, Maine, Wisconsin). Together with ConAgra and Aviko, they control ~70% of global frozen French fry production (USDA FAS)." } },
@@ -3055,11 +3056,11 @@ function UnitedStatesProfilePage({ c }) {
                 <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 8, flexWrap: "wrap" }}>
                   <span style={{ fontSize: 11, fontWeight: 700, color: "#fff", background: "var(--accent-bg)", padding: "4px 10px", borderRadius: 4, textTransform: "uppercase", letterSpacing: 1 }}>#{c.rank} Global Producer</span>
                   <span style={{ fontSize: 11, fontWeight: 600, color: "var(--ink2)", background: "rgba(0,0,0,0.05)", padding: "4px 10px", borderRadius: 4 }}>{c.region}</span>
-                  <span style={{ fontSize: 11, fontWeight: 600, color: "var(--ink2)", background: "rgba(0,0,0,0.05)", padding: "4px 10px", borderRadius: 4 }}>USDA NASS 2023</span>
+                  <span style={{ fontSize: 11, fontWeight: 600, color: "var(--ink2)", background: "rgba(0,0,0,0.05)", padding: "4px 10px", borderRadius: 4 }}>USDA NASS 2025</span>
                 </div>
                 <h2 style={{ fontSize: 44, fontWeight: 800, color: "var(--ink)", margin: 0, letterSpacing: -1.5, lineHeight: 1.1 }}>{c.name}</h2>
                 <p className="pp-india-tagline" style={{ fontSize: 16, color: "var(--ink2)", margin: "10px 0 0", lineHeight: 1.5, maxWidth: 600 }}>
-                  World&apos;s <strong style={{ color: "var(--gold)" }}>highest potato yield at 51.4 t/ha</strong> &mdash; nearly 2.3&times; the global average. Idaho + Washington alone produce 55% of the US crop. Lamb Weston, Simplot, and McCain power a $5 B industry that exports $2.3 B / yr.
+                  World&apos;s <strong style={{ color: "var(--gold)" }}>highest potato yield at 51.8 t/ha</strong> &mdash; about 2.3&times; the global average. Idaho + Washington produced 55.3% of the US crop in 2025. Lamb Weston, Simplot, and McCain power a $4.5 B industry that exports $2.3 B / yr.
                 </p>
               </div>
             </div>
@@ -3072,7 +3073,7 @@ function UnitedStatesProfilePage({ c }) {
       <section className="pp-vital-stats" style={{ background: "var(--panel)", padding: "40px 0", color: "#fff" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <div data-summary="true" className="pp-vital-stats-summary" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", borderLeft: "3px solid var(--gold)", borderRadius: "0 8px 8px 0", padding: "16px 20px", marginBottom: 28, fontSize: 14, lineHeight: 1.7, color: "#E5E5E5" }}>
-            <strong style={{ color: "#fff" }}>The United States produced 19.96 million tonnes of potatoes in 2023</strong> on 388,900 hectares at <strong>51.4 t/ha &mdash; the world&apos;s highest commercial yield</strong> (USDA NASS; FAOSTAT). The crop generated <strong>$5.0 billion in farm-gate value</strong>; processors purchased <strong>269 million cwt (69% of the crop)</strong> in 2024. <strong>Idaho leads at 32%</strong> of national production (6.13 M t), followed by Washington at 23% (4.49 M t). Total potato exports reached a record <strong>$2.3 billion</strong> in July 2023 – June 2024 (+4% YoY), led by frozen French fries to Japan, Mexico, and South Korea. Russet Burbank, selected in 1876, still occupies ~40% of US acreage; Lamb Weston, Simplot, and McCain together control ~70% of the global frozen-fry market.
+            <strong style={{ color: "#fff" }}>The United States produced 18.94 million tonnes (417.6 million cwt) of potatoes in 2025</strong> on 903,200 acres (about 365,500 ha) at <strong>462 cwt/acre (about 51.8 t/ha) &mdash; the world&apos;s highest commercial yield</strong> (USDA NASS Potatoes 2025 Summary, Sept 2026). The crop&apos;s value of production was <strong>$4.51 billion</strong>; processors bought <strong>267 million cwt</strong> from the 13 estimating states. <strong>Idaho leads at 33.5%</strong> of national production (6.35 M t), followed by Washington at 21.8% (4.13 M t). Total potato exports reached a record <strong>$2.3 billion</strong> in July 2023 – June 2024 (+4% YoY), led by frozen French fries to Japan, Mexico, and South Korea. Russet Burbank, selected in 1876, still occupies ~40% of US acreage; Lamb Weston, Simplot, and McCain together control ~70% of the global frozen-fry market.
           </div>
           <div className="pp-vital-stats-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16 }}>
             {stats.map((s, i) => (
@@ -3123,7 +3124,7 @@ function UnitedStatesProfilePage({ c }) {
       <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--card)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Production by State</h2>
-          <p style={proseP}>The Pacific Northwest dominates: Idaho + Washington + Oregon together produce <strong>62% of all US potatoes</strong>. Idaho alone delivers 32% (135.2 M cwt = 6.13 M tonnes) from the Magic Valley and Snake River Plain; Washington adds 23% (98.9 M cwt = 4.49 M t) from the Columbia Basin. Wisconsin, Oregon, North Dakota, Colorado, Michigan, Maine, and Minnesota round out the top tier. State-level yields range from <strong>Washington&apos;s world-leading 659 cwt/acre (73.8 t/ha)</strong> to ~300 cwt/acre in shorter-season states.</p>
+          <p style={proseP}>The Pacific Northwest dominates: Idaho + Washington + Oregon together produced <strong>61.5% of all US potatoes in 2025</strong> (USDA NASS). Idaho alone delivered 33.5% (140.0 M cwt = 6.35 M tonnes) from the Magic Valley and Snake River Plain; Washington added 21.8% (91.0 M cwt = 4.13 M t) from the Columbia Basin. Wisconsin, Oregon, North Dakota, Colorado, Michigan, Minnesota, and Maine round out the top tier (Minnesota moved just above Maine in 2025). State-level yields range from <strong>Oregon&apos;s 635 cwt/acre (about 71 t/ha) and Washington&apos;s 630 cwt/acre</strong> to 280&ndash;330 cwt/acre in Florida and Maine.</p>
           <div style={{ overflowX: "auto", marginTop: 12 }}>
             <table style={{ width: "100%", borderCollapse: "collapse", fontVariantNumeric: "tabular-nums" }}>
               <thead><tr>{["State", "Production (M t)", "M cwt", "% of US", "Region", "Dominant Varieties"].map((h, idx) => <th key={h} style={{ ...tableTH, width: idx === 3 ? "16%" : undefined }}>{h}</th>)}</tr></thead>
@@ -3192,13 +3193,13 @@ function UnitedStatesProfilePage({ c }) {
       <section style={{ padding: "48px 0", borderBottom: "1px solid var(--line)", background: "var(--paper)" }}>
         <div style={sectionWrap} className="pp-section-wrap">
           <h2 style={sectionTitle}>Pacific Northwest Growing &amp; Yield Story</h2>
-          <p style={proseP}>The US holds the <strong>world&apos;s highest commercial potato yield at 51.4 t/ha</strong> &mdash; more than 2.3&times; the global average of 22.8 t/ha. Washington State exceeds even the national figure at <strong>659 cwt/acre (73.8 t/ha)</strong>, making it the highest-yielding potato region anywhere on Earth. The yield advantage is the product of four reinforcing factors:</p>
+          <p style={proseP}>The US holds the <strong>world&apos;s highest commercial potato yield at about 51.8 t/ha (462 cwt/acre, 2025)</strong> &mdash; more than 2.3&times; the global average of 22.8 t/ha. Oregon (<strong>635 cwt/acre, about 71 t/ha</strong>) and Washington (630 cwt/acre) exceed even the national figure, among the highest-yielding potato regions anywhere. The yield advantage is the product of four reinforcing factors:</p>
           <p style={proseP}>&bull; <strong>Center-pivot irrigation:</strong> 100% of Idaho&apos;s commercial potato crop is irrigated. The Snake River and tributaries deliver ~22 inches of supplemental water per growing season &mdash; the natural Snake River Plain rainfall is only 8&ndash;12 inches/year, far below the 20&ndash;25 inches potato needs.<br />
           &bull; <strong>Long growing season:</strong> Pacific Northwest plantings run mid-April through October &mdash; ~140 frost-free days, with extended daylight hours during tuber bulking that maximises photosynthate accumulation.<br />
           &bull; <strong>Solar radiation profile:</strong> the Columbia Basin and Magic Valley receive among the highest summer solar radiation of any potato-growing region, supporting heavy tuber bulking.<br />
           &bull; <strong>Precision agriculture:</strong> GPS-guided planting, variable-rate nitrogen, soil-moisture sensors, and real-time yield monitoring are universal at commercial scale.</p>
           <p style={proseP}><strong>Major regions:</strong> Idaho&apos;s Magic Valley (south-central, Snake River Plain), Washington&apos;s Columbia Basin (Franklin / Adams / Grant / Benton counties), Oregon&apos;s Columbia Basin + Klamath Basin, Wisconsin&apos;s Central Sands, North Dakota&apos;s Red River Valley, Colorado&apos;s San Luis Valley (high-altitude seed production), Maine&apos;s Aroostook County (heritage potato region).</p>
-          <p style={sourceLine}>Source: USDA NASS 2024; University of Idaho Extension; Washington State Potato Commission; Bureau of Reclamation Snake River data.</p>
+          <p style={sourceLine}>Source: USDA NASS Potatoes 2025 Summary (Sept 2026); University of Idaho Extension; Washington State Potato Commission; Bureau of Reclamation Snake River data.</p>
         </div>
       </section>
 
@@ -3381,7 +3382,7 @@ function UnitedStatesProfilePage({ c }) {
                   { slug: "russet-burbank-history", title: "Russet Burbank: 140 Years of Dominance", desc: "Luther Burbank's 1876 selection that anchors the global frozen fry industry." },
                   { slug: "mcdonalds-potato-varieties", title: "What Potatoes Does McDonald's Use?", desc: "The Russet Burbank story behind the 1965 J.R. Simplot deal." },
                   { slug: "how-potatoes-are-processed", title: "How Potatoes Are Processed: Farm to Fry", desc: "Frozen fries, chips, dehydrated — Lamb Weston, Simplot, McCain." },
-                  { slug: "potato-yield-calculator", title: "Potato Yield Per Acre — Global Averages", desc: "USA at 458 cwt/acre — world's highest commercial potato yield." },
+                  { slug: "potato-yield-calculator", title: "Potato Yield Per Acre — Global Averages", desc: "USA at 462 cwt/acre (2025) — world's highest commercial potato yield." },
                   { slug: "top-potato-producing-countries", title: "Top Potato Producing Countries 2025", desc: "FAOSTAT rankings: USA #5 by production, #1 by yield." },
                   { slug: "global-potato-trade", title: "Global Potato Trade Statistics", desc: "$22.8B trade — USA at $2.3B record exports (frozen-fry-led)." },
                 ].map((a) => (
@@ -6327,11 +6328,11 @@ function PeruProfilePage({ c }) {
       { label: "Production (2024)", value: "6.492M tonnes" },
       { label: "Native varieties", value: "3,000+ (most of any country)" },
       { label: "10-year growth (2014–24)", value: "+38.0%" },
-      { label: "Yield", value: "41.8 t/ha" },
+      { label: "Yield", value: "19.2 t/ha" },
       { label: "CIP headquarters", value: "Lima, Peru" },
       { label: "National Potato Day", value: "May 30" },
     ],
-    definitiveAnswer: '<strong>Peru produced 6.492 million tonnes of potatoes in 2024</strong> on 337,281 hectares at a yield of 41.8 t/ha (FAOSTAT) &mdash; up 38.0% from 4.705 million tonnes in 2014. But Peru\'s significance to the global potato story isn\'t about tonnage: Peru is the <strong>birthplace of the potato</strong>, domesticated in the Andean highlands over <strong>8,000 years ago</strong>, and today grows <strong>more than 3,000 native varieties</strong> &mdash; more genetic diversity than any other country on Earth. The <strong>International Potato Center (CIP)</strong>, the crop\'s global research and genebank institution, is headquartered in Lima, and Peru celebrates <strong>National Potato Day on May 30th</strong>. Commercial production centers on <strong>Canchan</strong> (the most widely grown variety) alongside thousands of indigenous varieties preserved by highland farming communities around Puno and Lake Titicaca &mdash; the historical epicenter of potato domestication.',
+    definitiveAnswer: '<strong>Peru produced 6.492 million tonnes of potatoes in 2024</strong> on 337,281 hectares at a yield of about 19.2 t/ha (production ÷ area, FAOSTAT) &mdash; up 38.0% from 4.705 million tonnes in 2014. But Peru\'s significance to the global potato story isn\'t about tonnage: Peru is the <strong>birthplace of the potato</strong>, domesticated in the Andean highlands over <strong>8,000 years ago</strong>, and today grows <strong>more than 3,000 native varieties</strong> &mdash; more genetic diversity than any other country on Earth. The <strong>International Potato Center (CIP)</strong>, the crop\'s global research and genebank institution, is headquartered in Lima, and Peru celebrates <strong>National Potato Day on May 30th</strong>. Commercial production centers on <strong>Canchan</strong> (the most widely grown variety) alongside thousands of indigenous varieties preserved by highland farming communities around Puno and Lake Titicaca &mdash; the historical epicenter of potato domestication.',
     keyStats: [
       { value: "6.49M t", label: "2024 production" },
       { value: "3,000+", label: "Native varieties grown" },
@@ -6359,11 +6360,11 @@ function PeruProfilePage({ c }) {
       },
       { id: "industry-size", dataCard: "overview",
         h2: "How big is Peru's modern potato industry?",
-        lead: "Peru produced <strong>6.492 million tonnes in 2024</strong> on 337,281 hectares at a yield of <strong>41.8 t/ha</strong> (FAOSTAT) &mdash; growth of 38.0% from 4.705 million tonnes just a decade earlier in 2014.",
+        lead: "Peru produced <strong>6.492 million tonnes in 2024</strong> on 337,281 hectares at a yield of <strong>about 19.2 t/ha</strong> (production ÷ area, FAOSTAT) &mdash; growth of 38.0% from 4.705 million tonnes just a decade earlier in 2014.",
         quickFacts: [
           { label: "2014 production", value: "4.705M tonnes" },
           { label: "2024 production", value: "6.492M tonnes" },
-          { label: "Yield", value: "41.8 t/ha" },
+          { label: "Yield", value: "19.2 t/ha" },
           { label: "10-yr growth", value: "+38.0%" },
         ],
         source: "Source: FAOSTAT; UN FAO.",
@@ -6449,7 +6450,7 @@ function PeruProfilePage({ c }) {
     continueReading: [
       { href: "/blog/andean-potato-origin-story", tag: "History", title: "The Andean Potato Origin Story", desc: "How the Andes — including Peru's highlands — domesticated the potato 8,000+ years ago." },
       { href: "/knowledge/potato-varieties-guide", tag: "Varieties", title: "Potato Varieties Guide", desc: "Peru's 3,000+ native varieties in global varietal context." },
-      { href: "/knowledge/potato-history-origin", tag: "History", title: "Where Did the Potato Originate?", desc: "The full domestication story, centered on Peru and Bolivia." },
+      { href: "/knowledge/potato-history-origin", tag: "History", title: "Where Do Potatoes Come From?", desc: "One domestication in southern Peru near Lake Titicaca, about 8,000 years ago, and the spread to Europe, Asia and Africa." },
       { href: "/country/colombia", tag: "Country", title: "Colombia Country Profile", desc: "Peru's Andean neighbor and fellow custodian of native potato diversity." },
     ],
   };

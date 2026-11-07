@@ -4,13 +4,13 @@ import ContentRequestCTA from "../../components/ContentRequestCTA";
 
 export const metadata = {
   title: "Potato Knowledge Hub | Potatopedia",
-  description: "29 in-depth reference articles on potato production, nutrition, varieties, trade, processing, cultivation, storage, and diseases. Sourced from FAOSTAT, USDA, CIP, ICAR-CPRI, and 277 authoritative agencies.",
+  description: "30 in-depth reference articles on potato production, nutrition, varieties, trade, processing, cultivation, storage, and diseases. Sourced from FAOSTAT, USDA, CIP, ICAR-CPRI, and 277 authoritative agencies.",
   alternates: { canonical: "https://www.potatopedia.com/knowledge" },
   openGraph: {
     type: "website",
     url: "https://www.potatopedia.com/knowledge",
     title: "Potato Knowledge Hub | Potatopedia",
-    description: "29 reference articles across production, nutrition, varieties, trade, processing, cultivation, storage, and diseases.",
+    description: "30 reference articles across production, nutrition, varieties, trade, processing, cultivation, storage, and diseases.",
     images: ["/og-image.png"],
   },
 };
@@ -45,6 +45,7 @@ const CARDS = [
   { slug: "potatoes-and-kidney-health", title: "Potatoes and Kidney Health (Renal Diet)", desc: "Raw potato has 421 mg potassium per 100g. The NKF leaching method reduces it 50–75%. CKD stage-by-stage guidance and the double-boiling protocol.", tag: "Nutrition", icon: "\u{1FA80}" },
   { slug: "largest-potato-farms-us", title: "Largest Potato Farms in the US", desc: "R.D. Offutt operates 55,000+ acres across 6 states. Wada, Sterman Masser, CSS, Black Gold, Walther. Average US farm 430 acres; top 5% grow 60% of the crop.", tag: "Industry", icon: "\u{1F69C}" },
   { slug: "potato-expo-2026", title: "2026 Potato Expo & World Potato Congress", desc: "NPC's annual mid-January US trade show — 2,000+ attendees. Plus WPC 13 in Naivasha, Kenya, 26–30 October 2026 — first World Potato Congress in Africa.", tag: "Events", icon: "\u{1F39F}️" },
+  { slug: "potato-history-origin", title: "Where Do Potatoes Come From?", desc: "One domestication in southern Peru near Lake Titicaca about 8,000 years ago, 107 wild species, and the spread to Europe by 1567.", tag: "History", icon: "\u{1F30E}" },
 ];
 
 export default function KnowledgeHubPage() {
@@ -53,7 +54,7 @@ export default function KnowledgeHubPage() {
     "@type": "CollectionPage",
     "@id": "https://www.potatopedia.com/knowledge#collection",
     name: "Potatopedia Knowledge Hub",
-    description: "29 in-depth reference articles on the global potato industry — production, nutrition, varieties, trade, processing, cultivation, storage, diseases.",
+    description: "30 in-depth reference articles on the global potato industry — production, nutrition, varieties, trade, processing, cultivation, storage, diseases.",
     url: "https://www.potatopedia.com/knowledge",
     inLanguage: "en",
     publisher: { "@type": "Organization", name: "Potatopedia", url: "https://www.potatopedia.com", logo: "https://www.potatopedia.com/logo.png" },

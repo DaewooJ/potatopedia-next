@@ -40,6 +40,7 @@ const ALL_SLUGS = [
   "potatoes-and-kidney-health",
   "largest-potato-farms-us",
   "potato-expo-2026",
+  "potato-history-origin",
 ];
 
 const STATIC_SLUGS = [
@@ -72,6 +73,7 @@ const STATIC_SLUGS = [
   "potatoes-and-kidney-health",
   "largest-potato-farms-us",
   "potato-expo-2026",
+  "potato-history-origin",
 ];
 
 const SLUG_META = {
@@ -103,7 +105,7 @@ const SLUG_META = {
   "is-potato-a-bad-carb": { tag: "Nutrition", title: "Is Potato a Bad Carb? Complex Carbs, Resistant Starch, and How Potatoes Compare" },
   "potatoes-and-kidney-health": { tag: "Nutrition", title: "Potatoes and Kidney Health: Potassium, Renal Diets, and What Nephrologists Recommend" },
   "largest-potato-farms-us": { tag: "Industry", title: "Largest Potato Farms in the United States: Top Operations, Acreage, and the Consolidation Trend" },
-  "potato-expo-2026": { tag: "Events", title: "2026 Potato Expo: Location, Dates, and What to Expect at the NPC's Annual Event" },
+  "potato-expo-2026": { tag: "Events", title: "2026 Potato Expo: Location, Dates, and What to Expect at the NPC's Annual Event" },  "potato-history-origin": { tag: "History", title: "Where Do Potatoes Come From? Origin and History of the Potato" },
 };
 
 // Unknown slugs must 404 (7 Nov 2026: Google flagged made-up /knowledge/* URLs that rendered an empty shell as soft 404s).
@@ -397,7 +399,7 @@ function TopProducingCountries() {
 
   const faqItems = [
     { q: "Which country has the largest production of potatoes?", a: "China is the world's largest potato producer at 94.87 million tonnes annually (FAOSTAT 2024), accounting for roughly 25% of global output. India ranks second at 58.1 million tonnes (2024-25, 3rd Advance Estimate), followed by Ukraine at 21.13 million tonnes." },
-    { q: "Where does the US rank in potato production?", a: "The United States ranks #5 globally at 18.7 million tonnes (FAOSTAT 2023). Idaho alone produces approximately 30% of the US crop. American yields average 51.0 t/ha — among the highest in the world." },
+    { q: "Where does the US rank in potato production?", a: "The United States ranks #5 globally at 18.7 million tonnes (FAOSTAT 2023). Idaho alone produced 33.5% of the US crop in 2025 (USDA NASS). American yields average 51.0 t/ha — among the highest in the world." },
     { q: "Which country has the best quality potatoes?", a: "The Netherlands is widely considered the global leader in potato quality, particularly for certified seed potatoes. Dutch breeders like HZPC, Agrico, and Meijer export seed to 80+ countries. For eating quality, Peru's 3,000+ native Andean varieties are unmatched in diversity." },
     { q: "Does China produce a lot of potatoes?", a: "Yes — China produces 94.87 million tonnes annually, more than any other country and roughly 25% of the entire global harvest. Production is concentrated in Inner Mongolia, Gansu, Sichuan, and Yunnan provinces." },
     { q: "Which country produces the most potatoes per capita?", a: "Belarus leads per-capita production and consumption at 166.9 kg/person/year (FAOSTAT 2023). Ukraine follows at 136 kg and Russia at 111 kg. Eastern Europe dominates per-capita metrics even though Asia leads in absolute volume." },
@@ -552,7 +554,7 @@ function TopProducingCountries() {
 
       {/* Section 6 */}
       <h2 id="us-rank" style={sH2}>Where does the US rank in global potato production?</h2>
-      <p style={sP}>The <Link href="/country/united-states" style={{ color: "var(--gold)", fontWeight: 600, textDecoration: "none" }}>United States</Link> ranks <strong>#5 globally</strong> at 18.7 million tonnes (FAOSTAT 2023). Idaho is the dominant state, producing approximately 30% of the national crop, followed by Washington, Wisconsin, Oregon, and North Dakota. US yields average 51.0 t/ha &mdash; the highest among major producers and more than double the global average of 22 t/ha.</p>
+      <p style={sP}>The <Link href="/country/united-states" style={{ color: "var(--gold)", fontWeight: 600, textDecoration: "none" }}>United States</Link> ranks <strong>#5 globally</strong> at 18.7 million tonnes (FAOSTAT 2023). Idaho is the dominant state, producing 33.5% of the national crop in 2025 (USDA NASS), followed by Washington (21.8%), Wisconsin, Oregon, and North Dakota. US yields average 51.0 t/ha &mdash; the highest among major producers and more than double the global average of 22 t/ha.</p>
       <p style={sP}>Roughly 69% of the US crop goes to processing (frozen fries, chips, dehydrated products), with Lamb Weston, Simplot, and McCain operating major facilities in the Pacific Northwest. The 2024 crop was valued at $4.60 billion, making potatoes one of America&apos;s most valuable vegetable crops (USDA NASS). For complete US state-by-state data, see our <Link href="/answers/us-potato-production-by-state" style={{ color: "var(--gold)", textDecoration: "none" }}>US production breakdown</Link>.</p>
 
       {/* Section 7 */}
@@ -797,7 +799,7 @@ function PotatoVarietiesGuide() {
   const faqItems = [
     { q: "What are the 7 types of potatoes in order?", a: "The main market categories are: (1) Russet/starchy, (2) Red-skinned waxy, (3) White-skinned, (4) Yellow/gold, (5) Purple/blue, (6) Fingerling, and (7) Petite/baby. Within these, texture ranges from starchy (fluffy, best for frying) to waxy (firm, best for salads)." },
     { q: "How do I identify what type of potato I have?", a: "Cut the potato in half. Starchy types feel dry and crumbly (the cut surface looks powdery). Waxy types feel moist and smooth (the cut surface looks glossy). Starchy types are typically oblong with rough skin (Russet); waxy types are round with smooth, thin skin (Red Pontiac)." },
-    { q: "Where are there 4,000 different types of potatoes?", a: "The International Potato Center (CIP) in Lima, Peru maintains over 4,000 potato accessions in its genebank. Most native varieties originate from the Andes mountains of Peru and Bolivia, where potatoes were first cultivated ~8,000 BCE." },
+    { q: "Where are there 4,000 different types of potatoes?", a: "The CIP genebank of the International Potato Center in Lima, Peru holds about 9,000 active potato accessions. Most native varieties originate from the Andes mountains of Peru and Bolivia, where potatoes were first cultivated ~8,000 BCE." },
     { q: "What potato variety does McDonald's use for fries?", a: "McDonald's primarily uses Russet Burbank and Shepody potatoes for their french fries. These high-starch varieties produce the long, crispy exterior and fluffy interior that defines the McDonald's fry. Suppliers include Lamb Weston and Simplot." },
     { q: "What potato is best for diabetics?", a: "Waxy varieties like Red Pontiac, fingerlings, and new/baby potatoes have a lower glycemic index (GI 56-69) than starchy varieties like Russet Burbank (GI 85+). Boiling and cooling any variety creates resistant starch that further reduces glycemic impact." },
     { q: "What is the most popular potato variety in the world?", a: "There is no single global #1, as popularity varies by region: Russet Burbank dominates the US (~40% of acreage), Maris Piper leads the UK (~16%), Kufri Jyoti is most-grown in India, and Désirée is the most globally widespread single variety, grown on every continent." },
@@ -807,6 +809,7 @@ function PotatoVarietiesGuide() {
     { slug: "complete-potato-growing-guide", tag: "Cultivation", title: "Complete Potato Growing Guide", desc: "From soil prep to harvest: planting, watering, pests, and storage." },
     { slug: "how-potatoes-are-processed", tag: "Industry", title: "How Potatoes Are Processed", desc: "The $80B processing industry: fries, chips, starch, and dehydrated products." },
     { slug: "top-potato-producing-countries", tag: "Production", title: "Top Producing Countries 2025", desc: "Rankings of the world's 20 largest potato producers." },
+    { slug: "potato-history-origin", tag: "History", title: "Where Do Potatoes Come From?", desc: "The Andean origin of potato diversity: 107 wild and 4 cultivated species." },
   ];
   const relatedCountries = COUNTRIES.filter(c => ["netherlands","united-states","united-kingdom","india","peru","belgium","france","germany"].includes(c.slug));
 
@@ -1942,7 +1945,7 @@ function McDonaldsPotatoVarieties() {
       <StatCallout number="69%" context="of all US potatoes go to processors. McDonald's alone consumes an estimated 3.4 billion pounds of potatoes per year, almost entirely as Russet Burbank-class fries." source="USDA NASS 2024" />
 
       <h2 id="where-grown" style={sH2}>Where are McDonald&apos;s potatoes grown?</h2>
-      <p style={sP}>The Pacific Northwest dominates US processing potato production. <Link href="/country/united-states" style={{ color: "var(--gold)", fontWeight: 600, textDecoration: "none" }}>Idaho</Link> grows approximately 30% of the US crop with yields averaging 430&ndash;450 cwt/acre (~48&ndash;50 t/ha) and the world&apos;s largest concentration of Russet Burbank acreage. Washington state contributes another 23% from the Columbia Basin, with state-level yields exceeding 600 cwt/acre (~67 t/ha) under center-pivot irrigation &mdash; the highest commercial potato yields anywhere on Earth. <Link href="/country/canada" style={{ color: "var(--gold)", textDecoration: "none" }}>Canada</Link>&apos;s New Brunswick and Manitoba also supply significant fry-grade russets to McDonald&apos;s, particularly through McCain Foods, the world&apos;s largest frozen potato processor.</p>
+      <p style={sP}>The Pacific Northwest dominates US processing potato production. <Link href="/country/united-states" style={{ color: "var(--gold)", fontWeight: 600, textDecoration: "none" }}>Idaho</Link> grew 33.5% of the US crop in 2025 (USDA NASS) with yields averaging about 445 cwt/acre (~50 t/ha) and the world&apos;s largest concentration of Russet Burbank acreage. Washington state contributed another 21.8% from the Columbia Basin, with a state yield of 630 cwt/acre (~71 t/ha) in 2025 under center-pivot irrigation &mdash; the highest commercial potato yields anywhere on Earth. <Link href="/country/canada" style={{ color: "var(--gold)", textDecoration: "none" }}>Canada</Link>&apos;s New Brunswick and Manitoba also supply significant fry-grade russets to McDonald&apos;s, particularly through McCain Foods, the world&apos;s largest frozen potato processor.</p>
       <p style={sP}>Other US production zones include Oregon (Columbia Basin and Klamath Basin), Wisconsin, North Dakota, Colorado&apos;s San Luis Valley, Maine&apos;s Aroostook County, and parts of Michigan. The fresh-market russet from these regions typically goes to retail; processing-grade tubers go to Lamb Weston, Simplot, and McCain. For state-by-state details, see our <Link href="/answers/us-potato-production-by-state" style={{ color: "var(--gold)", textDecoration: "none" }}>US production breakdown</Link>.</p>
       <p style={sP}>The <strong>contract farming model</strong> determines what gets planted. Processors sign contracts with growers 6&ndash;12 months before planting, specifying variety, acreage, harvest date, and price. The grower is locked into the processor&apos;s variety choice; the processor is locked into the grower&apos;s land. From field to fry, the cycle runs roughly 6 weeks: harvest in September&ndash;October, cure for 1&ndash;2 weeks at 12&ndash;15&deg;C, transition to long-term cold storage at 7&ndash;10&deg;C, then process in batches over the following 8&ndash;10 months.</p>
 
@@ -2120,7 +2123,7 @@ function RussetBurbankHistory() {
       <p style={sP}><strong>Third</strong>, consumer recognition is unmatched. Among American consumers, &ldquo;Idaho potato&rdquo; is functionally synonymous with Russet Burbank. The Idaho Potato Commission&apos;s decades-long marketing investment has reinforced the visual signature: long, brown-russeted, baking-shaped. Retailers stock Russet Burbank as the default russet because consumers reach for it.</p>
       <p style={sP}><strong>Fourth</strong>, long dormancy makes Russet Burbank the <strong>storage workhorse</strong> of the US potato industry. Properly stored at 7&ndash;10&deg;C, Russet Burbank tubers remain marketable for 8&ndash;10 months after harvest &mdash; longer than most modern fresh-market varieties and matched only by the newer Tri-State long-storage releases. This single trait allows the US potato calendar to run from a September&ndash;October harvest through the following August.</p>
 
-      <StatCallout number="62%" context="of Idaho's commercial potato acreage is planted to Russet Burbank, and Idaho alone produces approximately 30% of the entire US potato crop. The variety has anchored Idaho's agricultural identity for over a century." source="USDA-ARS, University of Idaho Extension" />
+      <StatCallout number="62%" context="of Idaho's commercial potato acreage is planted to Russet Burbank, and Idaho alone produced 33.5% of the entire US potato crop in 2025 (USDA NASS). The variety has anchored Idaho's agricultural identity for over a century." source="USDA-ARS, University of Idaho Extension" />
 
       <h2 id="growing" style={sH2}>How do you grow Russet Burbank potatoes?</h2>
       <p style={sP}>Russet Burbank&apos;s commercial production is among the most management-intensive of any major US crop. The University of Idaho Extension&apos;s long-running CIS series provides the standard agronomic protocol; key parameters are summarized below.</p>
@@ -2156,7 +2159,7 @@ function RussetBurbankHistory() {
       <h2 id="blight" style={sH2}>How did the Russet Burbank help save Ireland from famine?</h2>
       <p style={sP}>The Irish Potato Famine of 1845&ndash;1852 was caused by <Link href="/answers/what-is-late-blight" style={{ color: "var(--gold)", textDecoration: "none" }}>Phytophthora infestans</Link>, the late blight oomycete. The dominant Irish potato of the time, the <strong>Lumper</strong>, was genetically uniform and deeply susceptible. When late blight arrived in Ireland in 1845, the Lumper crop collapsed across multiple consecutive years. Approximately 1 million people died of starvation and disease; another 1 million emigrated. <Link href="/answers/irish-potato-famine" style={{ color: "var(--gold)", textDecoration: "none" }}>Irish population</Link> fell by approximately 25%.</p>
       <p style={sP}>Luther Burbank&apos;s original 1872&ndash;1876 breeding work was motivated in part by this disaster. He explicitly aimed to develop a more disease-resistant potato. The Burbank seedling he selected showed <strong>moderately better late blight tolerance</strong> than the Early Rose parent and dramatically better than the Irish Lumper. While Russet Burbank is no longer considered late blight resistant by modern standards (current Phytophthora populations attack it readily), in the late 19th century it was a meaningful improvement.</p>
-      <p style={sP}>The deeper legacy is the <strong>genetic-diversity insurance</strong> the famine forced into global agricultural research. The <Link href="/knowledge/potato-diseases-pests" style={{ color: "var(--gold)", textDecoration: "none" }}>International Potato Center (CIP)</Link> in Lima, <Link href="/country/peru" style={{ color: "var(--gold)", textDecoration: "none" }}>Peru</Link>, was founded in 1971 partly in response to the lessons of the Irish famine and the broader vulnerability of monoculture potato systems. CIP&apos;s genebank now preserves over 7,000 potato accessions including 4,000+ native Andean varieties and 180+ wild species, providing the genetic raw material for breeding programs in over 100 countries. Modern potato breeding still depends on this collection.</p>
+      <p style={sP}>The deeper legacy is the <strong>genetic-diversity insurance</strong> the famine forced into global agricultural research. The <Link href="/knowledge/potato-diseases-pests" style={{ color: "var(--gold)", textDecoration: "none" }}>International Potato Center (CIP)</Link> in Lima, <Link href="/country/peru" style={{ color: "var(--gold)", textDecoration: "none" }}>Peru</Link>, was founded in 1971 partly in response to the lessons of the Irish famine and the broader vulnerability of monoculture potato systems. The CIP genebank now holds about 9,000 active potato accessions, from native Andean varieties to wild relatives (current taxonomy recognises about 107 wild species; Spooner et al., 2014), providing the genetic raw material for breeding programs in over 100 countries. Modern potato breeding still depends on this collection.</p>
 
       <h2 id="comparison" style={sH2}>Russet Burbank vs other potato varieties: comparison</h2>
       <p style={sP}>How does Russet Burbank compare to the other major US-grown varieties? The table below summarizes the leading commercial alternatives across the metrics that matter for selection: maturity, skin and flesh, best use, specific gravity, yield, disease resistance, and storage.</p>
@@ -3153,7 +3156,8 @@ function WhyPotatoesIllegalInFrance() {
   const timelineRows = [
     ["~6000 BCE", "Peru / Bolivia (Andes)", "First potato cultivation by Andean peoples"],
     ["1532", "Inca Empire", "Spanish conquistadors first encounter potatoes"],
-    ["~1570", "Spain (Canary Islands)", "First European cultivation as botanical curiosity"],
+    ["1567", "Spain (Canary Islands)", "First record of potatoes in Europe (Ames & Spooner 2008)"],
+    ["1573", "Spain (mainland)", "Potato cultivated on the Spanish mainland (FAO IYP 2008)"],
     ["1588", "England / Ireland", "Potato arrives (variously credited to Drake, Raleigh, Spanish wreckage)"],
     ["1620s", "Germany", "Grown in botanical gardens; not yet eaten"],
     ["1748", "France (Paris Faculty of Medicine)", "Declaration that potatoes cause leprosy — fuels widespread rejection"],
@@ -3180,9 +3184,9 @@ function WhyPotatoesIllegalInFrance() {
   const faqItems = [
     { q: "Why were potatoes illegal in France?", a: "Potatoes were never formally banned by a French parliamentary edict — that's a popular misconception. What actually happened: in 1748 the Paris Faculty of Medicine declared potatoes responsible for leprosy, and combined with religious suspicion (not in the Bible, grew underground, member of the nightshade family) this created widespread cultural rejection. The Faculty of Medicine reversed its position in 1772 after Antoine-Augustin Parmentier's lobbying (CIP historical archives; FAO International Year of the Potato 2008)." },
     { q: "Who made potatoes popular in France?", a: "Antoine-Augustin Parmentier (1737–1813), a French pharmacist and agronomist who survived as a Prussian prisoner of war during the Seven Years' War on a near-exclusive potato diet. He convinced the Paris Faculty of Medicine to reverse its 1748 declaration, hosted an all-potato royal dinner for Louis XVI in 1785, and used reverse psychology by guarding a potato field at Sablons during the day to make it appear valuable enough to steal at night." },
-    { q: "When did potatoes arrive in Europe?", a: "Spanish conquistadors brought potatoes from Peru around 1570, after Pizarro's conquest of the Inca Empire. The Canary Islands had the first European cultivation. It took over 200 years for most Europeans to widely accept potatoes as food rather than as botanical curiosities or animal fodder." },
-    { q: "What caused the Irish Potato Famine?", a: "Late blight (Phytophthora infestans) destroyed Ireland's potato crop in 1845–1852. Approximately 1 million people died and another 1 million emigrated. The root cause was genetic uniformity: nearly all Irish potatoes were clones of a single variety (the Irish Lumper), so when a virulent pathogen arrived, the entire crop fell at once. This catastrophe drove the modern emphasis on potato genetic diversity, including CIP's 4,350+ accession genebank." },
-    { q: "Where do potatoes originally come from?", a: "The high Andes of Peru and Bolivia, where they have been cultivated since approximately 6000 BCE — over 8,000 years of continuous domestication, longer than most major food crops. Peru's CIP genebank in Lima preserves more than 4,350 potato accessions including over 3,000 native Andean varieties and 180+ wild species." },
+    { q: "When did potatoes arrive in Europe?", a: "Spanish ships brought potatoes from Peru after the conquest of the Inca Empire. They were on Spain's Canary Islands by 1567 (Ames & Spooner 2008) and grown on the Spanish mainland by 1573 (FAO IYP 2008). It took over 200 years for most Europeans to widely accept potatoes as food rather than as botanical curiosities or animal fodder." },
+    { q: "What caused the Irish Potato Famine?", a: "Late blight (Phytophthora infestans) destroyed Ireland's potato crop in 1845–1852. Approximately 1 million people died and another 1 million emigrated. The root cause was genetic uniformity: nearly all Irish potatoes were clones of a single variety (the Irish Lumper), so when a virulent pathogen arrived, the entire crop fell at once. This catastrophe drove the modern emphasis on potato genetic diversity, including the CIP genebank (about 9,000 active potato accessions)." },
+    { q: "Where do potatoes originally come from?", a: "The high Andes of Peru and Bolivia, where they have been cultivated since approximately 6000 BCE — over 8,000 years of continuous domestication, longer than most major food crops. The CIP genebank in Lima holds about 9,000 active potato accessions, including native Andean varieties and wild relatives; current taxonomy recognises about 107 wild potato species (Spooner et al., 2014)." },
     { q: "What does 'Parmentier' mean in French cooking?", a: "It's a culinary term denoting a dish containing potatoes, named in honour of Antoine-Augustin Parmentier. Hachis Parmentier is the French equivalent of shepherd's pie (ground meat layered with mashed potato); Potage Parmentier is leek-and-potato soup; Parmentier de canard is duck confit shepherd's pie. The naming convention has lasted over 200 years." },
   ];
 
@@ -3190,6 +3194,7 @@ function WhyPotatoesIllegalInFrance() {
     { slug: "top-potato-producing-countries", tag: "Production", title: "Top Producing Countries 2025", desc: "FAOSTAT rankings — China #1 at 94.87M tonnes; France today produces 8M+ tonnes." },
     { slug: "potato-diseases-pests", tag: "Diseases", title: "Potato Diseases & Pests", desc: "Late blight, the disease behind the Irish Famine — still a $6B/year global cost." },
     { slug: "potato-consumption-per-capita", tag: "Consumption", title: "Potato Consumption Per Capita", desc: "Belarus leads at 166.9 kg/year; Ukraine 136 kg; France 52 kg." },
+    { slug: "potato-history-origin", tag: "History", title: "Where Do Potatoes Come From?", desc: "One domestication near Lake Titicaca about 8,000 years ago; Europe by 1567." },
     { slug: "potato-varieties-guide", tag: "Varieties", title: "Potato Varieties Guide: 50+ Types", desc: "From the Irish Lumper to Russet Burbank to Kufri Jyoti." },
   ];
 
@@ -3232,7 +3237,7 @@ function WhyPotatoesIllegalInFrance() {
       <p style={sP}>France was not alone. Most of Europe rejected potatoes as human food for 150&ndash;200 years after Spanish conquistadors first brought them back from Peru. <Link href="/country/germany" style={{ color: "var(--gold)", textDecoration: "none" }}>Germany</Link>, <Link href="/country/russia" style={{ color: "var(--gold)", textDecoration: "none" }}>Russia</Link>, and the <Link href="/country/united-kingdom" style={{ color: "var(--gold)", textDecoration: "none" }}>United Kingdom</Link> all went through their own multi-decade rejection cycles before potatoes became staples. The full timeline is below.</p>
 
       <h2 id="europe" style={sH2}>How did potatoes arrive in Europe?</h2>
-      <p style={sP}>Potatoes were first cultivated in the high Andes of <Link href="/country/peru" style={{ color: "var(--gold)", fontWeight: 600, textDecoration: "none" }}>Peru</Link> and Bolivia approximately 8,000 years ago &mdash; one of the longest continuous domestications of any major food crop. The Inca Empire and its predecessors developed thousands of native varieties adapted to specific micro-environments along the Andean altitudinal gradient, from sea level to over 4,000 meters. Today the International Potato Center (CIP) in Lima preserves more than 4,350 accessions in its genebank, including over 3,000 native Andean varieties and 180+ wild species.</p>
+      <p style={sP}>Potatoes were first cultivated in the high Andes of <Link href="/country/peru" style={{ color: "var(--gold)", fontWeight: 600, textDecoration: "none" }}>Peru</Link> and Bolivia approximately 8,000 years ago &mdash; one of the longest continuous domestications of any major food crop. The Inca Empire and its predecessors developed thousands of native varieties adapted to specific micro-environments along the Andean altitudinal gradient, from sea level to over 4,000 meters. Today the CIP genebank of the International Potato Center in Lima holds about 9,000 active potato accessions, from native Andean varieties to wild relatives; current taxonomy recognises about 107 wild potato species and 4 cultivated species (Spooner et al., 2014).</p>
       <p style={sP}>Spanish conquistadors first encountered potatoes during the 1532 conquest of the Inca Empire and brought them to Europe over the following decades. The full timeline of potato adoption across Europe and the world is below.</p>
 
       <div style={{ overflowX: "auto", marginBottom: 8 }}>
@@ -3251,7 +3256,7 @@ function WhyPotatoesIllegalInFrance() {
       </div>
       <p style={sSource}>Source: CIP historical archives; FAO International Year of the Potato 2008 publications; Reader, John (2008) "Potato: A History of the Propitious Esculent"; Salaman, R.N. (1949) "The History and Social Influence of the Potato."</p>
 
-      <StatCallout number="8,000 years" context="Potatoes were cultivated in the Andes for 8,000 years before Europeans ever saw one. Today, Peru's CIP genebank preserves 4,350+ potato accessions, representing the genetic heritage of humanity's fourth most important food crop." source="CIP genebank documentation; FAO IYP 2008" />
+      <StatCallout number="8,000 years" context="Potatoes were cultivated in the Andes for 8,000 years before Europeans ever saw one. Today the CIP genebank in Lima holds about 9,000 active potato accessions, representing the genetic heritage of humanity's fourth most important food crop." source="CIP genebank documentation; FAO IYP 2008" />
 
       <h2 id="parmentier" style={sH2}>Who was Antoine-Augustin Parmentier?</h2>
       <p style={sP}>Antoine-Augustin Parmentier (1737&ndash;1813) was a French pharmacist and agronomist born in Montdidier, Picardy. He trained as an apothecary and served in the French army medical corps during the Seven Years&apos; War (1756&ndash;1763). The pivotal experience came when Parmentier was captured by the Prussians and held as a prisoner of war. <strong>Prussian POW camps fed prisoners almost exclusively on potatoes</strong> &mdash; the very crop the Paris Faculty of Medicine claimed caused leprosy. Parmentier survived. He emerged not only healthy but with a personal conviction that the French establishment was catastrophically wrong about potatoes.</p>
@@ -3274,7 +3279,7 @@ function WhyPotatoesIllegalInFrance() {
       <h2 id="famine" style={sH2}>The Irish Potato Famine: when dependence went wrong</h2>
       <p style={sP}>By the 1840s, the Irish population of approximately 8 million depended heavily on a single potato variety, the <strong>Irish Lumper</strong> &mdash; high-yielding, calorie-dense, and almost universally planted by Irish peasants on the small holdings that British landlordism had created. Potato dependence had reached approximately 10 lbs per person per day in the poorest counties. There was no genetic diversity in the crop. The Lumper was a clone, replicated vegetatively from generation to generation.</p>
       <p style={sP}>In 1845, <em>Phytophthora infestans</em> &mdash; the late blight oomycete &mdash; arrived in <Link href="/country/ireland" style={{ color: "var(--gold)", textDecoration: "none" }}>Ireland</Link>, likely transported on cargo ships from Mexico via North America. Ireland&apos;s genetically uniform Lumper crop had no resistance. The 1845 harvest collapsed. So did 1846. So did 1848. By 1852, approximately <strong>1 million Irish were dead and another 1 million had emigrated</strong> &mdash; mostly to <Link href="/country/united-states" style={{ color: "var(--gold)", textDecoration: "none" }}>the United States</Link>. The Irish population fell by about 25% in seven years.</p>
-      <p style={sP}>The famine&apos;s lesson reshaped global agricultural thinking: <strong>genetic uniformity in a staple crop is an existential vulnerability</strong>. The modern emphasis on genetic diversity in potato breeding, the founding of CIP in Lima in 1971, and the ongoing maintenance of the world&apos;s 4,350+ accession potato genebank are all direct downstream consequences of the Irish disaster. Late blight remains the most expensive potato disease today &mdash; approximately $6 billion per year in global losses &mdash; and the breeding pipelines at CIP, USDA-ARS, and the European Tri-State programs all explicitly target durable late blight resistance. See our <Link href="/knowledge/potato-diseases-pests" style={{ color: "var(--gold)", textDecoration: "none" }}>diseases and pests guide</Link> and the <Link href="/answers/what-is-late-blight" style={{ color: "var(--gold)", textDecoration: "none" }}>late blight FAQ</Link>.</p>
+      <p style={sP}>The famine&apos;s lesson reshaped global agricultural thinking: <strong>genetic uniformity in a staple crop is an existential vulnerability</strong>. The modern emphasis on genetic diversity in potato breeding, the founding of CIP in Lima in 1971, and the ongoing maintenance of the CIP genebank (about 9,000 active potato accessions) are all direct downstream consequences of the Irish disaster. Late blight remains the most expensive potato disease today &mdash; approximately $6 billion per year in global losses &mdash; and the breeding pipelines at CIP, USDA-ARS, and the European Tri-State programs all explicitly target durable late blight resistance. See our <Link href="/knowledge/potato-diseases-pests" style={{ color: "var(--gold)", textDecoration: "none" }}>diseases and pests guide</Link> and the <Link href="/answers/what-is-late-blight" style={{ color: "var(--gold)", textDecoration: "none" }}>late blight FAQ</Link>.</p>
 
       <StatCallout number="1 variety → 1M dead" context="Ireland's dependence on a single genetically uniform potato variety (the Irish Lumper) led directly to the Great Famine of 1845-1852. This catastrophe drove the modern potato breeding emphasis on genetic diversity, including CIP's founding in 1971." source="CIP historical archives; Reader 'Potato: A History of the Propitious Esculent' (2008)" />
 
@@ -3315,6 +3320,239 @@ function WhyPotatoesIllegalInFrance() {
       </div>
     </article>
   );
+}
+
+/* ── Page: Where do potatoes come from? Origin and history (7 Nov 2026) ── */
+
+const ORIGIN_FAQ = [
+  { q: "Where do potatoes come from?", a: "The cultivated potato (Solanum tuberosum) comes from the Andes of South America. The best-supported view is a single domestication in southern Peru, in the region north of and around Lake Titicaca on the Peru-Bolivia border, from wild diploid potatoes of the northern Solanum brevicaule complex, now largely classified as Solanum candolleanum (Spooner et al., 2005, PNAS; CGN summary of the revised taxonomy)." },
+  { q: "When were potatoes domesticated?", a: "About 8,000 years ago near Lake Titicaca, according to FAO's International Year of the Potato review (2009). That is an estimate of when domestication began. The earliest directly dated domesticated-type potato starch from the Titicaca Basin is about 3,400 cal BC, roughly 5,400 years ago, from grinding stones at Jiskairumoko in southern Peru (Rumold & Aldenderfer, 2016, PNAS)." },
+  { q: "How many species of potato are there?", a: "About 107 wild species and 4 cultivated species, all in Solanum section Petota (Spooner et al., 2014, The Botanical Review 80:283-383). The four cultivated species are S. tuberosum, S. ajanhuiri, S. juzepczukii and S. curtilobum. Older counts such as Hawkes (1990), with about 228 wild and 7 cultivated species, reflect earlier taxonomy, not species since lost." },
+  { q: "When did potatoes come to Europe?", a: "Potatoes reached Spain's Canary Islands by 1567 (Ames & Spooner, 2008, American Journal of Botany; FAO records evidence from 1565) and were cultivated on the Spanish mainland by 1573 (FAO, IYP 2008 review). They were grown in London by 1597. The first European potatoes were Andean short-day types; Chilean-type potatoes were present by 1811 (Ames & Spooner, 2008)." },
+  { q: "How did potatoes reach Asia and Africa?", a: "Early in the 17th century sailors carried potatoes as ship food, which is how the crop reached India, China and Japan (FAO). During the colonial era, governors, missionaries and settlers introduced potato growing to places such as the floodplains of Bengal and the highlands of Cameroon, Kenya, Malawi and Rwanda (FAO)." },
+  { q: "Are potatoes native to North America?", a: "Wild potatoes are: the Four Corners potato (Solanum jamesii) was processed on grinding stones in the US Southwest from about 10,900 years ago (Louderback et al., 2026, PLoS ONE). But the cultivated potato is Andean. It reached North America from Europe; FAO notes that Irish emigrants took it, and the name 'Irish potato', to North America in the early 1700s." },
+];
+
+function PotatoHistoryOrigin() {
+  const timelineRows = [
+    ["~8–9 million years ago", "South America", "Potato lineage forms from an ancient cross of the tomato and Etuberosum lineages; the tuber trait comes from that cross (Zhang et al., 2025)"],
+    ["~8,000 years ago", "Lake Titicaca, Peru–Bolivia", "Domestication of wild potatoes begins (FAO, 2009); single origin from the northern brevicaule complex (Spooner et al., 2005)"],
+    ["~3,400–1,600 cal BC", "Jiskairumoko, Titicaca Basin", "Domesticated-type potato starch on grinding tools (Rumold & Aldenderfer, 2016)"],
+    ["1532–1572", "Inca state", "Spanish conquest of Peru (FAO)"],
+    ["1567", "Spain (Canary Islands)", "First record of potatoes in Europe (Ames & Spooner, 2008; FAO gives 1565)"],
+    ["1573", "Spain (mainland)", "Potato cultivated on the Spanish mainland (FAO)"],
+    ["1597", "England", "Potatoes grown in London; France and the Netherlands soon after (FAO)"],
+    ["Early 1600s", "India, China, Japan", "Carried by sailors as ship food (FAO)"],
+    ["Early 1700s", "North America", "Irish emigrants bring the 'Irish potato' (FAO)"],
+    ["1811", "Europe", "Chilean-type potato already present; dominant before the 1840s blight (Ames & Spooner, 2008)"],
+    ["1845–1852", "Ireland", "Great Famine after late blight destroyed the crop (failures 1845–1848); about one million deaths (FAO)"],
+    ["Colonial era", "Bengal; Cameroon, Kenya, Malawi, Rwanda", "Potato growing introduced by governors, missionaries and settlers (FAO)"],
+  ];
+
+  const speciesRows = [
+    ["Solanum tuberosum", "2x–4x", "The potato of world commerce: Andigenum Group (Andean landraces, short-day) and Chilotanum Group (lowland Chile and modern long-day cultivars)"],
+    ["Solanum ajanhuiri", "2x", "Frost-tolerant Andean cultigen"],
+    ["Solanum juzepczukii", "3x", "Frost-tolerant bitter potato of the high Andes, freeze-dried into chuño"],
+    ["Solanum curtilobum", "5x", "Frost-tolerant bitter potato of the high Andes, freeze-dried into chuño"],
+  ];
+
+  const tocItems = [
+    { id: "origin", label: "Where do potatoes come from?" },
+    { id: "domestication", label: "One domestication, from which wild species?" },
+    { id: "archaeology", label: "The archaeological starch evidence" },
+    { id: "species", label: "How many species of potato are there?" },
+    { id: "europe", label: "How potatoes reached Europe" },
+    { id: "andean-chilean", label: "Andean or Chilean? What the herbarium DNA shows" },
+    { id: "asia-africa", label: "The spread to Asia, Africa and North America" },
+    { id: "faq", label: "Frequently asked questions" },
+  ];
+
+  const relatedArticles = [
+    { slug: "why-potatoes-were-illegal-in-france", tag: "History", title: "Why Were Potatoes Illegal in France?", desc: "Parmentier, the 1748 leprosy scare and how Europe came to accept the potato." },
+    { slug: "potato-varieties-guide", tag: "Varieties", title: "Potato Varieties Guide: 50+ Types", desc: "From Andean landraces to Russet Burbank: the diversity the Andes produced." },
+    { slug: "potato-diseases-pests", tag: "Diseases", title: "Potato Diseases & Pests", desc: "Late blight, the disease behind the Irish famine." },
+    { slug: "top-potato-producing-countries", tag: "Production", title: "Top Potato Producing Countries", desc: "China and India now grow more potatoes than anywhere else (FAOSTAT)." },
+  ];
+
+  const relatedCountries = COUNTRIES.filter((c) => ["peru", "colombia", "china", "india", "kenya", "united-kingdom"].includes(c.slug));
+  const link = { color: "var(--gold)", fontWeight: 600, textDecoration: "none" };
+
+  return (
+    <article>
+      <HeroBanner>
+        <Breadcrumb tag="History" />
+        <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 16 }}>
+          <TagBadge tag="History" />
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>Updated {UPDATED_SHORT}</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>&middot;</span>
+          <span style={{ fontSize: 12, color: "var(--mute2)" }}>9 min read</span>
+        </div>
+        <h1 style={{ fontSize: 32, fontWeight: 800, color: "var(--ink)", letterSpacing: -1, lineHeight: 1.2, marginBottom: 0 }}>Where Do Potatoes Come From? Origin and History of the Potato</h1>
+      </HeroBanner>
+
+      <div style={{ maxWidth: 820, margin: "0 auto", padding: "0 24px 80px" }}>
+
+      <DefinitiveAnswer>
+        <p style={{ margin: 0, lineHeight: 1.8 }}>
+          <strong>Potatoes come from the Andes of South America.</strong> The cultivated potato was domesticated once, in southern <Link href="/country/peru" style={link}>Peru</Link> near Lake Titicaca, from wild potatoes of the northern <em>Solanum brevicaule</em> complex (now largely <em>S. candolleanum</em>), starting about 8,000 years ago (Spooner et al., 2005; FAO, 2009). It reached Europe through Spain&apos;s Canary Islands by 1567 and the Spanish mainland by 1573, then travelled by sea to Asia and Africa. Today botanists recognise about 107 wild and 4 cultivated potato species (Spooner et al., 2014).
+        </p>
+      </DefinitiveAnswer>
+
+      <KeyStatStrip stats={[
+        { value: "~8,000 yr", label: "since domestication began near Lake Titicaca (FAO)" },
+        { value: "1", label: "domestication, in southern Peru (Spooner et al., 2005)" },
+        { value: "107 + 4", label: "wild + cultivated species (Spooner et al., 2014)" },
+        { value: "1567", label: "first record in Europe, Canary Islands (Ames & Spooner, 2008)" },
+      ]} />
+
+      <CollapsibleTOC items={tocItems} />
+
+      <h2 id="origin" style={sH2}>Where do potatoes come from?</h2>
+      <p style={sP}>The cultivated potato, <em>Solanum tuberosum</em>, comes from the high Andes. FAO&apos;s review for the International Year of the Potato places the start of the story about 8,000 years ago near Lake Titicaca, at about 3,800 m on today&apos;s Peru&ndash;Bolivia border, where hunter-gatherer communities began domesticating the wild potato plants that grew around the lake. CIP, the International Potato Center in Lima, states that potatoes originated and were first domesticated in the Andes.</p>
+      <p style={sP}>The crop is far older as a plant lineage. A 2025 genome study of 128 genomes found that the whole potato lineage, cultivated potato and its 107 wild relatives, arose from an ancient cross between the tomato lineage and the non-tuber-bearing <em>Etuberosum</em> lineage about 8&ndash;9 million years ago, and that genes from both parents are needed to form a tuber (Zhang et al., 2025, <em>Cell</em>). Andean farmers turned that wild tuber into a staple.</p>
+
+      <h2 id="domestication" style={sH2}>One domestication, from which wild species?</h2>
+      <p style={sP}>For decades botanists disagreed about whether the potato was domesticated once or several times, and from which wild relatives. Every earlier hypothesis pointed to a group of about 20 very similar wild taxa, the <em>Solanum brevicaule</em> complex, which grows from central Peru to northern Argentina.</p>
+      <p style={sP}>Spooner and colleagues genotyped 362 plants (261 wild, 98 landraces and 3 outgroups) with 438 AFLP markers. The complex split into a northern (Peruvian) group and a southern (Bolivian and Argentine) group, and all landraces traced to a <strong>single origin from the northern, Peruvian group</strong> (Spooner et al., 2005, <em>PNAS</em> 102:14694&ndash;14699). In the revised taxonomy most of those northern diploid taxa are merged into <em>Solanum candolleanum</em>, with the southern ones kept in <em>S. brevicaule</em> (CGN potato portal summary of Spooner and colleagues).</p>
+      <p style={sP}>Genome sequencing has confirmed the southern-Peru origin and added detail. Hardigan et al. (2017, <em>PNAS</em>) found 2,622 genes under selection during cultivation, including genes for starch metabolism, glycoalkaloids and the circadian clock. Only 14&ndash;16% of them were shared between Andean and North American cultivars: highland and lowland potatoes were adapted through different genes. Wild species kept crossing into the crop after domestication, which is why &ldquo;single origin&rdquo; describes the first domestication, not every gene in a modern variety.</p>
+
+      <h2 id="archaeology" style={sH2}>The archaeological starch evidence</h2>
+      <p style={sP}>Tubers rot, so direct remains of early potatoes are rare. The best evidence is starch. At Jiskairumoko, an early village in the western Titicaca Basin dated to about 3,400&ndash;1,600 cal BC, researchers recovered 141 starch grains from 14 grinding-stone tools; 50 matched cultivated or domesticated potato (Rumold &amp; Aldenderfer, 2016, <em>PNAS</em> 113:13672&ndash;13677). That is direct evidence of potato use inside the crop&apos;s botanical homeland about 5,400 years ago, as people there settled into villages.</p>
+      <StatCallout number="50 of 141" unit="starch grains" context="Starch grains from grinding tools at Jiskairumoko (Titicaca Basin, about 3,400–1,600 cal BC) that matched cultivated or domesticated potato. The 8,000-year figure is FAO's estimate for when domestication began; these grains are the earliest direct evidence from that study." source="Rumold & Aldenderfer (2016), PNAS 113(48):13672–13677" />
+      <p style={sP}>Wild potatoes were used elsewhere too. In the US Southwest, starch from the Four Corners potato (<em>Solanum jamesii</em>) on 401 ground-stone tools from 14 sites shows people processing it from about 10,900 years ago and probably carrying it across the Colorado Plateau (Louderback et al., 2026, <em>PLoS ONE</em>). That is a separate wild species, not the origin of the cultivated crop.</p>
+
+      <h2 id="species" style={sH2}>How many species of potato are there?</h2>
+      <p style={sP}>The current reference treatment recognises <strong>about 107 wild species and 4 cultivated species</strong>, all in <em>Solanum</em> section <em>Petota</em> (Spooner et al., 2014, <em>The Botanical Review</em> 80:283&ndash;383; the 2014 abstract counts 106, and Spooner&apos;s 2016 retrospective gives 107). Older numbers are still widely quoted: Hawkes (1990) listed about 228 wild and 7 cultivated species, and FAO&apos;s 2008 review mentions &ldquo;some 200&rdquo; wild species. The count fell because taxonomists merged names that DNA and morphology showed to be the same species or hybrids, not because species disappeared.</p>
+      <div style={{ overflowX: "auto", marginBottom: 8 }}>
+        <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 14 }}>
+          <thead><tr>{["Cultivated species", "Ploidy", "What it is"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
+          <tbody>
+            {speciesRows.map((r) => (
+              <tr key={r[0]}>
+                <td style={{ ...sTd, fontWeight: 600 }}><em>{r[0]}</em></td>
+                <td style={sTd}>{r[1]}</td>
+                <td style={sTd}>{r[2]}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p style={sSource}>Source: Ovchinnikova et al. (2011), Botanical Journal of the Linnean Society 165:107&ndash;155; Spooner et al. (2014), The Botanical Review 80:283&ndash;383.</p>
+      <p style={sP}>The Andes still hold much of that diversity. FAO counts about 5,000 potato varieties still grown in the Andes, and the CIP genebank in Lima holds about 9,000 active potato accessions, from native varieties to wild relatives and breeding lines (CIP genebank page, read November 2026). For the varieties grown today, see the <Link href="/knowledge/potato-varieties-guide" style={link}>potato varieties guide</Link>.</p>
+
+      <h2 id="europe" style={sH2}>How potatoes reached Europe</h2>
+      <p style={sP}>The potato left the Andes after the Spanish conquest of Peru (1532&ndash;1572). Herbarium-based research dates its first appearance in Europe to <strong>1567, on Spain&apos;s Canary Islands</strong> (Ames &amp; Spooner, 2008, <em>American Journal of Botany</em> 95:252&ndash;257); FAO&apos;s account gives first evidence there from 1565. By <strong>1573 the potato was cultivated on the Spanish mainland</strong> (FAO, 2009). Tubers then travelled as exotic gifts, from the Spanish court to the Pope in Rome, then to the papal ambassador in Mons and a botanist in Vienna, and were grown in London by 1597 (FAO).</p>
+      <p style={sP}>Acceptance was slow. It took about 150 years for varieties suited to Europe&apos;s long summer days to appear, and only a small part of the Andean gene pool had left South America (FAO). Famine in the 1770s changed minds: Frederick the Great ordered Prussians to grow potatoes and Parmentier campaigned for them in France (see <Link href="/knowledge/why-potatoes-were-illegal-in-france" style={link}>why potatoes were &ldquo;illegal&rdquo; in France</Link>). By 1815 the potato was a staple across northern Europe.</p>
+
+      <div style={{ overflowX: "auto", marginBottom: 8 }}>
+        <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 14 }}>
+          <thead><tr>{["When", "Where", "What happened"].map((h) => <th key={h} style={sTh}>{h}</th>)}</tr></thead>
+          <tbody>
+            {timelineRows.map((r) => (
+              <tr key={r[0]}>
+                <td style={{ ...sTd, fontWeight: 600, whiteSpace: "nowrap" }}>{r[0]}</td>
+                <td style={{ ...sTd, color: "var(--gold)", fontWeight: 600 }}>{r[1]}</td>
+                <td style={sTd}>{r[2]}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p style={sSource}>Source: FAO (2009), International Year of the Potato 2008 review; Ames &amp; Spooner (2008); Spooner et al. (2005); Rumold &amp; Aldenderfer (2016); Zhang et al. (2025).</p>
+
+      <h2 id="andean-chilean" style={sH2}>Andean or Chilean? What the herbarium DNA shows</h2>
+      <p style={sP}>Landrace potatoes have two homelands: the high Andes from western Venezuela to northern Argentina, and the lowlands of south-central Chile. For decades scholars argued over which one gave Europe its potato. DNA from old herbarium specimens settled much of it. Ames &amp; Spooner (2008) found that Andean-type potatoes dominated in Europe in the 1700s, but Chilean-type potatoes were present by 1811 and became dominant long before the late-blight epidemics of the 1840s.</p>
+      <p style={sP}>Gutaker et al. (2019, <em>Nature Ecology &amp; Evolution</em> 3:1093&ndash;1101) sequenced 88 genomes, including herbarium samples, some collected by Charles Darwin on the <em>Beagle</em>. European potatoes from 1650&ndash;1750 were closely related to Andean landraces and lacked the known <em>CDF1</em> gene variants that let potatoes form tubers under long summer days; those variants appear in 19th-century European samples, and European potatoes mixed with Chilean genotypes after their introduction. Hardigan et al. (2017) traced the truncated <em>StCDF1</em> variants behind long-day tuber formation to wild species, notably <em>Solanum microdontum</em>.</p>
+      <p style={sP}>The narrow base had a cost. In Ireland, where the potato supplied about 80% of calorie intake, late blight destroyed three crops between 1845 and 1848, and the Great Famine of 1845&ndash;1852 caused about one million deaths (FAO). After it, breeders in Europe and North America turned to new Chilean germplasm for many of the varieties behind 20th-century production (FAO).</p>
+
+      <h2 id="asia-africa" style={sH2}>The spread to Asia, Africa and North America</h2>
+      <p style={sP}>The potato reached Asia by sea. Early in the 17th century sailors carried tubers as ship food, and that is how the crop reached <Link href="/country/india" style={link}>India</Link>, <Link href="/country/china" style={link}>China</Link> and Japan (FAO). In the colonial era, governors, missionaries and settlers introduced potato growing to places such as the floodplains of Bengal and the highlands of Cameroon, <Link href="/country/kenya" style={link}>Kenya</Link>, Malawi and Rwanda (FAO). In North America, Irish emigrants took the potato, and the name &ldquo;Irish potato&rdquo;, with them in the early 1700s (FAO).</p>
+      <p style={sP}>The crop&apos;s centre of gravity has since moved back towards Asia: China (94.87 million tonnes, FAOSTAT 2024) and India (58.1 million tonnes in 2024&ndash;25, Third Advance Estimate) are now the two largest producers. See the <Link href="/knowledge/top-potato-producing-countries" style={link}>top producing countries</Link> for the full ranking.</p>
+
+      <SourceBlock sources={[
+        "Spooner, McLean, Ramsay, Waugh & Bryan (2005) — A single domestication for potato based on multilocus amplified fragment length polymorphism genotyping. PNAS 102(41):14694–14699",
+        "Spooner, Ghislain, Simon, Jansky & Gavrilenko (2014) — Systematics, diversity, genetics, and evolution of wild and cultivated potatoes. The Botanical Review 80:283–383",
+        "FAO (2009) — International Year of the Potato 2008: New light on a hidden treasure (chapter 'The Potato')",
+        "Ames & Spooner (2008) — DNA from herbarium specimens settles a controversy about origins of the European potato. American Journal of Botany 95(2):252–257",
+        "Gutaker et al. (2019) — The origins and adaptation of European potatoes reconstructed from historical genomes. Nature Ecology & Evolution 3:1093–1101",
+        "Rumold & Aldenderfer (2016) — Late Archaic–Early Formative period microbotanical evidence for potato at Jiskairumoko in the Titicaca Basin of southern Peru. PNAS 113(48):13672–13677",
+        "Hardigan et al. (2017) — Genome diversity of tuber-bearing Solanum uncovers complex evolutionary history and targets of domestication in the cultivated potato. PNAS 114(46):E9999–E10008",
+        "Zhang et al. (2025) — Cell, doi:10.1016/j.cell.2025.06.034 (128 potato-lineage genomes; ancient hybrid origin of the tuber)",
+        "Louderback et al. (2026) — Ancient use and long-distance transport of the Four Corners Potato (Solanum jamesii) across the Colorado Plateau. PLoS ONE",
+        "Ovchinnikova et al. (2011) — Taxonomy of cultivated potatoes (Solanum section Petota). Botanical Journal of the Linnean Society 165:107–155",
+        "Spooner (2016) — Species delimitations in plants: lessons learned from potato taxonomy. Journal of Systematics and Evolution 54(3):191–203",
+        "CGN (Centre for Genetic Resources, the Netherlands) — PGR Portal Potato, 'Origin and taxonomy of potato'",
+        "CIP (International Potato Center) — Genebank page and potato facts (read November 2026)",
+        "FAOSTAT (2024) — production by country; India: Ministry of Agriculture 2024–25 Third Advance Estimate",
+      ]} />
+
+      <div id="faq"><FAQSection items={ORIGIN_FAQ} /></div>
+      <RelatedBlogPosts slugs={["andean-potato-origin-story"]} />
+      <RelatedArticles articles={relatedArticles} />
+      <section style={{ marginTop: 48 }}>
+        <h2 style={{ fontSize: 20, fontWeight: 700, color: "var(--ink)", marginBottom: 16 }}>Explore Country Profiles</h2>
+        <div style={{ display: "flex", gap: 10, overflowX: "auto", paddingBottom: 8 }}>
+          {relatedCountries.map((c) => (
+            <Link key={c.slug} href={"/country/" + c.slug} style={{ background: "var(--card)", border: "1px solid var(--line)", borderRadius: 10, padding: "10px 16px", textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 10, flexShrink: 0 }}>
+              <span style={{ fontSize: 20 }}>{c.flag}</span>
+              <div>
+                <div style={{ fontSize: 13, fontWeight: 600, color: "var(--ink)", whiteSpace: "nowrap" }}>{c.name}</div>
+                <div style={{ fontSize: 11, color: "var(--gold)", fontWeight: 600 }}>{c.prod} tonnes</div>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+      <BottomCTA />
+
+      </div>
+    </article>
+  );
+}
+
+function OriginJsonLd() {
+  const pageUrl = "https://www.potatopedia.com/knowledge/potato-history-origin";
+  const graph = [
+    {
+      "@type": "Article",
+      "@id": pageUrl + "#article",
+      headline: "Where Do Potatoes Come From? Origin and History of the Potato",
+      description: "The potato was domesticated once, in southern Peru near Lake Titicaca, about 8,000 years ago. Archaeology, genetics, the 1567 arrival in Europe and the spread to Asia and Africa.",
+      datePublished: "2026-11-07",
+      dateModified: "2026-11-07",
+      wordCount: 1900,
+      author: [POTATOPEDIA_EDITORIAL, { "@id": "https://www.potatopedia.com/#publisher" }],
+      publisher: { "@id": "https://www.potatopedia.com/#publisher" },
+      mainEntityOfPage: pageUrl,
+      image: "https://www.potatopedia.com/og-image.png",
+      about: { "@type": "Thing", name: "Origin and domestication of the potato (Solanum tuberosum)" },
+      citation: [
+        "https://doi.org/10.1073/pnas.0507400102",
+        "https://doi.org/10.1007/s12229-014-9146-y",
+        "https://doi.org/10.3732/ajb.95.2.252",
+        "https://doi.org/10.1038/s41559-019-0921-3",
+        "https://doi.org/10.1073/pnas.1604265113",
+        "https://doi.org/10.1073/pnas.1714380114",
+        "https://www.fao.org/4/i0500e/i0500e02.pdf",
+      ],
+      speakable: SPEAKABLE,
+    },
+    {
+      "@type": "FAQPage",
+      "@id": pageUrl + "#faq",
+      mainEntity: ORIGIN_FAQ.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, item: { "@id": "https://www.potatopedia.com/", name: "Home" } },
+        { "@type": "ListItem", position: 2, item: { "@id": "https://www.potatopedia.com/knowledge", name: "Knowledge Hub" } },
+        { "@type": "ListItem", position: 3, item: { "@id": pageUrl, name: "Where Do Potatoes Come From?" } },
+      ],
+    },
+  ];
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@graph": graph }) }} />;
 }
 
 /* ── Page 15: Potato Yield Calculator ── */
@@ -4785,7 +5023,7 @@ function IsPotatoABadCarb() {
     ["Baked Russet (large, plain)", "85–111", "Highest GI; structure fully gelatinised"],
     ["Microwaved", "82–95", "Similar to baked"],
     ["Boiled + 2 tbsp vinegar", "−20–30%", "Acetic acid inhibits amylase (Östman 2005)"],
-    ["Carisma variety (low-GI bred)", "53", "Sydney Glycemic Index Foundation certified"],
+    ["Carisma variety (low-GI bred)", "53", "Peer-reviewed: Ek et al., Br J Nutr 2014"],
   ];
 
   const tocItems = [
@@ -4804,7 +5042,7 @@ function IsPotatoABadCarb() {
     { q: "Are potatoes worse than rice?", a: "It depends on which potato and which rice. White rice (GI 73) ranks similarly to baked Russet (85–111) and worse than boiled potato (GI 56–69). Brown rice (GI 68) is roughly comparable to boiled potato. Per 100 g cooked, a boiled potato has 43% fewer calories than white rice (87 vs 130), 5× more potassium (535 vs 35 mg), and ~13 mg vitamin C (rice has none). The verdict from USDA FoodData Central and the Sydney GI database: properly prepared potatoes are nutritionally superior to refined white rice." },
     { q: "Does cooling potato really lower the glycemic response?", a: "Yes — well documented. Leeman et al. (2005, European Journal of Clinical Nutrition) measured a 25% reduction in 24-hour glycemic response in cooled-and-reheated boiled potato versus freshly cooked. The mechanism is retrogradation: as cooked starch cools, amylose chains realign into crystalline structures (resistant starch type 3, RS3) that resist enzymatic digestion. RS3 ferments in the colon to produce short-chain fatty acids (butyrate) — i.e. it functions like a prebiotic fiber. Reheating cooled potato preserves most of the RS3." },
     { q: "Is a baked potato a high-glycemic food?", a: "A large plain baked Russet potato is high glycemic (GI 85–111 in University of Sydney testing) — the highest-GI common potato preparation. The combination of full starch gelatinisation, no fat, and no skin friction maximises enzymatic access. Boiled, cooled, fried (with fat), or boiled-with-vinegar preparations all deliver substantially lower glycemic response than a hot plain baked Russet. Pairing baked potato with protein, fat, or vinegar reduces the glycemic response by 20–40%." },
-    { q: "What's the lowest-GI potato?", a: "The Carisma cultivar — bred specifically for low glycemic impact and certified by the Sydney Glycemic Index Foundation at GI 53 — is the lowest-GI commercial potato variety. Carisma is widely available in Australia and parts of Europe; in the US, waxy varieties (Red Norland, Charlotte, Yukon Gold) and new potatoes deliver the best low-GI behaviour. Boil-then-cool any waxy variety and the GI drops further into the 56–60 range." },
+    { q: "What's the lowest-GI potato?", a: "The Carisma cultivar — bred specifically for low glycemic impact and measured at GI 53 in a peer-reviewed University of Sydney study (Ek et al., British Journal of Nutrition, 2014) — is the lowest-GI commercial potato variety. Carisma is widely available in Australia and parts of Europe; in the US, waxy varieties (Red Norland, Charlotte, Yukon Gold) and new potatoes deliver the best low-GI behaviour. Boil-then-cool any waxy variety and the GI drops further into the 56–60 range." },
   ];
 
   const relatedArticles = [
@@ -5208,7 +5446,7 @@ function LargestPotatoFarmsUS() {
     { q: "What is contract farming for potatoes?", a: "Most processing potatoes (those destined for fries, chips, dehydrated products, or starch) are grown under contract to processors like Lamb Weston, McCain Foods, J.R. Simplot, Frito-Lay, and Cavendish. The processor specifies variety (typically Russet Burbank or Ranger Russet for fries; Atlantic, FL-1867, or Snowden for chips), quality specs (specific gravity, sugar content, defect tolerance), planting date, and delivery schedule. The grower bears the agronomic risk; the processor guarantees a market and price floor. Contract farming applies to roughly 60–70% of US potato production." },
     { q: "How does the US compare to other potato countries by farm size?", a: "US potato farms are among the largest in the world. Average US farm: ~430 acres. Average Dutch farm: ~62 acres / 25 hectares (concentrated, intensive). Average UK farm: ~99 acres / 40 hectares. Average Indian farm: <1 acre per smallholder typical (highly fragmented). Average German farm: ~74 acres / 30 hectares. Only Australia, Canada, and New Zealand have comparable large-scale operations. The US scale reflects abundant land, irrigation infrastructure, and processor-driven consolidation." },
     { q: "Are potato farms profitable?", a: "Profitability is highly variable. Contract growers for major processors typically earn $200–600 per acre net margin in good years and can lose money in bad years (drought, disease, oversupply). Idaho processing growers in 2023 reported gross revenue of $4,500–6,500 per acre with input costs of $4,000–5,800 per acre per Idaho Potato Commission and University of Idaho extension data. Fresh-market growers can earn higher margins on premium varieties (specialty colors, organic) but at smaller scale and higher marketing risk. Vertical integration (grower-packer-shipper) is a common margin-improvement strategy." },
-    { q: "What states have the most potato farms?", a: "By acreage: Idaho (~315,000 acres, ~30% of US production), Washington (~165,000 acres, Columbia Basin), Wisconsin (~62,000 acres), North Dakota (~58,000 acres), Colorado (~52,000 acres, San Luis Valley), Maine (~46,000 acres), Minnesota (~45,000 acres), and Michigan (~45,000 acres). California, Oregon, Florida (winter potatoes), and New York round out the top regions. See our US country profile for the full state breakdown." },
+    { q: "What states have the most potato farms?", a: "By harvested acreage in 2025 (USDA NASS): Idaho (314,500 acres, 33.5% of US production), Washington (144,500 acres, Columbia Basin), North Dakota (69,300 acres), Wisconsin (67,000 acres), Colorado (54,800 acres, San Luis Valley), Maine (51,900 acres), Michigan (48,500 acres), Oregon (41,000 acres) and Minnesota (39,700 acres). Nebraska, California, Texas and Florida (winter potatoes) complete the 13 NASS estimating states. See our US country profile for the full state breakdown." },
   ];
 
   const relatedArticles = [
@@ -5323,7 +5561,7 @@ function LargestPotatoFarmsUS() {
       <p style={sP}>The US scale reflects abundant land, irrigation infrastructure (especially in Idaho&apos;s Snake River Plain and Washington&apos;s Columbia Basin), processor-driven contract economics, and 50+ years of consolidation. Dutch farms operate at much smaller acreage but produce world-leading per-hectare yields (50+ t/ha) through precision agronomy &mdash; a different scaling strategy. See our <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands country profile</Link> and <Link href="/country/india" style={{ color: "var(--gold)", textDecoration: "none" }}>India country profile</Link> for the contrasting models.</p>
 
       <h2 id="future" style={sH2}>What this means for US potato supply</h2>
-      <p style={sP}>The combination of consolidation + processor contracts produces a US potato supply that is highly efficient, highly mechanised, and highly concentrated geographically (Idaho + Washington = 53% of national production). Vulnerabilities:</p>
+      <p style={sP}>The combination of consolidation + processor contracts produces a US potato supply that is highly efficient, highly mechanised, and highly concentrated geographically (Idaho + Washington = 55.3% of national production in 2025, USDA NASS). Vulnerabilities:</p>
       <p style={sP}>&bull; <strong>Geographic concentration risk:</strong> A drought, disease outbreak, or wildfire in Idaho or Washington has outsized national impact.<br />
       &bull; <strong>Variety concentration risk:</strong> ~70% of US frozen fries derive from a single variety (Russet Burbank), itself bred in 1872. A new disease specific to this variety would be catastrophic. See our <Link href="/knowledge/russet-burbank-history" style={{ color: "var(--gold)", textDecoration: "none" }}>Russet Burbank history</Link>.<br />
       &bull; <strong>Climate change:</strong> Heat stress and water scarcity threaten current production zones. Heat-tolerant varieties under development (CSS Farms, Idaho research stations).</p>
@@ -5572,7 +5810,7 @@ function PotatoDiseasesPests() {
 
   const faqItems = [
     { q: "What is late blight in potatoes?", a: "Late blight is a disease caused by the oomycete Phytophthora infestans — the same pathogen responsible for the 1845–1852 Irish Potato Famine. It produces water-soaked brown lesions on leaves and stems and can rot tubers in storage. CIP estimates global annual losses at approximately $6.7 billion, making it the most economically destructive potato disease worldwide." },
-    { q: "What caused the Irish Potato Famine?", a: "Phytophthora infestans destroyed Ireland's potato crop from 1845 to 1852. Approximately 1 million people died and another 1 million emigrated. The root cause was genetic uniformity: nearly all Irish potatoes were clones of a single variety (Lumper), so when a virulent pathogen arrived, the entire crop fell at once. The disaster drove the modern emphasis on potato genetic diversity, including CIP's 4,350+ accession genebank in Lima." },
+    { q: "What caused the Irish Potato Famine?", a: "Phytophthora infestans destroyed Ireland's potato crop from 1845 to 1852. Approximately 1 million people died and another 1 million emigrated. The root cause was genetic uniformity: nearly all Irish potatoes were clones of a single variety (Lumper), so when a virulent pathogen arrived, the entire crop fell at once. The disaster drove the modern emphasis on potato genetic diversity, including the CIP genebank in Lima (about 9,000 active potato accessions)." },
     { q: "What is the most common potato pest?", a: "Globally, aphids are the most ubiquitous — not because of direct feeding damage but because they transmit potato virus Y (PVY) and potato leafroll virus (PLRV). The Colorado potato beetle is the most damaging defoliator in North America, Europe, and parts of Asia. Potato cyst nematode is the most regulated, with strict quarantine controls in the US, EU, and India." },
     { q: "How do you treat potato diseases organically?", a: "Organic disease management relies on certified seed, resistant varieties, crop rotation (3–4 year minimum away from solanaceous crops), copper-based fungicides for late blight, and removal of volunteer plants. Diversifying across multiple varieties on the same farm reduces single-pathogen risk. Bacillus subtilis biocontrol products are increasingly approved for organic potato systems in the EU and US." },
     { q: "What is potato cyst nematode?", a: "Potato cyst nematode (PCN) refers to two soil-dwelling species — Globodera rostochiensis (golden) and G. pallida (pale) — that form persistent cysts containing eggs viable for 20+ years in soil. PCN is a quarantine pest under EU, USDA APHIS, and Indian regulations. Detection on a farm typically triggers movement restrictions and can require resistant variety planting for several rotations." },
@@ -5688,7 +5926,7 @@ function PotatoDiseasesPests() {
       <h2 id="monoculture" style={sH2}>Why is monoculture a disease risk for potatoes?</h2>
       <p style={sP}>Potato is propagated vegetatively &mdash; each commercial tuber is a clone of its parent. This means that within a single cultivar, every plant has identical resistance genes. When a virulent new pathogen arrives, it sweeps through uniformly susceptible fields without genetic friction. The 1845 Irish disaster is the canonical example: roughly 90% of <Link href="/country/ireland" style={{ color: "var(--gold)", textDecoration: "none" }}>Irish</Link> potato area was a single variety (Lumper), so when <em>P. infestans</em> arrived from the Americas there was no genetic diversity to slow its spread.</p>
       <p style={sP}>The same vulnerability persists today in modernized form. <Link href="/knowledge/russet-burbank-history" style={{ color: "var(--gold)", textDecoration: "none" }}>Russet Burbank</Link> occupies an estimated 60&ndash;70% of <Link href="/country/united-states" style={{ color: "var(--gold)", textDecoration: "none" }}>Idaho</Link>&apos;s commercial acreage. <Link href="/varieties/maris-piper" style={{ color: "var(--gold)", textDecoration: "none" }}>Maris Piper</Link> dominates the UK fresh and processing market. <Link href="/country/india" style={{ color: "var(--gold)", textDecoration: "none" }}>India</Link>&apos;s commercial production is concentrated in fewer than ten Kufri varieties out of CPRI&apos;s 75+ released cultivars. A novel pathogen capable of breaking the dominant resistance genes in any of these varieties would have catastrophic regional consequences.</p>
-      <p style={sP}>The structural answer is genetic diversity in the field and in the genebank. CIP maintains the world&apos;s largest potato genetic resource &mdash; over 4,350 accessions including more than 3,000 native Andean varieties and 180+ wild <em>Solanum</em> species &mdash; preserved at the Lima genebank and in cryopreservation. CPRI in <Link href="/country/india" style={{ color: "var(--gold)", textDecoration: "none" }}>India</Link>, NIVAP in the <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link>, and the US Potato Genebank in Wisconsin all maintain working collections drawn on by breeders. The <Link href="/knowledge/potato-diversity-origins-peru" style={{ color: "var(--gold)", textDecoration: "none" }}>4,000-variety Andean origin</Link> is not a curiosity &mdash; it is the genetic raw material that defends every commercial cultivar against the next pathogen.</p>
+      <p style={sP}>The structural answer is genetic diversity in the field and in the genebank. CIP maintains the world&apos;s largest potato genetic resource &mdash; the CIP genebank&apos;s about 9,000 active potato accessions, from native Andean varieties to wild <em>Solanum</em> relatives (about 107 wild species are recognised; Spooner et al., 2014) &mdash; preserved at the Lima genebank and in cryopreservation. CPRI in <Link href="/country/india" style={{ color: "var(--gold)", textDecoration: "none" }}>India</Link>, NIVAP in the <Link href="/country/netherlands" style={{ color: "var(--gold)", textDecoration: "none" }}>Netherlands</Link>, and the US Potato Genebank in Wisconsin all maintain working collections drawn on by breeders. The <Link href="/knowledge/potato-diversity-origins-peru" style={{ color: "var(--gold)", textDecoration: "none" }}>4,000-variety Andean origin</Link> is not a curiosity &mdash; it is the genetic raw material that defends every commercial cultivar against the next pathogen.</p>
 
       <h2 id="country-pressure" style={sH2}>Which countries have the heaviest disease pressure?</h2>
       <p style={sP}>Disease pressure is driven by climate, rotation intensity, and seed quality. The <strong>Andean highlands</strong> (<Link href="/country/peru" style={{ color: "var(--gold)", textDecoration: "none" }}>Peru</Link>, <Link href="/country/colombia" style={{ color: "var(--gold)", textDecoration: "none" }}>Colombia</Link>, Ecuador, Bolivia) have the longest disease coevolution history with potato &mdash; <em>P. infestans</em>, PCN, and most major potato pathogens originated in this region. Smallholder Andean systems still rely heavily on traditional native variety mixtures that provide built-in disease buffer, though commercial production faces high spray costs.</p>
@@ -5957,7 +6195,7 @@ function ClimateChangePotatoes() {
     { q: "What's the carbon footprint of a potato?", a: "Approximately 0.18–0.25 kg CO₂-eq per kg of fresh potato at farm gate (Carbon Trust; FAO LEAP). Per calorie, this is roughly half the footprint of rice and one-tenth that of beef. Processing (washing, frying, freezing, packaging) doubles or triples the farm-gate footprint depending on product — a 1 kg bag of frozen french fries carries roughly 0.6–0.9 kg CO₂-eq." },
     { q: "Are potato growing zones shifting?", a: "Yes. Production is migrating poleward and upward in altitude. Scottish and Scandinavian growing seasons are extending. Andean smallholders are planting at higher elevations. Indian Punjab and Uttar Pradesh face shortening winter growing windows. Northern Chinese provinces (Inner Mongolia, Heilongjiang) are seeing expansion as warmer summers extend tuber-bulking windows." },
     { q: "Which countries are most vulnerable to climate change for potato?", a: "South Asia (India, Pakistan, Bangladesh), North Africa (Egypt, Algeria, Morocco), and parts of Sub-Saharan Africa face the steepest projected yield declines because their current production already operates close to the upper-temperature threshold. Heat-tolerant varieties and earlier planting dates partially offset the impact, but breeding pipelines lag the rate of climatic change." },
-    { q: "What are CIP's heat-tolerant varieties?", a: "CIP has released 10+ LBHT (Late Blight + Heat Tolerant) clones bred for tropical lowland and South Asian conditions, including CIP-Matilde, CIP-Wanjiku, and CIP-Bertita varieties tested across Bangladesh, Indonesia, Vietnam, Kenya, and Uganda. CIP also screens its 4,350+ accession genebank for heat tolerance, including many native Andean varieties with genetic adaptation to the high-altitude diurnal temperature swings of the Peruvian and Bolivian highlands." },
+    { q: "What are CIP's heat-tolerant varieties?", a: "CIP has released 10+ LBHT (Late Blight + Heat Tolerant) clones bred for tropical lowland and South Asian conditions, including CIP-Matilde, CIP-Wanjiku, and CIP-Bertita varieties tested across Bangladesh, Indonesia, Vietnam, Kenya, and Uganda. CIP also screens its genebank (about 9,000 active potato accessions) for heat tolerance, including many native Andean varieties with genetic adaptation to the high-altitude diurnal temperature swings of the Peruvian and Bolivian highlands." },
     { q: "Can potatoes grow in the tropics?", a: "Yes — but only at altitude or in cool-season windows. In the tropical lowlands, daytime temperatures consistently above 25°C suppress tuberization, so commercial production concentrates above 1,500–2,000 metres altitude in countries near the equator (Kenya highlands, Andean Colombia, Indonesian Dieng plateau, parts of Vietnam). In subtropical countries (India, Egypt, Pakistan, Bangladesh) commercial production runs in the cool winter season (October–March) when temperatures fall into the 15–25°C range." },
   ];
 
@@ -6035,7 +6273,7 @@ function ClimateChangePotatoes() {
 
       <h2 id="heat-tolerant" style={sH2}>What heat-tolerant potato varieties exist?</h2>
       <p style={sP}>CIP has released over 10 LBHT (Late Blight + Heat Tolerant) clones bred specifically for tropical lowland and South Asian conditions, including CIP-Matilde, CIP-Wanjiku, and CIP-Bertita. These cultivars combine durable late-blight resistance with the ability to tuberize at 25&ndash;28&deg;C night temperatures &mdash; conditions where most commercial varieties fail entirely. Field testing has been conducted across <Link href="/country/bangladesh" style={{ color: "var(--gold)", textDecoration: "none" }}>Bangladesh</Link>, <Link href="/country/indonesia" style={{ color: "var(--gold)", textDecoration: "none" }}>Indonesia</Link>, Vietnam, Kenya, Uganda, and Mozambique, with commercial release variant in each country.</p>
-      <p style={sP}>CPRI (India) maintains its own heat-tolerant breeding programme matched to Indian conditions: Kufri Surya, Kufri Khyati, and several recent (2020s) releases target the rabi season in the Indo-Gangetic plain. Dutch breeders (HZPC, Agrico, Meijer) screen for drought tolerance and disease resistance under Mediterranean-style heat and water-stress trial sites in southern <Link href="/country/france" style={{ color: "var(--gold)", textDecoration: "none" }}>France</Link>, <Link href="/country/germany" style={{ color: "var(--gold)", textDecoration: "none" }}>Germany</Link>, and Eastern Europe. Andean native varieties &mdash; preserved in CIP&apos;s 4,350+ accession Lima genebank &mdash; provide a deep gene pool for breeders, including diploid clones with documented resistance to heat shock and drought stress documented in the <Link href="/knowledge/potato-diversity-origins-peru" style={{ color: "var(--gold)", textDecoration: "none" }}>4,000-variety Andean origin</Link>.</p>
+      <p style={sP}>CPRI (India) maintains its own heat-tolerant breeding programme matched to Indian conditions: Kufri Surya, Kufri Khyati, and several recent (2020s) releases target the rabi season in the Indo-Gangetic plain. Dutch breeders (HZPC, Agrico, Meijer) screen for drought tolerance and disease resistance under Mediterranean-style heat and water-stress trial sites in southern <Link href="/country/france" style={{ color: "var(--gold)", textDecoration: "none" }}>France</Link>, <Link href="/country/germany" style={{ color: "var(--gold)", textDecoration: "none" }}>Germany</Link>, and Eastern Europe. Andean native varieties &mdash; preserved in the CIP genebank in Lima (about 9,000 active potato accessions) &mdash; provide a deep gene pool for breeders, including diploid clones with documented resistance to heat shock and drought stress documented in the <Link href="/knowledge/potato-diversity-origins-peru" style={{ color: "var(--gold)", textDecoration: "none" }}>4,000-variety Andean origin</Link>.</p>
 
       <h2 id="water" style={sH2}>How much water does potato production require?</h2>
       <p style={sP}>Potato requires 500&ndash;700 mm of water per growing season for full yield potential, depending on variety and climate (FAO). This translates to approximately 250&ndash;500 litres per kg of harvested potato &mdash; substantially less than rice (1,500&ndash;2,500 L/kg) or wheat (1,300&ndash;1,800 L/kg) or beef (15,000+ L/kg). Our dedicated <Link href="/answers/potato-water-footprint" style={{ color: "var(--gold)", textDecoration: "none" }}>potato water footprint answer</Link> covers the per-calorie comparison in detail.</p>
@@ -6343,7 +6581,7 @@ export default async function KnowledgePage({ params }) {
       case "top-potato-producing-countries": {
         const tpcFaq = [
           { q: "Which country has the largest production of potatoes?", a: "China is the world's largest potato producer at 94.87 million tonnes annually (FAOSTAT 2024), accounting for roughly 25% of global output." },
-          { q: "Where does the US rank in potato production?", a: "The United States ranks #5 globally at 18.7 million tonnes. Idaho produces approximately 30% of the US crop." },
+          { q: "Where does the US rank in potato production?", a: "The United States ranks #5 globally at 18.7 million tonnes. Idaho produced 33.5% of the US crop in 2025 (USDA NASS)." },
           { q: "Which country has the best quality potatoes?", a: "The Netherlands is the global leader in certified seed potato quality, exporting to 80+ countries." },
           { q: "Does China produce a lot of potatoes?", a: "Yes — China produces 94.87 million tonnes annually, roughly 25% of the global harvest." },
           { q: "Which country produces the most potatoes per capita?", a: "Belarus leads per-capita consumption at 166.9 kg/person/year (FAOSTAT 2023), followed by Ukraine at 136 kg." },
@@ -6385,7 +6623,7 @@ export default async function KnowledgePage({ params }) {
       case "potato-varieties-guide": {
         const vgFaq = [
           { q: "What are the 7 types of potatoes in order?", a: "Main categories: Russet/starchy, Red waxy, White, Yellow/gold, Purple/blue, Fingerling, Petite/baby. Texture ranges from starchy (fluffy for frying) to waxy (firm for salads)." },
-          { q: "Where are there 4,000 types of potatoes?", a: "CIP in Lima, Peru maintains over 4,000 accessions. Most native varieties originate from the Andes of Peru and Bolivia, first cultivated ~8,000 BCE." },
+          { q: "Where are there 4,000 types of potatoes?", a: "The CIP genebank in Lima, Peru holds about 9,000 active potato accessions. Most native varieties originate from the Andes of Peru and Bolivia, first cultivated ~8,000 BCE." },
           { q: "What potato does McDonald's use?", a: "McDonald's primarily uses Russet Burbank and Shepody. These high-starch varieties produce the long, crispy fries. Suppliers include Lamb Weston and Simplot." },
           { q: "What potato is best for diabetics?", a: "Waxy varieties (Red Pontiac, fingerlings) have lower GI (56-69) than starchy types like Russet Burbank (GI 85+). Boiling and cooling further reduces glycemic impact." },
           { q: "How do I identify what type of potato I have?", a: "Cut in half: starchy types look dry/powdery, waxy types look moist/glossy. Starchy = oblong, rough skin; waxy = round, smooth skin." },
@@ -6518,12 +6756,15 @@ export default async function KnowledgePage({ params }) {
         const wpFaq = [
           { q: "Why were potatoes illegal in France?", a: "Potatoes were never formally banned by a French parliamentary edict — that's a popular misconception. What actually happened: in 1748 the Paris Faculty of Medicine declared potatoes responsible for leprosy, and combined with religious suspicion (not in the Bible, grew underground, member of the nightshade family) this created widespread cultural rejection. The Faculty reversed its position in 1772 after Antoine-Augustin Parmentier's lobbying (CIP historical archives; FAO IYP 2008)." },
           { q: "Who made potatoes popular in France?", a: "Antoine-Augustin Parmentier (1737–1813), a French pharmacist who survived as a Prussian prisoner of war during the Seven Years' War on a near-exclusive potato diet. He convinced the Paris Faculty of Medicine to reverse its 1748 declaration, hosted an all-potato royal dinner for Louis XVI in 1785, and used reverse psychology by guarding a potato field at Sablons during the day to make it appear valuable enough to steal at night." },
-          { q: "When did potatoes arrive in Europe?", a: "Spanish conquistadors brought potatoes from Peru around 1570 after Pizarro's conquest of the Inca Empire. The Canary Islands had the first European cultivation. It took over 200 years for most Europeans to widely accept potatoes as food rather than as botanical curiosities or animal fodder." },
-          { q: "What caused the Irish Potato Famine?", a: "Late blight (Phytophthora infestans) destroyed Ireland's potato crop in 1845–1852. Approximately 1 million people died and another 1 million emigrated. The root cause was genetic uniformity: nearly all Irish potatoes were clones of a single variety (the Irish Lumper), so when a virulent pathogen arrived, the entire crop fell at once. This drove the modern emphasis on potato genetic diversity, including CIP's 4,350+ accession genebank." },
-          { q: "Where do potatoes originally come from?", a: "The high Andes of Peru and Bolivia, where they have been cultivated since approximately 6000 BCE — over 8,000 years of continuous domestication, longer than most major food crops. Peru's CIP genebank in Lima preserves more than 4,350 potato accessions including over 3,000 native Andean varieties and 180+ wild species." },
+          { q: "When did potatoes arrive in Europe?", a: "Spanish ships brought potatoes from Peru after the conquest of the Inca Empire. They were on Spain's Canary Islands by 1567 (Ames & Spooner 2008) and grown on the Spanish mainland by 1573 (FAO IYP 2008). It took over 200 years for most Europeans to widely accept potatoes as food rather than as botanical curiosities or animal fodder." },
+          { q: "What caused the Irish Potato Famine?", a: "Late blight (Phytophthora infestans) destroyed Ireland's potato crop in 1845–1852. Approximately 1 million people died and another 1 million emigrated. The root cause was genetic uniformity: nearly all Irish potatoes were clones of a single variety (the Irish Lumper), so when a virulent pathogen arrived, the entire crop fell at once. This drove the modern emphasis on potato genetic diversity, including the CIP genebank (about 9,000 active potato accessions)." },
+          { q: "Where do potatoes originally come from?", a: "The high Andes of Peru and Bolivia, where they have been cultivated since approximately 6000 BCE — over 8,000 years of continuous domestication, longer than most major food crops. The CIP genebank in Lima holds about 9,000 active potato accessions, including native Andean varieties and wild relatives; current taxonomy recognises about 107 wild potato species (Spooner et al., 2014)." },
           { q: "What does 'Parmentier' mean in French cooking?", a: "It's a culinary term denoting a dish containing potatoes, named in honour of Antoine-Augustin Parmentier. Hachis Parmentier is the French equivalent of shepherd's pie; Potage Parmentier is leek-and-potato soup; Parmentier de canard is duck confit shepherd's pie. The naming convention has lasted over 200 years." },
         ];
         return <><KnowledgeJsonLd slug={slug} title={meta.title || slug} description={titleInfo?.desc} tag={meta.tag} faqItems={wpFaq} wordCount={2800} /><WhyPotatoesIllegalInFrance /></>;
+      }
+      case "potato-history-origin": {
+        return <><OriginJsonLd /><PotatoHistoryOrigin /></>;
       }
       case "potato-yield-calculator": {
         const pyFaq = [
@@ -6598,7 +6839,7 @@ export default async function KnowledgePage({ params }) {
           { q: "Are potatoes worse than rice?", a: "It depends on which potato and which rice. White rice (GI 73) ranks similarly to baked Russet (85–111) and worse than boiled potato (GI 56–69). Brown rice (GI 68) is roughly comparable to boiled potato. Per 100 g cooked, a boiled potato has 43% fewer calories than white rice, 5× more potassium (535 vs 35 mg), and ~13 mg vitamin C (rice has none)." },
           { q: "Does cooling potato really lower the glycemic response?", a: "Yes — well documented. Leeman et al. (2005, EJCN) measured a 25% reduction in 24-hour glycemic response in cooled-and-reheated boiled potato versus freshly cooked. The mechanism is retrogradation: as cooked starch cools, amylose chains realign into crystalline structures (RS3) that resist enzymatic digestion. Reheating preserves most of the RS3." },
           { q: "Is a baked potato a high-glycemic food?", a: "A large plain baked Russet potato is high glycemic (GI 85–111 in University of Sydney testing). The combination of full starch gelatinisation, no fat, and no skin friction maximises enzymatic access. Boiled, cooled, fried (with fat), or boiled-with-vinegar preparations all deliver substantially lower glycemic response than a hot plain baked Russet." },
-          { q: "What's the lowest-GI potato?", a: "The Carisma cultivar — bred specifically for low glycemic impact and certified by the Sydney Glycemic Index Foundation at GI 53 — is the lowest-GI commercial potato variety. In the US, waxy varieties (Red Norland, Charlotte, Yukon Gold) and new potatoes deliver the best low-GI behaviour." },
+          { q: "What's the lowest-GI potato?", a: "The Carisma cultivar — bred specifically for low glycemic impact and measured at GI 53 in a peer-reviewed University of Sydney study (Ek et al., British Journal of Nutrition, 2014) — is the lowest-GI commercial potato variety. In the US, waxy varieties (Red Norland, Charlotte, Yukon Gold) and new potatoes deliver the best low-GI behaviour." },
         ];
         return <><KnowledgeJsonLd slug={slug} title={meta.title || slug} description={titleInfo?.desc} tag={meta.tag} faqItems={bcFaq} wordCount={1800} /><IsPotatoABadCarb /></>;
       }
@@ -6620,14 +6861,14 @@ export default async function KnowledgePage({ params }) {
           { q: "What is contract farming for potatoes?", a: "Most processing potatoes (those destined for fries, chips, dehydrated products, or starch) are grown under contract to processors like Lamb Weston, McCain Foods, J.R. Simplot, Frito-Lay, and Cavendish. The processor specifies variety, quality specs (specific gravity, sugar content, defect tolerance), planting date, and delivery schedule. Contract farming applies to roughly 60–70% of US potato production." },
           { q: "How does the US compare to other potato countries by farm size?", a: "US potato farms are among the largest in the world. Average US farm: ~430 acres. Average Dutch farm: ~62 acres / 25 hectares. Average UK farm: ~99 acres / 40 hectares. Average Indian farm: <1 acre per smallholder typical. Average German farm: ~74 acres / 30 hectares. The US scale reflects abundant land, irrigation infrastructure, and processor-driven consolidation." },
           { q: "Are potato farms profitable?", a: "Profitability is highly variable. Contract growers for major processors typically earn $200–600 per acre net margin in good years and can lose money in bad years. Idaho processing growers in 2023 reported gross revenue of $4,500–6,500 per acre with input costs of $4,000–5,800 per acre. Vertical integration (grower-packer-shipper) is a common margin-improvement strategy." },
-          { q: "What states have the most potato farms?", a: "By acreage: Idaho (~315,000 acres, ~30% of US production), Washington (~165,000 acres, Columbia Basin), Wisconsin (~62,000 acres), North Dakota (~58,000 acres), Colorado (~52,000 acres, San Luis Valley), Maine (~46,000 acres), Minnesota (~45,000 acres), and Michigan (~45,000 acres)." },
+          { q: "What states have the most potato farms?", a: "By harvested acreage in 2025 (USDA NASS): Idaho (314,500 acres, 33.5% of US production), Washington (144,500 acres, Columbia Basin), North Dakota (69,300 acres), Wisconsin (67,000 acres), Colorado (54,800 acres, San Luis Valley), Maine (51,900 acres), Michigan (48,500 acres), Oregon (41,000 acres) and Minnesota (39,700 acres)." },
         ];
         return <><KnowledgeJsonLd slug={slug} title={meta.title || slug} description={titleInfo?.desc} tag={meta.tag} faqItems={lfFaq} wordCount={1900} /><LargestPotatoFarmsUS /></>;
       }
       case "potato-diseases-pests": {
         const dpFaq = [
           { q: "What is late blight in potatoes?", a: "Late blight is a disease caused by the oomycete Phytophthora infestans — the same pathogen responsible for the 1845–1852 Irish Potato Famine. It produces water-soaked brown lesions on leaves and stems and can rot tubers in storage. CIP estimates global annual losses at approximately $6.7 billion, making it the most economically destructive potato disease worldwide." },
-          { q: "What caused the Irish Potato Famine?", a: "Phytophthora infestans destroyed Ireland's potato crop from 1845 to 1852. Approximately 1 million people died and another 1 million emigrated. The root cause was genetic uniformity: nearly all Irish potatoes were clones of a single variety (Lumper), so when a virulent pathogen arrived, the entire crop fell at once. The disaster drove the modern emphasis on potato genetic diversity, including CIP's 4,350+ accession genebank in Lima." },
+          { q: "What caused the Irish Potato Famine?", a: "Phytophthora infestans destroyed Ireland's potato crop from 1845 to 1852. Approximately 1 million people died and another 1 million emigrated. The root cause was genetic uniformity: nearly all Irish potatoes were clones of a single variety (Lumper), so when a virulent pathogen arrived, the entire crop fell at once. The disaster drove the modern emphasis on potato genetic diversity, including the CIP genebank in Lima (about 9,000 active potato accessions)." },
           { q: "What is the most common potato pest?", a: "Globally, aphids are the most ubiquitous — not because of direct feeding damage but because they transmit potato virus Y (PVY) and potato leafroll virus (PLRV). The Colorado potato beetle is the most damaging defoliator in North America, Europe, and parts of Asia. Potato cyst nematode is the most regulated, with strict quarantine controls in the US, EU, and India." },
           { q: "How do you treat potato diseases organically?", a: "Organic disease management relies on certified seed, resistant varieties, crop rotation (3–4 year minimum away from solanaceous crops), copper-based fungicides for late blight, and removal of volunteer plants. Diversifying across multiple varieties on the same farm reduces single-pathogen risk. Bacillus subtilis biocontrol products are increasingly approved for organic potato systems in the EU and US." },
           { q: "What is potato cyst nematode?", a: "Potato cyst nematode (PCN) refers to two soil-dwelling species — Globodera rostochiensis (golden) and G. pallida (pale) — that form persistent cysts containing eggs viable for 20+ years in soil. PCN is a quarantine pest under EU, USDA APHIS, and Indian regulations. Detection on a farm typically triggers movement restrictions and can require resistant variety planting for several rotations." },
@@ -6652,7 +6893,7 @@ export default async function KnowledgePage({ params }) {
           { q: "What's the carbon footprint of a potato?", a: "Approximately 0.18–0.25 kg CO₂-eq per kg of fresh potato at farm gate (Carbon Trust; FAO LEAP). Per calorie, this is roughly half the footprint of rice and one-tenth that of beef. Processing (washing, frying, freezing, packaging) doubles or triples the farm-gate footprint depending on product — a 1 kg bag of frozen french fries carries roughly 0.6–0.9 kg CO₂-eq." },
           { q: "Are potato growing zones shifting?", a: "Yes. Production is migrating poleward and upward in altitude. Scottish and Scandinavian growing seasons are extending. Andean smallholders are planting at higher elevations. Indian Punjab and Uttar Pradesh face shortening winter growing windows. Northern Chinese provinces (Inner Mongolia, Heilongjiang) are seeing expansion as warmer summers extend tuber-bulking windows." },
           { q: "Which countries are most vulnerable to climate change for potato?", a: "South Asia (India, Pakistan, Bangladesh), North Africa (Egypt, Algeria, Morocco), and parts of Sub-Saharan Africa face the steepest projected yield declines because their current production already operates close to the upper-temperature threshold. Heat-tolerant varieties and earlier planting dates partially offset the impact, but breeding pipelines lag the rate of climatic change." },
-          { q: "What are CIP's heat-tolerant varieties?", a: "CIP has released 10+ LBHT (Late Blight + Heat Tolerant) clones bred for tropical lowland and South Asian conditions, including CIP-Matilde, CIP-Wanjiku, and CIP-Bertita varieties tested across Bangladesh, Indonesia, Vietnam, Kenya, and Uganda. CIP also screens its 4,350+ accession genebank for heat tolerance, including many native Andean varieties with genetic adaptation to the high-altitude diurnal temperature swings of the Peruvian and Bolivian highlands." },
+          { q: "What are CIP's heat-tolerant varieties?", a: "CIP has released 10+ LBHT (Late Blight + Heat Tolerant) clones bred for tropical lowland and South Asian conditions, including CIP-Matilde, CIP-Wanjiku, and CIP-Bertita varieties tested across Bangladesh, Indonesia, Vietnam, Kenya, and Uganda. CIP also screens its genebank (about 9,000 active potato accessions) for heat tolerance, including many native Andean varieties with genetic adaptation to the high-altitude diurnal temperature swings of the Peruvian and Bolivian highlands." },
           { q: "Can potatoes grow in the tropics?", a: "Yes — but only at altitude or in cool-season windows. In the tropical lowlands, daytime temperatures consistently above 25°C suppress tuberization, so commercial production concentrates above 1,500–2,000 metres altitude in countries near the equator (Kenya highlands, Andean Colombia, Indonesian Dieng plateau, parts of Vietnam). In subtropical countries (India, Egypt, Pakistan, Bangladesh) commercial production runs in the cool winter season (October–March) when temperatures fall into the 15–25°C range." },
         ];
         return <><KnowledgeJsonLd slug={slug} title={meta.title || slug} description={titleInfo?.desc} tag={meta.tag} faqItems={ccFaq} wordCount={2400} /><ClimateChangePotatoes /></>;

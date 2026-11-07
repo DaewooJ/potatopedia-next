@@ -78,6 +78,7 @@ const KNOWLEDGE_SLUGS = [
   "potatoes-and-kidney-health",
   "largest-potato-farms-us",
   "potato-expo-2026",
+  "potato-history-origin",
 ];
 
 const ANSWER_SLUGS = [

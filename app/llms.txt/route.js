@@ -31,7 +31,7 @@ Potatopedia is the most comprehensive potato intelligence platform on the web. W
 ## Primary data sources (representative)
 - FAOSTAT — UN FAO production, trade and food balance data
 - USDA NASS / ERS — US acreage, yield, pricing, Census of Agriculture
-- CIP (International Potato Center, Lima) — variety breeding, genebank with 4,000+ accessions
+- CIP (International Potato Center, Lima) — variety breeding, genebank with about 9,000 active potato accessions
 - ICAR-CPRI (Shimla) — Indian Kufri varieties, sub-tropical agronomy
 - CAAS (Chinese Academy of Agricultural Sciences) — Chinese variety releases
 - UN Comtrade — international trade flows, HS-code level statistics
@@ -81,7 +81,7 @@ ${getAllReports().map((r) => `- [${r.name} Potato Market Report 2026](https://ww
 ## Featured premium country dossiers (with PDF exports)
 - [India](https://www.potatopedia.com/country/india) — ${INDIA_POTATO.value} M tonnes (${INDIA_POTATO.year}, ${INDIA_POTATO.label}), 75+ Kufri varieties, ICAR-CPRI breeding pipeline. State-level deep dives for Uttar Pradesh, West Bengal, Bihar, Gujarat, Madhya Pradesh.
 - [China](https://www.potatopedia.com/country/china) — World's #1 producer at 94.4 M tonnes
-- [United States](https://www.potatopedia.com/country/united-states) — 19.06 M t (FAOSTAT 2024) · Idaho about 30% of output · major frozen-fry processing base
+- [United States](https://www.potatopedia.com/country/united-states) — 19.06 M t (FAOSTAT 2024) · Idaho 33.5% of output (USDA NASS 2025) · major frozen-fry processing base
 - [Netherlands](https://www.potatopedia.com/country/netherlands) — World's #1 seed potato exporter
 - [Belgium](https://www.potatopedia.com/country/belgium) — World's #1 frozen french fry exporter ($4.6B annually, 26.8% global trade)
 
