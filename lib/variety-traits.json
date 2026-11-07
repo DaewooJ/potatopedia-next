@@ -1,0 +1,2091 @@
+{
+ "adirondack-blue": {
+  "breeder": "Cornell University (Walter De Jong)",
+  "country": "USA / Cornell",
+  "year": "2003",
+  "parentage": "Cornell University breeding lines incorporating andigena diversity for blue-flesh trait",
+  "use": [
+   "Specialty fresh — chefs, farmers' markets, color applications, antioxidant-targeted retail"
+  ],
+  "maturity": "Medium (105-115 days)",
+  "skin": "Smooth, dark purple",
+  "flesh": "Blue to violet, may include some marbling",
+  "shape": "Oblong",
+  "eye_depth": "Shallow",
+  "specific_gravity": "1.072-1.080",
+  "yield": "300-400 cwt/acre (34-45 t/ha)",
+  "storage": "Moderate dormancy",
+  "resistances": {
+   "summary": "Moderate scab tolerance; moderate late blight tolerance"
+  },
+  "sources": [
+   {
+    "title": "Cornell University potato breeding program release documentation; USDA Eastern Potato Variety Development Database (NE1231); Penn State Extension specialty variety trials",
+    "url": "https://www.ars.usda.gov/pacific-west-area/aberdeen-id/small-grains-and-potato-germplasm-research/",
+    "publisher": "USDA-ARS, University of Idaho, Washington State University, Oregon State University and other US land-grant extension programmes",
+    "note": "Values as compiled in the Potatopedia source register from the publication named; link is to the publisher, not to a per-variety page."
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "adirondack-red": {
+  "breeder": "Cornell University (Walter De Jong, potato breeder)",
+  "country": "USA / Cornell",
+  "year": "2007",
+  "parentage": "Cornell breeding lines incorporating S. tuberosum andigena diversity",
+  "use": [
+   "Specialty fresh market — chefs, farmers' markets, retail specialty produce. Holds red flesh color when boiled"
+  ],
+  "maturity": "Medium (105-115 days)",
+  "skin": "Bright red, smooth",
+  "flesh": "Pink to red (red-fleshed) — distinct from Red Pontiac/Red Norland which have white flesh",
+  "shape": "Oblong to oval",
+  "eye_depth": "Shallow",
+  "specific_gravity": "1.072-1.080",
+  "yield": "300-400 cwt/acre (34-45 t/ha)",
+  "storage": "Moderate dormancy",
+  "resistances": {
+   "summary": "Moderate scab tolerance; moderate late blight tolerance"
+  },
+  "sources": [
+   {
+    "title": "Cornell University potato breeding program; USDA Eastern Potato Variety Development Database (NE1231); Penn State Extension specialty variety trials",
+    "url": "https://www.ars.usda.gov/pacific-west-area/aberdeen-id/small-grains-and-potato-germplasm-research/",
+    "publisher": "USDA-ARS, University of Idaho, Washington State University, Oregon State University and other US land-grant extension programmes",
+    "note": "Values as compiled in the Potatopedia source register from the publication named; link is to the publisher, not to a per-variety page."
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "agria": {
+  "country": "Germany",
+  "maturity": "maincrop / 5 (Agrico score, 1-9)",
+  "skin": "yellow / Y",
+  "flesh": "yellow / 7",
+  "shape": "oval long / OL",
+  "tuber_size": "large / 8",
+  "dry_matter": "21.8%",
+  "underwater_weight": "402",
+  "frying_quality": "excellent / 8",
+  "crisping_quality": "good / 7",
+  "cooking_type": "floury / BC",
+  "dormancy": "long / 8",
+  "resistances": {
+   "late_blight_foliage": "susceptible / 5.5 (Agrico score, 1-9)",
+   "late_blight_tuber": "slightly susceptible / 7 (Agrico score, 1-9)",
+   "pvy": "slightly to not susceptible / 8 (Agrico score, 1-9)",
+   "yntn_tuber": "slightly susceptible / 7 (Agrico score, 1-9)",
+   "leaf_roll": "slightly susceptible / 6 (Agrico score, 1-9)",
+   "spraing": "slightly susceptible / 7 (Agrico score, 1-9)",
+   "common_scab": "very susceptible / 4.5 (Agrico score, 1-9)",
+   "powdery_scab": "very susceptible / 3 (Agrico score, 1-9)",
+   "fusarium": "slightly susceptible / 6.5 (Agrico score, 1-9)",
+   "wart_f1": "slightly susceptible / 9 (Agrico score, 1-9)",
+   "wart_f6": "quite susceptible / 6 (Agrico score, 1-9)",
+   "pcn_ro1_4": "resistant / 9 (Agrico score, 1-9)",
+   "pcn_pa2": "susceptible / 2 (Agrico score, 1-9)",
+   "pcn_pa3": "susceptible / 2 (Agrico score, 1-9)",
+   "bruising": "quite sensitive / 6 (Agrico score, 1-9)",
+   "secondary_growth": "quite sensitive / 6 (Agrico score, 1-9)"
+  },
+  "sources": [
+   {
+    "title": "Agrico datasheet: Agria",
+    "url": "https://www.agricopotatoes.com/overview/agria",
+    "publisher": "Agrico"
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "all-blue": {
+  "breeder": "Heritage variety of unknown commercial breeding origin; extensively grown and characterized through US public seed programs and the USDA Potato Genebank",
+  "country": "USA",
+  "year": "Heritage variety, in cultivation in the US since the late 19th to early 20th century",
+  "parentage": "Heritage stock; US public-domain heritage cultivar with anthocyanin-rich skin and flesh",
+  "use": [
+   "Specialty fresh — farmers' markets, chefs, retail specialty produce, garden/home production"
+  ],
+  "maturity": "Medium (105-120 days)",
+  "skin": "Smooth, deep purple-blue",
+  "flesh": "Blue to purple throughout the tuber",
+  "shape": "Oblong",
+  "eye_depth": "Medium",
+  "specific_gravity": "1.075-1.080",
+  "yield": "250-350 cwt/acre (28-39 t/ha)",
+  "storage": "Moderate dormancy",
+  "resistances": {
+   "summary": "Variable; generally susceptible to common diseases"
+  },
+  "sources": [
+   {
+    "title": "USDA Potato Genebank (US Potato Genebank, Sturgeon Bay, Wisconsin) heritage germplasm collection; University of Idaho Specialty Potato Production publications; University of Maine specialty-variety guides",
+    "url": "https://www.ars.usda.gov/pacific-west-area/aberdeen-id/small-grains-and-potato-germplasm-research/",
+    "publisher": "USDA-ARS, University of Idaho, Washington State University, Oregon State University and other US land-grant extension programmes",
+    "note": "Values as compiled in the Potatopedia source register from the publication named; link is to the publisher, not to a per-variety page."
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "amandine": {
+  "breeder": "Germicopa SAS (Châteauneuf-du-Faou, Brittany)",
+  "country": "France / Germicopa",
+  "year": "1994 (registered)",
+  "use": [
+   "Fresh market (premium salad, trademark PRINCESSE AMANDINE)"
+  ],
+  "maturity": "Very early foliage maturity, slow emergence, moderate plant vigor, fairly short dormancy",
+  "skin": "Yellow",
+  "flesh": "Pale yellow",
+  "shape": "Long tuber, very shallow eye depth, medium size, good shape uniformity",
+  "cooking_type": "A",
+  "storage": "Fairly low storage ability",
+  "resistances": {
+   "common_scab": "Exceptional resistance to netted common scab; fairly high to pitted common scab",
+   "pvy": "Fairly high resistance to PVYntn",
+   "wart_f1": "Full resistance (pathotype 1)",
+   "pcn": "Null resistance"
+  },
+  "sources": [
+   {
+    "title": "Germicopa variety datasheet: Amandine",
+    "url": "https://www.germicopa.com/en/find-your-variety/",
+    "publisher": "Germicopa SAS"
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "amyla": {
+  "breeder": "Germicopa SAS (Châteauneuf-du-Faou, Brittany)",
+  "country": "France / Germicopa",
+  "use": [
+   "Industrial: starch and flakes"
+  ],
+  "maturity": "Very late foliage maturity",
+  "skin": "Deep yellow",
+  "flesh": "Deep yellow",
+  "shape": "Short oval, very poor shape uniformity, deep eye depth, very large tuber size",
+  "dry_matter": "Exceptional (>26%)",
+  "yield": "Very high",
+  "dormancy": "Long dormancy",
+  "storage": "High storage ability",
+  "resistances": {
+   "wart_f1": "Full resistance (pathotype 1)",
+   "pcn": "Full resistance (Ro1-4)",
+   "pvy": "Very high resistance to PVYntn; low resistance to PVY",
+   "late_blight_tuber": "High resistance"
+  },
+  "sources": [
+   {
+    "title": "Germicopa variety datasheet: Amyla",
+    "url": "https://www.germicopa.com/en/find-your-variety/",
+    "publisher": "Germicopa SAS"
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "annabelle": {
+  "breeder": "HZPC",
+  "country": "Netherlands",
+  "parentage": "NICOLA × MONALISA",
+  "use": [
+   "South Europe"
+  ],
+  "highlights": [
+   "Very good taste",
+   "Firm cooking",
+   "Very suitable for early harvest",
+   "Uniform tuber size and shape"
+  ],
+  "maturity": "76 Early",
+  "skin": "Yellow",
+  "flesh": "Dark yellow (after cooking)",
+  "shape": "Long oval",
+  "dry_matter": "18.3% (starch 12.5%)",
+  "underwater_weight": "331",
+  "specific_gravity": "1.07",
+  "yield": "90 Moderate (yield mature, HZPC score)",
+  "cooking_type": "A - Firm",
+  "dormancy": "29 Short",
+  "resistances": {
+   "late_blight_foliage": "32 (HZPC score, higher = more resistant)",
+   "late_blight_tuber": "44 (HZPC score, higher = more resistant)",
+   "alternaria": "60 (HZPC score, higher = more resistant)",
+   "common_scab": "51 (HZPC score, higher = more resistant)",
+   "powdery_scab": "55 (HZPC score, higher = more resistant)",
+   "spraing": "89 (HZPC score, higher = more resistant)",
+   "pvy": "40 (HZPC score, higher = more resistant)",
+   "yntn_tuber": "69 (HZPC score, higher = more resistant)",
+   "bruising": "4 Not sensitive (HZPC internal-bruising score)",
+   "pcn_ro1_4": "9",
+   "pcn_ro2_3": "8",
+   "pcn_pa2": "3 (HZPC own analysis)",
+   "wart_f1": "10",
+   "wart_f2": "6",
+   "wart_f6": "7"
+  },
+  "sources": [
+   {
+    "title": "HZPC production advice (growing advice) for Annabelle",
+    "url": "https://www.hzpc.com/our-potato-varieties/annabelle/retail-fresh",
+    "publisher": "HZPC"
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "asante": {
+  "breeder": "CIP cross selected by the Kenya Potato Programme at KALRO (formerly KARI) in collaboration with CIP",
+  "country": "Kenya",
+  "year": "1996 in Kenya. Released in Uganda in 1991 under the name Victoria (same CIP genetic material registered separately by national programs)",
+  "parentage": "CIP highland tropical breeding population (specific clone CIP381381.20 is associated with the Victoria/Asante variety lineage in CIP records)",
+  "use": [
+   "Fresh table consumption"
+  ],
+  "maturity": "Medium (115-130 days)",
+  "skin": "Red",
+  "flesh": "Cream to light yellow",
+  "shape": "Round to oval",
+  "yield": "20-30 t/ha under good management",
+  "storage": "Moderate dormancy (72.3 days documented for Asante)",
+  "resistances": {
+   "late_blight": "Originally bred as resistant; has subsequently lost resistance against current Phytophthora infestans populations in East Africa, but retained adoption due to taste and market acceptance"
+  },
+  "sources": [
+   {
+    "title": "PMC10730645 \"Potato and sweetpotato breeding at the International Potato Center\"; KALRO Tigoni; CIP-50",
+    "url": "https://cipotato.org",
+    "publisher": "International Potato Center (CIP) and national partners",
+    "note": "Values as compiled in the Potatopedia source register from the publication named; link is to the publisher, not to a per-variety page."
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "asterix": {
+  "breeder": "HZPC",
+  "country": "Netherlands",
+  "parentage": "CARDINAL × VE70-9",
+  "use": [
+   "French Fries"
+  ],
+  "highlights": [
+   "High yield",
+   "Strong foliage",
+   "Multi-purpose variety"
+  ],
+  "maturity": "54 Late",
+  "skin": "Red",
+  "flesh": "Light yellow (after cooking)",
+  "shape": "Oval / Long oval",
+  "dry_matter": "23.3% (starch 17.4%)",
+  "underwater_weight": "433",
+  "specific_gravity": "1.094",
+  "yield": "110 High (yield mature, HZPC score)",
+  "cooking_type": "B - Slightly mealy",
+  "dormancy": "50 Moderate short",
+  "resistances": {
+   "late_blight_foliage": "40 (HZPC score, higher = more resistant)",
+   "late_blight_tuber": "73 (HZPC score, higher = more resistant)",
+   "alternaria": "77 (HZPC score, higher = more resistant)",
+   "common_scab": "56 (HZPC score, higher = more resistant)",
+   "powdery_scab": "59 (HZPC score, higher = more resistant)",
+   "spraing": "89 (HZPC score, higher = more resistant)",
+   "pvy": "17 (HZPC score, higher = more resistant)",
+   "yntn_tuber": "97 (HZPC score, higher = more resistant)",
+   "bruising": "13 Quite sensitive (HZPC internal-bruising score)",
+   "pcn_ro1_4": "9",
+   "pcn_ro2_3": "3 (HZPC own analysis)",
+   "pcn_pa2": "2 (HZPC own analysis)",
+   "pcn_pa3": "1 (HZPC own analysis)",
+   "wart_f1": "10",
+   "wart_f2": "7",
+   "wart_f6": "7"
+  },
+  "sources": [
+   {
+    "title": "HZPC production advice (growing advice) for Asterix",
+    "url": "https://www.hzpc.com/our-potato-varieties/asterix/traditional",
+    "publisher": "HZPC"
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "atlantic": {
+  "breeder": "USDA-ARS Beltsville, Maryland — eastern US breeding program",
+  "country": "USA",
+  "year": "1976",
+  "parentage": "Wauseon × B5141-6",
+  "use": [
+   "Potato chip processing (the #2 chipping variety in the United States; the dominant high-quality chip variety for decades)"
+  ],
+  "maturity": "Medium (110-120 days)",
+  "skin": "Buff (light tan), smooth",
+  "flesh": "White",
+  "shape": "Round to oval",
+  "eye_depth": "Shallow to medium",
+  "specific_gravity": "1.087-1.090 (very high — its defining processing trait)",
+  "yield": "470-480 cwt/acre (53-54 t/ha) total yield in 2021-2022 USDA Western Regional Chipping Trials; US #1 yield 317-321 cwt/acre",
+  "storage": "Moderate dormancy; medium cold sweetening resistance",
+  "resistances": {
+   "summary": "Susceptible to PVY, late blight, common scab, internal heat necrosis, and hollow heart. Atlantic's commercial dominance is driven by its very high specific gravity and excellent chip color, not by field resistance"
+  },
+  "sources": [
+   {
+    "title": "USDA-ARS Western Regional Chipping Potato Variety Trial Reports (2021, 2022); USDA-AMS Plant Variety Protection Office variety description; USDA-ARS publication \"The Agricultural Research Service is Breeding a Better Potato for a Better Potato Chip\" (2023)",
+    "url": "https://www.ars.usda.gov/pacific-west-area/aberdeen-id/small-grains-and-potato-germplasm-research/",
+    "publisher": "USDA-ARS, University of Idaho, Washington State University, Oregon State University and other US land-grant extension programmes",
+    "note": "Values as compiled in the Potatopedia source register from the publication named; link is to the publisher, not to a per-variety page."
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "belete": {
+  "breeder": "CIP germplasm; released by Ethiopia's national agricultural research program",
+  "country": "Ethiopia / CIP",
+  "sources": [
+   {
+    "title": "PMC10730645",
+    "url": "https://cipotato.org",
+    "publisher": "International Potato Center (CIP) and national partners",
+    "note": "Values as compiled in the Potatopedia source register from the publication named; link is to the publisher, not to a per-variety page."
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "carolus": {
+  "country": "Netherlands",
+  "maturity": "early maincrop / 6 (Agrico score, 1-9)",
+  "skin": "yellow with red eyes / Y/R",
+  "flesh": "yellow / 7",
+  "shape": "oval / O",
+  "tuber_size": "quite large / 7",
+  "dry_matter": "21.6%",
+  "underwater_weight": "398",
+  "frying_quality": "good / 7",
+  "crisping_quality": "good / 7",
+  "cooking_type": "floury / BC",
+  "dormancy": "average / 6.5",
+  "resistances": {
+   "late_blight_foliage": "slightly to not susceptible / 9 (Agrico score, 1-9)",
+   "late_blight_tuber": "slightly to not susceptible / 9 (Agrico score, 1-9)",
+   "pvy": "slightly susceptible / 7 (Agrico score, 1-9)",
+   "yntn_tuber": "slightly susceptible / 7 (Agrico score, 1-9)",
+   "spraing": "slightly susceptible / 6 (Agrico score, 1-9)",
+   "common_scab": "susceptible / 5 (Agrico score, 1-9)",
+   "powdery_scab": "susceptible / 5 (Agrico score, 1-9)",
+   "fusarium": "slightly susceptible / 6 (Agrico score, 1-9)",
+   "wart_f1": "resistant / 10 (Agrico score, 1-9)",
+   "bruising": "quite sensitive / 6 (Agrico score, 1-9)",
+   "secondary_growth": "slightly sensitive / 7 (Agrico score, 1-9)"
+  },
+  "sources": [
+   {
+    "title": "Agrico datasheet: Carolus",
+    "url": "https://www.agricopotatoes.com/overview/carolus",
+    "publisher": "Agrico"
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "charlotte": {
+  "breeder": "Germicopa SAS (Châteauneuf-du-Faou, Brittany)",
+  "country": "France / Germicopa",
+  "use": [
+   "Fresh market (salad)"
+  ],
+  "highlights": [
+   "First firm-flesh potato variety released on the French market"
+  ],
+  "maturity": "Medium early foliage maturity",
+  "skin": "Deep yellow",
+  "flesh": "Yellow",
+  "shape": "Long oval, medium size, very shallow eye depth, good shape uniformity",
+  "dry_matter": "Fairly high (20-22%)",
+  "yield": "Fairly high",
+  "cooking_type": "A",
+  "storage": "Storage ability: fairly high",
+  "resistances": {
+   "late_blight_tuber": "Strong resistance",
+   "late_blight_foliage": "Fairly low resistance",
+   "pvy": "Strong resistance to PVYntn",
+   "internal_rust_spot": "Very high resistance"
+  },
+  "sources": [
+   {
+    "title": "Germicopa variety datasheet: Charlotte",
+    "url": "https://www.germicopa.com/en/find-your-variety/",
+    "publisher": "Germicopa SAS"
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "cherie": {
+  "breeder": "Germicopa SAS (Châteauneuf-du-Faou, Brittany)",
+  "country": "France / Germicopa",
+  "use": [
+   "Fresh market (red-skinned salad)"
+  ],
+  "maturity": "Very early variety overall, early foliage maturity",
+  "skin": "Red",
+  "flesh": "Pale yellow",
+  "shape": "Long oval, very shallow eye depth, good shape uniformity, small tuber size",
+  "dry_matter": "Fairly high (20-22%)",
+  "cooking_type": "A (waxy/firm flesh)",
+  "dormancy": "Long dormancy",
+  "storage": "High storage ability",
+  "resistances": {
+   "pvy": "Exceptional resistance to PVYntn",
+   "common_scab": "High resistance to netted common scab",
+   "wart": "High resistance",
+   "late_blight_foliage": "Low resistance"
+  },
+  "sources": [
+   {
+    "title": "Germicopa variety datasheet: Cherie",
+    "url": "https://www.germicopa.com/en/find-your-variety/",
+    "publisher": "Germicopa SAS"
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "cooperation-88": {
+  "breeder": "International Potato Center (CIP) and Yunnan Normal University in Kunming, China — joint breeding program",
+  "country": "China / CIP-derived",
+  "year": "Named and released as a cultivar in 1996; formally registered in China in 2001",
+  "parentage": "CIP late-blight-resistant breeding population (Population B) cross, selected at Yunnan Normal University for adaptation to southwestern Chinese conditions",
+  "use": [
+   "Fresh table consumption AND chip processing — dual-purpose making it suitable for both home consumption and the growing Chinese snack-food sector"
+  ],
+  "maturity": "Medium-late (120-135 days)",
+  "skin": "Red",
+  "flesh": "Yellow",
+  "shape": "Oval to oblong",
+  "yield": "15% higher than the previously dominant Yunnan varieties under farmer conditions",
+  "resistances": {
+   "late_blight": "HIGH — its defining and original breeding target. Population B horizontal resistance has held up well against Yunnan's late blight pressure for over 25 years"
+  },
+  "sources": [
+   {
+    "title": "CIP blog \"Assessing the impact of Cooperation-88 potatoes in China\"; CIP \"C88 popularity in Southwest China\"; RTB/CGIAR \"The curious case of C-88: impacts of a potato variety on farmers in Yunnan, China.\"",
+    "url": "https://cipotato.org",
+    "publisher": "International Potato Center (CIP) and national partners",
+    "note": "Values as compiled in the Potatopedia source register from the publication named; link is to the publisher, not to a per-variety page."
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "daifla": {
+  "breeder": "Germicopa SAS (Châteauneuf-du-Faou, Brittany)",
+  "country": "France / Germicopa",
+  "use": [
+   "Fresh market: multi-purpose, South Mediterranean"
+  ],
+  "highlights": [
+   "Heat tolerant, popular in North Africa"
+  ],
+  "maturity": "Medium late foliage maturity",
+  "skin": "Cream",
+  "flesh": "Cream",
+  "shape": "Oval, fairly good uniformity, shallow eye depth, large tuber size",
+  "dry_matter": "Medium (18-20%)",
+  "yield": "Very high yield",
+  "cooking_type": "B-C",
+  "dormancy": "Long dormancy",
+  "storage": "Fairly high storage ability",
+  "resistances": {
+   "common_scab": "May be susceptible depending on soil conditions",
+   "late_blight_foliage": "Fairly low resistance",
+   "late_blight_tuber": "Fairly low resistance"
+  },
+  "sources": [
+   {
+    "title": "Germicopa variety datasheet: Daifla",
+    "url": "https://www.germicopa.com/en/find-your-variety/",
+    "publisher": "Germicopa SAS"
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "daisy-germicopa": {
+  "breeder": "Germicopa SAS (Châteauneuf-du-Faou, Brittany)",
+  "country": "France / Germicopa",
+  "use": [
+   "Industrial: French fry processing"
+  ],
+  "maturity": "Medium late foliage maturity",
+  "skin": "Yellow",
+  "flesh": "Pale yellow",
+  "shape": "Long oval, good uniformity, shallow eye depth, very large tuber size",
+  "dry_matter": "High (22-24%)",
+  "yield": "High",
+  "frying_quality": "Exceptional frying color at harvest",
+  "cooking_type": "B",
+  "dormancy": "Medium dormancy",
+  "storage": "High storage ability",
+  "resistances": {
+   "wart": "Full resistance",
+   "pcn_ro1": "Full resistance (G. rostochiensis)",
+   "pvy": "Exceptional resistance to PVYntn; low resistance to PVY",
+   "common_scab": "Low resistance to common pitted scab"
+  },
+  "sources": [
+   {
+    "title": "Germicopa variety datasheet: Daisy",
+    "url": "https://www.germicopa.com/en/find-your-variety/",
+    "publisher": "Germicopa SAS"
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "desiree": {
+  "breeder": "ZPC (bred in the Netherlands, 1962)",
+  "country": "Netherlands",
+  "year": "1962",
+  "highlights": [
+   "Good drought resistance"
+  ],
+  "maturity": "Medium late (score 57)",
+  "skin": "Red",
+  "flesh": "Light yellow (after cooking)",
+  "shape": "Oval; large tubers (score 82), 9-11 per plant",
+  "dry_matter": "21.5%",
+  "underwater_weight": "397",
+  "yield": "High (score 106)",
+  "cooking_type": "B (Slightly mealy)",
+  "dormancy": "Medium (score 61)",
+  "resistances": {
+   "spraing": "Slightly susceptible",
+   "late_blight_foliage": "Susceptible",
+   "common_scab": "Very susceptible",
+   "powdery_scab": "Susceptible",
+   "pvy": "Susceptible (PVYn)",
+   "yntn_tuber": "Tolerant",
+   "pcn_ro1": "+1",
+   "wart_f1": "10",
+   "bruising": "Quite sensitive (score 16)"
+  },
+  "sources": [
+   {
+    "title": "STET Holland variety datasheet: Desiree",
+    "url": "https://www.stet-potato.com",
+    "publisher": "STET Holland B.V."
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "diamant": {
+  "country": "Netherlands",
+  "maturity": "early maincrop / 6 (Agrico score, 1-9)",
+  "skin": "yellow / Y",
+  "flesh": "light yellow / 6",
+  "shape": "oval / O",
+  "tuber_size": "quite large / 7",
+  "dry_matter": "23%",
+  "underwater_weight": "420",
+  "frying_quality": "good / 7",
+  "crisping_quality": "average / 6",
+  "cooking_type": "rather floury / B",
+  "dormancy": "quite short / 5",
+  "resistances": {
+   "late_blight_foliage": "slightly susceptible / 6 (Agrico score, 1-9)",
+   "late_blight_tuber": "slightly susceptible / 7 (Agrico score, 1-9)",
+   "pvy": "slightly susceptible / 7 (Agrico score, 1-9)",
+   "yntn_tuber": "slightly susceptible / 7 (Agrico score, 1-9)",
+   "leaf_roll": "slightly susceptible / 6 (Agrico score, 1-9)",
+   "spraing": "slightly susceptible / 6 (Agrico score, 1-9)",
+   "common_scab": "very susceptible / 4.5 (Agrico score, 1-9)",
+   "powdery_scab": "very susceptible / 3 (Agrico score, 1-9)",
+   "fusarium": "susceptible / 5 (Agrico score, 1-9)",
+   "wart_f1": "resistant / 10 (Agrico score, 1-9)",
+   "wart_f6": "quite susceptible / 6 (Agrico score, 1-9)",
+   "pcn_ro1_4": "resistant / 9 (Agrico score, 1-9)",
+   "bruising": "sensitive / 5 (Agrico score, 1-9)",
+   "secondary_growth": "slightly sensitive / 7 (Agrico score, 1-9)"
+  },
+  "sources": [
+   {
+    "title": "Agrico datasheet: Diamant",
+    "url": "https://www.agricopotatoes.com/overview/diamant",
+    "publisher": "Agrico"
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "ditta": {
+  "country": "Austria",
+  "maturity": "early maincrop / 6 (Agrico score, 1-9)",
+  "skin": "yellow / Y",
+  "flesh": "light yellow / 6.5",
+  "shape": "long oval / LO",
+  "tuber_size": "quite large / 7",
+  "dry_matter": "20.2%",
+  "underwater_weight": "369",
+  "frying_quality": "below average / 5.5",
+  "crisping_quality": "unsuitable / 4",
+  "cooking_type": "firm / A",
+  "dormancy": "quite long / 7",
+  "resistances": {
+   "late_blight_foliage": "susceptible / 5.5 (Agrico score, 1-9)",
+   "late_blight_tuber": "slightly susceptible / 7 (Agrico score, 1-9)",
+   "pvy": "slightly susceptible / 7.5 (Agrico score, 1-9)",
+   "yntn_tuber": "susceptible / 5 (Agrico score, 1-9)",
+   "leaf_roll": "slightly susceptible / 7 (Agrico score, 1-9)",
+   "spraing": "susceptible / 5 (Agrico score, 1-9)",
+   "common_scab": "slightly susceptible / 6 (Agrico score, 1-9)",
+   "powdery_scab": "slightly susceptible / 6.5 (Agrico score, 1-9)",
+   "fusarium": "slightly susceptible / 6 (Agrico score, 1-9)",
+   "wart_f1": "resistant / 10 (Agrico score, 1-9)",
+   "pcn_ro1_4": "resistant / 9 (Agrico score, 1-9)",
+   "bruising": "slightly sensitive / 7 (Agrico score, 1-9)",
+   "secondary_growth": "quite sensitive / 6 (Agrico score, 1-9)"
+  },
+  "sources": [
+   {
+    "title": "Agrico datasheet: Ditta",
+    "url": "https://www.agricopotatoes.com/overview/ditta",
+    "publisher": "Agrico"
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "fontane": {
+  "breeder": "Lantmännen Seed B.V. (breeder Eerke Pot); the cross was created in the 1980s at Agrico Research",
+  "country": "Netherlands / Agrico",
+  "maturity": "early maincrop / 5.5 (Agrico score, 1-9)",
+  "skin": "yellow / Y",
+  "flesh": "light yellow / 6.5",
+  "shape": "oval / O",
+  "tuber_size": "quite large / 7",
+  "dry_matter": "23.2%",
+  "underwater_weight": "430",
+  "frying_quality": "excellent / 8",
+  "crisping_quality": "average / 6",
+  "cooking_type": "floury / BC",
+  "dormancy": "quite short / 5.5",
+  "resistances": {
+   "late_blight_foliage": "susceptible / 5 (Agrico score, 1-9)",
+   "late_blight_tuber": "slightly susceptible / 6.5 (Agrico score, 1-9)",
+   "pvy": "susceptible / 5.5 (Agrico score, 1-9)",
+   "yntn_tuber": "slightly susceptible / 7 (Agrico score, 1-9)",
+   "leaf_roll": "slightly susceptible / 6 (Agrico score, 1-9)",
+   "spraing": "slightly susceptible / 6.5 (Agrico score, 1-9)",
+   "common_scab": "slightly susceptible / 6 (Agrico score, 1-9)",
+   "powdery_scab": "slightly susceptible / 6 (Agrico score, 1-9)",
+   "fusarium": "slightly susceptible / 6 (Agrico score, 1-9)",
+   "wart_f1": "quite susceptible / 6 (Agrico score, 1-9)",
+   "wart_f6": "moderately susceptible / 8 (Agrico score, 1-9)",
+   "pcn_ro1_4": "resistant / 9 (Agrico score, 1-9)",
+   "bruising": "quite sensitive / 6 (Agrico score, 1-9)",
+   "secondary_growth": "quite sensitive / 6 (Agrico score, 1-9)"
+  },
+  "sources": [
+   {
+    "title": "Agrico datasheet: Fontane",
+    "url": "https://www.agricopotatoes.com/overview/fontane",
+    "publisher": "Agrico"
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "germi-300": {
+  "breeder": "Germicopa SAS (Châteauneuf-du-Faou, Brittany)",
+  "country": "France / Germicopa",
+  "use": [
+   "Industrial: French fry processing"
+  ],
+  "maturity": "Medium foliage maturity",
+  "skin": "Red",
+  "flesh": "Yellow",
+  "shape": "Long oval, good uniformity, shallow eye depth, large tuber size, 10-12 tubers/plant",
+  "dry_matter": "Fairly high (21-23%)",
+  "yield": "Very high productivity with a high proportion of large tubers",
+  "frying_quality": "Very good frying color at harvest",
+  "cooking_type": "A",
+  "dormancy": "Long dormancy",
+  "storage": "High storage ability; frying colour stays good after 9 months of storage",
+  "resistances": {
+   "late_blight_foliage": "High resistance",
+   "late_blight_tuber": "Moderate resistance",
+   "pvy": "Very high resistance to PVYntn",
+   "wart_f1": "High resistance"
+  },
+  "sources": [
+   {
+    "title": "Germicopa variety datasheet: Germi 300",
+    "url": "https://www.germicopa.com/en/find-your-variety/",
+    "publisher": "Germicopa SAS"
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "innovator": {
+  "breeder": "HZPC",
+  "country": "Netherlands",
+  "parentage": "SHEPODY × RZ-84-2580",
+  "use": [
+   "French Fries"
+  ],
+  "highlights": [
+   "Big size tubers",
+   "Consistent high frying quality",
+   "Suitable for QSR",
+   "Length specifications",
+   "PCN resistance to Pa2 and Pa3"
+  ],
+  "maturity": "69 Medium early",
+  "skin": "Brown = russet",
+  "flesh": "Light yellow (after cooking)",
+  "shape": "Oval / Long oval",
+  "dry_matter": "20.6% (starch 14.8%)",
+  "underwater_weight": "379",
+  "specific_gravity": "1.081",
+  "yield": "91 Good (yield mature, HZPC score)",
+  "cooking_type": "B - Slightly mealy",
+  "dormancy": "63 Medium",
+  "resistances": {
+   "late_blight_foliage": "42 (HZPC score, higher = more resistant)",
+   "late_blight_tuber": "59 (HZPC score, higher = more resistant)",
+   "alternaria": "55 (HZPC score, higher = more resistant)",
+   "common_scab": "66 (HZPC score, higher = more resistant)",
+   "powdery_scab": "65 (HZPC score, higher = more resistant)",
+   "spraing": "55 (HZPC score, higher = more resistant)",
+   "pvy": "32 (HZPC score, higher = more resistant)",
+   "yntn_tuber": "99 (HZPC score, higher = more resistant)",
+   "bruising": "12 Quite sensitive (HZPC internal-bruising score)",
+   "pcn_ro1_4": "2 (HZPC own analysis)",
+   "pcn_ro2_3": "1 (HZPC own analysis)",
+   "pcn_pa2": "8",
+   "pcn_pa3": "9",
+   "wart_f1": "10",
+   "wart_f2": "2 (HZPC own analysis)",
+   "wart_f6": "3"
+  },
+  "sources": [
+   {
+    "title": "HZPC production advice (growing advice) for Innovator",
+    "url": "https://www.hzpc.com/our-potato-varieties/innovator/french-fries",
+    "publisher": "HZPC"
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "kennebec": {
+  "breeder": "USDA-ARS Beltsville, Maryland, with University of Maine",
+  "country": "USA",
+  "year": "1948",
+  "parentage": "USDA B127 × USDA 96-56",
+  "use": [
+   "Multipurpose — fresh table, chip processing, French fries. Long valued by craft chip producers (Cape Cod, Kettle, regional brands) for its flavor"
+  ],
+  "maturity": "Medium-late (115-130 days)",
+  "skin": "Smooth, light buff to white",
+  "flesh": "White",
+  "shape": "Oval to oblong",
+  "eye_depth": "Shallow",
+  "specific_gravity": "1.075-1.085",
+  "yield": "400-500 cwt/acre (45-56 t/ha) — very high yielding",
+  "storage": "Moderate dormancy; good storage quality",
+  "resistances": {
+   "summary": "Resistant to late blight (historically — Race-specific resistance has been overcome by some modern late-blight strains); resistant to mild mosaic virus. Susceptible to scab, blackleg, and Verticillium wilt. Prone to growth cracks and hollow heart in large tubers"
+  },
+  "sources": [
+   {
+    "title": "USDA-ARS Beltsville variety records; University of Maine Cooperative Extension; USDA-AMS Plant Variety database",
+    "url": "https://www.ars.usda.gov/pacific-west-area/aberdeen-id/small-grains-and-potato-germplasm-research/",
+    "publisher": "USDA-ARS, University of Idaho, Washington State University, Oregon State University and other US land-grant extension programmes",
+    "note": "Values as compiled in the Potatopedia source register from the publication named; link is to the publisher, not to a per-variety page."
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "kufri-bahar": {
+  "breeder": "ICAR-CPRI Shimla",
+  "country": "India / ICAR-CPRI",
+  "year": "1980",
+  "use": [
+   "Table/fresh market (early crop)"
+  ],
+  "maturity": "Early (75-85 days)",
+  "skin": "White",
+  "flesh": "White to cream",
+  "shape": "Oval",
+  "dry_matter": "17-19%",
+  "starch": "12-13%",
+  "yield": "25-30 tonnes/hectare",
+  "cooking_type": "B",
+  "resistances": {
+   "summary": "Susceptible to late blight. Moderate virus resistance"
+  },
+  "sources": [
+   {
+    "title": "ICAR-CPRI variety catalog",
+    "url": "https://cpri.icar.gov.in",
+    "publisher": "ICAR-Central Potato Research Institute (CPRI), Shimla",
+    "note": "Values as compiled in the Potatopedia source register from the publication named; link is to the publisher, not to a per-variety page."
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "kufri-chandramukhi": {
+  "breeder": "ICAR-CPRI Shimla",
+  "country": "India / ICAR-CPRI",
+  "year": "1968",
+  "use": [
+   "Table/fresh market"
+  ],
+  "maturity": "Early (80-90 days)",
+  "skin": "White",
+  "flesh": "White",
+  "shape": "Oval",
+  "dry_matter": "17-19%",
+  "starch": "11-13%",
+  "yield": "20-25 tonnes/hectare",
+  "cooking_type": "A-B (waxy to all-purpose)",
+  "resistances": {
+   "summary": "Susceptible to late blight. Moderate resistance to common scab"
+  },
+  "sources": [
+   {
+    "title": "ICAR-CPRI variety catalog",
+    "url": "https://cpri.icar.gov.in",
+    "publisher": "ICAR-Central Potato Research Institute (CPRI), Shimla",
+    "note": "Values as compiled in the Potatopedia source register from the publication named; link is to the publisher, not to a per-variety page."
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "kufri-chipsona-1": {
+  "breeder": "ICAR-CPRI Shimla",
+  "country": "India / ICAR-CPRI",
+  "year": "1998",
+  "use": [
+   "Chip/crisp production"
+  ],
+  "maturity": "Medium (90-100 days)",
+  "skin": "White",
+  "flesh": "White to cream",
+  "shape": "Round",
+  "dry_matter": "22-24%",
+  "starch": "16-18%",
+  "yield": "25-30 tonnes/hectare",
+  "cooking_type": "C (floury)",
+  "resistances": {
+   "summary": "Moderate. Susceptible to late blight"
+  },
+  "sources": [
+   {
+    "title": "ICAR-CPRI variety catalog; Kumar D (2011), \"Cold-induced sweetening development in Indian potato varieties,\" Indian J Biochem Biophys, PMID 21682144",
+    "url": "https://cpri.icar.gov.in",
+    "publisher": "ICAR-Central Potato Research Institute (CPRI), Shimla",
+    "note": "Values as compiled in the Potatopedia source register from the publication named; link is to the publisher, not to a per-variety page."
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "kufri-chipsona-3": {
+  "breeder": "ICAR-CPRI Shimla",
+  "country": "India / ICAR-CPRI",
+  "year": "2005",
+  "use": [
+   "Chip/crisp production"
+  ],
+  "maturity": "Medium (90-100 days)",
+  "skin": "White",
+  "flesh": "Cream",
+  "shape": "Round",
+  "dry_matter": "22-25%",
+  "starch": "17-19%",
+  "yield": "28-35 tonnes/hectare",
+  "cooking_type": "C (floury)",
+  "resistances": {
+   "summary": "Better late blight tolerance than Chipsona 1. Moderate virus resistance"
+  },
+  "sources": [
+   {
+    "title": "ICAR-CPRI variety catalog; Kumar D (2011), Indian J Biochem Biophys",
+    "url": "https://cpri.icar.gov.in",
+    "publisher": "ICAR-Central Potato Research Institute (CPRI), Shimla",
+    "note": "Values as compiled in the Potatopedia source register from the publication named; link is to the publisher, not to a per-variety page."
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "kufri-frysona": {
+  "breeder": "ICAR-CPRI Shimla",
+  "country": "India / ICAR-CPRI",
+  "year": "2013",
+  "use": [
+   "French fry production"
+  ],
+  "maturity": "Medium (90-100 days)",
+  "skin": "White",
+  "flesh": "Cream to light yellow",
+  "shape": "Long oval (elongated for fry strips)",
+  "dry_matter": "21-23%",
+  "starch": "15-17%",
+  "yield": "28-35 tonnes/hectare",
+  "cooking_type": "B-C",
+  "resistances": {
+   "summary": "Moderate. Better than Shepody for Indian conditions"
+  },
+  "sources": [
+   {
+    "title": "ICAR-CPRI variety catalog",
+    "url": "https://cpri.icar.gov.in",
+    "publisher": "ICAR-Central Potato Research Institute (CPRI), Shimla",
+    "note": "Values as compiled in the Potatopedia source register from the publication named; link is to the publisher, not to a per-variety page."
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "kufri-himalini": {
+  "breeder": "ICAR-CPRI Shimla",
+  "country": "India / ICAR-CPRI",
+  "year": "2006",
+  "use": [
+   "Table (hill region)"
+  ],
+  "maturity": "Medium (90-100 days)",
+  "skin": "White",
+  "flesh": "Cream",
+  "shape": "Oval",
+  "dry_matter": "19-21%",
+  "yield": "25-30 tonnes/hectare",
+  "resistances": {
+   "summary": "Good late blight resistance — critical for hills where blight pressure is extreme"
+  },
+  "sources": [
+   {
+    "title": "ICAR-CPRI variety catalog",
+    "url": "https://cpri.icar.gov.in",
+    "publisher": "ICAR-Central Potato Research Institute (CPRI), Shimla",
+    "note": "Values as compiled in the Potatopedia source register from the publication named; link is to the publisher, not to a per-variety page."
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "kufri-jyoti": {
+  "breeder": "ICAR-CPRI Shimla",
+  "country": "India / ICAR-CPRI",
+  "year": "1968",
+  "use": [
+   "Table/fresh market"
+  ],
+  "maturity": "Medium (90-100 days)",
+  "skin": "White",
+  "flesh": "White",
+  "shape": "Oval to round",
+  "dry_matter": "18-20%",
+  "starch": "12-14%",
+  "yield": "25-30 tonnes/hectare",
+  "cooking_type": "B (all-purpose)",
+  "resistances": {
+   "summary": "Moderate late blight resistance. Field resistance to common scab"
+  },
+  "sources": [
+   {
+    "title": "ICAR-CPRI variety catalog; NHRDF variety recommendations",
+    "url": "https://cpri.icar.gov.in",
+    "publisher": "ICAR-Central Potato Research Institute (CPRI), Shimla",
+    "note": "Values as compiled in the Potatopedia source register from the publication named; link is to the publisher, not to a per-variety page."
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "kufri-khyati": {
+  "breeder": "ICAR-CPRI Shimla (Regional Station, Modipuram, UP)",
+  "country": "India / ICAR-CPRI",
+  "year": "2005",
+  "use": [
+   "Table/fresh market"
+  ],
+  "maturity": "Early (75-85 days)",
+  "skin": "White",
+  "flesh": "White to cream",
+  "shape": "Oval",
+  "dry_matter": "18-20%",
+  "starch": "12-14%",
+  "yield": "30-35 tonnes/hectare",
+  "cooking_type": "B",
+  "resistances": {
+   "summary": "Moderate late blight resistance. Good field tolerance"
+  },
+  "sources": [
+   {
+    "title": "ICAR-CPRI variety catalog",
+    "url": "https://cpri.icar.gov.in",
+    "publisher": "ICAR-Central Potato Research Institute (CPRI), Shimla",
+    "note": "Values as compiled in the Potatopedia source register from the publication named; link is to the publisher, not to a per-variety page."
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "kufri-neelkanth": {
+  "breeder": "ICAR-CPRI Shimla",
+  "country": "India / ICAR-CPRI",
+  "year": "2019",
+  "use": [
+   "Table, specialty/health food"
+  ],
+  "maturity": "Medium (90-100 days)",
+  "skin": "Purple-blue",
+  "flesh": "Purple (anthocyanin-rich)",
+  "shape": "Oval",
+  "dry_matter": "18-20%",
+  "starch": "12-14%",
+  "yield": "20-25 tonnes/hectare",
+  "cooking_type": "B",
+  "resistances": {
+   "summary": "Moderate to good. Moderate late blight resistance"
+  },
+  "sources": [
+   {
+    "title": "ICAR-CPRI variety catalog; ICAR press releases 2019",
+    "url": "https://cpri.icar.gov.in",
+    "publisher": "ICAR-Central Potato Research Institute (CPRI), Shimla",
+    "note": "Values as compiled in the Potatopedia source register from the publication named; link is to the publisher, not to a per-variety page."
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "kufri-pukhraj": {
+  "breeder": "ICAR-CPRI Shimla",
+  "country": "India / ICAR-CPRI",
+  "year": "1998",
+  "use": [
+   "Table/fresh market"
+  ],
+  "maturity": "Early (80-90 days)",
+  "skin": "Yellow",
+  "flesh": "Yellow",
+  "shape": "Oval",
+  "dry_matter": "18-19%",
+  "starch": "12-13%",
+  "yield": "30-40 tonnes/hectare",
+  "cooking_type": "B",
+  "resistances": {
+   "summary": "Susceptible to late blight. Moderate resistance to common scab"
+  },
+  "sources": [
+   {
+    "title": "ICAR-CPRI variety catalog; NHRDF",
+    "url": "https://cpri.icar.gov.in",
+    "publisher": "ICAR-Central Potato Research Institute (CPRI), Shimla",
+    "note": "Values as compiled in the Potatopedia source register from the publication named; link is to the publisher, not to a per-variety page."
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "kufri-sindhuri": {
+  "breeder": "ICAR-CPRI Shimla",
+  "country": "India / ICAR-CPRI",
+  "year": "1967",
+  "use": [
+   "Table, dehydration"
+  ],
+  "maturity": "Medium late (100-110 days)",
+  "skin": "Red",
+  "flesh": "White",
+  "shape": "Round",
+  "dry_matter": "20-22%",
+  "starch": "14-16%",
+  "yield": "25-30 tonnes/hectare",
+  "cooking_type": "B-C (floury)",
+  "resistances": {
+   "summary": "Good field resistance to late blight compared to other plains varieties"
+  },
+  "sources": [
+   {
+    "title": "ICAR-CPRI variety catalog",
+    "url": "https://cpri.icar.gov.in",
+    "publisher": "ICAR-Central Potato Research Institute (CPRI), Shimla",
+    "note": "Values as compiled in the Potatopedia source register from the publication named; link is to the publisher, not to a per-variety page."
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "kufri-surya": {
+  "breeder": "ICAR-CPRI Shimla",
+  "country": "India / ICAR-CPRI",
+  "year": "2005",
+  "use": [
+   "Table (heat-tolerant)"
+  ],
+  "maturity": "Early (80-90 days)",
+  "skin": "White",
+  "flesh": "Yellow",
+  "shape": "Round to oval",
+  "dry_matter": "17-19%",
+  "starch": "11-13%",
+  "yield": "25-30 tonnes/hectare",
+  "cooking_type": "B",
+  "resistances": {
+   "summary": "Moderate. Good heat tolerance"
+  },
+  "sources": [
+   {
+    "title": "ICAR-CPRI variety catalog; CIP-India collaborative breeding records",
+    "url": "https://cpri.icar.gov.in",
+    "publisher": "ICAR-Central Potato Research Institute (CPRI), Shimla",
+    "note": "Values as compiled in the Potatopedia source register from the publication named; link is to the publisher, not to a per-variety page."
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "kufri-tejas": {
+  "breeder": "ICAR-CPRI Shimla",
+  "country": "India / ICAR-CPRI",
+  "year": "2024",
+  "use": [
+   "Table/fresh market"
+  ],
+  "maturity": "Early to medium (80-90 days)",
+  "skin": "White to yellow",
+  "flesh": "Light yellow",
+  "shape": "Oval",
+  "dry_matter": "Medium",
+  "yield": "30-35 tonnes/hectare",
+  "resistances": {
+   "summary": "Good virus resistance. Moderate late blight resistance"
+  },
+  "sources": [
+   {
+    "title": "ICAR-CPRI 2024 variety release",
+    "url": "https://cpri.icar.gov.in",
+    "publisher": "ICAR-Central Potato Research Institute (CPRI), Shimla",
+    "note": "Values as compiled in the Potatopedia source register from the publication named; link is to the publisher, not to a per-variety page."
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "lady-claire": {
+  "breeder": "Meijer Potato (C. Meijer B.V.)",
+  "country": "Netherlands",
+  "use": [
+   "Crisping variety usable year-round"
+  ],
+  "highlights": [
+   "Very low sugar content"
+  ],
+  "maturity": "Early/medium-early ripening",
+  "skin": "Dark yellow",
+  "flesh": "Light yellow",
+  "shape": "Round oval",
+  "dry_matter": "22%",
+  "underwater_weight": "415",
+  "dormancy": "Medium",
+  "storage": "Long storage capability at 6°C",
+  "sources": [
+   {
+    "title": "Meijer Potato: crisping varieties (variety datasheet)",
+    "url": "https://www.meijerpotato.com/en/varieties/crisping-varieties",
+    "publisher": "Meijer Potato (C. Meijer B.V.)"
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "lady-rosetta": {
+  "breeder": "Meijer Potato (C. Meijer B.V.)",
+  "country": "Netherlands",
+  "use": [
+   "Crisping variety; also suitable for starch and mash production"
+  ],
+  "highlights": [
+   "Low sugars"
+  ],
+  "maturity": "Early variety, medium-short ripening period",
+  "skin": "Red",
+  "flesh": "Light yellow",
+  "shape": "Round",
+  "dry_matter": "24%",
+  "underwater_weight": "449",
+  "yield": "High yield with uniform sorting size",
+  "sources": [
+   {
+    "title": "Meijer Potato: crisping varieties (variety datasheet)",
+    "url": "https://www.meijerpotato.com/en/varieties/crisping-varieties",
+    "publisher": "Meijer Potato (C. Meijer B.V.)"
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "markies": {
+  "country": "Netherlands / Agrico",
+  "maturity": "maincrop / 4 (Agrico score, 1-9)",
+  "skin": "yellow / Y",
+  "flesh": "light yellow / 6.5",
+  "shape": "oval long / OL",
+  "tuber_size": "quite large / 7.5",
+  "dry_matter": "22.8%",
+  "underwater_weight": "427",
+  "frying_quality": "excellent / 8",
+  "crisping_quality": "good / 7",
+  "cooking_type": "floury / BC",
+  "dormancy": "average / 6.5",
+  "resistances": {
+   "late_blight_foliage": "slightly susceptible / 6.5 (Agrico score, 1-9)",
+   "late_blight_tuber": "slightly susceptible / 7 (Agrico score, 1-9)",
+   "pvy": "slightly susceptible / 7.5 (Agrico score, 1-9)",
+   "yntn_tuber": "slightly susceptible / 7 (Agrico score, 1-9)",
+   "leaf_roll": "slightly susceptible / 7 (Agrico score, 1-9)",
+   "spraing": "very susceptible / 4 (Agrico score, 1-9)",
+   "common_scab": "susceptible / 5 (Agrico score, 1-9)",
+   "powdery_scab": "very susceptible / 3.5 (Agrico score, 1-9)",
+   "fusarium": "slightly to not susceptible / 8 (Agrico score, 1-9)",
+   "wart_f6": "quite susceptible / 5 (Agrico score, 1-9)",
+   "pcn_ro1_4": "resistant / 9 (Agrico score, 1-9)",
+   "bruising": "slightly to not sensitive / 8 (Agrico score, 1-9)",
+   "secondary_growth": "quite sensitive / 6 (Agrico score, 1-9)"
+  },
+  "sources": [
+   {
+    "title": "Agrico datasheet: Markies",
+    "url": "https://www.agricopotatoes.com/overview/markies",
+    "publisher": "Agrico"
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "mondial": {
+  "breeder": "HZPC",
+  "country": "Netherlands",
+  "parentage": "SPUNTA × VE66-295",
+  "use": [
+   "Traditional Fresh"
+  ],
+  "highlights": [
+   "Big size tubers",
+   "Very attractive bright skin",
+   "High yield",
+   "Early tuberisation/maturing during short days",
+   "Good storability"
+  ],
+  "maturity": "50 Late",
+  "skin": "Light yellow",
+  "flesh": "Light yellow (after cooking)",
+  "shape": "Long oval",
+  "dry_matter": "19.7% (starch 13.8%)",
+  "underwater_weight": "359",
+  "specific_gravity": "1.077",
+  "yield": "128 Very high (yield mature, HZPC score)",
+  "cooking_type": "B - Slightly mealy",
+  "dormancy": "60 Medium",
+  "resistances": {
+   "late_blight_foliage": "50 (HZPC score, higher = more resistant)",
+   "late_blight_tuber": "63 (HZPC score, higher = more resistant)",
+   "alternaria": "80 (HZPC score, higher = more resistant)",
+   "common_scab": "55 (HZPC score, higher = more resistant)",
+   "powdery_scab": "58 (HZPC score, higher = more resistant)",
+   "spraing": "71 (HZPC score, higher = more resistant)",
+   "pvy": "15 (HZPC score, higher = more resistant)",
+   "yntn_tuber": "84 (HZPC score, higher = more resistant)",
+   "bruising": "12 Quite sensitive (HZPC internal-bruising score)",
+   "pcn_ro1_4": "9",
+   "pcn_ro2_3": "4 (HZPC own analysis)",
+   "pcn_pa2": "3",
+   "pcn_pa3": "2",
+   "wart_f1": "10",
+   "wart_f2": "8 (HZPC own analysis)",
+   "wart_f6": "3"
+  },
+  "sources": [
+   {
+    "title": "HZPC production advice (growing advice) for Mondial",
+    "url": "https://www.hzpc.com/our-potato-varieties/mondial/traditional",
+    "publisher": "HZPC"
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "mozart": {
+  "breeder": "HZPC",
+  "country": "Netherlands",
+  "parentage": "REDSTAR × CAESAR",
+  "use": [
+   "Traditional Fresh"
+  ],
+  "highlights": [
+   "Uniform tuber size and shape",
+   "Good bruising tolerance",
+   "Good cooking quality",
+   "Good resistance to common scab",
+   "Good storability"
+  ],
+  "maturity": "56 Medium late",
+  "skin": "Red",
+  "flesh": "Yellow (after cooking)",
+  "shape": "Oval",
+  "dry_matter": "20.3% (starch 14.4%)",
+  "underwater_weight": "371",
+  "specific_gravity": "1.079",
+  "yield": "100 Moderate high (yield mature, HZPC score)",
+  "cooking_type": "AB - Slightly firm",
+  "dormancy": "60 Medium",
+  "resistances": {
+   "late_blight_foliage": "64 (HZPC score, higher = more resistant)",
+   "late_blight_tuber": "74 (HZPC score, higher = more resistant)",
+   "alternaria": "69 (HZPC score, higher = more resistant)",
+   "common_scab": "72 (HZPC score, higher = more resistant)",
+   "powdery_scab": "69 (HZPC score, higher = more resistant)",
+   "spraing": "98 (HZPC score, higher = more resistant)",
+   "pvy": "69 (HZPC score, higher = more resistant)",
+   "yntn_tuber": "99 (HZPC score, higher = more resistant)",
+   "bruising": "5 Not sensitive (HZPC internal-bruising score)",
+   "pcn_ro1_4": "9",
+   "pcn_ro2_3": "1 (HZPC own analysis)",
+   "wart_f1": "10",
+   "wart_f2": "3"
+  },
+  "sources": [
+   {
+    "title": "HZPC production advice (growing advice) for Mozart",
+    "url": "https://www.hzpc.com/our-potato-varieties/mozart/traditional",
+    "publisher": "HZPC"
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "perricholi": {
+  "breeder": "International Potato Center (CIP)",
+  "country": "Peru / CIP",
+  "year": "Released by CIP for Peruvian and broader Andean conditions",
+  "parentage": "CIP highland tropical breeding population",
+  "use": [
+   "Fresh table; some processing"
+  ],
+  "maturity": "Medium (110-130 days)",
+  "skin": "Red",
+  "flesh": "Cream",
+  "shape": "Oblong",
+  "yield": "25-35 t/ha under good conditions",
+  "resistances": {
+   "late_blight": "Moderate to good (depending on local strain pressure)"
+  },
+  "sources": [
+   {
+    "title": "CIP blog \"Aeroponics – Soil-less technology increases seed production fivefold\"; CIP-50 Peru",
+    "url": "https://cipotato.org",
+    "publisher": "International Potato Center (CIP) and national partners",
+    "note": "Values as compiled in the Potatopedia source register from the publication named; link is to the publisher, not to a per-variety page."
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "picasso": {
+  "country": "Netherlands",
+  "maturity": "maincrop / 5 (Agrico score, 1-9)",
+  "skin": "yellow with red eyes / Y/R",
+  "flesh": "light yellow / 6",
+  "shape": "oval / O",
+  "tuber_size": "large / 8",
+  "dry_matter": "20.8%",
+  "underwater_weight": "381",
+  "frying_quality": "unsuitable / 5",
+  "crisping_quality": "unsuitable / 4",
+  "cooking_type": "rather floury / B",
+  "dormancy": "long / 8",
+  "resistances": {
+   "late_blight_foliage": "susceptible / 5 (Agrico score, 1-9)",
+   "late_blight_tuber": "slightly susceptible / 7 (Agrico score, 1-9)",
+   "pvy": "slightly to not susceptible / 8 (Agrico score, 1-9)",
+   "yntn_tuber": "susceptible / 5 (Agrico score, 1-9)",
+   "leaf_roll": "susceptible / 5 (Agrico score, 1-9)",
+   "spraing": "susceptible / 5 (Agrico score, 1-9)",
+   "common_scab": "slightly susceptible / 7 (Agrico score, 1-9)",
+   "powdery_scab": "susceptible / 5 (Agrico score, 1-9)",
+   "fusarium": "slightly susceptible / 7 (Agrico score, 1-9)",
+   "wart_f1": "resistant / 10 (Agrico score, 1-9)",
+   "wart_f6": "quite susceptible / 5 (Agrico score, 1-9)",
+   "pcn_ro1_4": "resistant / 9 (Agrico score, 1-9)",
+   "bruising": "slightly sensitive / 7 (Agrico score, 1-9)",
+   "secondary_growth": "quite sensitive / 6.5 (Agrico score, 1-9)"
+  },
+  "sources": [
+   {
+    "title": "Agrico datasheet: Picasso",
+    "url": "https://www.agricopotatoes.com/overview/picasso",
+    "publisher": "Agrico"
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "pike": {
+  "breeder": "Cornell University, with USDA-ARS — Northeast multi-state cooperation (NE1231)",
+  "country": "USA / Cornell",
+  "year": "1996",
+  "parentage": "Allegany × Atlantic",
+  "use": [
+   "Potato chip processing"
+  ],
+  "maturity": "Medium (105-115 days)",
+  "skin": "Buff, lightly netted",
+  "flesh": "White",
+  "shape": "Round to oval",
+  "eye_depth": "Shallow",
+  "specific_gravity": "1.085-1.090",
+  "yield": "350-450 cwt/acre (39-50 t/ha)",
+  "storage": "Acceptable cold sweetening resistance",
+  "resistances": {
+   "summary": "Resistant to golden nematode (Globodera rostochiensis) — a key New York/Long Island production trait. Resistant to common scab; moderate late blight tolerance"
+  },
+  "sources": [
+   {
+    "title": "USDA-ARS Eastern Potato Variety Development Database (NE1231); Cornell University potato breeding program documentation",
+    "url": "https://www.ars.usda.gov/pacific-west-area/aberdeen-id/small-grains-and-potato-germplasm-research/",
+    "publisher": "USDA-ARS, University of Idaho, Washington State University, Oregon State University and other US land-grant extension programmes",
+    "note": "Values as compiled in the Potatopedia source register from the publication named; link is to the publisher, not to a per-variety page."
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "purple-majesty": {
+  "breeder": "Colorado State University San Luis Valley Research Center (Dr. David Holm)",
+  "country": "USA / Colorado State",
+  "year": "2006",
+  "parentage": "Colorado State University breeding lines incorporating native Andean S. tuberosum andigena germplasm for high anthocyanin content",
+  "use": [
+   "Specialty fresh, premium retail produce, food-service color applications, antioxidant-marketed health products"
+  ],
+  "maturity": "Medium (105-115 days)",
+  "skin": "Smooth, deep purple",
+  "flesh": "Deep purple throughout — uniformly purple, not ringed",
+  "shape": "Oblong",
+  "eye_depth": "Shallow to medium",
+  "specific_gravity": "1.078-1.085",
+  "yield": "300-400 cwt/acre (34-45 t/ha)",
+  "storage": "Moderate dormancy; reasonable storage",
+  "resistances": {
+   "summary": "Moderate"
+  },
+  "sources": [
+   {
+    "title": "Colorado State University San Luis Valley Research Center release documentation; USDA-AMS variety database; specialty-produce industry data",
+    "url": "https://www.ars.usda.gov/pacific-west-area/aberdeen-id/small-grains-and-potato-germplasm-research/",
+    "publisher": "USDA-ARS, University of Idaho, Washington State University, Oregon State University and other US land-grant extension programmes",
+    "note": "Values as compiled in the Potatopedia source register from the publication named; link is to the publisher, not to a per-variety page."
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "ranger-russet": {
+  "breeder": "USDA-ARS Aberdeen, Idaho, with University of Idaho, Oregon State University, and Washington State University (Tri-State program)",
+  "country": "USA",
+  "year": "1991",
+  "parentage": "Butte × A6595-3 (USDA-ARS breeding line)",
+  "use": [
+   "French fry processing; dual-purpose with limited fresh-market potential due to size"
+  ],
+  "maturity": "Medium to medium-late (120-135 days)",
+  "skin": "Heavy russet, brown",
+  "flesh": "White",
+  "shape": "Oblong to long",
+  "eye_depth": "Shallow",
+  "specific_gravity": "1.085-1.095",
+  "yield": "450-550 cwt/acre (50-62 t/ha); typically out-yields Russet Burbank by 10-20%",
+  "storage": "Moderate dormancy; acceptable storage with appropriate sprout suppression",
+  "resistances": {
+   "summary": "Resistant to net necrosis (PVY tuber symptom), Verticillium wilt; moderately resistant to common scab; susceptible to late blight"
+  },
+  "sources": [
+   {
+    "title": "University of Idaho CIS 919 \"Cultural Management of Ranger Russet Potatoes\"; USDA-ARS Western Regional Russet Variety Trial Reports; Washington State University Potato Variety Information",
+    "url": "https://www.ars.usda.gov/pacific-west-area/aberdeen-id/small-grains-and-potato-germplasm-research/",
+    "publisher": "USDA-ARS, University of Idaho, Washington State University, Oregon State University and other US land-grant extension programmes",
+    "note": "Values as compiled in the Potatopedia source register from the publication named; link is to the publisher, not to a per-variety page."
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "red-norland": {
+  "breeder": "North Dakota State University, Fargo (a red sport of Norland, originally bred by NDSU)",
+  "country": "USA",
+  "year": "1957 (Norland); Red Norland sport selection released shortly after. \"Dark Red Norland\" mutation released later for an even darker red skin",
+  "parentage": "Redkote × ND626 (Norland parentage)",
+  "use": [
+   "Early fresh market — boiling, mashing, salads. Often sold as \"new potatoes\" at premium prices in the early-summer fresh market"
+  ],
+  "maturity": "Early (80-95 days) — one of the earliest US-grown red varieties",
+  "skin": "Smooth, bright red (Dark Red Norland selection has very dark red skin)",
+  "flesh": "White",
+  "shape": "Oblong to oval",
+  "eye_depth": "Shallow",
+  "specific_gravity": "1.065-1.072",
+  "yield": "250-350 cwt/acre (28-39 t/ha) — early-maturity yield is lower than late-season reds",
+  "storage": "Short dormancy — does NOT store as long as Red Pontiac. Best sold from short-term storage or directly to early-season fresh markets",
+  "resistances": {
+   "summary": "Susceptible to late blight and common scab; moderate PVY tolerance"
+  },
+  "sources": [
+   {
+    "title": "NDSU Potato Extension; University of Maine Cooperative Extension Bulletin #2077 \"Growing Potatoes in the Home Garden\"; USDA-AMS variety description",
+    "url": "https://www.ars.usda.gov/pacific-west-area/aberdeen-id/small-grains-and-potato-germplasm-research/",
+    "publisher": "USDA-ARS, University of Idaho, Washington State University, Oregon State University and other US land-grant extension programmes",
+    "note": "Values as compiled in the Potatopedia source register from the publication named; link is to the publisher, not to a per-variety page."
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "red-pontiac": {
+  "breeder": "USDA-ARS Beltsville, Maryland (a \"Pontiac\" sport — a red-skinned mutation selection from the Pontiac variety bred at USDA Beltsville)",
+  "country": "USA",
+  "year": "1949 (Pontiac); Red Pontiac sport identified shortly after",
+  "parentage": "Triumph × Katahdin (parentage of original Pontiac)",
+  "use": [
+   "Fresh market — boiling, mashing, salads, soups, and stews. Waxy texture holds shape after cooking"
+  ],
+  "maturity": "Medium-late (115-130 days)",
+  "skin": "Smooth, dark red — one of the most attractive red skins of any US-grown variety",
+  "flesh": "White",
+  "shape": "Round to oval",
+  "eye_depth": "Medium to deep",
+  "specific_gravity": "1.065-1.075 (low — waxy texture)",
+  "yield": "350-450 cwt/acre (39-50 t/ha)",
+  "storage": "Moderate dormancy; bruise-prone in handling",
+  "resistances": {
+   "summary": "Susceptible to late blight, scab, and Verticillium wilt; moderate PVY tolerance"
+  },
+  "sources": [
+   {
+    "title": "USDA-ARS Beltsville variety records; NDSU Potato Extension; University of Maine Cooperative Extension",
+    "url": "https://www.ars.usda.gov/pacific-west-area/aberdeen-id/small-grains-and-potato-germplasm-research/",
+    "publisher": "USDA-ARS, University of Idaho, Washington State University, Oregon State University and other US land-grant extension programmes",
+    "note": "Values as compiled in the Potatopedia source register from the publication named; link is to the publisher, not to a per-variety page."
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "russet-burbank": {
+  "breeder": "Selected by Luther Burbank (1876) from a chance seedling of the Early Rose variety; the russeted \"Burbank Russet\" sport was identified later and named Russet Burbank. No formal breeding institution",
+  "country": "USA",
+  "year": "1876 (Burbank seedling); russeted sport recognized in early 1900s",
+  "parentage": "Selected seedling from Early Rose; specific male parent unknown",
+  "use": [
+   "French fry processing (the standard for McDonald's worldwide), dehydration, baking"
+  ],
+  "maturity": "Late (130-150 days)",
+  "skin": "Heavy russet, brown",
+  "flesh": "White",
+  "shape": "Long cylindrical",
+  "eye_depth": "Shallow to medium",
+  "specific_gravity": "1.080-1.095 (varies widely by location and season; documented field range 1.062-1.100)",
+  "yield": "400-500 cwt/acre (45-56 t/ha) under irrigated Pacific Northwest conditions",
+  "storage": "Long dormancy (excellent storage), but moderate cold sweetening sensitivity — typically stored at 45-50°F (7-10°C) for processing to prevent reducing sugar accumulation",
+  "resistances": {
+   "summary": "Susceptible to late blight, common scab, Verticillium wilt, PVY, and Erwinia soft rot. Susceptible to most major potato diseases — its commercial dominance is driven by processing quality, not field resistance"
+  },
+  "sources": [
+   {
+    "title": "USDA-ARS publication \"Russet Burbank, no ordinary potato\"; University of Idaho Extension; USDA-ARS Western Regional Russet Variety Trials",
+    "url": "https://www.ars.usda.gov/pacific-west-area/aberdeen-id/small-grains-and-potato-germplasm-research/",
+    "publisher": "USDA-ARS, University of Idaho, Washington State University, Oregon State University and other US land-grant extension programmes",
+    "note": "Values as compiled in the Potatopedia source register from the publication named; link is to the publisher, not to a per-variety page."
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "russet-norkotah": {
+  "breeder": "North Dakota State University (NDSU), Fargo",
+  "country": "USA",
+  "year": "March 1, 1987",
+  "parentage": "ND9526-4Russ × ND9687-5Russ (NDSU breeding lines)",
+  "use": [
+   "Fresh market — the leading US fresh-market russet. Not suited for French fry or chip processing due to low specific gravity"
+  ],
+  "maturity": "Early (95-110 days)",
+  "skin": "Dark russet, attractive uniform brown",
+  "flesh": "White",
+  "shape": "Oblong to long",
+  "eye_depth": "Shallow",
+  "specific_gravity": "1.063-1.075 (low — the reason it is unsuited to processing)",
+  "yield": "350-450 cwt/acre (39-50 t/ha)",
+  "storage": "Short to moderate dormancy; not suited to long-term storage. Sells out of the field or short-term storage for fresh-pack markets",
+  "resistances": {
+   "summary": "Susceptible to late blight, PVY, Verticillium wilt, and common scab. Disease tolerance is generally weak — its commercial success rests on appearance and early maturity, not field resistance"
+  },
+  "sources": [
+   {
+    "title": "NDSU release announcement (1987); University of Idaho CIS 1106 \"Cultural Management of Russet Norkotah Potatoes\"; NDSU Library Institutional Repository",
+    "url": "https://www.ars.usda.gov/pacific-west-area/aberdeen-id/small-grains-and-potato-germplasm-research/",
+    "publisher": "USDA-ARS, University of Idaho, Washington State University, Oregon State University and other US land-grant extension programmes",
+    "note": "Values as compiled in the Potatopedia source register from the publication named; link is to the publisher, not to a per-variety page."
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "samba": {
+  "breeder": "Germicopa SAS (Châteauneuf-du-Faou, Brittany)",
+  "country": "France / Germicopa",
+  "year": "1989 (registered in the official catalogue)",
+  "use": [
+   "Fresh market (table / baking)"
+  ],
+  "maturity": "Late second-early variety, medium late foliage maturity",
+  "skin": "Deep yellow",
+  "flesh": "Pale yellow",
+  "shape": "Long oval, good uniformity, very shallow eye depth, large tuber size",
+  "yield": "High",
+  "cooking_type": "A-B",
+  "dormancy": "Fairly short dormancy",
+  "storage": "Fairly high storage ability",
+  "resistances": {
+   "late_blight_tuber": "Fairly high resistance",
+   "pvy": "Exceptional resistance to PVYntn",
+   "pcn": "Null resistance"
+  },
+  "sources": [
+   {
+    "title": "Germicopa variety datasheet: Samba",
+    "url": "https://www.germicopa.com/en/find-your-variety/",
+    "publisher": "Germicopa SAS"
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "sarpo-mira": {
+  "breeder": "Sarvari Trust (Sarpo family; origins in Hungary, pre-1992)",
+  "country": "Hungary",
+  "year": "2002 (launched)",
+  "use": [
+   "Organic and low-input growing"
+  ],
+  "highlights": [
+   "Highest tolerance to blight within the Sarpo family",
+   "Very high dry matter, very floury",
+   "Deep-rooted, drought tolerant plant; tall weed-smothering foliage"
+  ],
+  "maturity": "Main crop",
+  "skin": "Pink",
+  "shape": "Very large elongated tubers; large and regular",
+  "dry_matter": "Very high (no figure published)",
+  "resistances": {
+   "late_blight": "Highest tolerance to blight within the Sarpo family (no score published)"
+  },
+  "sources": [
+   {
+    "title": "Sarpo Mira (Sarpo Potatoes)",
+    "url": "https://sarpo.co.uk/portfolio/sarpo-mira/",
+    "publisher": "Sarpo Potatoes Ltd / Sarvari Trust"
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "shangi": {
+  "breeder": "CIP germplasm origin (preliminary molecular analysis places Shangi within CIP genebank germplasm) — selected by Kenyan farmers from on-farm trials. Officially registered by KALRO (Kenya Agricultural and Livestock Research Organization) and Kenya's National Variety Release Committee",
+  "country": "Kenya / CIP-derived",
+  "year": "Officially released in 2015, though farmer adoption began rapidly from approximately 2005",
+  "parentage": "CIP breeding line (specific clone identifier not publicly released; molecular analysis indicates CIP genebank ancestry)",
+  "use": [
+   "Fresh table; widely sold to processors for French fry preparation in Kenyan urban markets (Nairobi, Mombasa)"
+  ],
+  "maturity": "Early (90-110 days) — quick maturing, a key trait",
+  "skin": "Cream",
+  "flesh": "Cream to yellow",
+  "shape": "Oval",
+  "yield": "13.4 t/ha in Nakuru region under farmer conditions; up to 18.4 t/ha in Meru. Lower yields (7.2 t/ha) reported in Bungoma. National average around 10-15 t/ha typical for Kenyan smallholder conditions",
+  "storage": "SHORT dormancy — Shangi's unusual short-dormancy trait allows year-round production cycles in Kenya's bimodal rainfall pattern. Tubers can be replanted shortly after harvest",
+  "resistances": {
+   "late_blight": "MODERATE — adequate for Kenya's mid-altitude growing zones"
+  },
+  "sources": [
+   {
+    "title": "CIP \"Dissemination of climate-smart consumer-demanded potato varieties in Kenya\"; CIP Outcomes \"Potatoes for prosperity\"; KALRO Tigoni Horticulture Research Institute documentation; PMC11659081 \"Gender analysis is not only about gender\" (Kenya potato breeding study)",
+    "url": "https://cipotato.org",
+    "publisher": "International Potato Center (CIP) and national partners",
+    "note": "Values as compiled in the Potatopedia source register from the publication named; link is to the publisher, not to a per-variety page."
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "shepody": {
+  "breeder": "Agriculture and Agri-Food Canada, Fredericton Research Station, New Brunswick (Canadian-bred; widely grown in the US Pacific Northwest, Maine, and Wisconsin)",
+  "country": "Canada",
+  "year": "1980 (Canada release)",
+  "parentage": "Bake-King × F58050",
+  "use": [
+   "Early-season French fry processing — Shepody is the dominant variety used by US French fry processors during the early-harvest \"from-the-field\" period before main-crop russets become available"
+  ],
+  "maturity": "Early to medium (105-120 days)",
+  "skin": "Smooth white (non-russeted) — one of the few major US-grown processing varieties without russet skin",
+  "flesh": "White",
+  "shape": "Long",
+  "eye_depth": "Shallow but poorly distributed",
+  "specific_gravity": "1.080-1.088",
+  "yield": "450-600 cwt/acre (50-67 t/ha) under Pacific Northwest irrigation",
+  "storage": "Short to moderate dormancy; not suited for long-term storage. Cold sweetening sensitive",
+  "resistances": {
+   "summary": "Susceptible to powdery scab (a particular issue for non-russeted varieties in the Pacific Northwest), late blight, and common scab. Moderate tolerance to PVY"
+  },
+  "sources": [
+   {
+    "title": "USDA-ARS Western Regional Russet Variety Trial Reports; University of Idaho Treasure Valley Shepody enterprise budgets; Washington State University Potato Variety Information",
+    "url": "https://www.ars.usda.gov/pacific-west-area/aberdeen-id/small-grains-and-potato-germplasm-research/",
+    "publisher": "USDA-ARS, University of Idaho, Washington State University, Oregon State University and other US land-grant extension programmes",
+    "note": "Values as compiled in the Potatopedia source register from the publication named; link is to the publisher, not to a per-variety page."
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "sifra": {
+  "breeder": "HZPC",
+  "country": "Netherlands",
+  "parentage": "MONDIAL × ROBINTA",
+  "use": [
+   "Traditional Fresh"
+  ],
+  "highlights": [
+   "Very attractive bright skin",
+   "High yield",
+   "Broad adaptation",
+   "Low nitrogen requirement",
+   "Early tuberisation"
+  ],
+  "maturity": "55 Late",
+  "skin": "Light yellow",
+  "flesh": "Cream (after cooking)",
+  "shape": "Round oval",
+  "dry_matter": "19.7% (starch 13.8%)",
+  "underwater_weight": "359",
+  "specific_gravity": "1.077",
+  "yield": "116 Very high (yield mature, HZPC score)",
+  "cooking_type": "B - Slightly mealy",
+  "dormancy": "61 Medium",
+  "resistances": {
+   "late_blight_foliage": "55 (HZPC score, higher = more resistant)",
+   "late_blight_tuber": "74 (HZPC score, higher = more resistant)",
+   "alternaria": "65 (HZPC score, higher = more resistant)",
+   "common_scab": "54 (HZPC score, higher = more resistant)",
+   "powdery_scab": "55 (HZPC score, higher = more resistant)",
+   "spraing": "67 (HZPC score, higher = more resistant)",
+   "pvy": "34 (HZPC score, higher = more resistant)",
+   "yntn_tuber": "95 (HZPC score, higher = more resistant)",
+   "bruising": "12 Quite sensitive (HZPC internal-bruising score)",
+   "pcn_ro1_4": "9",
+   "pcn_ro2_3": "4",
+   "pcn_pa2": "6 (HZPC own analysis)",
+   "pcn_pa3": "1 (HZPC own analysis)",
+   "wart_f1": "10",
+   "wart_f2": "3",
+   "wart_f6": "3"
+  },
+  "sources": [
+   {
+    "title": "HZPC production advice (growing advice) for Sifra",
+    "url": "https://www.hzpc.com/our-potato-varieties/sifra/traditional",
+    "publisher": "HZPC"
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "snowden": {
+  "breeder": "University of Wisconsin (released cooperatively with USDA-ARS)",
+  "country": "USA",
+  "year": "1990",
+  "parentage": "B5141-6 × Wischip",
+  "use": [
+   "Potato chip processing — direct from storage. Snowden is one of the leading chip varieties for chip-from-storage operations because of its strong cold sweetening resistance"
+  ],
+  "maturity": "Medium-late (115-130 days)",
+  "skin": "Buff, slightly netted",
+  "flesh": "White",
+  "shape": "Round",
+  "eye_depth": "Shallow",
+  "specific_gravity": "1.085-1.092",
+  "yield": "400-475 cwt/acre (45-53 t/ha)",
+  "storage": "Long dormancy with strong cold sweetening resistance — the key Snowden trait. Chips well from storage at 45-50°F where Atlantic begins to fail",
+  "resistances": {
+   "summary": "Moderately resistant to common scab; moderately tolerant of PVY; susceptible to late blight"
+  },
+  "sources": [
+   {
+    "title": "USDA-ARS Western Regional Chipping Potato Variety Trial Reports; University of Wisconsin Potato Breeding Program documentation",
+    "url": "https://www.ars.usda.gov/pacific-west-area/aberdeen-id/small-grains-and-potato-germplasm-research/",
+    "publisher": "USDA-ARS, University of Idaho, Washington State University, Oregon State University and other US land-grant extension programmes",
+    "note": "Values as compiled in the Potatopedia source register from the publication named; link is to the publisher, not to a per-variety page."
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "spunta": {
+  "country": "Netherlands",
+  "maturity": "early maincrop / 6 (Agrico score, 1-9)",
+  "skin": "yellow / Y",
+  "flesh": "light yellow / 6",
+  "shape": "long / L",
+  "tuber_size": "large / 8",
+  "dry_matter": "21%",
+  "underwater_weight": "387",
+  "frying_quality": "average / 6",
+  "crisping_quality": "below average / 5.5",
+  "cooking_type": "floury / BC",
+  "dormancy": "average / 6",
+  "resistances": {
+   "late_blight_foliage": "susceptible / 5.5 (Agrico score, 1-9)",
+   "late_blight_tuber": "susceptible / 5 (Agrico score, 1-9)",
+   "pvy": "slightly susceptible / 6 (Agrico score, 1-9)",
+   "yntn_tuber": "slightly susceptible / 6 (Agrico score, 1-9)",
+   "leaf_roll": "slightly susceptible / 6 (Agrico score, 1-9)",
+   "spraing": "slightly susceptible / 6 (Agrico score, 1-9)",
+   "common_scab": "susceptible / 5 (Agrico score, 1-9)",
+   "powdery_scab": "susceptible / 5 (Agrico score, 1-9)",
+   "fusarium": "susceptible / 5.5 (Agrico score, 1-9)",
+   "wart_f1": "resistant / 10 (Agrico score, 1-9)",
+   "pcn_pa2": "susceptible / 2 (Agrico score, 1-9)",
+   "pcn_pa3": "susceptible / 2 (Agrico score, 1-9)",
+   "bruising": "slightly sensitive / 7 (Agrico score, 1-9)",
+   "secondary_growth": "quite sensitive / 6 (Agrico score, 1-9)"
+  },
+  "sources": [
+   {
+    "title": "Agrico datasheet: Spunta",
+    "url": "https://www.agricopotatoes.com/overview/spunta",
+    "publisher": "Agrico"
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "stemster": {
+  "breeder": "Germicopa SAS (Châteauneuf-du-Faou, Brittany)",
+  "country": "France / Germicopa",
+  "use": [
+   "Fresh market (traditional); also sold as Prospere"
+  ],
+  "maturity": "Medium late foliage maturity",
+  "skin": "Red",
+  "flesh": "Pale yellow",
+  "shape": "Long oval, fairly good uniformity, shallow eye depth, very large tuber size",
+  "dry_matter": "Medium (18-20%)",
+  "yield": "Very high",
+  "cooking_type": "B",
+  "storage": "High capability, lasting 6-8 months post-harvest",
+  "resistances": {
+   "wart_f1": "Full resistance (pathotype 1)",
+   "pcn": "Full resistance (Ro1-4)",
+   "late_blight_foliage": "Moderate resistance",
+   "pvy": "Moderate resistance",
+   "common_scab": "Low resistance"
+  },
+  "sources": [
+   {
+    "title": "Germicopa variety datasheet: Stemster",
+    "url": "https://www.germicopa.com/en/find-your-variety/",
+    "publisher": "Germicopa SAS"
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "tigoni": {
+  "breeder": "CIP cross selected by Kenya Potato Programme at KALRO with CIP collaboration",
+  "country": "Kenya / KARI",
+  "year": "1996 in Kenya",
+  "parentage": "CIP highland tropical breeding population",
+  "use": [
+   "Fresh table consumption"
+  ],
+  "maturity": "Medium (115-130 days)",
+  "skin": "White to cream",
+  "flesh": "Cream",
+  "shape": "Oval",
+  "yield": "20-30 t/ha",
+  "resistances": {
+   "late_blight": "Bred as resistant; pressure from new P. infestans strains has reduced effective resistance over time"
+  },
+  "sources": [
+   {
+    "title": "KALRO Tigoni; CGIAR economic impact studies on Kenyan potato varieties",
+    "url": "https://cipotato.org",
+    "publisher": "International Potato Center (CIP) and national partners",
+    "note": "Values as compiled in the Potatopedia source register from the publication named; link is to the publisher, not to a per-variety page."
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "topaze": {
+  "breeder": "Germicopa SAS (Châteauneuf-du-Faou, Brittany)",
+  "country": "France / Germicopa",
+  "year": "2020",
+  "use": [
+   "Fresh market (red-skinned table)"
+  ],
+  "maturity": "Semi-early variety, medium foliage maturity",
+  "skin": "Red",
+  "flesh": "Pale yellow",
+  "shape": "Big oval tubers, fairly good uniformity, shallow eye depth, large size, 12-14 tubers per plant",
+  "dry_matter": "Medium (18-20%)",
+  "yield": "Very high yield",
+  "cooking_type": "A-B",
+  "dormancy": "Medium dormancy",
+  "resistances": {
+   "pvy": "High resistance to PVYntn",
+   "pcn_ro1": "Full resistance (G. rostochiensis)",
+   "wart": "Full resistance",
+   "late_blight_foliage": "Moderate resistance",
+   "late_blight_tuber": "Fairly low resistance"
+  },
+  "sources": [
+   {
+    "title": "Germicopa variety datasheet: Topaze",
+    "url": "https://www.germicopa.com/en/find-your-variety/",
+    "publisher": "Germicopa SAS"
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "umatilla-russet": {
+  "breeder": "USDA-ARS Aberdeen, Idaho, with Oregon State University, University of Idaho, Washington State University (Tri-State program)",
+  "country": "USA",
+  "year": "1998",
+  "parentage": "Butte × A77268-4",
+  "use": [
+   "Frozen French fry processing; excellent fry color from storage"
+  ],
+  "maturity": "Medium-late (125-140 days)",
+  "skin": "Medium-heavy russet, brown",
+  "flesh": "White",
+  "shape": "Long, slightly flattened",
+  "eye_depth": "Shallow",
+  "specific_gravity": "1.085-1.095",
+  "yield": "450-550 cwt/acre (50-62 t/ha)",
+  "storage": "Long dormancy; better cold sweetening resistance than Russet Burbank — can be held at lower storage temperatures while maintaining acceptable fry color",
+  "resistances": {
+   "summary": "Moderately resistant to PVY and Verticillium wilt; moderately susceptible to late blight; resistant to corky ringspot in some trials"
+  },
+  "sources": [
+   {
+    "title": "University of Idaho BUL 839 \"Umatilla Russet\"; USDA-ARS Western Regional Russet Variety Trials; Washington State University Potato Variety Information",
+    "url": "https://www.ars.usda.gov/pacific-west-area/aberdeen-id/small-grains-and-potato-germplasm-research/",
+    "publisher": "USDA-ARS, University of Idaho, Washington State University, Oregon State University and other US land-grant extension programmes",
+    "note": "Values as compiled in the Potatopedia source register from the publication named; link is to the publisher, not to a per-variety page."
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "unica": {
+  "breeder": "International Potato Center (CIP), Lima",
+  "country": "Peru / CIP",
+  "year": "1997 in Peru (also referenced as 1998 release date in some CIP documents); subsequently released in 15+ additional countries under various names",
+  "parentage": "Cross of CIP387521.3 × Aphrodite, from CIP's lowland tropics virus-resistant breeding population. Selected for adaptation to both highland and dry coastal lowland conditions",
+  "use": [
+   "Fresh table (large attractive tubers preferred by hotel chains and supermarkets) and French fry processing"
+  ],
+  "maturity": "Medium-early (90-110 days)",
+  "skin": "Red",
+  "flesh": "Cream to light yellow",
+  "shape": "Oval to oblong",
+  "yield": "30 tonnes per hectare under good conditions (about 50% above the world average of 20 t/ha and well above Peru's national average)",
+  "resistances": {
+   "late_blight": "Moderate (general/horizontal resistance from CIP's lowland tropical population background)",
+   "virus": "Strong virus resistance from its lowland tropics parentage"
+  },
+  "sources": [
+   {
+    "title": "CIP-50 \"Improved potato varieties benefit millions in Asia\"; RTB/CGIAR \"Improved potato variety Qingshu 9 success story\"; PMC10730645 \"Potato and sweetpotato breeding at the International Potato Center.\"",
+    "url": "https://cipotato.org",
+    "publisher": "International Potato Center (CIP) and national partners",
+    "note": "Values as compiled in the Potatopedia source register from the publication named; link is to the publisher, not to a per-variety page."
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "vivaldi": {
+  "breeder": "HZPC",
+  "country": "Netherlands",
+  "parentage": "T.S 77-148 × MONALISA",
+  "use": [
+   "Retail Fresh"
+  ],
+  "highlights": [
+   "Very good taste",
+   "Good yield",
+   "Good cooking quality",
+   "Suitable for different market segments",
+   "Uniform tuber size and shape"
+  ],
+  "maturity": "74 Medium early",
+  "skin": "Yellow",
+  "flesh": "Light yellow (after cooking)",
+  "shape": "Oval",
+  "dry_matter": "18.6% (starch 12.8%)",
+  "underwater_weight": "337",
+  "specific_gravity": "1.072",
+  "yield": "101 Moderate high (yield mature, HZPC score)",
+  "cooking_type": "AB - Slightly firm",
+  "dormancy": "67 Medium",
+  "resistances": {
+   "late_blight_foliage": "45 (HZPC score, higher = more resistant)",
+   "late_blight_tuber": "72 (HZPC score, higher = more resistant)",
+   "alternaria": "52 (HZPC score, higher = more resistant)",
+   "common_scab": "51 (HZPC score, higher = more resistant)",
+   "powdery_scab": "54 (HZPC score, higher = more resistant)",
+   "spraing": "85 (HZPC score, higher = more resistant)",
+   "pvy": "38 (HZPC score, higher = more resistant)",
+   "yntn_tuber": "58 (HZPC score, higher = more resistant)",
+   "bruising": "11 Quite sensitive (HZPC internal-bruising score)",
+   "pcn_ro1_4": "3 (HZPC own analysis)",
+   "pcn_ro2_3": "1 (HZPC own analysis)",
+   "pcn_pa3": "1 (HZPC own analysis)",
+   "wart_f1": "8 (HZPC own analysis)",
+   "wart_f2": "2 (HZPC own analysis)"
+  },
+  "sources": [
+   {
+    "title": "HZPC production advice (growing advice) for Vivaldi",
+    "url": "https://www.hzpc.com/our-potato-varieties/vivaldi/retail-fresh",
+    "publisher": "HZPC"
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "yukon-gold": {
+  "breeder": "University of Guelph, Ontario, Canada (Garnet Johnston). Released in Canada and the United States",
+  "country": "Canada",
+  "year": "1980 (Canada); subsequently registered for US production",
+  "parentage": "W5279-4 (US breeding line) × Norgleam — used 2n gametes from S. phureja 195198 in pedigree",
+  "use": [
+   "Fresh table — boiling, mashing, baking, roasting. Buttery flavor and creamy texture from yellow flesh"
+  ],
+  "maturity": "Medium-early (90-105 days)",
+  "skin": "Smooth, light yellow with characteristic pink eyes",
+  "flesh": "Yellow — the variety that introduced yellow-flesh table potatoes to the North American mainstream market",
+  "shape": "Round to oval",
+  "eye_depth": "Shallow, with pink eye coloring",
+  "specific_gravity": "1.075-1.085",
+  "yield": "300-400 cwt/acre (34-45 t/ha)",
+  "storage": "Moderate dormancy; acceptable storage",
+  "resistances": {
+   "summary": "Susceptible to late blight, scab, hollow heart. Moderate PVY tolerance"
+  },
+  "sources": [
+   {
+    "title": "University of Guelph release records; USDA-ARS publication on Yukon Gem (which uses Yukon Gold parentage); University of Idaho Specialty Potato Production publications",
+    "url": "https://www.ars.usda.gov/pacific-west-area/aberdeen-id/small-grains-and-potato-germplasm-research/",
+    "publisher": "USDA-ARS, University of Idaho, Washington State University, Oregon State University and other US land-grant extension programmes",
+    "note": "Values as compiled in the Potatopedia source register from the publication named; link is to the publisher, not to a per-variety page."
+   }
+  ],
+  "checked": "2026-11-07"
+ },
+ "yungay": {
+  "breeder": "CIP and INIA Peru predecessor institutions — early CIP-era release",
+  "country": "Peru / CIP",
+  "year": "1971 (originally released as \"Yungay\" by Peru's potato research program, with CIP germplasm contribution; one of the earliest CIP-era named varieties)",
+  "parentage": "Cross of Peru's \"Renacimiento\" with breeding line \"BR-69.84.\" (Also documented as a Mantaro × Bulk-69 cross in some sources.)",
+  "use": [
+   "Fresh table consumption — Peru's most popular traditional improved variety for home cooking"
+  ],
+  "maturity": "Medium-late (120-140 days)",
+  "skin": "Red with cream eyes",
+  "flesh": "Cream to light yellow",
+  "shape": "Round",
+  "yield": "25-35 t/ha under good conditions; in CIP variety trials Yungay is the standard yield benchmark against which new varieties (such as CIP-Matilde) are compared",
+  "resistances": {
+   "late_blight": "SUSCEPTIBLE — requires regular fungicide applications. Used as the susceptible control in CIP late blight trials"
+  },
+  "sources": [
+   {
+    "title": "CIP variety announcement archive; CIP-50 Peru innovations; CIP \"Future of food is wild\" article (using Yungay as the comparison variety for CIP-Matilde)",
+    "url": "https://cipotato.org",
+    "publisher": "International Potato Center (CIP) and national partners",
+    "note": "Values as compiled in the Potatopedia source register from the publication named; link is to the publisher, not to a per-variety page."
+   }
+  ],
+  "checked": "2026-11-07"
+ }
+}

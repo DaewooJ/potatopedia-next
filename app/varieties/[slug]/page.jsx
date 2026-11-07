@@ -15,6 +15,25 @@ import { COUNTRIES, UPDATED_SHORT } from "../../../lib/data";
 import { POTATOPEDIA_PUBLISHER, POTATOPEDIA_EDITORIAL, articleAuthorBlock, VARIETY_WIKIDATA, SPEAKABLE } from "../../../lib/authors";
 import { getEnrichmentSections } from "../../../lib/varieties-enrichment";
 import { applyOgOverride } from "../../../lib/og-overrides";
+import TRAITS from "../../../lib/variety-traits.json";
+
+// ── Official-datasheet traits (lib/variety-traits.json): breeder / registry values, kept as published. ──
+const cleanLabel = (s) => String(s || "").replace(/\(.*?\)/g, "").replace(/^\d+(\.\d+)?\s+/, "").replace(/\s*\/\s*([\d.]+|[A-Z]{1,3})(\s.*)?$/, "").replace(/\s+/g, " ").replace(/[.;,\s]+$/, "").trim().toLowerCase();
+const shortText = (s, n) => { const t = String(s || "").split(/\s[—–]\s|;|\.\s/)[0].trim(); return t.length > n ? "" : t; };
+function keyFacts(t) {
+  if (!t) return [];
+  const f = [];
+  const mat = cleanLabel(t.maturity);
+  if (mat && mat.length <= 28) f.push(`${mat} maturity`);
+  const use = shortText((t.use || [])[0], 46).toLowerCase();
+  if (use) f.push(use);
+  if (t.dry_matter && String(t.dry_matter).length <= 26) f.push(`dry matter ${String(t.dry_matter).replace(/\s*\(.*?\)/g, "").trim()}`);
+  else if (t.specific_gravity) f.push(`specific gravity ${String(t.specific_gravity).split(/\s\(/)[0]}`);
+  const skin = cleanLabel(t.skin);
+  if (skin && skin.length <= 22) f.push(`${skin} skin`);
+  return f;
+}
+const RES_LABELS = { late_blight_foliage: "Late blight (foliage)", late_blight_tuber: "Late blight (tuber)", late_blight: "Late blight", pcn_ro1_4: "PCN Ro1/4", pcn_ro1: "PCN Ro1", pcn_ro2_3: "PCN Ro2/3", pcn_pa2: "PCN Pa2", pcn_pa3: "PCN Pa3", pcn: "PCN", wart: "Wart", wart_f1: "Wart F1", wart_f2: "Wart F2", wart_f6: "Wart F6", pvy: "PVY", yntn_tuber: "PVY-NTN (tuber)", virus: "Virus", leaf_roll: "Leaf roll", spraing: "Spraing", common_scab: "Common scab", powdery_scab: "Powdery scab", fusarium: "Fusarium", alternaria: "Alternaria", bruising: "Bruising", secondary_growth: "Secondary growth", internal_rust_spot: "Internal rust spot", summary: "Summary" };
 
 export function generateStaticParams() {
   return VARIETIES.map((v) => ({ slug: v.slug }));
@@ -30,10 +49,20 @@ export async function generateMetadata({ params }) {
   const topUse = (v.uses || [])[0] || "";
   // Build a concise sentence; trim to 155 chars for full SERP visibility.
   let desc = `${v.name}${yearStr} — ${v.region} potato variety${topUse ? `, best for ${topUse.toLowerCase()}` : ""}. ${v.trait}`;
+  const tt = TRAITS[slug];
+  const facts = keyFacts(tt);
+  if (facts.length) {
+    desc = `${v.name}${yearStr}: ${facts.slice(0, 3).join(", ")}${tt.breeder && tt.breeder.length < 40 ? `. Bred by ${tt.breeder}` : ""}. Datasheet traits, resistances and sources.`;
+  }
   desc = desc.replace(/\s+/g, " ").trim();
   if (desc.length > 155) desc = desc.slice(0, 152).trimEnd() + "…";
   // Layout adds " — Potatopedia" suffix; keep base ≤50 so final SERP title <65.
-  const titleBase = `${v.name} Potato Variety — Traits & Uses`;
+  let titleBase = `${v.name} Potato Variety — Traits & Uses`;
+  if (facts.length) {
+    const t2 = `${v.name} — ${facts[0]}${facts[1] ? ", " + facts[1] : ""}`;
+    const t1 = `${v.name} — ${facts[0]}`;
+    titleBase = t2.length <= 50 ? t2 : t1.length <= 50 ? t1 : titleBase;
+  }
   return applyOgOverride({
     title: titleBase,
     description: desc,
@@ -107,6 +136,9 @@ export default async function VarietyDetailPage({ params }) {
           ...(releaseYear ? [{ "@type": "PropertyValue", name: "Year released", value: releaseYear }] : []),
           ...(v.uses ? [{ "@type": "PropertyValue", name: "Best uses", value: v.uses.join(", ") }] : []),
           ...(v.tier ? [{ "@type": "PropertyValue", name: "Tier", value: v.tier }] : []),
+          ...(TRAITS[slug]?.maturity ? [{ "@type": "PropertyValue", name: "Maturity", value: TRAITS[slug].maturity }] : []),
+          ...(TRAITS[slug]?.dry_matter ? [{ "@type": "PropertyValue", name: "Dry matter", value: TRAITS[slug].dry_matter }] : []),
+          ...(TRAITS[slug]?.skin ? [{ "@type": "PropertyValue", name: "Skin", value: TRAITS[slug].skin }] : []),
         ],
       },
       // Thing — kept for back-compat with prior schema consumers.
@@ -141,25 +173,40 @@ export default async function VarietyDetailPage({ params }) {
   const NA = "Not published in our sources";
   const originPlace = (v.origin || "").replace(/\s*\(.*?\)\s*/g, " ").trim();
   const shortUse = (u) => (u === "Frying / Fries" ? "Fries" : String(u).split("/")[0].trim());
+  const traits = TRAITS[slug] || null;
   const countryProd = country ? latestProduction(country.slug) : null;
   const countryRank = country ? worldRank(country.slug) : null;
   const figures = [
     releaseYear ? { n: releaseYear, l: `Released${originPlace ? " · " + originPlace : ""}` } : { n: originPlace || "—", l: "Origin" },
     v.uses?.length ? { n: shortUse(v.uses[0]), l: "Main use" } : null,
-    countryProd != null ? { n: fmtMt(countryProd), l: `${country.name} harvest · FAOSTAT ${LATEST_YEAR}` } : null,
+    traits?.dry_matter && String(traits.dry_matter).length <= 12 ? { n: String(traits.dry_matter).replace(/\s*\(.*?\)/g, ""), l: "Dry matter · datasheet" } : null,
     v.tier ? { n: v.tier, l: "Classification · Potatopedia" } : { n: v.region, l: "Region" },
   ].filter(Boolean);
+  const MISSING = traits ? "Not published by the breeder" : NA;
+  const resEntries = traits?.resistances ? Object.entries(traits.resistances) : [];
+  const resCell = resEntries.length ? (
+    <ul style={{ margin: 0, padding: 0, listStyle: "none" }}>
+      {resEntries.map(([k, val]) => (
+        <li key={k}><strong style={{ fontWeight: 500 }}>{RES_LABELS[k] || k.replace(/_/g, " ")}:</strong> {val}</li>
+      ))}
+    </ul>
+  ) : null;
+  const skinFlesh = traits && (traits.skin || traits.flesh) ? [traits.skin ? `Skin: ${traits.skin}` : null, traits.flesh ? `Flesh: ${traits.flesh}` : null].filter(Boolean).join(" · ") : null;
+  const dmLine = traits ? [traits.dry_matter, traits.underwater_weight ? `underwater weight ${traits.underwater_weight}` : null, traits.specific_gravity ? `specific gravity ${traits.specific_gravity}` : null, traits.starch ? `starch ${traits.starch}` : null].filter(Boolean).join(" · ") : null;
   const traitRows = [
     ["Origin", v.origin],
     ["Region", v.region],
     ["Released", releaseYear],
     ["Best uses", (v.uses || []).join(" · ")],
-    ["Skin / flesh", null],
-    ["Tuber shape", null],
-    ["Maturity", null],
-    ["Dry matter", null],
-    ["Disease resistance", null],
-    ["Breeder", null],
+    ["Skin / flesh", skinFlesh],
+    ["Tuber shape", traits ? [traits.shape, traits.eye_depth ? `eyes: ${traits.eye_depth}` : null].filter(Boolean).join(" · ") || null : null],
+    ["Maturity", traits?.maturity],
+    ["Dry matter", dmLine],
+    ...(traits?.yield ? [["Yield", traits.yield]] : []),
+    ...(traits?.cooking_type || traits?.frying_quality ? [["Cooking / frying", [traits.cooking_type, traits.frying_quality ? `frying: ${traits.frying_quality}` : null].filter(Boolean).join(" · ")]] : []),
+    ...(traits?.dormancy || traits?.storage ? [["Dormancy / storage", [traits.dormancy, traits.storage].filter(Boolean).join(" · ")]] : []),
+    ["Disease resistance", resCell],
+    ["Breeder", traits?.breeder ? traits.breeder + (traits.parentage ? ` · parentage ${traits.parentage}` : "") : null],
   ];
   const rivals = getRelatedVarieties(v, 3);
   const nameWords = v.name.split(/\s+/);
@@ -197,11 +244,26 @@ export default async function VarietyDetailPage({ params }) {
                 {traitRows.map(([k, val]) => (
                   <tr key={k}>
                     <th scope="row">{k}</th>
-                    <td className={val ? undefined : "dz-na"}>{val || NA}</td>
+                    <td className={val ? undefined : "dz-na"}>{val || MISSING}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
+            {traits?.sources?.length > 0 && (
+              <div className="dz-sources" style={{ marginTop: 14, fontSize: 14, color: "var(--mute)" }}>
+                <p style={{ margin: "0 0 6px", fontWeight: 500, color: "var(--ink)" }}>Sources</p>
+                <ul style={{ margin: 0, paddingLeft: 18 }}>
+                  {traits.sources.map((src, i) => (
+                    <li key={i}>
+                      <a href={src.url} rel="noopener" target="_blank" className="gl">{src.title}</a>
+                      {src.publisher ? ` · ${src.publisher}` : ""}
+                      {src.note ? <span style={{ display: "block", fontSize: 13 }}>{src.note}</span> : null}
+                    </li>
+                  ))}
+                </ul>
+                <p style={{ margin: "6px 0 0", fontSize: 13 }}>Values are shown as the source states them, with the source’s own scale. Checked {traits.checked}.</p>
+              </div>
+            )}
 
             <div className="dz-sec dz-prose">
               <h2 className="dz-h2">About this variety</h2>
