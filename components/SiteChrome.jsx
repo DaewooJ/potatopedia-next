@@ -9,7 +9,8 @@ import Footer from "./Footer";
 // and fixed bottom input bar, calibrated assuming no ancestor chrome —
 // the global Footer used to bleed into its layout and sit underneath the
 // fixed input bar).
-const NO_CHROME_ROUTES = ["/ask"];
+// "/" (homepage) has its own header and footer in the premium design (7 Nov 2026).
+const NO_CHROME_ROUTES = ["/ask", "/"];
 
 export default function SiteChrome({ children }) {
   const pathname = usePathname();

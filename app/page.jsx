@@ -1,30 +1,73 @@
 import Link from "next/link";
-import { VARIETIES } from "../lib/varieties-data";
-import { COUNTRIES, KNOWLEDGE_TITLES } from "../lib/data";
+import { Instrument_Serif, Inter } from "next/font/google";
 import { POTATOPEDIA_PUBLISHER, POTATOPEDIA_WEBSITE } from "../lib/authors";
+import { VARIETIES } from "../lib/varieties-data";
+import { COUNTRIES } from "../lib/data";
 import ANSWERS from "../lib/answers-baked.json";
-import AskHero from "../components/AskHero";
+import AskRoots from "../components/AskRoots";
+import ChainSection from "../components/ChainSection";
 import LeadForm from "../components/LeadForm";
+import ThemeFab from "../components/ThemeFab";
 
-// Homepage v3 (7 Nov 2026). The AI answer engine is the hero: ask, get a sourced answer in place.
-// Below it, "Today on Potatopedia" keeps the daily-issue idea (today's question, number, variety, machine)
-// as flat, aligned cards, then Explore, newsletter and the companies band. Clean, global, one accent colour.
-// Everything shown is real: published answers, lib/varieties-data.js, sourced numbers, live /stats.
+// Homepage (Devendra, 7 Nov 2026): Option 1 "Answer Engine, sources as roots" + Option 4's potato chain,
+// premium look (ink + champagne gold + ivory, Instrument Serif + Inter), dark by default with a light theme
+// behind the floating switch. Everything shown is real: today's answer is a published, high-confidence answer
+// whose opening names an approved source; sources, counts and questions come from the site's own data.
 
 export const revalidate = 3600;
 
+const serif = Instrument_Serif({ subsets: ["latin"], weight: "400", style: ["normal", "italic"], display: "swap", variable: "--hp-serif" });
+const sans = Inter({ subsets: ["latin"], weight: ["300", "400", "500", "600"], display: "swap", variable: "--hp-sans" });
+
 export const metadata = {
   title: { absolute: "Potatopedia — Ask Anything About Potatoes: Varieties, Machines, Data" },
-  description: "Ask any question about potatoes and get a sourced answer in seconds: varieties, production, trade, processing and machines. Free, neutral, global.",
+  description: "Ask any question about potatoes and get an answer grown from its sources: FAOSTAT, USDA, CIP, UN Comtrade and peer-reviewed research. Free and neutral.",
   alternates: { canonical: "https://www.potatopedia.com" },
   openGraph: {
     type: "website",
     url: "https://www.potatopedia.com",
     title: "Potatopedia — Ask Anything About Potatoes",
-    description: "Sourced answers from FAOSTAT, USDA, CIP, UN Comtrade and peer-reviewed research, in any language.",
+    description: "Every answer grows from its sources: FAOSTAT, USDA, CIP, UN Comtrade and peer-reviewed research.",
     images: ["/og-image.png"],
   },
 };
+
+const DAY = 86400_000;
+const SOURCE_NAMES = "FAOSTAT|USDA FoodData Central|USDA NASS|USDA ERS|USDA FAS|USDA|FAO|CIP|UN Comtrade|ICAR-CPRI|CPRI|Europatat";
+const hasSource = (t) => new RegExp(`\\b(${SOURCE_NAMES})\\b`).test(t);
+
+function clean(md) {
+  return String(md || "").replace(/^#+\s.*$/gm, "").replace(/\*\*|__|`/g, "").replace(/\[(.*?)\]\(.*?\)/g, "$1").trim();
+}
+
+// First paragraph, cut at a sentence end near `max` words; never splits a decimal.
+function excerpt(md, max = 70) {
+  const para = clean(md).split(/\n\s*\n/).map((p) => p.trim()).find((p) => p.length > 60) || "";
+  let out = "";
+  for (const s of para.split(/(?<=[.!?])\s+(?=[A-Z"“(])/)) {
+    if (out && (out + " " + s).split(/\s+/).length > max) break;
+    out = out ? `${out} ${s}` : s;
+  }
+  return out.trim();
+}
+
+// Source cards from the sources the answer itself names, with the nearest year after each mention.
+function namedSources(text, fallbackYear) {
+  const seen = new Map();
+  for (const m of text.matchAll(new RegExp(`\\b(${SOURCE_NAMES})\\b`, "g"))) {
+    const name = m[1] === "FAO" ? "FAOSTAT" : m[1];
+    const after = text.slice(m.index, m.index + 60).match(/\b(19|20)\d{2}\b/);
+    const year = after ? after[0] : fallbackYear;
+    const key = `${name}${year || ""}`;
+    if (!seen.has(key)) seen.set(key, { name, meta: year ? `Cited for ${year}` : "Cited in this answer" });
+  }
+  return [...seen.values()].slice(0, 2);
+}
+
+function pickPopular(all) {
+  const want = [/best .*frying|french fries/i, /nutrition|protein/i, /largest .*import|import the most/i, /how long .*cold storage/i];
+  return want.map((re) => all.find((a) => re.test(a.question) || re.test(a.slug))).filter(Boolean);
+}
 
 async function getStats() {
   try {
@@ -37,338 +80,375 @@ async function getStats() {
   }
 }
 
-const DAY = 86400_000;
-const LAUNCH = Date.UTC(2026, 3, 7); // issue No. 1 = 7 Apr 2026, when this site went live
-
-// Sourced figures only. Each one names its source and year in the card.
-const NUMBERS = [
-  { n: "24.23 Mt", what: "potatoes harvested in Uttar Pradesh, India's largest producing state", src: "UP Directorate of Horticulture, 2022-23", href: "/country/india" },
-  { n: "93.5 Mt", what: "China's potato harvest, the world's largest", src: "FAOSTAT, 2023", href: "/answers/which-country-produces-most-potatoes" },
-  { n: "2.05 g", what: "protein in 100 g of raw potato", src: "USDA FoodData Central", href: "/answers/potato-nutrition-facts" },
-  { n: "10.85%", what: "of Uttar Pradesh's potatoes come from one district, Agra", src: "UP Directorate of Horticulture, 2022-23", href: "/country/india" },
-];
-
-const MACHINES = [
-  { no: "M01", name: "Optical & AI sorter", fixes: "Defects reaching the fry line", what: "Cameras and sensors find external and internal defects and reject them in-line." },
-  { no: "M02", name: "Size grader", fixes: "Uneven grading", what: "Rollers or screens split tubers by size for seed, ware and processing." },
-  { no: "M03", name: "Harvester", fixes: "Harvest bruises", what: "Lifts, cleans and loads the crop; set-up and drop heights decide bruising." },
-  { no: "M04", name: "Planter", fixes: "Planting gaps", what: "Places seed at even spacing and depth; gaps and doubles cost yield." },
-];
-
-const VARIETY_ROTATION = [
-  "Russet Burbank", "Maris Piper", "Kennebec", "Agria", "Carisma", "King Edward", "Désirée", "Yukon Gold",
-  "Innovator", "Lady Rosetta", "Atlantic", "Spunta", "Bintje", "Nicola", "Charlotte", "Markies", "Fontane",
-  "Shepody", "Ranger Russet", "Diamant", "Marfona", "Hermes", "Kufri Jyoti", "Kufri Chipsona-1",
-];
-
-function clean(md) {
-  return String(md || "")
-    .replace(/^#+\s.*$/gm, "")
-    .replace(/\*\*|__|\*|`/g, "")
-    .replace(/\[(.*?)\]\(.*?\)/g, "$1")
-    .trim();
-}
-
-// First paragraph, cut at a sentence end near `max` words. Sentences end at . ! ? followed by a space and a
-// capital/quote/bracket, so decimals ("$12.8 billion", "2.0 g") and abbreviations never split a figure.
-function excerpt(md, max = 70) {
-  const para = clean(md).split(/\n\s*\n/).map((p) => p.trim()).find((p) => p.length > 60) || "";
-  const sentences = para.split(/(?<=[.!?])\s+(?=[A-Z"“(])/);
-  let out = "";
-  for (const s of sentences) {
-    if (out && (out + " " + s).split(/\s+/).length > max) break;
-    out = out ? `${out} ${s}` : s;
-  }
-  return out.trim();
-}
-
-const pick = (list, i) => list[((i % list.length) + list.length) % list.length];
-
-function issueFor(no, answers, varieties) {
-  const lead = pick(answers.leads, no * 7);
-  const more = [1, 2, 3].map((k) => pick(answers.all, no * 11 + k * 17)).filter((a) => a.slug !== lead.slug).slice(0, 2);
-  return {
-    no,
-    lead,
-    more,
-    variety: pick(varieties, no),
-    machine: pick(MACHINES, no),
-    number: pick(NUMBERS, no),
-  };
-}
-
 export default async function HomePage() {
-  const now = Date.now();
-  const no = Math.max(1, Math.floor((now - LAUNCH) / DAY) + 1);
-  const dateLabel = new Date(now).toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
   const stats = await getStats();
-
   const all = Object.values(ANSWERS);
-  const answers = {
-    all,
-    leads: all.filter((a) => {
-      const e = excerpt(a.answer);
-      return a.confidence === "high" && e.length > 80 && /[.!?)"”]$/.test(e);
-    }),
+  const leads = all
+    .map((a) => ({ a, e: excerpt(a.answer) }))
+    .filter(({ a, e }) => a.confidence === "high" && e.length > 80 && /[.!?)"”]$/.test(e) && hasSource(e));
+  const day = Math.floor(Date.now() / DAY);
+  const { a: lead, e: leadText } = leads[day % leads.length];
+  const initial = {
+    question: lead.question,
+    text: leadText,
+    href: `/answers/${lead.slug}`,
+    cards: namedSources(leadText, lead.data_freshness?.primary_year),
+    related: (Array.isArray(lead.related_questions) ? lead.related_questions : []).filter((q) => q.length <= 70).slice(0, 2),
   };
-  const varieties = VARIETY_ROTATION.map((n) => VARIETIES.find((v) => v.name === n)).filter(Boolean);
-  const today = issueFor(no, answers, varieties);
-  const v = today.variety;
+  if (!initial.cards.length) initial.cards = [{ name: "Potatopedia knowledge base", meta: "Sourced answer" }];
+  const popular = pickPopular(all);
 
-  const trust = [
+  const figures = [
     stats && [stats.points.toLocaleString("en-US"), "data points"],
     stats && [String(stats.sources), "sources"],
     [String(VARIETIES.length), "varieties"],
     [String(COUNTRIES.length), "country profiles"],
   ].filter(Boolean);
 
-  const explore = [
-    { href: "/varieties", title: "Varieties", sub: `${VARIETIES.length} cultivars, traits and uses` },
-    { href: "/countries", title: "Countries", sub: `${COUNTRIES.length} production and trade profiles` },
-    { href: "/knowledge", title: "Knowledge", sub: `${Object.keys(KNOWLEDGE_TITLES).length} in-depth guides` },
-    { href: "/answers", title: "Answers", sub: `${all.length} published questions` },
-    { href: "#quote", title: "Machines", sub: "Get 3 quotes from makers" },
-  ];
-
   return (
-    <div className="hp">
+    <div className={`hp ${serif.variable} ${sans.variable}`} data-theme="dark">
+      <script dangerouslySetInnerHTML={{ __html: `try{var q=new URLSearchParams(location.search).get("theme");var t=q||localStorage.getItem("pp-theme");if(t==="light"||t==="dark")document.currentScript.parentElement.setAttribute("data-theme",t)}catch(e){}` }} />
       <style>{CSS}</style>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@graph": [POTATOPEDIA_PUBLISHER, POTATOPEDIA_WEBSITE] }) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@graph": [POTATOPEDIA_PUBLISHER, POTATOPEDIA_WEBSITE] }) }} />
 
-      {/* ── Hero: the AI answer engine ── */}
-      <section className="hp-hero" aria-labelledby="hp-h1">
+      {/* ── Hero ── */}
+      <section className="hp-hero">
+        <div className="hp-glow" aria-hidden="true" />
+        <div className="hp-lines" aria-hidden="true" />
+        <header className="hp-nav">
+          <Link href="/" className="hp-logo">Potatopedia</Link>
+          <nav className="hp-links" aria-label="Main">
+            <Link href="/varieties">Varieties</Link>
+            <Link href="/countries">Countries</Link>
+            <Link href="/knowledge">Knowledge</Link>
+            <Link href="/answers">Answers</Link>
+            <Link href="/blog">Blog</Link>
+          </nav>
+          <a href="#companies" className="hp-adv">Advertise</a>
+          <details className="hp-menu">
+            <summary aria-label="Menu">
+              <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 6h12M3 12h12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" /></svg>
+            </summary>
+            <div className="hp-menu-box">
+              <Link href="/varieties">Varieties</Link>
+              <Link href="/countries">Countries</Link>
+              <Link href="/knowledge">Knowledge</Link>
+              <Link href="/answers">Answers</Link>
+              <Link href="/blog">Blog</Link>
+              <a href="#companies">Advertise</a>
+            </div>
+          </details>
+        </header>
+
         <div className="hp-hero-in">
-          <p className="hp-eyebrow">The neutral global reference on potatoes</p>
-          <h1 id="hp-h1" className="hp-h1">Ask anything about potatoes.</h1>
-          <p className="hp-sub">
-            Sourced answers in seconds, in any language. Built on FAOSTAT, USDA, CIP, UN Comtrade, CPRI, Europatat and peer-reviewed research.
+          <p className="hp-eyebrow hp-rise">The neutral reference on potatoes</p>
+          <h1 className="hp-h1 hp-rise hp-d1">Ask anything about <em>potatoes.</em></h1>
+          <p className="hp-lede hp-rise hp-d2">
+            Every answer grows from its sources: FAOSTAT, USDA, CIP, UN Comtrade, CPRI, Europatat and peer-reviewed research. In any language.
           </p>
-          <div id="ask" className="hp-ask">
-            <AskHero />
+        </div>
+        <div className="hp-engine">
+          <AskRoots initial={initial} />
+        </div>
+
+        <ul className="hp-figs" aria-label="Knowledge base">
+          {figures.map(([n, l]) => (
+            <li key={l}>
+              <span className="hp-fig-n">{n}</span>
+              <span className="hp-fig-l">{l}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {/* ── The chain ── */}
+      <section className="hp-chain" aria-labelledby="hp-chain-h">
+        <div className="hp-wrap">
+          <div className="hp-split">
+            <div>
+              <p className="hp-eyebrow hp-eyebrow-dk">02 · The potato chain</p>
+              <h2 id="hp-chain-h" className="hp-h2">Where in the chain <em>are you?</em></h2>
+            </div>
+            <p className="hp-aside">Pick a stage. Ask about it, find the companies that serve it, or get three quotes for the machine you need.</p>
           </div>
-          <ul className="hp-trust" aria-label="Knowledge base">
-            {trust.map(([n, l]) => (
-              <li key={l}>
-                <strong>{n}</strong> {l}
+          <ChainSection />
+        </div>
+      </section>
+
+      {/* ── Most asked ── */}
+      <section className="hp-asked" aria-labelledby="hp-asked-h">
+        <div className="hp-wrap hp-asked-in">
+          <div className="hp-asked-head">
+            <h2 id="hp-asked-h" className="hp-h3">Most asked</h2>
+            <Link href="/answers" className="hp-gold-link">All {all.length} answers <span className="hp-arrow">→</span></Link>
+          </div>
+          <ol className="hp-list">
+            {popular.map((a, i) => (
+              <li key={a.slug}>
+                <Link href={`/answers/${a.slug}`} className="hp-row">
+                  <span className="hp-list-n">0{i + 1}</span>
+                  <span className="hp-list-q">{a.question}</span>
+                  <span className="hp-arrow">→</span>
+                </Link>
               </li>
             ))}
-          </ul>
-          <ol className="hp-how" aria-label="How answers work">
-            <li><span>1</span>We search the knowledge base for your question</li>
-            <li><span>2</span>We cite the sources and years we used</li>
-            <li><span>3</span>We answer, and say when data is not published</li>
           </ol>
         </div>
       </section>
 
-      {/* ── Today on Potatopedia ── */}
-      <section className="hp-sec" aria-labelledby="hp-today">
-        <div className="hp-in">
-          <div className="hp-head">
-            <h2 id="hp-today" className="hp-h2">Today on Potatopedia</h2>
-            <span className="hp-meta">Issue {no} · {dateLabel}</span>
-          </div>
-          <div className="hp-today">
-            <article className="hp-card hp-lead">
-              <p className="hp-kicker">Question of the day · {today.lead.category}</p>
-              <h3 className="hp-lead-q">{today.lead.question}</h3>
-              <p className="hp-lead-a">{excerpt(today.lead.answer)}</p>
-              <div className="hp-lead-foot">
-                <Link href={`/answers/${today.lead.slug}`} className="hp-link">Read the full sourced answer →</Link>
-                <span className="hp-more-q">
-                  Also asked:{" "}
-                  {today.more.map((a, i) => (
-                    <span key={a.slug}>
-                      {i > 0 && " · "}
-                      <Link href={`/answers/${a.slug}`}>{a.question}</Link>
-                    </span>
-                  ))}
-                </span>
-              </div>
-            </article>
-
-            <Link href={today.number.href} className="hp-card hp-num">
-              <p className="hp-kicker">Number of the day</p>
-              <strong className="hp-num-n">{today.number.n}</strong>
-              <span className="hp-num-w">{today.number.what}</span>
-              <span className="hp-src">Source: {today.number.src}</span>
-            </Link>
-
-            {v && (
-              <Link href={`/varieties/${v.slug}`} className="hp-card">
-                <p className="hp-kicker">Variety of the day</p>
-                <strong className="hp-card-t">{v.name}</strong>
-                <dl className="hp-dl">
-                  <div><dt>Origin</dt><dd>{v.origin.replace(/\s*\(.*\)/, "")}</dd></div>
-                  <div><dt>Released</dt><dd>{v.year || "not published"}</dd></div>
-                  <div><dt>Best for</dt><dd>{v.uses[0]?.split(" / ")[0]}</dd></div>
-                </dl>
-                <span className="hp-link">Variety profile →</span>
-              </Link>
-            )}
-
-            <a href="#quote" className="hp-card">
-              <p className="hp-kicker">Machine of the day</p>
-              <strong className="hp-card-t">{today.machine.name}</strong>
-              <span className="hp-small">{today.machine.what}</span>
-              <span className="hp-small"><b>Fixes:</b> {today.machine.fixes}</span>
-              <span className="hp-link">Get 3 quotes →</span>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Explore ── */}
-      <section className="hp-sec hp-sec-tint" aria-labelledby="hp-explore">
-        <div className="hp-in">
-          <h2 id="hp-explore" className="hp-h2" style={{ marginBottom: 20 }}>Explore</h2>
-          <div className="hp-explore">
-            {explore.map((e) => (
-              <Link key={e.title} href={e.href} className="hp-tile">
-                <strong>{e.title}</strong>
-                <span>{e.sub}</span>
-              </Link>
-            ))}
-          </div>
-          <div className="hp-news">
-            <div>
-              <h2 className="hp-h3">The Potato Week</h2>
-              <p className="hp-small" style={{ margin: "6px 0 0" }}>One email a week: the most useful new answers, data and stories. Free.</p>
-            </div>
-            <LeadForm type="newsletter" askName={false} askCompany={false} askCountry={false} askMessage={false} submitLabel="Subscribe" compact />
-          </div>
-        </div>
-      </section>
-
       {/* ── For companies ── */}
-      <section id="companies" className="hp-sec hp-dark" aria-labelledby="hp-co">
-        <div className="hp-in hp-co">
-          <div>
-            <p className="hp-eyebrow" style={{ color: "#F3A7A7" }}>For companies</p>
-            <h2 id="hp-co" className="hp-h2" style={{ color: "#fff" }}>Reach the potato industry, inside the answer.</h2>
-            <p style={{ color: "#C9C9D1", lineHeight: 1.65, margin: "14px 0 18px" }}>
-              Growers, processors, traders and researchers use Potatopedia for neutral, sourced answers. Machinery makers, breeders and
-              suppliers reach them through clearly labelled placements. The sourced answer always comes first, and paid content never
-              changes a fact.
-            </p>
-            <ul className="hp-list">
-              <li>Featured maker for a machine and its quote requests</li>
-              <li>Breeder set: your varieties, labelled</li>
-              <li>Own a question: one labelled card under the answer</li>
-              <li>Publish with us: a labelled partner article</li>
-              <li>Present the daily issue and the newsletter</li>
-              <li>AI visibility report: how often AI answers name you</li>
+      <section id="companies" className="hp-co" aria-labelledby="hp-co-h">
+        <div className="hp-co-glow" aria-hidden="true" />
+        <div className="hp-wrap hp-co-in">
+          <div style={{ flex: 1.1 }}>
+            <p className="hp-eyebrow">03 · For companies</p>
+            <h2 id="hp-co-h" className="hp-h2">Be the name inside <em>the answer.</em></h2>
+            <p className="hp-co-lede">Growers, processors and traders come here for neutral, sourced answers. Makers, breeders and suppliers reach them through placements that are always labelled. Paid content never changes a fact.</p>
+            <ul className="hp-offers">
+              <li>Featured maker at a stage</li>
+              <li>Own a question</li>
+              <li>Breeder variety set</li>
+              <li>Publish with us</li>
+              <li>Newsletter sponsor</li>
+              <li>AI visibility report</li>
             </ul>
           </div>
-          <div className="hp-forms">
-            <div className="hp-form" id="quote">
-              <LeadForm
-                type="machine_quote"
-                title="Get 3 quotes for a machine"
-                intro="Tell us the machine and capacity. We pass it to up to three makers; you choose who to talk to."
-                submitLabel="Get 3 quotes"
-                messageLabel="Anything else (crop, variety, current set-up)?"
-                compact
-                extra={[
-                  { name: "product", label: "Machine", options: ["Optical / AI sorter", "Size grader", "Washer / peeler", "Fry, chip or flake line", "Planter", "Harvester", "Haulm topper", "Seed cutter", "Cold storage / ventilation", "Irrigation", "Packing / weighing", "Other"] },
-                  { name: "capacity_tph", label: "Capacity (tonnes per hour)", placeholder: "e.g. 10" },
-                  { name: "timeline", label: "When?", options: ["Within 3 months", "3–6 months", "6–12 months", "Just researching"] },
-                ]}
-              />
-            </div>
-            <div className="hp-form">
-              <LeadForm
-                type="advertise_call"
-                title="Book a 15-minute call"
-                intro="We'll send the media kit and rates."
-                submitLabel="Book the call"
-                compact
-                askMessage={false}
-                extra={[{ name: "product_interest", label: "Interested in", options: ["Featured maker", "Breeder set", "Own a question", "Publish with us", "Present the daily issue", "AI visibility check", "Not sure yet"] }]}
-              />
-            </div>
+          <div className="hp-glass hp-co-form">
+            <LeadForm
+              dark
+              type="advertise_call"
+              title="Book a 15-minute call"
+              intro="We'll send the media kit and rates."
+              submitLabel="Book the call"
+              askMessage={false}
+              compact
+              extra={[{ name: "product_interest", label: "Interested in", options: ["Featured maker", "Own a question", "Breeder set", "Publish with us", "Newsletter sponsor", "AI visibility report", "Not sure yet"] }]}
+            />
           </div>
         </div>
       </section>
+
+      {/* ── Footer ── */}
+      <footer className="hp-foot">
+        <div className="hp-wrap hp-foot-top">
+          <div style={{ flex: 1 }}>
+            <p className="hp-foot-t">The Potato Week</p>
+            <p className="hp-foot-s">One considered email a week: the most useful new answers and data. Free.</p>
+          </div>
+          <div style={{ flex: 1 }}>
+            <LeadForm dark type="newsletter" askName={false} askCompany={false} askCountry={false} askMessage={false} submitLabel="Subscribe" compact />
+          </div>
+        </div>
+        <div className="hp-wrap hp-foot-bot">
+          <span className="hp-foot-logo">Potatopedia</span>
+          <span>Sources: FAOSTAT · USDA · CIP · UN Comtrade · CPRI · Europatat · peer-reviewed journals</span>
+          <nav aria-label="Footer" className="hp-foot-links">
+            <a href="#companies">Advertise</a>
+            <Link href="/about">About</Link>
+            <Link href="/contact">Contact</Link>
+            <Link href="/privacy">Privacy</Link>
+            <Link href="/terms">Terms</Link>
+            <Link href="/disclaimer">Disclaimer</Link>
+            <Link href="/refund-policy">Refunds</Link>
+            <Link href="/shipping-policy">Shipping</Link>
+          </nav>
+        </div>
+      </footer>
+
+      <ThemeFab />
+      <nav className="hp-bar" aria-label="Quick actions">
+        <a href="#ar-q">Ask</a>
+        <a href="#companies" className="hp-bar-alt">Advertise</a>
+      </nav>
     </div>
   );
 }
 
-// White, near-black text, one accent (brand red #C62828). No green. Site font (Poppins from the layout).
 const CSS = `
-.hp { background: #fff; color: #111114; overflow-x: hidden; }
+.hp { --bg:#0A0A0D; --ink:#F4F1EC; --ink2:#DCD7CF; --mute:#B7B2AA; --mute2:#8E8A83; --gold:#E2C08D; --gold-faint:rgba(226,192,141,.25);
+  --glass:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.03)); --glass-line:rgba(255,255,255,.12); --chip-line:rgba(255,255,255,.16);
+  --card:rgba(255,255,255,.04); --line:rgba(255,255,255,.08); --shadow:0 40px 100px rgba(0,0,0,.5); --glow:rgba(214,168,91,.22); --input:rgba(255,255,255,.06);
+  --ivory:#F6F1E8; --ivory-card:#FFFDF9; --ivory-ink:#16140F; --ivory-mute:#5E584D; --ivory-line:#E6DCCB; --ivory-gold:#9A7238;
+  font-family: var(--hp-sans), system-ui, sans-serif; background: var(--bg); color: var(--ink); overflow-x: hidden; transition: background .6s ease, color .6s ease; }
+.hp[data-theme="light"] { --bg:#FBF8F2; --ink:#16140F; --ink2:#2E2A23; --mute:#5E584D; --mute2:#6E675B; --gold:#9A7238; --gold-faint:rgba(154,114,56,.28);
+  --glass:linear-gradient(180deg,#FFFFFF,#FFFDF8); --glass-line:#E6DCCB; --chip-line:#DCD0BB; --card:#FFFFFF; --line:#E6DCCB;
+  --shadow:0 30px 80px rgba(60,40,10,.10); --glow:rgba(214,168,91,.28); --input:#FFFFFF; --ivory:#F2EADC; --ivory-card:#FFFFFF; }
 .hp a { color: inherit; }
-.hp-eyebrow { margin: 0 0 14px; font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #C62828; }
-.hp-hero { padding: 72px 20px 56px; background: radial-gradient(1200px 400px at 50% -120px, #FBEDED 0%, #fff 70%); border-bottom: 1px solid #EEEEF0; }
-.hp-hero-in { max-width: 820px; margin: 0 auto; text-align: center; }
-.hp-h1 { margin: 0; font-size: clamp(36px, 5.6vw, 60px); font-weight: 700; line-height: 1.05; letter-spacing: -.03em; }
-.hp-sub { margin: 18px auto 0; max-width: 640px; font-size: 18px; line-height: 1.55; color: #4A4A52; }
-.hp-ask { margin: 32px auto 0; text-align: left; }
-.hp-trust { list-style: none; margin: 28px 0 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 28px; font-size: 14px; color: #5A5A63; }
-.hp-trust strong { color: #111114; font-weight: 700; }
-.hp-how { list-style: none; margin: 22px auto 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 24px; font-size: 13px; color: #6B6B74; }
-.hp-how li { display: flex; align-items: center; gap: 8px; }
-.hp-how span { width: 20px; height: 20px; border-radius: 50%; background: #F4F4F5; color: #111114; font-size: 11px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; }
+.hp-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.hp em { font-style: italic; color: var(--gold); }
+@keyframes hpRise { from { opacity: 0; transform: translateY(14px) } to { opacity: 1; transform: none } }
+@keyframes hpGlow { 0%,100% { opacity: .6 } 50% { opacity: 1 } }
+@keyframes arGrow { from { stroke-dashoffset: 520 } to { stroke-dashoffset: 0 } }
+@keyframes arPop { 0%,40% { opacity: 0; transform: translateY(12px) } 100% { opacity: 1; transform: none } }
+@keyframes chBelt { from { left: -4% } to { left: 101% } }
+.hp-rise { animation: hpRise 1.1s cubic-bezier(.2,.7,.2,1) both }
+.hp-d1 { animation-delay: .12s } .hp-d2 { animation-delay: .24s } .hp-d3 { animation-delay: .36s }
+.hp-arrow { display: inline-block; transition: transform .2s ease }
+.hp-row:hover .hp-arrow, .ar-link:hover .hp-arrow, .hp-gold-link:hover .hp-arrow, .ch-link:hover .hp-arrow { transform: translateX(4px) }
 
-.hp-sec { padding: 56px 20px; }
-.hp-sec-tint { background: #FAFAFA; border-top: 1px solid #EEEEF0; border-bottom: 1px solid #EEEEF0; }
-.hp-in { max-width: 1160px; margin: 0 auto; }
-.hp-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
-.hp-h2 { margin: 0; font-size: clamp(24px, 2.8vw, 32px); font-weight: 700; letter-spacing: -.02em; line-height: 1.15; }
-.hp-h3 { margin: 0; font-size: 20px; font-weight: 700; }
-.hp-meta { font-size: 13px; color: #6B6B74; }
-.hp-today { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 16px; }
-.hp-card { background: #fff; border: 1px solid #E4E4E7; border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 10px; text-decoration: none; transition: border-color .15s ease, box-shadow .15s ease; }
-a.hp-card:hover { border-color: #C9C9CF; box-shadow: 0 8px 24px rgba(15,15,20,.06); }
-a.hp-card:focus-visible, .hp-tile:focus-visible { outline: 3px solid #C62828; outline-offset: 2px; }
-.hp-kicker { margin: 0; font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: #6B6B74; }
-.hp-lead { grid-row: span 1; }
-.hp-lead-q { margin: 0; font-size: 24px; font-weight: 700; line-height: 1.2; letter-spacing: -.01em; }
-.hp-lead-a { margin: 0; font-size: 15.5px; line-height: 1.65; color: #34343B; }
-.hp-lead-foot { margin-top: auto; display: flex; flex-direction: column; gap: 10px; }
-.hp-more-q { font-size: 13px; color: #6B6B74; line-height: 1.5; }
-.hp-more-q a { color: #34343B; text-decoration: underline; text-decoration-color: #D4D4D8; }
-.hp-link { color: #C62828 !important; font-weight: 600; font-size: 14px; text-decoration: none; margin-top: auto; }
-.hp-card-t { font-size: 20px; font-weight: 700; line-height: 1.2; }
-.hp-small { font-size: 14px; line-height: 1.55; color: #4A4A52; }
-.hp-num-n { font-size: 44px; font-weight: 700; letter-spacing: -.03em; line-height: 1; color: #C62828; }
-.hp-num-w { font-size: 14.5px; line-height: 1.5; color: #34343B; }
-.hp-src { margin-top: auto; font-size: 12.5px; color: #6B6B74; }
-.hp-dl { margin: 0; display: grid; gap: 6px; font-size: 13.5px; }
-.hp-dl div { display: flex; justify-content: space-between; gap: 8px; border-top: 1px solid #F0F0F2; padding-top: 6px; }
-.hp-dl dt { color: #6B6B74; }
-.hp-dl dd { margin: 0; font-weight: 600; text-align: right; }
-.hp-explore { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
-.hp-tile { background: #fff; border: 1px solid #E4E4E7; border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 6px; text-decoration: none; }
-.hp-tile:hover { border-color: #C62828; }
-.hp-tile strong { font-size: 16px; }
-.hp-tile span { font-size: 13.5px; color: #6B6B74; line-height: 1.45; }
-.hp-news { margin-top: 28px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; align-items: center; background: #fff; border: 1px solid #E4E4E7; border-radius: 14px; padding: 22px 24px; }
-.hp-dark { background: #111114; color: #fff; }
-.hp-co { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 40px; align-items: start; }
-.hp-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; color: #E4E4E7; font-size: 15px; }
-.hp-list li { display: flex; gap: 10px; }
-.hp-list li::before { content: ""; flex: 0 0 6px; height: 6px; margin-top: 9px; border-radius: 50%; background: #E57373; }
-.hp-forms { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; }
-.hp-form { background: #fff; color: #111114; border-radius: 14px; padding: 20px; }
+.hp-hero { position: relative; overflow: hidden; padding-bottom: 8px; }
+.hp-glow { position: absolute; left: 50%; top: -280px; width: 1200px; height: 780px; transform: translateX(-50%); background: radial-gradient(closest-side, var(--glow), transparent 70%); animation: hpGlow 7s ease-in-out infinite; pointer-events: none; }
+.hp-lines { position: absolute; inset: 0; background-image: linear-gradient(var(--line) 1px, transparent 1px); background-size: 100% 96px; opacity: .45; pointer-events: none; }
+.hp-nav { position: relative; z-index: 3; max-width: 1200px; margin: 0 auto; padding: 22px 32px; display: flex; align-items: center; gap: 28px; }
+.hp-logo { font-family: var(--hp-serif), Georgia, serif; font-size: 27px; text-decoration: none; letter-spacing: -.01em; }
+.hp-links { display: flex; gap: 26px; font-size: 14px; margin-left: 16px; }
+.hp-links a { color: var(--mute); text-decoration: none; transition: color .2s; } .hp-links a:hover { color: var(--ink); }
+.hp-adv { margin-left: auto; background: var(--ink); color: var(--bg) !important; text-decoration: none; font-weight: 500; font-size: 14px; padding: 10px 18px; border-radius: 999px; }
+.hp-menu { display: none; position: relative; }
+.hp-menu summary { list-style: none; width: 44px; height: 44px; border-radius: 999px; border: 1px solid var(--chip-line); display: flex; align-items: center; justify-content: center; cursor: pointer; }
+.hp-menu summary::-webkit-details-marker { display: none; }
+.hp-menu-box { position: absolute; right: 0; top: 52px; min-width: 200px; background: var(--bg); border: 1px solid var(--glass-line); border-radius: 16px; padding: 10px; display: grid; box-shadow: var(--shadow); }
+.hp-menu-box a { padding: 12px 14px; border-radius: 10px; text-decoration: none; }
+.hp-hero-in { position: relative; max-width: 980px; margin: 0 auto; padding: 72px 32px 0; text-align: center; }
+.hp-eyebrow { margin: 0 0 22px; font-size: 12.5px; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); }
+.hp-h1 { margin: 0; font-family: var(--hp-serif), Georgia, serif; font-weight: 400; font-size: clamp(52px, 8vw, 100px); line-height: .98; letter-spacing: -.02em; }
+.hp-lede { margin: 24px auto 0; max-width: 620px; font-size: 18px; line-height: 1.6; color: var(--mute); font-weight: 300; }
+.hp-engine { position: relative; max-width: 980px; margin: 40px auto 0; padding: 0 32px; }
 
-@media (max-width: 1040px) {
-  .hp-today { grid-template-columns: 1fr 1fr; }
-  .hp-lead { grid-column: 1 / -1; }
-  .hp-explore { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .hp-co, .hp-forms { grid-template-columns: 1fr; }
+.ar-form { max-width: 760px; margin: 0 auto; display: flex; gap: 8px; padding: 8px; border-radius: 18px; background: var(--input); border: 1px solid var(--chip-line); box-shadow: var(--shadow); }
+.ar-form:focus-within { border-color: var(--gold); }
+.ar-input { flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; font: inherit; font-size: 18px; padding: 14px 16px; color: var(--ink); }
+.ar-input::placeholder { color: var(--mute2); }
+.ar-btn { border: 0; border-radius: 12px; background: #C62828; color: #fff; font: inherit; font-weight: 500; font-size: 16px; padding: 0 28px; min-height: 54px; cursor: pointer; box-shadow: 0 8px 24px rgba(198,40,40,.32); }
+.ar-btn:disabled { opacity: .5; cursor: default; }
+.ar-btn:not(:disabled):hover { background: #A61F1F; }
+.ar-card { margin-top: 56px; border-radius: 22px; padding: 32px 36px; background: var(--glass); border: 1px solid var(--glass-line); box-shadow: var(--shadow); animation: arPop 1.4s cubic-bezier(.2,.7,.2,1) both; }
+.ar-kick { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--mute2); }
+.ar-q { margin: 0 0 14px; font-family: var(--hp-serif), Georgia, serif; font-weight: 400; font-size: 36px; line-height: 1.12; }
+.ar-a { font-size: 18.5px; line-height: 1.7; color: var(--ink2); font-weight: 300; }
+.ar-a strong { color: var(--ink); font-weight: 500; }
+.ar-p { margin: 0 0 12px; } .ar-p:last-child { margin-bottom: 0; }
+.ar-wait { color: var(--mute2); }
+.ar-next { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.ar-link { color: var(--gold) !important; font-size: 14px; font-weight: 500; text-decoration: none; margin-right: 6px; }
+.ar-chip { font: inherit; font-size: 13px; color: var(--ink2); background: transparent; border: 1px solid var(--chip-line); border-radius: 999px; padding: 8px 14px; min-height: 38px; cursor: pointer; transition: border-color .2s, background .2s; text-align: left; }
+.ar-chip:hover { border-color: var(--gold); }
+.ar-roots { display: block; width: 100%; height: 130px; }
+.ar-root { stroke-dasharray: 520; animation: arGrow 2.2s cubic-bezier(.3,.6,.2,1) .35s both; }
+.ar-sources { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.ar-src { border-radius: 16px; padding: 18px 20px; background: var(--card); border: 1px solid var(--glass-line); text-decoration: none; display: block; }
+.ar-spon { background: transparent; border-style: dashed; border-color: var(--chip-line); }
+.ar-pop { animation: arPop 2.6s cubic-bezier(.2,.7,.2,1) both; }
+.ar-src p { margin: 0; }
+.ar-src-k { font-size: 11px; letter-spacing: .2em; color: var(--gold); margin-bottom: 8px !important; }
+.ar-src-n { font-family: var(--hp-serif), Georgia, serif; font-size: 24px; }
+.ar-src-m { font-size: 13px; color: var(--mute2); margin-top: 4px !important; }
+
+.hp-figs { position: relative; max-width: 1200px; margin: 72px auto 0; padding: 26px 32px 34px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; justify-content: center; gap: 14px 56px; list-style: none; }
+.hp-figs li { text-align: center; }
+.hp-fig-n { display: block; font-family: var(--hp-serif), Georgia, serif; font-size: 36px; }
+.hp-fig-l { font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--mute2); }
+
+.hp-wrap { max-width: 1200px; margin: 0 auto; }
+.hp-chain { background: var(--ivory); color: var(--ivory-ink); padding: 112px 32px; transition: background .6s ease; }
+.hp-split { display: flex; gap: 48px; align-items: flex-end; justify-content: space-between; margin-bottom: 48px; }
+.hp-eyebrow-dk { color: var(--ivory-gold); }
+.hp-h2 { margin: 0; font-family: var(--hp-serif), Georgia, serif; font-weight: 400; font-size: clamp(40px, 5vw, 64px); line-height: 1; letter-spacing: -.015em; }
+.hp-chain .hp-h2 em { color: var(--ivory-ink); }
+.hp-aside { margin: 0; max-width: 360px; font-size: 16px; line-height: 1.65; color: var(--ivory-mute); font-weight: 300; }
+.ch-stages { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; }
+.ch-stage { font: inherit; font-size: 17px; text-align: left; border-radius: 14px; padding: 14px 16px; min-height: 64px; cursor: pointer; background: transparent; color: var(--ivory-ink); border: 1px solid #DCD0BB; transition: all .25s ease; }
+.ch-stage:hover { border-color: var(--ivory-gold); }
+.ch-stage.is-on { background: var(--ivory-ink); color: var(--ivory); border-color: var(--ivory-ink); box-shadow: 0 14px 30px rgba(22,20,15,.18); }
+.ch-num { display: block; font-size: 11px; letter-spacing: .18em; opacity: .6; margin-bottom: 4px; }
+.ch-belt { position: relative; height: 34px; margin-top: 18px; overflow: hidden; }
+.ch-line { position: absolute; left: 0; right: 0; top: 22px; height: 1px; background: #CDBFA6; }
+.ch-tuber { position: absolute; top: 0; animation: chBelt 16s linear infinite; filter: drop-shadow(0 4px 4px rgba(90,60,20,.18)); }
+.ch-panel { margin-top: 22px; border-radius: 22px; background: var(--ivory-card); border: 1px solid var(--ivory-line); box-shadow: 0 30px 80px rgba(60,40,10,.08); overflow: hidden; }
+.ch-tabs { display: flex; flex-wrap: wrap; border-bottom: 1px solid #EEE6D8; padding: 0 12px; }
+.ch-tab { font: inherit; border: 0; background: transparent; padding: 20px 18px; min-height: 60px; cursor: pointer; font-size: 15px; color: #6E675B; border-bottom: 2px solid transparent; margin-bottom: -1px; }
+.ch-tab.is-on { color: var(--ivory-ink); font-weight: 500; border-bottom-color: var(--ivory-gold); }
+.ch-body { padding: 36px; }
+.ch-cols { display: flex; gap: 40px; }
+.ch-q { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 16px; background: none; border: 0; border-bottom: 1px solid #EEE6D8; padding: 18px 0; text-align: left; cursor: pointer; font-family: var(--hp-serif), Georgia, serif; font-size: 26px; line-height: 1.2; color: var(--ivory-ink); }
+.ch-arr { font-family: var(--hp-sans), sans-serif; font-size: 18px; color: var(--ivory-gold); }
+.ch-feat { flex: 1; align-self: flex-start; border-radius: 16px; border: 1px dashed #CDBFA6; padding: 24px; text-decoration: none; display: flex; flex-direction: column; gap: 8px; color: var(--ivory-ink) !important; }
+.ch-k { font-size: 11px; letter-spacing: .2em; color: #6E675B; }
+.ch-feat-t { font-family: var(--hp-serif), Georgia, serif; font-size: 26px; line-height: 1.15; }
+.ch-small { font-size: 14px; line-height: 1.6; color: var(--ivory-mute); }
+.ch-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.ch-sup { border-radius: 16px; border: 1px solid #EEE6D8; padding: 22px; display: flex; flex-direction: column; gap: 6px; }
+.ch-sup-t { font-family: var(--hp-serif), Georgia, serif; font-size: 26px; }
+.ch-link { display: inline-block; margin-top: 20px; font-size: 14px; font-weight: 500; color: var(--ivory-gold) !important; text-decoration: none; }
+
+.hp-asked { background: var(--ivory); color: var(--ivory-ink); padding: 0 32px 112px; transition: background .6s ease; }
+.hp-asked-in { border-top: 1px solid #DCD0BB; padding-top: 56px; }
+.hp-asked-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; }
+.hp-h3 { margin: 0; font-family: var(--hp-serif), Georgia, serif; font-weight: 400; font-size: 44px; }
+.hp-gold-link { font-size: 14px; font-weight: 500; color: var(--ivory-gold) !important; text-decoration: none; }
+.hp-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 48px; }
+.hp-list .hp-row { display: flex; gap: 22px; align-items: baseline; padding: 20px 0; border-bottom: 1px solid var(--ivory-line); text-decoration: none; }
+.hp-list-n { font-family: var(--hp-serif), Georgia, serif; font-size: 22px; color: #9A7238; }
+.hp-list-q { flex: 1; font-family: var(--hp-serif), Georgia, serif; font-size: 25px; line-height: 1.2; }
+.hp-list .hp-arrow { color: var(--ivory-gold); }
+
+.hp-co { position: relative; overflow: hidden; background: #0A0A0D; color: #F4F1EC; padding: 120px 32px; }
+.hp-co .hp-eyebrow, .hp-co em { color: #E2C08D; }
+.hp-co-glow { position: absolute; right: -200px; top: -200px; width: 700px; height: 700px; background: radial-gradient(closest-side, rgba(214,168,91,.14), transparent); pointer-events: none; }
+.hp-co-in { position: relative; display: flex; gap: 72px; align-items: center; }
+.hp-co-lede { margin: 22px 0 28px; font-size: 17px; line-height: 1.7; color: #B7B2AA; font-weight: 300; max-width: 520px; }
+.hp-offers { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 28px; font-size: 15px; color: #DCD7CF; }
+.hp-offers li { padding: 12px 0; border-top: 1px solid rgba(255,255,255,.1); }
+.hp-glass { border-radius: 22px; padding: 32px; background: linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.03)); border: 1px solid rgba(255,255,255,.12); box-shadow: 0 40px 100px rgba(0,0,0,.5); }
+.hp-co-form { flex: 1; }
+
+.hp-foot { background: #0A0A0D; color: #F4F1EC; border-top: 1px solid rgba(255,255,255,.08); padding: 56px 32px 40px; }
+.hp-foot-top { display: flex; gap: 40px; align-items: center; }
+.hp-foot-t { margin: 0; font-family: var(--hp-serif), Georgia, serif; font-size: 30px; }
+.hp-foot-s { margin: 6px 0 0; font-size: 15px; color: #A9A49C; font-weight: 300; }
+.hp-foot-bot { margin-top: 48px; display: flex; flex-wrap: wrap; gap: 12px 28px; align-items: center; font-size: 13px; color: #A9A49C; }
+.hp-foot-logo { font-family: var(--hp-serif), Georgia, serif; font-size: 20px; color: #DCD7CF; }
+.hp-foot-links { margin-left: auto; display: flex; flex-wrap: wrap; gap: 8px 18px; }
+.hp-foot-links a { color: #A9A49C; text-decoration: none; } .hp-foot-links a:hover { color: #F4F1EC; }
+
+.tf { position: fixed; right: 24px; bottom: 24px; z-index: 70; width: 60px; height: 60px; border-radius: 50%; border: 1px solid rgba(255,255,255,.14); background: #16140F; box-shadow: 0 14px 40px rgba(0,0,0,.35); cursor: pointer; overflow: hidden; padding: 0; transition: background .5s ease, border-color .5s ease; }
+.tf-sun { position: absolute; inset: 16px; border-radius: 50%; background: #E2C08D; box-shadow: 0 0 16px rgba(226,192,141,.55); transition: background .5s, box-shadow .5s; }
+.tf-bite { position: absolute; width: 28px; height: 28px; border-radius: 50%; background: #16140F; top: 6px; left: 40px; transition: transform .6s cubic-bezier(.6,-.3,.3,1.4), background .5s; }
+.tf.is-light { background: #F4F1EC; border-color: #DCD0BB; }
+.tf.is-light .tf-sun { background: #9A7238; box-shadow: none; }
+.tf.is-light .tf-bite { background: #F4F1EC; transform: translate(-18px, 6px); }
+.tf:focus-visible { outline: 3px solid #E2C08D; outline-offset: 3px; }
+.hp-bar { display: none; }
+
+@media (prefers-reduced-motion: reduce) { .hp-rise, .hp-glow, .ar-card, .ar-root, .ar-pop, .ch-tuber { animation: none !important } .hp * { transition: none !important } }
+@media (max-width: 900px) {
+  .hp-links, .hp-adv { display: none; }
+  .hp-menu { display: block; margin-left: auto; }
+  .hp-split, .hp-co-in, .hp-foot-top, .ch-cols { flex-direction: column; align-items: stretch; }
+  .hp-list { grid-template-columns: 1fr; }
+  .ch-stages { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 @media (max-width: 640px) {
-  .hp-hero { padding: 40px 16px 36px; }
-  .hp-sub { font-size: 16px; }
-  .hp-how { display: none; }
-  .hp-sec { padding: 40px 16px; }
-  .hp-today { display: flex; flex-direction: column; }
-  .hp-explore { grid-template-columns: 1fr 1fr; }
-  .hp-news { grid-template-columns: 1fr; padding: 18px; }
-  .hp-form { padding: 16px; }
+  .hp-nav { padding: 16px 20px; }
+  .hp-hero-in { padding: 36px 20px 0; }
+  .hp-lede { font-size: 16px; }
+  .hp-engine { padding: 0 20px; margin-top: 28px; }
+  .ar-form { flex-direction: column; }
+  .ar-input { font-size: 16px; padding: 12px; }
+  .ar-btn { min-height: 50px; }
+  .ar-card { margin-top: 32px; padding: 22px; }
+  .ar-q { font-size: 28px; }
+  .ar-a { font-size: 16.5px; }
+  .ar-roots { height: 80px; }
+  .ar-sources { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .ar-spon { grid-column: 1 / -1; }
+  .ar-src { padding: 14px; } .ar-src-n { font-size: 20px; }
+  .hp-figs { gap: 18px 40px; margin-top: 40px; }
+  .hp-fig-n { font-size: 30px; }
+  .hp-chain, .hp-co { padding: 64px 20px; }
+  .hp-asked { padding: 0 20px 64px; }
+  .ch-body { padding: 20px; }
+  .ch-q, .ch-sup-t, .ch-feat-t { font-size: 21px; }
+  .ch-grid { grid-template-columns: 1fr; }
+  .ch-stage { font-size: 15px; padding: 10px 12px; min-height: 56px; }
+  .hp-h3 { font-size: 34px; }
+  .hp-list-q { font-size: 21px; }
+  .hp-glass { padding: 20px; }
+  .hp-foot { padding: 40px 20px 120px; }
+  .tf { bottom: 92px; right: 16px; width: 54px; height: 54px; }
+  .tf-sun { inset: 14px; } .tf-bite { width: 25px; height: 25px; left: 36px; }
+  .hp-bar { display: flex; position: fixed; left: 12px; right: 12px; bottom: 16px; z-index: 60; gap: 8px; padding: 6px; border-radius: 999px; background: rgba(22,20,15,.88); border: 1px solid rgba(255,255,255,.12); box-shadow: 0 20px 50px rgba(0,0,0,.45); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+  .hp-bar a { flex: 1; text-align: center; border-radius: 999px; padding: 13px; font-weight: 500; font-size: 15px; text-decoration: none; background: #F4F1EC; color: #0A0A0D !important; }
+  .hp-bar a.hp-bar-alt { background: #C62828; color: #fff !important; }
 }
 `;
