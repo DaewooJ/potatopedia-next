@@ -211,7 +211,13 @@ export async function GET() {
     ...PROBLEMS.map((p) => ({ loc: `/machines/${p.machineSlug}`, priority: "0.75", changefreq: "weekly" })),
   ];
 
-  const allPages = [...staticPages, ...dynamicPages];
+  // Company directory: only once DIRECTORY_PUBLIC is true in lib/directory.js (noindex review phase until then).
+  const { DIRECTORY_PUBLIC, listCompanies } = await import("../../lib/directory");
+  const companyPages = DIRECTORY_PUBLIC
+    ? [{ loc: "/companies", priority: "0.8", changefreq: "weekly" }, ...(await listCompanies().catch(() => [])).map((c) => ({ loc: `/companies/${c.slug}`, priority: "0.6", changefreq: "monthly" }))]
+    : [];
+
+  const allPages = [...staticPages, ...dynamicPages, ...companyPages];
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
