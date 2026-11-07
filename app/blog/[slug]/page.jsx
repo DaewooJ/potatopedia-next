@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { BLOG_POSTS } from "../../../lib/data";
+import { BLOG_POSTS } from "../../../lib/blog-posts";
 import ReadingProgressBar from "../../../components/ReadingProgressBar";
 import BlogTOC from "../../../components/BlogTOC";
 import BlogShare from "../../../components/BlogShare";
@@ -42,9 +42,16 @@ export async function generateMetadata({ params }) {
       description: desc,
       type: "article",
       url: "https://www.potatopedia.com/blog/" + slug,
-      images: ["/og-image.png"],
+      images: post.image
+        ? [{ url: "https://www.potatopedia.com" + post.image, alt: post.imageAlt || t }]
+        : ["/og-image.png"],
     },
-    twitter: { card: "summary_large_image", title, description: desc },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description: desc,
+      ...(post.image ? { images: ["https://www.potatopedia.com" + post.image] } : {}),
+    },
   }, "/blog/" + slug);
 }
 
@@ -115,7 +122,7 @@ export default async function BlogPostPage({ params }) {
         author: [POTATOPEDIA_EDITORIAL, { "@id": "https://www.potatopedia.com/#publisher" }],
         publisher: { "@id": "https://www.potatopedia.com/#publisher" },
         mainEntityOfPage: pageUrl,
-        image: "https://www.potatopedia.com/og-image.png",
+        image: post.image ? "https://www.potatopedia.com" + post.image : "https://www.potatopedia.com/og-image.png",
         articleSection: post.category,
         speakable: SPEAKABLE,
       },
@@ -205,7 +212,17 @@ export default async function BlogPostPage({ params }) {
         {post.image && (
           <figure className="ed-fig">
             <img src={post.image} alt={post.imageAlt || ""} loading="eager" />
-            {post.imageCredit && <figcaption>{post.imageCredit}</figcaption>}
+            {post.imageCredit && (
+              <figcaption>
+                {post.imageCredit}
+                {post.imageSource && (
+                  <>
+                    {" · "}
+                    <a href={post.imageSource} target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "underline" }}>Source file</a>
+                  </>
+                )}
+              </figcaption>
+            )}
           </figure>
         )}
 

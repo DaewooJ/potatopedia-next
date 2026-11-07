@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { BLOG_POSTS, POPULAR_ANSWERS } from "../../lib/data";
+import { POPULAR_ANSWERS } from "../../lib/data";
+import { BLOG_POSTS } from "../../lib/blog-posts";
 import LeadForm from "../../components/LeadForm";
 
 import ContentRequestCTA from "../../components/ContentRequestCTA";
@@ -66,6 +67,7 @@ export default function BlogListPage() {
         author: { "@type": "Organization", name: "Potatopedia" },
       };
       if (isoDate) post.datePublished = isoDate;
+      if (p.image) post.image = "https://www.potatopedia.com" + p.image;
       return post;
     }),
   };
@@ -116,6 +118,7 @@ export default function BlogListPage() {
       <section className="mg-sec" id="latest">
         <div className="mg-lead-row">
           <Link href={`/blog/${lead.slug}`} className="mg-lead">
+            {lead.image && <img src={lead.image} alt={lead.imageAlt || ""} title={lead.imageCredit || undefined} className="mg-lead-img" loading="eager" />}
             <p className="mg-lead-k">{lead.category} · {minutes(lead)}</p>
             <h2 className="mg-lead-t">{lead.title}</h2>
             <p className="mg-lead-s">{lead.excerpt}</p>
@@ -158,6 +161,7 @@ export default function BlogListPage() {
           <div className="mg-grid">
             {d.posts.map((p) => (
               <Link key={p.slug} href={`/blog/${p.slug}`} className="mg-story">
+                {p.image && <img src={p.image} alt={p.imageAlt || ""} title={p.imageCredit || undefined} className="mg-story-img" loading="lazy" />}
                 <p className="mg-story-k">{p.category}</p>
                 <span className="mg-story-t">{p.title}</span>
                 <p className="mg-story-s">{p.excerpt.length > 140 ? p.excerpt.slice(0, 140).trimEnd() + "…" : p.excerpt}</p>
@@ -181,6 +185,7 @@ export default function BlogListPage() {
           <div className="mg-grid">
             {otherPosts.map((p) => (
               <Link key={p.slug} href={`/blog/${p.slug}`} className="mg-story">
+                {p.image && <img src={p.image} alt={p.imageAlt || ""} title={p.imageCredit || undefined} className="mg-story-img" loading="lazy" />}
                 <p className="mg-story-k">{p.category}</p>
                 <span className="mg-story-t">{p.title}</span>
                 <p className="mg-story-m">{p.date} · {p.readTime}</p>
