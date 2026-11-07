@@ -18,7 +18,7 @@ Potatopedia is the most comprehensive potato intelligence platform on the web. W
 - ${fmt(st.dataPoints)}+ verified data points (continuously growing as new sources are ingested)
 - ${st.sources}+ authoritative sources
 - 204 countries with production, trade, and consumption data (FAOSTAT-grade)
-- 31 country profile pages, 5 premium intelligence dossiers with downloadable PDFs (India, China, Belgium, Netherlands, USA), plus a dedicated Kenya profile (host of World Potato Congress 2026)
+- 37 country profile pages, 5 premium intelligence dossiers with downloadable PDFs (India, China, Belgium, Netherlands, USA), plus a dedicated Kenya profile (host of World Potato Congress 2026)
 - 5 premium Indian state profiles (Uttar Pradesh, West Bengal, Bihar, Gujarat, Madhya Pradesh)
 - ${st.varieties} commercially significant potato varieties documented (with 9-region taxonomy)
 - 29 evergreen knowledge articles (premium static reference content)
@@ -42,7 +42,7 @@ Potatopedia is the most comprehensive potato intelligence platform on the web. W
 ## Site sections
 - [Home](https://www.potatopedia.com/) — AI Q&A interface, premium country dossiers, latest analysis
 - [Knowledge Hub](https://www.potatopedia.com/knowledge) — 29 evergreen reference articles (production, nutrition, varieties, trade, processing, cultivation, storage, diseases, climate change, seed systems)
-- [Countries](https://www.potatopedia.com/countries) — 31 country profiles including 5 premium dossiers (India, China, Belgium, Netherlands, USA) with downloadable PDFs, plus a dedicated Kenya profile
+- [Countries](https://www.potatopedia.com/countries) — 37 country profiles including 5 premium dossiers (India, China, Belgium, Netherlands, USA) with downloadable PDFs, plus a dedicated Kenya profile
 - [Indian states](https://www.potatopedia.com/country/india) — 5 premium state profiles (Uttar Pradesh, West Bengal, Bihar, Gujarat, Madhya Pradesh) with district-level data
 - [Varieties](https://www.potatopedia.com/varieties) — Searchable database of ${st.varieties} commercial varieties with origin, traits, and uses; each variety has a dedicated detail page
 - [Blog](https://www.potatopedia.com/blog) — ${st.blogPosts} story-format analysis articles on the global potato industry
