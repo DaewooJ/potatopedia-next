@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { COUNTRIES, UPDATED_SHORT, INDIA_STATES } from "../../../../lib/data";
 import { POTATOPEDIA_PUBLISHER, POTATOPEDIA_EDITORIAL, SPEAKABLE } from "../../../../lib/authors";
 import { applyOgOverride } from "../../../../lib/og-overrides";
+import { applySeoOverride } from "../../../../lib/seo-overrides";
 
 /* ── Route config ── */
 
@@ -109,13 +110,13 @@ export async function generateMetadata({ params }) {
   if (!meta) return { title: "India State Potato Profile | Potatopedia" };
   const canonical = `https://www.potatopedia.com/country/india/${state}`;
   const ogImage = `https://www.potatopedia.com/og/india-${state}.png`;
-  return applyOgOverride({
+  return applyOgOverride(applySeoOverride({
     title: meta.title,
     description: meta.desc,
     alternates: { canonical },
     openGraph: { type: "article", url: canonical, title: meta.title, description: meta.desc, images: [ogImage] },
     twitter: { card: "summary_large_image", title: meta.title, description: meta.desc, images: [ogImage] },
-  }, "/country/india/" + state);
+  }, "/country/india/" + state), "/country/india/" + state);
 }
 
 /* ── Shared styles ── */
