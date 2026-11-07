@@ -115,10 +115,13 @@ export async function POST(req) {
     let messageId = null;
     if (type === "newsletter") {
       const link = `https://www.potatopedia.com/api/lead/confirm?token=${token}`;
+      const saved = details.saved_question
+        ? `<p>The answer you saved: <a href="https://www.potatopedia.com/ask?q=${encodeURIComponent(details.saved_question)}">${esc(details.saved_question)}</a></p>`
+        : "";
       messageId = await send(
         row.email,
-        "Confirm your Potatopedia newsletter signup",
-        `<p>Please confirm you want The Potato Week from Potatopedia.</p><p><a href="${link}">Yes, subscribe me</a></p><p>If you did not ask for this, ignore this mail.</p>`,
+        details.saved_question ? "Your saved Potatopedia answer" : "Confirm your Potatopedia newsletter signup",
+        `${saved}<p>Please confirm you want The Potato Week from Potatopedia, one useful digest a week.</p><p><a href="${link}">Yes, subscribe me</a></p><p>If you did not ask for this, ignore this mail.</p>`,
       );
     } else {
       const lines = { Type: LEAD_TYPES[type], ...row, ...details };

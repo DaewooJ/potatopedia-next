@@ -33,6 +33,7 @@ export default function LeadForm({
   messageLabel = "What do you need?",
   compact = false,
   dark = false,
+  hidden = null,
 }) {
   const F = dark ? { ...field, background: "rgba(0,0,0,.25)", border: "1px solid rgba(255,255,255,.16)", color: "#F4F1EC" } : field;
   const L = dark ? { ...label, color: "#A9A49C", fontWeight: 500, letterSpacing: ".08em", textTransform: "uppercase", fontSize: 11.5 } : label;
@@ -86,6 +87,8 @@ export default function LeadForm({
     <form onSubmit={onSubmit} style={{ display: "grid", gap: 14 }} noValidate>
       {title && <h3 style={{ margin: 0, fontSize: compact ? 18 : 22, fontWeight: dark ? 400 : 700, color: dark ? "#F4F1EC" : "#1a1a1a", fontFamily: dark ? "var(--hp-serif), Georgia, serif" : "inherit", ...(dark ? { fontSize: 30 } : {}) }}>{title}</h3>}
       {intro && <p style={{ margin: 0, fontSize: 15, color: dark ? "#A9A49C" : "#555", lineHeight: 1.5 }}>{intro}</p>}
+
+      {hidden && Object.entries(hidden).map(([k, v]) => <input key={k} type="hidden" name={k} value={v || ""} />)}
 
       {/* honeypot */}
       <div aria-hidden="true" style={{ position: "absolute", left: -9999, width: 1, height: 1, overflow: "hidden" }}>

@@ -319,6 +319,15 @@ const CSS = `
 .ar-a strong { color: var(--ink); font-weight: 500; }
 .ar-p { margin: 0 0 12px; } .ar-p:last-child { margin-bottom: 0; }
 .ar-wait { color: var(--mute2); }
+.ar-block + .ar-block { margin-top: 12px; }
+.ar-ul { margin: 6px 0 0; padding: 0; list-style: none; display: grid; gap: 6px; }
+.ar-ul li { position: relative; padding-left: 20px; }
+.ar-ul li::before { content: ""; position: absolute; left: 4px; top: .72em; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+.ar-save { margin-top: 24px; padding: 20px; border-radius: 16px; border: 1px solid var(--glass-line); background: var(--card); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px 24px; align-items: center; animation: arPop 1s ease-out both; }
+.ar-save-t { margin: 0; font-family: var(--hp-serif), Georgia, serif; font-size: 22px; color: var(--ink); }
+.ar-save-s { margin: 6px 0 0; font-size: 13.5px; line-height: 1.55; color: var(--mute); }
+.ar-save-x { grid-column: 1 / -1; justify-self: start; font: inherit; font-size: 13px; color: var(--mute2); background: none; border: 0; padding: 6px 0; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+.ar-save-x:hover { color: var(--ink); }
 .ar-next { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
 .ar-link { color: var(--gold) !important; font-size: 14px; font-weight: 500; text-decoration: none; margin-right: 6px; }
 .ar-chip { font: inherit; font-size: 13px; color: var(--ink2); background: transparent; border: 1px solid var(--chip-line); border-radius: 999px; padding: 8px 14px; min-height: 38px; cursor: pointer; transition: border-color .2s, background .2s; text-align: left; }
@@ -434,6 +443,7 @@ const CSS = `
   .ar-sources { grid-template-columns: 1fr 1fr; gap: 10px; }
   .ar-spon { grid-column: 1 / -1; }
   .ar-src { padding: 14px; } .ar-src-n { font-size: 20px; }
+  .ar-save { grid-template-columns: 1fr; padding: 16px; }
   .hp-figs { gap: 18px 40px; margin-top: 40px; }
   .hp-fig-n { font-size: 30px; }
   .hp-chain, .hp-co { padding: 64px 20px; }
