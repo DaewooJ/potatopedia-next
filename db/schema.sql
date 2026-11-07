@@ -3,7 +3,7 @@ CREATE TABLE IF NOT EXISTS leads (
   id           BIGSERIAL PRIMARY KEY,
   ref          TEXT UNIQUE NOT NULL,
   created_at   TIMESTAMPTZ NOT NULL DEFAULT now(),
-  type         TEXT NOT NULL CHECK (type IN ('sponsor','machine_quote','trade','report','listing','publish','ai_visibility','advertise_call','newsletter')),
+  type         TEXT NOT NULL CHECK (type IN ('sponsor','machine_quote','trade','report','listing','publish','ai_visibility','advertise_call','newsletter','company_claim','report_download')),
   page_url     TEXT,
   name         TEXT,
   company      TEXT,
