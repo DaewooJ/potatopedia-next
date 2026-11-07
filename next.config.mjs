@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // next/image (first used on the /blog front page, 7 Nov 2026): fewer widths = shorter srcset strings in the HTML.
+  images: { deviceSizes: [640, 828, 1080, 1440, 1920], imageSizes: [96, 192, 320, 480] },
   async redirects() {
     return [
       // One canonical host (7 Nov 2026): potatopedia.com served a full duplicate of the site and Google indexed both.
