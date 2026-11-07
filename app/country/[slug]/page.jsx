@@ -353,7 +353,7 @@ function IndiaProfilePage({ c }) {
     { value: `${INDIA_POTATO.value} M t`, label: "Annual Production", sub: `${INDIA_POTATO.year}, ${INDIA_POTATO.label}` },
     { value: "2.33 M ha", label: "Harvested Area", sub: "DA&FW 2023-24" },
     { value: "25.8 t/ha", label: "Average Yield", sub: "above world avg (22.8)" },
-    { value: "#2", label: "Global Rank", sub: "after China (94.4 M t)" },
+    { value: "#2", label: "Global Rank", sub: "after China (94.87 M t)" },
     { value: "~15%", label: "Share of Global Output", sub: "FAOSTAT 2023" },
     { value: "+1.85%", label: "Year-over-Year", sub: "MoA 3rd Adv. Estimate", positive: true },
     { value: "85%", label: "Rabi-Season Share", sub: "Oct–Mar planting" },
@@ -1667,7 +1667,7 @@ function ChinaProfilePage({ c }) {
               <h3 style={{ fontSize: 14, fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 14 }}>Related Knowledge</h3>
               <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
                 {[
-                  { slug: "top-potato-producing-countries", title: "Top Potato Producing Countries 2025", desc: "China #1 at 94.4 M tonnes, India #2 at 58.1 M tonnes (2024-25, 3rd Advance Estimate)." },
+                  { slug: "top-potato-producing-countries", title: "Top Potato Producing Countries 2025", desc: "China #1 at 94.87 M tonnes, India #2 at 58.1 M tonnes (2024-25, 3rd Advance Estimate)." },
                   { slug: "how-potatoes-are-processed", title: "How Potatoes Are Processed: Farm to Fry", desc: "Frozen fries, chips, starch — the global $40-80B processing industry." },
                   { slug: "mcdonalds-potato-varieties", title: "What Potatoes Does McDonald's Use?", desc: "The Russet Burbank story behind the global frozen fry industry." },
                   { slug: "global-potato-trade", title: "Global Potato Trade Statistics", desc: "$22.8B trade — Belgium leads frozen fries; China rising fast." },
