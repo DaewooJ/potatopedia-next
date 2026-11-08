@@ -1,0 +1,10 @@
+DEFAULT DESCRIPTION (Settings > Upload defaults)
+
+
+Sources: every figure is sourced on screen (FAOSTAT, USDA, CIP, UN Comtrade, ICAR-CPRI, Europatat, national statistics, peer-reviewed research).
+More data stories: https://www.potatopedia.com/blog
+Grow with Potatopedia: https://www.potatopedia.com/advertise
+Contact: hi@potatopedia.com
+
+DEFAULT TAGS
+potato, potatoes, potato industry, potato production, potato consumption, potato trade, potato prices, potato varieties, seed potato, french fries, potato processing, FAOSTAT, agriculture data, food security, agribusiness, Potatopedia
