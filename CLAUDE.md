@@ -43,12 +43,12 @@
 - Dynamic routes: blog/[slug], knowledge/[slug], country/[slug], answers/[slug]
 
 ## Analytics + measurement
-- **Plausible.io** is the runtime analytics provider (privacy-first, GDPR-compliant, cookie-free)
-- **`PLAUSIBLE_API_KEY`** required in `.env.local` for analytics fetcher scripts (see `scripts/PLAUSIBLE_SETUP.md`)
-- **`PLAUSIBLE_SITE_ID=potatopedia.com`** required alongside the API key
+- Live analytics: **Google Analytics 4** (G-0CXVFJDBF7, in app/layout.jsx) + **Vercel Analytics** (`@vercel/analytics`).
+- **Plausible is NOT used** (checked 8 Nov 2026: no script on the site, no key, not subscribed). The old
+  `scripts/PLAUSIBLE_SETUP.md` fetcher was never set up; don't suggest Plausible for tracking.
 - Bing Webmaster Tools + GSC CSV exports go in `scripts/data/{bing,gsc}/` (gitignored)
 - Monthly report: `node scripts/analytics/monthly-report.mjs` (Google via GSC API + Bing exports + AI citations). After a new Bing AI export lands in scripts/data/bing/, run `node scripts/analytics/ai-citations.mjs` (updates lib/ai-citations.json → /advertise + media kit)
-- Otterly.AI / AthenaHQ / Profound NOT subscribed — Bing + Plausible + manual quarterly cross-engine spot-checks suffice for first 90 days
+- Otterly.AI / AthenaHQ / Profound NOT subscribed — Bing + GA4 + manual quarterly cross-engine spot-checks suffice for first 90 days
 
 ## Schema + entity-graph rules
 - Always import `POTATOPEDIA_PUBLISHER`, `POTATOPEDIA_WEBSITE`, `POTATOPEDIA_EDITORIAL` from `lib/authors.js` for Organization / WebSite / Person schema — never inline-duplicate
