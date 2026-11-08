@@ -89,7 +89,7 @@ export default function KnowledgeAI({ slug, title, tag }) {
       return;
     }
 
-    fetch("https://potatopedia-backend.onrender.com/ask", {
+    fetch("https://api.potatopedia.com/ask", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ question: pageConfig.prompt, source: "knowledge_page" }),

@@ -13,7 +13,7 @@ const arg = (k, d) => (process.argv.includes(k) ? process.argv[process.argv.inde
 const PDF_TOOL = arg("--pdf-tool", join(homedir(), ".claude/scripts/pdf.sh"));
 const fmt = (n) => Number(n).toLocaleString("en-US");
 
-const stats = await (await fetch("https://potatopedia-backend.onrender.com/stats", { signal: AbortSignal.timeout(60000) })).json();
+const stats = await (await fetch("https://api.potatopedia.com/stats", { signal: AbortSignal.timeout(60000) })).json();
 const { BLOG_POSTS, COUNTRIES } = await import(join(ROOT, "lib/data.js"));
 const { VARIETIES } = await import(join(ROOT, "lib/varieties-data.js"));
 const baked = JSON.parse(readFileSync(join(ROOT, "lib/answers-baked.json"), "utf8"));

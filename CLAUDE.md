@@ -10,7 +10,7 @@
 - ALWAYS backup before making significant changes
 
 ## Backend API
-- Base URL: https://potatopedia-backend.onrender.com
+- Base URL: https://api.potatopedia.com
 - Endpoints: `/ask` (POST), `/ask/stream` (POST SSE), `/stats` (GET)
 - API helper in `lib/api.js`
 

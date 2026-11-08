@@ -23,7 +23,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 LIB_DATA = ROOT / "lib" / "data.js"
 OUT_PATH = ROOT / "lib" / "answers-baked.json"
-BACKEND = "https://potatopedia-backend.onrender.com"
+BACKEND = "https://api.potatopedia.com"
 
 # Extract POPULAR_ANSWERS array from lib/data.js by regex.
 src = LIB_DATA.read_text()
