@@ -62,7 +62,7 @@ purpose: single canonical inventory of every recommendation — completed, in-pr
 | AI #1A | `/ask?q=` URL noindex via generateMetadata (refactored to server wrapper + AskClient.jsx) | 2026-05-09 | Claude Code |
 | AI #1B (code) | www canonical verified (Vercel 307/308 redirects; metadataBase global; internal links audited) | 2026-05-09 | Claude Code |
 | AI #3 | Organization + Person + WebSite schema expansion (full @graph on /about; banned indianpotato.com removed; homepage @id consistency fixed) | 2026-05-09 | Claude Code |
-| Strategy package | 4 V2 docs (baseline / 5-lever audit / 12-month plan / Week 1 quick wins) + 2 runbooks (Wikidata + Plausible) | 2026-05-09 | Claude Code |
+| Strategy package | 4 V2 docs (baseline / 5-lever audit / 12-month plan / Week 1 quick wins) + 2 runbooks (Wikidata + GA4) | 2026-05-09 | Claude Code |
 
 ---
 
@@ -72,7 +72,7 @@ purpose: single canonical inventory of every recommendation — completed, in-pr
 | --- | --- | --- | --- |
 | AI #1 | Wikidata entity creation for Potatopedia | Devendra | Working through `scripts/WIKIDATA_RUNBOOK.md` (Option C: operator string-literal "Devendra K Jha", defer P112 founder claim until press release exists). Q-id assigned within 30 days expected. |
 | AI #1B (Bing) | Unsubmit non-www sitemap from Bing Webmaster Tools dashboard | Devendra | Manual dashboard task |
-| AI #1C | Plausible API key generation: plan tier check → API key → .env.local → curl verification | Devendra | Per `scripts/PLAUSIBLE_SETUP.md`. **Step 1: Devendra verifies plan tier (free vs paid). API access requires Growth $9/mo or Business $19/mo plan; free tier excludes API.** Upgrade if currently on free trial. Step 2: Generate Read-only API key. Step 3: Add `PLAUSIBLE_API_KEY` + `PLAUSIBLE_SITE_ID=potatopedia.com` to `.env.local`. Step 4: Run curl test from runbook Step 7 to confirm. |
+| AI #1C | GA4 generation: plan tier check → API key → .env.local → curl verification | Devendra | Per `GA4 admin`. **Step 1: Devendra verifies plan tier (free vs paid). API access requires Growth $9/mo or Business $19/mo plan; free tier excludes API.** Upgrade if currently on free trial. Step 2: Generate Read-only API key. Step 3: Add `GA4_API_KEY` + `GA4_SITE_ID=potatopedia.com` to `.env.local`. Step 4: Run curl test from runbook Step 7 to confirm. |
 
 ---
 
@@ -82,7 +82,7 @@ purpose: single canonical inventory of every recommendation — completed, in-pr
 
 | ID | Description | Owner | Effort | Impact | Dependency |
 | --- | --- | --- | --- | --- | --- |
-| AI #1C-build | Build `scripts/fetch_plausible_analytics.py` + `scripts/unified_analytics_report.py` + first weekly unified report | Claude Code | M | High | **GATED** on Devendra Plausible API key in `.env.local` |
+| AI #1C-build | Build `GA4 reports` + `scripts/unified_analytics_report.py` + first weekly unified report | Claude Code | M | High | **GATED** on Devendra GA4 in `.env.local` |
 
 ### C.2 High Impact — within 2 weeks / Tier 2 next week (4 items)
 
@@ -139,7 +139,7 @@ purpose: single canonical inventory of every recommendation — completed, in-pr
 | Tier 2 #5 | Top-10 GSC schema audit | Devendra exports GSC top-10 to `scripts/data/gsc/` |
 | Tier 2 #7 | Wikidata sameAs density expansion across knowledge / variety / blog pages | Wikidata Q-id assignment (Section B) |
 | Tier 2 #10 / Phase 1.6 | Bing citation engine identification + deploy correlation analysis | Devendra exports 90-day Bing CSV to `scripts/data/bing/` |
-| Phase 4.4 | Hindi multi-language strategy decision (also referenced in Phase 4 rollup in C.4) | June 22 ranking check + Bing/Plausible Hindi-language pattern analysis |
+| Phase 4.4 | Hindi multi-language strategy decision (also referenced in Phase 4 rollup in C.4) | June 22 ranking check + Bing/GA4 Hindi-language pattern analysis |
 
 ---
 
@@ -157,7 +157,7 @@ purpose: single canonical inventory of every recommendation — completed, in-pr
 
 | ID | Description | Decided | Rationale |
 | --- | --- | --- | --- |
-| AI #2 | Otterly.AI subscription ($29/mo) for cross-engine citation tracking | 2026-05-09 | Bing Webmaster Tools provides citation event-count data; Plausible provides AI engine referral-click data; manual quarterly cross-engine spot-checks fill the ChatGPT/Perplexity/Claude gap. Saves $87/quarter + management overhead. **Reassess August 2026.** |
+| AI #2 | Otterly.AI subscription ($29/mo) for cross-engine citation tracking | 2026-05-09 | Bing Webmaster Tools provides citation event-count data; GA4 provides AI engine referral-click data; manual quarterly cross-engine spot-checks fill the ChatGPT/Perplexity/Claude gap. Saves $87/quarter + management overhead. **Reassess August 2026.** |
 | OP-IndianState | Indian state profile prominence redesign on /country/india | 2026-05-09 | User marked as not needed; current placement on /country/india is acceptable. Option C "State Gateway" hero strip (shipped 2026-05-03) sufficient. |
 
 ---
@@ -226,5 +226,5 @@ Resolution effort tracked separately as research workstream — not blocking on-
 - `scripts/ai_dominance_12_month_plan_2026_05.md` — 12-month roadmap V2
 - `scripts/ai_citation_quick_wins_week1_2026_05.md` — Week 1 quick wins V2
 - `scripts/WIKIDATA_RUNBOOK.md` — Wikidata entity creation guide
-- `scripts/PLAUSIBLE_SETUP.md` — Plausible API key + env var setup
+- `GA4 admin` — GA4 + env var setup
 - `/Users/daewoo/.claude/projects/-Users-daewoo-potatopedia-next/memory/project_pendencies_master_list.md` — memory pendencies (synthesis + trigger-phrase mapping)

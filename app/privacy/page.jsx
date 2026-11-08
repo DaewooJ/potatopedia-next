@@ -57,7 +57,7 @@ export default function PrivacyPage() {
         <LI>
           <strong>Usage and device data.</strong> Aggregated, largely anonymous
           analytics such as pages visited, approximate region, browser type and
-          referral source, collected via Google Analytics and Plausible
+          referral source, collected via Google Analytics and Vercel
           Analytics.
         </LI>
         <LI>
@@ -109,8 +109,9 @@ export default function PrivacyPage() {
       <P>
         We use cookies and similar technologies to keep the site working, to
         remember your preferences and to understand how the platform is used. We
-        use Google Analytics and Plausible Analytics to measure traffic in
-        aggregate (Plausible is cookie-free; Google Analytics may set cookies).
+        use Google Analytics and Vercel Analytics to measure traffic in
+        aggregate (Vercel Analytics is cookie-free; Google Analytics may set
+        cookies).
         You can control cookies through your browser settings; disabling some
         cookies may affect site functionality.
       </P>

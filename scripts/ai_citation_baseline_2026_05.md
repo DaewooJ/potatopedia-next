@@ -55,7 +55,7 @@ Google Search Console (same period):
 | --- | --- | --- | --- |
 | Bing Webmaster Tools | Bing Copilot AI citations + Bing Search | Daily reporting | ✅ Active (Devendra exports CSV) |
 | Google Search Console | Google Search clicks / impressions / CTR / position | Daily | ✅ Active |
-| Plausible.io | Real-time pageviews + AI engine *referral* clicks (chatgpt.com, perplexity.ai, claude.ai, copilot, etc.) | Real-time | ✅ Activated 2 days ago — too short for stable trend, longer window emerging |
+| GA4 | Real-time pageviews + AI engine *referral* clicks (chatgpt.com, perplexity.ai, claude.ai, copilot, etc.) | Real-time | ✅ Activated 2 days ago — too short for stable trend, longer window emerging |
 | Otterly.AI ($29/mo) | Cross-engine citation tracking (ChatGPT / Perplexity / Gemini / Claude / Google AI Overviews) | Weekly | ❌ **SKIPPED** — Bing data is sufficient for now; reassess in 90 days |
 | Manual AI engine spot-checks | All engines, qualitative | Quarterly | 🟡 First spot-check protocol added to Tier 2 quick wins |
 
@@ -65,17 +65,17 @@ This V2 baseline combines:
 
 1. **Bing Webmaster Tools analytics** (period March 27 – May 6, 2026 + last-7-day rolling window) — actual AI citation event counts from Bing Copilot
 2. **Google Search Console** (same period) — search clicks, impressions, CTR, position data
-3. **Plausible.io** (live since 2 days ago) — real-time AI engine *referral* clicks across chatgpt.com / perplexity.ai / claude.ai / copilot / gemini / etc.
+3. **GA4** (live since 2 days ago) — real-time AI engine *referral* clicks across chatgpt.com / perplexity.ai / claude.ai / copilot / gemini / etc.
 4. **WebSearch sampling** — for queries we want to win but where data shows we're weak (still useful for distinctive-angle gap analysis)
 5. **Direct WebFetch** of Wikidata to verify brand entity status (confirmed: no entry exists)
 6. **Schema audit** of our own site
 
 What V2 still does **not** include:
-- Direct programmatic citation tracking against ChatGPT, Perplexity Pro, Claude, Google AI Overviews APIs — these are not exposed publicly. The Plausible referrer data gives us *click* counts from these engines (a downstream signal), not *citation* counts. The citation/click ratio per engine is unknown without paid tooling like Otterly / AthenaHQ.
+- Direct programmatic citation tracking against ChatGPT, Perplexity Pro, Claude, Google AI Overviews APIs — these are not exposed publicly. The GA4 referrer data gives us *click* counts from these engines (a downstream signal), not *citation* counts. The citation/click ratio per engine is unknown without paid tooling like Otterly / AthenaHQ.
 - Backlink audit (no Ahrefs/SEMrush in this session)
-- Cross-engine attribution: when a Plausible click comes from chatgpt.com referrer, we know ChatGPT cited us, but we don't know which page the citation appeared on or what query triggered it.
+- Cross-engine attribution: when a GA4 click comes from chatgpt.com referrer, we know ChatGPT cited us, but we don't know which page the citation appeared on or what query triggered it.
 
-**Otterly.AI subscription is now SKIPPED** for the next 90 days. Bing Webmaster Tools provides the citation event-count data we need, and Plausible adds the cross-engine click data. We will reassess in 90 days whether ChatGPT/Perplexity/Claude citation tracking visibility is worth the $29/mo + the management overhead.
+**Otterly.AI subscription is now SKIPPED** for the next 90 days. Bing Webmaster Tools provides the citation event-count data we need, and GA4 adds the cross-engine click data. We will reassess in 90 days whether ChatGPT/Perplexity/Claude citation tracking visibility is worth the $29/mo + the management overhead.
 
 ## The 30-query test universe
 
@@ -247,7 +247,7 @@ Convert this static baseline into a recurring measurement:
 | --- | --- | --- | --- |
 | Bing Copilot citations / week | 558 (across 130 pages) | 2,000+ / 350+ pages | 5,000+ / 600+ pages |
 | Cite-per-page ratio | 4.3 | 5–6 (broader base + heavier tail) | 8+ (deep authority on cited pages) |
-| Plausible AI engine referral clicks / week | <50 (2-day window) | 400+ | 1,500+ |
+| GA4 AI engine referral clicks / week | <50 (2-day window) | 400+ | 1,500+ |
 | Wikidata Q-id | None | Live + populated | Live + 15+ structural references |
 | Wikipedia mentions | 0 | 5+ in genuinely-additive contexts | 12+ |
 | .edu / .gov inbound links | Unknown (probably <5) | 10+ | 25+ |

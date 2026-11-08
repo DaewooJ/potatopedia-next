@@ -41,7 +41,6 @@ yarn-error.log*
 next-env.d.ts
 
 # analytics data dumps + manual exports (see scripts/data/README.md)
-/scripts/data/plausible/
 /scripts/data/bing/
 /scripts/data/gsc/
 /scripts/reports/weekly/

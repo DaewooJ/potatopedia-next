@@ -1,7 +1,7 @@
 ---
 title: 12-month AI citation + SEO domination plan V2 (May 2026 → May 2027) — updated with Bing analytics context
 date: 2026-05-09
-status: STRATEGY V2 — updated with real Bing Webmaster Tools + GSC + Plausible data; pending review for approved phases
+status: STRATEGY V2 — updated with real Bing Webmaster Tools + GSC + GA4 data; pending review for approved phases
 purpose: Phase 3 deliverable — month-by-month roadmap to dominant AI citation position for potato queries
 ---
 
@@ -13,7 +13,7 @@ V1 assumed ~0% AI citation rate based on WebSearch sampling. **Real Bing Webmast
 
 **Material plan changes from V1:**
 
-1. **Otterly.AI subscription SKIPPED for first 90 days.** Bing Webmaster Tools + Plausible.io provide the citation event-count + AI engine referral-click data. Save $87 + management overhead. Reassess Aug 2026.
+1. **Otterly.AI subscription SKIPPED for first 90 days.** Bing Webmaster Tools + GA4 provide the citation event-count + AI engine referral-click data. Save $87 + management overhead. Reassess Aug 2026.
 2. **First original research report PULLED EARLIER from Month 3 → Month 2.** Citation surface area is the binding constraint right now, not on-platform foundation. Get more high-quality cite-able pages live faster.
 3. **YouTube channel DEFERRED from Month 6 → December 2026.** Bandwidth-heavy; not the highest leverage given current trajectory.
 4. **Hindi multi-language WAITS for June 22 ranking check + Bing AI citation language analysis.** If Hindi-language queries are already finding us, Hindi pages become higher priority sooner.
@@ -29,9 +29,9 @@ A senior strategist would not pretend this is a guaranteed path. Six things to a
 
 3. **Distribution venue gap remains the #1 missing earned-media lever.** Per Muck Rack December 2025: 94% of generative AI citations come from non-paid earned media; PR Newswire is the most-cited single source (799 citations / 30 days). We have published zero press releases.
 
-4. **The June 22 ranking check + Bing/Plausible weekly readouts** will tell us how the trajectory is actually evolving. Decide phase intensity based on the data, not hope.
+4. **The June 22 ranking check + Bing/GA4 weekly readouts** will tell us how the trajectory is actually evolving. Decide phase intensity based on the data, not hope.
 
-5. **Honest limit on cross-engine attribution:** Bing tells us citation events. Plausible tells us referral clicks (which engines send traffic). We can't yet see the ChatGPT / Perplexity / Claude / Google AI Overviews citation logs directly. Bridging this gap is what manual spot-checks (Tier 2 quick win) and a possible later Otterly subscription are for.
+5. **Honest limit on cross-engine attribution:** Bing tells us citation events. GA4 tells us referral clicks (which engines send traffic). We can't yet see the ChatGPT / Perplexity / Claude / Google AI Overviews citation logs directly. Bridging this gap is what manual spot-checks (Tier 2 quick win) and a possible later Otterly subscription are for.
 
 6. **AI training corpora refresh on 6–12 month cycles** for some engines. Bing Copilot is real-time-search-grounded so it sees new pages immediately. ChatGPT / Claude / Perplexity are hybrid (training corpus + live web search), so changes in training corpus appear on a longer lag. The cross-engine citation parity goal is medium-term, not immediate.
 
@@ -101,7 +101,7 @@ Total 12-month budget envelope: **$6,500–$13,500** depending on chosen distrib
 **Success criteria:** Google Rich Results Test passes with Organization, Person, WebSite, and Article entities all linked via @id references.
 
 #### 1.3 Otterly.AI subscription — **SKIPPED in V2**
-**Decision:** Skip for the first 90 days. Bing Webmaster Tools + Plausible.io + manual quarterly spot-checks provide sufficient measurement coverage. Reassess August 2026 once cross-engine citation parity becomes a measurable bottleneck.
+**Decision:** Skip for the first 90 days. Bing Webmaster Tools + GA4 + manual quarterly spot-checks provide sufficient measurement coverage. Reassess August 2026 once cross-engine citation parity becomes a measurable bottleneck.
 **Replacement coverage:** see Phase 1.6 (Bing citation engine identification) and Phase 1.7 (manual cross-engine spot-check protocol).
 
 #### 1.4 CIP / FAO / WPC partnership outreach — Weeks 2–4
@@ -156,7 +156,7 @@ Total 12-month budget envelope: **$6,500–$13,500** depending on chosen distrib
 2. Log results to `scripts/manual_citation_spotcheck_YYYY_MM_DD.md` per quarter
 3. Establish baseline; measure quarterly to track cross-engine progress against Bing citation totals
 
-**Why:** Bing Webmaster Tools shows Bing citations only. Plausible shows AI-engine clicks but not citation events. This is the only way to measure ChatGPT / Perplexity / Claude / Google AI Overviews citation rates without paid tooling.
+**Why:** Bing Webmaster Tools shows Bing citations only. GA4 shows AI-engine clicks but not citation events. This is the only way to measure ChatGPT / Perplexity / Claude / Google AI Overviews citation rates without paid tooling.
 
 #### 1.8 Technical hygiene fixes — Week 1
 **Owner:** Claude Code
@@ -391,7 +391,7 @@ Pitch: free data access to our timeseries, willingness to co-author, willingness
 **Decision criteria (V2):**
 - If June 22 ranking check shows India queries dominant in traffic share **AND**
 - Bing AI citation language analysis (from Phase 1.6 data) shows Hindi-language queries already finding us **AND**
-- Plausible referrer data shows Indian-language sources driving meaningful clicks
+- GA4 referrer data shows Indian-language sources driving meaningful clicks
 → Proceed with Hindi versions of top 50 pages
 - Otherwise defer to year 2
 

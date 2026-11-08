@@ -1,17 +1,8 @@
 # scripts/data — analytics data dumps + manual exports
 
-This directory holds analytics data feeds. The `plausible/`, `bing/`, `gsc/`, and `reports/` sub-trees are gitignored — only this README is tracked.
+This directory holds analytics data feeds. The `bing/`, `gsc/`, and `reports/` sub-trees are gitignored — only this README is tracked.
 
 ## Sub-directories
-
-### `plausible/` (gitignored)
-Auto-generated Plausible.io API dumps from `scripts/fetch_plausible_analytics.py`. Files named `plausible_YYYY_MM_DD.json` (timestamped). Each contains:
-- Daily aggregates (visitors, pageviews, bounce rate, visit duration)
-- Top 25 pages
-- Top 25 referrers
-- Top 20 countries
-- Device-type breakdown
-- AI-engine referrer isolation (chatgpt.com, perplexity.ai, claude.ai, copilot, gemini, meta, you, phind)
 
 ### `bing/` (gitignored)
 Devendra drops manually-exported Bing Webmaster Tools CSVs here. Naming convention:
@@ -30,14 +21,13 @@ Auto-generated weekly unified analytics reports from `scripts/unified_analytics_
 
 ## Why this directory is gitignored
 
-- Plausible dumps may contain referrer data that isn't appropriate to publish
 - Bing/GSC exports are subject to per-platform terms of service that restrict redistribution
 - Weekly reports rebuild from primary data; no need for git history
 - Keeps repo lean
 
 ## How to use
 
-1. Make sure `PLAUSIBLE_API_KEY` is in `.env.local` (see `scripts/PLAUSIBLE_SETUP.md`)
-2. Run `python3 scripts/fetch_plausible_analytics.py` — generates `plausible/plausible_YYYY_MM_DD.json` and `plausible_report_YYYY_MM_DD.md`
-3. Drop new Bing / GSC CSVs into `bing/` and `gsc/` as exported
-4. Run `python3 scripts/unified_analytics_report.py` — generates the weekly unified report combining all sources
+Traffic and referral data (incl. AI-engine referrers and UTM campaigns) come from GA4 (G-0CXVFJDBF7).
+
+1. Drop new Bing / GSC CSVs into `bing/` and `gsc/` as exported
+2. Run `python3 scripts/unified_analytics_report.py` — generates the weekly unified report combining all sources

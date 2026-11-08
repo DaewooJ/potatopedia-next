@@ -35,8 +35,8 @@ Each item:
 - **Notes:** Use the property mapping in `ai_dominance_12_month_plan_2026_05.md §1.1`. Reference the official site, Devendra's LinkedIn, and (if applicable) any Crunchbase / press coverage as Wikidata "stated in" properties. Notability risk is real; if the community deletes, retry with stronger external citations after the first research report (Phase 2) generates them.
 
 ### #2. Otterly.AI subscription — **SKIPPED** (V2 decision)
-**Decision:** Skip for first 90 days. Bing Webmaster Tools provides citation event-count data; Plausible.io provides AI engine referral-click data; manual quarterly cross-engine spot-checks fill the ChatGPT/Perplexity/Claude gap. Saves $87 + management overhead. Reassess August 2026 if cross-engine measurement parity becomes a measurable bottleneck.
-**Replacement coverage:** Tier 1 #1B (Plausible API integration) + Tier 2 #6 (Bing citation engine identification) + Tier 2 #8 (manual cross-engine spot-checks).
+**Decision:** Skip for first 90 days. Bing Webmaster Tools provides citation event-count data; GA4 provides AI engine referral-click data; manual quarterly cross-engine spot-checks fill the ChatGPT/Perplexity/Claude gap. Saves $87 + management overhead. Reassess August 2026 if cross-engine measurement parity becomes a measurable bottleneck.
+**Replacement coverage:** Tier 1 #1B (GA4 integration) + Tier 2 #6 (Bing citation engine identification) + Tier 2 #8 (manual cross-engine spot-checks).
 
 ### #3. Audit + expand Organization + Person schema across the site
 - **What:** Audit current Organization schema (currently minimal on /about); expand to full @graph with founder, foundingDate, sameAs to LinkedIn / Twitter / GitHub / Crunchbase. Wire Person schema into existing `articleAuthorBlock` so every Article references a verified Person.
@@ -74,14 +74,14 @@ Each item:
 - **Impact:** **Medium** (defensive)
 - **Cost:** $0
 
-### #1C. Plausible API integration setup (Task B Phase 1)
-- **What:** Confirm Plausible tracking script installed; document API key generation runbook; structure env vars; set up data fetcher.
-- **Why:** Plausible is the only source we have for AI engine *referral click* data (chatgpt.com, perplexity.ai, claude.ai, copilot.microsoft.com referrers). Bridges the gap between Bing citation events (citations) and Plausible engine clicks (downstream traffic).
+### #1C. GA4 integration setup (Task B Phase 1)
+- **What:** Confirm GA4 tracking script installed; document API key generation runbook; structure env vars; set up data fetcher.
+- **Why:** GA4 is the only source we have for AI engine *referral click* data (chatgpt.com, perplexity.ai, claude.ai, copilot.microsoft.com referrers). Bridges the gap between Bing citation events (citations) and GA4 engine clicks (downstream traffic).
 - **Effort:** M (4 hrs total — runbook + env structure + fetcher script)
 - **Owner:** **Both** — Devendra generates API key, Claude Code builds fetcher
 - **Impact:** **High** — fills the cross-engine click data gap that would otherwise need Otterly $29/mo to fill
-- **Cost:** $0 (assuming Plausible free / growth tier — no extra)
-- **Dependency:** Devendra generates API key first per `scripts/PLAUSIBLE_SETUP.md`
+- **Cost:** $0 (assuming GA4 free / growth tier — no extra)
+- **Dependency:** Devendra generates API key first per `GA4 admin`
 
 ---
 
@@ -209,7 +209,7 @@ Each item:
 
 ### #11. Manual cross-engine citation spot-check (30-query universe × 5 engines)
 - **What:** Devendra runs the 30-query universe manually against ChatGPT (logged-in fresh session), Perplexity (logged-in fresh session), Claude with web search, Google AI Overviews (incognito), Gemini.
-- **Why:** Bing data only covers Bing. Plausible shows referral clicks but not citation events. This is the only way to measure ChatGPT / Perplexity / Claude / Google AI Overviews citation rates without paid tooling. Establishes baseline for cross-engine progress measurement.
+- **Why:** Bing data only covers Bing. GA4 shows referral clicks but not citation events. This is the only way to measure ChatGPT / Perplexity / Claude / Google AI Overviews citation rates without paid tooling. Establishes baseline for cross-engine progress measurement.
 - **Effort:** M (2 hrs initial)
 - **Owner:** **Devendra**
 - **Impact:** **High** — establishes the cross-engine baseline
@@ -218,9 +218,9 @@ Each item:
 
 ## Suggested execution order (V2)
 
-**Day 1 (Friday):** Item #1 (Wikidata runbook handoff to Devendra) + Items #1A/#1B (technical hygiene) + #1C kickoff (Plausible API key generation by Devendra)
+**Day 1 (Friday):** Item #1 (Wikidata runbook handoff to Devendra) + Items #1A/#1B (technical hygiene) + #1C kickoff (GA4 generation by Devendra)
 **Day 2 (Saturday):** Item #3 (Organization/Person schema audit + expansion) — Claude Code
-**Day 3 (Sunday):** Item #1C completion (Plausible fetcher script) — Claude Code
+**Day 3 (Sunday):** Item #1C completion (GA4 fetcher script) — Claude Code
 **Day 4 (Monday):** Tier 2 review checkpoint with Devendra; approve items 4–11
 **Day 5 (Tuesday):** Items #4 (CSV exports) + #5 (top-10 audit) — Claude Code with GSC data
 **Day 6 (Wednesday):** Items #7 (Wikidata sameAs density) + #10 (Bing correlation) — Claude Code
@@ -241,7 +241,7 @@ Each item:
 | 1 | Wikidata entity creation | 1 | M | Devendra | **Highest** | $0 | ✅ Approved |
 | 1A | /ask?q= URL noindex | 1 | S | Claude Code | Medium | $0 | Pending |
 | 1B | www canonical + sitemap split | 1 | S | Both | Medium | $0 | Pending |
-| 1C | Plausible API integration | 1 | M | Both | High | $0 | Pending Devendra API key |
+| 1C | GA4 integration | 1 | M | Both | High | $0 | Pending Devendra API key |
 | 2 | ~~Otterly.AI subscription~~ | — | — | — | — | — | ❌ **SKIPPED V2** |
 | 3 | Organization + Person schema | 1 | M | Claude Code | High | $0 | ✅ Approved |
 | 4 | CSV exports at /data | 2 | M | Claude Code | Medium-High | $0 | Pending review |
