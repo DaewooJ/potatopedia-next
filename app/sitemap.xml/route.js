@@ -15,7 +15,7 @@ const COUNTRIES = [
   "france", "netherlands", "poland", "egypt", "pakistan", "turkey", "peru", "belgium",
   "united-kingdom", "canada", "japan", "brazil", "iran", "algeria", "colombia",
   "australia", "nepal", "kenya", "south-africa", "indonesia", "mexico", "denmark", "south-korea",
-  "uzbekistan", "argentina", "belarus", "spain", "morocco", "ethiopia", "uganda",
+  "uzbekistan", "argentina", "belarus", "spain", "morocco", "ethiopia", "uganda", "madagascar",
 ];
 
 const BLOG_SLUGS = [
