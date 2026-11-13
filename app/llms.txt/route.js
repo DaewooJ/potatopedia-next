@@ -51,6 +51,26 @@ Potatopedia is the most comprehensive potato intelligence platform on the web. W
 - [Ask AI](https://www.potatopedia.com/ask) — Natural-language Q&A with cited answers
 - [About](https://www.potatopedia.com/about) — Mission, sources, methodology, team
 
+## Newsletters and news (from Nov 2026)
+- [Newsletters](https://www.potatopedia.com/newsletters) — Three free potato industry newsletters by Potatopedia, plus a monthly magazine
+- [Potato Processing Weekly](https://www.potatopedia.com/newsletters/potato-processing-weekly) — Weekly (Tuesday): plants, capacity, technology and raw-material supply in fries, chips, flakes and starch
+- [Seed Potato & Field](https://www.potatopedia.com/newsletters/seed-potato-field) — Fortnightly (Thursday): varieties, seed certification and trade rules, disease, storage, field machinery
+- [Potato Prices & Trade](https://www.potatopedia.com/newsletters/potato-prices-trade) — Monthly (first Monday): prices by market, frozen-fry and flake export flows, trade by HS code, crop estimates
+- [Potato news](https://www.potatopedia.com/news) — Every story from the three newsletters as its own page (/news/yyyy/mm/slug), with a 40-60 word summary, "Why it matters" and primary-source links
+- Issues — the web version of each newsletter issue at /issues/<newsletter>/<yyyy-mm-dd>
+- [Google News sitemap](https://www.potatopedia.com/news-sitemap.xml) — stories from the last 48 hours
+- [Editorial standards](https://www.potatopedia.com/editorial-standards) — How news is chosen and checked: primary sources only, no aggregators, dated corrections, sponsors labelled and kept apart
+- [Authors](https://www.potatopedia.com/authors) — Who writes: the Potatopedia Editorial desk and named expert contributors
+- [Write for Potatopedia](https://www.potatopedia.com/contribute) — Expert programme for breeders, scientists, extension specialists and consultants (800-1,500 words, bylined)
+
+## Hubs (evergreen pages the newsletters feed)
+- [Potato processing](https://www.potatopedia.com/knowledge/how-potatoes-are-processed) — How potatoes are processed into fries, chips, starch and flakes, with the latest processing news
+- [Potato chip production](https://www.potatopedia.com/processing/potato-chip-production) — Chip making step by step: chipping potatoes, slice washing and blanching, frying, colour sorting, EU acrylamide rules
+- [Seed potatoes](https://www.potatopedia.com/seed-field) — How seed potatoes for planting are multiplied, graded (EU S, SE, E, A, B) and traded; top exporters (UN Comtrade 2025)
+- [Certified seed potatoes](https://www.potatopedia.com/seed-field/certified-seed-potatoes) — What certified seed guarantees, EU grades A and B, how to buy seed potatoes from certified sources
+- [Potato prices](https://www.potatopedia.com/prices) — How potato prices are set and read in Europe, the USA and futures, with the latest from Potato Prices & Trade
+- [Frozen french fry prices](https://www.potatopedia.com/prices/frozen-fries) — Export values, volumes and US$ per kg of frozen fries (HS 200410) by country, UN Comtrade 2024-2025
+
 ## Top potato producing countries (FAOSTAT 2024)
 1. China — 94.87M tonnes (FAOSTAT 2024)
 2. India — 58.1M tonnes (2024-25, 3rd Advance Estimate, Ministry of Agriculture & Farmers Welfare)

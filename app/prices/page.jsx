@@ -1,5 +1,10 @@
 import RefPage, { Cards, refJsonLd, refMetadata } from "../../components/RefPage";
 import { PRICE_PAGES, PRICES_UPDATED, PRICES_NOTICE } from "../../lib/reference/prices";
+import NewsletterSignup from "../../components/NewsletterSignup";
+import { LatestNews } from "../../components/NewsUI";
+
+// ISR (13 Nov 2026): the dated "Latest from Potato Prices & Trade" box reads Neon; also revalidated on publish.
+export const revalidate = 3600;
 
 const TITLE = "Potato Prices: India, Europe, USA and Futures";
 const DESC = "Reference pages on potato prices: India mandi prices, Europe free-buy and contract, USDA prices received and futures. Historical references, not live quotes.";
@@ -51,9 +56,17 @@ export default function Page() {
         { href: "/answers/potato-market-price-today", title: "Potato market price today", desc: "Short answer." },
         { href: "/countries", title: "Countries", desc: "Production and trade by country." },
         { href: "/market", title: "Market", desc: "Problems growers pay to solve." },
+        { href: "/news", title: "Potato news", desc: "Prices and trade stories with sources." },
       ]}
     >
-      <Cards title="Price pages" items={PRICE_PAGES.map((p) => ({ href: `/prices/${p.slug}`, title: p.title, desc: p.short }))} />
+      <LatestNews newsletter="potato-prices-trade" title="Latest from Potato Prices & Trade" dated />
+      <Cards title="Price pages" items={[
+        ...PRICE_PAGES.map((p) => ({ href: `/prices/${p.slug}`, title: p.title, desc: p.short })),
+        { href: "/prices/frozen-fries", title: "Frozen french fry prices", desc: "Export values and US$ per kg by country from UN Comtrade, 2024 and 2025." },
+      ]} />
+      <div style={{ marginTop: 28 }}>
+        <NewsletterSignup compact id="signup-prices" defaults={["potato-prices-trade"]} title="Get Potato Prices & Trade" intro="Free-buy and contract prices by market, fry and flake export flows, crop estimates. Free, first Monday of the month." />
+      </div>
     </RefPage>
   );
 }
