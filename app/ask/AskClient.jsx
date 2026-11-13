@@ -15,6 +15,7 @@ import { trustLine } from "../../lib/trust";
 import { sourceLabel } from "../../lib/sources";
 import { Rich, clean } from "../../components/AskRoots";
 import { COUNTRIES } from "../../lib/data";
+import NewsletterExit from "../../components/NewsletterExit";
 
 const ROLES = [
   {
@@ -158,14 +159,14 @@ function EmailAnswer({ q, id, onClose }) {
     return (
       <div className="rd-mail" role="status">
         <p className="rd-mail-t">Check your inbox to confirm.</p>
-        <p className="rd-mail-s">We sent you a link to this answer. One click in that mail confirms The Potato Week, our weekly digest; ignore it and nothing more is sent.</p>
+        <p className="rd-mail-s">We sent you a link to this answer. One click in that mail confirms your email; nothing else is sent unless you choose a newsletter.</p>
       </div>
     );
   }
   return (
     <form className="rd-mail" onSubmit={submit} noValidate>
       <p className="rd-mail-t">Email me this answer</p>
-      <p className="rd-mail-s">We mail you a link to this answer and ask once if you want The Potato Week, one useful digest a week. Free; unsubscribe any time.</p>
+      <p className="rd-mail-s">We mail you a link to this answer. Free; we never add you to a newsletter unless you sign up for one.</p>
       <div className="rd-mail-row">
         <label htmlFor={fid} className="pp-sr">Your email</label>
         <input id={fid} name="email" type="email" required autoComplete="email" placeholder="you@company.com" className="rd-mail-in" />
@@ -295,6 +296,7 @@ function Turn({ turn, onAsk, last }) {
       )}
 
       {done && <Actions turn={turn} />}
+      {done && <NewsletterExit text={`${turn.q} ${turn.text}`} />}
 
       {done && related.length > 0 && (
         <div className="rd-rel">

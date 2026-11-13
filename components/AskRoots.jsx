@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { fetchStream, buildHistory } from "../lib/api";
 import LeadForm from "./LeadForm";
+import NewsletterExit from "./NewsletterExit";
 import { sourceLabel } from "../lib/sources";
 
 // Homepage hero: the answer engine. Today's answer is server-rendered (real text for SEO and LCP); a new question
@@ -150,15 +151,16 @@ export default function AskRoots({ initial }) {
         {showSave && (
           <div className="ar-save" role="region" aria-label="Save this answer">
             <div className="ar-save-txt">
-              <p className="ar-save-t">Save this answer and get The Potato Week</p>
-              <p className="ar-save-s">We email you a link to this answer, then one useful digest a week. Optional and free; unsubscribe any time.</p>
+              <p className="ar-save-t">Save this answer</p>
+              <p className="ar-save-s">We email you a link to this answer. For news, choose a free newsletter: Potato Processing Weekly, Seed Potato &amp; Field or Potato Prices &amp; Trade.</p>
             </div>
             <div className="ar-save-form">
-              <LeadForm dark type="newsletter" askName={false} askCompany={false} askCountry={false} askMessage={false} submitLabel="Save & subscribe" compact hidden={{ saved_question: latest?.q }} />
+              <LeadForm dark type="newsletter" askName={false} askCompany={false} askCountry={false} askMessage={false} submitLabel="Email me this answer" compact hidden={{ saved_question: latest?.q }} />
             </div>
             <button type="button" className="ar-save-x" onClick={dismissSave}>No thanks</button>
           </div>
         )}
+        {!card.streaming && card.text && <NewsletterExit text={`${card.q} ${card.text}`} />}
         {!card.streaming && (
           <div className="ar-next">
             {card.href && <a href={card.href} className="ar-link">Read the full sourced answer <span className="hp-arrow">→</span></a>}
