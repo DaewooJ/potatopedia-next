@@ -10,7 +10,7 @@ export async function GET(req) {
       where type = 'newsletter' and confirm_token = ${token} returning id`;
     ok = rows.length > 0;
   }
-  const msg = ok ? "You're subscribed to The Potato Week. Thank you." : "This link is not valid or has expired.";
+  const msg = ok ? "You're subscribed to Potatopedia's newsletters. Thank you." : "This link is not valid or has expired.";
   return new Response(
     `<!doctype html><meta name="viewport" content="width=device-width,initial-scale=1"><title>Potatopedia</title>
 <body style="font-family:system-ui,sans-serif;background:#fff;color:#1a1a1a;display:grid;place-items:center;min-height:90vh;margin:0;padding:16px">
