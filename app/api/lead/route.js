@@ -159,7 +159,7 @@ export async function POST(req) {
         : await send(
         row.email,
         details.saved_question ? "Your saved Potatopedia answer" : "Confirm your Potatopedia newsletter signup",
-        `${saved}<p>Please confirm you want The Potato Week from Potatopedia, one useful digest a week.</p><p><a href="${link}">Yes, subscribe me</a></p><p>If you did not ask for this, ignore this mail.</p>`,
+        `${saved}<p>Please confirm you want Potatopedia's newsletters: Potato Processing Weekly, Seed Potato &amp; Field and Potato Prices &amp; Trade.</p><p><a href="${link}">Yes, subscribe me</a></p><p>If you did not ask for this, ignore this mail.</p>`,
       );
     } else {
       if (type === "report_download") {
