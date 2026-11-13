@@ -1,0 +1,43 @@
+<!-- Draft section for docs/media-kit.template.html. Uses the template's own CSS classes (.page, .grid, .card, .eyebrow, .facts, .foot).
+     Paste the two <section> blocks before the last "rules" page. Prices are TBC until Devendra confirms. Placeholders {{...}} are filled by script;
+     a line whose value is empty is rendered as "on request" by the script. Site analytics = GA4 + Vercel Analytics (not Plausible). -->
+<section class="page">
+  <p class="eyebrow">Newsletters and magazine</p>
+  <h2>Three potato newsletters and a monthly magazine</h2>
+  <div class="grid">
+    <div class="card"><span class="n">A</span><div class="t">Potato Processing Weekly</div><p class="who">Every Tuesday · plant and technical managers, buyers, R&amp;D</p><p class="what">Plant openings, capacity, technology, raw-material supply, company results. Presenting sponsor: logo and a 60-word message at the top, labelled Sponsored.</p><p class="price"><b>TBC</b> <span>per issue</span></p></div>
+    <div class="card"><span class="n">B</span><div class="t">Seed Potato &amp; Field</div><p class="who">Every other Thursday · growers, agronomists, breeders, storage managers</p><p class="what">New varieties, seed certification, disease and pests, storage, machinery. Presenting sponsor, labelled Sponsored.</p><p class="price"><b>TBC</b> <span>per issue</span></p></div>
+    <div class="card"><span class="n">C</span><div class="t">Potato Prices &amp; Trade</div><p class="who">First Monday of the month · traders, importers, exporters, analysts</p><p class="what">Prices by market, export values and volumes by HS code, crop estimates, freight, currencies. Presenting sponsor, labelled Sponsored.</p><p class="price"><b>TBC</b> <span>per issue</span></p></div>
+    <div class="card"><span class="n">D</span><div class="t">Potatopedia Magazine</div><p class="who">Monthly digital flipbook</p><p class="what">The best of the three titles, one long feature, one expert interview. Full page, half page and back cover, labelled Advertisement.</p><p class="price"><b>TBC</b> <span>full · half · back cover</span></p></div>
+    <div class="card"><span class="n">E</span><div class="t">Mid-issue classified</div><p class="who">Any potato company</p><p class="what">40 words and a link inside one issue, labelled.</p><p class="price"><b>TBC</b> <span>per issue</span></p></div>
+    <div class="card"><span class="n">F</span><div class="t">Sponsored article</div><p class="who">Any potato company</p><p class="what">"Published with us": on the site, in one issue and in one LinkedIn post. Never mixed into the neutral knowledge base.</p><p class="price"><b>TBC</b> <span>per article</span></p></div>
+    <div class="card wide"><span class="n">G</span><div class="t">World Potato Yearbook, title sponsor</div><p class="who">Any potato company · first edition 2027</p><p class="what">The year's reference book in sourced numbers. Title sponsor is named as presenting the edition, labelled Sponsored. No say in tables, rankings or chapters.</p><p class="price"><b>TBC</b> <span>per year</span></p></div>
+  </div>
+  <div class="foot"><span>Potatopedia media kit · rates in US$ (TBC)</span><span>N1</span></div>
+</section>
+
+<section class="page dark">
+  <div class="glow"></div>
+  <div style="position: relative;">
+    <p class="eyebrow">Audience, as of {{as_of}}</p>
+    <h2 style="font-size: 32pt;">Real numbers only</h2>
+    <div class="facts">
+      <div><span class="fact-n">{{subs_processing}}</span><span class="fact-l">confirmed subscribers, Processing Weekly</span></div>
+      <div><span class="fact-n">{{subs_seed}}</span><span class="fact-l">confirmed subscribers, Seed &amp; Field</span></div>
+      <div><span class="fact-n">{{subs_prices}}</span><span class="fact-l">confirmed subscribers, Prices &amp; Trade</span></div>
+      <div><span class="fact-n">{{open_rate}}</span><span class="fact-l">unique open rate, last 3 issues</span></div>
+      <div><span class="fact-n">{{click_rate}}</span><span class="fact-l">click rate, last 3 issues</span></div>
+      <div><span class="fact-n">{{countries}}</span><span class="fact-l">subscriber countries</span></div>
+    </div>
+    <p style="margin-top: 8mm; font-size: 10.5pt; color: #F4F1EC;">Job roles of subscribers: {{roles}}. Site, last 28 days: {{gsc_clicks}} Google clicks, {{ga4_users}} users (Google Analytics 4 and Vercel Analytics). LinkedIn newsletter subscribers: {{li_subs}}.</p>
+    <p class="eyebrow" style="margin-top: 14mm;">The rules we keep</p>
+    <ul class="rules" style="max-width: 160mm;">
+      <li style="border-color: rgba(255,255,255,.14);">Clearly labelled sponsors. Never paid rankings. Never paid facts.</li>
+      <li style="border-color: rgba(255,255,255,.14);">Every paid item says Sponsored, Published with us or Advertisement.</li>
+      <li style="border-color: rgba(255,255,255,.14);">Sponsors never touch news items or neutral pages.</li>
+      <li style="border-color: rgba(255,255,255,.14);">Launch partners: before a title reaches 1,000 confirmed subscribers (or 3 issues at a 35% unique open rate) a few well-known companies are invited to a free, labelled slot.</li>
+    </ul>
+    <p style="font-size: 8.5pt; color: #8E8A83; margin-top: 8mm;">Every figure shows its period and source. Where a number is not available it says "on request".</p>
+  </div>
+  <div class="foot"><span>www.potatopedia.com/advertise#newsletters</span><span>N2</span></div>
+</section>
