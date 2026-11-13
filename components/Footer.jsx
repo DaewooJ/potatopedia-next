@@ -26,6 +26,9 @@ export default function Footer() {
             <Link href="/diseases">Diseases</Link>
             <Link href="/events">Events</Link>
             <Link href="/blog">Blog</Link>
+            <Link href="/news">Potato news</Link>
+            <Link href="/newsletters">Newsletters</Link>
+            <Link href="/seed-field">Seed potatoes</Link>
           </nav>
           <nav className="pf-col" aria-label="Company">
             <p className="pf-k">Company</p>
@@ -34,6 +37,8 @@ export default function Footer() {
             <Link href="/for-companies">For companies</Link>
             <Link href="/for-companies#correct">Submit or correct data</Link>
             <Link href="/advertise">Advertise</Link>
+            <Link href="/contribute">Write for us</Link>
+            <Link href="/editorial-standards">Editorial standards</Link>
             <a href="https://www.linkedin.com/company/potatopedia" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <a href="mailto:hello@potatopedia.com">hello@potatopedia.com</a>
           </nav>

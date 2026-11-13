@@ -2,6 +2,10 @@
 const nextConfig = {
   // next/image (first used on the /blog front page, 7 Nov 2026): fewer widths = shorter srcset strings in the HTML.
   images: { deviceSizes: [640, 828, 1080, 1440, 1920], imageSizes: [96, 192, 320, 480] },
+  // Issue previews (WhatsApp approval links, dry runs included) are never indexed or cached by proxies.
+  async headers() {
+    return [{ source: "/issues/preview/:path*", headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }, { key: "Cache-Control", value: "private, no-store" }] }];
+  },
   async redirects() {
     return [
       // One canonical host (7 Nov 2026): potatopedia.com served a full duplicate of the site and Google indexed both.
@@ -25,6 +29,12 @@ const nextConfig = {
       { source: "/answers/fertilizer-for-potato-size", destination: "/answers/best-fertilizer-for-potatoes", permanent: true },
       { source: "/answers/best-potatoes-in-the-world", destination: "/answers/best-quality-potatoes-by-country", permanent: true },
       { source: "/knowledge/potato-disease-identification", destination: "/knowledge/potato-diseases-pests", permanent: true },
+      // Newsletter hubs (13 Nov 2026, docs/newsletters/CONTRACT.md "Hubs"): no second page for a word that already ranks.
+      { source: "/processing", destination: "/knowledge/how-potatoes-are-processed", permanent: true },
+      { source: "/answers/certified-seed-potatoes", destination: "/seed-field/certified-seed-potatoes", permanent: true },
+      // Issues live under /issues/<title>/<date>; the bare folders point at the newsletter pages.
+      { source: "/issues", destination: "/newsletters", permanent: false },
+      { source: "/issues/:newsletter(potato-processing-weekly|seed-potato-field|potato-prices-trade)", destination: "/newsletters/:newsletter", permanent: false },
     ];
   },
 };

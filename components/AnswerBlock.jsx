@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { trustLine, TONE } from "../lib/trust";
 import { formatAnswer } from "../lib/format";
+import NewsletterExit from "./NewsletterExit";
 
 export default function AnswerBlock({ data }) {
   const [sourcesOpen, setSourcesOpen] = useState(false);
@@ -109,6 +110,7 @@ export default function AnswerBlock({ data }) {
           ))}
         </div>
       )}
+      <NewsletterExit text={`${data.question || ""} ${cleaned}`} />
     </div>
   );
 }

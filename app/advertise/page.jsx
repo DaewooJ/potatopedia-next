@@ -6,6 +6,21 @@ import { VARIETIES } from "../../lib/varieties-data";
 import { COUNTRIES, BLOG_POSTS } from "../../lib/data";
 import ANSWERS from "../../lib/answers-baked.json";
 import LeadForm from "../../components/LeadForm";
+import { NEWSLETTERS, MAGAZINE, TRUST_LINE } from "../../lib/newsletters";
+
+// Newsletter + magazine rate card (prompt §6, 13 Nov 2026). Prices are CEO proposals: hidden until Devendra confirms.
+// Selling starts only when a title has 1,000 confirmed subscribers or 3 issues at 35%+ unique opens.
+const SHOW_NEWSLETTER_PRICES = false;
+const NL_PRODUCTS = [
+  { name: "Presenting sponsor, Potato Processing Weekly", what: "Logo and a 60-word message at the top of the issue.", unit: "per issue", price: "$450" },
+  { name: "Presenting sponsor, Seed Potato & Field", what: "Logo and a 60-word message at the top of the issue.", unit: "per issue", price: "$350" },
+  { name: "Presenting sponsor, Potato Prices & Trade", what: "Logo and a 60-word message at the top of the issue.", unit: "per issue", price: "$600" },
+  { name: "Mid-issue classified", what: "40 words and a link, in any title.", unit: "per issue", price: "$120" },
+  { name: "Sponsored article", what: "\"Published with us\": on the site, in one issue and on LinkedIn.", unit: "per article", price: "$900" },
+  { name: "Magazine full page or half page", what: "In Potatopedia Magazine, the monthly flipbook.", unit: "per issue", price: "$700 / $400" },
+  { name: "Magazine back cover", what: "The back cover of Potatopedia Magazine.", unit: "per issue", price: "$1,200" },
+  { name: "World Potato Yearbook title sponsor", what: "Title sponsor of the yearly edition (first: 2027).", unit: "per year", price: "$8,000" },
+];
 
 // /advertise — the brand door (replaces /support, 7 Nov 2026). Real audience facts only. Rate card in US$ only
 // (Devendra approved the USD card 7 Nov 2026; never show INR here). Every placement is labelled; paid content never changes a fact.
@@ -31,12 +46,13 @@ const PRODUCTS = [
   { n: "04", price: "$2,500", unit: "per year", name: "Breeder variety set", who: "Seed breeders and seed houses", what: "Your varieties' dossiers carry your labelled breeder card and a seed-request button. The traits and facts on the page never change." },
   { n: "05", price: "$400", unit: "per question, per year", name: "Own a question", who: "Any potato company", what: "One labelled card under the neutral, sourced answer to a question your buyers ask, on the answer page and in the answer engine." },
   { n: "06", price: "$250", unit: "per article", name: "Publish with us", who: "Any potato company", what: "A partner article, clearly marked \"Published with us\", shared in the newsletter. Partner content is never mixed into the neutral knowledge base." },
-  { n: "07", price: "$100", unit: "per day", name: "Newsletter and daily presenter", who: "Any potato company", what: "\"Presented by\" on The Potato Week and on the homepage for the days you choose." },
+  { n: "07", price: "$100", unit: "per day", name: "Daily presenter", who: "Any potato company", what: "\"Presented by\" on the homepage for the days you choose. Newsletter sponsorships are listed below." },
   { n: "08", price: "$500", unit: "per report", name: "AI visibility report", who: "Any potato company", what: "How often ChatGPT, Perplexity, Gemini and Potatopedia name your brand against rivals for the questions your buyers ask." },
   { n: "09", price: "$500", unit: "per report", name: "Country market report", who: "Traders, investors, makers", what: "A sourced report on one country or segment: production, trade partners, processors, storage and prices." },
 ];
 
 const RULES = [
+  "Clearly labelled sponsors. Never paid rankings. Never paid facts.",
   "The neutral, sourced answer always comes first.",
   "Every paid item is labelled Sponsored or Published with us.",
   "Paid content never changes a fact, and sponsors never edit the neutral pages.",
@@ -100,6 +116,58 @@ export default async function AdvertisePage() {
                 <p className="sp-price"><span className="sp-price-n">{p.price}</span> <span className="sp-price-u">{p.unit}</span></p>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="newsletters" className="sp-sec" style={{ borderTop: "1px solid var(--line)", scrollMarginTop: 80 }}>
+        <div className="sp-wrap">
+          <h2 className="sp-h2">Newsletters and magazine</h2>
+          <p className="sp-rate-note" style={{ margin: "-14px 0 18px", maxWidth: 760 }}>
+            Three titles, each with its own readers: {NEWSLETTERS.map((n, i) => <span key={n.slug}>{i > 0 && (i === NEWSLETTERS.length - 1 ? " and " : ", ")}<Link href={`/newsletters/${n.slug}`}>{n.name}</Link> ({n.cadenceLabel.charAt(0).toLowerCase() + n.cadenceLabel.slice(1)})</span>)}, plus {MAGAZINE.name}. {TRUST_LINE}
+          </p>
+          <div style={{ overflowX: "auto", border: "1px solid var(--line)", borderRadius: 16, background: "#FFFFFF" }}>
+            <table style={{ borderCollapse: "collapse", width: "100%", minWidth: 560 }}>
+              <thead>
+                <tr>
+                  {["Placement", "What you get", "Unit", "Price (US$)"].map((h) => (
+                    <th key={h} scope="col" style={{ textAlign: "left", padding: "12px 14px", fontSize: 12, letterSpacing: ".12em", textTransform: "uppercase", color: "var(--mute)", borderBottom: "1px solid var(--line)", whiteSpace: "nowrap" }}>{h}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {NL_PRODUCTS.map((p) => (
+                  <tr key={p.name}>
+                    <td style={{ padding: "12px 14px", borderBottom: "1px solid var(--line)", fontSize: 15, fontWeight: 600 }}>{p.name}</td>
+                    <td style={{ padding: "12px 14px", borderBottom: "1px solid var(--line)", fontSize: 14.5, color: "var(--mute)", lineHeight: 1.5 }}>{p.what}</td>
+                    <td style={{ padding: "12px 14px", borderBottom: "1px solid var(--line)", fontSize: 14, whiteSpace: "nowrap" }}>{p.unit}</td>
+                    <td style={{ padding: "12px 14px", borderBottom: "1px solid var(--line)", fontSize: 14, color: SHOW_NEWSLETTER_PRICES ? "var(--ink)" : "var(--mute)" }}>{SHOW_NEWSLETTER_PRICES ? p.price : "Price on request — launching with partners"}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div style={{ marginTop: 18, padding: "16px 18px", borderRadius: 14, background: "#F2EADC", fontSize: 15, lineHeight: 1.6 }}>
+            <strong>Launch partners first.</strong> We do not sell a newsletter placement until that title has 1,000 confirmed subscribers, or three issues each opened by at least 35% of its readers (unique opens). Until then a small number of well-known companies run free placements labelled &ldquo;Launch partner&rdquo;. Every paid placement says &ldquo;Sponsored&rdquo; or &ldquo;Published with us&rdquo;, its links carry rel=&quot;sponsored&quot;, and sponsors never touch the news. See the <Link href="/editorial-standards">editorial standards</Link>.
+          </div>
+          <div id="book-newsletter" className="sp-split" style={{ marginTop: 36, scrollMarginTop: 80 }}>
+            <div>
+              <h3 className="sp-card-t" style={{ fontSize: 34, margin: "0 0 10px" }}>Book a sponsorship</h3>
+              <p style={{ margin: "0 0 12px", fontSize: 16, lineHeight: 1.65, color: "var(--mute)" }}>Tell us which title and when. We reply within one working day with dates, audience numbers by title and, once a title is open for sale, the price.</p>
+              <p style={{ margin: 0, fontSize: 15, color: "var(--mute)" }}>Prefer email? <a href="mailto:hi@potatopedia.com">hi@potatopedia.com</a></p>
+            </div>
+            <div style={{ background: "#FFFFFF", border: "1px solid var(--line)", borderRadius: 18, padding: 22 }}>
+              <LeadForm
+                type="advertise_newsletter"
+                submitLabel="Book a sponsorship"
+                messageLabel="What would you like to promote, and to whom?"
+                extra={[
+                  { name: "product_interest", label: "Placement", options: NL_PRODUCTS.map((p) => p.name).concat("Launch partner (free, early)", "Not sure yet") },
+                  { name: "newsletter", label: "Title", options: NEWSLETTERS.map((n) => n.name).concat(MAGAZINE.name, "World Potato Yearbook", "More than one") },
+                  { name: "timing", label: "When", placeholder: "e.g. from Jan 2027, 4 issues" },
+                ]}
+              />
+            </div>
           </div>
         </div>
       </section>

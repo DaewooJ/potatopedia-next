@@ -159,7 +159,7 @@ function FurtherReading({ regionalCountries, indiaContext = false }) {
       title: "Practical answers",
       items: [
         { href: "/answers/seed-potato-certification", label: "Seed potato certification" },
-        { href: "/answers/certified-seed-potatoes", label: "Certified seed potatoes" },
+        { href: "/seed-field/certified-seed-potatoes", label: "Certified seed potatoes" },
         { href: "/answers/best-fertilizer-for-potatoes", label: "Best fertilizer for potatoes" },
         { href: "/answers/when-to-plant-potatoes", label: "When to plant potatoes" },
         { href: "/answers/potato-cold-storage-temperature", label: "Cold storage temperature" },

@@ -7,6 +7,8 @@ import ANSWERS from "../lib/answers-baked.json";
 import AskRoots from "../components/AskRoots";
 import ChainSection from "../components/ChainSection";
 import LeadForm from "../components/LeadForm";
+import NewsletterSignup from "../components/NewsletterSignup";
+import { NEWSLETTERS } from "../lib/newsletters";
 import ThemeFab from "../components/ThemeFab";
 import { serif, sans } from "../lib/fonts";
 
@@ -233,11 +235,20 @@ export default async function HomePage() {
       <footer className="hp-foot">
         <div className="hp-wrap hp-foot-top">
           <div style={{ flex: 1 }}>
-            <p className="hp-foot-t">The Potato Week</p>
-            <p className="hp-foot-s">One considered email a week: the most useful new answers and data. Free.</p>
+            <p className="hp-foot-t">Three potato newsletters, free</p>
+            <p className="hp-foot-s">From the Potatopedia news desk. Primary sources, global coverage.</p>
+            <ul style={{ listStyle: "none", margin: "18px 0 0", padding: 0, display: "grid", gap: 12 }}>
+              {NEWSLETTERS.map((n) => (
+                <li key={n.slug} style={{ borderLeft: `3px solid ${n.accent}`, paddingLeft: 12 }}>
+                  <Link href={`/newsletters/${n.slug}`} style={{ color: "#F4F1EC", textDecoration: "none", fontSize: 16, fontWeight: 500 }}>{n.name}</Link>
+                  <span style={{ display: "block", fontSize: 13, color: "#A9A49C", marginTop: 2 }}>{n.cadenceLabel} · {n.covers.slice(0, 3).join(", ").toLowerCase()}</span>
+                </li>
+              ))}
+            </ul>
+            <p style={{ margin: "14px 0 0", fontSize: 14 }}><Link href="/newsletters" style={{ color: "#E2C08D", textDecoration: "none" }}>All newsletters and the magazine →</Link> · <Link href="/news" style={{ color: "#E2C08D", textDecoration: "none" }}>Potato news</Link></p>
           </div>
-          <div style={{ flex: 1 }}>
-            <LeadForm dark type="newsletter" askName={false} askCompany={false} askCountry={false} askMessage={false} submitLabel="Subscribe" compact />
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <NewsletterSignup compact id="signup-home" title="" intro="" />
           </div>
         </div>
         <div className="hp-wrap hp-foot-bot">
@@ -251,6 +262,8 @@ export default async function HomePage() {
             <Link href="/machines">Machines</Link>
             <Link href="/companies">Companies</Link>
             <Link href="/events">Events</Link>
+            <Link href="/news">News</Link>
+            <Link href="/newsletters">Newsletters</Link>
             <a href="/for-companies">For companies</a>
             <a href="/for-companies#correct">Submit or correct data</a>
             <a href="/advertise">Advertise</a>

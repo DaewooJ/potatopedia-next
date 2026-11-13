@@ -7,6 +7,7 @@
 // sources section with gold roots growing into the source cards.
 
 import { formatAnswer } from "../lib/format";
+import NewsletterExit from "./NewsletterExit";
 import { trustLine, TONE } from "../lib/trust";
 import { sourceLabel, cleanExcerpt } from "../lib/sources";
 
@@ -50,6 +51,8 @@ export default function BakedAnswerBlock({ data }) {
           {trust.note && <span style={{ fontStyle: "italic" }}>({trust.note})</span>}
         </p>
       )}
+
+      <NewsletterExit text={`${data.question || ""} ${cleaned}`} />
 
       {top.length > 0 && (
         <section className="src" id="sources" aria-labelledby="sources-h">

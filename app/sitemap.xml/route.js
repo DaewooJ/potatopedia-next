@@ -1,6 +1,11 @@
 import REPORTS_MANIFEST from "../../lib/reports-manifest.json";
+import { NEWSLETTERS, newsHref, issueHref } from "../../lib/newsletters";
+import { allPublishedNews, allPublishedIssues } from "../../lib/news-db";
+import { AUTHORS } from "../../lib/authors-registry";
 
 const BASE = "https://www.potatopedia.com";
+// Hourly ISR (13 Nov 2026): published /news items and issues appear without a redeploy (also revalidated on publish).
+export const revalidate = 3600;
 
 const INDIA_STATE_SLUGS = [
   "uttar-pradesh",
@@ -139,7 +144,6 @@ const ANSWER_SLUGS = [
   "how-to-grow-potatoes-for-beginners",
   "true-potato-seeds",
   "how-to-save-seed-potatoes",
-  "certified-seed-potatoes",
   "potato-storage-containers",
   "potato-market-price-today",
   "potatoes-in-china-history",
@@ -195,6 +199,18 @@ export async function GET() {
     ...["/diseases", "/diseases/late-blight", "/diseases/blackleg-soft-rot", "/diseases/bacterial-wilt-brown-rot", "/diseases/potato-cyst-nematode", "/diseases/common-scab", "/diseases/pvy-viruses"].map((loc) => ({ loc, priority: "0.8", changefreq: "monthly" })),
     { loc: "/events", priority: "0.7", changefreq: "weekly" },
     { loc: "/reports", priority: "0.85", changefreq: "weekly" },
+    // Newsletters + news desk + hubs (13 Nov 2026)
+    { loc: "/newsletters", priority: "0.8", changefreq: "weekly" },
+    ...NEWSLETTERS.map((n) => ({ loc: `/newsletters/${n.slug}`, priority: "0.75", changefreq: "weekly" })),
+    { loc: "/news", priority: "0.85", changefreq: "daily" },
+    { loc: "/processing/potato-chip-production", priority: "0.8", changefreq: "monthly" },
+    { loc: "/seed-field", priority: "0.85", changefreq: "weekly" },
+    { loc: "/seed-field/certified-seed-potatoes", priority: "0.85", changefreq: "weekly" },
+    { loc: "/prices/frozen-fries", priority: "0.8", changefreq: "monthly" },
+    { loc: "/contribute", priority: "0.5", changefreq: "monthly" },
+    { loc: "/authors", priority: "0.4", changefreq: "monthly" },
+    ...AUTHORS.map((a) => ({ loc: `/authors/${a.slug}`, priority: "0.4", changefreq: "weekly" })),
+    { loc: "/editorial-standards", priority: "0.5", changefreq: "yearly" },
   ];
 
   // Lazy import varieties data to avoid loading on every sitemap render hop
@@ -211,7 +227,9 @@ export async function GET() {
   const bakedList = Array.isArray(baked) ? baked : Object.values(baked).filter((a) => a && typeof a === "object" && a.slug);
   const day = (d) => { const t = Date.parse(d || ""); return Number.isNaN(t) ? null : new Date(t).toISOString().slice(0, 10); };
   const answerLastmod = Object.fromEntries(bakedList.map((a) => [a.slug, day(a.baked_at)]));
-  const answerSlugs = [...new Set([...ANSWER_SLUGS, ...bakedList.map((a) => a.slug)])];
+  // Answers that 308 to a hub (next.config.mjs) stay out of the sitemap.
+  const REDIRECTED_ANSWERS = new Set(["certified-seed-potatoes"]);
+  const answerSlugs = [...new Set([...ANSWER_SLUGS, ...bakedList.map((a) => a.slug)])].filter((s) => !REDIRECTED_ANSWERS.has(s));
 
   const dynamicPages = [
     ...Object.keys(REPORTS_MANIFEST).map((s) => ({ loc: `/reports/${s}`, priority: "0.85", changefreq: "monthly", lastmod: "2026-11-07" })),
@@ -240,7 +258,14 @@ export async function GET() {
       ]
     : [];
 
-  const allPages = [...staticPages, ...dynamicPages, ...companyPages];
+  // Published news items and issues (Neon; empty until Issue 01). Each /news page and each issue is its own canonical.
+  const [newsRows, issueRows] = await Promise.all([allPublishedNews(), allPublishedIssues()]);
+  const newsPages = [
+    ...newsRows.filter((r) => r.pub_year && r.pub_month).map((r) => ({ loc: newsHref(r), priority: "0.7", changefreq: "monthly", lastmod: day(r.updated_at || r.published_at) })),
+    ...issueRows.map((i) => ({ loc: issueHref(i), priority: "0.6", changefreq: "yearly", lastmod: day(i.published_at) })),
+  ];
+
+  const allPages = [...staticPages, ...dynamicPages, ...companyPages, ...newsPages];
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
