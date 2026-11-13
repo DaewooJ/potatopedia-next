@@ -158,8 +158,8 @@ export async function POST(req) {
           )
         : await send(
         row.email,
-        details.saved_question ? "Your saved Potatopedia answer" : "Confirm your Potatopedia newsletter signup",
-        `${saved}<p>Please confirm you want The Potato Week from Potatopedia, one useful digest a week.</p><p><a href="${link}">Yes, subscribe me</a></p><p>If you did not ask for this, ignore this mail.</p>`,
+        details.saved_question ? "Your saved Potatopedia answer" : "Confirm your email for Potatopedia",
+        `${saved}<p>Please confirm your email address.</p><p><a href="${link}">Yes, confirm my email</a></p><p>Potatopedia publishes three potato industry newsletters: Potato Processing Weekly, Seed Potato &amp; Field and Potato Prices &amp; Trade. Choose the ones you want at <a href="https://www.potatopedia.com/newsletters">potatopedia.com/newsletters</a>; nothing is sent unless you sign up there.</p><p>If you did not ask for this, ignore this mail.</p>`,
       );
     } else {
       if (type === "report_download") {
@@ -173,7 +173,7 @@ export async function POST(req) {
         );
         await sql`update leads set mail_message_id = ${mid} where ref = ${ref}`;
       }
-      const NICE = { wrong: "What is wrong", correct_fact: "Correct fact", source_url: "Official source", varieties: "Varieties", link: "Datasheets / photos link", rights_confirmed: "Rights confirmed (photos credited)", website: "Website", kind: "Company type", role: "Role", page_url: "Page", request: "Request", company_slug: "Listing slug" };
+      const NICE = { wrong: "What is wrong", correct_fact: "Correct fact", source_url: "Official source", varieties: "Varieties", link: "Datasheets / photos link", rights_confirmed: "Rights confirmed (photos credited)", website: "Website", kind: "Company type", role: "Role", page_url: "Page", request: "Request", company_slug: "Listing slug", topic: "Topic", institution: "Institution", profile_url: "Public profile", variety: "Variety", quantity: "Quantity", planting_month: "Planting month", seed_class: "Seed class", product_interest: "Interested in", newsletter: "Newsletter", timing: "Timing" };
       const lines = Object.fromEntries(Object.entries({ Type: LEAD_TYPES[type], ...row, ...details }).map(([k, v]) => [NICE[k] || k, v]));
       const html = `<h2>${esc(LEAD_TYPES[type])} · ${esc(row.country || "country not given")}</h2><table>${Object.entries(lines)
         .map(([k, v]) => `<tr><td><b>${esc(k)}</b></td><td>${esc(v)}</td></tr>`)
