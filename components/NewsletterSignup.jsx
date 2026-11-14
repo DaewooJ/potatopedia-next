@@ -30,6 +30,8 @@ export default function NewsletterSignup({
   intro = "Free. One email to confirm, then only the titles you tick. Unsubscribe in one click.",
   id = "signup",
   readQuery = false,
+  source = "", // where the box sits, e.g. "answers/<slug>" (stored as leads.details.source; GA4 signup_source)
+  single = false, // inline box: one matched title + email on one row; the other titles fold away
 }) {
   const uid = useId().replace(/:/g, "");
   const [titles, setTitles] = useState(defaults);
@@ -64,6 +66,7 @@ export default function NewsletterSignup({
       country: String(fd.country || "").trim() || undefined,
       titles,
       page_url: window.location.href.slice(0, 500),
+      source: source || undefined,
       website_url: fd.website_url || undefined, // honeypot
     };
     try {
@@ -79,6 +82,9 @@ export default function NewsletterSignup({
       const out = await res.json().catch(() => ({}));
       if (!res.ok || out.ok === false) throw new Error(out.error || "Something went wrong. Please try again.");
       setState("done");
+      try {
+        window.gtag?.("event", "newsletter_signup", { newsletters: titles.join(","), signup_source: source || window.location.pathname, page_type: (source || "").split("/")[0] || "other" });
+      } catch {}
     } catch (err) {
       setError(err.message);
       setState("error");
@@ -128,6 +134,43 @@ export default function NewsletterSignup({
       </div>
     </div>
   );
+
+  if (single) {
+    const main = NEWSLETTERS.find((n) => n.slug === defaults[0]) || NEWSLETTERS[0];
+    const others = NEWSLETTERS.filter((n) => n.slug !== main.slug);
+    return (
+      <form id={id} onSubmit={onSubmit} noValidate style={{ ...box, borderLeft: `4px solid ${main.accent}`, display: "grid", gap: 10, scrollMarginTop: 96, position: "relative", padding: "18px 18px 16px" }}>
+        <p style={{ margin: 0, fontSize: 12, fontWeight: 700, letterSpacing: ".1em", textTransform: "uppercase", color: main.accent }}>{main.name} · {main.cadenceLabel}</p>
+        {title && <p style={{ margin: 0, fontSize: 20, lineHeight: 1.25, fontFamily: "var(--hp-serif), Georgia, serif", color: "var(--ink)" }}>{title}</p>}
+        {intro && <p style={{ margin: 0, fontSize: 14, lineHeight: 1.55, color: "var(--mute)" }}>{intro}</p>}
+        <div aria-hidden="true" style={{ position: "absolute", left: -9999, width: 1, height: 1, overflow: "hidden" }}>
+          <label>Website <input name="website_url" tabIndex={-1} autoComplete="off" /></label>
+        </div>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+          <label htmlFor={`${uid}-email`} style={{ position: "absolute", width: 1, height: 1, overflow: "hidden", clip: "rect(0 0 0 0)" }}>Email</label>
+          <input id={`${uid}-email`} name="email" type="email" required autoComplete="email" placeholder="you@company.com" style={{ ...field, flex: "1 1 220px", width: "auto" }} />
+          <button type="submit" disabled={state === "sending"} style={{ flex: "0 0 auto", padding: "12px 20px", fontSize: 15, fontWeight: 600, fontFamily: "inherit", background: RED, color: "#fff", border: "none", borderRadius: 10, cursor: state === "sending" ? "wait" : "pointer", opacity: state === "sending" ? 0.7 : 1 }}>
+            {state === "sending" ? "Sending…" : "Subscribe free"}
+          </button>
+        </div>
+        <details>
+          <summary style={{ cursor: "pointer", fontSize: 13, color: "var(--mute)" }}>Also get our other newsletters</summary>
+          <div style={{ display: "grid", gap: 6, marginTop: 8 }}>
+            {others.map((n) => (
+              <label key={n.slug} htmlFor={`${uid}-${n.slug}`} style={{ display: "flex", gap: 10, alignItems: "center", fontSize: 14, color: "var(--ink2)", cursor: "pointer" }}>
+                <input id={`${uid}-${n.slug}`} type="checkbox" checked={titles.includes(n.slug)} onChange={() => toggle(n.slug)} style={{ width: 17, height: 17, accentColor: n.accent, flex: "none" }} />
+                <span><b style={{ fontWeight: 600 }}>{n.name}</b> · {n.cadenceLabel}</span>
+              </label>
+            ))}
+          </div>
+        </details>
+        {error && <p role="alert" style={{ margin: 0, fontSize: 14, color: RED }}>{error}</p>}
+        <p style={{ margin: 0, fontSize: 12, color: "var(--mute2)", lineHeight: 1.45 }}>
+          Free. One email to confirm; one-click unsubscribe. <a href="/privacy" style={{ color: "var(--gold)" }}>Privacy policy</a>.
+        </p>
+      </form>
+    );
+  }
 
   return (
     <form id={id} onSubmit={onSubmit} noValidate style={{ ...box, display: "grid", gap: 14, scrollMarginTop: 96, position: "relative" }}>

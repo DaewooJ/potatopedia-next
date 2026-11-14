@@ -4,6 +4,7 @@ import { LEAD_TYPES, LEAD_DETAILS, REPORT_ROLES, emailType, validateExtra } from
 import { signReportToken } from "@/lib/report-token";
 import REPORTS from "@/lib/reports-manifest.json";
 import { COUNTRIES } from "@/lib/data";
+import { magazineFor, MAG_REF_RE } from "@/lib/magazine";
 
 // Every Potatopedia lead: (1) saved to Neon `leads` first so nothing is lost if mail fails,
 // (2) mailed by Amazon SES to LEAD_TO (hi@potatopedia.com), (3) answered with a ref PP-<ddmmyy>-<4>.
@@ -108,19 +109,30 @@ export async function POST(req) {
   const extraErr = validateExtra(type, row, details);
   if (extraErr) return Response.json({ error: extraErr }, { status: 400 });
   let reportSlug = null;
+  let magazine = null;
   if (type === "report_download") {
     if (process.env.REPORT_GATE_LIVE !== "true" || !process.env.REPORT_LINK_SECRET) {
       return Response.json({ error: "Report downloads are not open yet." }, { status: 503 });
     }
+    if (MAG_REF_RE.test(details.report || "")) {
+      // Magazine edition of a newsletter issue ("issue/<title>/<date>", 14 Nov 2026): name + email + privacy;
+      // company, role and country are optional. The PDF must exist on the issue row (issues.magazine.pdf).
+      magazine = await magazineFor(details.report);
+      if (!magazine?.pdf) return Response.json({ error: "Unknown magazine." }, { status: 400 });
+      reportSlug = details.report;
+      if (details.role && !REPORT_ROLES.includes(details.role)) return Response.json({ error: "Please choose your role." }, { status: 400 });
+      details.kind = "magazine";
+    } else {
     reportSlug = COUNTRIES.find((c) => c.slug === details.report)?.slug;
     if (!reportSlug) return Response.json({ error: "Unknown report." }, { status: 400 });
     if (!row.company) return Response.json({ error: "Please give your company." }, { status: 400 });
     if (!row.country) return Response.json({ error: "Please give your country." }, { status: 400 });
     if (!REPORT_ROLES.includes(details.role)) return Response.json({ error: "Please choose your role." }, { status: 400 });
+    }
     if (body.privacy_ok !== true && body.privacy_ok !== "on") {
       return Response.json({ error: "Please agree to the privacy policy." }, { status: 400 });
     }
-    details.company = row.company;
+    if (row.company) details.company = row.company;
     details.consent_partners = body.consent_partners === true || body.consent_partners === "on";
     details.email_type = emailType(row.email);
   }
@@ -164,7 +176,13 @@ export async function POST(req) {
     } else {
       if (type === "report_download") {
         const link = `https://www.potatopedia.com/api/report/${signReportToken({ ref, slug: reportSlug })}`;
-        const mid = await send(
+        const mid = magazine
+          ? await send(
+            row.email,
+            `Your magazine: ${magazine.title}`,
+            `<p>Hello ${esc(row.name)},</p><p>Thank you for reading. Download the magazine edition here (valid for 7 days):</p><p><a href="${link}">${esc(magazine.title)} (PDF, ${magazine.pdf.pages} pages)</a></p><p>You can also turn its pages on the web: <a href="https://www.potatopedia.com${magazine.href}">${esc(magazine.title)}</a>.</p><p>If you did not ask for this, ignore this mail.</p><p>Potatopedia</p>`,
+          )
+          : await send(
           row.email,
           "Your Potatopedia country report",
           REPORTS[reportSlug]
