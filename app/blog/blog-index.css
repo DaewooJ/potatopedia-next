@@ -15,6 +15,7 @@
 .bj-img img { object-fit: cover; transition: transform 1.2s cubic-bezier(.2,.7,.2,1), filter .6s ease; }
 .bj-img:hover img { transform: scale(1.025); }
 .r32 { aspect-ratio: 3 / 2; } .r43 { aspect-ratio: 4 / 3; } .r219 { aspect-ratio: 21 / 9; }
+.bj-img.rog { aspect-ratio: 1200 / 630; } /* designed cards: never cropped */
 
 /* Masthead */
 .bj-mast { padding-top: 44px; text-align: center; }
@@ -140,6 +141,7 @@
   .bj-nav a { white-space: nowrap; }
   .bj-lead { padding-top: 20px; }
   .bj-lead .bj-img { margin: 0 -16px; aspect-ratio: 4 / 3; }
+  .bj-lead .bj-img.rog { aspect-ratio: 1200 / 630; }
   .bj-lead .bj-cr { margin-top: 6px; }
   .pp h2.bj-lead-t { font-size: 38px; }
   .bj-lead-g { gap: 0; margin-top: 18px; }

@@ -62,7 +62,12 @@ function Meta({ p }) {
   );
 }
 
+// Designed cards (POSTPP/pp-daily, 1200x630 with headline + data band baked in) must never be cropped:
+// they keep their own 1200:630 frame in every slot. Plain photos keep the editorial crop.
+const isCard = (src) => /-og\.(jpe?g|png|webp)$/i.test(src || "");
+
 function Photo({ p, ratio = "r32", sizes, priority = false, credit = true }) {
+  if (isCard(p.image)) ratio = "rog";
   return (
     <figure style={{ margin: 0 }}>
       <Link href={`/blog/${p.slug}`} className={`bj-img ${ratio}`} tabIndex={-1} aria-hidden="true">
@@ -111,8 +116,8 @@ function ListItem({ p }) {
         <Meta p={p} />
       </div>
       {p.image ? (
-        <Link href={`/blog/${p.slug}`} className="bj-img r43" tabIndex={-1} aria-hidden="true">
-          <Image src={p.image} alt="" width={96} height={72} style={{ width: "100%", height: "100%" }} />
+        <Link href={`/blog/${p.slug}`} className={`bj-img ${isCard(p.image) ? "rog" : "r43"}`} tabIndex={-1} aria-hidden="true">
+          <Image src={p.image} alt="" width={96} height={isCard(p.image) ? 50 : 72} style={{ width: "100%", height: "100%" }} />
         </Link>
       ) : (
         <Link href={`/blog/${p.slug}`} className="bj-tc thumb r43" tabIndex={-1} aria-hidden="true"><span className="tc-g">{p.category.charAt(0)}</span></Link>
