@@ -14,6 +14,10 @@ const arr = (v) => (Array.isArray(v) ? v : []);
 const httpUrl = (u) => typeof u === "string" && /^https?:\/\//i.test(u);
 const dateStr = dayStr;
 
+// Cover (netweb bin/nl-cover.mjs → /media/<key>.jpg): 1200x630 og + 1200x1200 square, absolute for schema.
+const absUrl = (p) => (typeof p === "string" && p ? (p.startsWith("http") ? p : SITE + p) : null);
+const coverImages = (issue) => [issue.cover?.og, issue.cover?.sq].map(absUrl).filter(Boolean);
+
 export function issueJsonLd(issue, items) {
   const n = bySlug(issue.newsletter);
   const url = SITE + issueHref(issue);
@@ -29,6 +33,7 @@ export function issueJsonLd(issue, items) {
         datePublished: dateStr(issue.issue_date),
         url,
         description: issue.preheader || issue.intro || undefined,
+        ...(coverImages(issue).length ? { image: coverImages(issue) } : {}),
         isAccessibleForFree: true,
         inLanguage: "en",
         publisher: { "@id": SITE + "/#publisher" },
@@ -141,7 +146,7 @@ export default async function IssueView({ issue, preview = false }) {
       <div style={WRAP}>
         {issue.cover?.og && (
           <figure style={{ margin: "22px 0 0" }}>
-            <img src={issue.cover.og} alt={`${n.name} ${issueLabel(issue.issue_no)} cover`} style={{ width: "100%", height: "auto", borderRadius: 12, display: "block" }} />
+            <img src={issue.cover.og} alt={`${masthead(n)}, ${issue.dry_run ? "dry run" : issueLabel(issue.issue_no)} cover${lead ? `: ${lead.headline}` : ""}`} width={1200} height={630} style={{ width: "100%", height: "auto", borderRadius: 12, display: "block" }} />
             {issue.cover.credit && <figcaption style={{ fontSize: 12, color: "var(--mute2)", marginTop: 6 }}>{issue.cover.credit}</figcaption>}
           </figure>
         )}

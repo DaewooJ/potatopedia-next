@@ -39,13 +39,15 @@ export async function generateMetadata({ params }) {
   if (!it) return { title: "Story not found", robots: { index: false } };
   const url = SITE + newsHref(it);
   const description = String(it.summary || "").replace(/\s+/g, " ").slice(0, 158);
-  const img = it.image?.src ? (it.image.src.startsWith("http") ? it.image.src : SITE + it.image.src) : "/og-image.png";
+  const img = it.image?.src
+    ? { url: it.image.src.startsWith("http") ? it.image.src : SITE + it.image.src, width: 1200, height: 675, alt: it.image.alt || it.headline }
+    : SITE + "/og-image.png";
   return {
     title: it.headline.length > 62 ? it.headline.slice(0, 59).trimEnd() + "…" : it.headline,
     description,
     alternates: { canonical: url },
     openGraph: { type: "article", url, title: it.headline, description, images: [img], publishedTime: iso(it.published_at), modifiedTime: iso(it.updated_at) },
-    twitter: { card: "summary_large_image", title: it.headline, description },
+    twitter: { card: "summary_large_image", title: it.headline, description, images: [typeof img === "string" ? img : img.url] },
   };
 }
 
@@ -121,8 +123,9 @@ export default async function NewsItemPage({ params }) {
 
         {it.image?.src && (
           <figure style={{ margin: "0 0 22px" }}>
-            <img src={it.image.src} alt={it.image.alt || ""} style={{ width: "100%", height: "auto", borderRadius: 12, display: "block" }} />
-            {(it.image.credit || it.image.licence) && <figcaption style={{ fontSize: 12, color: "var(--mute2)", marginTop: 6 }}>{[it.image.credit, it.image.licence].filter(Boolean).join(" · ")}</figcaption>}
+            <img src={it.image.src} alt={it.image.alt || ""} width={1200} height={675} style={{ width: "100%", height: "auto", borderRadius: 12, display: "block" }} />
+            {/* House rule: Adobe Stock licence / own photo = no credit line (credit stored empty); CC and public-domain credits print. */}
+            {it.image.credit && <figcaption style={{ fontSize: 12, color: "var(--mute2)", marginTop: 6 }}>{it.image.credit}</figcaption>}
           </figure>
         )}
 

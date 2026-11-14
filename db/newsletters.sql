@@ -74,7 +74,7 @@ CREATE TABLE IF NOT EXISTS issues (
   sponsor_slots  JSONB NOT NULL DEFAULT '[]',        -- [{slot:'presenting'|'classified', label:'Sponsored'|'Launch partner', sponsor, text, url, logo}]
   events         JSONB NOT NULL DEFAULT '[]',        -- [{name, dates, city, country, url}]
   journal        JSONB,                              -- {title, href} same-day pp-daily blog post, if any
-  cover          JSONB,                              -- {og:'/covers/..-og.jpg', sq:'..-sq.jpg', credit}
+  cover          JSONB,                              -- {og:'/media/issue-<id>-og-<hash>.jpg', sq, credit, photo, reason} (netweb nl-cover)
   status         TEXT NOT NULL DEFAULT 'draft' CHECK (status IN ('draft','preview','approved','sending','sent','held','dropped')),
   preview_token  TEXT,
   approved_at    TIMESTAMPTZ,
@@ -128,3 +128,18 @@ CREATE INDEX IF NOT EXISTS email_events_issue ON email_events (issue_id, event);
 -- 6. New lead types.
 ALTER TABLE leads DROP CONSTRAINT IF EXISTS leads_type_check;
 ALTER TABLE leads ADD CONSTRAINT leads_type_check CHECK (type IN ('sponsor','machine_quote','trade','report','listing','publish','ai_visibility','advertise_call','newsletter','company_claim','report_download','data_correction','datasheet_submission','contribute','seed','advertise_newsletter'));
+
+-- 7. Media (14 Nov 2026): newsletter covers + news lead photos, served from potatopedia.com at /media/<key>.jpg
+-- (app/media/[key]/route.js, immutable cache). Keys carry a short content hash (issue-9-og-1a2b3c4d), so a key never
+-- changes its bytes. Written by POST /api/newsletters/media (netweb bin/nl-cover.mjs). Real photos only, JPEG only.
+CREATE TABLE IF NOT EXISTS media (
+  id           BIGSERIAL PRIMARY KEY,
+  created_at   TIMESTAMPTZ NOT NULL DEFAULT now(),
+  key          TEXT NOT NULL UNIQUE,
+  content_type TEXT NOT NULL DEFAULT 'image/jpeg',
+  bytes        BYTEA NOT NULL,
+  width        INT,
+  height       INT,
+  credit       TEXT,
+  licence      TEXT
+);

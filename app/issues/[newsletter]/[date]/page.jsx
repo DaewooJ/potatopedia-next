@@ -24,13 +24,14 @@ export async function generateMetadata({ params }) {
   const url = SITE + issueHref(issue);
   const title = `${issue.subject} · ${n.name} ${issueLabel(issue.issue_no)}`;
   const description = String(issue.preheader || issue.intro || `${masthead(n)}, ${issueLabel(issue.issue_no)}.`).slice(0, 158);
-  const img = issue.cover?.og || "/og-image.png";
+  const og = issue.cover?.og || "/og-image.png";
+  const img = { url: og.startsWith("http") ? og : SITE + og, ...(issue.cover?.og ? { width: 1200, height: 630, alt: `${masthead(n)}, ${issueLabel(issue.issue_no)} cover` } : {}) };
   return {
     title: title.length > 64 ? title.slice(0, 61).trimEnd() + "…" : title,
     description,
     alternates: { canonical: url },
     openGraph: { type: "article", url, title, description, images: [img] },
-    twitter: { card: "summary_large_image", title, description },
+    twitter: { card: "summary_large_image", title, description, images: [img.url] },
   };
 }
 

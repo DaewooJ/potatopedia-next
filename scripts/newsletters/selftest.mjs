@@ -146,7 +146,7 @@ try {
   console.log("render sample email");
   const n = bySlug(T1);
   const items = [
-    { id: 1, slug: "sample-lead", pub_year: 2026, pub_month: 11, headline: "Sample lead story: a new fries line (test data)", summary: "This is test copy for the template only. It shows how a 40 to 60 word summary of a lead story looks in the email, with enough words to wrap over a few lines on a phone screen.", why_it_matters: "Test copy: the why-it-matters line sits under the summary." },
+    { id: 1, slug: "sample-lead", pub_year: 2026, pub_month: 11, headline: "Sample lead story: a new fries line (test data)", summary: "This is test copy for the template only. It shows how a 40 to 60 word summary of a lead story looks in the email, with enough words to wrap over a few lines on a phone screen.", why_it_matters: "Test copy: the why-it-matters line sits under the summary.", image: { src: "/media/news-1-test0000.jpg", alt: "Test photo alt text", credit: "Photo: Test Credit, CC BY 4.0", licence: "CC BY 4.0" } },
     ...Array.from({ length: 7 }, (_, i) => ({ id: i + 2, slug: `sample-${i + 2}`, pub_year: 2026, pub_month: 11, headline: `Sample story ${i + 2} (test data)`, summary: "Test copy for the template. One or two lines of summary per story." })),
   ];
   const fakeIssue = {
@@ -159,6 +159,7 @@ try {
     sponsor_slots: [{ slot: "presenting", label: "Launch partner", sponsor: "Example Co (test)", text: "Test copy for a launch-partner slot.", url: "https://example.com" }],
     events: [{ name: "Sample event (test)", dates: "1–3 Dec 2026", city: "City", country: "Country", url: "https://example.com" }],
     journal: { title: "From the Journal: sample post title", href: "/blog" },
+    cover: { og: "/media/issue-0-og-test0000.jpg", sq: "/media/issue-0-sq-test0000.jpg", credit: "" },
   };
   const out = renderIssueEmail(fakeIssue, items, n, { unsubUrl: unsubUrl("X".repeat(32), 0), manageUrl: manageUrl("X".repeat(32)), webUrl: "https://www.potatopedia.com/issues/potato-processing-weekly/2026-11-24" });
   mkdirSync(new URL("./out/", import.meta.url), { recursive: true });
@@ -173,6 +174,13 @@ try {
   ok(!/display:\s*(flex|grid)/i.test(out.html), "no flex/grid");
   ok(!/#(0[0-9a-f]8|2e7d32|388e3c|43a047|4caf50|00897b|009688|26a69a)/i.test(out.html), "no green/teal colors");
   ok(out.text.includes("Unsubscribe:") && out.text.includes("Potatopedia · Pune"), "plain text has unsubscribe + postal line");
+  ok(out.html.includes('src="https://www.potatopedia.com/media/issue-0-og-test0000.jpg" width="600" alt="Potato Processing Weekly · by Potatopedia, Issue 01'), "cover image: absolute URL, width 600, alt text");
+  ok(out.html.indexOf("issue-0-og-test0000") > out.html.indexOf("· by Potatopedia</p>") && out.html.indexOf("issue-0-og-test0000") < out.html.indexOf("Lead story"), "cover sits under the masthead, above the lead story");
+  ok(out.html.includes('src="https://www.potatopedia.com/media/news-1-test0000.jpg" width="536" alt="Test photo alt text"') && out.html.includes("Photo: Test Credit, CC BY 4.0"), "lead photo with alt + credit line");
+  ok(out.html.indexOf("news-1-test0000") < out.html.indexOf("<h1"), "lead photo above the lead headline");
+  ok([...out.html.matchAll(/<img [^>]*>/g)].every((m) => /display:block/.test(m[0]) && / alt="/.test(m[0])), "every img has display:block + alt");
+  const noImg = renderIssueEmail({ ...fakeIssue, cover: null }, items.map((i) => ({ ...i, image: null })), n, {});
+  ok(!/<img /.test(noImg.html), "no cover / no image → no img tags (issue goes without images)");
   ok(optInMail([T1, T2, T3], "A".repeat(24)).names.length === 3, "opt-in mail renders for all three titles");
 } catch (e) {
   fail++;
