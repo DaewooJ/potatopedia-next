@@ -28,6 +28,7 @@ export default function Footer() {
             <Link href="/blog">Blog</Link>
             <Link href="/news">Potato news</Link>
             <Link href="/newsletters">Newsletters</Link>
+            <Link href="/magazines">Magazines</Link>
             <Link href="/seed-field">Seed potatoes</Link>
           </nav>
           <nav className="pf-col" aria-label="Company">

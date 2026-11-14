@@ -16,6 +16,7 @@ const LINKS = [
   { href: "/machines", label: "Machines", match: ["/machines"] },
   ...(DIRECTORY_PUBLIC ? [{ href: "/companies", label: "Companies", match: ["/companies"] }] : []),
   { href: "/blog", label: "Blog", match: ["/blog"] },
+  { href: "/magazines", label: "Magazines", match: ["/magazines"] },
 ];
 
 export default function Navigation() {

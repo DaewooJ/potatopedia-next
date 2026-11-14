@@ -99,7 +99,7 @@ const base = process.env.REVALIDATE_BASE || SITE;
 if (secret) {
   const r = await fetch(`${base}/api/revalidate`, {
     method: "POST", headers: { "content-type": "application/json", "x-newsletter-secret": secret },
-    body: JSON.stringify({ paths: [`/issues/${issue.newsletter}/${date}`] }),
+    body: JSON.stringify({ paths: [`/issues/${issue.newsletter}/${date}`, "/magazines", `/magazines/${issue.newsletter}`, `/magazines/${issue.newsletter}/issue-${String(issue.issue_no).padStart(2, "0")}`] }),
   });
   console.log(`revalidate ${base}: ${r.status}`);
 } else console.log("NEWSLETTER_API_SECRET not set: issue page refreshes within the hour (ISR)");
