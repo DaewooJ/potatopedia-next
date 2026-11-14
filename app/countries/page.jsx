@@ -5,7 +5,7 @@ import ContentRequestCTA from "../../components/ContentRequestCTA";
 
 export const metadata = {
   title: "Potato Countries \u2014 Production Data for 37 Nations",
-  description: "Explore potato production data, yields, and industry highlights for 37 major potato-producing countries. Data from FAOSTAT 2024. Includes 5 premium intelligence dossiers (India, China, Belgium, Netherlands, USA) with downloadable PDFs.",
+  description: "Explore potato production data, yields, and industry highlights for 37 major potato-producing countries. Data from FAOSTAT 2024. Includes premium country dossiers with downloadable PDFs.",
   alternates: { canonical: "https://www.potatopedia.com/countries" },
   openGraph: {
     type: "website",

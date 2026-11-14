@@ -8,13 +8,13 @@ export async function generateMetadata() {
   const st = await getSiteStats();
   return {
   title: "About Potatopedia",
-  description: `The sourced potato reference: ${fmt(st.dataPoints)}+ data points from FAOSTAT, USDA, CIP, ICAR-CPRI and ${st.sources} sources, covering 99 producing countries, ${st.varieties} varieties, and the entire potato value chain.`,
+  description: `The sourced potato reference: ${fmt(st.dataPoints)}+ data points from FAOSTAT, USDA, CIP, Europatat and ${st.sources} sources, covering 99 producing countries, ${st.varieties} varieties, and the entire potato value chain.`,
   alternates: { canonical: "https://www.potatopedia.com/about" },
   openGraph: {
     type: "website",
     url: "https://www.potatopedia.com/about",
     title: "About Potatopedia — The World's AI-Powered Potato Knowledge Base",
-    description: `${fmt(st.dataPoints)} data points covering 99 producing countries, sourced from FAOSTAT, USDA, CIP, ICAR-CPRI, peer-reviewed journals, and ${st.sources} authoritative sources.`,
+    description: `${fmt(st.dataPoints)} data points covering 99 producing countries, sourced from FAOSTAT, USDA, CIP, Europatat, peer-reviewed journals, and ${st.sources} authoritative sources.`,
   },
   };
 }
