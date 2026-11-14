@@ -74,6 +74,7 @@ export default async function TitlePage({ params }) {
           </p>
           <p style={{ margin: "0 0 14px" }}>
             <a href="#signup" style={{ display: "inline-block", background: "#C62828", color: "#fff", textDecoration: "none", fontWeight: 600, padding: "12px 20px", borderRadius: 10, fontSize: 15 }}>Subscribe free</a>
+            <Link href={`/magazines/${n.slug}`} style={{ display: "inline-block", marginLeft: 10, color: "var(--ink)", border: "1.5px solid var(--line2)", textDecoration: "none", fontWeight: 600, padding: "11px 18px", borderRadius: 10, fontSize: 15 }}>Magazine editions →</Link>
           </p>
           <TrustLine />
         </div>

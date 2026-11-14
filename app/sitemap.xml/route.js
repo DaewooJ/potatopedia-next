@@ -1,6 +1,7 @@
 import REPORTS_MANIFEST from "../../lib/reports-manifest.json";
 import { NEWSLETTERS, newsHref, issueHref } from "../../lib/newsletters";
 import { allPublishedNews, allPublishedIssues } from "../../lib/news-db";
+import { magazineIssues, magHref } from "../../lib/magazine";
 import { AUTHORS } from "../../lib/authors-registry";
 
 const BASE = "https://www.potatopedia.com";
@@ -202,6 +203,8 @@ export async function GET() {
     // Newsletters + news desk + hubs (13 Nov 2026)
     { loc: "/newsletters", priority: "0.8", changefreq: "weekly" },
     ...NEWSLETTERS.map((n) => ({ loc: `/newsletters/${n.slug}`, priority: "0.75", changefreq: "weekly" })),
+    { loc: "/magazines", priority: "0.75", changefreq: "weekly" },
+    ...NEWSLETTERS.map((n) => ({ loc: `/magazines/${n.slug}`, priority: "0.7", changefreq: "weekly" })),
     { loc: "/news", priority: "0.85", changefreq: "daily" },
     { loc: "/processing/potato-chip-production", priority: "0.8", changefreq: "monthly" },
     { loc: "/seed-field", priority: "0.85", changefreq: "weekly" },
@@ -259,10 +262,11 @@ export async function GET() {
     : [];
 
   // Published news items and issues (Neon; empty until Issue 01). Each /news page and each issue is its own canonical.
-  const [newsRows, issueRows] = await Promise.all([allPublishedNews(), allPublishedIssues()]);
+  const [newsRows, issueRows, magRows] = await Promise.all([allPublishedNews(), allPublishedIssues(), magazineIssues()]);
   const newsPages = [
     ...newsRows.filter((r) => r.pub_year && r.pub_month).map((r) => ({ loc: newsHref(r), priority: "0.7", changefreq: "monthly", lastmod: day(r.updated_at || r.published_at) })),
     ...issueRows.map((i) => ({ loc: issueHref(i), priority: "0.6", changefreq: "yearly", lastmod: day(i.published_at) })),
+    ...magRows.map((i) => ({ loc: magHref(i), priority: "0.6", changefreq: "yearly", lastmod: day(i.magazine?.made_at || i.published_at) })),
   ];
 
   const allPages = [...staticPages, ...dynamicPages, ...companyPages, ...newsPages];
