@@ -111,7 +111,9 @@ export default function MagazineFlipbook({ pages, title }) {
             userSelect: "none",
             cursor: "pointer",
             outlineOffset: 4,
-            width: single ? "min(88vw, 460px)" : "min(92vw, 1000px)",
+            // Fit the screen both ways: a spread never runs taller than the window (minus counter and buttons).
+            width: single ? `min(88vw, 460px, calc((100svh - 170px) * ${ratio.toFixed(4)}))` : `min(92vw, 1000px, calc((100svh - 190px) * ${(ratio * 2).toFixed(4)}))`,
+            minWidth: single ? 240 : 420,
             aspectRatio: single ? `${ratio}` : `${ratio * 2}`,
             transform: `translateX(${shift}%)`,
             transition: still ? "none" : "transform .7s cubic-bezier(.22,.8,.25,1)",
