@@ -37,7 +37,8 @@ export async function sesSend({ to, subject, html, text, unsubUrl = null, tags =
       FromEmailAddress: FROM,
       Destination: { ToAddresses: [to] },
       ReplyToAddresses: [REPLY_TO],
-      ConfigurationSetName: configSet ? CONFIG_SET : undefined,
+      // Tracking (opens/clicks) only once scripts/newsletters/ses-setup.sh has created the set: env NEWSLETTER_TRACKING=on.
+      ConfigurationSetName: configSet && process.env.NEWSLETTER_TRACKING === "on" ? CONFIG_SET : undefined,
       EmailTags: tags ? Object.entries(tags).map(([Name, Value]) => ({ Name, Value: tag(Value) })) : undefined,
       Content: {
         Simple: {
