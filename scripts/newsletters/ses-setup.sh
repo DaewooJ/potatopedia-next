@@ -38,7 +38,7 @@ TOPIC_ARN=$("${AWS[@]}" sns create-topic --name "$TOPIC" --query TopicArn --outp
 echo "Topic $TOPIC_ARN"
 POLICY=$(cat <<JSON
 {"Version":"2012-10-17","Statement":[
- {"Sid":"OwnerAll","Effect":"Allow","Principal":{"AWS":"arn:aws:iam::$ACCOUNT:root"},"Action":"SNS:*","Resource":"$TOPIC_ARN"},
+ {"Sid":"OwnerAll","Effect":"Allow","Principal":{"AWS":"arn:aws:iam::$ACCOUNT:root"},"Action":["SNS:GetTopicAttributes","SNS:SetTopicAttributes","SNS:Subscribe","SNS:ListSubscriptionsByTopic","SNS:Publish","SNS:DeleteTopic"],"Resource":"$TOPIC_ARN"},
  {"Sid":"SesPublish","Effect":"Allow","Principal":{"Service":"ses.amazonaws.com"},"Action":"SNS:Publish","Resource":"$TOPIC_ARN",
   "Condition":{"StringEquals":{"AWS:SourceAccount":"$ACCOUNT"},"StringLike":{"AWS:SourceArn":"arn:aws:ses:$REGION:$ACCOUNT:configuration-set/$CS"}}}
 ]}
