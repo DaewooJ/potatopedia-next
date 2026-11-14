@@ -8,6 +8,7 @@ import { POTATOPEDIA_PUBLISHER, POTATOPEDIA_EDITORIAL, SPEAKABLE } from "../../.
 import { applyOgOverride } from "../../../lib/og-overrides";
 import { applySeoOverride } from "../../../lib/seo-overrides";
 import { AccentTitle, SourceRoots, AskFollowUp, KeepReading } from "../../../components/Editorial";
+import TopicSignup from "../../../components/TopicSignup";
 
 function slugifyHeading(s) {
   return (s || "").toLowerCase()
@@ -248,6 +249,10 @@ export default async function BlogPostPage({ params }) {
 
             {(() => {
               let firstP = true;
+              // Newsletter box after the 4th paragraph of a long story (8+ paragraphs); short ones get it at the end.
+              const pCount = (post.content || []).filter((b) => b.type === "p").length;
+              let pSeen = 0;
+              const signup = <TopicSignup key="nl-signup" wrap={false} text={`${post.category} ${post.title} ${post.slug}`} fallback="potato-prices-trade" source={`blog/${post.slug}`} />;
               let sourcesShown = false;
               return post.content.map((block, i) => {
                 if (block.type === "h2") {
@@ -271,10 +276,10 @@ export default async function BlogPostPage({ params }) {
                 }
                 const isFirstP = block.type === "p" && firstP;
                 if (block.type === "p") firstP = false;
-                return (
-                  <p key={i} className={"ed-p" + (isFirstP ? " ed-drop" : "")}>{block.text}</p>
-                );
-              });
+                if (block.type === "p") pSeen += 1;
+                const para = <p key={i} className={"ed-p" + (isFirstP ? " ed-drop" : "")}>{block.text}</p>;
+                return pCount >= 8 && pSeen === 4 && block.type === "p" ? [para, signup] : para;
+              }).concat(pCount >= 8 ? [] : [signup]);
             })()}
 
             <AskFollowUp placeholder={`Ask about ${post.category.toLowerCase()}…`} />

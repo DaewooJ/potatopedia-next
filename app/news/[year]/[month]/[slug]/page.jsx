@@ -8,7 +8,7 @@ import { TITLE_HUBS } from "@/lib/newsletter-pages";
 import { COUNTRIES } from "@/lib/data";
 import { VARIETIES } from "@/lib/varieties-data";
 import SafeMarkdown from "@/components/SafeMarkdown";
-import NewsletterSignup from "@/components/NewsletterSignup";
+import TopicSignup from "@/components/TopicSignup";
 import { WRAP, H2, P, CARD, LINK, Crumbs, crumbsLd, JsonLd, TitleTag, TrustLine } from "@/components/NewsUI";
 
 // /news/<yyyy>/<mm>/<slug> — one page per published news item (its own canonical). Built on demand with ISR and
@@ -200,7 +200,7 @@ export default async function NewsItemPage({ params }) {
         </section>
 
         <section aria-label="Subscribe" style={{ marginTop: 32 }}>
-          <NewsletterSignup compact defaults={[n.slug]} title={`Get ${n.name}`} intro={`This story ran in ${n.name}. Free, ${n.cadence}; one email to confirm.`} />
+          <TopicSignup wrap={false} newsletter={n.slug} source={`news/${it.slug}`} />
         </section>
 
         <footer style={{ marginTop: 28, borderTop: "1px solid var(--line)", paddingTop: 16 }}>

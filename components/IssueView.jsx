@@ -4,6 +4,9 @@ import { itemsByIds } from "@/lib/news-db";
 import { periodicalId } from "@/lib/newsletter-pages";
 import { POTATOPEDIA_PUBLISHER } from "@/lib/authors";
 import NewsletterSignup from "@/components/NewsletterSignup";
+import MagazineFlipbook from "@/components/MagazineFlipbook";
+import MagazineGate from "@/components/MagazineGate";
+import { magazineOf, magRef, magazineTitle } from "@/lib/magazine";
 import { WRAP, H2, CARD, LINK, Crumbs, crumbsLd, JsonLd, Masthead, TrustLine } from "@/components/NewsUI";
 
 // The web version of one issue (13 Nov 2026). Used by /issues/<slug>/<date> (published) and /issues/preview/<id>
@@ -123,6 +126,7 @@ export default async function IssueView({ issue, preview = false }) {
   const box = issue.data_box;
   const spot = issue.spotlight;
   const events = arr(issue.events);
+  const mag = magazineOf(issue);
   const crumbs = [{ name: "Home", href: "/" }, { name: "Newsletters", href: "/newsletters" }, { name: n.name, href: `/newsletters/${n.slug}` }, { name: issueLabel(issue.issue_no), href: preview ? `/issues/preview/${issue.id}` : issueHref(issue) }];
 
   return (
@@ -150,6 +154,35 @@ export default async function IssueView({ issue, preview = false }) {
             {issue.cover.credit && <figcaption style={{ fontSize: 12, color: "var(--mute2)", marginTop: 6 }}>{issue.cover.credit}</figcaption>}
           </figure>
         )}
+      </div>
+
+      {mag && (
+        <section id="magazine" aria-labelledby="mag-h" style={{ background: "var(--paper)", borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)", margin: "28px 0 0", padding: "26px 16px 30px", scrollMarginTop: 80 }}>
+          <div style={{ maxWidth: 1040, margin: "0 auto", display: "grid", gap: 18 }}>
+            <div style={{ textAlign: "center" }}>
+              <p style={{ margin: 0, fontSize: 12, fontWeight: 700, letterSpacing: ".12em", textTransform: "uppercase", color: n.accent }}>Magazine edition</p>
+              <h2 id="mag-h" style={{ ...H2, margin: "6px 0 4px" }}>Read {issueLabel(issue.issue_no)} as a magazine</h2>
+              <p style={{ margin: 0, fontSize: 14.5, color: "var(--mute)" }}>{mag.pages.length} pages. Tap or swipe to turn; on a computer use the arrow keys.</p>
+            </div>
+            <MagazineFlipbook pages={mag.pages} title={magazineTitle(issue)} />
+            {mag.pdf?.file && (
+              <div style={{ maxWidth: 720, width: "100%", margin: "0 auto" }}>
+                <MagazineGate
+                  magRef={magRef(issue)}
+                  title={magazineTitle(issue)}
+                  pages={mag.pdf.pages || mag.pages.length}
+                  mb={mag.pdf.bytes ? (mag.pdf.bytes / 1048576).toFixed(1) : null}
+                  newsletter={n.slug}
+                  newsletterName={n.name}
+                  live={!preview && process.env.REPORT_GATE_LIVE === "true" && !!process.env.REPORT_LINK_SECRET}
+                />
+              </div>
+            )}
+          </div>
+        </section>
+      )}
+
+      <div style={WRAP}>
 
         {presenting.map((s, i) => <Sponsor key={`p${i}`} s={s} n={n} />)}
 
@@ -224,7 +257,7 @@ export default async function IssueView({ issue, preview = false }) {
         )}
 
         <section aria-label="Subscribe" style={{ marginTop: 30 }}>
-          <NewsletterSignup compact defaults={[n.slug]} title={`Get ${n.name} by email`} intro="Free. One email to confirm; one-click unsubscribe in every issue." />
+          <NewsletterSignup compact defaults={[n.slug]} title={`Get ${n.name} by email`} intro="Free. One email to confirm; one-click unsubscribe in every issue." source={preview ? "" : magRef(issue)} />
         </section>
 
         <footer style={{ marginTop: 26, borderTop: "1px solid var(--line)", paddingTop: 14, display: "grid", gap: 8 }}>

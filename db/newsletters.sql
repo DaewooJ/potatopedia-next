@@ -143,3 +143,11 @@ CREATE TABLE IF NOT EXISTS media (
   credit       TEXT,
   licence      TEXT
 );
+
+-- 8. Magazine edition (14 Nov 2026): the DigiMagz-made magazine of an issue, shown on /issues/<title>/<date> as a
+-- flipbook (page images in table media, /media/issue-<id>-mag-pNN-<sha8>.jpg) with an email-gated PDF (PRIVATE Vercel
+-- Blob magazines/<title>-<date>.pdf, streamed by /api/report/<token>). NULL = no magazine.
+-- Shape: {"pages":[{"src":"/media/…jpg","w":909,"h":1286}], "pdf":{"file":"magazines/….pdf","bytes":1236121,"pages":16,
+--         "name":"Potato Processing Weekly - Issue 01 (14 Nov 2026).pdf"}, "made_by":"DigiMagz", "made_at":"…"}
+-- Written by scripts/newsletters/magazine-upload.mjs (frontend repo).
+ALTER TABLE issues ADD COLUMN IF NOT EXISTS magazine JSONB;
