@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Put an issue's magazine edition (made in DigiMagz; never laid out here) on its issue page:
-//   node scripts/newsletters/magazine-upload.mjs --issue <id> --pdf <file.pdf> [--pages <dir of p1.jpg…pN.jpg>] [--dry]
+//   node scripts/newsletters/magazine-upload.mjs --issue <id> --pdf <file.pdf> [--pages <dir of p1.jpg…pN.jpg>] [--ads 3,20] [--carousel 1,2,5] [--dry]
 // 1. Page images: without --pages each page is rendered from the PDF itself (pdftoppm, long edge 1600 px: sharper text
 //    than DigiMagz's 909 px proofs); with --pages those JPEGs are fitted (macOS `sips`). Either way JPEG ≤250 KB
 //    (quality steps down until it fits). Stored in Neon table media as
@@ -36,7 +36,7 @@ if (!id || !pdf) { console.error("usage: --issue <id> --pdf <file> [--pages <dir
 for (const k of ["DATABASE_URL", "BLOB_READ_WRITE_TOKEN"]) if (!process.env[k]) { console.error(`${k} not set (vercel env pull)`); process.exit(1); }
 
 const sql = neon(process.env.DATABASE_URL);
-const [issue] = await sql.query(`select id, newsletter, issue_no, issue_date, dry_run from issues where id=$1`, [id]);
+const [issue] = await sql.query(`select id, newsletter, issue_no, issue_date, dry_run, magazine from issues where id=$1`, [id]);
 if (!issue) { console.error(`issue ${id} not found`); process.exit(1); }
 const date = dayStr(issue.issue_date);
 
@@ -84,8 +84,14 @@ if (!dry) {
   const h = await head(file);
   console.log(`pdf: ${file} ${h.size} bytes (private)`);
 }
+// --ads 3,20 = the magazine's ad pages (always included in the LinkedIn carousel by netweb);
+// --carousel 1,2,5 = explicit carousel pages. Without the flags, values already on the issue are kept.
+const list = (v) => (v ? v.split(",").map((x) => Number(x.trim())).filter((x) => x >= 1 && x <= pages.length) : null);
+const prev = issue.magazine || {};
 const magazine = {
   pages,
+  ...((list(arg("ads")) || prev.ads) ? { ads: list(arg("ads")) || prev.ads } : {}),
+  ...((list(arg("carousel")) || prev.carousel) ? { carousel: list(arg("carousel")) || prev.carousel } : {}),
   pdf: { file, bytes: pdfBytes.length, pages: pdfPages, name: path.basename(pdf) },
   made_by: "DigiMagz",
   made_at: new Date().toISOString(),
