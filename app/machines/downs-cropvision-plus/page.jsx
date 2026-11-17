@@ -197,7 +197,6 @@ export default function Page() {
 
         <h2 className="cv-h2">What changed from the first CropVision to the Plus?</h2>
         <Table head={["", "First CropVision", "CropVision Plus"]} rows={PLUS} />
-        <p className="cv-note">Plus figures: launch reports from Interpom, November 2024 (Spudman, Future Farming, FreshPlaza, Lectura Press, Potato Business). DOWNS’s English product page still describes the first model.</p>
 
         <h2 className="cv-h2">Three ways to install it</h2>
         <div className="cv-cards">
