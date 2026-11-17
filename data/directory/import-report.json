@@ -1,9 +1,9 @@
 {
- "at": "2026-11-07T11:13:54.376Z",
- "applied": false,
+ "at": "2026-11-17T01:41:26.842Z",
+ "applied": true,
  "passed": [
   {
-   "slug": "agrico-cooperatie-u-a-netherlands",
+   "slug": "downs-france",
    "dropped_contact": []
   }
  ],

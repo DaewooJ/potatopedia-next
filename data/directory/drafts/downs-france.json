@@ -1,0 +1,51 @@
+{
+ "common_name": "DOWNS",
+ "summary": "DOWNS is a maker of potato and vegetable handling equipment based in Sainte Marie Cappel, France. It builds graders, an optical grader, screen sizers, box fillers and tippers, store loaders, seed cutters and complete grading, storage and packhouse lines. It was founded in 1860 by Edward Walter DOWNS and has been part of the DUBRULLE Group since 2006.",
+ "hq": {
+  "city": "Sainte Marie Cappel",
+  "country": "France"
+ },
+ "founded": "1860",
+ "ownership": "Part of the DUBRULLE Group since 2006",
+ "machines": [
+  "DOWNS CROPVISION: AI optical grader sorting unwashed potatoes by quality, up to 100 t/h; upgraded to CropVision Plus (shown at Interpom 2024, per the company)",
+  "DG potato grader: receives, cleans, grades and inspects potatoes; hoppers from 4 to 30 m3",
+  "DOWNS SUPERCHARGER: receiving hopper that feeds the grader continuously",
+  "SCOTTS Evolution: roller cleaning module for potatoes in wet or difficult conditions",
+  "DFL potato fieldloader: receives, cleans, grades, inspects and loads potatoes in the field",
+  "DS PREMIUM screen sizer: sizes potatoes on screens 600 to 2400 mm wide",
+  "Potato box filler DBF: automatic filler for any type of box, 50 boxes/hour",
+  "BOXMASTER: box tipper that empties potato boxes in front of a receiving hopper",
+  "Premium DT store loader: 14, 18 or 22 m loader for potato stores, 80 to 100 tons/hour",
+  "Potato seed cutter: cuts seed potatoes into two halves with hot knives, 7 tons/hour"
+ ],
+ "plants": [
+  {
+   "town": "Sainte Marie Cappel",
+   "country": "France"
+  }
+ ],
+ "markets": [
+  "Present in 25 countries through the 5 continents",
+  "Potatoes, onions, carrots and other vegetables",
+  "France (DUBRULLE exclusive importer of DOWNS since 1981)"
+ ],
+ "facts": [
+  "Founded in 1860 by Edward Walter DOWNS, a blacksmith farrier",
+  "1981: DUBRULLE became the exclusive importer of DOWNS for the French market",
+  "2006: the DUBRULLE Group acquired DOWNS",
+  "Seed cutter knives heat up to 350° to kill pathogens",
+  "Builds whole machines in-house, from raw material to final assembly",
+  "The company states (Nov 2026) that CropVision, launched in 2021, inspects each potato over 360° with industrial cameras and AI, splits it into good product, second grade and waste, and is sold built into DOWNS hoppers and graders, as a standalone module (I-CropVision) or as a mobile unit"
+ ],
+ "contact": {
+  "website": "https://www.downs-fr.com",
+  "phone": "+33 3 28 40 58 58",
+  "address": "RD 916 \"Le Petit Bruxelles\", 59670 Sainte Marie Cappel, France"
+ },
+ "limitations": [
+  "The legal entity name, employee numbers, turnover and plant size are not published on the pages read.",
+  "Hourly capacities are not given for graders, fieldloaders and sizers, and no customers or installation sites are named.",
+  "No general email address is published; the site uses a contact form."
+ ]
+}
