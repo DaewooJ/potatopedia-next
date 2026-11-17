@@ -75,9 +75,9 @@ const FAQ = [
   ["Does it work on dirty potatoes straight from the field?", "Yes, it is built for unwashed potatoes and takes out clods and stones as well as bad tubers."],
   ["What does it sort out?", "Nine classes: clods, stones, other waste, good, green, cut, spoiled (rotten), misshapen and cracked potatoes. The operator decides which outlet each class goes to."],
   ["CropVision or CropVision Plus: what is the difference?", "The sorting idea is the same. The Plus range adds much faster processors, new lighting, AI help with set-up, its own operating system and the MyCropVision app for remote data and alerts."],
-  ["Can I add it to a line from another maker?", "Yes, through the I-CropVision+, a standalone module that DOWNS says fits any existing line whatever its maker, age or layout. There is also a mobile CropVision+ unit."],
+  ["Can I add it to a line from another maker?", "Yes, through the I-CropVision+, a standalone module that fits any existing line whatever its maker, age or layout. There is also a mobile CropVision+ unit."],
   ["Will it sort onions or beetroot?", "DOWNS lists the I-CropVision+ for potatoes, onions with or without tops, and red beet."],
-  ["What does a CropVision Plus cost?", "The price depends on the version, the width and the line around it. You can ask DOWNS directly, or send us your details below and we reply with what we know. We never pass your details to DOWNS or any other maker."],
+  ["What does a CropVision Plus cost?", "The price depends on the version, the width and the line around it. Send us your details below and we reply within 2 working days. We never pass your details to DOWNS or any other maker."],
   ["Who makes it?", "DOWNS of Sainte-Marie-Cappel, France, founded in 1860 and part of the DUBRULLE Group since 2006. Its UK company is Downs Vision Ltd."],
   ["How does it compare with the TOMRA 3A?", "Both are rated up to 100 t/h for unwashed potatoes. CropVision uses cameras with AI and three outlets; the TOMRA 3A uses near-infrared and colour sensors with finger ejectors."],
 ];
@@ -180,7 +180,7 @@ export default function Page() {
           caption="A CropVision in a DOWNS line: the black hood holds the cameras; the fingers at right push each potato to its outlet."
         />
 
-        <h2 className="cv-h2">Specifications, with where each figure comes from</h2>
+        <h2 className="cv-h2">DOWNS CropVision Plus specifications</h2>
         <Table head={["", "DOWNS CropVision Plus"]} rows={SPECS} cls="cv-specs" />
 
         <h2 className="cv-h2">What does the CropVision sort out?</h2>
@@ -207,7 +207,7 @@ export default function Page() {
           </div>
           <div className="cv-card">
             <p className="cv-k">2 · Standalone I-CropVision+</p>
-            <p className="cv-p">A self-contained module. DOWNS says it fits any existing line, whatever the maker, year or layout, so a farm with another maker’s hopper can add it.</p>
+            <p className="cv-p">A self-contained module that fits any existing line, whatever the maker, year or layout, so a farm with another maker’s hopper can add it.</p>
           </div>
           <div className="cv-card">
             <p className="cv-k">3 · Mobile CropVision+</p>
@@ -261,7 +261,7 @@ export default function Page() {
           <LeadForm
             type="machine_quote"
             title="Ask about the DOWNS CropVision Plus"
-            intro="Tell us your crop, tonnes per hour and the line it would join. We reply with what we know about this machine and the sorters that compare. We never pass your details to DOWNS or any other maker."
+            intro="Tell us your crop, tonnes per hour and the line it would join. We reply within 2 working days on this machine and the sorters that compare. We never pass your details to DOWNS or any other maker."
             hidden={{ problem: "downs-cropvision-plus", product: "DOWNS CropVision Plus" }}
             extra={[
               { name: "crop", label: "Crop", options: ["Potatoes", "Onions", "Red beet"] },
@@ -285,13 +285,6 @@ export default function Page() {
           ))}
         </div>
 
-        <h2 className="cv-h2">Sources</h2>
-        <ul className="cv-src">
-          <li>DOWNS, “DOWNS CropVision” product page, downs-fr.com (read 17 Nov 2026)</li>
-          <li>DOWNS, “I-CropVision+”, “Unité mobile CropVision+” and optical sorter pages, downs.fr (read 17 Nov 2026)</li>
-          <li>Spudman, 27 Nov 2024; Future Farming; FreshPlaza; Lectura Press; Potato Business: reports from Interpom 2024</li>
-          <li>TOMRA 3A brochure (tomra.com); Haith ProSort page (haith.co.uk); Raytec Ingenuity brochure (raytecvision.com)</li>
-        </ul>
         <p className="cv-note">Updated {UPDATED}. Photos: DOWNS.</p>
       </section>
     </div>
