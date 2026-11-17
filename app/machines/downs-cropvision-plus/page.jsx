@@ -3,7 +3,7 @@ import LeadForm from "../../../components/LeadForm";
 
 // /machines/downs-cropvision-plus — one machine, in full: the DOWNS CropVision Plus optical sorter for unwashed potatoes.
 // Facts only from DOWNS's own pages (downs-fr.com, downs.fr, read 17 Nov 2026) and the Nov 2024 trade press.
-// Never PotatoPro. Anything DOWNS does not publish is written "not published". No price, no offers in schema.
+// Never PotatoPro. Write like a magazine, not an audit (Devendra 17 Nov 2026): leave out what is not published. No price, no offers in schema.
 // The enquiry form stores a machine_quote lead tagged downs-cropvision-plus; it is never passed to DOWNS.
 // No quote promise in the wording ("Get 3 quotes" is parked until Devendra makes it live, 7 Nov 2026).
 
@@ -23,24 +23,20 @@ export const metadata = {
 };
 
 const SPECS = [
-  ["Maker", "DOWNS, Sainte-Marie-Cappel, France; part of the DUBRULLE Group since 2006", "DOWNS website"],
-  ["What it does", "Sorts unwashed potatoes by quality before they go into store", "DOWNS CropVision page"],
-  ["Vision", "Industrial cameras and a patented AI algorithm; the whole surface of each potato (360°)", "DOWNS CropVision page"],
-  ["Throughput", "Up to 100 t/h", "DOWNS CropVision and mobile CropVision+ pages"],
-  ["Outlets", "3 (product to keep, waste, second grade), set by ejector fingers", "DOWNS CropVision page"],
-  ["Classes", "9: clods, stones, other waste, good, green, cut, spoiled, misshapen, cracked", "DOWNS CropVision page"],
-  ["Line width", "Built into DOWNS receiving hoppers and graders with moving floors up to 2,800 mm", "DOWNS CropVision page"],
-  ["Handling", "Short drop between the two conveyors to limit knocks (height not given)", "DOWNS CropVision page"],
-  ["Reports", "Size and quality of the potatoes in each lot", "DOWNS CropVision page"],
-  ["Operation", "Touchscreen", "DOWNS CropVision page"],
-  ["Plus range: computing", "Processors 8 times more powerful than the first CropVision", "Spudman, 27 Nov 2024; other trade press"],
-  ["Plus range: lighting and set-up", "New lighting; AI help when setting up the sorter", "Trade press, Nov 2024"],
-  ["Plus range: software", "Own operating system for Plus machines; MyCropVision app", "Trade press, Nov 2024"],
-  ["Crops", "Potatoes and onions; the I-CropVision+ also red beet (onions with or without tops)", "DOWNS optical sorter pages"],
-  ["Price", "Not published", "—"],
-  ["Power use", "Not published", "—"],
-  ["Footprint, weight", "Not published", "—"],
-  ["Independent accuracy trial", "None published", "—"],
+  ["Maker", "DOWNS, Sainte-Marie-Cappel, France; part of the DUBRULLE Group since 2006"],
+  ["What it does", "Sorts unwashed potatoes by quality before they go into store"],
+  ["Vision", "Industrial cameras and a patented AI algorithm; the whole surface of each potato (360°)"],
+  ["Throughput", "Up to 100 t/h"],
+  ["Outlets", "3 (product to keep, waste, second grade), set by ejector fingers"],
+  ["Classes", "9: clods, stones, other waste, good, green, cut, spoiled, misshapen, cracked"],
+  ["Line width", "Built into DOWNS receiving hoppers and graders with moving floors up to 2,800 mm"],
+  ["Handling", "Short drop between the two conveyors to limit knocks"],
+  ["Reports", "Size and quality of the potatoes in each lot"],
+  ["Operation", "Touchscreen"],
+  ["Plus range: computing", "Processors 8 times more powerful than the first CropVision"],
+  ["Plus range: lighting and set-up", "New lighting; AI help when setting up the sorter"],
+  ["Plus range: software", "Own operating system for Plus machines; MyCropVision app"],
+  ["Crops", "Potatoes and onions; the I-CropVision+ also red beet (onions with or without tops)"],
 ];
 
 const CLASSES = [
@@ -70,7 +66,7 @@ const RIVALS = [
   ["DOWNS CropVision Plus", "France", "Cameras + AI, 360°", "Up to 100 t/h", "3 outlets; built in, standalone or mobile"],
   ["TOMRA 3A", "Norway", "Near-infrared multi-spectral + colour sensors", "Up to 100 t/h", "Finger ejectors; at the farm, at harvest and out of store"],
   ["Haith ProSort", "UK", "Built around a TOMRA 3A", "Up to 100 t/h", "Mobile unit with Grimme; removes foreign material and greens, not a size grader"],
-  ["Raytec Ingenuity", "Italy", "Visible colour + near-infrared", "Not published in t/h", "Mechanical fingers, 2- or 3-way, for washed and unwashed potatoes"],
+  ["Raytec Ingenuity", "Italy", "Visible colour + near-infrared", "", "Mechanical fingers, 2- or 3-way, for washed and unwashed potatoes"],
 ];
 
 const FAQ = [
@@ -81,9 +77,9 @@ const FAQ = [
   ["CropVision or CropVision Plus: what is the difference?", "The sorting idea is the same. The Plus range adds much faster processors, new lighting, AI help with set-up, its own operating system and the MyCropVision app for remote data and alerts."],
   ["Can I add it to a line from another maker?", "Yes, through the I-CropVision+, a standalone module that DOWNS says fits any existing line whatever its maker, age or layout. There is also a mobile CropVision+ unit."],
   ["Will it sort onions or beetroot?", "DOWNS lists the I-CropVision+ for potatoes, onions with or without tops, and red beet."],
-  ["What does a CropVision Plus cost?", "DOWNS does not publish a price; it depends on the version, the width and the line around it. You can ask DOWNS directly, or send us your details below and we reply with what we know. We never pass your details to DOWNS or any other maker."],
+  ["What does a CropVision Plus cost?", "The price depends on the version, the width and the line around it. You can ask DOWNS directly, or send us your details below and we reply with what we know. We never pass your details to DOWNS or any other maker."],
   ["Who makes it?", "DOWNS of Sainte-Marie-Cappel, France, founded in 1860 and part of the DUBRULLE Group since 2006. Its UK company is Downs Vision Ltd."],
-  ["How does it compare with the TOMRA 3A?", "Both are rated up to 100 t/h for unwashed potatoes. CropVision uses cameras with AI and three outlets; the TOMRA 3A uses near-infrared and colour sensors with finger ejectors. Neither maker publishes a price or an independent accuracy trial."],
+  ["How does it compare with the TOMRA 3A?", "Both are rated up to 100 t/h for unwashed potatoes. CropVision uses cameras with AI and three outlets; the TOMRA 3A uses near-infrared and colour sensors with finger ejectors."],
 ];
 
 const LD = {
@@ -172,7 +168,7 @@ export default function Page() {
           <p>
             The <strong>DOWNS CropVision Plus</strong> is an optical sorter that cleans up <strong>unwashed potatoes before storage</strong>. Industrial
             cameras and an AI algorithm check every potato <strong>all the way round</strong> and send it to one of <strong>three outlets</strong>: keep,
-            second grade or waste. DOWNS (France, DUBRULLE Group) rates it at <strong>up to 100 t/h</strong>. Price: not published.
+            second grade or waste. DOWNS (France, DUBRULLE Group) rates it at <strong>up to 100 t/h</strong>.
           </p>
         </div>
       </section>
@@ -185,8 +181,7 @@ export default function Page() {
         />
 
         <h2 className="cv-h2">Specifications, with where each figure comes from</h2>
-        <p className="cv-p">Only what DOWNS or the trade press has published. Blank in their sources means “not published” here.</p>
-        <Table head={["", "DOWNS CropVision Plus", "Source"]} rows={SPECS} cls="cv-specs" />
+        <Table head={["", "DOWNS CropVision Plus"]} rows={SPECS} cls="cv-specs" />
 
         <h2 className="cv-h2">What does the CropVision sort out?</h2>
         <p className="cv-p">DOWNS names nine classes. Each potato is put in one, and the operator chooses which outlet each class goes to.</p>
@@ -240,8 +235,7 @@ export default function Page() {
         <h2 className="cv-h2">The data: lot reports and MyCropVision</h2>
         <p className="cv-p">
           Since every potato is scanned, the sorter knows the size spread and the quality of each lot. On the Plus range the figures go to the MyCropVision
-          app, which keeps them in one place, shows the machine working live and sends alerts you set yourself to a phone, tablet or PC. DOWNS has not
-          published export formats or links to farm software; ask before you buy if you need them.
+          app, which keeps them in one place, shows the machine working live and sends alerts you set yourself to a phone, tablet or PC. If you need export formats or links to farm software, ask before you buy.
         </p>
 
         <h2 className="cv-h2">Who is it for?</h2>
@@ -257,7 +251,7 @@ export default function Page() {
         </p>
 
         <h2 className="cv-h2">Other sorters built for unwashed potatoes</h2>
-        <p className="cv-p">Facts from each maker’s own brochure or page. Alphabetical after DOWNS, not a ranking. None publishes a price.</p>
+        
         <Table head={["Machine", "Maker country", "How it sees", "Throughput", "Notes"]} rows={RIVALS} />
         <p className="cv-note">
           A spec-by-spec comparison is also on our sister site Potato Sorting: <a href="https://potatosorting.com/downs-cropvision-plus">DOWNS CropVision Plus specs and comparable sorters</a>.
@@ -298,7 +292,7 @@ export default function Page() {
           <li>Spudman, 27 Nov 2024; Future Farming; FreshPlaza; Lectura Press; Potato Business: reports from Interpom 2024</li>
           <li>TOMRA 3A brochure (tomra.com); Haith ProSort page (haith.co.uk); Raytec Ingenuity brochure (raytecvision.com)</li>
         </ul>
-        <p className="cv-note">Updated {UPDATED}. Potatopedia is independent; DOWNS has not paid for this page. Photos supplied on DOWNS’s website.</p>
+        <p className="cv-note">Updated {UPDATED}. Photos: DOWNS.</p>
       </section>
     </div>
   );
