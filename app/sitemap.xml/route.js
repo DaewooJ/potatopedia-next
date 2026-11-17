@@ -244,6 +244,7 @@ export async function GET() {
     ...VARIETY_SLUGS.map((s) => ({ loc: `/varieties/${s}`, priority: "0.6", changefreq: "monthly" })),
     ...PROBLEMS.map((p) => ({ loc: `/market/${p.slug}`, priority: "0.75", changefreq: "weekly" })),
     ...PROBLEMS.map((p) => ({ loc: `/machines/${p.machineSlug}`, priority: "0.75", changefreq: "weekly" })),
+    { loc: "/machines/downs-cropvision-plus", priority: "0.7", changefreq: "monthly", lastmod: "2026-11-17" },
   ];
 
   // Company directory: only once DIRECTORY_PUBLIC is true in lib/directory.js (noindex review phase until then).

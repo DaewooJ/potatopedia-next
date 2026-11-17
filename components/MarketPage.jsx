@@ -91,7 +91,7 @@ export default async function MarketPage({ item, mode }) {
                     <tr key={m.company}>
                       <td className="mk-co">{m.slug ? <Link href={`/companies/${m.slug}`}>{m.company}</Link> : m.company}</td>
                       <td data-l="Country">{m.country || "Not stated"}</td>
-                      <td data-l="What our sources say">{m.makes}</td>
+                      <td data-l="What our sources say">{m.makes}{m.model ? <> · <Link href={m.model.href}>{m.model.label}</Link></> : null}</td>
                       <td className="mk-web" data-l="Website">{m.website || "—"}</td>
                     </tr>
                   ))}

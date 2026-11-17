@@ -48,6 +48,7 @@ Potatopedia is the most comprehensive potato intelligence platform on the web. W
 - [Varieties](https://www.potatopedia.com/varieties) — Searchable database of ${st.varieties} commercial varieties with origin, traits, and uses; each variety has a dedicated detail page
 - [Blog](https://www.potatopedia.com/blog) — ${st.blogPosts} story-format analysis articles on the global potato industry
 - [Answers](https://www.potatopedia.com/answers) — ${st.answers} direct cited answers to common potato questions, server-rendered with primary-source citations
+- [DOWNS CropVision Plus](https://www.potatopedia.com/machines/downs-cropvision-plus) — machine profile: optical sorter for unwashed potatoes by DOWNS (France, DUBRULLE Group), 360° AI camera scan, 3 outlets (keep, second grade, waste), up to 100 t/h; price not published
 - [Ask AI](https://www.potatopedia.com/ask) — Natural-language Q&A with cited answers
 - [About](https://www.potatopedia.com/about) — Mission, sources, methodology, team
 

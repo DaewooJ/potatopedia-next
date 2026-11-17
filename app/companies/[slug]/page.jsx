@@ -14,6 +14,9 @@ import { CO_CSS } from "../../../lib/directory-css";
 
 export const revalidate = 3600;
 
+// Machine profile pages for a company's own models (one page per machine, app/machines/<slug>).
+const MODEL_PAGES = { "downs-france": [{ href: "/machines/downs-cropvision-plus", label: "DOWNS CropVision Plus" }] };
+
 export async function generateStaticParams() {
   try {
     return (await listCompanies()).map((c) => ({ slug: c.slug }));
@@ -284,6 +287,7 @@ export default async function CompanyPage({ params }) {
               <Sec id="machine-guides" title="Machines">
                 <p className="cp-note">{c.kind === "machinery" ? "Neutral buying guides for the machine types this company makes." : `Buying guides for machines that ${KINDS[c.kind]?.plural.toLowerCase() || "companies"} like this one use.`}</p>
                 <div className="cp-links">
+                  {MODEL_PAGES[c.slug]?.map((m) => <Link key={m.href} href={m.href}>{m.label}: full machine profile <span aria-hidden="true">→</span></Link>)}
                   {guides.map((g) => <Link key={g.machineSlug} href={`/machines/${g.machineSlug}`}>How to choose {an(g.machine)} <span aria-hidden="true">→</span></Link>)}
                 </div>
               </Sec>
