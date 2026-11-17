@@ -71,12 +71,12 @@ const RIVALS = [
 
 const FAQ = [
   ["What is the DOWNS CropVision Plus?", "An optical sorter for unwashed potatoes made by DOWNS, a French maker of potato handling lines in the DUBRULLE Group. Cameras and an AI algorithm look at every potato from all sides and send it to keep, second grade or waste before the crop is stored."],
-  ["How much can it sort per hour?", "DOWNS gives up to 100 tonnes an hour. Expect less on small tubers or very dirty loads."],
+  ["How much can it sort per hour?", "Up to 100 tonnes an hour. Expect less on small tubers or very dirty loads."],
   ["Does it work on dirty potatoes straight from the field?", "Yes, it is built for unwashed potatoes and takes out clods and stones as well as bad tubers."],
   ["What does it sort out?", "Nine classes: clods, stones, other waste, good, green, cut, spoiled (rotten), misshapen and cracked potatoes. The operator decides which outlet each class goes to."],
   ["CropVision or CropVision Plus: what is the difference?", "The sorting idea is the same. The Plus range adds much faster processors, new lighting, AI help with set-up, its own operating system and the MyCropVision app for remote data and alerts."],
   ["Can I add it to a line from another maker?", "Yes, through the I-CropVision+, a standalone module that fits any existing line whatever its maker, age or layout. There is also a mobile CropVision+ unit."],
-  ["Will it sort onions or beetroot?", "DOWNS lists the I-CropVision+ for potatoes, onions with or without tops, and red beet."],
+  ["Will it sort onions or beetroot?", "Yes. The CropVision Plus sorts potatoes and onions, and the I-CropVision+ also handles onions with or without tops and red beet."],
   ["What does a CropVision Plus cost?", "The price depends on the version, the width and the line around it. Send us your details below and we reply within 2 working days. We never pass your details to DOWNS or any other maker."],
   ["Who makes it?", "DOWNS of Sainte-Marie-Cappel, France, founded in 1860 and part of the DUBRULLE Group since 2006. Its UK company is Downs Vision Ltd."],
   ["How does it compare with the TOMRA 3A?", "Both are rated up to 100 t/h for unwashed potatoes. CropVision uses cameras with AI and three outlets; the TOMRA 3A uses near-infrared and colour sensors with finger ejectors."],
@@ -168,7 +168,7 @@ export default function Page() {
           <p>
             The <strong>DOWNS CropVision Plus</strong> is an optical sorter that cleans up <strong>unwashed potatoes before storage</strong>. Industrial
             cameras and an AI algorithm check every potato <strong>all the way round</strong> and send it to one of <strong>three outlets</strong>: keep,
-            second grade or waste. DOWNS (France, DUBRULLE Group) rates it at <strong>up to 100 t/h</strong>.
+            second grade or waste. It handles <strong>up to 100 t/h</strong> and is made by DOWNS (France, DUBRULLE Group).
           </p>
         </div>
       </section>
@@ -184,7 +184,7 @@ export default function Page() {
         <Table head={["", "DOWNS CropVision Plus"]} rows={SPECS} cls="cv-specs" />
 
         <h2 className="cv-h2">What does the CropVision sort out?</h2>
-        <p className="cv-p">DOWNS names nine classes. Each potato is put in one, and the operator chooses which outlet each class goes to.</p>
+        <p className="cv-p">Each potato goes into one of nine classes, and the operator chooses which outlet each class goes to.</p>
         <ol className="cv-ol">
           {CLASSES.map(([a, b]) => (
             <li key={a}><strong>{a}</strong>: {b}</li>
@@ -241,7 +241,7 @@ export default function Page() {
         <ul className="cv-ul">
           <li><strong>Growers and stores with big harvest intakes</strong>: at a rated 100 t/h, a 1,000-tonne intake is about 10 running hours at full rate, 20 at half.</li>
           <li><strong>Packers and traders</strong> who re-sort out of store to a buyer’s standard.</li>
-          <li><strong>Farms short of pickers</strong>: DOWNS lists labour first among the problems it sets out to solve, with sorting quality, profit, food safety and the environment.</li>
+          <li><strong>Farms short of pickers</strong>: it takes over the picking table in the weeks when harvest labour is hardest to find.</li>
           <li><strong>Lines from other makers</strong>, through the standalone I-CropVision+.</li>
         </ul>
         <p className="cv-p">
