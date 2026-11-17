@@ -89,7 +89,7 @@ export default async function MarketPage({ item, mode }) {
                 <tbody>
                   {makers.map((m) => (
                     <tr key={m.company}>
-                      <td className="mk-co">{m.company}</td>
+                      <td className="mk-co">{m.slug ? <Link href={`/companies/${m.slug}`}>{m.company}</Link> : m.company}</td>
                       <td data-l="Country">{m.country || "Not stated"}</td>
                       <td data-l="What our sources say">{m.makes}</td>
                       <td className="mk-web" data-l="Website">{m.website || "—"}</td>
@@ -153,6 +153,8 @@ const CSS = `
 .mk-table td { padding: 14px 16px; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.5; color: var(--ink2); }
 .mk-table tr:last-child td { border-bottom: 0; }
 .mk-co { font-family: var(--hp-serif), Georgia, serif; font-size: 19px; color: var(--ink) !important; white-space: nowrap; }
+.mk-co a { color: inherit; text-decoration: underline; text-decoration-color: #C62828; text-underline-offset: 4px; }
+.mk-co a:hover { color: #C62828; }
 .mk-web { color: var(--mute2) !important; white-space: nowrap; }
 .mk-note { margin: 12px 0 0; font-size: 13px; color: var(--mute2); }
 .mk-side { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 14px; position: sticky; top: 90px; }
