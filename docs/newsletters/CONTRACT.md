@@ -43,7 +43,7 @@ Read helpers in `lib/news-db.js` (F1 may add read queries; F2 adds write helpers
 
 ## Rules every agent follows
 - Nothing is published, posted or emailed without Devendra's YES NL. Dry runs never publish or send (except `test_to`).
-- No invented numbers, quotes, people or photos. Every figure → a primary source URL. Banned, never cited or linked: PotatoPro, PotatoNewsToday, FreshPlaza, TimesCA, indianpotato.com, Potatoes.News and other aggregators (find the primary source or drop).
+- No invented numbers, quotes, people or photos. Every figure → a primary source URL. Banned, never cited or linked: PotatoPro, PotatoNewsToday, FreshPlaza, TimesCA, indianpotato.com, Potatoes.News and other aggregators (find the primary source or drop). Trusted trade/business press marked `citable` in backend config/news_sources.yaml (Food Business News, just-food, Spudman …) may be cited by name, source type `trade_press`, when no primary source exists (Devendra, 17 Nov 2026). PotatoPro, Potato News Today and Potatoes.News may be READ by the news desk as newsletter leads only (`lead_only`), never cited, linked or named, and never used for site content (Devendra, 17 Nov 2026).
 - American spelling site-wide (the site already uses it), tonnes, USD (+ local currency when the source uses it), dates "13 Nov 2026", months not seasons.
 - No green/teal anywhere. Mobile first (390 + 360 px). Inline React styles, Poppins / lib/fonts.js, JS only, server components by default.
 - Schema via `lib/authors.js` (`POTATOPEDIA_PUBLISHER` @id refs, never inline the Organization). "data points" never "chunks".
