@@ -17,7 +17,7 @@ import { serif, sans } from "../lib/fonts";
 // behind the floating switch. Everything shown is real: today's answer is a published, high-confidence answer
 // whose opening names an approved source; sources, counts and questions come from the site's own data.
 
-export const revalidate = 3600;
+export const revalidate = 21600;
 
 
 export const metadata = {

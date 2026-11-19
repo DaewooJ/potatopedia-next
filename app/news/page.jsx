@@ -6,7 +6,7 @@ import NewsletterSignup from "@/components/NewsletterSignup";
 import { WRAP, H1, H2, P, KICK, CARD, LINK, Crumbs, crumbsLd, JsonLd, NewsList, TrustLine } from "@/components/NewsUI";
 
 // /news — owns "potato news". Every published story from the three newsletters, newest first (ISR + revalidated on publish).
-export const revalidate = 3600;
+export const revalidate = 86400;
 
 const PATH = "/news";
 const TITLE = "Potato News: Processing, Seed, Prices and Trade";

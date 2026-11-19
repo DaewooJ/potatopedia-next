@@ -12,7 +12,7 @@ import { CO_CSS } from "../../../lib/directory-css";
 // /companies/[slug] — one company profile, compiled from the company's own website only (profile jsonb in pp_companies).
 // Fields that the company does not publish are left out, never guessed. "Featured" only adds a badge.
 
-export const revalidate = 3600;
+export const revalidate = 86400;
 
 // Machine profile pages for a company's own models (one page per machine, app/machines/<slug>).
 const MODEL_PAGES = { "downs-france": [{ href: "/machines/downs-cropvision-plus", label: "DOWNS CropVision Plus" }] };

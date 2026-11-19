@@ -114,7 +114,7 @@ const SLUG_META = {
 export const dynamicParams = false;
 // ISR (13 Nov 2026): /knowledge/how-potatoes-are-processed carries the "Latest potato processing news" box (Neon);
 // it is also revalidated on publish by /api/newsletters/publish.
-export const revalidate = 3600;
+export const revalidate = 86400;
 
 export function generateStaticParams() {
   return ALL_SLUGS.map((slug) => ({ slug }));

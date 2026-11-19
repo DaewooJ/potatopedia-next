@@ -6,7 +6,7 @@ import { listCompanies, SITE } from "../../lib/directory";
 
 // Atlas (A) with the Finder (B) as a tool on the same page (#finder). Approved design, 7 Nov 2026.
 // Performance: only slim card data reaches the client; the first 24 cards are server-rendered.
-export const revalidate = 3600;
+export const revalidate = 86400;
 
 export const metadata = applySeoOverride({
   title: "Potato Varieties Database — 244 Cultivars Across 9 Regions",

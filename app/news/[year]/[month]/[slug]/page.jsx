@@ -13,7 +13,7 @@ import { WRAP, H2, P, CARD, LINK, Crumbs, crumbsLd, JsonLd, TitleTag, TrustLine 
 
 // /news/<yyyy>/<mm>/<slug> — one page per published news item (its own canonical). Built on demand with ISR and
 // revalidated on publish by /api/newsletters/publish; builds fine with an empty table.
-export const revalidate = 3600;
+export const revalidate = 86400;
 export const dynamicParams = true;
 
 export async function generateStaticParams() {

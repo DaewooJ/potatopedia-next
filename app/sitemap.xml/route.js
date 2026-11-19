@@ -6,7 +6,7 @@ import { AUTHORS } from "../../lib/authors-registry";
 
 const BASE = "https://www.potatopedia.com";
 // Hourly ISR (13 Nov 2026): published /news items and issues appear without a redeploy (also revalidated on publish).
-export const revalidate = 3600;
+export const revalidate = 86400;
 
 const INDIA_STATE_SLUGS = [
   "uttar-pradesh",

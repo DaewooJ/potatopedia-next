@@ -8,7 +8,7 @@ import NewsletterSignup from "@/components/NewsletterSignup";
 import { WRAP, H1, H2, P, KICK, CARD, LINK, Crumbs, crumbsLd, JsonLd, Masthead, TrustLine, NewsList } from "@/components/NewsUI";
 
 // /newsletters/<slug> — one page per title: about, who it is for, sample issue, archive, signup, sponsor link.
-export const revalidate = 3600;
+export const revalidate = 86400;
 export const dynamicParams = false;
 export function generateStaticParams() {
   return NEWSLETTERS.map((n) => ({ slug: n.slug }));

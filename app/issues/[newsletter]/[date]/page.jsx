@@ -5,7 +5,7 @@ import IssueView from "@/components/IssueView";
 
 // /issues/<newsletter>/<yyyy-mm-dd> — the web version of a published issue (canonical = itself).
 // Only published, non-dry-run issues resolve (issueByDate). ISR, revalidated on publish; builds with an empty table.
-export const revalidate = 3600;
+export const revalidate = 86400;
 export const dynamicParams = true;
 export async function generateStaticParams() {
   return [];

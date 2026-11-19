@@ -4,7 +4,7 @@ import NewsletterSignup from "../../components/NewsletterSignup";
 import { LatestNews } from "../../components/NewsUI";
 
 // ISR (13 Nov 2026): the dated "Latest from Potato Prices & Trade" box reads Neon; also revalidated on publish.
-export const revalidate = 3600;
+export const revalidate = 21600;
 
 const TITLE = "Potato Prices: India, Europe, USA and Futures";
 const DESC = "Reference pages on potato prices: India mandi prices, Europe free-buy and contract, USDA prices received and futures. Historical references, not live quotes.";

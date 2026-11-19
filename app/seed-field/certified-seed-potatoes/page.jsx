@@ -8,7 +8,7 @@ import { LatestNews, OpenSlot } from "@/components/NewsUI";
 // (keywords.csv, 13 Nov 2026). Folds in /answers/certified-seed-potatoes (308 to here in next.config.mjs).
 // "Find certified seed" enquiry → leads type 'seed'. One labelled Sponsored slot (unsold) → /advertise.
 // Facts only from the corpus files named in Sources (EUR-Lex, WITS/UN Comtrade, DPIRD, MAAIF) and the site's guides.
-export const revalidate = 3600;
+export const revalidate = 86400;
 
 const PATH = "/seed-field/certified-seed-potatoes";
 const TITLE = "Certified Seed Potatoes: What They Are and How to Buy";

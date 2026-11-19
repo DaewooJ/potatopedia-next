@@ -3,7 +3,7 @@ import { newsSince } from "../../lib/news-db";
 
 // Google News sitemap (13 Nov 2026): only stories published in the last 2 days, as Google asks.
 // Revalidated on publish (/api/newsletters/publish) and at most hourly otherwise.
-export const revalidate = 3600;
+export const revalidate = 86400;
 
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&apos;" })[c]);
 

@@ -7,7 +7,7 @@ import { newsByAuthor } from "@/lib/news-db";
 import { WRAP, H1, H2, P, KICK, CARD, LINK, Crumbs, crumbsLd, JsonLd, TitleTag } from "@/components/NewsUI";
 
 // /authors/<slug> — one page per writer: name, role, institution, credentials, real photo (if any), articles.
-export const revalidate = 3600;
+export const revalidate = 86400;
 export const dynamicParams = false;
 export function generateStaticParams() {
   return AUTHORS.map((a) => ({ slug: a.slug }));

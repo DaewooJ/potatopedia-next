@@ -13,7 +13,7 @@ import { regionLabel } from "@/components/IssueView";
 
 // /magazines/<newsletter>/issue-NN — the magazine edition's own home (14 Nov 2026): flipbook first, then title, contents,
 // gated PDF, subscribe box and a link to the news issue (/issues/<nl>/<date>, which stays the news page; canonical each).
-export const revalidate = 3600;
+export const revalidate = 86400;
 export const dynamicParams = true;
 export async function generateStaticParams() {
   return [];

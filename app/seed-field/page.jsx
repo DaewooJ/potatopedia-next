@@ -7,7 +7,7 @@ import { LatestNews } from "@/components/NewsUI";
 // Seed Potato & Field. Facts only from the site's growing guides and the backend corpus files named in Sources.
 // /seed-field/certified-seed-potatoes owns "certified seed potatoes" / "buy seed potatoes"; /answers/seed-potato-certification
 // keeps the process question; /knowledge/seed-potato-systems stays the long reference. Link, do not duplicate.
-export const revalidate = 3600;
+export const revalidate = 86400;
 
 const PATH = "/seed-field";
 const TITLE = "Seed Potatoes: Classes, Certification and Planting";

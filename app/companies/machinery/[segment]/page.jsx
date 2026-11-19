@@ -5,7 +5,7 @@ import { SEGMENTS, SEGMENT_H1, SEGMENT_GUIDE, MACHINE_SEGMENTS, landingPages, in
 import { byMachine, an } from "../../../../lib/market";
 
 // /companies/machinery/<segment> — machinery makers by machine type (only types with 2 or more makers).
-export const revalidate = 3600;
+export const revalidate = 86400;
 
 export async function generateStaticParams() {
   try {

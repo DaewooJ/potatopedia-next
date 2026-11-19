@@ -7,7 +7,7 @@ import { Crumbs, crumbsLd, JsonLd, TrustLine, LINK } from "@/components/NewsUI";
 import { SERIF, MWRAP, MKICK, mbtn, SectionLabel, MagCard, TitleCover, magPeriodicalId, magIssueLd, magName } from "@/components/MagazineUI";
 
 // /magazines — every magazine title and every edition, newest first (14 Nov 2026). Data: issues with a magazine.
-export const revalidate = 3600;
+export const revalidate = 86400;
 
 const TITLE = "Potato Industry Magazines";
 const DESC = "Free digital magazines from Potatopedia: Potato Processing Weekly, Seed Potato & Field and Potato Prices & Trade. Flip through each edition or get the PDF.";

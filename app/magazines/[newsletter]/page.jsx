@@ -12,7 +12,7 @@ import { SERIF, MWRAP, MKICK, mbtn, SectionLabel, MagCard, TitleCover, magPeriod
 // /magazines/<newsletter> — one page per magazine title (14 Nov 2026): what it covers, how often, latest edition big
 // (cover, flipbook link, gated PDF), archive of back issues newest first, subscribe box, advertise link.
 // Titles with no edition yet show "First magazine edition coming soon" + subscribe, never an empty grid.
-export const revalidate = 3600;
+export const revalidate = 86400;
 export const dynamicParams = false;
 export function generateStaticParams() {
   return NEWSLETTERS.map((n) => ({ newsletter: n.slug }));

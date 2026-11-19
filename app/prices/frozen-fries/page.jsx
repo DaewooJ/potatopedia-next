@@ -7,7 +7,7 @@ import { LatestNews } from "@/components/NewsUI";
 // Export trade data only (World Bank WITS / UN Comtrade, HS 200410), no retail shelf prices. Unit values (US$ per kg)
 // are shown ONLY where a backend corpus file states them (belgium/netherlands/usa/poland/egypt exports, japan/brazil
 // imports, 2024); every other row shows value and quantity only. Never compute or invent a figure here.
-export const revalidate = 3600;
+export const revalidate = 21600;
 
 const PATH = "/prices/frozen-fries";
 const TITLE = "Price of Frozen French Fries: Export Values by Country";

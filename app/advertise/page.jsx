@@ -25,7 +25,7 @@ const NL_PRODUCTS = [
 // /advertise — the brand door (replaces /support, 7 Nov 2026). Real audience facts only. Rate card in US$ only
 // (Devendra approved the USD card 7 Nov 2026; never show INR here). Every placement is labelled; paid content never changes a fact.
 
-export const revalidate = 3600;
+export const revalidate = 86400;
 
 
 export const metadata = {

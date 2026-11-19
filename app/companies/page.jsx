@@ -9,7 +9,7 @@ import { CO_CSS } from "../../lib/directory-css";
 // company's own website. The Featured row is a labelled paid placement; empty slots say "available" and link to /advertise
 // (never a made-up company). The A–Z list below is never re-ordered by payment.
 
-export const revalidate = 3600;
+export const revalidate = 86400;
 
 export const metadata = {
   title: "Potato Companies of the World: Processors, Seed Companies and Machinery Makers",

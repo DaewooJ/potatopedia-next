@@ -6,7 +6,7 @@ import { LatestNews } from "@/components/NewsUI";
 // /processing/potato-chip-production — owns "potato chip production", "potato chips processing", "blanching chips"
 // (keywords.csv, 13 Nov 2026). Hub of Potato Processing Weekly. Facts only from the site's processing guide
 // (/knowledge/how-potatoes-are-processed) and the backend corpus files named in Sources, each with its primary source.
-export const revalidate = 3600;
+export const revalidate = 86400;
 
 const PATH = "/processing/potato-chip-production";
 const TITLE = "Potato Chip Production: How Chips Are Made, Step by Step";

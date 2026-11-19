@@ -3,7 +3,7 @@ import CompanyLanding, { landingMeta, plural, loadDirectory } from "../../../../
 import { KINDS, KIND_ORDER, KIND_PATH, countrySlug, inCountry, landingPages } from "../../../../lib/directory";
 
 // /companies/country/<country> — every published company in one country (only countries with 2 or more).
-export const revalidate = 3600;
+export const revalidate = 86400;
 
 const H2 = { processing: "Potato processors in", seed: "Seed potato companies in", machinery: "Potato machinery makers in" };
 

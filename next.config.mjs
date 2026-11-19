@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // next/image (first used on the /blog front page, 7 Nov 2026): fewer widths = shorter srcset strings in the HTML.
-  images: { deviceSizes: [640, 828, 1080, 1440, 1920], imageSizes: [96, 192, 320, 480] },
+  images: { deviceSizes: [640, 828, 1080, 1440, 1920], imageSizes: [96, 192, 320, 480], minimumCacheTTL: 2678400 }, // 31-day image cache (Vercel bill cut, 19 Nov 2026)
   // Issue previews (WhatsApp approval links, dry runs included) are never indexed or cached by proxies.
   async headers() {
     return [{ source: "/issues/preview/:path*", headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }, { key: "Cache-Control", value: "private, no-store" }] }];
